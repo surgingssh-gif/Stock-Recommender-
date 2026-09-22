@@ -27,7 +27,7 @@ from dotenv import load_dotenv
 from analyzer import analyze_headlines
 from discord_notify import build_message, send_to_discord
 from news import fetch_headlines
-from picks_log import log_picks
+from picks_log import log_picks, save_day_details
 from prices import get_prices
 
 
@@ -84,9 +84,10 @@ def main():
     elif analysis and analysis["picks"]:
         try:
             log_picks(date_str, analysis["picks"], prices)
-            print("Saved picks to picks_log.csv.")
+            save_day_details(date_str, analysis, headlines)
+            print("Saved picks to picks_log.csv and data/days/.")
         except Exception as e:
-            problems.append(f"Saving to picks_log.csv failed: {e}")
+            problems.append(f"Saving picks failed: {e}")
 
     # --- Step 5: Send the message -------------------------------------------
     # Also print problems here, so they show up in the GitHub Actions log.
