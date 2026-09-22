@@ -89,6 +89,10 @@ def main():
             problems.append(f"Saving to picks_log.csv failed: {e}")
 
     # --- Step 5: Send the message -------------------------------------------
+    # Also print problems here, so they show up in the GitHub Actions log.
+    for problem in problems:
+        print(f"Problem: {problem}")
+
     message = build_message(date_str, analysis, prices, problems, headlines)
 
     if dry_run:
