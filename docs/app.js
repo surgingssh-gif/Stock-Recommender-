@@ -266,7 +266,7 @@
     var headline = parts[0] || (todays.length + " ideas from the morning's news");
 
     var byline = el("p", { class: "byline" },
-      "By ", el("strong", { text: "The Daily Ticker" }), " · Analysis by Claude · ",
+      "By ", el("strong", { text: "The Morning Brief" }), " · Analysis by Claude · ",
       todays.length + " ideas (" + bulls + " bullish, " + (todays.length - bulls) + " bearish)",
       today.headlines && today.headlines.length ? " from " + today.headlines.length + " headlines" : "");
 
