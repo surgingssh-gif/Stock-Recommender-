@@ -113,8 +113,9 @@ GitHub can run the bot for you every weekday, even when your computer is off.
    | `ANTHROPIC_API_KEY` | your Claude key |
    | `DISCORD_WEBHOOK_URL` | your Discord webhook URL |
 
-4. **Merge this code into your main branch.** GitHub only runs schedules from the
-   default branch (usually `main`).
+4. **Make sure this code is on your default branch** (usually `main`). GitHub only
+   runs schedules from the default branch. You can see which branch is the default
+   under **Settings** > **General** > **Default branch**.
 5. Test it: click the **Actions** tab > **Daily stock ideas** > **Run workflow** > **Run workflow**.
    After about a minute, you should see a green check and a Discord message.
 
