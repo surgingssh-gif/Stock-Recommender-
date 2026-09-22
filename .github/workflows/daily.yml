@@ -1,0 +1,55 @@
+# Runs the bot every weekday morning on GitHub's computers,
+# so it works even when your own computer is off.
+name: Daily stock ideas
+
+on:
+  schedule:
+    # 12:30 UTC, Monday-Friday = 8:30 AM New York time in summer (EDT),
+    # 7:30 AM in winter (EST). GitHub sometimes starts scheduled runs
+    # a few minutes late - that's normal.
+    - cron: "30 12 * * 1-5"
+  # Adds a "Run workflow" button on the Actions tab so you can test it anytime.
+  workflow_dispatch:
+
+# Lets the workflow save picks_log.csv back into the repository.
+permissions:
+  contents: write
+
+jobs:
+  run-bot:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download the code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install libraries
+        run: pip install -r requirements.txt
+
+      - name: Run the bot
+        env:
+          FINNHUB_API_KEY: ${{ secrets.FINNHUB_API_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          CLAUDE_MODEL: ${{ secrets.CLAUDE_MODEL }}
+        run: python main.py
+
+      # Save the updated picks log so it builds up over time.
+      # "always()" means this still runs if the Discord step failed.
+      - name: Save picks_log.csv
+        if: always()
+        run: |
+          git config user.name "stock-news-bot"
+          git config user.email "stock-news-bot@users.noreply.github.com"
+          git add picks_log.csv 2>/dev/null || true
+          if git diff --cached --quiet; then
+            echo "No new picks to save."
+          else
+            git commit -m "Log picks for $(date -u +%Y-%m-%d)"
+            git push
+          fi

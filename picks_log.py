@@ -1,0 +1,30 @@
+"""
+picks_log.py - Appends every pick to picks_log.csv so performance can be
+checked later. Open the file in Excel or Google Sheets to look at it.
+"""
+
+import csv
+import os
+
+LOG_FILE = "picks_log.csv"
+COLUMNS = ["date", "ticker", "direction", "reason", "price_at_pick"]
+
+
+def log_picks(date_str, picks, prices, log_file=LOG_FILE):
+    """Adds one row per pick. Creates the file (with a header row) if needed."""
+    file_is_new = not os.path.exists(log_file)
+
+    # newline="" stops Windows from adding blank lines between rows.
+    with open(log_file, "a", newline="", encoding="utf-8") as f:
+        writer = csv.writer(f)
+        if file_is_new:
+            writer.writerow(COLUMNS)
+        for pick in picks:
+            price = prices.get(pick["ticker"])
+            writer.writerow([
+                date_str,
+                pick["ticker"],
+                pick["direction"],
+                pick["reason"],
+                "" if price is None else price,  # blank if price lookup failed
+            ])

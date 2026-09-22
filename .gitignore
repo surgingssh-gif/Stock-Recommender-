@@ -1,0 +1,9 @@
+# Secret API keys - NEVER commit this file
+.env
+
+# Python clutter
+__pycache__/
+*.pyc
+.venv/
+venv/
+.pytest_cache/
