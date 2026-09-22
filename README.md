@@ -7,6 +7,7 @@ Every weekday morning this bot:
 3. Looks up each stock's current price (with **yfinance**)
 4. Saves every idea to `picks_log.csv` so you can check later how they did
 5. Sends you a short list in **Discord**
+6. Updates a **dashboard web page** (styled like a newspaper) with every pick and a running scorecard
 
 > This is a research tool, not a trading bot. It never buys or sells anything.
 > Ideas for research only, not financial advice.
@@ -38,6 +39,9 @@ Ideas for research only, not financial advice.
 | `prices.py` | Looks up stock prices. |
 | `picks_log.py` | Adds each pick to `picks_log.csv`. |
 | `discord_notify.py` | Builds the message and posts it to Discord. |
+| `build_dashboard.py` | Scores every pick against the latest prices and writes the dashboard data (`docs/data.js`). |
+| `docs/` | The dashboard web page (`index.html`, `app.js`) and its data. |
+| `data/days/` | One file per day with extra details: market mood, confidence, and the headlines Claude read. |
 | `.github/workflows/daily.yml` | Tells GitHub to run the bot every weekday morning. |
 | `tests/test_bot.py` | Automatic checks that use fake data, so no keys are needed. |
 
@@ -123,6 +127,28 @@ From then on it runs automatically at **8:30 AM New York time** (7:30 AM in wint
 Monday to Friday. GitHub sometimes starts scheduled runs a few minutes late. That's normal.
 
 Each run also saves `picks_log.csv` back into the repository, so the log builds up over time.
+
+### Step 4: Turn on the dashboard web page
+
+The dashboard is a free web page hosted by GitHub (a feature called GitHub Pages).
+You only set this up once:
+
+1. On GitHub, open this repository and click **Settings**.
+2. On the left, click **Pages**.
+3. Under **Build and deployment** > **Source**, choose **Deploy from a branch**.
+4. Under **Branch**, choose `main` and the folder `/docs`, then click **Save**.
+5. Wait a minute or two, then refresh that page. A link appears at the top, like
+   `https://<your-username>.github.io/Stock-Recommender-/`. Bookmark it.
+
+The page updates itself after every weekday run. Note: anyone with the link can
+see it (your API keys are never on it).
+
+To preview it on your computer, run `python build_dashboard.py`, then double-click
+`docs/index.html` to open it in your browser.
+
+**How the scorecard works:** each pick is compared with the latest closing price.
+A bullish call is "right so far" if the stock is up since it was picked; a bearish
+call if it's down. New picks show "Too early to tell" until the next market close.
 
 ---
 

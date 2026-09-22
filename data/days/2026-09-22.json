@@ -1,0 +1,49 @@
+{
+  "date": "2026-09-22",
+  "market_mood": "Markets are leaning risk-on: the Nasdaq hit an intraday record on AI enthusiasm while hopes for a US-Iran deal and a reopening of the Strait of Hormuz pressure oil-risk premiums. M&A chatter is heavy, from Capri and Brighthouse to Royal Caribbean's Sandals stake.",
+  "picks": [
+    {
+      "ticker": "USO",
+      "company": "United States Oil Fund",
+      "direction": "bearish",
+      "confidence": "medium",
+      "reason": "Trump says an Iran deal is near and Tehran has offered conditions to reopen the Strait of Hormuz, while Saudi Arabia restarted its East-West pipeline; more supply certainty tends to pull crude prices down."
+    },
+    {
+      "ticker": "DAL",
+      "company": "Delta Air Lines",
+      "direction": "bullish",
+      "confidence": "low",
+      "reason": "A second-order effect of easing Middle East tensions and softer oil: jet fuel is a huge airline cost, so falling crude helps margins. Newark/Philadelphia flight disruptions also appear to be resolving."
+    },
+    {
+      "ticker": "CPRI",
+      "company": "Capri Holdings",
+      "direction": "bullish",
+      "confidence": "medium",
+      "reason": "Shares jumped on reports of takeover interest, with an analyst putting a possible deal value at $25-$26 per share, which keeps speculation alive."
+    },
+    {
+      "ticker": "RCL",
+      "company": "Royal Caribbean",
+      "direction": "bullish",
+      "confidence": "low",
+      "reason": "Royal Caribbean is near a $3 billion deal for a 50% stake in Sandals, a push to diversify beyond cruises into land-based resorts; investors will judge whether the price and strategy add value."
+    },
+    {
+      "ticker": "CSCO",
+      "company": "Cisco Systems",
+      "direction": "bearish",
+      "confidence": "medium",
+      "reason": "Stock fell 5% after Piper Sandler cut its price target on worries that networking growth is peaking after a record summer run."
+    },
+    {
+      "ticker": "NVDA",
+      "company": "NVIDIA",
+      "direction": "bullish",
+      "confidence": "medium",
+      "reason": "A top chip analyst reiterated a bullish case for Nvidia and Broadcom, and the Nasdaq hit a record on AI strength, though unusual options activity ahead of catalysts signals volatility."
+    }
+  ],
+  "headlines": []
+}

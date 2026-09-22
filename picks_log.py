@@ -4,6 +4,7 @@ checked later. Open the file in Excel or Google Sheets to look at it.
 """
 
 import csv
+import json
 import os
 
 LOG_FILE = "picks_log.csv"
@@ -28,3 +29,26 @@ def log_picks(date_str, picks, prices, log_file=LOG_FILE):
                 pick["reason"],
                 "" if price is None else price,  # blank if price lookup failed
             ])
+
+
+DAYS_DIR = os.path.join("data", "days")
+
+
+def save_day_details(date_str, analysis, headlines, days_dir=DAYS_DIR):
+    """
+    Saves the day's extra details (market mood, company names, confidence,
+    and the headlines Claude read) to data/days/<date>.json. The dashboard
+    uses these; picks_log.csv stays the main record.
+    """
+    os.makedirs(days_dir, exist_ok=True)
+    details = {
+        "date": date_str,
+        "market_mood": analysis["market_mood"],
+        "picks": analysis["picks"],
+        "headlines": [
+            {"headline": h["headline"], "source": h["source"], "time": h["time"]}
+            for h in headlines
+        ],
+    }
+    with open(os.path.join(days_dir, f"{date_str}.json"), "w", encoding="utf-8") as f:
+        json.dump(details, f, indent=2)

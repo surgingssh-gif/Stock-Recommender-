@@ -6,6 +6,7 @@ Run them with:  python -m pytest
 """
 
 import csv
+import json
 import sys
 from pathlib import Path
 
@@ -14,8 +15,9 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 import discord_notify
 import main
+from build_dashboard import build_data, read_picks, score_pick
 from discord_notify import DISCLAIMER, DISCORD_LIMIT, _split_message, build_message
-from picks_log import log_picks
+from picks_log import log_picks, save_day_details
 
 FAKE_HEADLINES = [
     {"headline": "Oil jumps 5% after supply cut", "summary": "", "source": "Reuters",
@@ -122,3 +124,53 @@ def test_discord_error_hides_webhook_url(monkeypatch):
         assert "SECRET" not in str(e) and "404" in str(e)
     else:
         raise AssertionError("expected an error")
+
+
+# --- Dashboard ----------------------------------------------------------------
+
+
+def test_score_pick_flips_bearish_calls():
+    bull = score_pick({"direction": "bullish", "price_at_pick": 100.0}, 110.0)
+    bear = score_pick({"direction": "bearish", "price_at_pick": 100.0}, 110.0)
+    flat = score_pick({"direction": "bearish", "price_at_pick": 100.0}, 100.0)
+    none = score_pick({"direction": "bullish", "price_at_pick": None}, 110.0)
+    assert bull["return_pct"] == 10.0 and bull["directional_return_pct"] == 10.0 and bull["correct"] is True
+    assert bear["directional_return_pct"] == -10.0 and bear["correct"] is False
+    assert flat["correct"] is None and str(flat["directional_return_pct"]) == "0.0"  # no "-0.0"
+    assert none["correct"] is None and none["return_pct"] is None
+
+
+def test_read_picks_keeps_latest_duplicate(tmp_path):
+    log_file = tmp_path / "picks_log.csv"
+    log_picks("2026-09-22", FAKE_ANALYSIS["picks"], {"XOM": 110.5}, log_file=str(log_file))
+    log_picks("2026-09-22", FAKE_ANALYSIS["picks"][:1], {"XOM": 112.0}, log_file=str(log_file))
+    picks = read_picks(str(log_file))
+    assert len(picks) == 2  # XOM counted once
+    assert next(p for p in picks if p["ticker"] == "XOM")["price_at_pick"] == 112.0
+
+
+def test_build_data_scores_and_merges_details(tmp_path):
+    picks = [
+        {"date": "2026-09-21", "ticker": "XOM", "direction": "bullish", "reason": "r", "price_at_pick": 100.0},
+        {"date": "2026-09-21", "ticker": "DAL", "direction": "bearish", "reason": "r", "price_at_pick": 50.0},
+        {"date": "2026-09-22", "ticker": "NVDA", "direction": "bullish", "reason": "r", "price_at_pick": 200.0},
+    ]
+    save_day_details("2026-09-21", FAKE_ANALYSIS, FAKE_HEADLINES, days_dir=str(tmp_path))
+    days = {"2026-09-21": json.loads((tmp_path / "2026-09-21.json").read_text())}
+    histories = {
+        "XOM": [["2026-09-18", 95.0], ["2026-09-21", 100.0], ["2026-09-22", 105.0]],  # up 5%: right
+        "DAL": [["2026-09-21", 50.0], ["2026-09-22", 55.0]],                          # up 10%: bearish call wrong
+        "NVDA": [["2026-09-22", 200.0]],                                              # flat: too early
+    }
+    data = build_data(picks, days, histories)
+
+    assert [p["date"] for p in data["picks"]] == ["2026-09-22", "2026-09-21", "2026-09-21"]
+    xom = next(p for p in data["picks"] if p["ticker"] == "XOM")
+    assert xom["company"] == "Exxon Mobil" and xom["confidence"] == "medium"
+    assert xom["history"][0][0] == "2026-09-21"  # history starts at the pick date
+    stats = data["stats"]
+    assert stats["total_picks"] == 3 and stats["days_tracked"] == 2
+    assert stats["judged"] == 2 and stats["correct"] == 1 and stats["hit_rate"] == 50.0
+    assert stats["best"]["ticker"] == "XOM" and stats["worst"]["ticker"] == "DAL"
+    assert data["days"][1]["market_mood"] == "Energy is in focus."
+    assert data["days"][1]["headlines"][0]["headline"] == "Oil jumps 5% after supply cut"
