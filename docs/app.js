@@ -203,7 +203,7 @@
 
   /* Small price line for a story: grey line, colored end dot. */
   function sparkline(p) {
-    var w = 124, h = 36, pad = 5;
+    var w = 100, h = 28, pad = 4;
     var pts = (p.history || []).filter(function (d) { return d[1] !== null; });
     var values = pts.map(function (d) { return d[1]; });
     if (p.price_at_pick) values.push(p.price_at_pick);
@@ -266,7 +266,7 @@
     var headline = parts[0] || (todays.length + " ideas from the morning's news");
 
     var byline = el("p", { class: "byline" },
-      "By ", el("strong", { text: "The Daily Ticker" }), " · Analysis by Claude · ",
+      "By ", el("strong", { text: "The Morning Brief" }), " · Analysis by Claude · ",
       todays.length + " ideas (" + bulls + " bullish, " + (todays.length - bulls) + " bearish)",
       today.headlines && today.headlines.length ? " from " + today.headlines.length + " headlines" : "");
 
@@ -289,10 +289,15 @@
   function storyFor(p, cls) {
     var move = p.return_pct === null || p.return_pct === undefined ? "No price yet" : fmtPct(p.return_pct) + " since pick";
     var title = el("h3", null, el("span", { class: "ticker", text: p.ticker }), p.company || "");
+    // One quiet line: "▲ Bullish · ●●○ Medium · ● Right so far".
+    // The result only appears once there is one.
+    var sep = function () { return el("span", { class: "sep", "aria-hidden": "true", text: "·" }); };
     var tags = el("div", { class: "tags" },
-      el("span", { text: directionText(p) }),
-      p.confidence ? el("span", null, confidencePips(p.confidence), capitalize(p.confidence) + " confidence") : null,
-      resultBadge(p));
+      el("span", { class: "tag", text: directionText(p) }),
+      p.confidence ? [sep(), el("span", { class: "tag", title: capitalize(p.confidence) + " confidence" },
+        confidencePips(p.confidence), capitalize(p.confidence),
+        el("span", { class: "visually-hidden", text: " confidence" }))] : null,
+      resultOf(p) !== "open" ? [sep(), el("span", { class: "tag" }, resultBadge(p))] : null);
     var price = el("div", { class: "story-price" },
       el("div", { class: "now", text: fmtPrice(p.price_now || p.price_at_pick) }),
       el("div", { class: "move", text: move }),
@@ -315,12 +320,17 @@
       ? stats.correct + " of " + judged + " calls are working, measured from the price when each was picked."
       : "Calls are scored against later prices, so the newest ideas start at zero. The first results arrive after the next market close.";
 
-    var best = judged ? stats.best : null, worst = judged ? stats.worst : null;
-    var tiles = el("div", { class: "tiles" },
-      tile("Ideas published", String(stats.total_picks || 0), (stats.days_tracked || 0) + (stats.days_tracked === 1 ? " trading day" : " trading days")),
-      tile("Average move for the call", judged ? fmtPct(stats.avg_directional_return) : "—", judged ? "Above zero means calls are working" : "Too early to tell"),
-      tile("Best call", best ? best.ticker + " " + fmtPct(best.directional_return_pct, 1) : "—", best ? capitalize(best.direction) + " · " + fmtShortDate(best.date) : "Too early to tell"),
-      tile("Worst call", worst ? worst.ticker + " " + fmtPct(worst.directional_return_pct, 1) : "—", worst ? capitalize(worst.direction) + " · " + fmtShortDate(worst.date) : "Too early to tell"));
+    // Before any call has a result, only show numbers that already mean something.
+    var best = stats.best, worst = stats.worst;
+    var tiles = judged
+      ? el("div", { class: "tiles" },
+          tile("Ideas published", String(stats.total_picks || 0), (stats.days_tracked || 0) + (stats.days_tracked === 1 ? " trading day" : " trading days")),
+          tile("Average move for the call", fmtPct(stats.avg_directional_return), "Above zero means calls are working"),
+          tile("Best call", best.ticker + " " + fmtPct(best.directional_return_pct, 1), capitalize(best.direction) + " · " + fmtShortDate(best.date)),
+          tile("Worst call", worst.ticker + " " + fmtPct(worst.directional_return_pct, 1), capitalize(worst.direction) + " · " + fmtShortDate(worst.date)))
+      : el("div", { class: "tiles" },
+          tile("Ideas published", String(stats.total_picks || 0), "Waiting for results"),
+          tile("Days tracked", String(stats.days_tracked || 0), "Scores start after the next close"));
 
     append(rail, [
       el("p", { class: "kicker", text: "The Scorecard" }),
@@ -328,13 +338,13 @@
       el("div", { class: "hero-figure" + (judged ? "" : " pending"), text: judged ? hero : "Pending" }),
       el("p", { class: "hero-note", text: heroNote }),
       tiles,
-      breakdown("By call", stats.by_direction || []),
-      breakdown("By confidence", stats.by_confidence || []),
-      el("p", { class: "legend-note" },
+      judged ? breakdown("By call", stats.by_direction || []) : null,
+      judged ? breakdown("By confidence", stats.by_confidence || []) : null,
+      judged ? el("p", { class: "legend-note" },
         el("span", { class: "key" }, el("i", { style: "background:var(--good)" }), "Right so far"),
         el("span", { class: "key" }, el("i", { style: "background:var(--bad)" }), "Wrong so far"),
         el("br"),
-        "A bullish call is right so far if the stock is up since the pick; a bearish call if it's down.")
+        "A bullish call is right so far if the stock is up since the pick; a bearish call if it's down.") : null
     ]);
   }
 
@@ -394,7 +404,7 @@
     var box = el("div", { class: "chart" });
     fig.appendChild(box);
     var W = Math.max(300, fig.clientWidth - (parseFloat(getComputedStyle(fig).paddingLeft) || 0) - (parseFloat(getComputedStyle(fig).paddingRight) || 0));
-    var labelW = 104, sidePad = 54, rowH = 30, barH = 14, top = 6, bottom = 26;
+    var labelW = 96, sidePad = 50, rowH = 26, barH = 12, top = 6, bottom = 26;
     var values = rows.map(function (p) { return p.directional_return_pct; });
     var ticks = niceTicks(Math.min(0, Math.min.apply(null, values)), Math.max(0, Math.max.apply(null, values)), W < 520 ? 4 : 6);
     var lo = ticks[0], hi = ticks[ticks.length - 1];
@@ -416,14 +426,14 @@
       var row = svg("g", { class: "row", tabindex: 0, role: "listitem",
         "aria-label": p.ticker + ", " + p.direction + " call from " + fmtShortDate(p.date) + ": " + fmtPct(v) + ", " + RESULT_LABEL[resultOf(p)] });
       row.appendChild(svg("rect", { class: "hit", x: 0, y: y, width: W, height: rowH }));
-      row.appendChild(svg("text", { x: labelW, y: y + rowH / 2 + 4, "text-anchor": "end", "font-size": 12 },
-        svg("tspan", { "font-weight": 800, fill: "var(--ink)", text: p.ticker }),
+      row.appendChild(svg("text", { x: labelW, y: y + rowH / 2 + 4, "text-anchor": "end", "font-size": 11 },
+        svg("tspan", { "font-weight": 700, fill: "var(--ink)", text: p.ticker }),
         svg("tspan", { fill: "var(--muted)", "font-size": 11, dx: 6, text: fmtShortDate(p.date) })));
       if (Math.abs(v) >= 0.005) {
         row.appendChild(svg("path", { class: "bar", d: barPath(true, x(0), x(v), y + (rowH - barH) / 2, barH), fill: colorFor(v) }));
       }
       var labelX = v >= 0 ? x(v) + 6 : x(v) - 6;
-      row.appendChild(svg("text", { x: labelX, y: y + rowH / 2 + 4, "text-anchor": v >= 0 ? "start" : "end", "font-size": 12, fill: "var(--ink-2)", class: "tab", text: fmtPct(v, 1) }));
+      row.appendChild(svg("text", { x: labelX, y: y + rowH / 2 + 4, "text-anchor": v >= 0 ? "start" : "end", "font-size": 11, fill: "var(--ink-2)", class: "tab", text: fmtPct(v, 1) }));
       withTooltip(row, [
         ["tt-value", fmtPct(v) + " for the call"],
         ["tt-title", p.ticker + (p.company ? " · " + p.company : "")],
