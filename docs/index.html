@@ -94,7 +94,7 @@ a { color: inherit; }
 .theme-toggle:hover { border-color: var(--ink-2); }
 .nameplate {
   font-family: var(--blackletter); font-weight: 400;
-  font-size: clamp(32px, 4.4vw, 44px); line-height: 1.1;
+  font-size: clamp(26px, 3.4vw, 34px); line-height: 1.1;
   text-align: center; margin: 10px 0 12px; letter-spacing: .01em;
 }
 .nameplate a { text-decoration: none; }
@@ -222,6 +222,34 @@ figcaption { font: 400 11px/1.5 var(--sans); color: var(--muted); margin-top: 10
 .tooltip .tt-title { font-weight: 700; margin-top: 2px; }
 .tooltip .tt-line { color: var(--ink-2); }
 
+/* ---- Stock charts --------------------------------------------------------- */
+.stock-controls { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 10px 16px; margin-bottom: 18px; }
+.ticker-picker, .range-picker { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+.pill {
+  font: 600 11px/1 var(--sans); letter-spacing: .04em; color: var(--ink-2); background: none;
+  border: 1px solid var(--hair); border-radius: 999px; padding: 7px 11px; cursor: pointer; min-height: 30px;
+}
+.pill:hover { border-color: var(--ink-2); color: var(--ink); }
+.pill[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+.pill:focus-visible, .stock-plot:focus-visible { outline: 2px solid var(--good); outline-offset: 2px; }
+.range-picker .pill { font-weight: 500; padding: 6px 10px; }
+.ticker-picker select { font: 500 11px/1.2 var(--sans); color: var(--ink); background: var(--paper); border: 1px solid var(--hair); border-radius: 999px; padding: 6px 10px; min-height: 30px; }
+.stock-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 6px; }
+.stock-head h3 { margin: 0; font: 700 19px/1.25 var(--serif); }
+.stock-head h3 .ticker { font: 700 12px/1 var(--sans); letter-spacing: .04em; color: var(--ink-2); margin-right: 6px; vertical-align: 2px; }
+.stock-price { text-align: right; font-family: var(--sans); }
+.stock-price .now { font: 600 18px/1.2 var(--sans); }
+.stock-price .chg { font: 400 12px/1.3 var(--sans); color: var(--muted); }
+.stock-plot { display: block; width: 100%; height: auto; overflow: visible; touch-action: pan-y; }
+.stock-plot text { font-family: var(--sans); font-size: 11px; fill: var(--muted); font-variant-numeric: tabular-nums; }
+.stock-foot { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px 16px; margin-top: 8px; font: 400 11px/1.5 var(--sans); color: var(--muted); }
+.stock-foot .key { margin-right: 12px; }
+.stock-foot .key i { border-radius: 50%; }
+.chart-link { font: 500 11px/1 var(--sans); color: var(--ink-2); text-decoration: none; display: inline-block; margin-top: 6px; }
+.chart-link:hover { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
+td .t-link { font-weight: 700; letter-spacing: .03em; text-decoration: none; }
+td .t-link:hover { text-decoration: underline; text-underline-offset: 3px; }
+
 /* ---- The Record (table) --------------------------------------------------- */
 .filters { display: flex; flex-wrap: wrap; gap: 8px 10px; align-items: center; margin-bottom: 12px; font: 400 12px/1 var(--sans); }
 .filters input, .filters select {
@@ -328,7 +356,8 @@ footer .disclaimer { font: 400 italic 13px/1.4 var(--serif); color: var(--ink); 
     <nav class="sections" aria-label="Sections">
       <a href="#today">Today</a>
       <a href="#scorecard">Scorecard</a>
-      <a href="#charts">Charts</a>
+      <a href="#stock-charts">Stock Charts</a>
+      <a href="#charts">Results</a>
       <a href="#record">The Record</a>
       <a href="#archive">Archive</a>
       <a href="#about">How It Works</a>
@@ -339,6 +368,11 @@ footer .disclaimer { font: 400 italic 13px/1.4 var(--serif); color: var(--ink); 
     <section class="front" id="today" aria-label="Today">
       <article class="lead" id="lead"></article>
       <aside class="rail" id="scorecard" aria-label="Scorecard"></aside>
+    </section>
+
+    <section id="stock-charts" aria-labelledby="stock-h">
+      <div class="section-head"><h2 id="stock-h">Stock Charts</h2><p>Daily closing prices. Dots mark the days the bot made a call.</p></div>
+      <div id="stock-area"></div>
     </section>
 
     <section id="charts" aria-labelledby="charts-h">

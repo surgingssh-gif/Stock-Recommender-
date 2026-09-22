@@ -301,7 +301,8 @@
     var price = el("div", { class: "story-price" },
       el("div", { class: "now", text: fmtPrice(p.price_now || p.price_at_pick) }),
       el("div", { class: "move", text: move }),
-      sparkline(p));
+      sparkline(p),
+      chartLink(p.ticker, "Chart →", "chart-link"));
     return el("article", { class: "story " + cls },
       el("div", { class: "story-top" }, el("div", null, title, tags), price),
       el("p", { class: "reason", text: p.reason }));
@@ -517,6 +518,202 @@
   }
 
   // ---------------------------------------------------------------------------
+  // Stock charts (one big price chart, pick a stock and a time range)
+  // ---------------------------------------------------------------------------
+
+  var charts = DATA.charts || {};
+  var RANGES = [["1M", 31], ["3M", 92], ["6M", 183], ["All", 0]];
+  var RANGE_WORDS = { "1M": "the past month", "3M": "the past 3 months", "6M": "the past 6 months", "All": "the full period" };
+  var stockState = { ticker: null, range: "3M" };
+
+  /* Tickers in a helpful order: today's picks first, then by most recent pick. */
+  function chartTickers() {
+    var order = [];
+    picks.forEach(function (p) { if (charts[p.ticker] && order.indexOf(p.ticker) === -1) order.push(p.ticker); });
+    return order;
+  }
+
+  function companyOf(ticker) {
+    var p = picks.find(function (q) { return q.ticker === ticker && q.company; });
+    return p ? p.company : "";
+  }
+
+  function toMs(s) { return toDate(s).getTime(); }
+
+  /* Jump to a stock's chart (used by the "Chart →" links). */
+  function openStockChart(ticker) {
+    if (!charts[ticker]) return;
+    stockState.ticker = ticker;
+    renderStockSection();
+    document.getElementById("stock-charts").scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
+  function chartLink(ticker, text, cls) {
+    if (!charts[ticker]) return null;
+    var a = el("a", { href: "#stock-charts", class: cls, text: text });
+    a.addEventListener("click", function (e) { e.preventDefault(); openStockChart(ticker); });
+    return a;
+  }
+
+  function renderStockSection() {
+    var area = document.getElementById("stock-area");
+    clear(area);
+    var tickers = chartTickers();
+    if (!tickers.length) {
+      area.appendChild(emptyChart("Charts appear with the first picks", "Once the bot has made some calls, their price charts show up here."));
+      return;
+    }
+    if (tickers.indexOf(stockState.ticker) === -1) stockState.ticker = tickers[0];
+
+    // --- Controls: stock buttons (first 8) + a menu for the rest, and ranges.
+    var picker = el("div", { class: "ticker-picker", role: "group", "aria-label": "Choose a stock" });
+    tickers.slice(0, 8).forEach(function (t) {
+      var b = el("button", { type: "button", class: "pill", "aria-pressed": String(t === stockState.ticker), text: t });
+      b.addEventListener("click", function () { stockState.ticker = t; renderStockSection(); });
+      picker.appendChild(b);
+    });
+    if (tickers.length > 8) {
+      var more = el("select", { "aria-label": "More stocks" }, el("option", { value: "", text: "More…" }),
+        tickers.slice(8).map(function (t) { return el("option", { value: t, text: t, selected: t === stockState.ticker ? "selected" : null }); }));
+      more.addEventListener("change", function () { if (more.value) { stockState.ticker = more.value; renderStockSection(); } });
+      picker.appendChild(more);
+    }
+    var ranges = el("div", { class: "range-picker", role: "group", "aria-label": "Time range" });
+    RANGES.forEach(function (r) {
+      var b = el("button", { type: "button", class: "pill", "aria-pressed": String(r[0] === stockState.range), text: r[0] });
+      b.addEventListener("click", function () { stockState.range = r[0]; renderStockSection(); });
+      ranges.appendChild(b);
+    });
+    area.appendChild(el("div", { class: "stock-controls" }, picker, ranges));
+
+    // --- The data for this stock and range.
+    var t = stockState.ticker;
+    var full = charts[t];
+    var days = RANGES.find(function (r) { return r[0] === stockState.range; })[1];
+    var cutoff = days ? toMs(full[full.length - 1][0]) - days * 86400000 : -Infinity;
+    var series = full.filter(function (d) { return toMs(d[0]) >= cutoff; });
+    if (series.length < 2) series = full.slice(-2);
+    var first = series[0][1], last = series[series.length - 1][1];
+    var change = (last - first) / first * 100;
+
+    area.appendChild(el("div", { class: "stock-head" },
+      el("h3", null, el("span", { class: "ticker", text: t }), companyOf(t)),
+      el("div", { class: "stock-price" },
+        el("div", { class: "now", text: fmtPrice(last) }),
+        el("div", { class: "chg", text: fmtPct(change) + " over " + RANGE_WORDS[stockState.range] }))));
+
+    // The bot's calls on this stock that fall inside the range.
+    var calls = picks.filter(function (p) { return p.ticker === t && toMs(p.date) >= toMs(series[0][0]); });
+
+    // --- Geometry.
+    var W = Math.max(300, area.clientWidth);
+    var narrow = W < 560;
+    var H = narrow ? 230 : 320, left = 6, right = 56, top = 14, bottom = 26;
+    var xs = series.map(function (d) { return toMs(d[0]); });
+    var values = series.map(function (d) { return d[1]; }).concat(calls.map(function (p) { return p.price_at_pick; }).filter(Boolean));
+    var lo = Math.min.apply(null, values), hi = Math.max.apply(null, values);
+    var pad = (hi - lo) * 0.08 || hi * 0.02 || 1;
+    var ticks = niceTicks(lo - pad, hi + pad, narrow ? 4 : 5);
+    var yLo = ticks[0], yHi = ticks[ticks.length - 1];
+    var x = function (ms) { return left + (ms - xs[0]) / (xs[xs.length - 1] - xs[0] || 1) * (W - left - right); };
+    var y = function (v) { return top + (1 - (v - yLo) / (yHi - yLo)) * (H - top - bottom); };
+
+    var plot = svg("svg", { class: "stock-plot", viewBox: "0 0 " + W + " " + H, width: W, height: H, tabindex: 0, role: "img",
+      "aria-label": t + " closing price, " + fmtShortDate(series[0][0]) + " to " + fmtShortDate(series[series.length - 1][0]) +
+        ": from " + fmtPrice(first) + " to " + fmtPrice(last) + ". Use the left and right arrow keys to read each day." });
+
+    // Gridlines + price labels on the right.
+    ticks.forEach(function (v) {
+      plot.appendChild(svg("line", { class: "grid", x1: left, x2: W - right, y1: y(v), y2: y(v), stroke: "var(--hair)", "stroke-width": 1 }));
+      plot.appendChild(svg("text", { x: W - right + 8, y: y(v) + 4, text: fmtPrice(v).replace(/\.00$/, "") }));
+    });
+    // Date labels along the bottom (about one per 90px).
+    var labelCount = Math.max(2, Math.floor((W - left - right) / 90));
+    for (var i = 0; i < labelCount; i++) {
+      var idx = Math.round(i * (series.length - 1) / (labelCount - 1));
+      var anchor = i === 0 ? "start" : i === labelCount - 1 ? "end" : "middle";
+      plot.appendChild(svg("text", { x: x(xs[idx]), y: H - 8, "text-anchor": anchor, text: fmtShortDate(series[idx][0]) }));
+    }
+
+    // Price line with a light wash underneath.
+    var line = series.map(function (d, i) { return (i ? "L" : "M") + x(xs[i]).toFixed(1) + "," + y(d[1]).toFixed(1); }).join("");
+    var areaPath = line + "L" + x(xs[xs.length - 1]).toFixed(1) + "," + (H - bottom) + "L" + x(xs[0]).toFixed(1) + "," + (H - bottom) + "Z";
+    plot.appendChild(svg("path", { d: areaPath, fill: "var(--ink)", opacity: 0.05 }));
+    plot.appendChild(svg("path", { d: line, fill: "none", stroke: "var(--ink)", "stroke-width": 2, "stroke-linejoin": "round", "stroke-linecap": "round" }));
+
+    // A dot for each call, placed at the price when it was picked.
+    calls.forEach(function (p) {
+      if (!p.price_at_pick) return;
+      var cx = x(Math.max(xs[0], Math.min(xs[xs.length - 1], toMs(p.date)))), cy = y(p.price_at_pick);
+      var r = resultOf(p);
+      plot.appendChild(svg("circle", { cx: cx, cy: cy, r: 5, "stroke-width": 2, stroke: r === "open" ? "var(--ink)" : "var(--paper)",
+        fill: r === "right" ? "var(--good)" : r === "wrong" ? "var(--bad)" : "var(--paper)" }));
+      plot.appendChild(svg("text", { x: cx, y: p.direction === "bullish" ? cy - 11 : cy + 19, "text-anchor": "middle", fill: "var(--ink-2)", "font-size": 10,
+        "aria-hidden": "true", text: p.direction === "bullish" ? "▲" : "▼" }));
+    });
+
+    // Crosshair: a thin line and a dot that follow the pointer (or arrow keys).
+    var cross = svg("line", { y1: top, y2: H - bottom, stroke: "var(--muted)", "stroke-width": 1, visibility: "hidden" });
+    var dot = svg("circle", { r: 4, fill: "var(--ink)", stroke: "var(--paper)", "stroke-width": 2, visibility: "hidden" });
+    plot.appendChild(cross);
+    plot.appendChild(dot);
+    var active = series.length - 1;
+
+    function showAt(i, event) {
+      active = Math.max(0, Math.min(series.length - 1, i));
+      var d = series[active], px = x(xs[active]), py = y(d[1]);
+      cross.setAttribute("x1", px); cross.setAttribute("x2", px); cross.setAttribute("visibility", "visible");
+      dot.setAttribute("cx", px); dot.setAttribute("cy", py); dot.setAttribute("visibility", "visible");
+      var lines = [["tt-value", fmtPrice(d[1])], ["tt-title", fmtLongDate(d[0])]];
+      var since = (d[1] - first) / first * 100;
+      lines.push(["tt-line", fmtPct(since) + " since " + fmtShortDate(series[0][0])]);
+      calls.filter(function (p) { return p.date === d[0]; }).forEach(function (p) {
+        lines.push(["tt-line", capitalize(p.direction) + " call · " + RESULT_LABEL[resultOf(p)]]);
+      });
+      if (event.type === "keydown") {
+        var box = plot.getBoundingClientRect(), scale = box.width / W;
+        showTooltip({ type: "pointer", clientX: box.left + px * scale, clientY: box.top + py * scale }, lines);
+      } else showTooltip(event, lines);
+    }
+    function nearestIndex(clientX) {
+      var box = plot.getBoundingClientRect();
+      var ms = xs[0] + ((clientX - box.left) * (W / box.width) - left) / (W - left - right) * (xs[xs.length - 1] - xs[0]);
+      var best = 0;
+      for (var k = 1; k < xs.length; k++) if (Math.abs(xs[k] - ms) < Math.abs(xs[best] - ms)) best = k;
+      return best;
+    }
+    function hide() { cross.setAttribute("visibility", "hidden"); dot.setAttribute("visibility", "hidden"); hideTooltip(); }
+    plot.addEventListener("pointermove", function (e) { showAt(nearestIndex(e.clientX), e); });
+    plot.addEventListener("pointerleave", hide);
+    plot.addEventListener("blur", hide);
+    plot.addEventListener("keydown", function (e) {
+      if (e.key === "ArrowLeft" || e.key === "ArrowRight") {
+        e.preventDefault();
+        showAt(active + (e.key === "ArrowRight" ? 1 : -1), e);
+      }
+    });
+    area.appendChild(plot);
+
+    // Key for the dots, plus the same prices as a table.
+    var foot = el("div", { class: "stock-foot" },
+      calls.length ? el("span", null,
+        el("span", { class: "key" }, el("i", { style: "background:var(--good)" }), "Call right so far"),
+        el("span", { class: "key" }, el("i", { style: "background:var(--bad)" }), "Call wrong so far"),
+        el("span", { class: "key" }, el("i", { style: "border:2px solid var(--ink);width:6px;height:6px" }), "Too early to tell"),
+        "▲ bullish · ▼ bearish") : el("span", { text: "No calls on this stock in this time range." }),
+      el("span", { text: "Prices from Yahoo Finance" }));
+    area.appendChild(foot);
+
+    var table = el("table", null,
+      el("thead", null, el("tr", null, el("th", { text: "Date" }), el("th", { class: "r", text: "Close" }))),
+      el("tbody", null, series.slice().reverse().map(function (d) {
+        return el("tr", null, el("td", { class: "tab", text: fmtTableDate(d[0]) }), el("td", { class: "r tab", text: fmtPrice(d[1]) }));
+      })));
+    area.appendChild(el("details", null, el("summary", { text: "Show prices as a table" }),
+      el("div", { class: "table-wrap", style: "max-height:320px;overflow-y:auto" }, table)));
+  }
+
+  // ---------------------------------------------------------------------------
   // The Record (searchable, sortable table)
   // ---------------------------------------------------------------------------
 
@@ -567,7 +764,8 @@
       var p = pair[0];
       tbody.appendChild(el("tr", null,
         el("td", { class: "tab", text: fmtTableDate(p.date) }),
-        el("td", null, el("span", { class: "t", text: p.ticker }), p.company ? el("span", { class: "co", text: p.company }) : null),
+        el("td", null, chartLink(p.ticker, p.ticker, "t-link") || el("span", { class: "t", text: p.ticker }),
+          p.company ? el("span", { class: "co", text: p.company }) : null),
         el("td", { class: "tab", text: directionText(p) }),
         el("td", null, p.confidence ? [confidencePips(p.confidence), capitalize(p.confidence)] : "—"),
         el("td", { class: "r tab", text: fmtPrice(p.price_at_pick) }),
@@ -689,6 +887,7 @@
   renderMasthead();
   renderLead();
   renderScorecard();
+  renderStockSection();
   renderCallsChart();
   renderDaysChart();
   setupRecord();
@@ -704,6 +903,6 @@
     if (window.innerWidth === lastWidth) return;
     lastWidth = window.innerWidth;
     clearTimeout(timer);
-    timer = setTimeout(function () { renderCallsChart(); renderDaysChart(); }, 150);
+    timer = setTimeout(function () { renderStockSection(); renderCallsChart(); renderDaysChart(); }, 150);
   });
 })();
