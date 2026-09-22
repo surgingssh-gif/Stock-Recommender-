@@ -1,0 +1,165 @@
+# Daily Stock News Bot
+
+Every weekday morning this bot:
+
+1. Reads the latest world and business headlines (from **Finnhub**)
+2. Asks **Claude** which stocks the news could move, and why (one API call per day)
+3. Looks up each stock's current price (with **yfinance**)
+4. Saves every idea to `picks_log.csv` so you can check later how they did
+5. Sends you a short list in **Discord**
+
+> This is a research tool, not a trading bot. It never buys or sells anything.
+> Ideas for research only, not financial advice.
+
+Example message:
+
+```
+📈 Daily Stock Ideas - 2026-09-22
+Energy is in focus after an OPEC supply cut.
+
+🟢 ▲ XOM (Exxon Mobil) - bullish, medium confidence, $158.95
+> Higher oil prices tend to lift oil producers' profits.
+
+🔴 ▼ DAL (Delta Air Lines) - bearish, low confidence, $52.10
+> Jet fuel is a big cost for airlines, so an oil jump can hurt margins.
+
+Ideas for research only, not financial advice.
+```
+
+---
+
+## What each file does
+
+| File | What it does |
+|---|---|
+| `main.py` | The main script. Runs all the steps in order. |
+| `news.py` | Gets headlines from Finnhub. |
+| `analyzer.py` | Sends the headlines to Claude and gets stock ideas back. |
+| `prices.py` | Looks up stock prices. |
+| `picks_log.py` | Adds each pick to `picks_log.csv`. |
+| `discord_notify.py` | Builds the message and posts it to Discord. |
+| `.github/workflows/daily.yml` | Tells GitHub to run the bot every weekday morning. |
+| `tests/test_bot.py` | Automatic checks that use fake data, so no keys are needed. |
+
+If something breaks (for example, Finnhub is down), the bot still sends a
+message with whatever it has, plus a note saying what failed.
+
+---
+
+## Setup, step by step
+
+### Step 1: Get your 3 keys
+
+You need three secret values. Keep them private, like passwords.
+
+**A) Finnhub API key (free)**
+1. Go to https://finnhub.io and click **Get free API key**.
+2. Sign up, then open your **Dashboard**.
+3. Copy the long code next to **API Key**.
+
+**B) Anthropic (Claude) API key**
+1. Go to https://console.anthropic.com and sign up or log in.
+2. Click **Settings** > **Billing** and add a small amount of credit ($5 is plenty to start).
+3. Click **Settings** > **API Keys** > **Create Key**. Name it `stock-bot`.
+4. Copy the key (it starts with `sk-ant-`). **It's only shown once**, so paste it somewhere safe.
+
+**C) Discord webhook URL**
+1. In Discord, pick (or create) the channel where you want the messages.
+2. Hover over the channel name and click the ⚙️ gear (**Edit Channel**).
+3. Click **Integrations** > **Webhooks** > **New Webhook**.
+4. Click the new webhook, then **Copy Webhook URL**.
+
+### Step 2: Run it on your computer (optional but recommended)
+
+Open a terminal in the project folder and type:
+
+```bash
+pip install -r requirements.txt
+```
+
+Then make your private settings file:
+
+1. Make a copy of `.env.example` and name the copy `.env`
+   (Mac/Linux: `cp .env.example .env` / Windows: `copy .env.example .env`).
+2. Open `.env` and paste your three keys in place of the `paste-your-...` text.
+
+`.env` is listed in `.gitignore`, so it will **never** be uploaded to GitHub.
+
+Test it **without** posting to Discord and without writing to the log:
+
+```bash
+python main.py --dry-run
+```
+
+You should see the message printed in your terminal. When it looks good, do a real run:
+
+```bash
+python main.py
+```
+
+Check your Discord channel. The message should be there.
+
+### Step 3: Make it run automatically on GitHub
+
+GitHub can run the bot for you every weekday, even when your computer is off.
+
+1. On GitHub, open this repository.
+2. Click **Settings** (top menu) > **Secrets and variables** (left side) > **Actions**.
+3. Click **New repository secret** and add each of these (name must match exactly):
+
+   | Name | Value |
+   |---|---|
+   | `FINNHUB_API_KEY` | your Finnhub key |
+   | `ANTHROPIC_API_KEY` | your Claude key |
+   | `DISCORD_WEBHOOK_URL` | your Discord webhook URL |
+
+4. **Make sure this code is on your default branch** (usually `main`). GitHub only
+   runs schedules from the default branch. You can see which branch is the default
+   under **Settings** > **General** > **Default branch**.
+5. Test it: click the **Actions** tab > **Daily stock ideas** > **Run workflow** > **Run workflow**.
+   After about a minute, you should see a green check and a Discord message.
+
+From then on it runs automatically at **8:30 AM New York time** (7:30 AM in winter),
+Monday to Friday. GitHub sometimes starts scheduled runs a few minutes late. That's normal.
+
+Each run also saves `picks_log.csv` back into the repository, so the log builds up over time.
+
+---
+
+## Changing things
+
+- **Run time:** edit the `cron:` line in `.github/workflows/daily.yml`. The time is in UTC.
+  `"30 12 * * 1-5"` means 12:30 UTC, Monday (1) to Friday (5).
+- **Claude model:** the default is `claude-opus-5`. To use a cheaper model, add
+  `CLAUDE_MODEL=claude-sonnet-5` to `.env`, and add a GitHub secret named
+  `CLAUDE_MODEL` with the same value.
+- **Number of headlines:** change `MAX_HEADLINES` in `news.py`.
+- **What Claude looks for:** edit `SYSTEM_PROMPT` in `analyzer.py`.
+
+## Cost
+
+Finnhub, yfinance, Discord and GitHub Actions are free for this use.
+Claude is the only paid part: one request per weekday with about 60 headlines.
+That usually costs around 5-10 cents per run, which adds up to roughly $1-3
+a month on `claude-opus-5`, and less on `claude-sonnet-5`. You can see exact usage at
+https://console.anthropic.com under **Usage**.
+
+## Running the tests
+
+```bash
+pip install pytest
+python -m pytest
+```
+
+These use fake data, so they don't need keys and don't cost anything.
+
+## Troubleshooting
+
+| Problem | What to check |
+|---|---|
+| `FINNHUB_API_KEY is not set` | Is the `.env` file named exactly `.env` (not `.env.txt`)? On GitHub, is the secret added? |
+| `News (Finnhub) failed: 401` | The Finnhub key is wrong. Copy it again from your dashboard. |
+| `Analysis (Claude) failed: ... credit balance` | Add credit at console.anthropic.com > Billing. |
+| `Discord returned 404` | The webhook was deleted or the URL is wrong. Make a new one. |
+| `Couldn't get prices for: XYZ` | Yahoo didn't recognize that ticker. The idea is still logged, just without a price. |
+| GitHub run fails at "Save picks_log.csv" | Settings > Actions > General > Workflow permissions > choose **Read and write permissions**. |
