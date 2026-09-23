@@ -150,6 +150,11 @@ To preview it on your computer, run `python build_dashboard.py`, then double-cli
 **News photos:** the News tab and each pick show the photo and link from the news
 story behind it. Photos load straight from the news sites, so a few may be missing.
 
+**Top 5 buys of the day:** the Today tab starts with Claude's 5 most promising
+bullish ideas, ranked. Click **Show more info** on any of them to see why it could
+be a good buy, what could go wrong, what to watch next, and the news story behind
+it. Every top buy is also saved to `picks_log.csv`, so the scorecard tracks them too.
+
 **How the scorecard works:** each pick is compared with the latest closing price.
 A bullish call is "right so far" if the stock is up since it was picked; a bearish
 call if it's down. New picks show "Too early to tell" until the next market close.
@@ -172,7 +177,7 @@ call if it's down. New picks show "Too early to tell" until the next market clos
 
 Finnhub, yfinance, Discord and GitHub Actions are free for this use.
 Claude is the only paid part: one request per weekday with about 60 headlines.
-That usually costs around 5-10 cents per run, which adds up to roughly $1-3
+That usually costs around 5-12 cents per run, which adds up to roughly $1-3
 a month on `claude-opus-5`, and less on `claude-sonnet-5`. You can see exact usage at
 https://console.anthropic.com under **Usage**.
 

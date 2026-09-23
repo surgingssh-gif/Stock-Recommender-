@@ -30,13 +30,27 @@ def build_message(date_str, analysis, prices, problems, headlines=None):
         if not analysis["picks"]:
             lines.append("No strong ideas from today's news.")
 
-        for pick in analysis["picks"]:
+        # The "Top 5 buys of the day" come first, ranked best first.
+        top_buys = analysis.get("top_buys") or []
+        if top_buys:
+            lines.append("**🏆 Top buys of the day**")
+            for rank, buy in enumerate(top_buys, start=1):
+                lines.append(
+                    f"{rank}. **{buy['ticker']}** ({buy['company']}) - "
+                    f"{_price_text(prices, buy['ticker'])} - {buy['pitch']}"
+                )
+            lines.append("")
+
+        # Then every other idea (the top buys aren't repeated).
+        top_tickers = {b["ticker"] for b in top_buys}
+        others = [p for p in analysis["picks"] if p["ticker"] not in top_tickers]
+        if top_buys and others:
+            lines.append("**Other ideas**")
+        for pick in others:
             arrow = "🟢 ▲" if pick["direction"] == "bullish" else "🔴 ▼"
-            price = prices.get(pick["ticker"])
-            price_text = f"${price:,.2f}" if price is not None else "price n/a"
             lines.append(
                 f"{arrow} **{pick['ticker']}** ({pick['company']}) - "
-                f"{pick['direction']}, {pick['confidence']} confidence, {price_text}"
+                f"{pick['direction']}, {pick['confidence']} confidence, {_price_text(prices, pick['ticker'])}"
             )
             lines.append(f"> {pick['reason']}")
             lines.append("")
@@ -56,6 +70,11 @@ def build_message(date_str, analysis, prices, problems, headlines=None):
     # Required on every message.
     lines.append(f"_{DISCLAIMER}_")
     return "\n".join(lines)
+
+
+def _price_text(prices, ticker):
+    price = prices.get(ticker)
+    return f"${price:,.2f}" if price is not None else "price n/a"
 
 
 def _split_message(text):

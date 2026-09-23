@@ -171,6 +171,45 @@ a { color: inherit; }
 .story.first h3 { font-size: 21px; }
 .story.first p.reason { font-size: 15.5px; max-width: 46em; }
 
+/* ---- Top 5 buys of the day (Today tab) ------------------------------------ */
+.top-buys { margin-top: 24px; border-top: 2px solid var(--rule); }
+.tb-head { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 4px 12px; padding: 10px 0 6px; }
+.tb-head h3 { margin: 0; font: 700 20px/1.2 var(--serif); }
+.tb-head span { font: 400 12px/1.4 var(--sans); color: var(--muted); }
+.tb-list { list-style: none; margin: 0; padding: 0; }
+.tb-row { display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: 0 12px; padding: 14px 0; border-top: 1px solid var(--hair); }
+.tb-rank { font: 700 30px/1 var(--serif); color: var(--good); text-align: center; padding-top: 2px; font-variant-numeric: tabular-nums; }
+.tb-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; }
+.tb-top h4 { margin: 0; font: 700 17px/1.25 var(--serif); }
+.tb-top h4 .ticker { font: 700 12px/1 var(--sans); letter-spacing: .04em; margin-right: 6px; vertical-align: 1px; color: var(--ink-2); }
+.tb-pitch { margin: 4px 0 0; font-size: 14.5px; line-height: 1.5; color: var(--ink-2); }
+.tb-price { text-align: right; flex: none; display: flex; flex-direction: column; align-items: flex-end; gap: 4px; }
+.tb-price .now { font: 600 14px/1.2 var(--sans); }
+.tb-move, .tb-conf { font: 400 11px/1.3 var(--sans); color: var(--muted); white-space: nowrap; }
+.tb-toggle {
+  margin-top: 10px; display: inline-flex; align-items: center; gap: 6px;
+  font: 600 11px/1 var(--sans); letter-spacing: .04em; text-transform: uppercase;
+  color: var(--ink-2); background: none; border: 1px solid var(--hair); border-radius: 999px;
+  padding: 7px 12px; cursor: pointer;
+}
+.tb-toggle:hover { border-color: var(--ink-2); color: var(--ink); }
+.tb-toggle:focus-visible { outline: 2px solid var(--good); outline-offset: 2px; }
+.tb-caret { transition: transform .15s; }
+.tb-toggle[aria-expanded="true"] .tb-caret { transform: rotate(180deg); }
+.tb-more { margin-top: 12px; padding: 14px 16px; background: var(--paper-2); border-radius: 6px; }
+.tb-more[hidden] { display: none; }
+.tb-points { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.tb-point h5 { margin: 0 0 4px; font: 600 10px/1.3 var(--sans); letter-spacing: .1em; text-transform: uppercase; color: var(--ink-2); }
+.tb-point:first-child h5 { color: var(--good); }
+.tb-point:nth-child(2) h5 { color: var(--bad); }
+.tb-point p { margin: 0; font-size: 14px; line-height: 1.55; }
+.tb-links { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 18px; }
+.tb-links .m-article { flex: 1 1 320px; background: var(--paper); }
+.tb-chart-link { font: 600 12px/1.3 var(--sans); color: var(--ink-2); margin-top: 12px; }
+.tb-note { font: 400 11px/1.5 var(--sans); color: var(--muted); margin: 0; padding-top: 8px; border-top: 1px solid var(--hair); }
+.more-calls { margin: 30px 0 0; font: 600 10px/1.2 var(--sans); letter-spacing: .12em; text-transform: uppercase; color: var(--ink-2); }
+.more-calls + .stories { margin-top: 8px; }
+
 /* ---- Scorecard ----------------------------------------------------------- */
 .hero-label { font: 600 10px/1.2 var(--sans); letter-spacing: .12em; text-transform: uppercase; color: var(--ink-2); margin: 0; }
 .hero-figure { font: 700 48px/1 var(--sans); letter-spacing: -.02em; margin: 8px 0 6px; }
@@ -446,6 +485,10 @@ footer .disclaimer { font: 400 italic 13px/1.4 var(--serif); color: var(--ink); 
   .day:nth-child(2n) { padding-right: 0; }
 }
 @media (max-width: 680px) {
+  .tb-points { grid-template-columns: 1fr; gap: 12px; }
+  .tb-row { grid-template-columns: 30px minmax(0, 1fr); gap: 0 8px; }
+  .tb-rank { font-size: 24px; }
+  .tb-top { gap: 10px; }
   .page { padding: 0 16px 40px; }
   .modal { max-width: 100vw; max-height: 100vh; margin: 0; height: 100%; }
   .modal-inner { border-radius: 0; min-height: 100vh; max-height: 100vh; padding: 18px 16px; }

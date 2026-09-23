@@ -269,6 +269,25 @@ def _watchlist_cards(days):
     ]
 
 
+def _top_buys(latest_date, days, enriched):
+    """
+    The latest day's "Top 5 buys", best first. Each one gets the price
+    numbers from its matching pick (every top buy is also saved as a pick).
+    """
+    day = days.get(latest_date, {})
+    cards = []
+    for rank, buy in enumerate(day.get("top_buys") or [], start=1):
+        pick = next((p for p in enriched if p["date"] == latest_date and p["ticker"] == buy["ticker"]), {})
+        cards.append(dict(
+            buy,
+            rank=rank,
+            date=latest_date,
+            article=_article_for(buy.get("sources", []), day.get("headlines", [])),
+            **{k: pick.get(k) for k in ("price_at_pick", "price_now", "return_pct", "correct", "history")},
+        ))
+    return cards
+
+
 def _brief(pick):
     if not pick:
         return None
@@ -333,6 +352,8 @@ def build_data(picks, days, histories):
         "charts": {t: h for t, h in sorted(histories.items()) if h},
         # The "market watch" stocks, with the latest note Claude wrote for each.
         "watchlist": _watchlist_cards(days),
+        # Today's "Top 5 buys", with the longer "why" for each.
+        "top_buys": _top_buys(all_dates[0], days, enriched) if all_dates else [],
     }
 
 

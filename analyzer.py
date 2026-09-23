@@ -40,7 +40,15 @@ most important first.
 - You'll also get a "market watch" list of tickers. For each one, write a \
 single short, plain-English sentence in "watchlist_notes" about what today's \
 headlines mean for it. If none of the headlines are relevant to it, say \
-"No major news today." rather than guessing."""
+"No major news today." rather than guessing.
+- Finally, choose today's 5 most promising bullish ideas as "top_buys", \
+ranked best first. They can repeat tickers from "picks" (never one you called \
+bearish) or add new ones, but each must be backed by today's headlines. For \
+each, give a one-line "pitch", then explain in plain English "why" it could be \
+a good buy (2 to 4 sentences), what "risks" could make it go wrong (1 or 2 \
+sentences), and what to "watch" next, like an earnings date or a decision \
+(1 sentence). Be honest about the downside: these are research candidates, \
+not recommendations. If the news is too quiet for 5 solid ideas, return fewer."""
 
 # The exact JSON shape we want back from Claude.
 OUTPUT_SCHEMA = {
@@ -82,8 +90,28 @@ OUTPUT_SCHEMA = {
                 "additionalProperties": False,
             },
         },
+        # The "Top 5 buys of the day": the most promising bullish ideas,
+        # ranked best first, with a longer explanation for each.
+        "top_buys": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "ticker": {"type": "string"},
+                    "company": {"type": "string"},
+                    "confidence": {"type": "string", "enum": ["low", "medium", "high"]},
+                    "pitch": {"type": "string"},
+                    "why": {"type": "string"},
+                    "risks": {"type": "string"},
+                    "watch": {"type": "string"},
+                    "sources": {"type": "array", "items": {"type": "integer"}},
+                },
+                "required": ["ticker", "company", "confidence", "pitch", "why", "risks", "watch", "sources"],
+                "additionalProperties": False,
+            },
+        },
     },
-    "required": ["market_mood", "picks", "watchlist_notes"],
+    "required": ["market_mood", "picks", "watchlist_notes", "top_buys"],
     "additionalProperties": False,
 }
 
@@ -104,7 +132,10 @@ def analyze_headlines(headlines, api_key, watchlist=None):
     Returns a dict: {"market_mood": "...", "picks": [ {ticker, company,
     direction, confidence, reason, sources}, ... ]}
     where "sources" are the numbers (starting at 1) of the headlines used,
-    plus "watchlist_notes": [ {ticker, note}, ... ] for the watchlist tickers.
+    plus "watchlist_notes": [ {ticker, note}, ... ] for the watchlist tickers,
+    plus "top_buys": up to 5 ranked bullish ideas {ticker, company,
+    confidence, pitch, why, risks, watch, sources}. Every top buy is also
+    in "picks".
 
     Raises an exception if Claude can't be reached or declines to answer,
     so the caller can report it.
@@ -149,7 +180,44 @@ def analyze_headlines(headlines, api_key, watchlist=None):
     result = json.loads(text)
 
     # Clean up ticker symbols (e.g. " xom" -> "XOM").
-    for item in result["picks"] + result.get("watchlist_notes", []):
+    for item in result["picks"] + result.get("watchlist_notes", []) + result.get("top_buys", []):
         item["ticker"] = item["ticker"].strip().upper().lstrip("$")
 
+    return add_top_buys_to_picks(result)
+
+
+TOP_BUYS_COUNT = 5
+
+
+def add_top_buys_to_picks(result):
+    """
+    Makes sure every top buy is also in the normal list of picks, so it gets
+    a price, is saved to picks_log.csv and is tracked on the scorecard like
+    any other idea. Also keeps at most 5 top buys and drops any that clash
+    with a bearish pick for the same stock.
+    """
+    by_ticker = {p["ticker"]: p for p in result["picks"]}
+    top_buys = []
+    for buy in result.get("top_buys", []):
+        pick = by_ticker.get(buy["ticker"])
+        if pick and pick["direction"] == "bearish":
+            continue  # Claude contradicted itself; skip this one
+        if any(b["ticker"] == buy["ticker"] for b in top_buys):
+            continue  # listed twice
+        top_buys.append(buy)
+        if len(top_buys) == TOP_BUYS_COUNT:
+            break
+    for buy in top_buys:
+        if buy["ticker"] not in by_ticker:
+            new_pick = {
+                "ticker": buy["ticker"],
+                "company": buy["company"],
+                "direction": "bullish",
+                "confidence": buy["confidence"],
+                "reason": buy["pitch"],
+                "sources": buy["sources"],
+            }
+            result["picks"].append(new_pick)
+            by_ticker[buy["ticker"]] = new_pick
+    result["top_buys"] = top_buys
     return result
