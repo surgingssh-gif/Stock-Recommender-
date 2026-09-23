@@ -47,6 +47,8 @@ def save_day_details(date_str, analysis, headlines, days_dir=DAYS_DIR):
         "picks": analysis["picks"],
         # One-sentence notes for the "market watch" stocks (see watchlist.py).
         "watchlist_notes": analysis.get("watchlist_notes", []),
+        # The "Top 5 buys of the day", with their longer explanations.
+        "top_buys": analysis.get("top_buys", []),
         # Picks refer to headlines by number ("sources": [3, 7]), starting
         # at 1, so keep them in the same order Claude saw them.
         "headlines": [

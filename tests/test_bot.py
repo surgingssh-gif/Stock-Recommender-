@@ -273,3 +273,53 @@ def test_watchlist_cards_use_latest_notes():
     spy = next(c for c in cards if c["ticker"] == "SPY")
     assert spy["note"] == "new" and spy["note_date"] == "2026-09-22"
     assert next(c for c in cards if c["ticker"] == "AAPL")["note"] is None
+
+
+def _top_buy(ticker, **extra):
+    buy = {"ticker": ticker, "company": ticker + " Inc", "confidence": "medium",
+           "pitch": f"{ticker} pitch", "why": "Why.", "risks": "Risks.", "watch": "Watch.", "sources": [1]}
+    buy.update(extra)
+    return buy
+
+
+def test_top_buys_become_picks_and_skip_bearish_clashes():
+    from analyzer import add_top_buys_to_picks
+
+    result = {
+        "market_mood": "",
+        "watchlist_notes": [],
+        "picks": [dict(p, sources=[1]) for p in FAKE_ANALYSIS["picks"]],
+        "top_buys": [_top_buy("XOM"), _top_buy("DAL"), _top_buy("CVX"), _top_buy("CVX"),
+                     _top_buy("A"), _top_buy("B"), _top_buy("C"), _top_buy("D")],
+    }
+    add_top_buys_to_picks(result)
+    # DAL was called bearish, so it can't be a top buy; CVX only counts once.
+    assert [b["ticker"] for b in result["top_buys"]] == ["XOM", "CVX", "A", "B", "C"]
+    # New top buys are added as bullish picks (so they get logged); XOM isn't duplicated.
+    tickers = [p["ticker"] for p in result["picks"]]
+    assert tickers == ["XOM", "DAL", "CVX", "A", "B", "C"]
+    cvx = next(p for p in result["picks"] if p["ticker"] == "CVX")
+    assert cvx["direction"] == "bullish" and cvx["reason"] == "CVX pitch"
+
+
+def test_message_lists_top_buys_first_without_repeats():
+    analysis = dict(FAKE_ANALYSIS, top_buys=[_top_buy("XOM", company="Exxon Mobil")])
+    msg = build_message("2026-09-22", analysis, {"XOM": 110.5, "DAL": None}, [])
+    assert "Top buys of the day" in msg
+    assert "1. **XOM** (Exxon Mobil) - $110.50 - XOM pitch" in msg
+    assert msg.count("**XOM**") == 1  # not repeated under "Other ideas"
+    assert "Other ideas" in msg and "**DAL**" in msg
+    assert msg.endswith(f"_{DISCLAIMER}_")
+
+
+def test_dashboard_top_buys_get_prices_from_their_pick():
+    picks = [{"date": "2026-09-22", "ticker": "XOM", "direction": "bullish",
+              "reason": "r", "price_at_pick": 100.0}]
+    days = {"2026-09-22": {"date": "2026-09-22", "market_mood": "", "headlines": FAKE_HEADLINES,
+                           "picks": [{"ticker": "XOM", "sources": [1]}],
+                           "top_buys": [_top_buy("XOM")]}}
+    data = build_data(picks, days, {"XOM": [["2026-09-22", 100.0], ["2026-09-23", 110.0]]})
+    (buy,) = data["top_buys"]
+    assert buy["rank"] == 1 and buy["why"] == "Why."
+    assert buy["price_now"] == 110.0 and buy["return_pct"] == 10.0
+    assert buy["article"]["headline"] == FAKE_HEADLINES[0]["headline"]

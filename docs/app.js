@@ -339,8 +339,13 @@
       todays.length + " ideas (" + bulls + " bullish, " + (todays.length - bulls) + " bearish)",
       today.headlines && today.headlines.length ? " from " + today.headlines.length + " headlines" : "");
 
+    // The "Top 5 buys" get their own box; the other calls follow as stories.
+    var topBuys = (DATA.top_buys || []).filter(function (b) { return b.date === latestDate; });
+    var topTickers = topBuys.map(function (b) { return b.ticker; });
+    var others = todays.filter(function (p) { return topTickers.indexOf(p.ticker) === -1; });
+
     var stories = el("div", { class: "stories" });
-    todays.forEach(function (p, i) {
+    others.forEach(function (p, i) {
       // The first story runs full width; the rest sit in two columns.
       var cls = i === 0 ? "first" : (i % 2 ? "col-l" : "col-r");
       stories.appendChild(storyFor(p, cls));
@@ -356,8 +361,78 @@
           ? "Scorecard: " + Math.round(stats.hit_rate) + "% of calls right so far (" + stats.correct + " of " + stats.judged + "). "
           : "Scorecard: results start after the next market close. ",
         el("a", { href: "#results", text: "See results →" })),
-      stories
+      topBuys.length ? renderTopBuys(topBuys) : null,
+      topBuys.length && others.length ? el("h3", { class: "more-calls", text: "More of today's calls" }) : null,
+      others.length ? stories : null
     ]);
+  }
+
+  // ---------------------------------------------------------------------------
+  // Top 5 buys of the day: a ranked list; "Show more info" opens the details
+  // ---------------------------------------------------------------------------
+
+  function renderTopBuys(buys) {
+    var list = el("ol", { class: "tb-list" });
+    buys.forEach(function (b) { list.appendChild(topBuyRow(b)); });
+    return el("section", { class: "top-buys", "aria-labelledby": "tb-h" },
+      el("div", { class: "tb-head" },
+        el("h3", { id: "tb-h", text: "Top " + buys.length + " Buys of the Day" }),
+        el("span", { text: "Ranked by Claude from this morning's news" })),
+      list,
+      el("p", { class: "tb-note", text: "Research candidates, not recommendations. Ideas for research only, not financial advice." }));
+  }
+
+  function topBuyRow(b) {
+    var moreId = "tb-more-" + b.ticker.replace(/[^A-Za-z0-9]/g, "");
+    var move = b.return_pct === null || b.return_pct === undefined
+      ? el("span", { class: "tb-move", text: "New today" })
+      : el("span", { class: "tb-move" }, changePill(b.return_pct), " since pick");
+
+    var toggle = el("button", { type: "button", class: "tb-toggle", "aria-expanded": "false", "aria-controls": moreId },
+      el("span", { class: "tb-toggle-text", text: "Show more info" }), el("span", { class: "tb-caret", "aria-hidden": "true", text: "▾" }));
+
+    // The hidden details: why, risks, what to watch, and the news story.
+    var a = b.article;
+    var more = el("div", { class: "tb-more", id: moreId, hidden: "" },
+      el("div", { class: "tb-points" },
+        tbPoint("Why it could be a good buy", b.why),
+        tbPoint("What could go wrong", b.risks),
+        tbPoint("What to watch", b.watch)),
+      el("div", { class: "tb-links" },
+        a && safeUrl(a.url) ? el("a", { class: "m-article", href: a.url, target: "_blank", rel: "noopener noreferrer" },
+          photo(a.image, a.headline, "m-article-photo"),
+          el("span", { class: "m-article-text" },
+            el("span", { class: "m-article-src", text: a.source + " · The story behind it ↗" }),
+            el("span", { class: "m-article-hl", text: a.headline }))) : null,
+        charts[b.ticker] ? chartLink(b.ticker, "Open the full chart →", "tb-chart-link") : null));
+
+    toggle.addEventListener("click", function () {
+      var open = toggle.getAttribute("aria-expanded") !== "true";
+      toggle.setAttribute("aria-expanded", String(open));
+      toggle.querySelector(".tb-toggle-text").textContent = open ? "Show less" : "Show more info";
+      if (open) more.removeAttribute("hidden"); else more.setAttribute("hidden", "");
+    });
+
+    return el("li", { class: "tb-row" },
+      el("div", { class: "tb-rank", "aria-hidden": "true", text: String(b.rank) }),
+      el("div", { class: "tb-body" },
+        el("div", { class: "tb-top" },
+          el("div", null,
+            el("h4", null, el("span", { class: "visually-hidden", text: "Number " + b.rank + ": " }),
+              el("span", { class: "ticker", text: b.ticker }), b.company || ""),
+            el("p", { class: "tb-pitch", text: b.pitch })),
+          el("div", { class: "tb-price" },
+            el("div", { class: "now", text: fmtPrice(b.price_now || b.price_at_pick) }),
+            move,
+            b.confidence ? el("div", { class: "tb-conf", title: capitalize(b.confidence) + " confidence" },
+              confidencePips(b.confidence), capitalize(b.confidence)) : null)),
+        toggle,
+        more));
+  }
+
+  function tbPoint(title, text) {
+    if (!text) return null;
+    return el("div", { class: "tb-point" }, el("h5", { text: title }), el("p", { text: text }));
   }
 
   function storyFor(p, cls) {
