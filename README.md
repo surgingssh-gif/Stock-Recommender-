@@ -41,7 +41,7 @@ Ideas for research only, not financial advice.
 | `discord_notify.py` | Builds the message and posts it to Discord. |
 | `build_dashboard.py` | Scores every pick against the latest prices and writes the dashboard data (`docs/data.js`). |
 | `docs/` | The dashboard web page (`index.html`, `app.js`) and its data. |
-| `data/days/` | One file per day with extra details: market mood, confidence, and the headlines Claude read. |
+| `data/days/` | One file per day with extra details: market mood, confidence, and the headlines Claude read (with links and photos). |
 | `.github/workflows/daily.yml` | Tells GitHub to run the bot every weekday morning. |
 | `tests/test_bot.py` | Automatic checks that use fake data, so no keys are needed. |
 
@@ -145,6 +145,9 @@ see it (your API keys are never on it).
 
 To preview it on your computer, run `python build_dashboard.py`, then double-click
 `docs/index.html` to open it in your browser.
+
+**News photos:** the News tab and each pick show the photo and link from the news
+story behind it. Photos load straight from the news sites, so a few may be missing.
 
 **How the scorecard works:** each pick is compared with the latest closing price.
 A bullish call is "right so far" if the stock is up since it was picked; a bearish

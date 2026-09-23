@@ -33,6 +33,8 @@ ETFs when a whole sector is affected. Use the plain ticker symbol, e.g. "XOM".
 - "bullish" means the news could push the price up; "bearish" means down.
 - Base every idea on the headlines provided. Mention which news drives it, \
 and keep each reason to one or two plain-English sentences a beginner can follow.
+- In "sources", list the numbers of the headlines each idea is based on, \
+most important first.
 - Include both obvious and second-order effects when they are well supported \
 (e.g. an oil spike hurting airlines)."""
 
@@ -54,8 +56,12 @@ OUTPUT_SCHEMA = {
                     "direction": {"type": "string", "enum": ["bullish", "bearish"]},
                     "confidence": {"type": "string", "enum": ["low", "medium", "high"]},
                     "reason": {"type": "string"},
+                    # Numbers of the headlines this idea came from (1 = first
+                    # headline in the list). The dashboard uses them to show
+                    # the right article and photo next to each pick.
+                    "sources": {"type": "array", "items": {"type": "integer"}},
                 },
-                "required": ["ticker", "company", "direction", "confidence", "reason"],
+                "required": ["ticker", "company", "direction", "confidence", "reason", "sources"],
                 "additionalProperties": False,
             },
         },
@@ -79,7 +85,8 @@ def _format_headlines(headlines):
 def analyze_headlines(headlines, api_key):
     """
     Returns a dict: {"market_mood": "...", "picks": [ {ticker, company,
-    direction, confidence, reason}, ... ]}
+    direction, confidence, reason, sources}, ... ]}
+    where "sources" are the numbers (starting at 1) of the headlines used.
 
     Raises an exception if Claude can't be reached or declines to answer,
     so the caller can report it.

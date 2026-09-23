@@ -45,8 +45,17 @@ def save_day_details(date_str, analysis, headlines, days_dir=DAYS_DIR):
         "date": date_str,
         "market_mood": analysis["market_mood"],
         "picks": analysis["picks"],
+        # Picks refer to headlines by number ("sources": [3, 7]), starting
+        # at 1, so keep them in the same order Claude saw them.
         "headlines": [
-            {"headline": h["headline"], "source": h["source"], "time": h["time"]}
+            {
+                "headline": h["headline"],
+                "source": h["source"],
+                "time": h["time"],
+                "summary": h.get("summary", ""),
+                "url": h.get("url", ""),
+                "image": h.get("image", ""),
+            }
             for h in headlines
         ],
     }

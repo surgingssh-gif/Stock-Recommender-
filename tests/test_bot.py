@@ -175,3 +175,26 @@ def test_build_data_scores_and_merges_details(tmp_path):
     assert data["charts"]["XOM"][0] == ["2026-09-18", 95.0]  # full history kept for the big chart
     assert data["days"][1]["market_mood"] == "Energy is in focus."
     assert data["days"][1]["headlines"][0]["headline"] == "Oil jumps 5% after supply cut"
+
+
+def test_picks_get_their_source_article_and_photo(tmp_path):
+    headlines = [
+        {"headline": "Fed holds rates", "summary": "", "source": "AP", "time": "t1", "url": "https://a/1", "image": ""},
+        {"headline": "Oil jumps 5%", "summary": "", "source": "Reuters", "time": "t2", "url": "https://a/2", "image": "https://img/2.jpg"},
+    ]
+    analysis = {"market_mood": "m", "picks": [
+        {"ticker": "XOM", "company": "Exxon", "direction": "bullish", "confidence": "high", "reason": "r", "sources": [1, 2]},
+        {"ticker": "DAL", "company": "Delta", "direction": "bearish", "confidence": "low", "reason": "r", "sources": [99]},
+    ]}
+    save_day_details("2026-09-23", analysis, headlines, days_dir=str(tmp_path))
+    days = {"2026-09-23": json.loads((tmp_path / "2026-09-23.json").read_text())}
+    picks = [{"date": "2026-09-23", "ticker": t, "direction": "bullish", "reason": "r", "price_at_pick": 10.0} for t in ("XOM", "DAL")]
+    data = build_data(picks, days, {})
+
+    xom = next(p for p in data["picks"] if p["ticker"] == "XOM")
+    dal = next(p for p in data["picks"] if p["ticker"] == "DAL")
+    assert xom["article"]["headline"] == "Oil jumps 5%"  # the source that has a photo wins
+    assert xom["article"]["image"] == "https://img/2.jpg"
+    assert dal["article"] is None  # a headline number that doesn't exist is ignored
+    assert [h["tickers"] for h in data["days"][0]["headlines"]] == [["XOM"], ["XOM"]]
+    assert data["days"][0]["headline_count"] == 2

@@ -1,36 +1,36 @@
 window.DASHBOARD_DATA = {
- "generated_at": "2026-09-22T23:09:35Z",
+ "generated_at": "2026-09-23T01:21:53Z",
  "stats": {
   "total_picks": 6,
   "days_tracked": 1,
-  "hit_rate": null,
-  "judged": 0,
+  "hit_rate": 0.0,
+  "judged": 6,
   "correct": 0,
-  "avg_directional_return": 0.0,
+  "avg_directional_return": NaN,
   "best": {
    "date": "2026-09-22",
    "ticker": "USO",
    "direction": "bearish",
-   "directional_return_pct": 0.0
+   "directional_return_pct": NaN
   },
   "worst": {
    "date": "2026-09-22",
    "ticker": "USO",
    "direction": "bearish",
-   "directional_return_pct": 0.0
+   "directional_return_pct": NaN
   },
   "by_direction": [
    {
     "label": "bullish",
     "count": 4,
-    "hit_rate": null,
-    "avg_directional_return": 0.0
+    "hit_rate": 0.0,
+    "avg_directional_return": NaN
    },
    {
     "label": "bearish",
     "count": 2,
-    "hit_rate": null,
-    "avg_directional_return": 0.0
+    "hit_rate": 0.0,
+    "avg_directional_return": NaN
    }
   ],
   "by_confidence": [
@@ -43,22 +43,22 @@ window.DASHBOARD_DATA = {
    {
     "label": "medium",
     "count": 4,
-    "hit_rate": null,
-    "avg_directional_return": 0.0
+    "hit_rate": 0.0,
+    "avg_directional_return": NaN
    },
    {
     "label": "low",
     "count": 2,
-    "hit_rate": null,
-    "avg_directional_return": 0.0
+    "hit_rate": 0.0,
+    "avg_directional_return": NaN
    }
   ],
   "by_day": [
    {
     "date": "2026-09-22",
     "count": 6,
-    "hit_rate": null,
-    "avg_directional_return": 0.0
+    "hit_rate": 0.0,
+    "avg_directional_return": NaN
    }
   ]
  },
@@ -71,16 +71,17 @@ window.DASHBOARD_DATA = {
    "price_at_pick": 144.08,
    "company": "United States Oil Fund",
    "confidence": "medium",
+   "article": null,
    "history": [
     [
      "2026-09-22",
-     144.08
+     NaN
     ]
    ],
-   "price_now": 144.08,
-   "return_pct": 0.0,
-   "directional_return_pct": 0.0,
-   "correct": null
+   "price_now": NaN,
+   "return_pct": NaN,
+   "directional_return_pct": NaN,
+   "correct": false
   },
   {
    "date": "2026-09-22",
@@ -90,16 +91,17 @@ window.DASHBOARD_DATA = {
    "price_at_pick": 83.92,
    "company": "Delta Air Lines",
    "confidence": "low",
+   "article": null,
    "history": [
     [
      "2026-09-22",
-     83.92
+     NaN
     ]
    ],
-   "price_now": 83.92,
-   "return_pct": 0.0,
-   "directional_return_pct": 0.0,
-   "correct": null
+   "price_now": NaN,
+   "return_pct": NaN,
+   "directional_return_pct": NaN,
+   "correct": false
   },
   {
    "date": "2026-09-22",
@@ -109,16 +111,17 @@ window.DASHBOARD_DATA = {
    "price_at_pick": 15.19,
    "company": "Capri Holdings",
    "confidence": "medium",
+   "article": null,
    "history": [
     [
      "2026-09-22",
-     15.19
+     NaN
     ]
    ],
-   "price_now": 15.19,
-   "return_pct": 0.0,
-   "directional_return_pct": 0.0,
-   "correct": null
+   "price_now": NaN,
+   "return_pct": NaN,
+   "directional_return_pct": NaN,
+   "correct": false
   },
   {
    "date": "2026-09-22",
@@ -128,16 +131,17 @@ window.DASHBOARD_DATA = {
    "price_at_pick": 234.89,
    "company": "Royal Caribbean",
    "confidence": "low",
+   "article": null,
    "history": [
     [
      "2026-09-22",
-     234.89
+     NaN
     ]
    ],
-   "price_now": 234.89,
-   "return_pct": 0.0,
-   "directional_return_pct": 0.0,
-   "correct": null
+   "price_now": NaN,
+   "return_pct": NaN,
+   "directional_return_pct": NaN,
+   "correct": false
   },
   {
    "date": "2026-09-22",
@@ -147,16 +151,17 @@ window.DASHBOARD_DATA = {
    "price_at_pick": 106.44,
    "company": "Cisco Systems",
    "confidence": "medium",
+   "article": null,
    "history": [
     [
      "2026-09-22",
-     106.44
+     NaN
     ]
    ],
-   "price_now": 106.44,
-   "return_pct": 0.0,
-   "directional_return_pct": 0.0,
-   "correct": null
+   "price_now": NaN,
+   "return_pct": NaN,
+   "directional_return_pct": NaN,
+   "correct": false
   },
   {
    "date": "2026-09-22",
@@ -166,16 +171,17 @@ window.DASHBOARD_DATA = {
    "price_at_pick": 228.87,
    "company": "NVIDIA",
    "confidence": "medium",
+   "article": null,
    "history": [
     [
      "2026-09-22",
-     228.87
+     NaN
     ]
    ],
-   "price_now": 228.87,
-   "return_pct": 0.0,
-   "directional_return_pct": 0.0,
-   "correct": null
+   "price_now": NaN,
+   "return_pct": NaN,
+   "directional_return_pct": NaN,
+   "correct": false
   }
  ],
  "days": [
@@ -183,6 +189,7 @@ window.DASHBOARD_DATA = {
    "date": "2026-09-22",
    "market_mood": "Markets are leaning risk-on: the Nasdaq hit an intraday record on AI enthusiasm while hopes for a US-Iran deal and a reopening of the Strait of Hormuz pressure oil-risk premiums. M&A chatter is heavy, from Capri and Brighthouse to Royal Caribbean's Sandals stake.",
    "headlines": [],
+   "headline_count": 0,
    "tickers": [
     "USO",
     "DAL",
@@ -689,7 +696,7 @@ window.DASHBOARD_DATA = {
    ],
    [
     "2026-09-22",
-    15.19
+    NaN
    ]
   ],
   "CSCO": [
@@ -1187,7 +1194,7 @@ window.DASHBOARD_DATA = {
    ],
    [
     "2026-09-22",
-    106.44
+    NaN
    ]
   ],
   "DAL": [
@@ -1685,7 +1692,7 @@ window.DASHBOARD_DATA = {
    ],
    [
     "2026-09-22",
-    83.92
+    NaN
    ]
   ],
   "NVDA": [
@@ -2183,7 +2190,7 @@ window.DASHBOARD_DATA = {
    ],
    [
     "2026-09-22",
-    228.87
+    NaN
    ]
   ],
   "RCL": [
@@ -2681,7 +2688,7 @@ window.DASHBOARD_DATA = {
    ],
    [
     "2026-09-22",
-    234.89
+    NaN
    ]
   ],
   "USO": [
@@ -3179,7 +3186,7 @@ window.DASHBOARD_DATA = {
    ],
    [
     "2026-09-22",
-    144.08
+    NaN
    ]
   ]
  }

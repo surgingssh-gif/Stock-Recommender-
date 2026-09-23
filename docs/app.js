@@ -127,6 +127,39 @@
   }
 
   // ---------------------------------------------------------------------------
+  // News links and photos
+  // ---------------------------------------------------------------------------
+
+  /* Only allow normal web addresses (never "javascript:" or similar). */
+  function safeUrl(u) { return typeof u === "string" && /^https?:\/\//i.test(u) ? u : null; }
+
+  /* A link that opens the original article in a new tab. */
+  function articleLink(url, text, cls) {
+    var href = safeUrl(url);
+    if (!href) return el("span", { class: cls, text: text });
+    return el("a", { href: href, target: "_blank", rel: "noopener noreferrer", class: cls, text: text });
+  }
+
+  /*
+   * A news photo. Photos come straight from the news sites, so if one fails
+   * to load it quietly removes itself instead of showing a broken image.
+   */
+  function photo(url, alt, cls) {
+    var src = safeUrl(url);
+    if (!src) return null;
+    var img = el("img", { src: src, alt: alt || "", loading: "lazy", decoding: "async", referrerpolicy: "no-referrer", class: cls });
+    img.addEventListener("error", function () { img.remove(); });
+    return img;
+  }
+
+  /* "2026-09-22 11:00 UTC" -> "11:00 AM ET" */
+  function fmtNewsTime(t) {
+    var d = new Date(String(t || "").replace(" UTC", "Z").replace(" ", "T"));
+    if (isNaN(d)) return t || "";
+    return d.toLocaleString("en-US", { hour: "numeric", minute: "2-digit", timeZone: "America/New_York" }) + " ET";
+  }
+
+  // ---------------------------------------------------------------------------
   // Tooltip (one shared box for all charts)
   // ---------------------------------------------------------------------------
 
@@ -308,9 +341,15 @@
       el("div", { class: "move", text: move }),
       sparkline(p),
       chartLink(p.ticker, "Chart →", "chart-link"));
-    return el("article", { class: "story " + cls },
+    var a = p.article;
+    var hasPhoto = a && safeUrl(a.image);
+    return el("article", { class: "story " + cls + (hasPhoto ? " has-photo" : "") },
+      a ? photo(a.image, a.headline, "story-photo") : null,
       el("div", { class: "story-top" }, el("div", null, title, tags), price),
-      el("p", { class: "reason", text: p.reason }));
+      el("p", { class: "reason", text: p.reason }),
+      a && safeUrl(a.url) ? el("p", { class: "read-more" },
+        el("span", { class: "src", text: a.source }), " · ",
+        articleLink(a.url, "Read the article ↗", null)) : null);
   }
 
   // ---------------------------------------------------------------------------
@@ -819,6 +858,50 @@
   }
 
   // ---------------------------------------------------------------------------
+  // News tab: the latest day's headlines as photo cards
+  // ---------------------------------------------------------------------------
+
+  var newsLimit = 24, newsOnlyPicks = false;
+
+  function renderNews() {
+    var grid = document.getElementById("news-grid");
+    var more = document.getElementById("news-more");
+    var note = document.getElementById("news-note");
+    clear(grid);
+    var day = days.find(function (d) { return d.headlines && d.headlines.length; });
+    if (!day) {
+      note.textContent = "";
+      more.hidden = true;
+      grid.appendChild(emptyChart("Headlines arrive with the next morning run",
+        "Each weekday the bot saves the stories it read, with photos and links to the full articles. They'll show up here."));
+      return;
+    }
+    // Stories behind the day's picks come first, then the rest in their original order.
+    var all = day.headlines.slice().sort(function (a, b) { return (b.tickers.length > 0) - (a.tickers.length > 0); });
+    var list = newsOnlyPicks ? all.filter(function (h) { return h.tickers.length; }) : all;
+    note.textContent = fmtLongDate(day.date) + " · " + day.headlines.length + " stories · " +
+      all.filter(function (h) { return h.tickers.length; }).length + " led to picks";
+
+    list.slice(0, newsLimit).forEach(function (h) {
+      var dirOf = function (t) {
+        var p = picks.find(function (q) { return q.date === day.date && q.ticker === t; });
+        return p && p.direction === "bearish" ? "▼ " : "▲ ";
+      };
+      grid.appendChild(el("article", { class: "news-card" + (h.tickers.length ? " led" : "") },
+        photo(h.image, h.headline, "news-photo"),
+        el("p", { class: "news-meta", text: h.source + " · " + fmtNewsTime(h.time) }),
+        el("h3", null, articleLink(h.url, h.headline, null)),
+        h.summary ? el("p", { class: "news-summary", text: h.summary }) : null,
+        h.tickers.length ? el("div", { class: "chips" },
+          el("span", { class: "led-label", text: "Led to" }),
+          h.tickers.map(function (t) {
+            return chartLink(t, dirOf(t) + t, "chip chip-link") || el("span", { class: "chip", text: dirOf(t) + t });
+          })) : null));
+    });
+    more.hidden = list.length <= newsLimit;
+  }
+
+  // ---------------------------------------------------------------------------
   // Archive (one card per day)
   // ---------------------------------------------------------------------------
 
@@ -848,7 +931,7 @@
         ? el("details", null,
             el("summary", { text: "Headlines the bot read (" + headlines.length + ")" }),
             el("ul", null, headlines.map(function (h) {
-              return el("li", null, h.headline, el("small", { text: h.source + " · " + h.time }));
+              return el("li", null, articleLink(h.url, h.headline, "hl"), el("small", { text: h.source + " · " + fmtNewsTime(h.time) }));
             })))
         : el("p", { class: "hero-note", text: "Headlines weren't saved for this day." });
       list.appendChild(el("article", { class: "day" },
@@ -895,7 +978,7 @@
   // the matching section is shown. The back button and bookmarks work too.
   // ---------------------------------------------------------------------------
 
-  var TABS = ["today", "stock-charts", "results", "record", "archive", "about"];
+  var TABS = ["today", "news", "stock-charts", "results", "record", "archive", "about"];
   var OLD_LINKS = { scorecard: "results", charts: "results" };  // addresses used before tabs existed
   var currentTab = null;
 
@@ -931,6 +1014,13 @@
   renderScorecard();
   setupRecord();
   renderArchive();
+  renderNews();
+  document.getElementById("news-more").addEventListener("click", function () { newsLimit += 24; renderNews(); });
+  document.getElementById("news-only").addEventListener("change", function (e) {
+    newsOnlyPicks = e.target.checked;
+    newsLimit = 24;
+    renderNews();
+  });
   window.addEventListener("hashchange", showTab);
   showTab();
   // Opening a bookmarked tab (e.g. .../#results) makes the browser jump to that
