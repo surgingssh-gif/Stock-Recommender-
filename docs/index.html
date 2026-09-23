@@ -239,6 +239,33 @@ figcaption { font: 400 11px/1.5 var(--sans); color: var(--muted); margin-top: 10
 .tooltip .tt-title { font-weight: 700; margin-top: 2px; }
 .tooltip .tt-line { color: var(--ink-2); }
 
+/* ---- News photos ---------------------------------------------------------- */
+.story-photo { display: block; width: 100%; aspect-ratio: 2 / 1; object-fit: cover; background: var(--paper-2); margin: 0 0 14px; }
+/* The lead story puts its photo on the right, beside the text. */
+.story.first.has-photo { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); grid-template-rows: auto auto 1fr; gap: 0 28px; align-items: start; }
+.story.first.has-photo .story-photo { grid-column: 2; grid-row: 1 / span 3; aspect-ratio: 3 / 2; margin: 0; }
+.story.first.has-photo > :not(.story-photo) { grid-column: 1; }
+.read-more { margin: 10px 0 0; font: 400 11px/1.4 var(--sans); color: var(--muted); }
+.read-more .src { font-weight: 600; color: var(--ink-2); }
+.read-more a { color: var(--ink-2); }
+.news-toggle { display: inline-flex; align-items: center; gap: 8px; font: 400 12px/1 var(--sans); color: var(--ink-2); margin: 0 0 18px; cursor: pointer; }
+.news-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; border-top: 1px solid var(--hair); }
+.news-card { padding: 18px 20px 20px; border-bottom: 1px solid var(--hair); border-left: 1px solid var(--hair); }
+.news-card:nth-child(3n+1) { border-left: none; padding-left: 0; }
+.news-card:nth-child(3n) { padding-right: 0; }
+.news-photo { display: block; width: 100%; aspect-ratio: 3 / 2; object-fit: cover; background: var(--paper-2); margin: 0 0 10px; }
+.news-meta { margin: 0 0 4px; font: 600 10px/1.3 var(--sans); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.news-card h3 { margin: 0; font: 700 16px/1.3 var(--serif); }
+.news-card h3 a { text-decoration: none; }
+.news-card h3 a:hover { text-decoration: underline; text-underline-offset: 3px; }
+.news-summary { margin: 6px 0 0; font-size: 13.5px; line-height: 1.5; color: var(--ink-2); display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.news-card .chips { margin: 10px 0 0; align-items: center; }
+.led-label { font: 600 10px/1 var(--sans); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin-right: 2px; }
+.chip-link { text-decoration: none; color: var(--ink); }
+.chip-link:hover { border-color: var(--ink-2); }
+details li a.hl { text-decoration: none; }
+details li a.hl:hover { text-decoration: underline; text-underline-offset: 3px; }
+
 /* ---- Stock charts --------------------------------------------------------- */
 .stock-controls { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 10px 16px; margin-bottom: 18px; }
 .ticker-picker, .range-picker { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
@@ -327,6 +354,10 @@ footer .disclaimer { font: 400 italic 13px/1.4 var(--serif); color: var(--ink); 
 
 /* ---- Smaller screens ------------------------------------------------------ */
 @media (max-width: 980px) {
+  .news-grid { grid-template-columns: 1fr 1fr; }
+  .news-card, .news-card:nth-child(3n+1), .news-card:nth-child(3n) { padding: 18px 18px 20px; border-left: 1px solid var(--hair); }
+  .news-card:nth-child(2n+1) { border-left: none; padding-left: 0; }
+  .news-card:nth-child(2n) { padding-right: 0; }
   .scorecard { grid-template-columns: 1fr; }
   .scorecard .sc-col, .scorecard .sc-col:first-child { padding: 0; border-left: none; }
   .scorecard .sc-col + .sc-col { margin-top: 24px; }
@@ -342,6 +373,10 @@ footer .disclaimer { font: 400 italic 13px/1.4 var(--serif); color: var(--ink); 
 }
 @media (max-width: 680px) {
   .page { padding: 0 16px 40px; }
+  .news-grid { grid-template-columns: 1fr; }
+  .story.first.has-photo { display: block; }
+  .story.first.has-photo .story-photo { margin: 0 0 14px; }
+  .news-card, .news-card:nth-child(n) { padding: 16px 0 18px; border-left: none; }
   body { font-size: 15px; }
   .dateline { grid-template-columns: 1fr; text-align: center; gap: 4px; }
   .dateline > * { text-align: center !important; }
@@ -375,6 +410,7 @@ footer .disclaimer { font: 400 italic 13px/1.4 var(--serif); color: var(--ink); 
     </div>
     <nav class="sections" aria-label="Sections">
       <a href="#today" data-tab="today">Today</a>
+      <a href="#news" data-tab="news">News</a>
       <a href="#stock-charts" data-tab="stock-charts">Stock Charts</a>
       <a href="#results" data-tab="results">Results</a>
       <a href="#record" data-tab="record">The Record</a>
@@ -387,6 +423,13 @@ footer .disclaimer { font: 400 italic 13px/1.4 var(--serif); color: var(--ink); 
     <!-- Each <section class="tab-panel"> is one tab. app.js shows one at a time. -->
     <section class="tab-panel" id="today" aria-label="Today">
       <article class="lead" id="lead"></article>
+    </section>
+
+    <section class="tab-panel" id="news" aria-labelledby="news-h">
+      <div class="section-head"><h2 id="news-h">The News</h2><p id="news-note"></p></div>
+      <label class="news-toggle"><input type="checkbox" id="news-only"> Only stories that led to a pick</label>
+      <div class="news-grid" id="news-grid"></div>
+      <button class="more" id="news-more" type="button" hidden>Show more stories</button>
     </section>
 
     <section class="tab-panel" id="stock-charts" aria-labelledby="stock-h">
@@ -461,7 +504,20 @@ footer .disclaimer { font: 400 italic 13px/1.4 var(--serif); color: var(--ink); 
 
 <div class="tooltip" id="tooltip" role="status" aria-live="polite"></div>
 
-<script src="data.js"></script>
-<script src="app.js"></script>
+<script>
+  // Load the newest data.js and app.js every time (the "?v=" number makes
+  // the browser skip any older copy it saved), then start the page.
+  (function () {
+    var v = Date.now();
+    function load(src, next) {
+      var s = document.createElement("script");
+      s.src = src + "?v=" + v;
+      s.onload = next;
+      s.onerror = next;
+      document.body.appendChild(s);
+    }
+    load("data.js", function () { load("app.js"); });
+  })();
+</script>
 </body>
 </html>

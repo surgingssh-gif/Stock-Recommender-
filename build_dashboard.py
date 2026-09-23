@@ -24,6 +24,10 @@ OUTPUT_FILE = os.path.join("docs", "data.js")
 # How far back the stock charts go before a stock's first pick.
 CHART_LOOKBACK_DAYS = 180
 
+# Only the most recent days keep their full list of headlines on the page,
+# so docs/data.js stays small as the months go by.
+HEADLINE_DAYS = 10
+
 
 # --- Reading the saved picks -------------------------------------------------
 
@@ -165,6 +169,29 @@ def summarize(picks):
     }
 
 
+def _article_for(sources, headlines):
+    """
+    Picks the news story to show next to a pick: the first of its source
+    headlines that has a photo, or else simply its first source headline.
+    `sources` are headline numbers starting at 1.
+    """
+    stories = [headlines[n - 1] for n in sources if isinstance(n, int) and 1 <= n <= len(headlines)]
+    if not stories:
+        return None
+    story = next((h for h in stories if h.get("image")), stories[0])
+    return {k: story.get(k, "") for k in ("headline", "source", "url", "image")}
+
+
+def _with_tickers(day_date, days, picks):
+    """The day's headlines, each tagged with the tickers it led to."""
+    day = days.get(day_date, {})
+    used = {}
+    for extra in day.get("picks", []):
+        for n in extra.get("sources", []):
+            used.setdefault(n, []).append(extra["ticker"])
+    return [dict(h, tickers=used.get(i, [])) for i, h in enumerate(day.get("headlines", []), start=1)]
+
+
 def _brief(pick):
     if not pick:
         return None
@@ -190,6 +217,8 @@ def build_data(picks, days, histories):
             pick,
             company=extra.get("company"),
             confidence=extra.get("confidence"),
+            # The news story this idea came from (with its photo, if any).
+            article=_article_for(extra.get("sources", []), day.get("headlines", [])),
             # Only the part of the price history from the pick date onwards.
             history=[h for h in history if h[0] >= pick["date"]] or history[-1:],
         )
@@ -199,11 +228,13 @@ def build_data(picks, days, histories):
     enriched.sort(key=lambda p: p["date"], reverse=True)
 
     all_dates = sorted({p["date"] for p in enriched} | set(days), reverse=True)
+    recent = set(all_dates[:HEADLINE_DAYS])
     day_list = [
         {
             "date": d,
             "market_mood": days.get(d, {}).get("market_mood"),
-            "headlines": days.get(d, {}).get("headlines", []),
+            "headlines": _with_tickers(d, days, enriched) if d in recent else [],
+            "headline_count": len(days.get(d, {}).get("headlines", [])),
             "tickers": [p["ticker"] for p in enriched if p["date"] == d],
         }
         for d in all_dates

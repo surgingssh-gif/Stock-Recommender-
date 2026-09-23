@@ -31,7 +31,8 @@ def _hours_to_look_back():
 def fetch_headlines(api_key):
     """
     Returns a list of dicts like:
-        {"headline": "...", "summary": "...", "source": "...", "time": "..."}
+        {"headline": "...", "summary": "...", "source": "...", "time": "...",
+         "url": "https://...", "image": "https://..."}
 
     Raises an exception if Finnhub can't be reached at all, so the caller
     can report the failure in the Discord message.
@@ -74,6 +75,9 @@ def fetch_headlines(api_key):
                 "source": article.get("source") or "unknown",
                 "time": datetime.fromtimestamp(published, timezone.utc).strftime("%Y-%m-%d %H:%M UTC"),
                 "published": published,
+                # Link to the full article and its photo (used by the dashboard).
+                "url": article.get("url") or "",
+                "image": article.get("image") or "",
             })
 
     # If every category failed, treat that as a real failure.
