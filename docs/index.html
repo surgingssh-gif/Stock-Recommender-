@@ -111,8 +111,15 @@ a { color: inherit; }
   border-bottom: 1px solid var(--hair); padding: 8px 0;
   font: 500 11px/1 var(--sans); letter-spacing: .04em;
 }
-.sections a { text-decoration: none; color: var(--ink-2); padding: 4px 0; }
-.sections a:hover { color: var(--ink); text-decoration: underline; text-underline-offset: 4px; }
+.sections a { text-decoration: none; color: var(--ink-2); padding: 6px 0; border-bottom: 2px solid transparent; }
+.sections a:hover { color: var(--ink); border-bottom-color: var(--hair); }
+.sections a[aria-current="page"] { color: var(--ink); font-weight: 700; border-bottom-color: var(--ink); }
+.sections a:focus-visible { outline: 2px solid var(--good); outline-offset: 2px; }
+
+/* ---- Tabs: only the chosen section is shown -------------------------------- */
+.tab-panel[hidden] { display: none; }
+.tab-panel > .section-head:first-child { margin-top: 28px; }
+#today .lead { margin-top: 28px; padding-right: 0; }
 
 /* ---- Shared type ---------------------------------------------------------- */
 .section-head {
@@ -188,6 +195,16 @@ a { color: inherit; }
 .legend-note { font: 400 11px/1.5 var(--sans); color: var(--muted); margin: 18px 0 0; }
 .key { display: inline-flex; align-items: center; gap: 6px; margin-right: 14px; white-space: nowrap; }
 .key i { width: 10px; height: 10px; border-radius: 2px; display: inline-block; }
+
+/* ---- Scorecard (Results tab): three columns side by side ------------------- */
+.scorecard { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr) minmax(0, 1.2fr); }
+.scorecard .sc-col { padding: 0 28px; border-left: 1px solid var(--hair); }
+.scorecard .sc-col:first-child { padding-left: 0; border-left: none; }
+.scorecard .sc-col:last-child { padding-right: 0; }
+.scorecard .tiles { margin-top: 0; }
+.scorecard .breakdown:first-child { margin-top: 0; }
+.today-score { font: 400 12px/1.5 var(--sans); color: var(--muted); margin: 6px 0 0; }
+.today-score a { color: var(--ink-2); }
 
 /* ---- Charts -------------------------------------------------------------- */
 .chart-grid { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); gap: 0; }
@@ -310,6 +327,9 @@ footer .disclaimer { font: 400 italic 13px/1.4 var(--serif); color: var(--ink); 
 
 /* ---- Smaller screens ------------------------------------------------------ */
 @media (max-width: 980px) {
+  .scorecard { grid-template-columns: 1fr; }
+  .scorecard .sc-col, .scorecard .sc-col:first-child { padding: 0; border-left: none; }
+  .scorecard .sc-col + .sc-col { margin-top: 24px; }
   .front, .chart-grid { grid-template-columns: 1fr; }
   .lead { padding-right: 0; }
   .rail { padding: 28px 0 0; border-left: none; border-top: 2px solid var(--rule); margin-top: 28px; }
@@ -354,36 +374,37 @@ footer .disclaimer { font: 400 italic 13px/1.4 var(--serif); color: var(--ink); 
       <span>Ideas for research only, not financial advice.</span>
     </div>
     <nav class="sections" aria-label="Sections">
-      <a href="#today">Today</a>
-      <a href="#scorecard">Scorecard</a>
-      <a href="#stock-charts">Stock Charts</a>
-      <a href="#charts">Results</a>
-      <a href="#record">The Record</a>
-      <a href="#archive">Archive</a>
-      <a href="#about">How It Works</a>
+      <a href="#today" data-tab="today">Today</a>
+      <a href="#stock-charts" data-tab="stock-charts">Stock Charts</a>
+      <a href="#results" data-tab="results">Results</a>
+      <a href="#record" data-tab="record">The Record</a>
+      <a href="#archive" data-tab="archive">Archive</a>
+      <a href="#about" data-tab="about">How It Works</a>
     </nav>
   </header>
 
   <main>
-    <section class="front" id="today" aria-label="Today">
+    <!-- Each <section class="tab-panel"> is one tab. app.js shows one at a time. -->
+    <section class="tab-panel" id="today" aria-label="Today">
       <article class="lead" id="lead"></article>
-      <aside class="rail" id="scorecard" aria-label="Scorecard"></aside>
     </section>
 
-    <section id="stock-charts" aria-labelledby="stock-h">
+    <section class="tab-panel" id="stock-charts" aria-labelledby="stock-h">
       <div class="section-head"><h2 id="stock-h">Stock Charts</h2><p>Daily closing prices. Dots mark the days the bot made a call.</p></div>
       <div id="stock-area"></div>
     </section>
 
-    <section id="charts" aria-labelledby="charts-h">
-      <div class="section-head"><h2 id="charts-h">Every Call, Scored</h2><p id="prices-asof"></p></div>
+    <section class="tab-panel" id="results" aria-labelledby="results-h">
+      <div class="section-head"><h2 id="results-h">The Scorecard</h2><p id="prices-asof"></p></div>
+      <div class="scorecard" id="scorecard"></div>
+      <div class="section-head"><h2 id="charts-h">Every Call, Scored</h2></div>
       <div class="chart-grid">
         <figure id="calls-figure"></figure>
         <figure id="days-figure"></figure>
       </div>
     </section>
 
-    <section id="record" aria-labelledby="record-h">
+    <section class="tab-panel" id="record" aria-labelledby="record-h">
       <div class="section-head"><h2 id="record-h">The Record</h2><p>Every idea the bot has published. Click a column to sort.</p></div>
       <div class="filters" role="search">
         <label class="visually-hidden" for="q">Search picks</label>
@@ -416,13 +437,13 @@ footer .disclaimer { font: 400 italic 13px/1.4 var(--serif); color: var(--ink); 
       <button class="more" id="record-more" type="button" hidden>Show more picks</button>
     </section>
 
-    <section id="archive" aria-labelledby="archive-h">
+    <section class="tab-panel" id="archive" aria-labelledby="archive-h">
       <div class="section-head"><h2 id="archive-h">From the Archive</h2><p>Each day's read on the market, the calls, and the headlines behind them.</p></div>
       <div class="archive" id="archive-list"></div>
       <button class="more" id="archive-more" type="button" hidden>Show older days</button>
     </section>
 
-    <section id="about" aria-labelledby="about-h">
+    <section class="tab-panel" id="about" aria-labelledby="about-h">
       <div class="section-head"><h2 id="about-h">How It Works</h2></div>
       <div class="about">
         <div><h3>The reading</h3><p>Each weekday morning the bot pulls the latest business and world headlines from Finnhub, then sends them all to Claude in a single request.</p></div>
