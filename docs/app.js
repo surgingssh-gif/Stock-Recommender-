@@ -609,7 +609,7 @@
   }
 
   // ---------------------------------------------------------------------------
-  // Stock charts (one big price chart, pick a stock and a time range)
+  // Stock charts: a big chart for one stock, plus a card for every stock
   // ---------------------------------------------------------------------------
 
   var charts = DATA.charts || {};
@@ -617,16 +617,36 @@
   var RANGE_WORDS = { "1M": "the past month", "3M": "the past 3 months", "6M": "the past 6 months", "All": "the full period" };
   var stockState = { ticker: null, range: "3M" };
 
-  /* Tickers in a helpful order: today's picks first, then by most recent pick. */
-  function chartTickers() {
-    var order = [];
-    picks.forEach(function (p) { if (charts[p.ticker] && order.indexOf(p.ticker) === -1) order.push(p.ticker); });
-    return order;
+  var stockFilter = "all";  // "all", "pick" or "watch"
+  var watchlist = DATA.watchlist || [];
+
+  /*
+   * Every stock the page can chart: the bot's picks (newest first), then the
+   * "market watch" list. Each gets a name and a short note about what's going on.
+   */
+  function stockList() {
+    var list = [], seen = {};
+    picks.forEach(function (p) {
+      if (!charts[p.ticker] || seen[p.ticker]) return;
+      seen[p.ticker] = true;
+      list.push({ ticker: p.ticker, name: p.company || "", kind: "pick", pick: p, note: p.reason });
+    });
+    watchlist.forEach(function (w) {
+      if (!charts[w.ticker]) return;
+      if (seen[w.ticker]) {  // also a pick: keep the pick, remember the watch note
+        var item = list.find(function (i) { return i.ticker === w.ticker; });
+        item.watchNote = w.note;
+        return;
+      }
+      seen[w.ticker] = true;
+      list.push({ ticker: w.ticker, name: w.name, kind: "watch", note: w.note });
+    });
+    return list;
   }
 
   function companyOf(ticker) {
-    var p = picks.find(function (q) { return q.ticker === ticker && q.company; });
-    return p ? p.company : "";
+    var item = stockList().find(function (i) { return i.ticker === ticker; });
+    return item ? item.name : "";
   }
 
   function toMs(s) { return toDate(s).getTime(); }
@@ -646,60 +666,145 @@
     return a;
   }
 
+  /* The slice of a stock's price history for the chosen time range. */
+  function seriesFor(ticker) {
+    var full = charts[ticker];
+    var days = RANGES.find(function (r) { return r[0] === stockState.range; })[1];
+    var cutoff = days ? toMs(full[full.length - 1][0]) - days * 86400000 : -Infinity;
+    var series = full.filter(function (d) { return toMs(d[0]) >= cutoff; });
+    return series.length < 2 ? full.slice(-2) : series;
+  }
+
+  /* Blue when the stock is up over the range, red when it's down. */
+  function trendColor(change) { return change >= 0 ? "var(--good)" : "var(--bad)"; }
+
+  /* "▲ +4.20%" in a colored pill (the arrow and sign carry it, not just color). */
+  function changePill(change) {
+    return el("span", { class: "chg-pill " + (change >= 0 ? "up" : "down") },
+      el("span", { class: "arrow", "aria-hidden": "true", text: change >= 0 ? "▲ " : "▼ " }), fmtPct(change));
+  }
+
+  function kindTag(item) {
+    if (item.kind === "pick") {
+      return el("span", { class: "kind-tag pick" }, "Bot pick · " + directionText(item.pick));
+    }
+    return el("span", { class: "kind-tag watch", text: "Market watch" });
+  }
+
   function renderStockSection() {
     var area = document.getElementById("stock-area");
     clear(area);
-    var tickers = chartTickers();
-    if (!tickers.length) {
-      area.appendChild(emptyChart("Charts appear with the first picks", "Once the bot has made some calls, their price charts show up here."));
+    var all = stockList();
+    if (!all.length) {
+      area.appendChild(emptyChart("Charts appear with the first run", "Once the bot has run, price charts for its picks and the market-watch list show up here."));
       return;
     }
-    if (tickers.indexOf(stockState.ticker) === -1) stockState.ticker = tickers[0];
+    // If the chosen stock is hidden by the filter (e.g. after a "Chart →" link), show all.
+    var chosen = all.find(function (i) { return i.ticker === stockState.ticker; });
+    if (chosen && stockFilter !== "all" && chosen.kind !== stockFilter) stockFilter = "all";
+    var shown = all.filter(function (i) { return stockFilter === "all" || i.kind === stockFilter; });
+    if (!shown.length) { stockFilter = "all"; shown = all; }
+    if (!shown.some(function (i) { return i.ticker === stockState.ticker; })) stockState.ticker = shown[0].ticker;
 
-    // --- Controls: stock buttons (first 8) + a menu for the rest, and ranges.
-    var picker = el("div", { class: "ticker-picker", role: "group", "aria-label": "Choose a stock" });
-    tickers.slice(0, 8).forEach(function (t) {
-      var b = el("button", { type: "button", class: "pill", "aria-pressed": String(t === stockState.ticker), text: t });
-      b.addEventListener("click", function () { stockState.ticker = t; renderStockSection(); });
-      picker.appendChild(b);
+    // --- Controls: which stocks, and the time range.
+    var filters = el("div", { class: "ticker-picker", role: "group", "aria-label": "Which stocks" });
+    [["all", "All stocks"], ["pick", "Bot picks"], ["watch", "Market watch"]].forEach(function (f) {
+      var count = f[0] === "all" ? all.length : all.filter(function (i) { return i.kind === f[0]; }).length;
+      var b = el("button", { type: "button", class: "pill", "aria-pressed": String(stockFilter === f[0]) }, f[1] + " (" + count + ")");
+      b.addEventListener("click", function () {
+        stockFilter = f[0];
+        // If the open chart isn't in this group, open the group's first stock instead.
+        var current = all.find(function (i) { return i.ticker === stockState.ticker; });
+        if (f[0] !== "all" && current && current.kind !== f[0]) stockState.ticker = null;
+        renderStockSection();
+      });
+      filters.appendChild(b);
     });
-    if (tickers.length > 8) {
-      var more = el("select", { "aria-label": "More stocks" }, el("option", { value: "", text: "More…" }),
-        tickers.slice(8).map(function (t) { return el("option", { value: t, text: t, selected: t === stockState.ticker ? "selected" : null }); }));
-      more.addEventListener("change", function () { if (more.value) { stockState.ticker = more.value; renderStockSection(); } });
-      picker.appendChild(more);
-    }
     var ranges = el("div", { class: "range-picker", role: "group", "aria-label": "Time range" });
     RANGES.forEach(function (r) {
       var b = el("button", { type: "button", class: "pill", "aria-pressed": String(r[0] === stockState.range), text: r[0] });
       b.addEventListener("click", function () { stockState.range = r[0]; renderStockSection(); });
       ranges.appendChild(b);
     });
-    area.appendChild(el("div", { class: "stock-controls" }, picker, ranges));
+    area.appendChild(el("div", { class: "stock-controls" }, filters, ranges));
 
-    // --- The data for this stock and range.
-    var t = stockState.ticker;
-    var full = charts[t];
-    var days = RANGES.find(function (r) { return r[0] === stockState.range; })[1];
-    var cutoff = days ? toMs(full[full.length - 1][0]) - days * 86400000 : -Infinity;
-    var series = full.filter(function (d) { return toMs(d[0]) >= cutoff; });
-    if (series.length < 2) series = full.slice(-2);
+    // --- The big chart for the selected stock, with its story underneath.
+    var item = all.find(function (i) { return i.ticker === stockState.ticker; });
+    var feature = el("div", { class: "stock-feature" });
+    area.appendChild(feature);
+    drawBigChart(feature, item);
+
+    // --- A card for every stock.
+    area.appendChild(el("h3", { class: "grid-title", text: "All charts · " + RANGE_WORDS[stockState.range] }));
+    var grid = el("div", { class: "stock-grid" });
+    shown.forEach(function (i) { grid.appendChild(stockCard(i)); });
+    area.appendChild(grid);
+    area.appendChild(el("p", { class: "stock-foot" },
+      el("span", null,
+        el("span", { class: "key" }, el("i", { style: "background:var(--good)" }), "Up over the period"),
+        el("span", { class: "key" }, el("i", { style: "background:var(--bad)" }), "Down over the period")),
+      el("span", { text: "Prices from Yahoo Finance · Notes by Claude from the morning's news" })));
+  }
+
+  /* One card: name, price, colored mini chart, and a short note. */
+  function stockCard(item) {
+    var series = seriesFor(item.ticker);
     var first = series[0][1], last = series[series.length - 1][1];
     var change = (last - first) / first * 100;
+    var w = 300, h = 70, pad = 4;
+    var vals = series.map(function (d) { return d[1]; });
+    var lo = Math.min.apply(null, vals), hi = Math.max.apply(null, vals);
+    if (hi - lo < 1e-9) { lo -= 1; hi += 1; }
+    var x = function (i) { return i * w / (series.length - 1); };
+    var y = function (v) { return pad + (1 - (v - lo) / (hi - lo)) * (h - 2 * pad); };
+    var line = series.map(function (d, i) { return (i ? "L" : "M") + x(i).toFixed(1) + "," + y(d[1]).toFixed(1); }).join("");
+    var mini = svg("svg", { class: "card-chart", viewBox: "0 0 " + w + " " + h, preserveAspectRatio: "none", "aria-hidden": "true" });
+    mini.appendChild(svg("path", { d: line + "L" + w + "," + h + "L0," + h + "Z", fill: trendColor(change), opacity: 0.12 }));
+    mini.appendChild(svg("path", { d: line, fill: "none", stroke: trendColor(change), "stroke-width": 2, "vector-effect": "non-scaling-stroke", "stroke-linejoin": "round" }));
+
+    var note = item.note || (item.kind === "watch" ? "Notes arrive with the next morning run." : "");
+    var card = el("button", { type: "button", class: "stock-card" + (item.ticker === stockState.ticker ? " selected" : ""),
+      "aria-pressed": String(item.ticker === stockState.ticker),
+      "aria-label": item.ticker + ", " + item.name + ", " + fmtPrice(last) + ", " + fmtPct(change) + " over " + RANGE_WORDS[stockState.range] + ". Show chart." },
+      el("div", { class: "card-top" },
+        el("div", null, el("span", { class: "card-ticker", text: item.ticker }), el("span", { class: "card-name", text: item.name })),
+        el("div", { class: "card-price" }, el("div", { class: "now", text: fmtPrice(last) }), changePill(change))),
+      mini,
+      kindTag(item),
+      note ? el("p", { class: "card-note" + (item.note ? "" : " muted"), text: note }) : null);
+    card.addEventListener("click", function () {
+      stockState.ticker = item.ticker;
+      renderStockSection();
+      document.getElementById("stock-charts").scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+    return card;
+  }
+
+  /* The large interactive chart (hover or arrow keys to read each day). */
+  function drawBigChart(area, item) {
+    var t = item.ticker;
+    var series = seriesFor(t);
+    var first = series[0][1], last = series[series.length - 1][1];
+    var change = (last - first) / first * 100;
+    var color = trendColor(change);
 
     area.appendChild(el("div", { class: "stock-head" },
-      el("h3", null, el("span", { class: "ticker", text: t }), companyOf(t)),
+      el("div", null,
+        el("h3", null, el("span", { class: "ticker", text: t }), item.name),
+        kindTag(item)),
       el("div", { class: "stock-price" },
         el("div", { class: "now", text: fmtPrice(last) }),
-        el("div", { class: "chg", text: fmtPct(change) + " over " + RANGE_WORDS[stockState.range] }))));
+        el("div", { class: "chg" }, changePill(change), " over " + RANGE_WORDS[stockState.range]))));
 
     // The bot's calls on this stock that fall inside the range.
     var calls = picks.filter(function (p) { return p.ticker === t && toMs(p.date) >= toMs(series[0][0]); });
 
     // --- Geometry.
-    var W = Math.max(300, area.clientWidth);
+    // Measure the space inside the box (its width minus its padding).
+    var cs = getComputedStyle(area);
+    var W = Math.max(280, area.clientWidth - (parseFloat(cs.paddingLeft) || 0) - (parseFloat(cs.paddingRight) || 0));
     var narrow = W < 560;
-    var H = narrow ? 230 : 320, left = 6, right = 56, top = 14, bottom = 26;
+    var H = narrow ? 230 : 300, left = 6, right = 56, top = 14, bottom = 26;
     var xs = series.map(function (d) { return toMs(d[0]); });
     var values = series.map(function (d) { return d[1]; }).concat(calls.map(function (p) { return p.price_at_pick; }).filter(Boolean));
     var lo = Math.min.apply(null, values), hi = Math.max.apply(null, values);
@@ -726,13 +831,13 @@
       plot.appendChild(svg("text", { x: x(xs[idx]), y: H - 8, "text-anchor": anchor, text: fmtShortDate(series[idx][0]) }));
     }
 
-    // Price line with a light wash underneath.
+    // Price line in the trend color, with a light wash of the same color underneath.
     var line = series.map(function (d, i) { return (i ? "L" : "M") + x(xs[i]).toFixed(1) + "," + y(d[1]).toFixed(1); }).join("");
     var areaPath = line + "L" + x(xs[xs.length - 1]).toFixed(1) + "," + (H - bottom) + "L" + x(xs[0]).toFixed(1) + "," + (H - bottom) + "Z";
-    plot.appendChild(svg("path", { d: areaPath, fill: "var(--ink)", opacity: 0.05 }));
-    plot.appendChild(svg("path", { d: line, fill: "none", stroke: "var(--ink)", "stroke-width": 2, "stroke-linejoin": "round", "stroke-linecap": "round" }));
+    plot.appendChild(svg("path", { d: areaPath, fill: color, opacity: 0.1 }));
+    plot.appendChild(svg("path", { d: line, fill: "none", stroke: color, "stroke-width": 2, "stroke-linejoin": "round", "stroke-linecap": "round" }));
 
-    // A dot for each call, placed at the price when it was picked.
+    // A dot for each of the bot's calls, at the price when it was picked.
     calls.forEach(function (p) {
       if (!p.price_at_pick) return;
       var cx = x(Math.max(xs[0], Math.min(xs[xs.length - 1], toMs(p.date)))), cy = y(p.price_at_pick);
@@ -745,7 +850,7 @@
 
     // Crosshair: a thin line and a dot that follow the pointer (or arrow keys).
     var cross = svg("line", { y1: top, y2: H - bottom, stroke: "var(--muted)", "stroke-width": 1, visibility: "hidden" });
-    var dot = svg("circle", { r: 4, fill: "var(--ink)", stroke: "var(--paper)", "stroke-width": 2, visibility: "hidden" });
+    var dot = svg("circle", { r: 4, fill: color, stroke: "var(--paper)", "stroke-width": 2, visibility: "hidden" });
     plot.appendChild(cross);
     plot.appendChild(dot);
     var active = series.length - 1;
@@ -785,15 +890,26 @@
     });
     area.appendChild(plot);
 
-    // Key for the dots, plus the same prices as a table.
-    var foot = el("div", { class: "stock-foot" },
-      calls.length ? el("span", null,
-        el("span", { class: "key" }, el("i", { style: "background:var(--good)" }), "Call right so far"),
-        el("span", { class: "key" }, el("i", { style: "background:var(--bad)" }), "Call wrong so far"),
-        el("span", { class: "key" }, el("i", { style: "border:2px solid var(--ink);width:6px;height:6px" }), "Too early to tell"),
-        "▲ bullish · ▼ bearish") : el("span", { text: "No calls on this stock in this time range." }),
-      el("span", { text: "Prices from Yahoo Finance" }));
-    area.appendChild(foot);
+    // What's going on: the pick's reason (with its article) or the market-watch note.
+    var story = el("div", { class: "stock-story" });
+    if (item.kind === "pick") {
+      var a = item.pick.article;
+      story.appendChild(el("p", { class: "story-label", text: "Why the bot picked it · " + fmtLongDate(item.pick.date) }));
+      story.appendChild(el("p", { text: item.pick.reason }));
+      if (item.watchNote) story.appendChild(el("p", { class: "muted-note", text: "Market watch: " + item.watchNote }));
+      if (a && safeUrl(a.url)) story.appendChild(el("p", { class: "read-more" },
+        el("span", { class: "src", text: a.source }), " · ", articleLink(a.url, "Read the article ↗", null)));
+    } else {
+      var w = watchlist.find(function (x) { return x.ticker === t; }) || {};
+      story.appendChild(el("p", { class: "story-label", text: "What's going on" + (w.note_date ? " · " + fmtLongDate(w.note_date) : "") }));
+      story.appendChild(el("p", { text: item.note || "Claude's notes on the market-watch stocks arrive with the next morning run." }));
+    }
+    if (calls.length) story.appendChild(el("p", { class: "stock-foot" },
+      el("span", { class: "key" }, el("i", { style: "background:var(--good)" }), "Call right so far"),
+      el("span", { class: "key" }, el("i", { style: "background:var(--bad)" }), "Call wrong so far"),
+      el("span", { class: "key" }, el("i", { style: "border:2px solid var(--ink);width:6px;height:6px" }), "Too early to tell"),
+      "▲ bullish · ▼ bearish"));
+    area.appendChild(story);
 
     var table = el("table", null,
       el("thead", null, el("tr", null, el("th", { text: "Date" }), el("th", { class: "r", text: "Close" }))),

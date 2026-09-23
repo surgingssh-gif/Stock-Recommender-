@@ -36,7 +36,11 @@ and keep each reason to one or two plain-English sentences a beginner can follow
 - In "sources", list the numbers of the headlines each idea is based on, \
 most important first.
 - Include both obvious and second-order effects when they are well supported \
-(e.g. an oil spike hurting airlines)."""
+(e.g. an oil spike hurting airlines).
+- You'll also get a "market watch" list of tickers. For each one, write a \
+single short, plain-English sentence in "watchlist_notes" about what today's \
+headlines mean for it. If none of the headlines are relevant to it, say \
+"No major news today." rather than guessing."""
 
 # The exact JSON shape we want back from Claude.
 OUTPUT_SCHEMA = {
@@ -45,6 +49,19 @@ OUTPUT_SCHEMA = {
         "market_mood": {
             "type": "string",
             "description": "One or two sentences on the overall theme of today's news.",
+        },
+        # One short note per "market watch" ticker (see watchlist.py).
+        "watchlist_notes": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "ticker": {"type": "string"},
+                    "note": {"type": "string"},
+                },
+                "required": ["ticker", "note"],
+                "additionalProperties": False,
+            },
         },
         "picks": {
             "type": "array",
@@ -66,7 +83,7 @@ OUTPUT_SCHEMA = {
             },
         },
     },
-    "required": ["market_mood", "picks"],
+    "required": ["market_mood", "picks", "watchlist_notes"],
     "additionalProperties": False,
 }
 
@@ -82,11 +99,12 @@ def _format_headlines(headlines):
     return "\n".join(lines)
 
 
-def analyze_headlines(headlines, api_key):
+def analyze_headlines(headlines, api_key, watchlist=None):
     """
     Returns a dict: {"market_mood": "...", "picks": [ {ticker, company,
     direction, confidence, reason, sources}, ... ]}
-    where "sources" are the numbers (starting at 1) of the headlines used.
+    where "sources" are the numbers (starting at 1) of the headlines used,
+    plus "watchlist_notes": [ {ticker, note}, ... ] for the watchlist tickers.
 
     Raises an exception if Claude can't be reached or declines to answer,
     so the caller can report it.
@@ -98,6 +116,11 @@ def analyze_headlines(headlines, api_key):
         "Here are the latest headlines. Suggest stock ideas based on them.\n\n"
         + _format_headlines(headlines)
     )
+    if watchlist:
+        user_message += (
+            "\n\nMarket watch tickers (write one note for each): "
+            + ", ".join(f"{t} ({name})" for t, name in watchlist.items())
+        )
 
     response = client.beta.messages.create(
         model=model,
@@ -126,7 +149,7 @@ def analyze_headlines(headlines, api_key):
     result = json.loads(text)
 
     # Clean up ticker symbols (e.g. " xom" -> "XOM").
-    for pick in result["picks"]:
-        pick["ticker"] = pick["ticker"].strip().upper().lstrip("$")
+    for item in result["picks"] + result.get("watchlist_notes", []):
+        item["ticker"] = item["ticker"].strip().upper().lstrip("$")
 
     return result
