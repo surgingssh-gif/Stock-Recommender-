@@ -365,8 +365,104 @@
       topBuys.length && others.length ? el("h3", { class: "more-calls", text: "More of today's calls" }) : null,
       // With a Top 5 above, the other calls use the same compact rows.
       topBuys.length && others.length ? el("div", { class: "call-list" }, others.map(callRow)) : null,
-      !topBuys.length && others.length ? stories : null
+      !topBuys.length && others.length ? stories : null,
+      el("div", { class: "band" },
+        el("section", { class: "band-main", id: "sectors", "aria-labelledby": "sectors-h" }),
+        el("section", { class: "band-side", id: "calendar", "aria-labelledby": "calendar-h" }))
     ]);
+    renderSectors();
+    renderCalendar();
+  }
+
+  // ---------------------------------------------------------------------------
+  // Sector heat map: which parts of the market were up or down
+  // ---------------------------------------------------------------------------
+
+  var SECTOR_RANGES = [["1D", "Day", 2], ["1W", "Week", 4], ["1M", "Month", 8], ["3M", "3 months", 15]];
+  var sectorRange = "1D";
+
+  function renderSectors() {
+    var box = document.getElementById("sectors");
+    if (!box) return;
+    clear(box);
+    var sectors = (DATA.sectors || []).filter(function (x) { return x.changes[sectorRange] !== null && x.changes[sectorRange] !== undefined; });
+    var range = SECTOR_RANGES.find(function (r) { return r[0] === sectorRange; });
+    var pills = el("div", { class: "range-picker", role: "group", "aria-label": "Sector time range" });
+    SECTOR_RANGES.forEach(function (r) {
+      var b = el("button", { type: "button", class: "pill", "aria-pressed": String(r[0] === sectorRange), text: r[0], title: r[1] });
+      b.addEventListener("click", function () { sectorRange = r[0]; renderSectors(); });
+      pills.appendChild(b);
+    });
+    box.appendChild(el("div", { class: "band-head" }, el("h3", { id: "sectors-h", text: "Sectors" }), pills));
+    if (!sectors.length) {
+      box.appendChild(el("p", { class: "band-empty", text: "Sector prices arrive with the next run." }));
+      return;
+    }
+    // Biggest gainers first; color strength shows the size of the move.
+    sectors.sort(function (a, b) { return b.changes[sectorRange] - a.changes[sectorRange]; });
+    var cap = range[2];
+    var grid = el("div", { class: "heat", role: "list" });
+    sectors.forEach(function (x) {
+      var v = x.changes[sectorRange];
+      var strength = Math.round(8 + Math.min(Math.abs(v) / cap, 1) * 52);
+      var tone = v >= 0 ? "var(--good)" : "var(--bad)";
+      grid.appendChild(el("div", { class: "heat-tile", role: "listitem",
+        style: "background: color-mix(in srgb, " + tone + " " + strength + "%, var(--paper))",
+        title: x.name + " (" + x.ticker + "): " + fmtPct(v) + " over the past " + range[1].toLowerCase() },
+        el("span", { class: "heat-name", text: x.name }),
+        el("span", { class: "heat-val" }, el("span", { "aria-hidden": "true", text: v >= 0 ? "▲ " : "▼ " }), fmtPct(v)),
+        el("span", { class: "heat-tk", text: x.ticker })));
+    });
+    box.appendChild(grid);
+    box.appendChild(el("p", { class: "band-note" },
+      "Sector funds, ", range[1].toLowerCase() === "day" ? "latest day" : "past " + range[1].toLowerCase(),
+      ". Deeper color = bigger move (full color at ±" + cap + "%)."));
+  }
+
+  // ---------------------------------------------------------------------------
+  // Coming up: earnings dates and Fed meetings
+  // ---------------------------------------------------------------------------
+
+  var calendarAll = false;
+
+  function daysUntil(d) {
+    var today = new Date(); today.setHours(12, 0, 0, 0);
+    return Math.round((toDate(d).getTime() - today.getTime()) / 86400000);
+  }
+
+  function renderCalendar() {
+    var box = document.getElementById("calendar");
+    if (!box) return;
+    clear(box);
+    box.appendChild(el("div", { class: "band-head" }, el("h3", { id: "calendar-h", text: "Coming Up" })));
+    var events = (DATA.events || []).filter(function (e) { return daysUntil(e.date) >= 0; });
+    if (!events.length) {
+      box.appendChild(el("p", { class: "band-empty", text: "No earnings or Fed meetings in the next few weeks for the stocks on this page." }));
+      return;
+    }
+    var shown = calendarAll ? events : events.slice(0, 8);
+    var list = el("ol", { class: "cal" });
+    var lastDate = null;
+    shown.forEach(function (e) {
+      var n = daysUntil(e.date);
+      var when = n === 0 ? "Today" : n === 1 ? "Tomorrow" : "In " + n + " days";
+      var tag = e.kind === "fed" ? el("span", { class: "cal-tag fed", text: "Fed" })
+        : el("span", { class: "cal-tag", text: e.ticker });
+      var label = e.kind === "earnings" && charts[e.ticker]
+        ? chartLink(e.ticker, e.label, "cal-link") : el("span", { text: e.label });
+      list.appendChild(el("li", { class: "cal-item" + (e.date === lastDate ? " same-day" : "") },
+        el("div", { class: "cal-date" }, e.date === lastDate ? null : [
+          el("strong", { text: fmtShortDate(e.date) }), el("small", { text: when })]),
+        el("div", { class: "cal-what" }, tag, label)));
+      lastDate = e.date;
+    });
+    box.appendChild(list);
+    if (events.length > 8) {
+      var more = el("button", { type: "button", class: "tb-toggle", text: calendarAll ? "Show fewer" : "Show all " + events.length });
+      more.addEventListener("click", function () { calendarAll = !calendarAll; renderCalendar(); });
+      box.appendChild(more);
+    }
+    box.appendChild(el("p", { class: "band-note", text: "Earnings dates from Yahoo Finance can move. Fed dates from federalreserve.gov." }));
   }
 
   /* A small 3-month price line for one stock, colored by its trend. */
@@ -569,6 +665,46 @@
   // ---------------------------------------------------------------------------
 
   var top5Limit = 10;  // days shown before "Show older days"
+
+  // ---------------------------------------------------------------------------
+  // Weekly report cards
+  // ---------------------------------------------------------------------------
+
+  function gradeFor(rate) {
+    if (rate === null || rate === undefined) return "—";
+    return rate >= 70 ? "A" : rate >= 60 ? "B" : rate >= 50 ? "C" : rate >= 40 ? "D" : "F";
+  }
+
+  function renderWeeks() {
+    var box = document.getElementById("weeks");
+    clear(box);
+    var weeks = stats.weeks || [];
+    if (!weeks.length) {
+      box.appendChild(emptyChart("The first report card is on its way", "Each week gets a card here once its picks have results."));
+      return;
+    }
+    weeks.slice(0, 9).forEach(function (w) {
+      var graded = w.judged > 0;
+      var row = function (label, value) {
+        return el("div", { class: "wk-row" }, el("span", { text: label }), el("strong", null, value));
+      };
+      var brief = function (b) {
+        return b ? [b.ticker + " ", changePill(b.directional_return_pct)] : "—";
+      };
+      box.appendChild(el("article", { class: "wk" },
+        el("div", { class: "wk-head" },
+          el("div", null,
+            el("h3", { text: "Week of " + fmtShortDate(w.week_start) }),
+            el("small", { text: w.count + " ideas over " + w.days + (w.days === 1 ? " day" : " days") })),
+          el("div", { class: "wk-grade" + (graded ? "" : " pending"), title: graded ? "Grade based on the share of calls that were right" : "Too early to grade" },
+            el("span", { text: graded ? gradeFor(w.hit_rate) : "…" }),
+            el("small", { text: graded ? Math.round(w.hit_rate) + "% right" : "Pending" }))),
+        row("Average move for the calls", w.avg_directional_return === null ? "—" : changePill(w.avg_directional_return)),
+        row("Top 5 buys", w.top5_count ? (w.top5_hit_rate === null ? "Pending" : Math.round(w.top5_hit_rate) + "% right") : "—"),
+        row("Best call", brief(w.best)),
+        row("Worst call", brief(w.worst))));
+    });
+  }
 
   function renderTop5Record() {
     var box = document.getElementById("top5-record");
@@ -1123,6 +1259,12 @@
       statTile("3 months", pctOrDash(changeOver(full, 91))),
       statTile("6 months", pctOrDash(changeOver(full, 182))),
       statTile("6-month range", fmtPrice(Math.min.apply(null, vals)) + " – " + fmtPrice(Math.max.apply(null, vals)))));
+    var earn = (DATA.events || []).find(function (e) { return e.kind === "earnings" && e.ticker === item.ticker && daysUntil(e.date) >= 0; });
+    if (earn) {
+      var n = daysUntil(earn.date);
+      body.appendChild(el("p", { class: "m-earnings" }, el("strong", { text: "Next earnings: " }),
+        fmtLongDate(earn.date) + " (" + (n === 0 ? "today" : n === 1 ? "tomorrow" : "in " + n + " days") + ")"));
+    }
 
     // The bot's call (for picks), with its news story.
     if (item.kind === "pick") {
@@ -1587,6 +1729,7 @@
   renderLead();
   renderScorecard();
   renderTop5Record();
+  renderWeeks();
   renderMarkets();
   setupFinder();
   setupRecord();

@@ -264,6 +264,45 @@ a { color: inherit; }
 .more-calls { margin: 30px 0 0; font: 600 10px/1.2 var(--sans); letter-spacing: .12em; text-transform: uppercase; color: var(--ink-2); }
 .more-calls + .stories, .more-calls + .call-list { margin-top: 8px; }
 
+/* ---- Today: sectors heat map + "Coming up" calendar ------------------------- */
+.band { display: grid; grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr); margin-top: 34px; border-top: 2px solid var(--rule); }
+.band-main { padding: 12px 28px 0 0; }
+.band-side { padding: 12px 0 0 28px; border-left: 1px solid var(--hair); }
+.band-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; min-height: 34px; margin-bottom: 10px; }
+.band-head h3 { margin: 0; font: 700 20px/1.2 var(--serif); }
+.band-head .range-picker .pill { padding: 5px 10px; font-size: 11px; }
+.band-empty, .band-note { font: 400 11px/1.5 var(--sans); color: var(--muted); margin: 10px 0 0; }
+.heat { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 4px; }
+.heat-tile { display: flex; flex-direction: column; gap: 3px; padding: 10px 10px 9px; border-radius: 4px; min-height: 74px; }
+.heat-name { font: 600 11.5px/1.25 var(--sans); }
+.heat-val { font: 700 16px/1.1 var(--sans); font-variant-numeric: tabular-nums; margin-top: auto; }
+.heat-val span { font-size: 10px; vertical-align: 2px; }
+.heat-tk { font: 500 10px/1 var(--sans); color: var(--ink-2); letter-spacing: .04em; }
+.cal { list-style: none; margin: 0; padding: 0; }
+.cal-item { display: grid; grid-template-columns: 78px minmax(0, 1fr); gap: 10px; padding: 7px 0; border-top: 1px solid var(--hair); }
+.cal-item.same-day { border-top: none; padding-top: 0; }
+.cal-date strong { display: block; font: 600 12px/1.3 var(--sans); }
+.cal-date small { font: 400 11px/1.3 var(--sans); color: var(--muted); }
+.cal-what { font: 400 12.5px/1.4 var(--sans); display: flex; gap: 7px; align-items: baseline; min-width: 0; }
+.cal-tag { flex: none; font: 700 10px/1 var(--sans); letter-spacing: .04em; padding: 3px 5px; border-radius: 3px; background: var(--paper-2); border: 1px solid var(--hair); }
+.cal-tag.fed { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.cal-link { color: inherit; }
+.m-earnings { font: 400 12px/1.4 var(--sans); color: var(--ink-2); margin: 10px 0 0; }
+
+/* ---- Results: weekly report cards ---------------------------------------- */
+.weeks { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.wk { border: 1px solid var(--hair); border-radius: 6px; padding: 16px 16px 10px; }
+.wk-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; padding-bottom: 10px; border-bottom: 1px solid var(--hair); }
+.wk-head h3 { margin: 0; font: 700 17px/1.25 var(--serif); }
+.wk-head small { font: 400 11px/1.4 var(--sans); color: var(--muted); }
+.wk-grade { text-align: center; flex: none; }
+.wk-grade span { display: block; font: 700 34px/1 var(--serif); color: var(--good); }
+.wk-grade.pending span { color: var(--muted); }
+.wk-grade small { font: 400 10.5px/1.3 var(--sans); color: var(--muted); }
+.wk-row { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 7px 0; border-bottom: 1px solid var(--hair); font: 400 12px/1.3 var(--sans); }
+.wk-row:last-child { border-bottom: none; }
+.wk-row strong { font-weight: 600; white-space: nowrap; }
+
 /* ---- Scorecard ----------------------------------------------------------- */
 .hero-label { font: 600 10px/1.2 var(--sans); letter-spacing: .12em; text-transform: uppercase; color: var(--ink-2); margin: 0; }
 .hero-figure { font: 700 48px/1 var(--sans); letter-spacing: -.02em; margin: 8px 0 6px; }
@@ -553,6 +592,10 @@ footer .disclaimer { font: 400 italic 13px/1.4 var(--serif); color: var(--ink); 
 
 /* ---- Smaller screens ------------------------------------------------------ */
 @media (max-width: 980px) {
+  .band { grid-template-columns: 1fr; }
+  .band-main { padding-right: 0; }
+  .band-side { padding: 22px 0 0; border-left: none; border-top: 1px solid var(--hair); margin-top: 22px; }
+  .weeks { grid-template-columns: 1fr 1fr; }
   .top5-record { grid-template-columns: 1fr; }
   .t5-compare { padding-right: 0; margin-bottom: 22px; }
   .t5-days { padding-left: 0; border-left: none; }
@@ -575,6 +618,8 @@ footer .disclaimer { font: 400 italic 13px/1.4 var(--serif); color: var(--ink); 
   .day:nth-child(2n) { padding-right: 0; }
 }
 @media (max-width: 680px) {
+  .heat { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .weeks { grid-template-columns: 1fr; }
   /* One scrolling row of menu links instead of two wrapped rows. */
   .sections { flex-wrap: nowrap; justify-content: flex-start; overflow-x: auto; scrollbar-width: none; gap: 18px; padding: 6px 0; }
   .sections::-webkit-scrollbar { display: none; }
@@ -676,6 +721,8 @@ footer .disclaimer { font: 400 italic 13px/1.4 var(--serif); color: var(--ink); 
       <div class="scorecard" id="scorecard"></div>
       <div class="section-head"><h2 id="top5-h">How the Top 5 Did</h2><p>Each day's ranked top buys, measured from the price when they were picked.</p></div>
       <div class="top5-record" id="top5-record"></div>
+      <div class="section-head"><h2 id="weeks-h">Weekly Report Cards</h2><p>Graded on the share of calls that were right: A 70%+, B 60%+, C 50%+, D 40%+.</p></div>
+      <div class="weeks" id="weeks"></div>
       <div class="section-head"><h2 id="charts-h">Every Call, Scored</h2></div>
       <div class="chart-grid">
         <figure id="calls-figure"></figure>
@@ -726,8 +773,8 @@ footer .disclaimer { font: 400 italic 13px/1.4 var(--serif); color: var(--ink); 
       <div class="section-head"><h2 id="about-h">How It Works</h2></div>
       <div class="about">
         <div><h3>The reading</h3><p>Each weekday morning the bot pulls the latest business and world headlines from Finnhub, then sends them all to Claude in a single request.</p></div>
-        <div><h3>The calls</h3><p>Claude names a handful of US-listed stocks or ETFs the news could move, says whether it leans bullish or bearish, and explains why in plain English.</p></div>
-        <div><h3>The scorecard</h3><p>Each call is checked against the latest closing price. A bullish call is right so far if the stock is up since it was picked; a bearish call if it's down. No trades are ever placed.</p></div>
+        <div><h3>The calls</h3><p>Claude names a handful of US-listed stocks or ETFs the news could move, says whether it leans bullish or bearish, and explains why in plain English. It also ranks its five most promising bullish ideas as the Top 5, with the risks.</p></div>
+        <div><h3>The scorecard</h3><p>After the market closes, an evening recap scores each call against the closing price, and on Fridays a weekly report card grades the week. A bullish call is right so far if the stock is up since it was picked; a bearish call if it's down. No trades are ever placed.</p></div>
       </div>
     </section>
   </main>

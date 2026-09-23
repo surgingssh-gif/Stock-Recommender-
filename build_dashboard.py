@@ -18,7 +18,7 @@ from datetime import date, datetime, timedelta, timezone
 
 import yfinance as yf
 
-from watchlist import WATCHLIST
+from watchlist import FED_MEETINGS, FUNDS, SECTORS, WATCHLIST
 
 LOG_FILE = "picks_log.csv"
 DAYS_DIR = os.path.join("data", "days")
@@ -95,6 +95,58 @@ def fetch_history(ticker, start_date):
         ]
     except Exception:
         return []
+
+
+def fetch_earnings_date(ticker):
+    """The company's next earnings date as "YYYY-MM-DD", or None if unknown."""
+    try:
+        dates = yf.Ticker(ticker).calendar.get("Earnings Date") or []
+        return min(dates).isoformat() if dates else None
+    except Exception:
+        return None
+
+
+# How far ahead the "Coming up" calendar looks.
+EVENT_DAYS_AHEAD = 45
+
+
+def build_events(earnings, names, today):
+    """
+    The "Coming up" calendar: upcoming earnings dates (from `earnings`,
+    ticker -> date) plus Fed meetings, soonest first. `today` is "YYYY-MM-DD".
+    """
+    end = (date.fromisoformat(today) + timedelta(days=EVENT_DAYS_AHEAD)).isoformat()
+    events = [
+        {"date": d, "kind": "earnings", "ticker": t, "label": f"{names.get(t) or t} earnings"}
+        for t, d in earnings.items()
+        if d and today <= d <= end
+    ]
+    events += [
+        {"date": d, "kind": "fed", "ticker": None, "label": "Fed interest-rate decision"}
+        for d in FED_MEETINGS
+        if today <= d <= end
+    ]
+    return sorted(events, key=lambda e: (e["date"], e["label"]))
+
+
+def sector_moves(histories):
+    """
+    For the sector heat map: each sector fund's move over the last day,
+    week (5 trading days), month (21) and 3 months (63), in percent.
+    """
+    periods = {"1D": 1, "1W": 5, "1M": 21, "3M": 63}
+    sectors = []
+    for ticker, name in SECTORS.items():
+        closes = [c for _, c in histories.get(ticker, [])]
+        if len(closes) < 2:
+            continue
+        changes = {
+            label: round((closes[-1] - closes[-1 - n]) / closes[-1 - n] * 100, 2) + 0.0
+            if len(closes) > n else None
+            for label, n in periods.items()
+        }
+        sectors.append({"ticker": ticker, "name": name, "changes": changes})
+    return sectors
 
 
 # --- Scorecard math ----------------------------------------------------------
@@ -219,6 +271,38 @@ def top_buys_record(picks):
     }
 
 
+def weekly_report(picks):
+    """
+    One "report card" per week (Monday to Friday), newest first: how many
+    ideas, how often they were right, the average move, the best and worst
+    call, and how the Top 5 did.
+    """
+    weeks = {}
+    for p in picks:
+        monday = date.fromisoformat(p["date"]) - timedelta(days=date.fromisoformat(p["date"]).weekday())
+        weeks.setdefault(monday.isoformat(), []).append(p)
+    cards = []
+    for monday, ps in sorted(weeks.items(), reverse=True):
+        scored = [p for p in ps if p["directional_return_pct"] is not None]
+        top = [p for p in ps if p.get("top_rank")]
+        cards.append({
+            "week_start": monday,
+            "week_end": (date.fromisoformat(monday) + timedelta(days=4)).isoformat(),
+            "days": len({p["date"] for p in ps}),
+            "count": len(ps),
+            "judged": len([p for p in ps if p["correct"] is not None]),
+            "correct": len([p for p in ps if p["correct"]]),
+            "hit_rate": _hit_rate(ps),
+            "avg_directional_return": _average([p["directional_return_pct"] for p in ps]),
+            "best": _brief(max(scored, key=lambda p: p["directional_return_pct"], default=None)),
+            "worst": _brief(min(scored, key=lambda p: p["directional_return_pct"], default=None)),
+            "top5_count": len(top),
+            "top5_hit_rate": _hit_rate(top),
+            "top5_avg": _average([p["directional_return_pct"] for p in top]),
+        })
+    return cards
+
+
 def latest_run_only(picks, days):
     """
     If the bot ran more than once on the same day, picks_log.csv has rows
@@ -333,7 +417,7 @@ def _brief(pick):
 
 # --- Putting it together -----------------------------------------------------
 
-def build_data(picks, days, histories):
+def build_data(picks, days, histories, events=None):
     """
     Combines picks, daily details and price histories into the one object
     the web page needs. Kept separate from the network calls so it can be
@@ -385,14 +469,20 @@ def build_data(picks, days, histories):
 
     stats = summarize(enriched)
     stats["top_buys"] = top_buys_record(enriched)
+    stats["weeks"] = weekly_report(enriched)
 
     return {
         "generated_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
         "stats": stats,
         "picks": enriched,
         "days": day_list,
-        # Full price history per ticker, for the stock charts.
-        "charts": {t: h for t, h in sorted(histories.items()) if h},
+        # Full price history per ticker, for the stock charts (not the sector funds,
+        # which only need the numbers in "sectors").
+        "charts": {t: h for t, h in sorted(histories.items()) if h and t not in SECTORS},
+        # The sector heat map.
+        "sectors": sector_moves(histories),
+        # The "Coming up" calendar (earnings dates and Fed meetings).
+        "events": events or [],
         # The "market watch" stocks, with the latest note Claude wrote for each.
         "watchlist": _watchlist_cards(days),
         # Today's "Top 5 buys", with the longer "why" for each.
@@ -408,15 +498,24 @@ def main():
     first_seen = {}
     for p in picks:
         first_seen[p["ticker"]] = min(p["date"], first_seen.get(p["ticker"], p["date"]))
-    # Market-watch stocks get the same ~6 months of history, counted from today.
-    for t in WATCHLIST:
+    # Market-watch stocks and sector funds get the same ~6 months of history, counted from today.
+    for t in list(WATCHLIST) + list(SECTORS):
         first_seen.setdefault(t, date.today().isoformat())
     histories = {t: fetch_history(t, d) for t, d in first_seen.items()}
     missing = [t for t, h in histories.items() if not h]
     if missing:
         print(f"No price history for: {', '.join(missing)}")
 
-    data = build_data(picks, days, histories)
+    # Upcoming earnings for the companies on the page (the last 10 days' picks
+    # plus the market-watch list). Funds don't have earnings, so skip them.
+    recent = sorted({p["date"] for p in picks}, reverse=True)[:HEADLINE_DAYS]
+    names = {d["ticker"]: d.get("company") for day in days.values() for d in day.get("picks", [])}
+    names.update(WATCHLIST)
+    companies = {p["ticker"] for p in picks if p["date"] in recent} | set(WATCHLIST)
+    earnings = {t: fetch_earnings_date(t) for t in sorted(companies - FUNDS)}
+    events = build_events(earnings, names, date.today().isoformat())
+
+    data = build_data(picks, days, histories, events)
 
     os.makedirs(os.path.dirname(OUTPUT_FILE), exist_ok=True)
     with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
