@@ -325,7 +325,7 @@
   }
 
   function storyFor(p, cls) {
-    var move = p.return_pct === null || p.return_pct === undefined ? "No price yet" : fmtPct(p.return_pct) + " since pick";
+    var move = p.return_pct === null || p.return_pct === undefined ? "Too early to tell" : fmtPct(p.return_pct) + " since pick";
     var title = el("h3", null, el("span", { class: "ticker", text: p.ticker }), p.company || "");
     // One quiet line: "▲ Bullish · ●●○ Medium · ● Right so far".
     // The result only appears once there is one.
