@@ -1,7 +1,7 @@
 window.DASHBOARD_DATA = {
- "generated_at": "2026-09-23T03:36:39Z",
+ "generated_at": "2026-09-23T03:50:19Z",
  "stats": {
-  "total_picks": 6,
+  "total_picks": 7,
   "days_tracked": 1,
   "hit_rate": null,
   "judged": 0,
@@ -12,7 +12,7 @@ window.DASHBOARD_DATA = {
   "by_direction": [
    {
     "label": "bullish",
-    "count": 4,
+    "count": 5,
     "hit_rate": null,
     "avg_directional_return": null
    },
@@ -38,7 +38,7 @@ window.DASHBOARD_DATA = {
    },
    {
     "label": "low",
-    "count": 1,
+    "count": 2,
     "hit_rate": null,
     "avg_directional_return": null
    }
@@ -46,7 +46,7 @@ window.DASHBOARD_DATA = {
   "by_day": [
    {
     "date": "2026-09-22",
-    "count": 6,
+    "count": 7,
     "hit_rate": null,
     "avg_directional_return": null
    }
@@ -57,7 +57,7 @@ window.DASHBOARD_DATA = {
    "date": "2026-09-22",
    "ticker": "XOM",
    "direction": "bearish",
-   "reason": "Oil prices are falling on more Gulf supply and optimism that US-Iran talks could reopen the Strait of Hormuz, which squeezes oil producers' revenue.",
+   "reason": "Crude slipped on higher Gulf supply and optimism about US-Iran talks and a Hormuz reopening, which trims the price backdrop for big oil producers.",
    "price_at_pick": 158.3,
    "company": "Exxon Mobil",
    "confidence": "medium",
@@ -82,7 +82,7 @@ window.DASHBOARD_DATA = {
    "date": "2026-09-22",
    "ticker": "DAL",
    "direction": "bullish",
-   "reason": "Cheaper crude means lower jet fuel costs, a classic second-order benefit for airlines, and calmer Middle East headlines help international travel demand.",
+   "reason": "Cheaper jet fuel from falling crude is a direct cost win for airlines, and calmer Middle East headlines support international travel demand.",
    "price_at_pick": 82.5,
    "company": "Delta Air Lines",
    "confidence": "medium",
@@ -107,7 +107,7 @@ window.DASHBOARD_DATA = {
    "date": "2026-09-22",
    "ticker": "CPRI",
    "direction": "bullish",
-   "reason": "Shares jumped on reports of takeover interest, with one analyst putting a buyout value at $25-$26 per share.",
+   "reason": "Reports of takeover interest with an analyst valuing the company at $25-$26 a share put a deal premium under the stock.",
    "price_at_pick": 14.31,
    "company": "Capri Holdings",
    "confidence": "medium",
@@ -132,7 +132,7 @@ window.DASHBOARD_DATA = {
    "date": "2026-09-22",
    "ticker": "BHF",
    "direction": "bullish",
-   "reason": "The stock rose on a report that Sixth Street is reviving its effort to acquire the insurer.",
+   "reason": "Shares jumped on a report that Sixth Street is reviving its takeover effort, a classic deal catalyst.",
    "price_at_pick": 49.84,
    "company": "Brighthouse Financial",
    "confidence": "medium",
@@ -155,34 +155,9 @@ window.DASHBOARD_DATA = {
   },
   {
    "date": "2026-09-22",
-   "ticker": "CSCO",
-   "direction": "bearish",
-   "reason": "Piper Sandler cut its price target on worries that networking growth is peaking, and the stock fell about 5%.",
-   "price_at_pick": 111.46,
-   "company": "Cisco Systems",
-   "confidence": "medium",
-   "article": {
-    "headline": "Cisco stock sinks 5% after Piper Sandler cuts price target on growth concerns",
-    "source": "CNBC",
-    "url": "https://www.cnbc.com/2026/09/22/cisco-stock-piper-sandler-price-target.html",
-    "image": "https://image.cnbcfm.com/api/v1/image/108291985-1776277173996-gettyimages-2270936890-AFP_A7XF2FB.jpeg?v=1776277198&w=1920&h=1080"
-   },
-   "history": [
-    [
-     "2026-09-21",
-     111.46
-    ]
-   ],
-   "price_now": null,
-   "return_pct": null,
-   "directional_return_pct": null,
-   "correct": null
-  },
-  {
-   "date": "2026-09-22",
    "ticker": "RCL",
    "direction": "bullish",
-   "reason": "Royal Caribbean is near a roughly $3 billion deal for half of Sandals, expanding it beyond cruises into land-based resorts.",
+   "reason": "A near-$3 billion deal for half of Sandals would push the company beyond cruises into all-inclusive resorts, broadening its growth story.",
    "price_at_pick": 250.25,
    "company": "Royal Caribbean",
    "confidence": "low",
@@ -202,12 +177,62 @@ window.DASHBOARD_DATA = {
    "return_pct": null,
    "directional_return_pct": null,
    "correct": null
+  },
+  {
+   "date": "2026-09-22",
+   "ticker": "CSCO",
+   "direction": "bearish",
+   "reason": "The stock sank 5% after Piper Sandler cut its target on worries that networking growth is peaking after a record summer run.",
+   "price_at_pick": 111.46,
+   "company": "Cisco Systems",
+   "confidence": "low",
+   "article": {
+    "headline": "Cisco stock sinks 5% after Piper Sandler cuts price target on growth concerns",
+    "source": "CNBC",
+    "url": "https://www.cnbc.com/2026/09/22/cisco-stock-piper-sandler-price-target.html",
+    "image": "https://image.cnbcfm.com/api/v1/image/108291985-1776277173996-gettyimages-2270936890-AFP_A7XF2FB.jpeg?v=1776277198&w=1920&h=1080"
+   },
+   "history": [
+    [
+     "2026-09-21",
+     111.46
+    ]
+   ],
+   "price_now": null,
+   "return_pct": null,
+   "directional_return_pct": null,
+   "correct": null
+  },
+  {
+   "date": "2026-09-22",
+   "ticker": "NVDA",
+   "direction": "bullish",
+   "reason": "AI leadership plus near-term catalysts keep the Nasdaq's engine running.",
+   "price_at_pick": 227.38,
+   "company": "NVIDIA",
+   "confidence": "medium",
+   "article": {
+    "headline": "A top chip stock analyst sees big things for Nvidia, Broadcom. How his case aligns with ours",
+    "source": "CNBC",
+    "url": "https://www.cnbc.com/2026/09/22/a-top-chip-stock-analyst-sees-big-things-for-nvidia-broadcom-how-his-case-aligns-with-ours.html",
+    "image": "https://image.cnbcfm.com/api/v1/image/108279787-1773856963026-gettyimages-2266693711-NVIDIA_GTC.jpeg?v=1779315606&w=1920&h=1080"
+   },
+   "history": [
+    [
+     "2026-09-21",
+     227.38
+    ]
+   ],
+   "price_now": null,
+   "return_pct": null,
+   "directional_return_pct": null,
+   "correct": null
   }
  ],
  "days": [
   {
    "date": "2026-09-22",
-   "market_mood": "Risk appetite is firm: US-Iran diplomacy over the Strait of Hormuz is pulling oil lower and lifting stocks, while AI enthusiasm pushed the Nasdaq to an intraday record. A strong dollar and talk of possible rate hikes are the main offsetting worries, alongside a busy M&A tape.",
+   "market_mood": "Risk appetite is up: hopes for a US-Iran deal and a possible reopening of Hormuz are pushing oil down even as Trump threatens Iran, while an AI-led rally lifted the Nasdaq to an intraday record. A busy M&A tape (Capri, Brighthouse, Royal Caribbean/Sandals, Goldman/Palmer Square) adds deal-driven single-stock moves.",
    "headlines": [
     {
      "headline": "Oil falls on increased Gulf supply and hopes for US-Iran talks - Reuters",
@@ -300,7 +325,9 @@ window.DASHBOARD_DATA = {
      "summary": "The bullish sentiment comes despite calls to slow down AI model development and rekindled investor enthusiasm for a competing part of the AI chip ecosystem.",
      "url": "https://www.cnbc.com/2026/09/22/a-top-chip-stock-analyst-sees-big-things-for-nvidia-broadcom-how-his-case-aligns-with-ours.html",
      "image": "https://image.cnbcfm.com/api/v1/image/108279787-1773856963026-gettyimages-2266693711-NVIDIA_GTC.jpeg?v=1779315606&w=1920&h=1080",
-     "tickers": []
+     "tickers": [
+      "NVDA"
+     ]
     },
     {
      "headline": "PODCAST: Trump's UN speech, ICC sanctions and Turkey's LGBTQ+ crackdown (Updated) - Reuters",
@@ -475,7 +502,9 @@ window.DASHBOARD_DATA = {
      "summary": "A curious dynamic is happening in shares of Nvidia ahead of two potential catalysts this month.",
      "url": "https://www.cnbc.com/2026/09/22/nvidia-options-are-doing-something-unusual-ahead-of-two-catalysts-heres-how-one-trader-is-playing-it.html",
      "image": "https://image.cnbcfm.com/api/v1/image/108364527-1789665953765-gettyimages-2294936867-2026_sep_14_dreamforce_2974.jpeg?v=1789665981&w=1920&h=1080",
-     "tickers": []
+     "tickers": [
+      "NVDA"
+     ]
     },
     {
      "headline": "EXCLUSIVE: Saudi Aramco plans reorganisation to create gas division, sources say - Reuters",
@@ -511,7 +540,9 @@ window.DASHBOARD_DATA = {
      "summary": "Nasdaq hits intraday record high on tech boost, Mideast negotiation hopes\u00a0\u00a0Reuters",
      "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxOOUI2bTZ5ZFhnZUozYjg5LXM1WHhuT24xUS0zYmRRZkViWVBreE05ZTNMWFBDSGhHTXUyQ3ZyMWhsUFdxSUlxUXVUUXVHWGRVelg3Z2RuVXo3bndwaXJfRXhEUEFERFNSUVZoaDNERnFxdnhuNkxLdVhnNDRpRGhxYndETzVJdVNnZXJESmpMNmw5QVFQODFGY2w2NzVCcFl0bXBSNjRaTQ?oc=5",
      "image": "",
-     "tickers": []
+     "tickers": [
+      "NVDA"
+     ]
     },
     {
      "headline": "Superior Announces Definitive Agreement to Acquire Welltec International, Expanding Its Intervention and Completions Portfolio and Global Reach",
@@ -778,8 +809,9 @@ window.DASHBOARD_DATA = {
     "DAL",
     "CPRI",
     "BHF",
+    "RCL",
     "CSCO",
-    "RCL"
+    "NVDA"
    ]
   }
  ],
@@ -6682,6 +6714,10 @@ window.DASHBOARD_DATA = {
   ],
   "NVDA": [
    [
+    "2026-03-26",
+    170.85
+   ],
+   [
     "2026-03-27",
     167.14
    ],
@@ -10123,49 +10159,49 @@ window.DASHBOARD_DATA = {
   {
    "ticker": "SPY",
    "name": "S&P 500 (index fund)",
-   "note": "S&P 500 is close to a record as Middle East de-escalation hopes and cheaper oil support sentiment.",
+   "note": "Near record highs as falling oil and Middle East negotiation hopes support sentiment, though rate-hike chatter is a headwind.",
    "note_date": "2026-09-22"
   },
   {
    "ticker": "QQQ",
    "name": "Nasdaq 100 (index fund)",
-   "note": "Nasdaq 100 hit an intraday record on AI-driven buying, though some traders are trimming tech profits.",
+   "note": "Nasdaq hit an intraday record on AI enthusiasm, keeping tech-heavy funds in the spotlight.",
    "note_date": "2026-09-22"
   },
   {
    "ticker": "DIA",
    "name": "Dow Jones (index fund)",
-   "note": "Dow is supported by the risk-on tone, but energy and bank weakness could cap gains.",
+   "note": "Broad market strength helps, but bank and energy weakness caps Dow upside.",
    "note_date": "2026-09-22"
   },
   {
    "ticker": "AAPL",
    "name": "Apple",
-   "note": "No major company-specific news today; it moves with the broad tech rally.",
+   "note": "No major news today.",
    "note_date": "2026-09-22"
   },
   {
    "ticker": "MSFT",
    "name": "Microsoft",
-   "note": "No major news today beyond the general AI-led tech strength.",
+   "note": "No company-specific news; rides the general AI-driven tech rally.",
    "note_date": "2026-09-22"
   },
   {
    "ticker": "NVDA",
    "name": "NVIDIA",
-   "note": "A top chip analyst is bullish on Nvidia and unusual options activity is building ahead of upcoming catalysts.",
+   "note": "Analysts remain bullish and options activity is unusual ahead of near-term catalysts.",
    "note_date": "2026-09-22"
   },
   {
    "ticker": "AMZN",
    "name": "Amazon",
-   "note": "No major news today; benefits indirectly from the broad tech rally.",
+   "note": "No major news today.",
    "note_date": "2026-09-22"
   },
   {
    "ticker": "GOOGL",
    "name": "Alphabet (Google)",
-   "note": "No major news today aside from ongoing AI-sector optimism.",
+   "note": "No major news today.",
    "note_date": "2026-09-22"
   },
   {
@@ -10177,32 +10213,192 @@ window.DASHBOARD_DATA = {
   {
    "ticker": "TSLA",
    "name": "Tesla",
-   "note": "Mercedes partnering with Wayve on self-driving is a reminder that autonomy competition is widening.",
+   "note": "Mercedes teaming with Wayve on self-driving is a reminder that autonomy rivals keep multiplying.",
    "note_date": "2026-09-22"
   },
   {
    "ticker": "JPM",
    "name": "JPMorgan Chase",
-   "note": "Banks lagged in Europe, and Goldman's reported talks for a $37B credit firm show large-cap banks still hunting deals.",
+   "note": "Banks weighed on markets abroad, but Goldman's reported $37B Palmer Square deal shows financial M&A is heating up.",
    "note_date": "2026-09-22"
   },
   {
    "ticker": "XOM",
    "name": "Exxon Mobil",
-   "note": "Falling crude on Gulf supply and US-Iran talks is a headwind for oil producers.",
+   "note": "Oil fell on more Gulf supply and US-Iran talks, a negative for oil producers' near-term earnings.",
    "note_date": "2026-09-22"
   },
   {
    "ticker": "GLD",
    "name": "Gold (fund)",
-   "note": "A dollar near two-month highs and easing Middle East tension reduce the safe-haven bid for gold.",
+   "note": "A dollar near two-month highs and easing Iran tensions reduce safe-haven demand for gold.",
    "note_date": "2026-09-22"
   },
   {
    "ticker": "TLT",
    "name": "Long-term US Treasury bonds (fund)",
-   "note": "Chatter about possible rate hikes keeps pressure on long-dated Treasury prices.",
+   "note": "Markets weighing possible rate hikes keeps pressure on long-dated Treasury prices.",
    "note_date": "2026-09-22"
+  }
+ ],
+ "top_buys": [
+  {
+   "ticker": "CPRI",
+   "company": "Capri Holdings",
+   "confidence": "medium",
+   "pitch": "Takeover chatter with a concrete analyst price range gives a clear catalyst.",
+   "why": "Shares jumped on a report of takeover interest, and an analyst pegged potential deal value at $25-$26 per share. Buyout speculation in a beaten-down luxury name can support the price while talks are live. The company has already been through a failed merger, so a motivated buyer is plausible.",
+   "risks": "Takeover reports often go nowhere, and if talks collapse the stock can give back the entire pop; the underlying luxury handbag business remains soft.",
+   "watch": "Any confirmation or denial of formal talks and the next quarterly results.",
+   "sources": [
+    43,
+    20
+   ],
+   "rank": 1,
+   "date": "2026-09-22",
+   "article": {
+    "headline": "Capri Holdings jumps on report of takeover interest",
+    "source": "SeekingAlpha",
+    "url": "https://seekingalpha.com/news/4645462-capri-holdings-jumps-on-report-of-takeover-interest?utm_source=feed_news_m_a&utm_medium=referral&feed_item_type=news",
+    "image": ""
+   },
+   "price_at_pick": 14.31,
+   "price_now": null,
+   "return_pct": null,
+   "correct": null,
+   "history": [
+    [
+     "2026-09-21",
+     14.31
+    ]
+   ]
+  },
+  {
+   "ticker": "NVDA",
+   "company": "NVIDIA",
+   "confidence": "medium",
+   "pitch": "AI leadership plus near-term catalysts keep the Nasdaq's engine running.",
+   "why": "A top chip analyst reiterated a bullish case on Nvidia and Broadcom, and the Nasdaq hit an intraday record on AI strength. Options activity points to traders positioning for upcoming catalysts this month. Demand for AI accelerators remains the market's dominant growth theme.",
+   "risks": "The stock is crowded and richly valued, so any hint of slowing AI capex or a hawkish Fed could trigger a sharp pullback.",
+   "watch": "The catalysts flagged this month and the next earnings report.",
+   "sources": [
+    10,
+    28,
+    32
+   ],
+   "rank": 2,
+   "date": "2026-09-22",
+   "article": {
+    "headline": "A top chip stock analyst sees big things for Nvidia, Broadcom. How his case aligns with ours",
+    "source": "CNBC",
+    "url": "https://www.cnbc.com/2026/09/22/a-top-chip-stock-analyst-sees-big-things-for-nvidia-broadcom-how-his-case-aligns-with-ours.html",
+    "image": "https://image.cnbcfm.com/api/v1/image/108279787-1773856963026-gettyimages-2266693711-NVIDIA_GTC.jpeg?v=1779315606&w=1920&h=1080"
+   },
+   "price_at_pick": 227.38,
+   "price_now": null,
+   "return_pct": null,
+   "correct": null,
+   "history": [
+    [
+     "2026-09-21",
+     227.38
+    ]
+   ]
+  },
+  {
+   "ticker": "DAL",
+   "company": "Delta Air Lines",
+   "confidence": "medium",
+   "pitch": "Falling oil is an immediate margin tailwind for airlines.",
+   "why": "Crude is easing on more Gulf supply and hopes for a US-Iran settlement, and fuel is one of an airline's biggest costs. Reduced Middle East risk also supports long-haul international demand, where Delta earns premium fares. Qantas launching ultra-long-haul New York-Sydney service shows appetite for long-haul travel is intact.",
+   "risks": "A breakdown in Iran talks could spike oil right back, and a hawkish Fed or weaker jobs market would hit travel demand.",
+   "watch": "Crude prices and Delta's next quarterly guidance update.",
+   "sources": [
+    1,
+    15,
+    27,
+    7
+   ],
+   "rank": 3,
+   "date": "2026-09-22",
+   "article": {
+    "headline": "Qantas to start selling tickets next year for its New York to Sydney nonstop flight",
+    "source": "CNBC",
+    "url": "https://www.cnbc.com/2026/09/22/qantas-flight-new-york-sydney-nonstop.html",
+    "image": "https://image.cnbcfm.com/api/v1/image/107258957-1687219415290-gettyimages-1187731711-qantas-1a-4_2019111514639035.jpeg?v=1790117286&w=1920&h=1080"
+   },
+   "price_at_pick": 82.5,
+   "price_now": null,
+   "return_pct": null,
+   "correct": null,
+   "history": [
+    [
+     "2026-09-21",
+     82.5
+    ]
+   ]
+  },
+  {
+   "ticker": "BHF",
+   "company": "Brighthouse Financial",
+   "confidence": "medium",
+   "pitch": "A private-equity suitor is reportedly back at the table.",
+   "why": "Brighthouse rose on a report that Sixth Street is renewing its takeover effort. The insurer has long traded below book value, giving a buyer room to pay a premium. Broader financial-sector dealmaking, like Goldman's reported Palmer Square talks, suggests an active M&A environment.",
+   "risks": "Annuity deals face tough regulatory and rate-sensitivity hurdles, and a second failed process would disappoint holders.",
+   "watch": "Confirmation of exclusive talks or a formal offer price.",
+   "sources": [
+    12,
+    52
+   ],
+   "rank": 4,
+   "date": "2026-09-22",
+   "article": {
+    "headline": "Brighthouse Financial jumps on report Sixth Street looks to renew takeover effort",
+    "source": "SeekingAlpha",
+    "url": "https://seekingalpha.com/news/4645724-brighthouse-financial-jumps-on-report-sixth-street-looks-to-renew-takeover-effort?utm_source=feed_news_m_a&utm_medium=referral&feed_item_type=news",
+    "image": ""
+   },
+   "price_at_pick": 49.84,
+   "price_now": null,
+   "return_pct": null,
+   "correct": null,
+   "history": [
+    [
+     "2026-09-21",
+     49.84
+    ]
+   ]
+  },
+  {
+   "ticker": "RCL",
+   "company": "Royal Caribbean",
+   "confidence": "low",
+   "pitch": "Expanding from cruises into land-based all-inclusive resorts via Sandals.",
+   "why": "Royal Caribbean is near a $3 billion deal for a 50% stake in Sandals, widening its vacation platform beyond ships. Lower fuel prices also help cruise operating costs. Travel demand headlines remain constructive.",
+   "risks": "A large cash outlay adds leverage and integration risk, and consumer spending on discretionary travel can fade quickly in a downturn.",
+   "watch": "Official deal terms, financing details, and the next bookings commentary.",
+   "sources": [
+    16,
+    1
+   ],
+   "rank": 5,
+   "date": "2026-09-22",
+   "article": {
+    "headline": "Royal Caribbean nears $3 billion deal to take 50% equity stake in Sandals",
+    "source": "CNBC",
+    "url": "https://www.cnbc.com/2026/09/22/royal-caribbean-sandals.html",
+    "image": "https://image.cnbcfm.com/api/v1/image/108366440-1790105281800-gettyimages-2161029164-AFP_363W4FY.jpeg?v=1790105475&w=1920&h=1080"
+   },
+   "price_at_pick": 250.25,
+   "price_now": null,
+   "return_pct": null,
+   "correct": null,
+   "history": [
+    [
+     "2026-09-21",
+     250.25
+    ]
+   ]
   }
  ]
 };
