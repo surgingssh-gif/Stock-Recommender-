@@ -40,10 +40,12 @@ Ideas for research only, not financial advice.
 | `picks_log.py` | Adds each pick to `picks_log.csv`. |
 | `discord_notify.py` | Builds the message and posts it to Discord. |
 | `watchlist.py` | The "Market watch" stocks shown on the Stock Charts tab every day. Edit it to add or remove stocks. |
+| `recap.py` | The evening recap: after the market closes, posts how the day's picks moved (and a weekly report card on Fridays). |
 | `build_dashboard.py` | Scores every pick against the latest prices and writes the dashboard data (`docs/data.js`). |
 | `docs/` | The dashboard web page (`index.html`, `app.js`) and its data. |
 | `data/days/` | One file per day with extra details: market mood, confidence, and the headlines Claude read (with links and photos). |
 | `.github/workflows/daily.yml` | Tells GitHub to run the bot every weekday morning. |
+| `.github/workflows/recap.yml` | Tells GitHub to send the evening recap every weekday after the close. |
 | `tests/test_bot.py` | Automatic checks that use fake data, so no keys are needed. |
 
 If something breaks (for example, Finnhub is down), the bot still sends a
@@ -162,6 +164,18 @@ stocks moved on the latest day. Click any of them for its chart. Use **Find a st
 (top right) to open any stock's chart, and the ‹ › buttons in the chart popup to
 flip through them. The daily Discord message links to the dashboard. To use a
 different address, add a `DASHBOARD_URL` secret.
+
+**Sectors and Coming Up:** the bottom of the Today tab has a heat map of the 11 market
+sectors (switch between day, week, month and 3 months) and a calendar of upcoming
+earnings dates and Fed meetings. The sector list and Fed dates live in `watchlist.py`.
+Add next year's Fed dates there each December.
+
+**Evening recap:** every weekday at about 5:15 PM New York time (4:15 PM in winter),
+a second automatic run posts how the morning's picks actually moved and refreshes
+the dashboard with closing prices. On Fridays it adds a week-in-review report card.
+The Results tab keeps a **Weekly Report Card** for every week, graded A-F on the
+share of calls that were right. To test it: **Actions** tab > **Evening recap** >
+**Run workflow**. To preview it on your computer: `python recap.py --dry-run`.
 
 **How the scorecard works:** each pick is compared with the latest closing price.
 A bullish call is "right so far" if the stock is up since it was picked; a bearish

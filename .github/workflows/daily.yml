@@ -43,6 +43,7 @@ jobs:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
           CLAUDE_MODEL: ${{ secrets.CLAUDE_MODEL }}
+          DASHBOARD_URL: ${{ secrets.DASHBOARD_URL }}
         run: python main.py
 
       # Rebuild the dashboard web page's data (latest prices + scorecard).

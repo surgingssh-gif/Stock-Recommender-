@@ -1,0 +1,67 @@
+# Runs after the US market closes each weekday: posts the evening recap to
+# Discord (plus a weekly report card on Fridays) and refreshes the dashboard
+# with the day's closing prices.
+name: Evening recap
+
+on:
+  schedule:
+    # 21:15 UTC, Monday-Friday = 5:15 PM New York time in summer (EDT),
+    # 4:15 PM in winter (EST) - both after the 4:00 PM close.
+    - cron: "15 21 * * 1-5"
+  # Adds a "Run workflow" button on the Actions tab. You can type an earlier
+  # date (like 2026-09-22) to recap that day instead of today.
+  workflow_dispatch:
+    inputs:
+      date:
+        description: "Day to recap (YYYY-MM-DD). Leave blank for today."
+        required: false
+        default: ""
+
+permissions:
+  contents: write
+
+# Shares a queue with the morning run, so the two never save at the same time.
+concurrency:
+  group: daily-stock-ideas
+  cancel-in-progress: false
+
+jobs:
+  recap:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download the code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install libraries
+        run: pip install -r requirements.txt
+
+      - name: Send the evening recap
+        env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          DASHBOARD_URL: ${{ secrets.DASHBOARD_URL }}
+          RECAP_DATE: ${{ inputs.date }}
+        run: python recap.py
+
+      # Refresh the dashboard with today's closing prices.
+      - name: Build dashboard
+        if: always()
+        run: python build_dashboard.py
+
+      - name: Save dashboard
+        if: always()
+        run: |
+          git config user.name "stock-news-bot"
+          git config user.email "stock-news-bot@users.noreply.github.com"
+          git add docs 2>/dev/null || true
+          if git diff --cached --quiet; then
+            echo "Nothing new to save."
+          else
+            git commit -m "Update dashboard with closing prices for $(date -u +%Y-%m-%d)"
+            git push
+          fi

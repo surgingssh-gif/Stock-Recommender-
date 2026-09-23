@@ -354,3 +354,55 @@ def test_message_links_to_dashboard_before_disclaimer(monkeypatch):
     msg = build_message("2026-09-22", FAKE_ANALYSIS, {}, [], dashboard_url=url)
     assert url in msg
     assert msg.endswith(f"_{DISCLAIMER}_")
+
+
+def test_evening_recap_scores_calls_and_ends_with_disclaimer():
+    from recap import build_recap, score
+
+    xom = score({"date": "2026-09-25", "ticker": "XOM", "direction": "bullish", "price_at_pick": 100.0}, 102.0)
+    dal = score({"date": "2026-09-25", "ticker": "DAL", "direction": "bearish", "price_at_pick": 50.0}, 51.0)
+    bhf = score({"date": "2026-09-25", "ticker": "BHF", "direction": "bullish", "price_at_pick": None}, None)
+    msg = build_recap("2026-09-25", [xom, dal, bhf], ["XOM"], dashboard="https://x.test/")
+    assert "1 of 2 calls worked" in msg
+    assert "#1 ✅ ▲ **XOM** +2.00% ($100.00 → $102.00)" in msg
+    assert "❌ ▼ **DAL** +2.00%" in msg          # the stock rose, so the bearish call was wrong
+    assert "⏳ ▲ **BHF**" in msg
+    assert msg.endswith(f"_{DISCLAIMER}_")
+
+    week = [dict(xom, top=True), dict(dal, top=False)]
+    friday = build_recap("2026-09-25", [xom, dal], ["XOM"], week)
+    assert "Week in review" in friday and "Best call: **XOM** +2.00%" in friday
+    assert "Worst call: **DAL** -2.00%" in friday
+    assert friday.endswith(f"_{DISCLAIMER}_")
+
+
+def test_events_calendar_keeps_upcoming_dates_in_order():
+    from build_dashboard import build_events
+
+    earnings = {"NVDA": "2026-10-20", "AAPL": "2026-12-30", "XOM": "2026-09-01", "META": None}
+    events = build_events(earnings, {"NVDA": "NVIDIA"}, "2026-09-23")
+    # Past dates and ones more than 45 days out are left off; the Fed meeting on Oct 28 is in.
+    assert [(e["date"], e["label"]) for e in events] == [
+        ("2026-10-20", "NVIDIA earnings"),
+        ("2026-10-28", "Fed interest-rate decision"),
+    ]
+
+
+def test_sector_moves_and_weekly_report():
+    from build_dashboard import sector_moves, weekly_report
+
+    history = [[f"2026-09-{d:02d}", 100.0 + d] for d in range(1, 11)]
+    (tech,) = [s for s in sector_moves({"XLK": history}) if s["ticker"] == "XLK"]
+    assert tech["changes"]["1D"] == round((110 - 109) / 109 * 100, 2)
+    assert tech["changes"]["1M"] is None  # not enough history yet
+
+    def pick(d, t, move, top=None):
+        return {"date": d, "ticker": t, "direction": "bullish", "top_rank": top,
+                "directional_return_pct": move, "correct": None if move is None else move > 0}
+
+    cards = weekly_report([pick("2026-09-21", "A", 2.0, 1), pick("2026-09-23", "B", -1.0),
+                           pick("2026-09-28", "C", None)])
+    assert [c["week_start"] for c in cards] == ["2026-09-28", "2026-09-21"]
+    last_week = cards[1]
+    assert (last_week["count"], last_week["hit_rate"], last_week["top5_hit_rate"]) == (2, 50.0, 100.0)
+    assert last_week["best"]["ticker"] == "A" and last_week["worst"]["ticker"] == "B"
