@@ -214,3 +214,36 @@ def test_rerun_on_same_day_shows_only_latest_run():
     # DAL is dropped, latest run's order is kept, and days without a detail file are untouched.
     assert [p["ticker"] for p in data["picks"]] == ["NVDA", "XOM", "OLD"]
     assert data["stats"]["total_picks"] == 3
+
+
+def test_blank_prices_never_become_nan(monkeypatch, tmp_path):
+    import math
+    import pandas as pd
+    import prices
+    from build_dashboard import _number
+
+    # Yahoo returning a blank row for today: use the last real price instead.
+    class FakeTicker:
+        def __init__(self, _t): pass
+        def history(self, **_k):
+            return pd.DataFrame({"Close": [148.16, float("nan")]})
+    monkeypatch.setattr(prices.yf, "Ticker", FakeTicker)
+    assert prices.get_price("USO") == 148.16
+
+    # "nan" or blank in the CSV is read as "no price".
+    assert _number("nan") is None and _number("") is None and _number("12.5") == 12.5
+
+    # A missing pick price is filled from that day's close.
+    picks = [{"date": "2026-09-22", "ticker": "BHF", "direction": "bullish", "reason": "r", "price_at_pick": None}]
+    data = build_data(picks, {}, {"BHF": [["2026-09-22", 50.0], ["2026-09-23", 55.0]]})
+    p = data["picks"][0]
+    assert p["price_at_pick"] == 50.0 and p["return_pct"] == 10.0 and p["correct"] is True
+    assert not any(isinstance(v, float) and math.isnan(v) for v in p.values())
+
+
+def test_picks_are_not_scored_against_older_prices():
+    # Yahoo is missing the pick day, so the newest price is from the day before.
+    picks = [{"date": "2026-09-22", "ticker": "USO", "direction": "bearish", "reason": "r", "price_at_pick": 144.08}]
+    data = build_data(picks, {}, {"USO": [["2026-09-18", 153.82], ["2026-09-21", 148.16]]})
+    p = data["picks"][0]
+    assert p["price_now"] is None and p["return_pct"] is None and p["correct"] is None

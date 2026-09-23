@@ -1,36 +1,26 @@
 window.DASHBOARD_DATA = {
- "generated_at": "2026-09-23T02:01:17Z",
+ "generated_at": "2026-09-23T02:11:11Z",
  "stats": {
   "total_picks": 6,
   "days_tracked": 1,
-  "hit_rate": 0.0,
-  "judged": 6,
+  "hit_rate": null,
+  "judged": 0,
   "correct": 0,
-  "avg_directional_return": NaN,
-  "best": {
-   "date": "2026-09-22",
-   "ticker": "CPRI",
-   "direction": "bullish",
-   "directional_return_pct": NaN
-  },
-  "worst": {
-   "date": "2026-09-22",
-   "ticker": "CPRI",
-   "direction": "bullish",
-   "directional_return_pct": NaN
-  },
+  "avg_directional_return": null,
+  "best": null,
+  "worst": null,
   "by_direction": [
    {
     "label": "bullish",
     "count": 4,
-    "hit_rate": 0.0,
-    "avg_directional_return": NaN
+    "hit_rate": null,
+    "avg_directional_return": null
    },
    {
     "label": "bearish",
     "count": 2,
-    "hit_rate": 0.0,
-    "avg_directional_return": NaN
+    "hit_rate": null,
+    "avg_directional_return": null
    }
   ],
   "by_confidence": [
@@ -43,22 +33,22 @@ window.DASHBOARD_DATA = {
    {
     "label": "medium",
     "count": 3,
-    "hit_rate": 0.0,
-    "avg_directional_return": NaN
+    "hit_rate": null,
+    "avg_directional_return": null
    },
    {
     "label": "low",
     "count": 3,
-    "hit_rate": 0.0,
-    "avg_directional_return": NaN
+    "hit_rate": null,
+    "avg_directional_return": null
    }
   ],
   "by_day": [
    {
     "date": "2026-09-22",
     "count": 6,
-    "hit_rate": 0.0,
-    "avg_directional_return": NaN
+    "hit_rate": null,
+    "avg_directional_return": null
    }
   ]
  },
@@ -68,7 +58,7 @@ window.DASHBOARD_DATA = {
    "ticker": "CPRI",
    "direction": "bullish",
    "reason": "Reports of takeover interest sent the shares jumping, with one analyst pegging deal value at $25-$26 per share. Buyout speculation usually supports a stock, though it fades fast if no bid materializes.",
-   "price_at_pick": NaN,
+   "price_at_pick": 15.19,
    "company": "Capri Holdings",
    "confidence": "medium",
    "article": {
@@ -79,21 +69,21 @@ window.DASHBOARD_DATA = {
    },
    "history": [
     [
-     "2026-09-22",
-     NaN
+     "2026-09-21",
+     14.31
     ]
    ],
-   "price_now": NaN,
-   "return_pct": NaN,
-   "directional_return_pct": NaN,
-   "correct": false
+   "price_now": null,
+   "return_pct": null,
+   "directional_return_pct": null,
+   "correct": null
   },
   {
    "date": "2026-09-22",
    "ticker": "BHF",
    "direction": "bullish",
    "reason": "Shares jumped on a report that private equity firm Sixth Street is reviving its takeover attempt, which puts a potential acquisition premium back in play.",
-   "price_at_pick": NaN,
+   "price_at_pick": null,
    "company": "Brighthouse Financial",
    "confidence": "medium",
    "article": {
@@ -104,21 +94,21 @@ window.DASHBOARD_DATA = {
    },
    "history": [
     [
-     "2026-09-22",
-     NaN
+     "2026-09-21",
+     49.84
     ]
    ],
-   "price_now": NaN,
-   "return_pct": NaN,
-   "directional_return_pct": NaN,
-   "correct": false
+   "price_now": null,
+   "return_pct": null,
+   "directional_return_pct": null,
+   "correct": null
   },
   {
    "date": "2026-09-22",
    "ticker": "RCL",
    "direction": "bullish",
    "reason": "Royal Caribbean is near a roughly $3 billion deal for a 50% stake in Sandals, expanding it from cruises into land resorts. Investors may like the diversification, but it is a large cash outlay to digest.",
-   "price_at_pick": NaN,
+   "price_at_pick": 234.89,
    "company": "Royal Caribbean",
    "confidence": "low",
    "article": {
@@ -129,21 +119,21 @@ window.DASHBOARD_DATA = {
    },
    "history": [
     [
-     "2026-09-22",
-     NaN
+     "2026-09-21",
+     250.25
     ]
    ],
-   "price_now": NaN,
-   "return_pct": NaN,
-   "directional_return_pct": NaN,
-   "correct": false
+   "price_now": null,
+   "return_pct": null,
+   "directional_return_pct": null,
+   "correct": null
   },
   {
    "date": "2026-09-22",
    "ticker": "CSCO",
    "direction": "bearish",
    "reason": "The stock fell 5% after Piper Sandler cut its price target, warning that growth in the networking industry is peaking after a record summer run.",
-   "price_at_pick": NaN,
+   "price_at_pick": 106.44,
    "company": "Cisco Systems",
    "confidence": "medium",
    "article": {
@@ -154,21 +144,21 @@ window.DASHBOARD_DATA = {
    },
    "history": [
     [
-     "2026-09-22",
-     NaN
+     "2026-09-21",
+     111.46
     ]
    ],
-   "price_now": NaN,
-   "return_pct": NaN,
-   "directional_return_pct": NaN,
-   "correct": false
+   "price_now": null,
+   "return_pct": null,
+   "directional_return_pct": null,
+   "correct": null
   },
   {
    "date": "2026-09-22",
    "ticker": "USO",
    "direction": "bearish",
    "reason": "Iran has submitted conditions for reopening the Strait of Hormuz, Saudi Arabia restarted its East-West pipeline, and Trump says a settlement is likely, all of which ease the supply-risk premium in crude. A breakdown in talks would flip this quickly.",
-   "price_at_pick": NaN,
+   "price_at_pick": 144.08,
    "company": "United States Oil Fund",
    "confidence": "low",
    "article": {
@@ -179,21 +169,21 @@ window.DASHBOARD_DATA = {
    },
    "history": [
     [
-     "2026-09-22",
-     NaN
+     "2026-09-21",
+     148.16
     ]
    ],
-   "price_now": NaN,
-   "return_pct": NaN,
-   "directional_return_pct": NaN,
-   "correct": false
+   "price_now": null,
+   "return_pct": null,
+   "directional_return_pct": null,
+   "correct": null
   },
   {
    "date": "2026-09-22",
    "ticker": "NVDA",
    "direction": "bullish",
    "reason": "A top chip analyst reiterated a bullish case on Nvidia and Broadcom, and the Nasdaq set an intraday record on AI-driven buying ahead of upcoming Nvidia catalysts.",
-   "price_at_pick": NaN,
+   "price_at_pick": 228.87,
    "company": "NVIDIA",
    "confidence": "low",
    "article": {
@@ -204,14 +194,14 @@ window.DASHBOARD_DATA = {
    },
    "history": [
     [
-     "2026-09-22",
-     NaN
+     "2026-09-21",
+     227.38
     ]
    ],
-   "price_now": NaN,
-   "return_pct": NaN,
-   "directional_return_pct": NaN,
-   "correct": false
+   "price_now": null,
+   "return_pct": null,
+   "directional_return_pct": null,
+   "correct": null
   }
  ],
  "days": [
@@ -1288,10 +1278,6 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-21",
     49.84
-   ],
-   [
-    "2026-09-22",
-    NaN
    ]
   ],
   "CPRI": [
@@ -1786,10 +1772,6 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-21",
     14.31
-   ],
-   [
-    "2026-09-22",
-    NaN
    ]
   ],
   "CSCO": [
@@ -2284,10 +2266,6 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-21",
     111.46
-   ],
-   [
-    "2026-09-22",
-    NaN
    ]
   ],
   "DAL": [
@@ -2782,10 +2760,6 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-21",
     82.5
-   ],
-   [
-    "2026-09-22",
-    NaN
    ]
   ],
   "NVDA": [
@@ -3280,10 +3254,6 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-21",
     227.38
-   ],
-   [
-    "2026-09-22",
-    NaN
    ]
   ],
   "RCL": [
@@ -3778,10 +3748,6 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-21",
     250.25
-   ],
-   [
-    "2026-09-22",
-    NaN
    ]
   ],
   "USO": [
@@ -4276,10 +4242,6 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-21",
     148.16
-   ],
-   [
-    "2026-09-22",
-    NaN
    ]
   ]
  }

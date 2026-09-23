@@ -12,6 +12,7 @@ Run it with:  python build_dashboard.py
 
 import csv
 import json
+import math
 import os
 from datetime import date, datetime, timedelta, timezone
 
@@ -41,15 +42,23 @@ def read_picks(log_file=LOG_FILE):
     latest = {}
     with open(log_file, newline="", encoding="utf-8") as f:
         for row in csv.DictReader(f):
-            price = row.get("price_at_pick") or ""
             latest[(row["date"], row["ticker"])] = {
                 "date": row["date"],
                 "ticker": row["ticker"],
                 "direction": row["direction"],
                 "reason": row["reason"],
-                "price_at_pick": float(price) if price else None,
+                "price_at_pick": _number(row.get("price_at_pick")),
             }
     return list(latest.values())
+
+
+def _number(text):
+    """A price from the CSV as a number, or None if it's blank or "nan"."""
+    try:
+        value = float(text)
+    except (TypeError, ValueError):
+        return None
+    return value if math.isfinite(value) else None
 
 
 def read_days(days_dir=DAYS_DIR):
@@ -76,9 +85,11 @@ def fetch_history(ticker, start_date):
     try:
         start = date.fromisoformat(start_date) - timedelta(days=CHART_LOOKBACK_DAYS)
         history = yf.Ticker(ticker).history(start=start.isoformat())
+        # Skip blank ("NaN") rows, which Yahoo sometimes returns for today.
         return [
             [index.strftime("%Y-%m-%d"), round(float(close), 2)]
             for index, close in history["Close"].items()
+            if math.isfinite(close)
         ]
     except Exception:
         return []
@@ -233,7 +244,13 @@ def build_data(picks, days, histories):
         day = days.get(pick["date"], {})
         extra = next((p for p in day.get("picks", []) if p["ticker"] == pick["ticker"]), {})
         history = histories.get(pick["ticker"], [])
-        price_now = history[-1][1] if history else None
+        # Only score a pick against prices from its own day or later. (If
+        # Yahoo is missing recent days, older prices would give fake results.)
+        since_pick = [h for h in history if h[0] >= pick["date"]]
+        price_now = since_pick[-1][1] if since_pick else None
+        if pick["price_at_pick"] is None:
+            # No price was logged: use that day's closing price, if known.
+            pick = dict(pick, price_at_pick=next((c for d, c in history if d == pick["date"]), None))
         full = dict(
             pick,
             company=extra.get("company"),
@@ -291,7 +308,8 @@ def main():
         # Saved as a small JavaScript file (not plain JSON) so the page also
         # works when you open docs/index.html straight from your computer.
         f.write("window.DASHBOARD_DATA = ")
-        json.dump(data, f, indent=1)
+        # allow_nan=False: fail loudly rather than put "NaN" on the page.
+        json.dump(data, f, indent=1, allow_nan=False)
         f.write(";\n")
     print(f"Dashboard data written: {data['stats']['total_picks']} picks over {data['stats']['days_tracked']} day(s).")
 
