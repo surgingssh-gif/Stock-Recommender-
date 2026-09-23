@@ -282,6 +282,11 @@
       el("h2", { class: "headline", text: headline }),
       parts[1] ? el("p", { class: "deck", text: parts[1] }) : null,
       byline,
+      el("p", { class: "today-score" },
+        stats.judged
+          ? "Scorecard: " + Math.round(stats.hit_rate) + "% of calls right so far (" + stats.correct + " of " + stats.judged + "). "
+          : "Scorecard: results start after the next market close. ",
+        el("a", { href: "#results", text: "See results →" })),
       stories
     ]);
   }
@@ -333,19 +338,21 @@
           tile("Ideas published", String(stats.total_picks || 0), "Waiting for results"),
           tile("Days tracked", String(stats.days_tracked || 0), "Scores start after the next close"));
 
+    // Three columns: the headline number, the tiles, and the breakdowns.
     append(rail, [
-      el("p", { class: "kicker", text: "The Scorecard" }),
-      el("p", { class: "hero-label", text: "Calls right so far" }),
-      el("div", { class: "hero-figure" + (judged ? "" : " pending"), text: judged ? hero : "Pending" }),
-      el("p", { class: "hero-note", text: heroNote }),
-      tiles,
-      judged ? breakdown("By call", stats.by_direction || []) : null,
-      judged ? breakdown("By confidence", stats.by_confidence || []) : null,
-      judged ? el("p", { class: "legend-note" },
-        el("span", { class: "key" }, el("i", { style: "background:var(--good)" }), "Right so far"),
-        el("span", { class: "key" }, el("i", { style: "background:var(--bad)" }), "Wrong so far"),
-        el("br"),
-        "A bullish call is right so far if the stock is up since the pick; a bearish call if it's down.") : null
+      el("div", { class: "sc-col" },
+        el("p", { class: "hero-label", text: "Calls right so far" }),
+        el("div", { class: "hero-figure" + (judged ? "" : " pending"), text: judged ? hero : "Pending" }),
+        el("p", { class: "hero-note", text: heroNote })),
+      el("div", { class: "sc-col" }, tiles),
+      judged ? el("div", { class: "sc-col" },
+        breakdown("By call", stats.by_direction || []),
+        breakdown("By confidence", stats.by_confidence || []),
+        el("p", { class: "legend-note" },
+          el("span", { class: "key" }, el("i", { style: "background:var(--good)" }), "Right so far"),
+          el("span", { class: "key" }, el("i", { style: "background:var(--bad)" }), "Wrong so far"),
+          el("br"),
+          "A bullish call is right so far if the stock is up since the pick; a bearish call if it's down.")) : null
     ]);
   }
 
@@ -414,7 +421,7 @@
     var H = top + rows.length * rowH + bottom;
 
     var chart = svg("svg", { viewBox: "0 0 " + W + " " + H, width: W, height: H, role: "img",
-      "aria-label": "Bar chart of " + rows.length + " calls by move since the pick. The same numbers are in The Record table below." });
+      "aria-label": "Bar chart of " + rows.length + " calls by move since the pick. The same numbers are in The Record tab." });
 
     ticks.forEach(function (t) {
       chart.appendChild(svg("line", { class: t === 0 ? "baseline" : "grid", x1: x(t), x2: x(t), y1: top, y2: H - bottom }));
@@ -446,7 +453,7 @@
     });
     chart.appendChild(list);
     box.appendChild(chart);
-    append(fig, el("figcaption", { text: rows.length < picks.length ? "Showing the " + rows.length + " most recent calls. Every call is in The Record below." : "Every value is also in The Record below." }));
+    append(fig, el("figcaption", { text: rows.length < picks.length ? "Showing the " + rows.length + " most recent calls. Every call is in The Record tab." : "Every value is also in The Record tab." }));
   }
 
   /* Vertical bars: the average result of each day's calls. */
@@ -544,8 +551,8 @@
   function openStockChart(ticker) {
     if (!charts[ticker]) return;
     stockState.ticker = ticker;
-    renderStockSection();
-    document.getElementById("stock-charts").scrollIntoView({ behavior: "smooth", block: "start" });
+    if (location.hash === "#stock-charts") renderStockSection();
+    else location.hash = "stock-charts";  // switches tabs (see showTab below)
   }
 
   function chartLink(ticker, text, cls) {
@@ -883,15 +890,52 @@
   // Start
   // ---------------------------------------------------------------------------
 
+  // ---------------------------------------------------------------------------
+  // Tabs: the menu links change the address (#today, #results, ...) and only
+  // the matching section is shown. The back button and bookmarks work too.
+  // ---------------------------------------------------------------------------
+
+  var TABS = ["today", "stock-charts", "results", "record", "archive", "about"];
+  var OLD_LINKS = { scorecard: "results", charts: "results" };  // addresses used before tabs existed
+  var currentTab = null;
+
+  function tabFromHash() {
+    var id = location.hash.replace("#", "");
+    id = OLD_LINKS[id] || id;
+    return TABS.indexOf(id) === -1 ? "today" : id;
+  }
+
+  function showTab() {
+    var id = tabFromHash();
+    var changed = id !== currentTab;
+    currentTab = id;
+    TABS.forEach(function (t) { document.getElementById(t).hidden = t !== id; });
+    document.querySelectorAll(".sections a[data-tab]").forEach(function (a) {
+      if (a.getAttribute("data-tab") === id) a.setAttribute("aria-current", "page");
+      else a.removeAttribute("aria-current");
+    });
+    hideTooltip();
+    // Charts measure their width, so they're drawn once their tab is visible.
+    renderVisibleCharts();
+    if (changed) window.scrollTo(0, 0);
+  }
+
+  function renderVisibleCharts() {
+    if (currentTab === "stock-charts") renderStockSection();
+    if (currentTab === "results") { renderCallsChart(); renderDaysChart(); }
+  }
+
   setupTheme();
   renderMasthead();
   renderLead();
   renderScorecard();
-  renderStockSection();
-  renderCallsChart();
-  renderDaysChart();
   setupRecord();
   renderArchive();
+  window.addEventListener("hashchange", showTab);
+  showTab();
+  // Opening a bookmarked tab (e.g. .../#results) makes the browser jump to that
+  // section; start at the top instead so the title and menu stay in view.
+  window.addEventListener("load", function () { window.scrollTo(0, 0); });
   document.getElementById("archive-more").addEventListener("click", function () {
     archiveLimit += 6;
     renderArchive();
@@ -903,6 +947,6 @@
     if (window.innerWidth === lastWidth) return;
     lastWidth = window.innerWidth;
     clearTimeout(timer);
-    timer = setTimeout(function () { renderStockSection(); renderCallsChart(); renderDaysChart(); }, 150);
+    timer = setTimeout(renderVisibleCharts, 150);
   });
 })();
