@@ -1,28 +1,28 @@
 window.DASHBOARD_DATA = {
- "generated_at": "2026-09-23T01:38:19Z",
+ "generated_at": "2026-09-23T02:01:17Z",
  "stats": {
-  "total_picks": 7,
+  "total_picks": 6,
   "days_tracked": 1,
   "hit_rate": 0.0,
-  "judged": 7,
+  "judged": 6,
   "correct": 0,
   "avg_directional_return": NaN,
   "best": {
    "date": "2026-09-22",
-   "ticker": "USO",
-   "direction": "bearish",
+   "ticker": "CPRI",
+   "direction": "bullish",
    "directional_return_pct": NaN
   },
   "worst": {
    "date": "2026-09-22",
-   "ticker": "USO",
-   "direction": "bearish",
+   "ticker": "CPRI",
+   "direction": "bullish",
    "directional_return_pct": NaN
   },
   "by_direction": [
    {
     "label": "bullish",
-    "count": 5,
+    "count": 4,
     "hit_rate": 0.0,
     "avg_directional_return": NaN
    },
@@ -56,7 +56,7 @@ window.DASHBOARD_DATA = {
   "by_day": [
    {
     "date": "2026-09-22",
-    "count": 7,
+    "count": 6,
     "hit_rate": 0.0,
     "avg_directional_return": NaN
    }
@@ -65,17 +65,17 @@ window.DASHBOARD_DATA = {
  "picks": [
   {
    "date": "2026-09-22",
-   "ticker": "USO",
-   "direction": "bearish",
-   "reason": "Iran has submitted conditions for reopening the Strait of Hormuz, Saudi Arabia restarted its East-West pipeline, and Trump says a settlement is likely, all of which ease the supply-risk premium in crude. A breakdown in talks would flip this quickly.",
+   "ticker": "CPRI",
+   "direction": "bullish",
+   "reason": "Reports of takeover interest sent the shares jumping, with one analyst pegging deal value at $25-$26 per share. Buyout speculation usually supports a stock, though it fades fast if no bid materializes.",
    "price_at_pick": NaN,
-   "company": "United States Oil Fund",
-   "confidence": "low",
+   "company": "Capri Holdings",
+   "confidence": "medium",
    "article": {
-    "headline": "Iran submits conditions for reopening of Hormuz to U.S. representative, state media says - Reuters",
-    "source": "Reuters",
-    "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxOYVI5Zk1aX3RhYUR3djFoUE4wTGo1cEJscDJwelUwamFLQV9WVEh3OU1BcFhkOGJKWWtCVXFPSndFUUpFV2xvWWctLTQxVWFlWmE0d3ctNmJuYzVDLXJSdjdwaktKWFREMVBQeUlZakZvalZOQTAtSlQ5UzZFQkFlUVZPblc2bEE5dzNVRV9pTzM2ZkxURHlFMzVlamZCWG50RUlkaVd5MDc4MzZTbWp1N1J1Y3NnQnUwMnFNRjhWMnd6Y0Z1LWp5NA?oc=5",
-    "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg"
+    "headline": "Capri Holdings jumps on report of takeover interest",
+    "source": "SeekingAlpha",
+    "url": "https://seekingalpha.com/news/4645462-capri-holdings-jumps-on-report-of-takeover-interest?utm_source=feed_news_m_a&utm_medium=referral&feed_item_type=news",
+    "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567050932/sa_jgen9y.png"
    },
    "history": [
     [
@@ -90,36 +90,16 @@ window.DASHBOARD_DATA = {
   },
   {
    "date": "2026-09-22",
-   "ticker": "DAL",
+   "ticker": "BHF",
    "direction": "bullish",
-   "reason": "A second-order effect of easing Middle East tensions and softer oil: jet fuel is a huge airline cost, so falling crude helps margins. Newark/Philadelphia flight disruptions also appear to be resolving.",
-   "price_at_pick": 83.92,
-   "company": null,
-   "confidence": null,
-   "article": null,
-   "history": [
-    [
-     "2026-09-22",
-     NaN
-    ]
-   ],
-   "price_now": NaN,
-   "return_pct": NaN,
-   "directional_return_pct": NaN,
-   "correct": false
-  },
-  {
-   "date": "2026-09-22",
-   "ticker": "CPRI",
-   "direction": "bullish",
-   "reason": "Reports of takeover interest sent the shares jumping, with one analyst pegging deal value at $25-$26 per share. Buyout speculation usually supports a stock, though it fades fast if no bid materializes.",
+   "reason": "Shares jumped on a report that private equity firm Sixth Street is reviving its takeover attempt, which puts a potential acquisition premium back in play.",
    "price_at_pick": NaN,
-   "company": "Capri Holdings",
+   "company": "Brighthouse Financial",
    "confidence": "medium",
    "article": {
-    "headline": "Capri Holdings jumps on report of takeover interest",
+    "headline": "Brighthouse Financial jumps on report Sixth Street looks to renew takeover effort",
     "source": "SeekingAlpha",
-    "url": "https://seekingalpha.com/news/4645462-capri-holdings-jumps-on-report-of-takeover-interest?utm_source=feed_news_m_a&utm_medium=referral&feed_item_type=news",
+    "url": "https://seekingalpha.com/news/4645724-brighthouse-financial-jumps-on-report-sixth-street-looks-to-renew-takeover-effort?utm_source=feed_news_m_a&utm_medium=referral&feed_item_type=news",
     "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567050932/sa_jgen9y.png"
    },
    "history": [
@@ -185,17 +165,17 @@ window.DASHBOARD_DATA = {
   },
   {
    "date": "2026-09-22",
-   "ticker": "NVDA",
-   "direction": "bullish",
-   "reason": "A top chip analyst reiterated a bullish case on Nvidia and Broadcom, and the Nasdaq set an intraday record on AI-driven buying ahead of upcoming Nvidia catalysts.",
+   "ticker": "USO",
+   "direction": "bearish",
+   "reason": "Iran has submitted conditions for reopening the Strait of Hormuz, Saudi Arabia restarted its East-West pipeline, and Trump says a settlement is likely, all of which ease the supply-risk premium in crude. A breakdown in talks would flip this quickly.",
    "price_at_pick": NaN,
-   "company": "NVIDIA",
+   "company": "United States Oil Fund",
    "confidence": "low",
    "article": {
-    "headline": "A top chip stock analyst sees big things for Nvidia, Broadcom. How his case aligns with ours",
-    "source": "CNBC",
-    "url": "https://www.cnbc.com/2026/09/22/a-top-chip-stock-analyst-sees-big-things-for-nvidia-broadcom-how-his-case-aligns-with-ours.html",
-    "image": "https://image.cnbcfm.com/api/v1/image/108279787-1773856963026-gettyimages-2266693711-NVIDIA_GTC.jpeg?v=1779315606&w=1920&h=1080"
+    "headline": "Iran submits conditions for reopening of Hormuz to U.S. representative, state media says - Reuters",
+    "source": "Reuters",
+    "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxOYVI5Zk1aX3RhYUR3djFoUE4wTGo1cEJscDJwelUwamFLQV9WVEh3OU1BcFhkOGJKWWtCVXFPSndFUUpFV2xvWWctLTQxVWFlWmE0d3ctNmJuYzVDLXJSdjdwaktKWFREMVBQeUlZakZvalZOQTAtSlQ5UzZFQkFlUVZPblc2bEE5dzNVRV9pTzM2ZkxURHlFMzVlamZCWG50RUlkaVd5MDc4MzZTbWp1N1J1Y3NnQnUwMnFNRjhWMnd6Y0Z1LWp5NA?oc=5",
+    "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg"
    },
    "history": [
     [
@@ -210,17 +190,17 @@ window.DASHBOARD_DATA = {
   },
   {
    "date": "2026-09-22",
-   "ticker": "BHF",
+   "ticker": "NVDA",
    "direction": "bullish",
-   "reason": "Shares jumped on a report that private equity firm Sixth Street is reviving its takeover attempt, which puts a potential acquisition premium back in play.",
+   "reason": "A top chip analyst reiterated a bullish case on Nvidia and Broadcom, and the Nasdaq set an intraday record on AI-driven buying ahead of upcoming Nvidia catalysts.",
    "price_at_pick": NaN,
-   "company": "Brighthouse Financial",
-   "confidence": "medium",
+   "company": "NVIDIA",
+   "confidence": "low",
    "article": {
-    "headline": "Brighthouse Financial jumps on report Sixth Street looks to renew takeover effort",
-    "source": "SeekingAlpha",
-    "url": "https://seekingalpha.com/news/4645724-brighthouse-financial-jumps-on-report-sixth-street-looks-to-renew-takeover-effort?utm_source=feed_news_m_a&utm_medium=referral&feed_item_type=news",
-    "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567050932/sa_jgen9y.png"
+    "headline": "A top chip stock analyst sees big things for Nvidia, Broadcom. How his case aligns with ours",
+    "source": "CNBC",
+    "url": "https://www.cnbc.com/2026/09/22/a-top-chip-stock-analyst-sees-big-things-for-nvidia-broadcom-how-his-case-aligns-with-ours.html",
+    "image": "https://image.cnbcfm.com/api/v1/image/108279787-1773856963026-gettyimages-2266693711-NVIDIA_GTC.jpeg?v=1779315606&w=1920&h=1080"
    },
    "history": [
     [
@@ -806,13 +786,12 @@ window.DASHBOARD_DATA = {
    ],
    "headline_count": 60,
    "tickers": [
-    "USO",
-    "DAL",
     "CPRI",
+    "BHF",
     "RCL",
     "CSCO",
-    "NVDA",
-    "BHF"
+    "USO",
+    "NVDA"
    ]
   }
  ],

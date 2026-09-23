@@ -198,3 +198,19 @@ def test_picks_get_their_source_article_and_photo(tmp_path):
     assert dal["article"] is None  # a headline number that doesn't exist is ignored
     assert [h["tickers"] for h in data["days"][0]["headlines"]] == [["XOM"], ["XOM"]]
     assert data["days"][0]["headline_count"] == 2
+
+
+def test_rerun_on_same_day_shows_only_latest_run():
+    # Run 1 picked XOM and DAL; run 2 (same day) picked NVDA and XOM.
+    picks = [
+        {"date": "2026-09-23", "ticker": "XOM", "direction": "bullish", "reason": "r", "price_at_pick": 10.0},
+        {"date": "2026-09-23", "ticker": "DAL", "direction": "bearish", "reason": "r", "price_at_pick": 20.0},
+        {"date": "2026-09-23", "ticker": "NVDA", "direction": "bullish", "reason": "r", "price_at_pick": 30.0},
+        {"date": "2026-09-22", "ticker": "OLD", "direction": "bullish", "reason": "r", "price_at_pick": 5.0},
+    ]
+    days = {"2026-09-23": {"date": "2026-09-23", "market_mood": "m", "headlines": [], "picks": [
+        {"ticker": "NVDA", "company": "NVIDIA"}, {"ticker": "XOM", "company": "Exxon"}]}}
+    data = build_data(picks, days, {})
+    # DAL is dropped, latest run's order is kept, and days without a detail file are untouched.
+    assert [p["ticker"] for p in data["picks"]] == ["NVDA", "XOM", "OLD"]
+    assert data["stats"]["total_picks"] == 3

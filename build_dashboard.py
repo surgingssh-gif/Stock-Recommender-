@@ -169,6 +169,26 @@ def summarize(picks):
     }
 
 
+def latest_run_only(picks, days):
+    """
+    If the bot ran more than once on the same day, picks_log.csv has rows
+    from every run, but data/days/<date>.json only describes the latest one.
+    Show just the latest run's picks for that day (in the order Claude gave).
+    The CSV itself is never changed, so every pick stays on record.
+    """
+    kept = []
+    for pick in picks:
+        day_picks = days.get(pick["date"], {}).get("picks")
+        if not day_picks or any(p["ticker"] == pick["ticker"] for p in day_picks):
+            kept.append(pick)
+
+    def order(p):
+        tickers = [d["ticker"] for d in days.get(p["date"], {}).get("picks", [])]
+        return tickers.index(p["ticker"]) if p["ticker"] in tickers else len(tickers)
+
+    return sorted(kept, key=lambda p: (p["date"], order(p)))
+
+
 def _article_for(sources, headlines):
     """
     Picks the news story to show next to a pick: the first of its source
@@ -206,6 +226,7 @@ def build_data(picks, days, histories):
     the web page needs. Kept separate from the network calls so it can be
     tested with fake data.
     """
+    picks = latest_run_only(picks, days)
     enriched = []
     for pick in picks:
         # Add company name + confidence from that day's detail file, if saved.
@@ -272,7 +293,7 @@ def main():
         f.write("window.DASHBOARD_DATA = ")
         json.dump(data, f, indent=1)
         f.write(";\n")
-    print(f"Dashboard data written: {len(picks)} picks over {data['stats']['days_tracked']} day(s).")
+    print(f"Dashboard data written: {data['stats']['total_picks']} picks over {data['stats']['days_tracked']} day(s).")
 
 
 if __name__ == "__main__":
