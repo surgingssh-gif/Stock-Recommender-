@@ -29,6 +29,7 @@ from discord_notify import build_message, send_to_discord
 from news import fetch_headlines
 from picks_log import log_picks, save_day_details
 from prices import get_prices
+from watchlist import WATCHLIST
 
 
 def main():
@@ -65,7 +66,7 @@ def main():
             problems.append("ANTHROPIC_API_KEY is not set, so no analysis was done.")
         else:
             try:
-                analysis = analyze_headlines(headlines, anthropic_key)
+                analysis = analyze_headlines(headlines, anthropic_key, WATCHLIST)
                 print(f"Claude suggested {len(analysis['picks'])} picks.")
             except Exception as e:
                 problems.append(f"Analysis (Claude) failed: {e}")

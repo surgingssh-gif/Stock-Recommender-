@@ -79,7 +79,7 @@ def _run_main(monkeypatch, tmp_path, *, news=None, analysis=None):
             raise news
         return news
 
-    def fake_analysis(_headlines, _key):
+    def fake_analysis(_headlines, _key, _watchlist=None):
         if isinstance(analysis, Exception):
             raise analysis
         return analysis
@@ -260,3 +260,16 @@ def test_logo_images_are_not_used_as_photos():
         {"headline": "f", "image": ""},
     ]
     assert [h["image"] for h in _real_photos(heads)] == ["", "", "", "", "https://image.cnbcfm.com/real-photo.jpg", ""]
+
+
+def test_watchlist_cards_use_latest_notes():
+    from watchlist import WATCHLIST
+    days = {
+        "2026-09-21": {"date": "2026-09-21", "picks": [], "headlines": [], "watchlist_notes": [{"ticker": "SPY", "note": "old"}]},
+        "2026-09-22": {"date": "2026-09-22", "picks": [], "headlines": [], "watchlist_notes": [{"ticker": "SPY", "note": "new"}]},
+    }
+    cards = build_data([], days, {})["watchlist"]
+    assert [c["ticker"] for c in cards] == list(WATCHLIST)
+    spy = next(c for c in cards if c["ticker"] == "SPY")
+    assert spy["note"] == "new" and spy["note_date"] == "2026-09-22"
+    assert next(c for c in cards if c["ticker"] == "AAPL")["note"] is None

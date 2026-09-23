@@ -609,7 +609,7 @@
   }
 
   // ---------------------------------------------------------------------------
-  // Stock charts (one big price chart, pick a stock and a time range)
+  // Stock charts: a big chart for one stock, plus a card for every stock
   // ---------------------------------------------------------------------------
 
   var charts = DATA.charts || {};
@@ -617,26 +617,42 @@
   var RANGE_WORDS = { "1M": "the past month", "3M": "the past 3 months", "6M": "the past 6 months", "All": "the full period" };
   var stockState = { ticker: null, range: "3M" };
 
-  /* Tickers in a helpful order: today's picks first, then by most recent pick. */
-  function chartTickers() {
-    var order = [];
-    picks.forEach(function (p) { if (charts[p.ticker] && order.indexOf(p.ticker) === -1) order.push(p.ticker); });
-    return order;
+  var watchlist = DATA.watchlist || [];
+
+  /*
+   * Every stock the page can chart: the bot's picks (newest first), then the
+   * "market watch" list. Each gets a name and a short note about what's going on.
+   */
+  function stockList() {
+    var list = [], seen = {};
+    picks.forEach(function (p) {
+      if (!charts[p.ticker] || seen[p.ticker]) return;
+      seen[p.ticker] = true;
+      list.push({ ticker: p.ticker, name: p.company || "", kind: "pick", pick: p, note: p.reason });
+    });
+    watchlist.forEach(function (w) {
+      if (!charts[w.ticker]) return;
+      if (seen[w.ticker]) {  // also a pick: keep the pick, remember the watch note
+        var item = list.find(function (i) { return i.ticker === w.ticker; });
+        item.watchNote = w.note;
+        return;
+      }
+      seen[w.ticker] = true;
+      list.push({ ticker: w.ticker, name: w.name, kind: "watch", note: w.note });
+    });
+    return list;
   }
 
   function companyOf(ticker) {
-    var p = picks.find(function (q) { return q.ticker === ticker && q.company; });
-    return p ? p.company : "";
+    var item = stockList().find(function (i) { return i.ticker === ticker; });
+    return item ? item.name : "";
   }
 
   function toMs(s) { return toDate(s).getTime(); }
 
   /* Jump to a stock's chart (used by the "Chart →" links). */
   function openStockChart(ticker) {
-    if (!charts[ticker]) return;
-    stockState.ticker = ticker;
-    if (location.hash === "#stock-charts") renderStockSection();
-    else location.hash = "stock-charts";  // switches tabs (see showTab below)
+    if (charts[ticker]) openStockModal(ticker);
   }
 
   function chartLink(ticker, text, cls) {
@@ -646,60 +662,290 @@
     return a;
   }
 
+  /* The slice of a stock's price history for the chosen time range. */
+  function seriesFor(ticker) {
+    var full = charts[ticker];
+    var days = RANGES.find(function (r) { return r[0] === stockState.range; })[1];
+    var cutoff = days ? toMs(full[full.length - 1][0]) - days * 86400000 : -Infinity;
+    var series = full.filter(function (d) { return toMs(d[0]) >= cutoff; });
+    return series.length < 2 ? full.slice(-2) : series;
+  }
+
+  /* Blue when the stock is up over the range, red when it's down. */
+  function trendColor(change) { return change >= 0 ? "var(--good)" : "var(--bad)"; }
+
+  /* "▲ +4.20%" in a colored pill (the arrow and sign carry it, not just color). */
+  function changePill(change) {
+    return el("span", { class: "chg-pill " + (change >= 0 ? "up" : "down") },
+      el("span", { class: "arrow", "aria-hidden": "true", text: change >= 0 ? "▲ " : "▼ " }), fmtPct(change));
+  }
+
+  function kindTag(item) {
+    if (item.kind === "pick") {
+      return el("span", { class: "kind-tag pick" }, "Bot pick · " + directionText(item.pick));
+    }
+    return el("span", { class: "kind-tag watch", text: "Market watch" });
+  }
+
+  var stocksShowAll = false;  // "Show more" pressed?
+  var MAIN_FUNDS = ["SPY", "QQQ", "DIA"];
+
+  /*
+   * The order cards appear in: today's picks first, then the big market funds,
+   * then everything else (older picks and the rest of the market-watch list,
+   * biggest movers first).
+   */
+  function stockOrder(all) {
+    var latest = picks.length ? picks[0].date : null;
+    var rank = function (i) {
+      if (i.kind === "pick" && i.pick.date === latest) return 0;
+      if (MAIN_FUNDS.indexOf(i.ticker) !== -1) return 1;
+      return 2;
+    };
+    var move = function (i) {
+      var sr = seriesFor(i.ticker);
+      return Math.abs((sr[sr.length - 1][1] - sr[0][1]) / sr[0][1]);
+    };
+    return all.map(function (i, n) { return [i, n]; }).sort(function (a, b) {
+      var ra = rank(a[0]), rb = rank(b[0]);
+      if (ra !== rb) return ra - rb;
+      if (ra === 2) return move(b[0]) - move(a[0]);
+      if (ra === 1) return MAIN_FUNDS.indexOf(a[0].ticker) - MAIN_FUNDS.indexOf(b[0].ticker);
+      return a[1] - b[1];
+    }).map(function (x) { return x[0]; });
+  }
+
   function renderStockSection() {
     var area = document.getElementById("stock-area");
     clear(area);
-    var tickers = chartTickers();
-    if (!tickers.length) {
-      area.appendChild(emptyChart("Charts appear with the first picks", "Once the bot has made some calls, their price charts show up here."));
+    var all = stockList();
+    if (!all.length) {
+      area.appendChild(emptyChart("Charts appear with the first run", "Once the bot has run, price charts for its picks and the market-watch list show up here."));
       return;
     }
-    if (tickers.indexOf(stockState.ticker) === -1) stockState.ticker = tickers[0];
+    var ordered = stockOrder(all);
+    // First view: today's picks plus the big market funds (at least 4 cards).
+    var latest = picks.length ? picks[0].date : null;
+    var mainCount = all.filter(function (i) {
+      return (i.kind === "pick" && i.pick.date === latest) || MAIN_FUNDS.indexOf(i.ticker) !== -1;
+    }).length;
+    var STOCKS_FIRST = Math.max(4, mainCount);
 
-    // --- Controls: stock buttons (first 8) + a menu for the rest, and ranges.
-    var picker = el("div", { class: "ticker-picker", role: "group", "aria-label": "Choose a stock" });
-    tickers.slice(0, 8).forEach(function (t) {
-      var b = el("button", { type: "button", class: "pill", "aria-pressed": String(t === stockState.ticker), text: t });
-      b.addEventListener("click", function () { stockState.ticker = t; renderStockSection(); });
-      picker.appendChild(b);
-    });
-    if (tickers.length > 8) {
-      var more = el("select", { "aria-label": "More stocks" }, el("option", { value: "", text: "More…" }),
-        tickers.slice(8).map(function (t) { return el("option", { value: t, text: t, selected: t === stockState.ticker ? "selected" : null }); }));
-      more.addEventListener("change", function () { if (more.value) { stockState.ticker = more.value; renderStockSection(); } });
-      picker.appendChild(more);
-    }
+    // Time range for every card.
     var ranges = el("div", { class: "range-picker", role: "group", "aria-label": "Time range" });
     RANGES.forEach(function (r) {
       var b = el("button", { type: "button", class: "pill", "aria-pressed": String(r[0] === stockState.range), text: r[0] });
       b.addEventListener("click", function () { stockState.range = r[0]; renderStockSection(); });
       ranges.appendChild(b);
     });
-    area.appendChild(el("div", { class: "stock-controls" }, picker, ranges));
+    area.appendChild(el("div", { class: "stock-controls" },
+      el("p", { class: "stock-hint", text: "Today's picks and the big market funds first. Click a card for the full chart and story." }),
+      ranges));
 
-    // --- The data for this stock and range.
-    var t = stockState.ticker;
-    var full = charts[t];
-    var days = RANGES.find(function (r) { return r[0] === stockState.range; })[1];
-    var cutoff = days ? toMs(full[full.length - 1][0]) - days * 86400000 : -Infinity;
-    var series = full.filter(function (d) { return toMs(d[0]) >= cutoff; });
-    if (series.length < 2) series = full.slice(-2);
+    var grid = el("div", { class: "stock-grid" });
+    var visible = stocksShowAll ? ordered : ordered.slice(0, STOCKS_FIRST);
+    visible.forEach(function (i) { grid.appendChild(stockCard(i)); });
+    area.appendChild(grid);
+
+    if (ordered.length > STOCKS_FIRST) {
+      var more = el("button", { type: "button", class: "more",
+        text: stocksShowAll ? "Show fewer" : "Show " + (ordered.length - STOCKS_FIRST) + " more stocks" });
+      more.addEventListener("click", function () { stocksShowAll = !stocksShowAll; renderStockSection(); });
+      area.appendChild(more);
+    }
+    area.appendChild(el("p", { class: "stock-foot" },
+      el("span", null,
+        el("span", { class: "key" }, el("i", { style: "background:var(--good)" }), "Up over the period"),
+        el("span", { class: "key" }, el("i", { style: "background:var(--bad)" }), "Down over the period")),
+      el("span", { text: "Prices from Yahoo Finance · Notes by Claude from the morning's news" })));
+  }
+
+  /* One card: name, price, colored mini chart, and a short note. */
+  function stockCard(item) {
+    var series = seriesFor(item.ticker);
     var first = series[0][1], last = series[series.length - 1][1];
     var change = (last - first) / first * 100;
+    var w = 300, h = 70, pad = 4;
+    var vals = series.map(function (d) { return d[1]; });
+    var lo = Math.min.apply(null, vals), hi = Math.max.apply(null, vals);
+    if (hi - lo < 1e-9) { lo -= 1; hi += 1; }
+    var x = function (i) { return i * w / (series.length - 1); };
+    var y = function (v) { return pad + (1 - (v - lo) / (hi - lo)) * (h - 2 * pad); };
+    var line = series.map(function (d, i) { return (i ? "L" : "M") + x(i).toFixed(1) + "," + y(d[1]).toFixed(1); }).join("");
+    var mini = svg("svg", { class: "card-chart", viewBox: "0 0 " + w + " " + h, preserveAspectRatio: "none", "aria-hidden": "true" });
+    mini.appendChild(svg("path", { d: line + "L" + w + "," + h + "L0," + h + "Z", fill: trendColor(change), opacity: 0.12 }));
+    mini.appendChild(svg("path", { d: line, fill: "none", stroke: trendColor(change), "stroke-width": 2, "vector-effect": "non-scaling-stroke", "stroke-linejoin": "round" }));
+
+    var note = item.note || (item.kind === "watch" ? "Notes arrive with the next morning run." : "");
+    var card = el("button", { type: "button", class: "stock-card", "aria-haspopup": "dialog",
+      "aria-label": item.ticker + ", " + item.name + ", " + fmtPrice(last) + ", " + fmtPct(change) + " over " + RANGE_WORDS[stockState.range] + ". Open the full chart." },
+      el("div", { class: "card-top" },
+        el("div", null, el("span", { class: "card-ticker", text: item.ticker }), el("span", { class: "card-name", text: item.name })),
+        el("div", { class: "card-price" }, el("div", { class: "now", text: fmtPrice(last) }), changePill(change))),
+      mini,
+      kindTag(item),
+      note ? el("p", { class: "card-note" + (item.note ? "" : " muted"), text: note }) : null);
+    card.addEventListener("click", function () { openStockModal(item.ticker); });
+    return card;
+  }
+
+  // ---------------------------------------------------------------------------
+  // Stock popup: the full chart plus everything we know about the stock
+  // ---------------------------------------------------------------------------
+
+  var modal = document.getElementById("stock-modal");
+  var modalTicker = null;
+
+  function openStockModal(ticker) {
+    modalTicker = ticker;
+    // The tooltip has to live inside the popup to show on top of it.
+    modal.querySelector(".modal-inner").appendChild(tooltip);
+    if (!modal.open) modal.showModal();
+    renderStockModal();
+    modal.querySelector(".modal-close").focus();
+  }
+
+  function closeStockModal() {
+    hideTooltip();
+    document.body.appendChild(tooltip);
+    modalTicker = null;
+    if (modal.open) modal.close();
+  }
+
+  /* Percent change over the last `days` calendar days (null if not enough data). */
+  function changeOver(full, days) {
+    var lastMs = toMs(full[full.length - 1][0]);
+    var start = null;
+    for (var i = full.length - 1; i >= 0; i--) {
+      if (toMs(full[i][0]) <= lastMs - days * 86400000) { start = full[i]; break; }
+    }
+    if (!start) return null;
+    return (full[full.length - 1][1] - start[1]) / start[1] * 100;
+  }
+
+  /* Today's headlines that mention this stock (tagged by Claude, or by name). */
+  function headlinesAbout(item) {
+    var day = days.find(function (d) { return d.headlines && d.headlines.length; });
+    if (!day) return [];
+    var word = (item.name || "").split(/[\s(,]/)[0];
+    var tickerRe = new RegExp("\\b" + item.ticker.replace(/[^A-Z]/g, "") + "\\b");
+    return day.headlines.filter(function (h) {
+      return (h.tickers || []).indexOf(item.ticker) !== -1 || tickerRe.test(h.headline) ||
+        (word.length > 3 && h.headline.indexOf(word) !== -1);
+    }).slice(0, 5);
+  }
+
+  function statTile(label, value, extra) {
+    return el("div", { class: "m-stat" }, el("div", { class: "m-label", text: label }),
+      el("div", { class: "m-value" }, value), extra ? el("div", { class: "m-sub", text: extra }) : null);
+  }
+
+  function renderStockModal() {
+    var body = document.getElementById("modal-body");
+    clear(body);
+    var item = stockList().find(function (i) { return i.ticker === modalTicker; });
+    if (!item) { closeStockModal(); return; }
+    var full = charts[item.ticker];
+    var last = full[full.length - 1][1];
+
+    // Range buttons for the popup chart.
+    var ranges = el("div", { class: "range-picker", role: "group", "aria-label": "Time range" });
+    RANGES.forEach(function (r) {
+      var b = el("button", { type: "button", class: "pill", "aria-pressed": String(r[0] === stockState.range), text: r[0] });
+      b.addEventListener("click", function () { stockState.range = r[0]; renderStockModal(); renderStockSection(); });
+      ranges.appendChild(b);
+    });
+    body.appendChild(el("div", { class: "modal-top" }, el("span", { class: "m-kicker", text: "Stock chart" }), ranges));
+
+    // The full interactive chart (same one as before, now in the popup).
+    var chartBox = el("div", { class: "modal-chart" });
+    body.appendChild(chartBox);
+    drawBigChart(chartBox, item);
+
+    // Key numbers.
+    var vals = full.map(function (d) { return d[1]; });
+    var pctOrDash = function (v) { return v === null ? "—" : changePill(v); };
+    var dayChange = full.length > 1 ? (last - full[full.length - 2][1]) / full[full.length - 2][1] * 100 : null;
+    body.appendChild(el("div", { class: "m-stats" },
+      statTile("Latest close", fmtPrice(last), fmtShortDate(full[full.length - 1][0])),
+      statTile("Last day", pctOrDash(dayChange)),
+      statTile("1 month", pctOrDash(changeOver(full, 30))),
+      statTile("3 months", pctOrDash(changeOver(full, 91))),
+      statTile("6 months", pctOrDash(changeOver(full, 182))),
+      statTile("6-month range", fmtPrice(Math.min.apply(null, vals)) + " – " + fmtPrice(Math.max.apply(null, vals)))));
+
+    // The bot's call (for picks), with its news story.
+    if (item.kind === "pick") {
+      var p = item.pick, a = p.article;
+      var sec = el("section", { class: "m-section" },
+        el("h4", { text: "The bot's call" }),
+        el("div", { class: "m-call" },
+          el("span", { class: "kind-tag pick", text: directionText(p) }),
+          p.confidence ? el("span", { class: "m-conf" }, confidencePips(p.confidence), capitalize(p.confidence) + " confidence") : null,
+          el("span", { class: "m-conf", text: "Picked " + fmtLongDate(p.date) + (p.price_at_pick ? " at " + fmtPrice(p.price_at_pick) : "") }),
+          resultBadge(p),
+          p.return_pct !== null && p.return_pct !== undefined ? el("span", { class: "m-conf" }, "Since the pick: ", changePill(p.return_pct)) : null),
+        el("p", { class: "m-reason", text: p.reason }));
+      if (a && safeUrl(a.url)) {
+        sec.appendChild(el("a", { class: "m-article", href: a.url, target: "_blank", rel: "noopener noreferrer" },
+          photo(a.image, a.headline, "m-article-photo"),
+          el("span", { class: "m-article-text" },
+            el("span", { class: "m-article-src", text: a.source + " · Read the article ↗" }),
+            el("span", { class: "m-article-hl", text: a.headline }))));
+      }
+      body.appendChild(sec);
+    }
+
+    // Claude's note (market watch).
+    var note = item.kind === "watch" ? item.note : item.watchNote;
+    var w = watchlist.find(function (x) { return x.ticker === item.ticker; });
+    if (w) {
+      body.appendChild(el("section", { class: "m-section" },
+        el("h4", { text: "What's going on" + (w.note_date ? " · " + fmtShortDate(w.note_date) : "") }),
+        el("p", { class: "m-reason", text: note || "Claude's notes on the market-watch stocks arrive with the next morning run." })));
+    }
+
+    // Headlines that mention it.
+    var related = headlinesAbout(item);
+    if (related.length) {
+      body.appendChild(el("section", { class: "m-section" },
+        el("h4", { text: "In today's news" }),
+        el("ul", { class: "m-news" }, related.map(function (h) {
+          return el("li", null, articleLink(h.url, h.headline, null), el("small", { text: h.source + " · " + fmtNewsTime(h.time) }));
+        }))));
+    }
+    body.appendChild(el("p", { class: "m-disclaimer", text: "Ideas for research only, not financial advice." }));
+  }
+
+  modal.querySelector(".modal-close").addEventListener("click", closeStockModal);
+  modal.addEventListener("close", function () { if (modalTicker) closeStockModal(); });  // Esc key
+  modal.addEventListener("click", function (e) { if (e.target === modal) closeStockModal(); });  // click outside
+
+  /* The large interactive chart (hover or arrow keys to read each day). */
+  function drawBigChart(area, item) {
+    var t = item.ticker;
+    var series = seriesFor(t);
+    var first = series[0][1], last = series[series.length - 1][1];
+    var change = (last - first) / first * 100;
+    var color = trendColor(change);
 
     area.appendChild(el("div", { class: "stock-head" },
-      el("h3", null, el("span", { class: "ticker", text: t }), companyOf(t)),
+      el("div", null,
+        el("h3", null, el("span", { class: "ticker", text: t }), item.name),
+        kindTag(item)),
       el("div", { class: "stock-price" },
         el("div", { class: "now", text: fmtPrice(last) }),
-        el("div", { class: "chg", text: fmtPct(change) + " over " + RANGE_WORDS[stockState.range] }))));
+        el("div", { class: "chg" }, changePill(change), " over " + RANGE_WORDS[stockState.range]))));
 
     // The bot's calls on this stock that fall inside the range.
     var calls = picks.filter(function (p) { return p.ticker === t && toMs(p.date) >= toMs(series[0][0]); });
 
     // --- Geometry.
-    var W = Math.max(300, area.clientWidth);
+    // Measure the space inside the box (its width minus its padding).
+    var cs = getComputedStyle(area);
+    var W = Math.max(280, area.clientWidth - (parseFloat(cs.paddingLeft) || 0) - (parseFloat(cs.paddingRight) || 0));
     var narrow = W < 560;
-    var H = narrow ? 230 : 320, left = 6, right = 56, top = 14, bottom = 26;
+    var H = narrow ? 230 : 300, left = 6, right = 56, top = 14, bottom = 26;
     var xs = series.map(function (d) { return toMs(d[0]); });
     var values = series.map(function (d) { return d[1]; }).concat(calls.map(function (p) { return p.price_at_pick; }).filter(Boolean));
     var lo = Math.min.apply(null, values), hi = Math.max.apply(null, values);
@@ -726,13 +972,13 @@
       plot.appendChild(svg("text", { x: x(xs[idx]), y: H - 8, "text-anchor": anchor, text: fmtShortDate(series[idx][0]) }));
     }
 
-    // Price line with a light wash underneath.
+    // Price line in the trend color, with a light wash of the same color underneath.
     var line = series.map(function (d, i) { return (i ? "L" : "M") + x(xs[i]).toFixed(1) + "," + y(d[1]).toFixed(1); }).join("");
     var areaPath = line + "L" + x(xs[xs.length - 1]).toFixed(1) + "," + (H - bottom) + "L" + x(xs[0]).toFixed(1) + "," + (H - bottom) + "Z";
-    plot.appendChild(svg("path", { d: areaPath, fill: "var(--ink)", opacity: 0.05 }));
-    plot.appendChild(svg("path", { d: line, fill: "none", stroke: "var(--ink)", "stroke-width": 2, "stroke-linejoin": "round", "stroke-linecap": "round" }));
+    plot.appendChild(svg("path", { d: areaPath, fill: color, opacity: 0.1 }));
+    plot.appendChild(svg("path", { d: line, fill: "none", stroke: color, "stroke-width": 2, "stroke-linejoin": "round", "stroke-linecap": "round" }));
 
-    // A dot for each call, placed at the price when it was picked.
+    // A dot for each of the bot's calls, at the price when it was picked.
     calls.forEach(function (p) {
       if (!p.price_at_pick) return;
       var cx = x(Math.max(xs[0], Math.min(xs[xs.length - 1], toMs(p.date)))), cy = y(p.price_at_pick);
@@ -745,7 +991,7 @@
 
     // Crosshair: a thin line and a dot that follow the pointer (or arrow keys).
     var cross = svg("line", { y1: top, y2: H - bottom, stroke: "var(--muted)", "stroke-width": 1, visibility: "hidden" });
-    var dot = svg("circle", { r: 4, fill: "var(--ink)", stroke: "var(--paper)", "stroke-width": 2, visibility: "hidden" });
+    var dot = svg("circle", { r: 4, fill: color, stroke: "var(--paper)", "stroke-width": 2, visibility: "hidden" });
     plot.appendChild(cross);
     plot.appendChild(dot);
     var active = series.length - 1;
@@ -785,15 +1031,44 @@
     });
     area.appendChild(plot);
 
-    // Key for the dots, plus the same prices as a table.
-    var foot = el("div", { class: "stock-foot" },
-      calls.length ? el("span", null,
-        el("span", { class: "key" }, el("i", { style: "background:var(--good)" }), "Call right so far"),
-        el("span", { class: "key" }, el("i", { style: "background:var(--bad)" }), "Call wrong so far"),
-        el("span", { class: "key" }, el("i", { style: "border:2px solid var(--ink);width:6px;height:6px" }), "Too early to tell"),
-        "▲ bullish · ▼ bearish") : el("span", { text: "No calls on this stock in this time range." }),
-      el("span", { text: "Prices from Yahoo Finance" }));
-    area.appendChild(foot);
+    // In the popup, the story and context are shown in their own sections below.
+    if (area.classList.contains("modal-chart")) {
+      if (calls.length) area.appendChild(el("p", { class: "stock-foot" },
+        el("span", null,
+          el("span", { class: "key" }, el("i", { style: "background:var(--good)" }), "Call right so far"),
+          el("span", { class: "key" }, el("i", { style: "background:var(--bad)" }), "Call wrong so far"),
+          el("span", { class: "key" }, el("i", { style: "border:2px solid var(--ink);width:6px;height:6px" }), "Too early to tell"),
+          "▲ bullish · ▼ bearish")));
+      var tbl = el("table", null,
+        el("thead", null, el("tr", null, el("th", { text: "Date" }), el("th", { class: "r", text: "Close" }))),
+        el("tbody", null, series.slice().reverse().map(function (d) {
+          return el("tr", null, el("td", { class: "tab", text: fmtTableDate(d[0]) }), el("td", { class: "r tab", text: fmtPrice(d[1]) }));
+        })));
+      area.appendChild(el("details", null, el("summary", { text: "Show prices as a table" }),
+        el("div", { class: "table-wrap", style: "max-height:260px;overflow-y:auto" }, tbl)));
+      return;
+    }
+
+    // What's going on: the pick's reason (with its article) or the market-watch note.
+    var story = el("div", { class: "stock-story" });
+    if (item.kind === "pick") {
+      var a = item.pick.article;
+      story.appendChild(el("p", { class: "story-label", text: "Why the bot picked it · " + fmtLongDate(item.pick.date) }));
+      story.appendChild(el("p", { text: item.pick.reason }));
+      if (item.watchNote) story.appendChild(el("p", { class: "muted-note", text: "Market watch: " + item.watchNote }));
+      if (a && safeUrl(a.url)) story.appendChild(el("p", { class: "read-more" },
+        el("span", { class: "src", text: a.source }), " · ", articleLink(a.url, "Read the article ↗", null)));
+    } else {
+      var w = watchlist.find(function (x) { return x.ticker === t; }) || {};
+      story.appendChild(el("p", { class: "story-label", text: "What's going on" + (w.note_date ? " · " + fmtLongDate(w.note_date) : "") }));
+      story.appendChild(el("p", { text: item.note || "Claude's notes on the market-watch stocks arrive with the next morning run." }));
+    }
+    if (calls.length) story.appendChild(el("p", { class: "stock-foot" },
+      el("span", { class: "key" }, el("i", { style: "background:var(--good)" }), "Call right so far"),
+      el("span", { class: "key" }, el("i", { style: "background:var(--bad)" }), "Call wrong so far"),
+      el("span", { class: "key" }, el("i", { style: "border:2px solid var(--ink);width:6px;height:6px" }), "Too early to tell"),
+      "▲ bullish · ▼ bearish"));
+    area.appendChild(story);
 
     var table = el("table", null,
       el("thead", null, el("tr", null, el("th", { text: "Date" }), el("th", { class: "r", text: "Close" }))),
@@ -1042,6 +1317,7 @@
       if (a.getAttribute("data-tab") === id) a.setAttribute("aria-current", "page");
       else a.removeAttribute("aria-current");
     });
+    if (modalTicker) closeStockModal();
     hideTooltip();
     // Charts measure their width, so they're drawn once their tab is visible.
     renderVisibleCharts();
@@ -1049,6 +1325,7 @@
   }
 
   function renderVisibleCharts() {
+    if (modalTicker) renderStockModal();
     if (currentTab === "stock-charts") renderStockSection();
     if (currentTab === "results") { renderCallsChart(); renderDaysChart(); }
   }

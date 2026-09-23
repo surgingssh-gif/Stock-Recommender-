@@ -18,6 +18,8 @@ from datetime import date, datetime, timedelta, timezone
 
 import yfinance as yf
 
+from watchlist import WATCHLIST
+
 LOG_FILE = "picks_log.csv"
 DAYS_DIR = os.path.join("data", "days")
 OUTPUT_FILE = os.path.join("docs", "data.js")
@@ -249,6 +251,24 @@ def _with_tickers(day_date, days, picks):
     return [dict(h, tickers=used.get(i, [])) for i, h in enumerate(headlines, start=1)]
 
 
+def _watchlist_cards(days):
+    """
+    One entry per market-watch stock: its name and the most recent note
+    Claude wrote about it (from the newest day that has notes).
+    """
+    notes, notes_date = {}, None
+    for d in sorted(days, reverse=True):
+        found = days[d].get("watchlist_notes") or []
+        if found:
+            notes = {n["ticker"]: n["note"] for n in found}
+            notes_date = d
+            break
+    return [
+        {"ticker": t, "name": name, "note": notes.get(t), "note_date": notes_date if t in notes else None}
+        for t, name in WATCHLIST.items()
+    ]
+
+
 def _brief(pick):
     if not pick:
         return None
@@ -309,19 +329,24 @@ def build_data(picks, days, histories):
         "stats": summarize(enriched),
         "picks": enriched,
         "days": day_list,
-        # Full price history per ticker, for the big stock charts.
+        # Full price history per ticker, for the stock charts.
         "charts": {t: h for t, h in sorted(histories.items()) if h},
+        # The "market watch" stocks, with the latest note Claude wrote for each.
+        "watchlist": _watchlist_cards(days),
     }
 
 
 def main():
-    picks = read_picks()
     days = read_days()
+    picks = latest_run_only(read_picks(), days)
 
     # One price lookup per ticker, starting from its earliest pick.
     first_seen = {}
     for p in picks:
         first_seen[p["ticker"]] = min(p["date"], first_seen.get(p["ticker"], p["date"]))
+    # Market-watch stocks get the same ~6 months of history, counted from today.
+    for t in WATCHLIST:
+        first_seen.setdefault(t, date.today().isoformat())
     histories = {t: fetch_history(t, d) for t, d in first_seen.items()}
     missing = [t for t, h in histories.items() if not h]
     if missing:

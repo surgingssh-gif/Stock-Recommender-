@@ -39,6 +39,7 @@ Ideas for research only, not financial advice.
 | `prices.py` | Looks up stock prices. |
 | `picks_log.py` | Adds each pick to `picks_log.csv`. |
 | `discord_notify.py` | Builds the message and posts it to Discord. |
+| `watchlist.py` | The "Market watch" stocks shown on the Stock Charts tab every day. Edit it to add or remove stocks. |
 | `build_dashboard.py` | Scores every pick against the latest prices and writes the dashboard data (`docs/data.js`). |
 | `docs/` | The dashboard web page (`index.html`, `app.js`) and its data. |
 | `data/days/` | One file per day with extra details: market mood, confidence, and the headlines Claude read (with links and photos). |
@@ -164,6 +165,8 @@ call if it's down. New picks show "Too early to tell" until the next market clos
   `CLAUDE_MODEL` with the same value.
 - **Number of headlines:** change `MAX_HEADLINES` in `news.py`.
 - **What Claude looks for:** edit `SYSTEM_PROMPT` in `analyzer.py`.
+- **Market watch stocks:** edit `watchlist.py` (one line per stock: `"TICKER": "Name",`). Claude
+  writes a one-sentence note for each one in the same daily request.
 
 ## Cost
 
