@@ -11,7 +11,7 @@ DISCLAIMER = "Ideas for research only, not financial advice."
 DISCORD_LIMIT = 2000
 
 
-def build_message(date_str, analysis, prices, problems, headlines=None):
+def build_message(date_str, analysis, prices, problems, headlines=None, dashboard_url=None):
     """
     Creates the text of the daily message.
 
@@ -20,6 +20,7 @@ def build_message(date_str, analysis, prices, problems, headlines=None):
     problems  - list of strings describing anything that went wrong
     headlines - today's news; only shown if Claude's analysis failed,
                 so you still get something useful
+    dashboard_url - link to the dashboard web page (optional)
     """
     lines = [f"**📈 Daily Stock Ideas - {date_str}**", ""]
 
@@ -65,6 +66,10 @@ def build_message(date_str, analysis, prices, problems, headlines=None):
         lines.append("⚠️ **Some things went wrong today:**")
         for problem in problems:
             lines.append(f"- {problem}")
+        lines.append("")
+
+    if dashboard_url:
+        lines.append(f"📰 Full brief, charts and scorecard: {dashboard_url}")
         lines.append("")
 
     # Required on every message.

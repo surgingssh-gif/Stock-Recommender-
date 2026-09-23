@@ -157,6 +157,12 @@ it. Every top buy is also saved to `picks_log.csv`, so the scorecard tracks them
 The Results tab has a **How the Top 5 Did** section comparing them with the other
 picks, and The Record can be filtered to **Top 5 buys only**.
 
+**Getting around:** the strip under the menu shows how the big market funds and
+stocks moved on the latest day. Click any of them for its chart. Use **Find a stock**
+(top right) to open any stock's chart, and the ‹ › buttons in the chart popup to
+flip through them. The daily Discord message links to the dashboard. To use a
+different address, add a `DASHBOARD_URL` secret.
+
 **How the scorecard works:** each pick is compared with the latest closing price.
 A bullish call is "right so far" if the stock is up since it was picked; a bearish
 call if it's down. New picks show "Too early to tell" until the next market close.

@@ -344,3 +344,13 @@ def test_top_buys_record_compares_top_5_with_other_picks():
     assert (rest["count"], rest["hit_rate"], rest["avg_directional_return"]) == (1, 100.0, 5.0)
     (day,) = record["by_day"]
     assert [b["ticker"] for b in day["buys"]] == ["CVX", "XOM"]
+
+
+def test_message_links_to_dashboard_before_disclaimer(monkeypatch):
+    monkeypatch.delenv("DASHBOARD_URL", raising=False)
+    monkeypatch.setenv("GITHUB_REPOSITORY", "Someone/My-Bot")
+    url = main.dashboard_url()
+    assert url == "https://someone.github.io/My-Bot/"
+    msg = build_message("2026-09-22", FAKE_ANALYSIS, {}, [], dashboard_url=url)
+    assert url in msg
+    assert msg.endswith(f"_{DISCLAIMER}_")

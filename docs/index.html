@@ -5,6 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>The Morning Brief</title>
 <meta name="description" content="Daily stock ideas from the news, with a running scorecard. Ideas for research only, not financial advice.">
+<meta name="theme-color" content="#fbfaf7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#161615" media="(prefers-color-scheme: dark)">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="The Morning Brief">
+<meta property="og:title" content="The Morning Brief">
+<meta property="og:description" content="Today's top 5 stock ideas from the news, with charts and a running scorecard. Ideas for research only, not financial advice.">
+<meta name="twitter:card" content="summary">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23121212'/%3E%3Ctext x='16' y='24' font-family='Georgia,serif' font-size='22' font-weight='700' fill='%23fbfaf7' text-anchor='middle'%3EM%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -116,6 +123,42 @@ a { color: inherit; }
 .sections a[aria-current="page"] { color: var(--ink); font-weight: 700; border-bottom-color: var(--ink); }
 .sections a:focus-visible { outline: 2px solid var(--good); outline-offset: 2px; }
 
+/* ---- Search box (top right) ------------------------------------------------- */
+.topbar-right { display: flex; align-items: center; gap: 8px; }
+.finder input {
+  width: 190px; font: 500 12px/1 var(--sans); color: var(--ink);
+  background: var(--paper); border: 1px solid var(--hair); border-radius: 999px; padding: 8px 12px 8px 30px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%236b6a66' stroke-width='2.4' stroke-linecap='round'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='M20 20l-3.5-3.5'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: 11px 50%;
+}
+.finder input::placeholder { color: var(--muted); }
+.finder input:focus { outline: none; border-color: var(--ink-2); }
+.finder input:focus-visible { outline: 2px solid var(--good); outline-offset: 1px; }
+
+/* ---- Markets strip (under the menu) ------------------------------------------ */
+.markets {
+  display: flex; gap: 0; overflow-x: auto; scrollbar-width: none;
+  border-bottom: 1px solid var(--hair);
+  -webkit-mask-image: linear-gradient(90deg, #000 92%, transparent);
+          mask-image: linear-gradient(90deg, #000 92%, transparent);
+}
+.markets::-webkit-scrollbar { display: none; }
+.markets[hidden] { display: none; }
+.mk {
+  flex: none; display: inline-flex; align-items: baseline; gap: 6px;
+  padding: 8px 14px; border: none; border-left: 1px solid var(--hair); background: none; color: var(--ink);
+  font: 500 11.5px/1.2 var(--sans); font-variant-numeric: tabular-nums; cursor: pointer; white-space: nowrap;
+}
+.mk:first-child { border-left: none; padding-left: 0; }
+.mk:hover .mk-name { text-decoration: underline; }
+.mk:focus-visible { outline: 2px solid var(--good); outline-offset: -2px; }
+.mk-name { font-weight: 700; }
+.mk-price { color: var(--ink-2); }
+.mk-chg { font-weight: 600; }
+.mk-chg span { font-size: 9px; margin-right: 2px; }
+.mk-chg.up span { color: var(--good); }
+.mk-chg.down span { color: var(--bad); }
+
 /* ---- Tabs: only the chosen section is shown -------------------------------- */
 .tab-panel[hidden] { display: none; }
 .tab-panel > .section-head:first-child { margin-top: 28px; }
@@ -187,12 +230,11 @@ a { color: inherit; }
 .tb-price .now { font: 600 14px/1.2 var(--sans); }
 .tb-move, .tb-conf { font: 400 11px/1.3 var(--sans); color: var(--muted); white-space: nowrap; }
 .tb-toggle {
-  margin-top: 10px; display: inline-flex; align-items: center; gap: 6px;
-  font: 600 11px/1 var(--sans); letter-spacing: .04em; text-transform: uppercase;
-  color: var(--ink-2); background: none; border: 1px solid var(--hair); border-radius: 999px;
-  padding: 7px 12px; cursor: pointer;
+  margin-top: 8px; display: inline-flex; align-items: center; gap: 5px;
+  font: 600 12px/1 var(--sans); color: var(--good);
+  background: none; border: none; padding: 4px 0; cursor: pointer;
 }
-.tb-toggle:hover { border-color: var(--ink-2); color: var(--ink); }
+.tb-toggle:hover .tb-toggle-text { text-decoration: underline; }
 .tb-toggle:focus-visible { outline: 2px solid var(--good); outline-offset: 2px; }
 .tb-caret { transition: transform .15s; }
 .tb-toggle[aria-expanded="true"] .tb-caret { transform: rotate(180deg); }
@@ -207,8 +249,20 @@ a { color: inherit; }
 .tb-links .m-article { flex: 1 1 320px; background: var(--paper); }
 .tb-chart-link { font: 600 12px/1.3 var(--sans); color: var(--ink-2); margin-top: 12px; }
 .tb-note { font: 400 11px/1.5 var(--sans); color: var(--muted); margin: 0; padding-top: 8px; border-top: 1px solid var(--hair); }
+.mini-trend { display: block; margin-top: 2px; }
+.call-list { border-top: 1px solid var(--hair); }
+.call-row { display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: 0 12px; padding: 14px 0; border-bottom: 1px solid var(--hair); }
+.call-row h4 { margin: 0; font: 700 16px/1.25 var(--serif); }
+.call-row h4 .ticker { font: 700 12px/1 var(--sans); letter-spacing: .04em; margin-right: 6px; vertical-align: 1px; color: var(--ink-2); }
+.call-row .tags { margin: 3px 0 0; }
+.call-dir { font: 400 15px/1 var(--sans); text-align: center; padding-top: 4px; }
+.call-dir.up { color: var(--good); }
+.call-dir.down { color: var(--bad); }
+.call-links { margin: 6px 0 0; font: 400 12px/1.4 var(--sans); color: var(--muted); }
+.call-links .src { font-weight: 600; color: var(--ink-2); }
+.call-links a { color: var(--ink-2); }
 .more-calls { margin: 30px 0 0; font: 600 10px/1.2 var(--sans); letter-spacing: .12em; text-transform: uppercase; color: var(--ink-2); }
-.more-calls + .stories { margin-top: 8px; }
+.more-calls + .stories, .more-calls + .call-list { margin-top: 8px; }
 
 /* ---- Scorecard ----------------------------------------------------------- */
 .hero-label { font: 600 10px/1.2 var(--sans); letter-spacing: .12em; text-transform: uppercase; color: var(--ink-2); margin: 0; }
@@ -400,6 +454,11 @@ details li a.hl:hover { text-decoration: underline; text-underline-offset: 3px; 
 .modal { border: none; padding: 0; background: transparent; max-width: min(920px, calc(100vw - 32px)); width: 100%; max-height: calc(100vh - 48px); }
 .modal::backdrop { background: rgba(10, 10, 10, .55); }
 .modal-inner { position: relative; background: var(--paper); color: var(--ink); border-radius: 10px; padding: 22px 24px 20px; max-height: calc(100vh - 48px); overflow-y: auto; box-shadow: 0 20px 60px rgba(0,0,0,.3); }
+.m-stepper { display: inline-flex; align-items: center; gap: 6px; }
+.m-step { width: 30px; height: 30px; border-radius: 50%; border: 1px solid var(--hair); background: var(--paper); color: var(--ink); font: 400 17px/1 var(--sans); cursor: pointer; padding: 0 0 2px; }
+.m-step:hover { border-color: var(--ink-2); }
+.m-step:focus-visible { outline: 2px solid var(--good); outline-offset: 2px; }
+.m-count { font: 400 11px/1 var(--sans); color: var(--muted); margin-left: 4px; }
 .modal-close { position: absolute; top: 12px; right: 12px; width: 34px; height: 34px; border-radius: 50%; border: 1px solid var(--hair); background: var(--paper); color: var(--ink); font: 400 15px/1 var(--sans); cursor: pointer; z-index: 2; }
 .modal-close:hover { border-color: var(--ink-2); }
 .modal-close:focus-visible { outline: 2px solid var(--good); outline-offset: 2px; }
@@ -516,6 +575,17 @@ footer .disclaimer { font: 400 italic 13px/1.4 var(--serif); color: var(--ink); 
   .day:nth-child(2n) { padding-right: 0; }
 }
 @media (max-width: 680px) {
+  /* One scrolling row of menu links instead of two wrapped rows. */
+  .sections { flex-wrap: nowrap; justify-content: flex-start; overflow-x: auto; scrollbar-width: none; gap: 18px; padding: 6px 0; }
+  .sections::-webkit-scrollbar { display: none; }
+  .sections a { flex: none; }
+  #edition { display: none; }
+  .topbar { justify-content: flex-end; }
+  .topbar-right { width: 100%; }
+  .finder { flex: 1; }
+  .finder input { width: 100%; }
+  .call-row { grid-template-columns: 22px minmax(0, 1fr); gap: 0 8px; }
+  .mini-trend { width: 72px; }
   .t5-day { grid-template-columns: 1fr; }
   .tb-points { grid-template-columns: 1fr; gap: 12px; }
   .tb-row { grid-template-columns: 30px minmax(0, 1fr); gap: 0 8px; }
@@ -556,7 +626,14 @@ footer .disclaimer { font: 400 italic 13px/1.4 var(--serif); color: var(--ink); 
   <header>
     <div class="topbar">
       <span id="edition">Weekday Edition</span>
-      <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch between light and dark mode">Dark mode</button>
+      <div class="topbar-right">
+        <form class="finder" id="finder" role="search">
+          <label class="visually-hidden" for="find">Find a stock</label>
+          <input id="find" type="search" list="find-list" placeholder="Find a stock" autocomplete="off" spellcheck="false">
+          <datalist id="find-list"></datalist>
+        </form>
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch between light and dark mode">Dark mode</button>
+      </div>
     </div>
     <h1 class="nameplate"><a href="#">The Morning Brief</a></h1>
     <div class="dateline">
@@ -573,6 +650,7 @@ footer .disclaimer { font: 400 italic 13px/1.4 var(--serif); color: var(--ink); 
       <a href="#archive" data-tab="archive">Archive</a>
       <a href="#about" data-tab="about">How It Works</a>
     </nav>
+    <div class="markets" id="markets" role="region" aria-label="Markets"></div>
   </header>
 
   <main>
