@@ -363,8 +363,55 @@
         el("a", { href: "#results", text: "See results →" })),
       topBuys.length ? renderTopBuys(topBuys) : null,
       topBuys.length && others.length ? el("h3", { class: "more-calls", text: "More of today's calls" }) : null,
-      others.length ? stories : null
+      // With a Top 5 above, the other calls use the same compact rows.
+      topBuys.length && others.length ? el("div", { class: "call-list" }, others.map(callRow)) : null,
+      !topBuys.length && others.length ? stories : null
     ]);
+  }
+
+  /* A small 3-month price line for one stock, colored by its trend. */
+  function miniTrend(ticker, cls) {
+    var full = (charts[ticker] || []).slice(-63);
+    if (full.length < 2) return null;
+    var w = 96, h = 30, pad = 3;
+    var vals = full.map(function (d) { return d[1]; });
+    var lo = Math.min.apply(null, vals), hi = Math.max.apply(null, vals);
+    if (hi - lo < 1e-9) { lo -= 1; hi += 1; }
+    var x = function (i) { return pad + i * (w - 2 * pad) / (full.length - 1); };
+    var y = function (v) { return pad + (1 - (v - lo) / (hi - lo)) * (h - 2 * pad); };
+    var line = full.map(function (d, i) { return (i ? "L" : "M") + x(i).toFixed(1) + "," + y(d[1]).toFixed(1); }).join("");
+    var color = trendColor(vals[vals.length - 1] - vals[0]);
+    return svg("svg", { class: cls || "mini-trend", width: w, height: h, viewBox: "0 0 " + w + " " + h, "aria-hidden": "true" },
+      svg("path", { d: line + "L" + x(full.length - 1).toFixed(1) + "," + h + "L" + x(0) + "," + h + "Z", fill: color, opacity: 0.1 }),
+      svg("path", { d: line, fill: "none", stroke: color, "stroke-width": 1.6, "stroke-linejoin": "round", "stroke-linecap": "round" }));
+  }
+
+  /* One of the day's other calls, as a compact row (like the Top 5). */
+  function callRow(p) {
+    var a = p.article;
+    var move = p.return_pct === null || p.return_pct === undefined
+      ? el("span", { class: "tb-move", text: "New today" })
+      : el("span", { class: "tb-move" }, changePill(p.return_pct), " since pick");
+    return el("article", { class: "call-row" },
+      el("div", { class: "call-dir " + (p.direction === "bearish" ? "down" : "up"), title: capitalize(p.direction),
+        "aria-hidden": "true", text: p.direction === "bearish" ? "▼" : "▲" }),
+      el("div", { class: "tb-body" },
+        el("div", { class: "tb-top" },
+          el("div", null,
+            el("h4", null, el("span", { class: "ticker", text: p.ticker }), p.company || ""),
+            el("div", { class: "tags" },
+              el("span", { class: "tag", text: directionText(p) }),
+              p.confidence ? [el("span", { class: "sep", "aria-hidden": "true", text: "·" }),
+                el("span", { class: "tag" }, confidencePips(p.confidence), capitalize(p.confidence))] : null),
+            el("p", { class: "tb-pitch", text: p.reason }),
+            el("p", { class: "call-links" },
+              a && safeUrl(a.url) ? [el("span", { class: "src", text: a.source }), " · ", articleLink(a.url, "Read the article ↗", null)] : null,
+              charts[p.ticker] ? [a && safeUrl(a.url) ? el("span", { class: "sep", "aria-hidden": "true", text: " · " }) : null,
+                chartLink(p.ticker, "Chart →", null)] : null)),
+          el("div", { class: "tb-price" },
+            el("div", { class: "now", text: fmtPrice(p.price_now || p.price_at_pick) }),
+            move,
+            miniTrend(p.ticker)))));
   }
 
   // ---------------------------------------------------------------------------
@@ -389,7 +436,8 @@
       : el("span", { class: "tb-move" }, changePill(b.return_pct), " since pick");
 
     var toggle = el("button", { type: "button", class: "tb-toggle", "aria-expanded": "false", "aria-controls": moreId },
-      el("span", { class: "tb-toggle-text", text: "Show more info" }), el("span", { class: "tb-caret", "aria-hidden": "true", text: "▾" }));
+      el("span", { class: "tb-toggle-text", text: "Show more info" }), el("span", { class: "tb-caret", "aria-hidden": "true", text: "▾" }),
+      el("span", { class: "visually-hidden", text: " about " + b.ticker }));
 
     // The hidden details: why, risks, what to watch, and the news story.
     var a = b.article;
@@ -420,13 +468,14 @@
           el("div", null,
             el("h4", null, el("span", { class: "visually-hidden", text: "Number " + b.rank + ": " }),
               el("span", { class: "ticker", text: b.ticker }), b.company || ""),
-            el("p", { class: "tb-pitch", text: b.pitch })),
+            el("p", { class: "tb-pitch", text: b.pitch }),
+            toggle),
           el("div", { class: "tb-price" },
             el("div", { class: "now", text: fmtPrice(b.price_now || b.price_at_pick) }),
             move,
             b.confidence ? el("div", { class: "tb-conf", title: capitalize(b.confidence) + " confidence" },
-              confidencePips(b.confidence), capitalize(b.confidence)) : null)),
-        toggle,
+              confidencePips(b.confidence), capitalize(b.confidence)) : null,
+            miniTrend(b.ticker))),
         more));
   }
 
@@ -536,7 +585,11 @@
       return tile(g.label + ": average move", v === null || v === undefined ? "—" : fmtPct(v),
         g.count + (g.count === 1 ? " pick" : " picks"));
     };
-    var compare = el("div", { class: "t5-compare" },
+    var compare = !rec.judged ? el("div", { class: "t5-compare" },
+      el("p", { class: "hero-label", text: "Top 5 vs. the other picks" }),
+      el("div", { class: "hero-figure pending", text: "Pending" }),
+      el("p", { class: "hero-note", text: "Once the market closes on a Top 5 day, this compares how often the Top 5 are right with the rest of the picks, and their average move." })) :
+      el("div", { class: "t5-compare" },
       breakdown("Top 5 vs. the other picks", rec.groups),
       el("div", { class: "t5-avg tiles" }, avgTile(top), avgTile(rest)),
       el("p", { class: "legend-note", text: rec.judged
@@ -926,6 +979,59 @@
   // Stock popup: the full chart plus everything we know about the stock
   // ---------------------------------------------------------------------------
 
+  // ---------------------------------------------------------------------------
+  // Markets strip (under the menu) and the "Find a stock" search
+  // ---------------------------------------------------------------------------
+
+  var SHORT_NAMES = { SPY: "S&P 500", QQQ: "Nasdaq", DIA: "Dow", GLD: "Gold", TLT: "Bonds" };
+
+  function renderMarkets() {
+    var bar = document.getElementById("markets");
+    clear(bar);
+    var items = watchlist.filter(function (w) { return (charts[w.ticker] || []).length > 1; });
+    if (!items.length) { bar.hidden = true; return; }
+    var last = null;
+    items.forEach(function (w) {
+      var full = charts[w.ticker];
+      var now = full[full.length - 1], prev = full[full.length - 2];
+      var change = (now[1] - prev[1]) / prev[1] * 100;
+      last = now[0];
+      var b = el("button", { type: "button", class: "mk",
+        "aria-label": (SHORT_NAMES[w.ticker] || w.name) + " (" + w.ticker + "), " + fmtPrice(now[1]) + ", " + fmtPct(change) + " on the day. Open chart." },
+        el("span", { class: "mk-name", text: SHORT_NAMES[w.ticker] || w.ticker }),
+        el("span", { class: "mk-price", text: fmtPrice(now[1]) }),
+        el("span", { class: "mk-chg " + (change >= 0 ? "up" : "down") }, el("span", { "aria-hidden": "true", text: change >= 0 ? "▲" : "▼" }), fmtPct(change)));
+      b.addEventListener("click", function () { openStockChart(w.ticker); });
+      bar.appendChild(b);
+    });
+    bar.setAttribute("aria-label", "Markets at the close on " + fmtShortDate(last));
+  }
+
+  function setupFinder() {
+    var form = document.getElementById("finder");
+    var input = document.getElementById("find");
+    var list = document.getElementById("find-list");
+    var all = stockList();
+    all.forEach(function (i) { list.appendChild(el("option", { value: i.ticker, label: i.name })); });
+    input.placeholder = "Find a stock (" + all.length + ")";
+    function go() {
+      var q = input.value.trim().toUpperCase().replace(/^\$/, "");
+      if (!q) return;
+      var hit = all.find(function (i) { return i.ticker === q; }) ||
+        all.find(function (i) { return i.name && i.name.toUpperCase().indexOf(q) !== -1; });
+      input.value = "";
+      if (hit) { input.placeholder = "Find a stock (" + all.length + ")"; input.blur(); openStockChart(hit.ticker); }
+      else input.placeholder = "No chart for " + q;
+    }
+    form.addEventListener("submit", function (e) { e.preventDefault(); go(); });
+    // Picking a suggestion from the list opens it straight away.
+    input.addEventListener("input", function (e) {
+      if (!e.inputType || e.inputType === "insertReplacementText") {
+        if (all.some(function (i) { return i.ticker === input.value; })) go();
+      }
+    });
+  }
+
   var modal = document.getElementById("stock-modal");
   var modalTicker = null;
 
@@ -988,7 +1094,18 @@
       b.addEventListener("click", function () { stockState.range = r[0]; renderStockModal(); renderStockSection(); });
       ranges.appendChild(b);
     });
-    body.appendChild(el("div", { class: "modal-top" }, el("span", { class: "m-kicker", text: "Stock chart" }), ranges));
+    // Previous / next buttons flip through the stocks in the same order as the Stock Charts tab.
+    var order = stockOrder(stockList());
+    var at = order.findIndex(function (i) { return i.ticker === item.ticker; });
+    var stepper = el("div", { class: "m-stepper" });
+    [[-1, "‹", "Previous"], [1, "›", "Next"]].forEach(function (s) {
+      var target = order[(at + s[0] + order.length) % order.length];
+      var b = el("button", { type: "button", class: "m-step", text: s[1], "aria-label": s[2] + " stock: " + target.ticker, title: s[2] + ": " + target.ticker });
+      b.addEventListener("click", function () { modalTicker = target.ticker; renderStockModal(); });
+      stepper.appendChild(b);
+    });
+    stepper.appendChild(el("span", { class: "m-count", text: (at + 1) + " of " + order.length }));
+    body.appendChild(el("div", { class: "modal-top" }, stepper, ranges));
 
     // The full interactive chart (same one as before, now in the popup).
     var chartBox = el("div", { class: "modal-chart" });
@@ -1470,6 +1587,8 @@
   renderLead();
   renderScorecard();
   renderTop5Record();
+  renderMarkets();
+  setupFinder();
   setupRecord();
   renderArchive();
   renderNews();

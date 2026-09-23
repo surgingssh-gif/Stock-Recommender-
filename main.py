@@ -32,6 +32,22 @@ from prices import get_prices
 from watchlist import WATCHLIST
 
 
+def dashboard_url():
+    """
+    The dashboard's web address. Set DASHBOARD_URL to choose it yourself;
+    otherwise, on GitHub Actions it's worked out from the repository name
+    (GitHub Pages lives at https://<owner>.github.io/<repo>/).
+    """
+    url = os.getenv("DASHBOARD_URL")
+    if url:
+        return url
+    repo = os.getenv("GITHUB_REPOSITORY", "")  # e.g. "surgingssh-gif/Stock-Recommender-"
+    if "/" in repo:
+        owner, name = repo.split("/", 1)
+        return f"https://{owner.lower()}.github.io/{name}/"
+    return None
+
+
 def main():
     dry_run = "--dry-run" in sys.argv
 
@@ -95,7 +111,7 @@ def main():
     for problem in problems:
         print(f"Problem: {problem}")
 
-    message = build_message(date_str, analysis, prices, problems, headlines)
+    message = build_message(date_str, analysis, prices, problems, headlines, dashboard_url())
 
     if dry_run:
         print("\n----- DRY RUN: message not sent -----\n")
