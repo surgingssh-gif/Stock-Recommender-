@@ -515,6 +515,64 @@
     ]);
   }
 
+  // ---------------------------------------------------------------------------
+  // How the Top 5 did: top buys vs. the other picks, and one row per day
+  // ---------------------------------------------------------------------------
+
+  var top5Limit = 10;  // days shown before "Show older days"
+
+  function renderTop5Record() {
+    var box = document.getElementById("top5-record");
+    clear(box);
+    var rec = stats.top_buys || { groups: [], by_day: [] };
+    if (!rec.by_day.length) {
+      box.appendChild(emptyChart("The first Top 5 is on its way",
+        "Once the bot has picked its first Top 5 buys, you'll see here how each one has done since."));
+      return;
+    }
+    var top = rec.groups[0], rest = rec.groups[1];
+    var avgTile = function (g) {
+      var v = g.avg_directional_return;
+      return tile(g.label + ": average move", v === null || v === undefined ? "—" : fmtPct(v),
+        g.count + (g.count === 1 ? " pick" : " picks"));
+    };
+    var compare = el("div", { class: "t5-compare" },
+      breakdown("Top 5 vs. the other picks", rec.groups),
+      el("div", { class: "t5-avg tiles" }, avgTile(top), avgTile(rest)),
+      el("p", { class: "legend-note", text: rec.judged
+        ? "Only counts days that had a Top 5. Above zero means the picks are working."
+        : "Results start after the next market close." }));
+
+    var list = el("div", { class: "t5-days" });
+    rec.by_day.slice(0, top5Limit).forEach(function (d) {
+      var avg = d.avg_directional_return;
+      list.appendChild(el("div", { class: "t5-day" },
+        el("div", { class: "t5-date" }, fmtShortDate(d.date),
+          el("small", { text: avg === null || avg === undefined ? "Too early to tell" : "Average " + fmtPct(avg) })),
+        el("div", { class: "t5-chips" }, d.buys.map(top5Chip))));
+    });
+    if (rec.by_day.length > top5Limit) {
+      var more = el("button", { type: "button", class: "more t5-more", text: "Show older days" });
+      more.addEventListener("click", function () { top5Limit += 10; renderTop5Record(); });
+      list.appendChild(more);
+    }
+    append(box, [compare, list]);
+  }
+
+  function top5Chip(b) {
+    var inner = [
+      el("span", { class: "rk", text: "#" + b.top_rank }),
+      b.ticker,
+      b.return_pct === null || b.return_pct === undefined ? el("span", { class: "wait", text: "new" }) : changePill(b.return_pct)
+    ];
+    var label = "Number " + b.top_rank + ", " + b.ticker + (b.company ? " (" + b.company + ")" : "") +
+      (b.return_pct === null || b.return_pct === undefined ? ", too early to tell" : ", " + fmtPct(b.return_pct) + " since the pick");
+    if (!charts[b.ticker]) return el("span", { class: "t5-chip", title: label }, inner);
+    var a = el("a", { class: "t5-chip", href: "#stock-charts", title: label, "aria-label": label }, inner);
+    a.addEventListener("click", function (e) { e.preventDefault(); openStockChart(b.ticker); });
+    return a;
+  }
+
   function tile(label, value, sub) {
     return el("div", { class: "tile" },
       el("div", { class: "label", text: label }),
@@ -1178,7 +1236,8 @@
     var day = document.getElementById("f-date").value;
 
     var rows = picks.filter(function (p) {
-      if (dir && p.direction !== dir) return false;
+      if (dir === "top") { if (!p.top_rank) return false; }
+      else if (dir && p.direction !== dir) return false;
       if (res && resultOf(p) !== res) return false;
       if (day && p.date !== day) return false;
       if (q) {
@@ -1206,7 +1265,8 @@
       tbody.appendChild(el("tr", null,
         el("td", { class: "tab", text: fmtTableDate(p.date) }),
         el("td", null, chartLink(p.ticker, p.ticker, "t-link") || el("span", { class: "t", text: p.ticker }),
-          p.company ? el("span", { class: "co", text: p.company }) : null),
+          p.company ? el("span", { class: "co", text: p.company }) : null,
+          p.top_rank ? el("span", { class: "top-tag", text: "Top 5 · #" + p.top_rank }) : null),
         el("td", { class: "tab", text: directionText(p) }),
         el("td", null, p.confidence ? [confidencePips(p.confidence), capitalize(p.confidence)] : "—"),
         el("td", { class: "r tab", text: fmtPrice(p.price_at_pick) }),
@@ -1409,6 +1469,7 @@
   renderMasthead();
   renderLead();
   renderScorecard();
+  renderTop5Record();
   setupRecord();
   renderArchive();
   renderNews();

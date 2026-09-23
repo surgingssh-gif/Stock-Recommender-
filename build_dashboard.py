@@ -182,6 +182,43 @@ def summarize(picks):
     }
 
 
+def top_buys_record(picks):
+    """
+    How the "Top 5 buys" have done: their numbers next to all the other
+    picks (only counting days that had a Top 5), plus one row per day.
+    """
+    top_days = {p["date"] for p in picks if p.get("top_rank")}
+    top = [p for p in picks if p.get("top_rank")]
+    rest = [p for p in picks if p["date"] in top_days and not p.get("top_rank")]
+
+    def group(label, ps):
+        return {
+            "label": label,
+            "count": len(ps),
+            "hit_rate": _hit_rate(ps),
+            "avg_directional_return": _average([p["directional_return_pct"] for p in ps]),
+        }
+
+    by_day = []
+    for d in sorted(top_days, reverse=True):
+        ps = sorted((p for p in top if p["date"] == d), key=lambda p: p["top_rank"])
+        by_day.append({
+            "date": d,
+            "hit_rate": _hit_rate(ps),
+            "avg_directional_return": _average([p["directional_return_pct"] for p in ps]),
+            "buys": [
+                {k: p.get(k) for k in ("top_rank", "ticker", "company", "return_pct", "correct")}
+                for p in ps
+            ],
+        })
+
+    return {
+        "groups": [group("Top 5 buys", top), group("Other picks", rest)],
+        "judged": len([p for p in top if p["correct"] is not None]),
+        "by_day": by_day,
+    }
+
+
 def latest_run_only(picks, days):
     """
     If the bot ran more than once on the same day, picks_log.csv has rows
@@ -316,9 +353,12 @@ def build_data(picks, days, histories):
         if pick["price_at_pick"] is None:
             # No price was logged: use that day's closing price, if known.
             pick = dict(pick, price_at_pick=next((c for d, c in history if d == pick["date"]), None))
+        top_tickers = [b["ticker"] for b in day.get("top_buys") or []]
         full = dict(
             pick,
             company=extra.get("company"),
+            # 1-5 if this was one of the day's "Top 5 buys", otherwise None.
+            top_rank=top_tickers.index(pick["ticker"]) + 1 if pick["ticker"] in top_tickers else None,
             confidence=extra.get("confidence"),
             # The news story this idea came from (with its photo, if any).
             article=_article_for(extra.get("sources", []), day.get("headlines", [])),
@@ -343,9 +383,12 @@ def build_data(picks, days, histories):
         for d in all_dates
     ]
 
+    stats = summarize(enriched)
+    stats["top_buys"] = top_buys_record(enriched)
+
     return {
         "generated_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
-        "stats": summarize(enriched),
+        "stats": stats,
         "picks": enriched,
         "days": day_list,
         # Full price history per ticker, for the stock charts.

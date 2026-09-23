@@ -323,3 +323,24 @@ def test_dashboard_top_buys_get_prices_from_their_pick():
     assert buy["rank"] == 1 and buy["why"] == "Why."
     assert buy["price_now"] == 110.0 and buy["return_pct"] == 10.0
     assert buy["article"]["headline"] == FAKE_HEADLINES[0]["headline"]
+
+
+def test_top_buys_record_compares_top_5_with_other_picks():
+    picks = [
+        {"date": "2026-09-22", "ticker": t, "direction": d, "reason": "r", "price_at_pick": 100.0}
+        for t, d in [("XOM", "bullish"), ("CVX", "bullish"), ("DAL", "bearish")]
+    ]
+    days = {"2026-09-22": {"date": "2026-09-22", "market_mood": "", "headlines": [],
+                           "picks": [{"ticker": t, "sources": []} for t in ("XOM", "CVX", "DAL")],
+                           "top_buys": [_top_buy("CVX"), _top_buy("XOM")]}}
+    histories = {"XOM": [["2026-09-23", 90.0]], "CVX": [["2026-09-23", 120.0]], "DAL": [["2026-09-23", 95.0]]}
+    data = build_data(picks, days, histories)
+
+    ranks = {p["ticker"]: p["top_rank"] for p in data["picks"]}
+    assert ranks == {"CVX": 1, "XOM": 2, "DAL": None}
+    record = data["stats"]["top_buys"]
+    top, rest = record["groups"]
+    assert (top["count"], top["hit_rate"], top["avg_directional_return"]) == (2, 50.0, 5.0)
+    assert (rest["count"], rest["hit_rate"], rest["avg_directional_return"]) == (1, 100.0, 5.0)
+    (day,) = record["by_day"]
+    assert [b["ticker"] for b in day["buys"]] == ["CVX", "XOM"]
