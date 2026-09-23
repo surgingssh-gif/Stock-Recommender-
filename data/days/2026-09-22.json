@@ -1,16 +1,41 @@
 {
   "date": "2026-09-22",
-  "market_mood": "Markets are leaning risk-on: the Nasdaq hit an intraday record on AI strength and hopes for a US-Iran settlement, even as Trump's UN speech mixed threats with diplomacy over Iran and the Strait of Hormuz. Deal-making is also busy, with takeover chatter around Capri, Brighthouse and a big Royal Caribbean move into resorts.",
+  "market_mood": "Risk appetite is firm: US-Iran diplomacy over the Strait of Hormuz is pulling oil lower and lifting stocks, while AI enthusiasm pushed the Nasdaq to an intraday record. A strong dollar and talk of possible rate hikes are the main offsetting worries, alongside a busy M&A tape.",
   "picks": [
+    {
+      "ticker": "XOM",
+      "company": "Exxon Mobil",
+      "direction": "bearish",
+      "confidence": "medium",
+      "reason": "Oil prices are falling on more Gulf supply and optimism that US-Iran talks could reopen the Strait of Hormuz, which squeezes oil producers' revenue.",
+      "sources": [
+        1,
+        15,
+        50,
+        59
+      ]
+    },
+    {
+      "ticker": "DAL",
+      "company": "Delta Air Lines",
+      "direction": "bullish",
+      "confidence": "medium",
+      "reason": "Cheaper crude means lower jet fuel costs, a classic second-order benefit for airlines, and calmer Middle East headlines help international travel demand.",
+      "sources": [
+        1,
+        27,
+        15
+      ]
+    },
     {
       "ticker": "CPRI",
       "company": "Capri Holdings",
       "direction": "bullish",
       "confidence": "medium",
-      "reason": "Reports of takeover interest sent the shares jumping, with one analyst pegging deal value at $25-$26 per share. Buyout speculation usually supports a stock, though it fades fast if no bid materializes.",
+      "reason": "Shares jumped on reports of takeover interest, with one analyst putting a buyout value at $25-$26 per share.",
       "sources": [
-        40,
-        17
+        43,
+        20
       ]
     },
     {
@@ -18,19 +43,9 @@
       "company": "Brighthouse Financial",
       "direction": "bullish",
       "confidence": "medium",
-      "reason": "Shares jumped on a report that private equity firm Sixth Street is reviving its takeover attempt, which puts a potential acquisition premium back in play.",
+      "reason": "The stock rose on a report that Sixth Street is reviving its effort to acquire the insurer.",
       "sources": [
-        9
-      ]
-    },
-    {
-      "ticker": "RCL",
-      "company": "Royal Caribbean",
-      "direction": "bullish",
-      "confidence": "low",
-      "reason": "Royal Caribbean is near a roughly $3 billion deal for a 50% stake in Sandals, expanding it from cruises into land resorts. Investors may like the diversification, but it is a large cash outlay to digest.",
-      "sources": [
-        13
+        12
       ]
     },
     {
@@ -38,38 +53,105 @@
       "company": "Cisco Systems",
       "direction": "bearish",
       "confidence": "medium",
-      "reason": "The stock fell 5% after Piper Sandler cut its price target, warning that growth in the networking industry is peaking after a record summer run.",
+      "reason": "Piper Sandler cut its price target on worries that networking growth is peaking, and the stock fell about 5%.",
       "sources": [
-        14
+        17
       ]
     },
     {
-      "ticker": "USO",
-      "company": "United States Oil Fund",
-      "direction": "bearish",
-      "confidence": "low",
-      "reason": "Iran has submitted conditions for reopening the Strait of Hormuz, Saudi Arabia restarted its East-West pipeline, and Trump says a settlement is likely, all of which ease the supply-risk premium in crude. A breakdown in talks would flip this quickly.",
-      "sources": [
-        12,
-        34,
-        24,
-        56
-      ]
-    },
-    {
-      "ticker": "NVDA",
-      "company": "NVIDIA",
+      "ticker": "RCL",
+      "company": "Royal Caribbean",
       "direction": "bullish",
       "confidence": "low",
-      "reason": "A top chip analyst reiterated a bullish case on Nvidia and Broadcom, and the Nasdaq set an intraday record on AI-driven buying ahead of upcoming Nvidia catalysts.",
+      "reason": "Royal Caribbean is near a roughly $3 billion deal for half of Sandals, expanding it beyond cruises into land-based resorts.",
       "sources": [
-        7,
-        28,
-        25
+        16
       ]
     }
   ],
+  "watchlist_notes": [
+    {
+      "ticker": "SPY",
+      "note": "S&P 500 is close to a record as Middle East de-escalation hopes and cheaper oil support sentiment."
+    },
+    {
+      "ticker": "QQQ",
+      "note": "Nasdaq 100 hit an intraday record on AI-driven buying, though some traders are trimming tech profits."
+    },
+    {
+      "ticker": "DIA",
+      "note": "Dow is supported by the risk-on tone, but energy and bank weakness could cap gains."
+    },
+    {
+      "ticker": "AAPL",
+      "note": "No major company-specific news today; it moves with the broad tech rally."
+    },
+    {
+      "ticker": "MSFT",
+      "note": "No major news today beyond the general AI-led tech strength."
+    },
+    {
+      "ticker": "NVDA",
+      "note": "A top chip analyst is bullish on Nvidia and unusual options activity is building ahead of upcoming catalysts."
+    },
+    {
+      "ticker": "AMZN",
+      "note": "No major news today; benefits indirectly from the broad tech rally."
+    },
+    {
+      "ticker": "GOOGL",
+      "note": "No major news today aside from ongoing AI-sector optimism."
+    },
+    {
+      "ticker": "META",
+      "note": "No major news today."
+    },
+    {
+      "ticker": "TSLA",
+      "note": "Mercedes partnering with Wayve on self-driving is a reminder that autonomy competition is widening."
+    },
+    {
+      "ticker": "JPM",
+      "note": "Banks lagged in Europe, and Goldman's reported talks for a $37B credit firm show large-cap banks still hunting deals."
+    },
+    {
+      "ticker": "XOM",
+      "note": "Falling crude on Gulf supply and US-Iran talks is a headwind for oil producers."
+    },
+    {
+      "ticker": "GLD",
+      "note": "A dollar near two-month highs and easing Middle East tension reduce the safe-haven bid for gold."
+    },
+    {
+      "ticker": "TLT",
+      "note": "Chatter about possible rate hikes keeps pressure on long-dated Treasury prices."
+    }
+  ],
   "headlines": [
+    {
+      "headline": "Oil falls on increased Gulf supply and hopes for US-Iran talks - Reuters",
+      "source": "Reuters",
+      "time": "2026-09-23 01:44 UTC",
+      "summary": "Oil falls on increased Gulf supply and hopes for US-Iran talks\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOeFhpNFFXWGZ2azRGVllBNXpwLXZQeTFySkY3Vi12SmpTNmMyY09oU3RMa3Rqb21pNUl0ZGhSbVBWQnZBOXdOb19xSlU3TnNra0F6OWowVHp5RHlSblJGTVhXandWeEFJaDBOTi1VcjdrSjVNeGVJZnVjeUJXM3NVYUgxZ28yQkVuWXNhc1pxd093NVVBTHZnWm40c01OS00zZHAwRWVR?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg"
+    },
+    {
+      "headline": "Dollar holds near 2-month high as markets weigh rate hikes, Iran diplomacy - Reuters",
+      "source": "Reuters",
+      "time": "2026-09-23 01:43 UTC",
+      "summary": "Dollar holds near 2-month high as markets weigh rate hikes, Iran diplomacy\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxQZ09vVklTVy1TeFR1N3AzZE9MUHJnb0dWeTVVUXJOS1N1dE1lT0ZSX1BSZ3RnMzVoVTdXTHhldmxGZkhCYkVTaHRMLWFrU2FUQVJhbzZHWld6TnZ5OFdXTGNDWXNUbTl1NE9qSmV5a3ZiQ0FUa3laZUdZVjRZZmNwazFoNDlKVHlkdEVQdzVLM01pb3M0S0x2VkFqN0dJRzhOLVZkenlmQzNxTVRVVm9reFRUN1psM1ZkbW1ycUhYU0VMM28?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg"
+    },
+    {
+      "headline": "South Korea plans to cut its reliance on Middle East crude oil imports to 50% by 2035 - Reuters",
+      "source": "Reuters",
+      "time": "2026-09-23 00:42 UTC",
+      "summary": "South Korea plans to cut its reliance on Middle East crude oil imports to 50% by 2035\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxQeE55dDdROVIwdjhlcVFjWnRFQmx0T3pxNldiUkE1eklicGwtRlFGMEljOFoxT01rMVdURzhrTlhCV3NxNnFpSGdSQUROSUROUjVRX3d1R0ZPSDh3RHFBNE1FV21oR0ZpU0pYbXNCRmotM2hna09KT24wX0ljWl8yS2dEU05wUVJSbjNQck04MzR5blJmamxSSVlzZFdWNUZNeVRxODBsbldaaVE4cFItSDY0eFFKYkJYbmRoUFQxX0dxaVlpSUE?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg"
+    },
     {
       "headline": "Beam Global \u062a\u0648\u0642\u0651\u0650\u0639 \u062e\u0637\u0627\u0628 \u0646\u0648\u0627\u064a\u0627 \u0644\u0644\u0627\u0633\u062a\u062d\u0648\u0627\u0630 \u0639\u0644\u0649 \u0634\u0631\u0643\u0629 \u0623\u0648\u0631\u0648\u0628\u064a\u0629 \u0644\u062a\u0643\u0646\u0648\u0644\u0648\u062c\u064a\u0627 \u0627\u0644\u0637\u0627\u0626\u0631\u0627\u062a \u0627\u0644\u0645\u064f\u0633\u064a\u0651\u0631\u0629\u060c \u0628\u0645\u0627 \u064a\u0645\u0647\u062f \u0644\u062a\u062d\u0648\u0644 Beam \u0625\u0644\u0649 \u0634\u0631\u0643\u0629 \u0645\u062a\u0643\u0627\u0645\u0644\u0629 \u0631\u0623\u0633\u064a\u064b\u0627 \u0641\u064a \u0645\u062c\u0627\u0644 \u0627\u0644\u0637\u0627\u0626\u0631\u0627\u062a \u0627\u0644\u0645\u064f\u0633\u064a\u0651\u0631\u0629",
       "source": "GlobalNewswire",
@@ -271,6 +353,14 @@
       "image": "https://image.cnbcfm.com/api/v1/image/108364527-1789665953765-gettyimages-2294936867-2026_sep_14_dreamforce_2974.jpeg?v=1789665981&w=1920&h=1080"
     },
     {
+      "headline": "EXCLUSIVE: Saudi Aramco plans reorganisation to create gas division, sources say - Reuters",
+      "source": "Reuters",
+      "time": "2026-09-22 16:41 UTC",
+      "summary": "EXCLUSIVE: Saudi Aramco plans reorganisation to create gas division, sources say\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPMWpkb3RQV3p1VmpBdlAwTHlnTVI2bkJRSW9hWDNHV1JqRFloLXNkV0pOVDR4aXRmNkpIMzFwS0xBMU9zMFRqVUF0VThLWndEeFlSc1NMVGVYc2NiSDVkb05mZVozNGp5RWRkcjNhY2N5amZwX19QT1NGemF4djVKSU51SjRDaWg5dTUwMFpkd243bWlyejFCQWNmY29EbTF1WG9QNGNoTVJBODRHakgwMW1fX2JfaHZI?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg"
+    },
+    {
       "headline": "Tru Cooperative Bank and Libro Credit Union to merge, creating a stronger cooperative bank for Canadians",
       "source": "GlobalNewswire",
       "time": "2026-09-22 16:40 UTC",
@@ -332,14 +422,6 @@
       "time": "2026-09-22 15:23 UTC",
       "summary": "Czech man gets fine and 13 days' custody for anti-war protest on Red Square\u00a0\u00a0Reuters",
       "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOQmFrTDNJUDdUOHNWVDZjSEN5UXdfbUJNRVN3WjAxQXZadkJ4ck54ek9kTDQ2aWpyeXl2ZlJGaWZaS3hFd2RKOXlBSXJsRi1OelBrVEVkeGRnWFpaTEJQNTRTbC1NNk9UWDBHbF9BZVpVekUxT0d5azFBRlBZX1p3QWpsTWNnMVQ5LU54STFVYTR5U20yZnpSb2JGdm00cDJldnpzYnNneWw?oc=5",
-      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg"
-    },
-    {
-      "headline": "Saudi Arabia restarts East-West oil pipeline, sources say - Reuters",
-      "source": "Reuters",
-      "time": "2026-09-22 15:12 UTC",
-      "summary": "Saudi Arabia restarts East-West oil pipeline, sources say\u00a0\u00a0Reuters",
-      "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxPNmJidHFzNHlscWlnT2hsWFdKc1hNRFMxOWRnTTRQRHVHbV9tRTJySFJoOGFoZXdNdTIwMngxZlczRmY3dWJxWkNiWTRYclVyT0JoWXQyUHJpNThicmpUNDMwWjNqREdrYmw3Ty1peU9oaEtRdC1GWXE1S0o1eGlrWDZONDhqS0FDbWotZXV1LXBvTEhUWHdlT1BzYU5udjNKTTFXdk1hX0wwVk1yczRTdV94R0p4UUQ1bEViTXJ2S2pEaTVLTFlvdw?oc=5",
       "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg"
     },
     {
@@ -525,30 +607,6 @@
       "summary": "",
       "url": "https://seekingalpha.com/news/4645365-superstar-platforms-to-acquire-titlepal-in-all-stock-deal?utm_source=feed_news_m_a&utm_medium=referral&feed_item_type=news",
       "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567050932/sa_jgen9y.png"
-    },
-    {
-      "headline": "Superstar Platforms Announces Agreement to Acquire TitlePal, Inc.",
-      "source": "GlobalNewswire",
-      "time": "2026-09-22 12:30 UTC",
-      "summary": "Acquisition expands Superstar\u2019s fintech portfolio with a digital-first platform designed to modernize the traditionally storefront-based vehicle title lending industry Acquisition expands Superstar\u2019s fintech portfolio with a digital-first platform designed to modernize the traditionally storefront-b",
-      "url": "https://www.globenewswire.com/news-release/2026/09/22/3366337/0/en/superstar-platforms-announces-agreement-to-acquire-titlepal-inc.html",
-      "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567047094/gnw_ngwqnq.png"
-    },
-    {
-      "headline": "Marchex Expands Investor Relations Program, Engages PondelWilkinson to Broaden Investor Outreach",
-      "source": "GlobalNewswire",
-      "time": "2026-09-22 12:30 UTC",
-      "summary": "Initiative follows Archenia acquisition and Marchex\u2019s evolution into a comprehensive AI-driven customer acquisition and outcome optimization platform Initiative follows Archenia acquisition and Marchex\u2019s evolution into a comprehensive AI-driven customer acquisition and outcome optimization platform",
-      "url": "https://www.globenewswire.com/news-release/2026/09/22/3366330/0/en/marchex-expands-investor-relations-program-engages-pondelwilkinson-to-broaden-investor-outreach.html",
-      "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567047094/gnw_ngwqnq.png"
-    },
-    {
-      "headline": "Form 8.3 - NextEnergy Solar Fund Limited",
-      "source": "GlobalNewswire",
-      "time": "2026-09-22 12:04 UTC",
-      "summary": "8.3",
-      "url": "https://www.globenewswire.com/news-release/2026/09/22/3366301/0/en/form-8-3-nextenergy-solar-fund-limited.html",
-      "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567047094/gnw_ngwqnq.png"
     }
   ]
 }

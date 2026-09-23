@@ -1,5 +1,5 @@
 window.DASHBOARD_DATA = {
- "generated_at": "2026-09-23T02:51:11Z",
+ "generated_at": "2026-09-23T03:36:39Z",
  "stats": {
   "total_picks": 6,
   "days_tracked": 1,
@@ -32,13 +32,13 @@ window.DASHBOARD_DATA = {
    },
    {
     "label": "medium",
-    "count": 3,
+    "count": 5,
     "hit_rate": null,
     "avg_directional_return": null
    },
    {
     "label": "low",
-    "count": 3,
+    "count": 1,
     "hit_rate": null,
     "avg_directional_return": null
    }
@@ -55,10 +55,60 @@ window.DASHBOARD_DATA = {
  "picks": [
   {
    "date": "2026-09-22",
+   "ticker": "XOM",
+   "direction": "bearish",
+   "reason": "Oil prices are falling on more Gulf supply and optimism that US-Iran talks could reopen the Strait of Hormuz, which squeezes oil producers' revenue.",
+   "price_at_pick": 158.3,
+   "company": "Exxon Mobil",
+   "confidence": "medium",
+   "article": {
+    "headline": "Oil falls on increased Gulf supply and hopes for US-Iran talks - Reuters",
+    "source": "Reuters",
+    "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOeFhpNFFXWGZ2azRGVllBNXpwLXZQeTFySkY3Vi12SmpTNmMyY09oU3RMa3Rqb21pNUl0ZGhSbVBWQnZBOXdOb19xSlU3TnNra0F6OWowVHp5RHlSblJGTVhXandWeEFJaDBOTi1VcjdrSjVNeGVJZnVjeUJXM3NVYUgxZ28yQkVuWXNhc1pxd093NVVBTHZnWm40c01OS00zZHAwRWVR?oc=5",
+    "image": ""
+   },
+   "history": [
+    [
+     "2026-09-21",
+     158.3
+    ]
+   ],
+   "price_now": null,
+   "return_pct": null,
+   "directional_return_pct": null,
+   "correct": null
+  },
+  {
+   "date": "2026-09-22",
+   "ticker": "DAL",
+   "direction": "bullish",
+   "reason": "Cheaper crude means lower jet fuel costs, a classic second-order benefit for airlines, and calmer Middle East headlines help international travel demand.",
+   "price_at_pick": 82.5,
+   "company": "Delta Air Lines",
+   "confidence": "medium",
+   "article": {
+    "headline": "Oil falls on increased Gulf supply and hopes for US-Iran talks - Reuters",
+    "source": "Reuters",
+    "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOeFhpNFFXWGZ2azRGVllBNXpwLXZQeTFySkY3Vi12SmpTNmMyY09oU3RMa3Rqb21pNUl0ZGhSbVBWQnZBOXdOb19xSlU3TnNra0F6OWowVHp5RHlSblJGTVhXandWeEFJaDBOTi1VcjdrSjVNeGVJZnVjeUJXM3NVYUgxZ28yQkVuWXNhc1pxd093NVVBTHZnWm40c01OS00zZHAwRWVR?oc=5",
+    "image": ""
+   },
+   "history": [
+    [
+     "2026-09-21",
+     82.5
+    ]
+   ],
+   "price_now": null,
+   "return_pct": null,
+   "directional_return_pct": null,
+   "correct": null
+  },
+  {
+   "date": "2026-09-22",
    "ticker": "CPRI",
    "direction": "bullish",
-   "reason": "Reports of takeover interest sent the shares jumping, with one analyst pegging deal value at $25-$26 per share. Buyout speculation usually supports a stock, though it fades fast if no bid materializes.",
-   "price_at_pick": 15.19,
+   "reason": "Shares jumped on reports of takeover interest, with one analyst putting a buyout value at $25-$26 per share.",
+   "price_at_pick": 14.31,
    "company": "Capri Holdings",
    "confidence": "medium",
    "article": {
@@ -82,8 +132,8 @@ window.DASHBOARD_DATA = {
    "date": "2026-09-22",
    "ticker": "BHF",
    "direction": "bullish",
-   "reason": "Shares jumped on a report that private equity firm Sixth Street is reviving its takeover attempt, which puts a potential acquisition premium back in play.",
-   "price_at_pick": null,
+   "reason": "The stock rose on a report that Sixth Street is reviving its effort to acquire the insurer.",
+   "price_at_pick": 49.84,
    "company": "Brighthouse Financial",
    "confidence": "medium",
    "article": {
@@ -105,35 +155,10 @@ window.DASHBOARD_DATA = {
   },
   {
    "date": "2026-09-22",
-   "ticker": "RCL",
-   "direction": "bullish",
-   "reason": "Royal Caribbean is near a roughly $3 billion deal for a 50% stake in Sandals, expanding it from cruises into land resorts. Investors may like the diversification, but it is a large cash outlay to digest.",
-   "price_at_pick": 234.89,
-   "company": "Royal Caribbean",
-   "confidence": "low",
-   "article": {
-    "headline": "Royal Caribbean nears $3 billion deal to take 50% equity stake in Sandals",
-    "source": "CNBC",
-    "url": "https://www.cnbc.com/2026/09/22/royal-caribbean-sandals.html",
-    "image": "https://image.cnbcfm.com/api/v1/image/108366440-1790105281800-gettyimages-2161029164-AFP_363W4FY.jpeg?v=1790105475&w=1920&h=1080"
-   },
-   "history": [
-    [
-     "2026-09-21",
-     250.25
-    ]
-   ],
-   "price_now": null,
-   "return_pct": null,
-   "directional_return_pct": null,
-   "correct": null
-  },
-  {
-   "date": "2026-09-22",
    "ticker": "CSCO",
    "direction": "bearish",
-   "reason": "The stock fell 5% after Piper Sandler cut its price target, warning that growth in the networking industry is peaking after a record summer run.",
-   "price_at_pick": 106.44,
+   "reason": "Piper Sandler cut its price target on worries that networking growth is peaking, and the stock fell about 5%.",
+   "price_at_pick": 111.46,
    "company": "Cisco Systems",
    "confidence": "medium",
    "article": {
@@ -155,47 +180,22 @@ window.DASHBOARD_DATA = {
   },
   {
    "date": "2026-09-22",
-   "ticker": "USO",
-   "direction": "bearish",
-   "reason": "Iran has submitted conditions for reopening the Strait of Hormuz, Saudi Arabia restarted its East-West pipeline, and Trump says a settlement is likely, all of which ease the supply-risk premium in crude. A breakdown in talks would flip this quickly.",
-   "price_at_pick": 144.08,
-   "company": "United States Oil Fund",
-   "confidence": "low",
-   "article": {
-    "headline": "Iran submits conditions for reopening of Hormuz to U.S. representative, state media says - Reuters",
-    "source": "Reuters",
-    "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxOYVI5Zk1aX3RhYUR3djFoUE4wTGo1cEJscDJwelUwamFLQV9WVEh3OU1BcFhkOGJKWWtCVXFPSndFUUpFV2xvWWctLTQxVWFlWmE0d3ctNmJuYzVDLXJSdjdwaktKWFREMVBQeUlZakZvalZOQTAtSlQ5UzZFQkFlUVZPblc2bEE5dzNVRV9pTzM2ZkxURHlFMzVlamZCWG50RUlkaVd5MDc4MzZTbWp1N1J1Y3NnQnUwMnFNRjhWMnd6Y0Z1LWp5NA?oc=5",
-    "image": ""
-   },
-   "history": [
-    [
-     "2026-09-21",
-     148.16
-    ]
-   ],
-   "price_now": null,
-   "return_pct": null,
-   "directional_return_pct": null,
-   "correct": null
-  },
-  {
-   "date": "2026-09-22",
-   "ticker": "NVDA",
+   "ticker": "RCL",
    "direction": "bullish",
-   "reason": "A top chip analyst reiterated a bullish case on Nvidia and Broadcom, and the Nasdaq set an intraday record on AI-driven buying ahead of upcoming Nvidia catalysts.",
-   "price_at_pick": 228.87,
-   "company": "NVIDIA",
+   "reason": "Royal Caribbean is near a roughly $3 billion deal for half of Sandals, expanding it beyond cruises into land-based resorts.",
+   "price_at_pick": 250.25,
+   "company": "Royal Caribbean",
    "confidence": "low",
    "article": {
-    "headline": "A top chip stock analyst sees big things for Nvidia, Broadcom. How his case aligns with ours",
+    "headline": "Royal Caribbean nears $3 billion deal to take 50% equity stake in Sandals",
     "source": "CNBC",
-    "url": "https://www.cnbc.com/2026/09/22/a-top-chip-stock-analyst-sees-big-things-for-nvidia-broadcom-how-his-case-aligns-with-ours.html",
-    "image": "https://image.cnbcfm.com/api/v1/image/108279787-1773856963026-gettyimages-2266693711-NVIDIA_GTC.jpeg?v=1779315606&w=1920&h=1080"
+    "url": "https://www.cnbc.com/2026/09/22/royal-caribbean-sandals.html",
+    "image": "https://image.cnbcfm.com/api/v1/image/108366440-1790105281800-gettyimages-2161029164-AFP_363W4FY.jpeg?v=1790105475&w=1920&h=1080"
    },
    "history": [
     [
      "2026-09-21",
-     227.38
+     250.25
     ]
    ],
    "price_now": null,
@@ -207,8 +207,38 @@ window.DASHBOARD_DATA = {
  "days": [
   {
    "date": "2026-09-22",
-   "market_mood": "Markets are leaning risk-on: the Nasdaq hit an intraday record on AI strength and hopes for a US-Iran settlement, even as Trump's UN speech mixed threats with diplomacy over Iran and the Strait of Hormuz. Deal-making is also busy, with takeover chatter around Capri, Brighthouse and a big Royal Caribbean move into resorts.",
+   "market_mood": "Risk appetite is firm: US-Iran diplomacy over the Strait of Hormuz is pulling oil lower and lifting stocks, while AI enthusiasm pushed the Nasdaq to an intraday record. A strong dollar and talk of possible rate hikes are the main offsetting worries, alongside a busy M&A tape.",
    "headlines": [
+    {
+     "headline": "Oil falls on increased Gulf supply and hopes for US-Iran talks - Reuters",
+     "source": "Reuters",
+     "time": "2026-09-23 01:44 UTC",
+     "summary": "Oil falls on increased Gulf supply and hopes for US-Iran talks\u00a0\u00a0Reuters",
+     "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOeFhpNFFXWGZ2azRGVllBNXpwLXZQeTFySkY3Vi12SmpTNmMyY09oU3RMa3Rqb21pNUl0ZGhSbVBWQnZBOXdOb19xSlU3TnNra0F6OWowVHp5RHlSblJGTVhXandWeEFJaDBOTi1VcjdrSjVNeGVJZnVjeUJXM3NVYUgxZ28yQkVuWXNhc1pxd093NVVBTHZnWm40c01OS00zZHAwRWVR?oc=5",
+     "image": "",
+     "tickers": [
+      "XOM",
+      "DAL"
+     ]
+    },
+    {
+     "headline": "Dollar holds near 2-month high as markets weigh rate hikes, Iran diplomacy - Reuters",
+     "source": "Reuters",
+     "time": "2026-09-23 01:43 UTC",
+     "summary": "Dollar holds near 2-month high as markets weigh rate hikes, Iran diplomacy\u00a0\u00a0Reuters",
+     "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxQZ09vVklTVy1TeFR1N3AzZE9MUHJnb0dWeTVVUXJOS1N1dE1lT0ZSX1BSZ3RnMzVoVTdXTHhldmxGZkhCYkVTaHRMLWFrU2FUQVJhbzZHWld6TnZ5OFdXTGNDWXNUbTl1NE9qSmV5a3ZiQ0FUa3laZUdZVjRZZmNwazFoNDlKVHlkdEVQdzVLM01pb3M0S0x2VkFqN0dJRzhOLVZkenlmQzNxTVRVVm9reFRUN1psM1ZkbW1ycUhYU0VMM28?oc=5",
+     "image": "",
+     "tickers": []
+    },
+    {
+     "headline": "South Korea plans to cut its reliance on Middle East crude oil imports to 50% by 2035 - Reuters",
+     "source": "Reuters",
+     "time": "2026-09-23 00:42 UTC",
+     "summary": "South Korea plans to cut its reliance on Middle East crude oil imports to 50% by 2035\u00a0\u00a0Reuters",
+     "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxQeE55dDdROVIwdjhlcVFjWnRFQmx0T3pxNldiUkE1eklicGwtRlFGMEljOFoxT01rMVdURzhrTlhCV3NxNnFpSGdSQUROSUROUjVRX3d1R0ZPSDh3RHFBNE1FV21oR0ZpU0pYbXNCRmotM2hna09KT24wX0ljWl8yS2dEU05wUVJSbjNQck04MzR5blJmamxSSVlzZFdWNUZNeVRxODBsbldaaVE4cFItSDY0eFFKYkJYbmRoUFQxX0dxaVlpSUE?oc=5",
+     "image": "",
+     "tickers": []
+    },
     {
      "headline": "Beam Global \u062a\u0648\u0642\u0651\u0650\u0639 \u062e\u0637\u0627\u0628 \u0646\u0648\u0627\u064a\u0627 \u0644\u0644\u0627\u0633\u062a\u062d\u0648\u0627\u0630 \u0639\u0644\u0649 \u0634\u0631\u0643\u0629 \u0623\u0648\u0631\u0648\u0628\u064a\u0629 \u0644\u062a\u0643\u0646\u0648\u0644\u0648\u062c\u064a\u0627 \u0627\u0644\u0637\u0627\u0626\u0631\u0627\u062a \u0627\u0644\u0645\u064f\u0633\u064a\u0651\u0631\u0629\u060c \u0628\u0645\u0627 \u064a\u0645\u0647\u062f \u0644\u062a\u062d\u0648\u0644 Beam \u0625\u0644\u0649 \u0634\u0631\u0643\u0629 \u0645\u062a\u0643\u0627\u0645\u0644\u0629 \u0631\u0623\u0633\u064a\u064b\u0627 \u0641\u064a \u0645\u062c\u0627\u0644 \u0627\u0644\u0637\u0627\u0626\u0631\u0627\u062a \u0627\u0644\u0645\u064f\u0633\u064a\u0651\u0631\u0629",
      "source": "GlobalNewswire",
@@ -270,9 +300,7 @@ window.DASHBOARD_DATA = {
      "summary": "The bullish sentiment comes despite calls to slow down AI model development and rekindled investor enthusiasm for a competing part of the AI chip ecosystem.",
      "url": "https://www.cnbc.com/2026/09/22/a-top-chip-stock-analyst-sees-big-things-for-nvidia-broadcom-how-his-case-aligns-with-ours.html",
      "image": "https://image.cnbcfm.com/api/v1/image/108279787-1773856963026-gettyimages-2266693711-NVIDIA_GTC.jpeg?v=1779315606&w=1920&h=1080",
-     "tickers": [
-      "NVDA"
-     ]
+     "tickers": []
     },
     {
      "headline": "PODCAST: Trump's UN speech, ICC sanctions and Turkey's LGBTQ+ crackdown (Updated) - Reuters",
@@ -320,7 +348,8 @@ window.DASHBOARD_DATA = {
      "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxOYVI5Zk1aX3RhYUR3djFoUE4wTGo1cEJscDJwelUwamFLQV9WVEh3OU1BcFhkOGJKWWtCVXFPSndFUUpFV2xvWWctLTQxVWFlWmE0d3ctNmJuYzVDLXJSdjdwaktKWFREMVBQeUlZakZvalZOQTAtSlQ5UzZFQkFlUVZPblc2bEE5dzNVRV9pTzM2ZkxURHlFMzVlamZCWG50RUlkaVd5MDc4MzZTbWp1N1J1Y3NnQnUwMnFNRjhWMnd6Y0Z1LWp5NA?oc=5",
      "image": "",
      "tickers": [
-      "USO"
+      "XOM",
+      "DAL"
      ]
     },
     {
@@ -436,7 +465,7 @@ window.DASHBOARD_DATA = {
      "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPN3J1Q19pcFNqX1dZdk1GNllCTzNBWWlmWHB3bF9nMGNrcEdvUjc2anM1bndiLWFOYlVjRl9qeTBKby1qaW1zaWY1ZEU1ZEFnM3RTWXB5WUFwNTczcjlOT2ZXc3pfdW1nNFJzY185Wkkxc0UzcEstaHhxNVhHMk0zbERBc2lQTGtKY0dyaGhTWHg5LW5TZUZITXFwTklFcmZadVh4eks3Q1VZeGFGUm1QTW5yV3MzOVZBeFp6SGp1U09NNThl?oc=5",
      "image": "",
      "tickers": [
-      "USO"
+      "DAL"
      ]
     },
     {
@@ -446,9 +475,16 @@ window.DASHBOARD_DATA = {
      "summary": "A curious dynamic is happening in shares of Nvidia ahead of two potential catalysts this month.",
      "url": "https://www.cnbc.com/2026/09/22/nvidia-options-are-doing-something-unusual-ahead-of-two-catalysts-heres-how-one-trader-is-playing-it.html",
      "image": "https://image.cnbcfm.com/api/v1/image/108364527-1789665953765-gettyimages-2294936867-2026_sep_14_dreamforce_2974.jpeg?v=1789665981&w=1920&h=1080",
-     "tickers": [
-      "NVDA"
-     ]
+     "tickers": []
+    },
+    {
+     "headline": "EXCLUSIVE: Saudi Aramco plans reorganisation to create gas division, sources say - Reuters",
+     "source": "Reuters",
+     "time": "2026-09-22 16:41 UTC",
+     "summary": "EXCLUSIVE: Saudi Aramco plans reorganisation to create gas division, sources say\u00a0\u00a0Reuters",
+     "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPMWpkb3RQV3p1VmpBdlAwTHlnTVI2bkJRSW9hWDNHV1JqRFloLXNkV0pOVDR4aXRmNkpIMzFwS0xBMU9zMFRqVUF0VThLWndEeFlSc1NMVGVYc2NiSDVkb05mZVozNGp5RWRkcjNhY2N5amZwX19QT1NGemF4djVKSU51SjRDaWg5dTUwMFpkd243bWlyejFCQWNmY29EbTF1WG9QNGNoTVJBODRHakgwMW1fX2JfaHZI?oc=5",
+     "image": "",
+     "tickers": []
     },
     {
      "headline": "Tru Cooperative Bank and Libro Credit Union to merge, creating a stronger cooperative bank for Canadians",
@@ -475,9 +511,7 @@ window.DASHBOARD_DATA = {
      "summary": "Nasdaq hits intraday record high on tech boost, Mideast negotiation hopes\u00a0\u00a0Reuters",
      "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxOOUI2bTZ5ZFhnZUozYjg5LXM1WHhuT24xUS0zYmRRZkViWVBreE05ZTNMWFBDSGhHTXUyQ3ZyMWhsUFdxSUlxUXVUUXVHWGRVelg3Z2RuVXo3bndwaXJfRXhEUEFERFNSUVZoaDNERnFxdnhuNkxLdVhnNDRpRGhxYndETzVJdVNnZXJESmpMNmw5QVFQODFGY2w2NzVCcFl0bXBSNjRaTQ?oc=5",
      "image": "",
-     "tickers": [
-      "NVDA"
-     ]
+     "tickers": []
     },
     {
      "headline": "Superior Announces Definitive Agreement to Acquire Welltec International, Expanding Its Intervention and Completions Portfolio and Global Reach",
@@ -523,17 +557,6 @@ window.DASHBOARD_DATA = {
      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOQmFrTDNJUDdUOHNWVDZjSEN5UXdfbUJNRVN3WjAxQXZadkJ4ck54ek9kTDQ2aWpyeXl2ZlJGaWZaS3hFd2RKOXlBSXJsRi1OelBrVEVkeGRnWFpaTEJQNTRTbC1NNk9UWDBHbF9BZVpVekUxT0d5azFBRlBZX1p3QWpsTWNnMVQ5LU54STFVYTR5U20yZnpSb2JGdm00cDJldnpzYnNneWw?oc=5",
      "image": "",
      "tickers": []
-    },
-    {
-     "headline": "Saudi Arabia restarts East-West oil pipeline, sources say - Reuters",
-     "source": "Reuters",
-     "time": "2026-09-22 15:12 UTC",
-     "summary": "Saudi Arabia restarts East-West oil pipeline, sources say\u00a0\u00a0Reuters",
-     "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxPNmJidHFzNHlscWlnT2hsWFdKc1hNRFMxOWRnTTRQRHVHbV9tRTJySFJoOGFoZXdNdTIwMngxZlczRmY3dWJxWkNiWTRYclVyT0JoWXQyUHJpNThicmpUNDMwWjNqREdrYmw3Ty1peU9oaEtRdC1GWXE1S0o1eGlrWDZONDhqS0FDbWotZXV1LXBvTEhUWHdlT1BzYU5udjNKTTFXdk1hX0wwVk1yczRTdV94R0p4UUQ1bEViTXJ2S2pEaTVLTFlvdw?oc=5",
-     "image": "",
-     "tickers": [
-      "USO"
-     ]
     },
     {
      "headline": "National Advertising Division Recommends Westinghouse Outdoor Power Equipment\u2019s Disclose Testing Conditions for Max PSI and GPM Claims",
@@ -652,7 +675,9 @@ window.DASHBOARD_DATA = {
      "summary": "France mulls new UN Security Council resolution on Hormuz, diplomats say\u00a0\u00a0Reuters",
      "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxOMGstUFppYTNUUUFMa2Z0MlpVQnVlWDRIZENwRllDaDZtd3U1d2pRUVhyYTBfcmFzNEpqVVQ4N2V2dUJCWUxtMTlKZ19OcDZxVVhReVVVTDN6ZkE1MlhpZU9sZmd5ZzFuWGxxbkpVbU53WDVHZWJHYnNoWmQ0VUxVbHVBTWc0VE55d245YkxXRHRLeURnZnBab2tIb1RBNDlYREdKZmNpbU1CSGp3MFZJ?oc=5",
      "image": "",
-     "tickers": []
+     "tickers": [
+      "XOM"
+     ]
     },
     {
      "headline": "September surge or October offload? Jobs experts weigh in on this fall\u2019s hiring trends",
@@ -734,7 +759,7 @@ window.DASHBOARD_DATA = {
      "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxOVFBDYXJEV2FiaVcyUWduWFIyWjJSRVlFb2NBRTJzX2ozOTFiUk5famtnNDFoRUUzRHNKZDFrNU5wM1JvSlliOEJNNGFzS2FIcWFBTlcxU201ZkdKdndlMngtaVg1N2hrUTFvZnZvcHFxVnFNNEJsVDZLZjl1RXlVUHlyWVI3YWY1WTRGdW5DbUhZWnRmTWhuNjdIdU1KVWpzTnQ3YVYyMUZFQXVLZW5MSVNHUjBSWmpkSGRZckJR?oc=5",
      "image": "",
      "tickers": [
-      "USO"
+      "XOM"
      ]
     },
     {
@@ -745,43 +770,16 @@ window.DASHBOARD_DATA = {
      "url": "https://seekingalpha.com/news/4645365-superstar-platforms-to-acquire-titlepal-in-all-stock-deal?utm_source=feed_news_m_a&utm_medium=referral&feed_item_type=news",
      "image": "",
      "tickers": []
-    },
-    {
-     "headline": "Superstar Platforms Announces Agreement to Acquire TitlePal, Inc.",
-     "source": "GlobalNewswire",
-     "time": "2026-09-22 12:30 UTC",
-     "summary": "Acquisition expands Superstar\u2019s fintech portfolio with a digital-first platform designed to modernize the traditionally storefront-based vehicle title lending industry Acquisition expands Superstar\u2019s fintech portfolio with a digital-first platform designed to modernize the traditionally storefront-b",
-     "url": "https://www.globenewswire.com/news-release/2026/09/22/3366337/0/en/superstar-platforms-announces-agreement-to-acquire-titlepal-inc.html",
-     "image": "",
-     "tickers": []
-    },
-    {
-     "headline": "Marchex Expands Investor Relations Program, Engages PondelWilkinson to Broaden Investor Outreach",
-     "source": "GlobalNewswire",
-     "time": "2026-09-22 12:30 UTC",
-     "summary": "Initiative follows Archenia acquisition and Marchex\u2019s evolution into a comprehensive AI-driven customer acquisition and outcome optimization platform Initiative follows Archenia acquisition and Marchex\u2019s evolution into a comprehensive AI-driven customer acquisition and outcome optimization platform",
-     "url": "https://www.globenewswire.com/news-release/2026/09/22/3366330/0/en/marchex-expands-investor-relations-program-engages-pondelwilkinson-to-broaden-investor-outreach.html",
-     "image": "",
-     "tickers": []
-    },
-    {
-     "headline": "Form 8.3 - NextEnergy Solar Fund Limited",
-     "source": "GlobalNewswire",
-     "time": "2026-09-22 12:04 UTC",
-     "summary": "8.3",
-     "url": "https://www.globenewswire.com/news-release/2026/09/22/3366301/0/en/form-8-3-nextenergy-solar-fund-limited.html",
-     "image": "",
-     "tickers": []
     }
    ],
    "headline_count": 60,
    "tickers": [
+    "XOM",
+    "DAL",
     "CPRI",
     "BHF",
-    "RCL",
     "CSCO",
-    "USO",
-    "NVDA"
+    "RCL"
    ]
   }
  ],
@@ -3248,6 +3246,500 @@ window.DASHBOARD_DATA = {
     111.46
    ]
   ],
+  "DAL": [
+   [
+    "2026-03-26",
+    66.52
+   ],
+   [
+    "2026-03-27",
+    64.5
+   ],
+   [
+    "2026-03-30",
+    62.87
+   ],
+   [
+    "2026-03-31",
+    66.14
+   ],
+   [
+    "2026-04-01",
+    67.26
+   ],
+   [
+    "2026-04-02",
+    66.42
+   ],
+   [
+    "2026-04-06",
+    66.44
+   ],
+   [
+    "2026-04-07",
+    65.29
+   ],
+   [
+    "2026-04-08",
+    67.73
+   ],
+   [
+    "2026-04-09",
+    67.48
+   ],
+   [
+    "2026-04-10",
+    67.47
+   ],
+   [
+    "2026-04-13",
+    66.71
+   ],
+   [
+    "2026-04-14",
+    71.33
+   ],
+   [
+    "2026-04-15",
+    71.62
+   ],
+   [
+    "2026-04-16",
+    69.53
+   ],
+   [
+    "2026-04-17",
+    71.35
+   ],
+   [
+    "2026-04-20",
+    70.85
+   ],
+   [
+    "2026-04-21",
+    69.86
+   ],
+   [
+    "2026-04-22",
+    68.06
+   ],
+   [
+    "2026-04-23",
+    68.02
+   ],
+   [
+    "2026-04-24",
+    68.1
+   ],
+   [
+    "2026-04-27",
+    67.85
+   ],
+   [
+    "2026-04-28",
+    66.88
+   ],
+   [
+    "2026-04-29",
+    65.93
+   ],
+   [
+    "2026-04-30",
+    67.64
+   ],
+   [
+    "2026-05-01",
+    68.63
+   ],
+   [
+    "2026-05-04",
+    68.15
+   ],
+   [
+    "2026-05-05",
+    70.5
+   ],
+   [
+    "2026-05-06",
+    72.97
+   ],
+   [
+    "2026-05-07",
+    72.74
+   ],
+   [
+    "2026-05-08",
+    72.96
+   ],
+   [
+    "2026-05-11",
+    70.84
+   ],
+   [
+    "2026-05-12",
+    70.35
+   ],
+   [
+    "2026-05-13",
+    70.69
+   ],
+   [
+    "2026-05-14",
+    71.37
+   ],
+   [
+    "2026-05-15",
+    70.06
+   ],
+   [
+    "2026-05-18",
+    70.07
+   ],
+   [
+    "2026-05-19",
+    67.59
+   ],
+   [
+    "2026-05-20",
+    73.94
+   ],
+   [
+    "2026-05-21",
+    75.46
+   ],
+   [
+    "2026-05-22",
+    75.95
+   ],
+   [
+    "2026-05-26",
+    79.19
+   ],
+   [
+    "2026-05-27",
+    81.6
+   ],
+   [
+    "2026-05-28",
+    82.29
+   ],
+   [
+    "2026-05-29",
+    82.28
+   ],
+   [
+    "2026-06-01",
+    81.27
+   ],
+   [
+    "2026-06-02",
+    79.82
+   ],
+   [
+    "2026-06-03",
+    78.59
+   ],
+   [
+    "2026-06-04",
+    79.31
+   ],
+   [
+    "2026-06-05",
+    79.22
+   ],
+   [
+    "2026-06-08",
+    78.02
+   ],
+   [
+    "2026-06-09",
+    80.97
+   ],
+   [
+    "2026-06-10",
+    76.28
+   ],
+   [
+    "2026-06-11",
+    81.63
+   ],
+   [
+    "2026-06-12",
+    82.86
+   ],
+   [
+    "2026-06-15",
+    83.86
+   ],
+   [
+    "2026-06-16",
+    82.94
+   ],
+   [
+    "2026-06-17",
+    82.05
+   ],
+   [
+    "2026-06-18",
+    83.97
+   ],
+   [
+    "2026-06-22",
+    85.71
+   ],
+   [
+    "2026-06-23",
+    86.51
+   ],
+   [
+    "2026-06-24",
+    90.43
+   ],
+   [
+    "2026-06-25",
+    91.88
+   ],
+   [
+    "2026-06-26",
+    92.34
+   ],
+   [
+    "2026-06-29",
+    92.94
+   ],
+   [
+    "2026-06-30",
+    93.43
+   ],
+   [
+    "2026-07-01",
+    92.83
+   ],
+   [
+    "2026-07-02",
+    92.52
+   ],
+   [
+    "2026-07-06",
+    91.45
+   ],
+   [
+    "2026-07-07",
+    88.41
+   ],
+   [
+    "2026-07-08",
+    87.08
+   ],
+   [
+    "2026-07-09",
+    89.0
+   ],
+   [
+    "2026-07-10",
+    87.39
+   ],
+   [
+    "2026-07-13",
+    86.19
+   ],
+   [
+    "2026-07-14",
+    85.51
+   ],
+   [
+    "2026-07-15",
+    85.96
+   ],
+   [
+    "2026-07-16",
+    86.7
+   ],
+   [
+    "2026-07-17",
+    84.17
+   ],
+   [
+    "2026-07-20",
+    84.54
+   ],
+   [
+    "2026-07-21",
+    84.63
+   ],
+   [
+    "2026-07-22",
+    83.52
+   ],
+   [
+    "2026-07-23",
+    81.97
+   ],
+   [
+    "2026-07-24",
+    85.06
+   ],
+   [
+    "2026-07-27",
+    86.67
+   ],
+   [
+    "2026-07-28",
+    89.37
+   ],
+   [
+    "2026-07-29",
+    86.25
+   ],
+   [
+    "2026-07-30",
+    88.59
+   ],
+   [
+    "2026-07-31",
+    87.44
+   ],
+   [
+    "2026-08-03",
+    91.59
+   ],
+   [
+    "2026-08-04",
+    92.77
+   ],
+   [
+    "2026-08-05",
+    93.14
+   ],
+   [
+    "2026-08-06",
+    91.98
+   ],
+   [
+    "2026-08-07",
+    91.34
+   ],
+   [
+    "2026-08-10",
+    89.21
+   ],
+   [
+    "2026-08-11",
+    90.41
+   ],
+   [
+    "2026-08-12",
+    89.93
+   ],
+   [
+    "2026-08-13",
+    91.31
+   ],
+   [
+    "2026-08-14",
+    89.35
+   ],
+   [
+    "2026-08-17",
+    87.59
+   ],
+   [
+    "2026-08-18",
+    85.7
+   ],
+   [
+    "2026-08-19",
+    83.29
+   ],
+   [
+    "2026-08-20",
+    81.06
+   ],
+   [
+    "2026-08-21",
+    82.41
+   ],
+   [
+    "2026-08-24",
+    82.48
+   ],
+   [
+    "2026-08-25",
+    83.62
+   ],
+   [
+    "2026-08-26",
+    83.08
+   ],
+   [
+    "2026-08-27",
+    81.14
+   ],
+   [
+    "2026-08-28",
+    80.07
+   ],
+   [
+    "2026-08-31",
+    78.0
+   ],
+   [
+    "2026-09-01",
+    76.38
+   ],
+   [
+    "2026-09-02",
+    78.14
+   ],
+   [
+    "2026-09-03",
+    78.75
+   ],
+   [
+    "2026-09-04",
+    80.17
+   ],
+   [
+    "2026-09-08",
+    78.96
+   ],
+   [
+    "2026-09-09",
+    78.75
+   ],
+   [
+    "2026-09-10",
+    78.24
+   ],
+   [
+    "2026-09-11",
+    79.91
+   ],
+   [
+    "2026-09-14",
+    79.8
+   ],
+   [
+    "2026-09-15",
+    78.89
+   ],
+   [
+    "2026-09-16",
+    77.87
+   ],
+   [
+    "2026-09-17",
+    79.43
+   ],
+   [
+    "2026-09-18",
+    79.62
+   ],
+   [
+    "2026-09-21",
+    82.5
+   ]
+  ],
   "DIA": [
    [
     "2026-03-27",
@@ -3619,7 +4111,7 @@ window.DASHBOARD_DATA = {
    ],
    [
     "2026-08-10",
-    537.3
+    537.31
    ],
    [
     "2026-08-11",
@@ -6189,10 +6681,6 @@ window.DASHBOARD_DATA = {
    ]
   ],
   "NVDA": [
-   [
-    "2026-03-26",
-    170.85
-   ],
    [
     "2026-03-27",
     167.14
@@ -9136,501 +9624,11 @@ window.DASHBOARD_DATA = {
     375.3
    ]
   ],
-  "USO": [
+  "XOM": [
    [
     "2026-03-26",
-    117.26
+    163.26
    ],
-   [
-    "2026-03-27",
-    124.2
-   ],
-   [
-    "2026-03-30",
-    129.83
-   ],
-   [
-    "2026-03-31",
-    127.25
-   ],
-   [
-    "2026-04-01",
-    124.09
-   ],
-   [
-    "2026-04-02",
-    137.92
-   ],
-   [
-    "2026-04-06",
-    138.94
-   ],
-   [
-    "2026-04-07",
-    138.08
-   ],
-   [
-    "2026-04-08",
-    124.58
-   ],
-   [
-    "2026-04-09",
-    126.96
-   ],
-   [
-    "2026-04-10",
-    124.82
-   ],
-   [
-    "2026-04-13",
-    128.47
-   ],
-   [
-    "2026-04-14",
-    123.85
-   ],
-   [
-    "2026-04-15",
-    122.59
-   ],
-   [
-    "2026-04-16",
-    125.84
-   ],
-   [
-    "2026-04-17",
-    116.04
-   ],
-   [
-    "2026-04-20",
-    121.32
-   ],
-   [
-    "2026-04-21",
-    128.25
-   ],
-   [
-    "2026-04-22",
-    129.4
-   ],
-   [
-    "2026-04-23",
-    134.72
-   ],
-   [
-    "2026-04-24",
-    132.4
-   ],
-   [
-    "2026-04-27",
-    134.72
-   ],
-   [
-    "2026-04-28",
-    139.6
-   ],
-   [
-    "2026-04-29",
-    150.63
-   ],
-   [
-    "2026-04-30",
-    147.09
-   ],
-   [
-    "2026-05-01",
-    142.8
-   ],
-   [
-    "2026-05-04",
-    147.61
-   ],
-   [
-    "2026-05-05",
-    144.17
-   ],
-   [
-    "2026-05-06",
-    133.95
-   ],
-   [
-    "2026-05-07",
-    134.97
-   ],
-   [
-    "2026-05-08",
-    133.59
-   ],
-   [
-    "2026-05-11",
-    138.66
-   ],
-   [
-    "2026-05-12",
-    144.3
-   ],
-   [
-    "2026-05-13",
-    142.04
-   ],
-   [
-    "2026-05-14",
-    143.0
-   ],
-   [
-    "2026-05-15",
-    148.23
-   ],
-   [
-    "2026-05-18",
-    149.29
-   ],
-   [
-    "2026-05-19",
-    152.96
-   ],
-   [
-    "2026-05-20",
-    144.27
-   ],
-   [
-    "2026-05-21",
-    142.54
-   ],
-   [
-    "2026-05-22",
-    140.92
-   ],
-   [
-    "2026-05-26",
-    137.0
-   ],
-   [
-    "2026-05-27",
-    131.03
-   ],
-   [
-    "2026-05-28",
-    130.78
-   ],
-   [
-    "2026-05-29",
-    129.09
-   ],
-   [
-    "2026-06-01",
-    135.5
-   ],
-   [
-    "2026-06-02",
-    137.27
-   ],
-   [
-    "2026-06-03",
-    140.86
-   ],
-   [
-    "2026-06-04",
-    136.74
-   ],
-   [
-    "2026-06-05",
-    133.02
-   ],
-   [
-    "2026-06-08",
-    135.15
-   ],
-   [
-    "2026-06-09",
-    131.3
-   ],
-   [
-    "2026-06-10",
-    134.3
-   ],
-   [
-    "2026-06-11",
-    128.83
-   ],
-   [
-    "2026-06-12",
-    125.43
-   ],
-   [
-    "2026-06-15",
-    121.21
-   ],
-   [
-    "2026-06-16",
-    115.47
-   ],
-   [
-    "2026-06-17",
-    114.23
-   ],
-   [
-    "2026-06-18",
-    114.87
-   ],
-   [
-    "2026-06-22",
-    112.69
-   ],
-   [
-    "2026-06-23",
-    111.26
-   ],
-   [
-    "2026-06-24",
-    106.29
-   ],
-   [
-    "2026-06-25",
-    109.31
-   ],
-   [
-    "2026-06-26",
-    105.48
-   ],
-   [
-    "2026-06-29",
-    107.08
-   ],
-   [
-    "2026-06-30",
-    106.44
-   ],
-   [
-    "2026-07-01",
-    103.27
-   ],
-   [
-    "2026-07-02",
-    103.98
-   ],
-   [
-    "2026-07-06",
-    104.35
-   ],
-   [
-    "2026-07-07",
-    108.92
-   ],
-   [
-    "2026-07-08",
-    112.21
-   ],
-   [
-    "2026-07-09",
-    109.01
-   ],
-   [
-    "2026-07-10",
-    108.7
-   ],
-   [
-    "2026-07-13",
-    117.79
-   ],
-   [
-    "2026-07-14",
-    120.17
-   ],
-   [
-    "2026-07-15",
-    121.38
-   ],
-   [
-    "2026-07-16",
-    119.3
-   ],
-   [
-    "2026-07-17",
-    123.96
-   ],
-   [
-    "2026-07-20",
-    125.51
-   ],
-   [
-    "2026-07-21",
-    128.85
-   ],
-   [
-    "2026-07-22",
-    131.68
-   ],
-   [
-    "2026-07-23",
-    139.49
-   ],
-   [
-    "2026-07-24",
-    136.69
-   ],
-   [
-    "2026-07-27",
-    124.76
-   ],
-   [
-    "2026-07-28",
-    120.49
-   ],
-   [
-    "2026-07-29",
-    129.31
-   ],
-   [
-    "2026-07-30",
-    127.48
-   ],
-   [
-    "2026-07-31",
-    129.17
-   ],
-   [
-    "2026-08-03",
-    122.12
-   ],
-   [
-    "2026-08-04",
-    115.78
-   ],
-   [
-    "2026-08-05",
-    114.88
-   ],
-   [
-    "2026-08-06",
-    118.87
-   ],
-   [
-    "2026-08-07",
-    117.98
-   ],
-   [
-    "2026-08-10",
-    125.92
-   ],
-   [
-    "2026-08-11",
-    127.61
-   ],
-   [
-    "2026-08-12",
-    127.3
-   ],
-   [
-    "2026-08-13",
-    125.03
-   ],
-   [
-    "2026-08-14",
-    126.6
-   ],
-   [
-    "2026-08-17",
-    130.29
-   ],
-   [
-    "2026-08-18",
-    130.66
-   ],
-   [
-    "2026-08-19",
-    130.91
-   ],
-   [
-    "2026-08-20",
-    134.54
-   ],
-   [
-    "2026-08-21",
-    134.64
-   ],
-   [
-    "2026-08-24",
-    132.21
-   ],
-   [
-    "2026-08-25",
-    126.15
-   ],
-   [
-    "2026-08-26",
-    127.35
-   ],
-   [
-    "2026-08-27",
-    130.01
-   ],
-   [
-    "2026-08-28",
-    129.7
-   ],
-   [
-    "2026-08-31",
-    133.7
-   ],
-   [
-    "2026-09-01",
-    141.0
-   ],
-   [
-    "2026-09-02",
-    141.15
-   ],
-   [
-    "2026-09-03",
-    142.09
-   ],
-   [
-    "2026-09-04",
-    141.96
-   ],
-   [
-    "2026-09-08",
-    146.03
-   ],
-   [
-    "2026-09-09",
-    149.97
-   ],
-   [
-    "2026-09-10",
-    158.38
-   ],
-   [
-    "2026-09-11",
-    154.9
-   ],
-   [
-    "2026-09-14",
-    156.66
-   ],
-   [
-    "2026-09-15",
-    161.86
-   ],
-   [
-    "2026-09-16",
-    156.17
-   ],
-   [
-    "2026-09-17",
-    155.31
-   ],
-   [
-    "2026-09-18",
-    153.82
-   ],
-   [
-    "2026-09-21",
-    148.16
-   ]
-  ],
-  "XOM": [
    [
     "2026-03-27",
     168.74
@@ -10125,86 +10123,86 @@ window.DASHBOARD_DATA = {
   {
    "ticker": "SPY",
    "name": "S&P 500 (index fund)",
-   "note": null,
-   "note_date": null
+   "note": "S&P 500 is close to a record as Middle East de-escalation hopes and cheaper oil support sentiment.",
+   "note_date": "2026-09-22"
   },
   {
    "ticker": "QQQ",
    "name": "Nasdaq 100 (index fund)",
-   "note": null,
-   "note_date": null
+   "note": "Nasdaq 100 hit an intraday record on AI-driven buying, though some traders are trimming tech profits.",
+   "note_date": "2026-09-22"
   },
   {
    "ticker": "DIA",
    "name": "Dow Jones (index fund)",
-   "note": null,
-   "note_date": null
+   "note": "Dow is supported by the risk-on tone, but energy and bank weakness could cap gains.",
+   "note_date": "2026-09-22"
   },
   {
    "ticker": "AAPL",
    "name": "Apple",
-   "note": null,
-   "note_date": null
+   "note": "No major company-specific news today; it moves with the broad tech rally.",
+   "note_date": "2026-09-22"
   },
   {
    "ticker": "MSFT",
    "name": "Microsoft",
-   "note": null,
-   "note_date": null
+   "note": "No major news today beyond the general AI-led tech strength.",
+   "note_date": "2026-09-22"
   },
   {
    "ticker": "NVDA",
    "name": "NVIDIA",
-   "note": null,
-   "note_date": null
+   "note": "A top chip analyst is bullish on Nvidia and unusual options activity is building ahead of upcoming catalysts.",
+   "note_date": "2026-09-22"
   },
   {
    "ticker": "AMZN",
    "name": "Amazon",
-   "note": null,
-   "note_date": null
+   "note": "No major news today; benefits indirectly from the broad tech rally.",
+   "note_date": "2026-09-22"
   },
   {
    "ticker": "GOOGL",
    "name": "Alphabet (Google)",
-   "note": null,
-   "note_date": null
+   "note": "No major news today aside from ongoing AI-sector optimism.",
+   "note_date": "2026-09-22"
   },
   {
    "ticker": "META",
    "name": "Meta Platforms",
-   "note": null,
-   "note_date": null
+   "note": "No major news today.",
+   "note_date": "2026-09-22"
   },
   {
    "ticker": "TSLA",
    "name": "Tesla",
-   "note": null,
-   "note_date": null
+   "note": "Mercedes partnering with Wayve on self-driving is a reminder that autonomy competition is widening.",
+   "note_date": "2026-09-22"
   },
   {
    "ticker": "JPM",
    "name": "JPMorgan Chase",
-   "note": null,
-   "note_date": null
+   "note": "Banks lagged in Europe, and Goldman's reported talks for a $37B credit firm show large-cap banks still hunting deals.",
+   "note_date": "2026-09-22"
   },
   {
    "ticker": "XOM",
    "name": "Exxon Mobil",
-   "note": null,
-   "note_date": null
+   "note": "Falling crude on Gulf supply and US-Iran talks is a headwind for oil producers.",
+   "note_date": "2026-09-22"
   },
   {
    "ticker": "GLD",
    "name": "Gold (fund)",
-   "note": null,
-   "note_date": null
+   "note": "A dollar near two-month highs and easing Middle East tension reduce the safe-haven bid for gold.",
+   "note_date": "2026-09-22"
   },
   {
    "ticker": "TLT",
    "name": "Long-term US Treasury bonds (fund)",
-   "note": null,
-   "note_date": null
+   "note": "Chatter about possible rate hikes keeps pressure on long-dated Treasury prices.",
+   "note_date": "2026-09-22"
   }
  ]
 };
