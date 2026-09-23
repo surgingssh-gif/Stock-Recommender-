@@ -154,6 +154,8 @@ story behind it. Photos load straight from the news sites, so a few may be missi
 bullish ideas, ranked. Click **Show more info** on any of them to see why it could
 be a good buy, what could go wrong, what to watch next, and the news story behind
 it. Every top buy is also saved to `picks_log.csv`, so the scorecard tracks them too.
+The Results tab has a **How the Top 5 Did** section comparing them with the other
+picks, and The Record can be filtered to **Top 5 buys only**.
 
 **How the scorecard works:** each pick is compared with the latest closing price.
 A bullish call is "right so far" if the stock is up since it was picked; a bearish
