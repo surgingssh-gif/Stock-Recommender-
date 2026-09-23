@@ -241,6 +241,9 @@ figcaption { font: 400 11px/1.5 var(--sans); color: var(--muted); margin-top: 10
 
 /* ---- News photos ---------------------------------------------------------- */
 .story-photo { display: block; object-fit: cover; background: var(--paper-2); }
+.story-chart { border: 1px solid var(--hair); height: auto; }
+/* When the picture is already a price chart, the little line by the price is redundant. */
+.story.has-chart-art .story-price svg { display: none; }
 /* Lead story: a modest photo on the right, beside the text. */
 .story.first.has-photo { display: grid; grid-template-columns: minmax(0, 1fr) 280px; grid-template-rows: auto auto 1fr; gap: 0 24px; align-items: start; }
 .story.first.has-photo .story-photo { grid-column: 2; grid-row: 1 / span 3; width: 280px; aspect-ratio: 3 / 2; }

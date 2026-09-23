@@ -247,3 +247,16 @@ def test_picks_are_not_scored_against_older_prices():
     data = build_data(picks, {}, {"USO": [["2026-09-18", 153.82], ["2026-09-21", 148.16]]})
     p = data["picks"][0]
     assert p["price_now"] is None and p["return_pct"] is None and p["correct"] is None
+
+
+def test_logo_images_are_not_used_as_photos():
+    from build_dashboard import _real_photos
+    heads = [
+        {"headline": "a", "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg"},
+        {"headline": "b", "image": "https://cdn.example/same.png"},
+        {"headline": "c", "image": "https://cdn.example/same.png"},
+        {"headline": "d", "image": "https://cdn.example/same.png"},
+        {"headline": "e", "image": "https://image.cnbcfm.com/real-photo.jpg"},
+        {"headline": "f", "image": ""},
+    ]
+    assert [h["image"] for h in _real_photos(heads)] == ["", "", "", "", "https://image.cnbcfm.com/real-photo.jpg", ""]

@@ -144,11 +144,15 @@
    * A news photo. Photos come straight from the news sites, so if one fails
    * to load it quietly removes itself instead of showing a broken image.
    */
-  function photo(url, alt, cls) {
+  function photo(url, alt, cls, fallback) {
     var src = safeUrl(url);
     if (!src) return null;
     var img = el("img", { src: src, alt: alt || "", loading: "lazy", decoding: "async", referrerpolicy: "no-referrer", class: cls });
-    img.addEventListener("error", function () { img.remove(); });
+    img.addEventListener("error", function () {
+      // Swap in a stand-in picture if one was given, otherwise just hide it.
+      var stand_in = fallback ? fallback() : null;
+      if (stand_in) img.replaceWith(stand_in); else img.remove();
+    });
     return img;
   }
 
@@ -233,6 +237,38 @@
   }
 
   function colorFor(v) { return v > 0 ? "var(--good)" : v < 0 ? "var(--bad)" : "var(--muted)"; }
+
+  /*
+   * Stand-in picture for a story without a real news photo: the stock's last
+   * ~3 months of prices, with a dot where the bot made its call.
+   */
+  function chartArt(p, large) {
+    var full = (DATA.charts || {})[p.ticker];
+    if (!full || full.length < 5) return null;
+    var series = full.slice(-63);
+    var w = large ? 300 : 100, h = large ? 200 : 100, pad = large ? 16 : 8;
+    var values = series.map(function (d) { return d[1]; });
+    if (p.price_at_pick) values.push(p.price_at_pick);
+    var lo = Math.min.apply(null, values), hi = Math.max.apply(null, values);
+    if (hi - lo < 1e-9) { lo -= 1; hi += 1; }
+    var x = function (i) { return pad + i * (w - 2 * pad) / (series.length - 1); };
+    var y = function (v) { return pad + (1 - (v - lo) / (hi - lo)) * (h - 2 * pad); };
+    var line = series.map(function (d, i) { return (i ? "L" : "M") + x(i).toFixed(1) + "," + y(d[1]).toFixed(1); }).join("");
+    var art = svg("svg", { class: "story-photo story-chart", viewBox: "0 0 " + w + " " + h, preserveAspectRatio: "none",
+      role: "img", "aria-label": p.ticker + " price over the last 3 months" });
+    art.appendChild(svg("rect", { width: w, height: h, fill: "var(--paper-2)" }));
+    art.appendChild(svg("path", { d: line + "L" + x(series.length - 1) + "," + h + "L" + x(0) + "," + h + "Z", fill: "var(--ink)", opacity: 0.06 }));
+    art.appendChild(svg("path", { d: line, fill: "none", stroke: "var(--ink)", "stroke-width": large ? 2 : 1.5,
+      "stroke-linejoin": "round", "vector-effect": "non-scaling-stroke" }));
+    // Mark the day of the call (or the last point, if the pick is newer than the data).
+    var idx = series.findIndex(function (d) { return d[0] >= p.date; });
+    if (idx === -1) idx = series.length - 1;
+    var r = resultOf(p);
+    art.appendChild(svg("line", { x1: x(idx), x2: x(idx), y1: pad / 2, y2: h - pad / 2, stroke: "var(--muted)", "stroke-width": 1, "vector-effect": "non-scaling-stroke", opacity: 0.6 }));
+    art.appendChild(svg("circle", { cx: x(idx), cy: y(p.price_at_pick || series[idx][1]), r: large ? 5 : 4,
+      fill: r === "right" ? "var(--good)" : r === "wrong" ? "var(--bad)" : "var(--ink)", stroke: "var(--paper-2)", "stroke-width": 2 }));
+    return art;
+  }
 
   /* Small price line for a story: grey line, colored end dot. */
   function sparkline(p) {
@@ -342,14 +378,23 @@
       sparkline(p),
       chartLink(p.ticker, "Chart →", "chart-link"));
     var a = p.article;
-    var hasPhoto = a && safeUrl(a.image);
-    return el("article", { class: "story " + cls + (hasPhoto ? " has-photo" : "") },
-      a ? photo(a.image, a.headline, "story-photo") : null,
+    // The picture for a story: the news photo if there's a real one,
+    // otherwise a small 3-month price chart of the stock.
+    var story;
+    var makeChart = function () {
+      var c = chartArt(p, cls === "first");
+      if (c) story.classList.add("has-chart-art"); else story.classList.remove("has-photo");
+      return c;
+    };
+    var art = a && safeUrl(a.image) ? photo(a.image, a.headline, "story-photo", makeChart) : chartArt(p, cls === "first");
+    story = el("article", { class: "story " + cls + (art ? " has-photo" : "") + (art && art.tagName === "svg" ? " has-chart-art" : "") },
+      art,
       el("div", { class: "story-top" }, el("div", null, title, tags), price),
       el("p", { class: "reason", text: p.reason }),
       a && safeUrl(a.url) ? el("p", { class: "read-more" },
         el("span", { class: "src", text: a.source }), " · ",
         articleLink(a.url, "Read the article ↗", null)) : null);
+    return story;
   }
 
   // ---------------------------------------------------------------------------
