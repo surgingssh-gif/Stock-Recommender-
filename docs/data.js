@@ -1,5 +1,5 @@
 window.DASHBOARD_DATA = {
- "generated_at": "2026-09-23T03:50:19Z",
+ "generated_at": "2026-09-23T04:09:32Z",
  "stats": {
   "total_picks": 7,
   "days_tracked": 1,
@@ -50,7 +50,68 @@ window.DASHBOARD_DATA = {
     "hit_rate": null,
     "avg_directional_return": null
    }
-  ]
+  ],
+  "top_buys": {
+   "groups": [
+    {
+     "label": "Top 5 buys",
+     "count": 5,
+     "hit_rate": null,
+     "avg_directional_return": null
+    },
+    {
+     "label": "Other picks",
+     "count": 2,
+     "hit_rate": null,
+     "avg_directional_return": null
+    }
+   ],
+   "judged": 0,
+   "by_day": [
+    {
+     "date": "2026-09-22",
+     "hit_rate": null,
+     "avg_directional_return": null,
+     "buys": [
+      {
+       "top_rank": 1,
+       "ticker": "CPRI",
+       "company": "Capri Holdings",
+       "return_pct": null,
+       "correct": null
+      },
+      {
+       "top_rank": 2,
+       "ticker": "NVDA",
+       "company": "NVIDIA",
+       "return_pct": null,
+       "correct": null
+      },
+      {
+       "top_rank": 3,
+       "ticker": "DAL",
+       "company": "Delta Air Lines",
+       "return_pct": null,
+       "correct": null
+      },
+      {
+       "top_rank": 4,
+       "ticker": "BHF",
+       "company": "Brighthouse Financial",
+       "return_pct": null,
+       "correct": null
+      },
+      {
+       "top_rank": 5,
+       "ticker": "RCL",
+       "company": "Royal Caribbean",
+       "return_pct": null,
+       "correct": null
+      }
+     ]
+    }
+   ]
+  }
  },
  "picks": [
   {
@@ -60,6 +121,7 @@ window.DASHBOARD_DATA = {
    "reason": "Crude slipped on higher Gulf supply and optimism about US-Iran talks and a Hormuz reopening, which trims the price backdrop for big oil producers.",
    "price_at_pick": 158.3,
    "company": "Exxon Mobil",
+   "top_rank": null,
    "confidence": "medium",
    "article": {
     "headline": "Oil falls on increased Gulf supply and hopes for US-Iran talks - Reuters",
@@ -85,6 +147,7 @@ window.DASHBOARD_DATA = {
    "reason": "Cheaper jet fuel from falling crude is a direct cost win for airlines, and calmer Middle East headlines support international travel demand.",
    "price_at_pick": 82.5,
    "company": "Delta Air Lines",
+   "top_rank": 3,
    "confidence": "medium",
    "article": {
     "headline": "Oil falls on increased Gulf supply and hopes for US-Iran talks - Reuters",
@@ -110,6 +173,7 @@ window.DASHBOARD_DATA = {
    "reason": "Reports of takeover interest with an analyst valuing the company at $25-$26 a share put a deal premium under the stock.",
    "price_at_pick": 14.31,
    "company": "Capri Holdings",
+   "top_rank": 1,
    "confidence": "medium",
    "article": {
     "headline": "Capri Holdings jumps on report of takeover interest",
@@ -135,6 +199,7 @@ window.DASHBOARD_DATA = {
    "reason": "Shares jumped on a report that Sixth Street is reviving its takeover effort, a classic deal catalyst.",
    "price_at_pick": 49.84,
    "company": "Brighthouse Financial",
+   "top_rank": 4,
    "confidence": "medium",
    "article": {
     "headline": "Brighthouse Financial jumps on report Sixth Street looks to renew takeover effort",
@@ -160,6 +225,7 @@ window.DASHBOARD_DATA = {
    "reason": "A near-$3 billion deal for half of Sandals would push the company beyond cruises into all-inclusive resorts, broadening its growth story.",
    "price_at_pick": 250.25,
    "company": "Royal Caribbean",
+   "top_rank": 5,
    "confidence": "low",
    "article": {
     "headline": "Royal Caribbean nears $3 billion deal to take 50% equity stake in Sandals",
@@ -185,6 +251,7 @@ window.DASHBOARD_DATA = {
    "reason": "The stock sank 5% after Piper Sandler cut its target on worries that networking growth is peaking after a record summer run.",
    "price_at_pick": 111.46,
    "company": "Cisco Systems",
+   "top_rank": null,
    "confidence": "low",
    "article": {
     "headline": "Cisco stock sinks 5% after Piper Sandler cuts price target on growth concerns",
@@ -210,6 +277,7 @@ window.DASHBOARD_DATA = {
    "reason": "AI leadership plus near-term catalysts keep the Nasdaq's engine running.",
    "price_at_pick": 227.38,
    "company": "NVIDIA",
+   "top_rank": 2,
    "confidence": "medium",
    "article": {
     "headline": "A top chip stock analyst sees big things for Nvidia, Broadcom. How his case aligns with ours",
