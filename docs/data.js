@@ -1,5 +1,5 @@
 window.DASHBOARD_DATA = {
- "generated_at": "2026-09-23T02:11:11Z",
+ "generated_at": "2026-09-23T02:29:19Z",
  "stats": {
   "total_picks": 6,
   "days_tracked": 1,
@@ -65,7 +65,7 @@ window.DASHBOARD_DATA = {
     "headline": "Capri Holdings jumps on report of takeover interest",
     "source": "SeekingAlpha",
     "url": "https://seekingalpha.com/news/4645462-capri-holdings-jumps-on-report-of-takeover-interest?utm_source=feed_news_m_a&utm_medium=referral&feed_item_type=news",
-    "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567050932/sa_jgen9y.png"
+    "image": ""
    },
    "history": [
     [
@@ -90,7 +90,7 @@ window.DASHBOARD_DATA = {
     "headline": "Brighthouse Financial jumps on report Sixth Street looks to renew takeover effort",
     "source": "SeekingAlpha",
     "url": "https://seekingalpha.com/news/4645724-brighthouse-financial-jumps-on-report-sixth-street-looks-to-renew-takeover-effort?utm_source=feed_news_m_a&utm_medium=referral&feed_item_type=news",
-    "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567050932/sa_jgen9y.png"
+    "image": ""
    },
    "history": [
     [
@@ -165,7 +165,7 @@ window.DASHBOARD_DATA = {
     "headline": "Iran submits conditions for reopening of Hormuz to U.S. representative, state media says - Reuters",
     "source": "Reuters",
     "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxOYVI5Zk1aX3RhYUR3djFoUE4wTGo1cEJscDJwelUwamFLQV9WVEh3OU1BcFhkOGJKWWtCVXFPSndFUUpFV2xvWWctLTQxVWFlWmE0d3ctNmJuYzVDLXJSdjdwaktKWFREMVBQeUlZakZvalZOQTAtSlQ5UzZFQkFlUVZPblc2bEE5dzNVRV9pTzM2ZkxURHlFMzVlamZCWG50RUlkaVd5MDc4MzZTbWp1N1J1Y3NnQnUwMnFNRjhWMnd6Y0Z1LWp5NA?oc=5",
-    "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg"
+    "image": ""
    },
    "history": [
     [
@@ -215,7 +215,7 @@ window.DASHBOARD_DATA = {
      "time": "2026-09-23 00:01 UTC",
      "summary": "Beam \u062a\u0639\u062a\u0632\u0645 \u0628\u062f\u0621 \u062a\u0635\u0646\u064a\u0639 \u0646\u0638\u0627\u0645 \u0637\u0627\u0626\u0631\u0627\u062a \u0645\u064f\u0633\u064a\u0651\u0631\u0629 \u062d\u0627\u0635\u0644 \u0639\u0644\u0649 \u0645\u0648\u0627\u0641\u0642\u0629 \u0645\u0634\u0631\u0648\u0637\u0629 \u0645\u0646 U.S. Department of War \u0641\u064a \u0627\u0644\u0648\u0644\u0627\u064a\u0627\u062a \u0627\u0644\u0645\u062a\u062d\u062f\u0629 \u0628\u0639\u062f \u0625\u062a\u0645\u0627\u0645 \u0639\u0645\u0644\u064a\u0629 \u0627\u0644\u0627\u0633\u062a\u062d\u0648\u0627\u0630\u060c \u0648\u062a\u0633\u0648\u064a\u0642 \u062d\u0644\u0648\u0644 \u0627\u0644\u0637\u0627\u0626\u0631\u0627\u062a \u0627\u0644\u0645\u064f\u0633\u064a\u0651\u0631\u0629 \u0639\u0628\u0631 \u0634\u0628\u0643\u0629 \u0639\u0645\u0644\u064a\u0627\u062a\u0647\u0627 \u0627\u0644\u0639\u0627\u0644\u0645\u064a\u0629 Beam \u062a\u0639\u062a\u0632\u0645 \u0628\u062f\u0621 \u062a\u0635\u0646\u064a\u0639 \u0646\u0638\u0627\u0645 \u0637\u0627\u0626\u0631\u0627\u062a \u0645\u064f\u0633\u064a\u0651\u0631\u0629 \u062d\u0627\u0635\u0644 \u0639\u0644\u0649 \u0645\u0648\u0627\u0641\u0642\u0629 \u0645\u0634\u0631\u0648\u0637\u0629 \u0645\u0646 U.S. Department of War \u0641\u064a \u0627\u0644\u0648\u0644\u0627\u064a\u0627\u062a \u0627\u0644\u0645",
      "url": "https://www.globenewswire.com/news-release/2026/09/23/3367026/0/ar/beam-global-%D8%AA%D9%88%D9%82%D9%91%D9%90%D8%B9-%D8%AE%D8%B7%D8%A7%D8%A8-%D9%86%D9%88%D8%A7%D9%8A%D8%A7-%D9%84%D9%84%D8%A7%D8%B3%D8%AA%D8%AD%D9%88%D8%A7%D8%B0-%D8%B9%D9%84%D9%89-%D8%B4%D8%B1%D9%83%D8%A9-%D8%A3%D9%88%D8%B1%D9%88%D8%A8%D9%8A%D8%A9-%D9%84%D8%AA%D9%83%D9%86%D9%88%D9%84%D9%88%D8%AC%D9%8A%D8%A7-%D8%A7%D9%84%D8%B7%D8%A7%D8%A6%D8%B1%D8%A7%D8%AA-%D8%A7%D9%84%D9%85%D9%8F%D8%B3%D9%8A%D9%91%D8%B1%D8%A9-%D8%A8%D9%85%D8%A7-%D9%8A%D9%85%D9%87%D8%AF-%D9%84%D8%AA%D8%AD%D9%88%D9%84-beam-%D8%A5%D9%84%D9%89-%D8%B4%D8%B1%D9%83%D8%A9-%D9%85%D8%AA%D9%83%D8%A7%D9%85%D9%84%D8%A9-%D8%B1%D8%A3%D8%B3%D9%8A%D9%8B%D8%A7-%D9%81%D9%8A-%D9%85%D8%AC%D8%A7%D9%84-%D8%A7%D9%84%D8%B7%D8%A7%D8%A6%D8%B1%D8%A7%D8%AA-%D8%A7%D9%84%D9%85%D9%8F%D8%B3%D9%8A%D9%91%D8%B1%D8%A9.html",
-     "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567047094/gnw_ngwqnq.png",
+     "image": "",
      "tickers": []
     },
     {
@@ -224,7 +224,7 @@ window.DASHBOARD_DATA = {
      "time": "2026-09-22 23:45 UTC",
      "summary": "DENVER--(BUSINESS WIRE)--NUBURU, Inc. (NYSE American: BURU), una piattaforma integrata di nuova generazione per la difesa e la sicurezza a \u201cduplice impiego\u201d, oggi ha confermato la disponibilit\u00e0 dei fondi necessari per completare l'acquisizione di una quota di maggioranza del 70% in Tekne S.p.A. (\u201cTe",
      "url": "http://www.businesswire.com/news/home/20260922568642/it/?feedref=JjAwJuNHiystnCoBq_hl-Rc4vIAVcHHkbDcwJimU8QtrtlakeQ9hNboBqTAWIjTge3KWq9s9jif-UkBjBsFRyYAbRTSLTc1mgvhPlnaBA55M-oupQnbXnhKsYk8RmHF_kAy2gZikaX3QWV6xOvgFlA==",
-     "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567047386/bw_flnhy4.jpg",
+     "image": "",
      "tickers": []
     },
     {
@@ -233,7 +233,7 @@ window.DASHBOARD_DATA = {
      "time": "2026-09-22 23:21 UTC",
      "summary": "Combination will bring together two strong member-owned financial institutions with greater capacity to serve members, invest in communities and grow across Canada Combination will bring together two strong member-owned financial institutions with greater capacity to serve members, invest in communi",
      "url": "https://www.globenewswire.com/news-release/2026/09/22/3367011/0/en/update-b-c-s-tru-cooperative-bank-and-ontario-s-libro-credit-union-propose-landmark-merger-to-create-a-national-cooperative-banking-option-for-canadians.html",
-     "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567047094/gnw_ngwqnq.png",
+     "image": "",
      "tickers": []
     },
     {
@@ -251,7 +251,7 @@ window.DASHBOARD_DATA = {
      "time": "2026-09-22 21:55 UTC",
      "summary": "Trump threatens to annihilate Iran as diplomats push for deal at UN\u00a0\u00a0Reuters",
      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPMHFVWHVmRkJDV09JMHNSQ2RvNk5zS2NwN3lwZ3lNOFNLd0tUdjZHS09lMUhZdHBCWXZUQ1NJUHh5cUxmYlU4NjNTRGRtWDJ3UkFpb05jS1U2R2huempndzFvVEtqZmV1RjN2cTRJWWYybEpQSkptR2NjLWFySUtUeDdXMmdBd0N4dktqeGN6WjdTOGVfQXZJLVgyX2k1RTlzbDZncmktWlI?oc=5",
-     "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+     "image": "",
      "tickers": []
     },
     {
@@ -260,7 +260,7 @@ window.DASHBOARD_DATA = {
      "time": "2026-09-22 21:07 UTC",
      "summary": "Trump warns in UN speech he could 'annihilate' Iran without peace deal\u00a0\u00a0Reuters",
      "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOOFdkQk9aWHdzT0hrcFhDNDZPSmlwQVBUUm12TGd4SUVPUURUMVo4Y3I0WHZBSTIxdjdKTWZ4WkF3cVUzUnlrWmNrbTA5T21UN3R0Z0JnekdrZm5ReC1ZS2JmUWVQRXRVNzhaYmNucDI5YVh6d2JxeHp5Yi00Y3p2d0loRTY5YXNiWGRHTlJZb1ZiX1paMVh3UU1XVThfUXR2NHF3T0pod3BBS3VpU3AyTDB3?oc=5",
-     "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+     "image": "",
      "tickers": []
     },
     {
@@ -280,7 +280,7 @@ window.DASHBOARD_DATA = {
      "time": "2026-09-22 20:31 UTC",
      "summary": "PODCAST: Trump's UN speech, ICC sanctions and Turkey's LGBTQ+ crackdown (Updated)\u00a0\u00a0Reuters",
      "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxNSUdQTWg2T1FqNWc5SHhjOFdROWIyQjBQUkViWUpjYjhvWFM4V1V2LWJDQzZuRnVmYkVGdDVhUVBkUGYxdWV5bDNSTUNKZThUdjRHZ2VsbDFVeHNzcDdmVjdPRC14cnMzT2xVOEFnMUw4ai00VmRWZHFUWlZvd29oR0gwWWdNcEJwdi1OcGFHVWNNdHRCNmFvdzA5SjhEdFk?oc=5",
-     "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+     "image": "",
      "tickers": []
     },
     {
@@ -289,7 +289,7 @@ window.DASHBOARD_DATA = {
      "time": "2026-09-22 20:25 UTC",
      "summary": "",
      "url": "https://seekingalpha.com/news/4645724-brighthouse-financial-jumps-on-report-sixth-street-looks-to-renew-takeover-effort?utm_source=feed_news_m_a&utm_medium=referral&feed_item_type=news",
-     "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567050932/sa_jgen9y.png",
+     "image": "",
      "tickers": [
       "BHF"
      ]
@@ -300,7 +300,7 @@ window.DASHBOARD_DATA = {
      "time": "2026-09-22 20:25 UTC",
      "summary": "Canada is giving C$100 million in international aid for Palestine, says Carney\u00a0\u00a0reuters.com",
      "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOTFVHRXJSbEVXaW8tY0Zrd3hNMHlJZlE1cTlIUmsxX24zbnQ0Q3RtSDdGdkllSEJnN2NqU0pRTnVhR1lpQTV6Y3ZWUHQwa0tHdzA4U3lyeUxBV05Fb2dIdU16aWJPay14cXZJN0FpUzhETGI1aEo4am9QWmlnVnBIamFmaTBBSHNPNXF2aWhNMmZ3aVBreVhXSDVXUVpQR2plS0JPNFRSZzB0NXkwa1VQTQ?oc=5",
-     "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+     "image": "",
      "tickers": []
     },
     {
@@ -309,7 +309,7 @@ window.DASHBOARD_DATA = {
      "time": "2026-09-22 20:05 UTC",
      "summary": "Acquisition advances Progress\u2019 strategy to deliver the context and control organizations need to achieve trusted AI and agentic outcomes with confidence",
      "url": "https://www.globenewswire.com/news-release/2026/09/22/3366879/0/en/progress-software-completes-acquisition-of-domo-s-ai-and-data-platform-business.html",
-     "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567047094/gnw_ngwqnq.png",
+     "image": "",
      "tickers": []
     },
     {
@@ -318,7 +318,7 @@ window.DASHBOARD_DATA = {
      "time": "2026-09-22 19:46 UTC",
      "summary": "Iran submits conditions for reopening of Hormuz to U.S. representative, state media says\u00a0\u00a0Reuters",
      "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxOYVI5Zk1aX3RhYUR3djFoUE4wTGo1cEJscDJwelUwamFLQV9WVEh3OU1BcFhkOGJKWWtCVXFPSndFUUpFV2xvWWctLTQxVWFlWmE0d3ctNmJuYzVDLXJSdjdwaktKWFREMVBQeUlZakZvalZOQTAtSlQ5UzZFQkFlUVZPblc2bEE5dzNVRV9pTzM2ZkxURHlFMzVlamZCWG50RUlkaVd5MDc4MzZTbWp1N1J1Y3NnQnUwMnFNRjhWMnd6Y0Z1LWp5NA?oc=5",
-     "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+     "image": "",
      "tickers": [
       "USO"
      ]
@@ -351,7 +351,7 @@ window.DASHBOARD_DATA = {
      "time": "2026-09-22 19:14 UTC",
      "summary": "",
      "url": "https://seekingalpha.com/news/4645647-cd-and-r-and-warburg-pincus-in-talks-to-buy-canaccords-british-wealth-unit-report?utm_source=feed_news_m_a&utm_medium=referral&feed_item_type=news",
-     "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567050932/sa_jgen9y.png",
+     "image": "",
      "tickers": []
     },
     {
@@ -360,7 +360,7 @@ window.DASHBOARD_DATA = {
      "time": "2026-09-22 19:09 UTC",
      "summary": "Trump at UN: Threats, diplomacy and 'super intelligence'\u00a0\u00a0Reuters",
      "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxPb05jNXUydzFHZ2tRUzBGUndIZFAxTW1jYUtVU3U5NzI1ZjRsckp2YXJuOG9KRE9hOTg1Q3B3b3U1ZC1jWmN1d2J0VU1OMkVfbElFRGhONElJd3I4UklnbVZHTExmT1g2dHFESmJhQWplNWlYUzZsU1ctMW9HRVBXVDJGazNhd1JDbWltQ0hEYmttU2hh?oc=5",
-     "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+     "image": "",
      "tickers": []
     },
     {
@@ -369,7 +369,7 @@ window.DASHBOARD_DATA = {
      "time": "2026-09-22 18:46 UTC",
      "summary": "",
      "url": "https://seekingalpha.com/news/4645637-capri-holdings-may-be-worth-25-26-share-in-takeover-analyst?utm_source=feed_news_m_a&utm_medium=referral&feed_item_type=news",
-     "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567050932/sa_jgen9y.png",
+     "image": "",
      "tickers": [
       "CPRI"
      ]
@@ -380,7 +380,7 @@ window.DASHBOARD_DATA = {
      "time": "2026-09-22 18:35 UTC",
      "summary": "M&A advisory firm BrightTower served as lead financial advisor to Pamlico Capital and Becker's in the sale to Forge.",
      "url": "https://www.globenewswire.com/news-release/2026/09/22/3366828/0/en/brighttower-advises-healthcare-media-events-leader-becker-s-healthcare-in-sale-to-forge.html",
-     "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567047094/gnw_ngwqnq.png",
+     "image": "",
      "tickers": []
     },
     {
@@ -389,7 +389,7 @@ window.DASHBOARD_DATA = {
      "time": "2026-09-22 18:13 UTC",
      "summary": "",
      "url": "https://seekingalpha.com/news/4645634-zim-edges-higher-on-report-hapag-lloyd-ceo-visiting-israel?utm_source=feed_news_m_a&utm_medium=referral&feed_item_type=news",
-     "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567050932/sa_jgen9y.png",
+     "image": "",
      "tickers": []
     },
     {
@@ -398,7 +398,7 @@ window.DASHBOARD_DATA = {
      "time": "2026-09-22 18:00 UTC",
      "summary": "Becker\u2019s to Join Fierce Healthcare and Life Sciences to Create a Scaled Platform Across Healthcare, Life Sciences and the Full Care Continuum Becker\u2019s to Join Fierce Healthcare and Life Sciences to Create a Scaled Platform Across Healthcare, Life Sciences and the Full Care Continuum",
      "url": "https://www.globenewswire.com/news-release/2026/09/22/3366813/0/en/forge-to-acquire-becker-s-healthcare-the-1-events-and-digital-media-portfolio-shaping-u-s-healthcare-industry.html",
-     "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567047094/gnw_ngwqnq.png",
+     "image": "",
      "tickers": []
     },
     {
@@ -407,7 +407,7 @@ window.DASHBOARD_DATA = {
      "time": "2026-09-22 17:47 UTC",
      "summary": "MONTR\u00c9AL,  22 sept. 2026  (GLOBE NEWSWIRE) -- Groupe WSP Global Inc. (TSX : WSP) (\u00ab WSP \u00bb ou la \u00ab Soci\u00e9t\u00e9 \u00bb), l\u2019une des plus importantes firmes offrant des solutions en ing\u00e9nierie, sciences et infrastructures au monde, annonce aujourd\u2019hui, apr\u00e8s m\u00fbre r\u00e9flexion, qu\u2019elle ne donnera pas suite \u00e0 une off",
      "url": "https://www.globenewswire.com/news-release/2026/09/22/3366803/0/fr/wsp-annonce-sa-d%C3%A9cision-de-retirer-son-projet-d-offre-visant-arcadis-n-v.html",
-     "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567047094/gnw_ngwqnq.png",
+     "image": "",
      "tickers": []
     },
     {
@@ -416,7 +416,7 @@ window.DASHBOARD_DATA = {
      "time": "2026-09-22 17:47 UTC",
      "summary": "MONTREAL, Sept.  22, 2026  (GLOBE NEWSWIRE) -- WSP Global Inc. (TSX: WSP) (\"WSP\" or the \"Corporation\"), one of the world\u2019s leading engineering, science and infrastructure solutions firms, today announces, following careful consideration, that it will not pursue a public offer for all of the issued a",
      "url": "https://www.globenewswire.com/news-release/2026/09/22/3366803/0/en/wsp-announces-decision-to-withdraw-proposed-offer-for-arcadis-n-v.html",
-     "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567047094/gnw_ngwqnq.png",
+     "image": "",
      "tickers": []
     },
     {
@@ -425,7 +425,7 @@ window.DASHBOARD_DATA = {
      "time": "2026-09-22 17:37 UTC",
      "summary": "EU renews Russia sanctions, drops Russian billionaires Usmanov and Fridman\u00a0\u00a0Reuters",
      "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNMnhFeHB1dlJzNUFaZkYzM0d3cFNyaDI3bFo3VjJFYW5wc0dhandneXlLVkstbVhfd0REaXJrUmx2TF9tRTd0QzdoTExocDNHSFhwVTlVRkZ6RzhKMU4yckMwNzEzS0xtalhQQl9vSkpBdjRxbUFVczFVc1NEQVJQM3R0NEdaQThjX0owTkdxbUcxb3JuM1c3XzNCVGN4dXV4OTNBeEQ3bURQWGxnRmdaVw?oc=5",
-     "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+     "image": "",
      "tickers": []
     },
     {
@@ -434,7 +434,7 @@ window.DASHBOARD_DATA = {
      "time": "2026-09-22 17:09 UTC",
      "summary": "Trump says talks with Iran continue and he thinks settlement will be reached\u00a0\u00a0Reuters",
      "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPN3J1Q19pcFNqX1dZdk1GNllCTzNBWWlmWHB3bF9nMGNrcEdvUjc2anM1bndiLWFOYlVjRl9qeTBKby1qaW1zaWY1ZEU1ZEFnM3RTWXB5WUFwNTczcjlOT2ZXc3pfdW1nNFJzY185Wkkxc0UzcEstaHhxNVhHMk0zbERBc2lQTGtKY0dyaGhTWHg5LW5TZUZITXFwTklFcmZadVh4eks3Q1VZeGFGUm1QTW5yV3MzOVZBeFp6SGp1U09NNThl?oc=5",
-     "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+     "image": "",
      "tickers": [
       "USO"
      ]
@@ -456,7 +456,7 @@ window.DASHBOARD_DATA = {
      "time": "2026-09-22 16:40 UTC",
      "summary": "Combination will bring together two strong member-owned financial institutions with greater capacity to serve members, invest in communities and grow across Canada Combination will bring together two strong member-owned financial institutions with greater capacity to serve members, invest in communi",
      "url": "https://www.globenewswire.com/news-release/2026/09/22/3366753/0/en/tru-cooperative-bank-and-libro-credit-union-to-merge-creating-a-stronger-cooperative-bank-for-canadians.html",
-     "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567047094/gnw_ngwqnq.png",
+     "image": "",
      "tickers": []
     },
     {
@@ -465,7 +465,7 @@ window.DASHBOARD_DATA = {
      "time": "2026-09-22 16:39 UTC",
      "summary": "Turkey's Erdogan urges UN reform, wider recognition of Palestinian state\u00a0\u00a0Reuters",
      "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxNSThYSHV3S2NvRFpqMU1uTkFwSEFLYVJXLUZMQ0kyM0hhNGJ6N3RMNS0tYVRTVWczMGVZaldiLUF0VDRLOEhUdXJNN3hEMTBmYm13aDlhU3Bqbm1YMFBlMVhxcGozUmZLWFJhV2NqeVE0NmFRb1dEellicGhxTFZza0VkN2xjS0NVUE5PTE5EWWlGUEx5T3p3ZmpoLVV4RGJOZzRFUUtqWFlsX0RyZGhGMmlUcDhxQk01QS1GVHFB?oc=5",
-     "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+     "image": "",
      "tickers": []
     },
     {
@@ -474,7 +474,7 @@ window.DASHBOARD_DATA = {
      "time": "2026-09-22 16:27 UTC",
      "summary": "Nasdaq hits intraday record high on tech boost, Mideast negotiation hopes\u00a0\u00a0Reuters",
      "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxOOUI2bTZ5ZFhnZUozYjg5LXM1WHhuT24xUS0zYmRRZkViWVBreE05ZTNMWFBDSGhHTXUyQ3ZyMWhsUFdxSUlxUXVUUXVHWGRVelg3Z2RuVXo3bndwaXJfRXhEUEFERFNSUVZoaDNERnFxdnhuNkxLdVhnNDRpRGhxYndETzVJdVNnZXJESmpMNmw5QVFQODFGY2w2NzVCcFl0bXBSNjRaTQ?oc=5",
-     "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+     "image": "",
      "tickers": [
       "NVDA"
      ]
@@ -485,7 +485,7 @@ window.DASHBOARD_DATA = {
      "time": "2026-09-22 16:15 UTC",
      "summary": "Superior Announces Definitive Agreement to Acquire Welltec International, Expanding Its Intervention and Completions Portfolio and Global Reach",
      "url": "https://www.globenewswire.com/news-release/2026/09/22/3366735/0/en/superior-announces-definitive-agreement-to-acquire-welltec-international-expanding-its-intervention-and-completions-portfolio-and-global-reach.html",
-     "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567047094/gnw_ngwqnq.png",
+     "image": "",
      "tickers": []
     },
     {
@@ -494,7 +494,7 @@ window.DASHBOARD_DATA = {
      "time": "2026-09-22 16:11 UTC",
      "summary": "Banks, telecoms weigh on FTSE 100; focus on US-Iran talks\u00a0\u00a0Reuters",
      "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQZ3JCUDhubW1Yb0o4bFpaMFdtVE9oYVVuUll5R0tpVS1YNXpjd285eWxWa1ZDUklJd0ZBNnZJdnJQdEVnZmJ6czA1TEYtMmFhNjlUcWZGeDdhMFdpNXRJd21TaWlmcjRiWTBHNEpDVmg2U0RicWlnUWNWRFkyUy01WXA4c09OREpKM2JNWUk5dHEyNDQ0SWM1U3BudkhJUENDWXVjdlUyRl9nZw?oc=5",
-     "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+     "image": "",
      "tickers": []
     },
     {
@@ -503,7 +503,7 @@ window.DASHBOARD_DATA = {
      "time": "2026-09-22 16:00 UTC",
      "summary": "CIP Real Estate acquired a 200,049-square-foot multi-use business center in the City of Industry this month.",
      "url": "https://www.globenewswire.com/news-release/2026/09/22/3366715/0/en/cip-real-estate-acquires-los-angeles-area-walnut-tech-business-center-for-60-65-million.html",
-     "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567047094/gnw_ngwqnq.png",
+     "image": "",
      "tickers": []
     },
     {
@@ -521,7 +521,7 @@ window.DASHBOARD_DATA = {
      "time": "2026-09-22 15:23 UTC",
      "summary": "Czech man gets fine and 13 days' custody for anti-war protest on Red Square\u00a0\u00a0Reuters",
      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOQmFrTDNJUDdUOHNWVDZjSEN5UXdfbUJNRVN3WjAxQXZadkJ4ck54ek9kTDQ2aWpyeXl2ZlJGaWZaS3hFd2RKOXlBSXJsRi1OelBrVEVkeGRnWFpaTEJQNTRTbC1NNk9UWDBHbF9BZVpVekUxT0d5azFBRlBZX1p3QWpsTWNnMVQ5LU54STFVYTR5U20yZnpSb2JGdm00cDJldnpzYnNneWw?oc=5",
-     "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+     "image": "",
      "tickers": []
     },
     {
@@ -530,7 +530,7 @@ window.DASHBOARD_DATA = {
      "time": "2026-09-22 15:12 UTC",
      "summary": "Saudi Arabia restarts East-West oil pipeline, sources say\u00a0\u00a0Reuters",
      "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxPNmJidHFzNHlscWlnT2hsWFdKc1hNRFMxOWRnTTRQRHVHbV9tRTJySFJoOGFoZXdNdTIwMngxZlczRmY3dWJxWkNiWTRYclVyT0JoWXQyUHJpNThicmpUNDMwWjNqREdrYmw3Ty1peU9oaEtRdC1GWXE1S0o1eGlrWDZONDhqS0FDbWotZXV1LXBvTEhUWHdlT1BzYU5udjNKTTFXdk1hX0wwVk1yczRTdV94R0p4UUQ1bEViTXJ2S2pEaTVLTFlvdw?oc=5",
-     "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+     "image": "",
      "tickers": [
       "USO"
      ]
@@ -541,7 +541,7 @@ window.DASHBOARD_DATA = {
      "time": "2026-09-22 15:00 UTC",
      "summary": "Following a reopened inquiry, BBB National Programs\u2019 National Advertising Division determined that Westinghouse Outdoor Power Equipment provided a reasonable basis for its maximum pressure and flow rate claims for certain electric pressure washers under the conditions tested and recommended that it ",
      "url": "https://www.globenewswire.com/news-release/2026/09/22/3366616/0/en/national-advertising-division-recommends-westinghouse-outdoor-power-equipment-s-disclose-testing-conditions-for-max-psi-and-gpm-claims.html",
-     "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567047094/gnw_ngwqnq.png",
+     "image": "",
      "tickers": []
     },
     {
@@ -550,7 +550,7 @@ window.DASHBOARD_DATA = {
      "time": "2026-09-22 14:54 UTC",
      "summary": "Trump says he thinks US will make deal with Iran after election\u00a0\u00a0Reuters",
      "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPYkw1RzVpeWp6Q0lENW1HSzFGSUJoNEx5VmJZdWlpa2otcmNiY3RUeXlJc0FJMnNCc3Zsa2c0dUkxN3c3cGhiemFFd2xEWjZMUWtVQ1VvdG9sNmYtZF9XV1NoMjZFNEMzUTZJaVJkWlBlQ1VPRTA0WjB5QVNNUHlKZEw4SW1pNmI5TmM3RktzX1Zvbmp6cWQ1WXVWNUVab2NidTR5d2g3YmR3UWZuYVJUcQ?oc=5",
-     "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+     "image": "",
      "tickers": []
     },
     {
@@ -568,7 +568,7 @@ window.DASHBOARD_DATA = {
      "time": "2026-09-22 14:49 UTC",
      "summary": "Egypt's NBE steps in to buy Banque Misr's UAE operations after sanctions threat\u00a0\u00a0Reuters",
      "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxOc1V6cVZXYmhuN2pBWXZKc2s3VUdNNlg3N0dKeVpNQmhtamE3NXQ1NFhqRUdObVBGZms1dDdQaWswNUNnaktFczEtb19zc09fcFRYWmx2OERxakN6VUhtdGFfTnprWG94ZExiVmstMlV2akFCaHNkMml0SW5mSEY3UDl4SmZyT3o0R3gzT00xbnRQWXpPN0ZJSUd4YVRCelZabjBBNzZvNlN6elkyQWJlcGxnQ1UzTzNSX0ZpVzVpQkJramgyaEE?oc=5",
-     "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+     "image": "",
      "tickers": []
     },
     {
@@ -577,7 +577,7 @@ window.DASHBOARD_DATA = {
      "time": "2026-09-22 14:47 UTC",
      "summary": "",
      "url": "https://seekingalpha.com/news/4645434-mercedes-benz-partners-with-wayve-on-autonomous-driving-technology?utm_source=feed_news_m_a&utm_medium=referral&feed_item_type=news",
-     "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567050932/sa_jgen9y.png",
+     "image": "",
      "tickers": []
     },
     {
@@ -586,7 +586,7 @@ window.DASHBOARD_DATA = {
      "time": "2026-09-22 14:32 UTC",
      "summary": "",
      "url": "https://seekingalpha.com/news/4645462-capri-holdings-jumps-on-report-of-takeover-interest?utm_source=feed_news_m_a&utm_medium=referral&feed_item_type=news",
-     "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567050932/sa_jgen9y.png",
+     "image": "",
      "tickers": [
       "CPRI"
      ]
@@ -597,7 +597,7 @@ window.DASHBOARD_DATA = {
      "time": "2026-09-22 14:30 UTC",
      "summary": "Water Tower Research (www.watertowerresearch.com) is pleased to announce today\u2019s kickoff of its Virtual Insights Conference. Water Tower Research (www.watertowerresearch.com) is pleased to announce today\u2019s kickoff of its Virtual Insights Conference.",
      "url": "https://www.globenewswire.com/news-release/2026/09/22/3366585/0/en/water-tower-research-wtr-kicks-off-virtual-insights-conference.html",
-     "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567047094/gnw_ngwqnq.png",
+     "image": "",
      "tickers": []
     },
     {
@@ -615,7 +615,7 @@ window.DASHBOARD_DATA = {
      "time": "2026-09-22 14:20 UTC",
      "summary": "FORM 8.3",
      "url": "https://www.globenewswire.com/news-release/2026/09/22/3366575/0/en/davidson-kempner-capital-management-lp-form-8-3-dcc-plc.html",
-     "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567047094/gnw_ngwqnq.png",
+     "image": "",
      "tickers": []
     },
     {
@@ -624,7 +624,7 @@ window.DASHBOARD_DATA = {
      "time": "2026-09-22 14:04 UTC",
      "summary": "FORM 8.3",
      "url": "https://www.globenewswire.com/news-release/2026/09/22/3366557/0/en/form-8-3-dcc-plc.html",
-     "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567047094/gnw_ngwqnq.png",
+     "image": "",
      "tickers": []
     },
     {
@@ -633,7 +633,7 @@ window.DASHBOARD_DATA = {
      "time": "2026-09-22 14:00 UTC",
      "summary": "Duggal Visual Solutions Acquires Design to Print Expanding its Graphic Display Platform",
      "url": "https://www.globenewswire.com/news-release/2026/09/22/3366549/0/en/duggal-visual-solutions-acquires-design-to-print-expanding-its-graphic-display-platform.html",
-     "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567047094/gnw_ngwqnq.png",
+     "image": "",
      "tickers": []
     },
     {
@@ -642,7 +642,7 @@ window.DASHBOARD_DATA = {
      "time": "2026-09-22 14:00 UTC",
      "summary": "Venn, the sovereign AI platform for real estate, acquires a16z-backed Zuma for $50M, bringing agentic leasing AI into its Company Brain.",
      "url": "https://www.globenewswire.com/news-release/2026/09/22/3366532/0/en/venn-acquires-a16z-backed-zuma-for-50-million-as-its-platform-closes-in-on-one-million-homes.html",
-     "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567047094/gnw_ngwqnq.png",
+     "image": "",
      "tickers": []
     },
     {
@@ -651,7 +651,7 @@ window.DASHBOARD_DATA = {
      "time": "2026-09-22 13:51 UTC",
      "summary": "France mulls new UN Security Council resolution on Hormuz, diplomats say\u00a0\u00a0Reuters",
      "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxOMGstUFppYTNUUUFMa2Z0MlpVQnVlWDRIZENwRllDaDZtd3U1d2pRUVhyYTBfcmFzNEpqVVQ4N2V2dUJCWUxtMTlKZ19OcDZxVVhReVVVTDN6ZkE1MlhpZU9sZmd5ZzFuWGxxbkpVbU53WDVHZWJHYnNoWmQ0VUxVbHVBTWc0VE55d245YkxXRHRLeURnZnBab2tIb1RBNDlYREdKZmNpbU1CSGp3MFZJ?oc=5",
-     "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+     "image": "",
      "tickers": []
     },
     {
@@ -669,7 +669,7 @@ window.DASHBOARD_DATA = {
      "time": "2026-09-22 13:36 UTC",
      "summary": "",
      "url": "https://seekingalpha.com/news/4645420-goldman-sachs-in-talks-to-acquire-37b-credit-firm-palmer-square-report?utm_source=feed_news_m_a&utm_medium=referral&feed_item_type=news",
-     "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567050932/sa_jgen9y.png",
+     "image": "",
      "tickers": []
     },
     {
@@ -678,7 +678,7 @@ window.DASHBOARD_DATA = {
      "time": "2026-09-22 13:29 UTC",
      "summary": "FORM 8.3",
      "url": "https://www.globenewswire.com/news-release/2026/09/22/3366490/0/en/form-8-3-advanced-medical-solutions-group-plc-octopus-investments.html",
-     "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567047094/gnw_ngwqnq.png",
+     "image": "",
      "tickers": []
     },
     {
@@ -687,7 +687,7 @@ window.DASHBOARD_DATA = {
      "time": "2026-09-22 13:28 UTC",
      "summary": "Gulf stocks mixed ahead of potential US-Iran UN talks\u00a0\u00a0Reuters",
      "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQRDdYUXdia05OelZNa3FxTXJiS0psRlVxckRwMlRXNExjOWQ4Qkp1RmM1c2VQZHdmYk9JTWMzdW5ORHhaZ1YwallXM25POTRYWXBmUE9JZTN1S2dBYWVFc0JJLVZfWDI5RjRFQjlFSXUtU21ZZmhaSmVMZ1p1T29MdDVGTXdFaXp4dzhjTnhBYnJ3UHNRU1pVUFlsSnVZV2RTVlhZeFFpRVkwb3NZaVBjNWpR?oc=5",
-     "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+     "image": "",
      "tickers": []
     },
     {
@@ -696,7 +696,7 @@ window.DASHBOARD_DATA = {
      "time": "2026-09-22 13:25 UTC",
      "summary": "FORM 8.3",
      "url": "https://www.globenewswire.com/news-release/2026/09/22/3366476/0/en/form-8-3-gooch-housego-plc-octopus-investments.html",
-     "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567047094/gnw_ngwqnq.png",
+     "image": "",
      "tickers": []
     },
     {
@@ -714,7 +714,7 @@ window.DASHBOARD_DATA = {
      "time": "2026-09-22 12:59 UTC",
      "summary": "Netanyahu says he will 'tell the truth' on Israel's actions at United Nations\u00a0\u00a0Reuters",
      "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPekRmOHlCaktwVWhnMk1pN3lMT3hWSzJYTEU5cGRhakt0TElhMVNYcG15eWJfdmJ0M19ZeGo5di10X0hTRkdPaDBMTTBDY1ZXZVNJallyaWM4eWtFU21sTkx6d2xPQmxXcnpfZGRRUzFZNzNiTWtRajNIaHEtaTlVYlRaM1l5UmtJdU5xMTdSRzlDVkZmTDM3eDBsVmJEekdCaDdxdzdWeHRiR0VWeVJEUl95Qnl2dw?oc=5",
-     "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+     "image": "",
      "tickers": []
     },
     {
@@ -732,7 +732,7 @@ window.DASHBOARD_DATA = {
      "time": "2026-09-22 12:57 UTC",
      "summary": "Putin and Saudi crown prince call for safe passage via Hormuz, Bab el-Mandeb\u00a0\u00a0Reuters",
      "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxOVFBDYXJEV2FiaVcyUWduWFIyWjJSRVlFb2NBRTJzX2ozOTFiUk5famtnNDFoRUUzRHNKZDFrNU5wM1JvSlliOEJNNGFzS2FIcWFBTlcxU201ZkdKdndlMngtaVg1N2hrUTFvZnZvcHFxVnFNNEJsVDZLZjl1RXlVUHlyWVI3YWY1WTRGdW5DbUhZWnRmTWhuNjdIdU1KVWpzTnQ3YVYyMUZFQXVLZW5MSVNHUjBSWmpkSGRZckJR?oc=5",
-     "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+     "image": "",
      "tickers": [
       "USO"
      ]
@@ -743,7 +743,7 @@ window.DASHBOARD_DATA = {
      "time": "2026-09-22 12:39 UTC",
      "summary": "",
      "url": "https://seekingalpha.com/news/4645365-superstar-platforms-to-acquire-titlepal-in-all-stock-deal?utm_source=feed_news_m_a&utm_medium=referral&feed_item_type=news",
-     "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567050932/sa_jgen9y.png",
+     "image": "",
      "tickers": []
     },
     {
@@ -752,7 +752,7 @@ window.DASHBOARD_DATA = {
      "time": "2026-09-22 12:30 UTC",
      "summary": "Acquisition expands Superstar\u2019s fintech portfolio with a digital-first platform designed to modernize the traditionally storefront-based vehicle title lending industry Acquisition expands Superstar\u2019s fintech portfolio with a digital-first platform designed to modernize the traditionally storefront-b",
      "url": "https://www.globenewswire.com/news-release/2026/09/22/3366337/0/en/superstar-platforms-announces-agreement-to-acquire-titlepal-inc.html",
-     "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567047094/gnw_ngwqnq.png",
+     "image": "",
      "tickers": []
     },
     {
@@ -761,7 +761,7 @@ window.DASHBOARD_DATA = {
      "time": "2026-09-22 12:30 UTC",
      "summary": "Initiative follows Archenia acquisition and Marchex\u2019s evolution into a comprehensive AI-driven customer acquisition and outcome optimization platform Initiative follows Archenia acquisition and Marchex\u2019s evolution into a comprehensive AI-driven customer acquisition and outcome optimization platform",
      "url": "https://www.globenewswire.com/news-release/2026/09/22/3366330/0/en/marchex-expands-investor-relations-program-engages-pondelwilkinson-to-broaden-investor-outreach.html",
-     "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567047094/gnw_ngwqnq.png",
+     "image": "",
      "tickers": []
     },
     {
@@ -770,7 +770,7 @@ window.DASHBOARD_DATA = {
      "time": "2026-09-22 12:04 UTC",
      "summary": "8.3",
      "url": "https://www.globenewswire.com/news-release/2026/09/22/3366301/0/en/form-8-3-nextenergy-solar-fund-limited.html",
-     "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567047094/gnw_ngwqnq.png",
+     "image": "",
      "tickers": []
     }
    ],

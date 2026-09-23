@@ -200,12 +200,37 @@ def latest_run_only(picks, days):
     return sorted(kept, key=lambda p: (p["date"], order(p)))
 
 
+# Many news sources send their own logo instead of a real photo. These are
+# known logo images, and any image used for several stories on the same day
+# is treated as a logo too.
+LOGO_URL_HINTS = ("/logo/", "whirlpooldata", "logo.", "_logo", "placeholder")
+LOGO_REPEAT_LIMIT = 3
+
+
+def _real_photos(headlines):
+    """Returns the headlines with logo 'photos' removed (image set to "")."""
+    counts = {}
+    for h in headlines:
+        if h.get("image"):
+            counts[h["image"]] = counts.get(h["image"], 0) + 1
+    cleaned = []
+    for h in headlines:
+        image = h.get("image") or ""
+        is_logo = (
+            any(hint in image.lower() for hint in LOGO_URL_HINTS)
+            or counts.get(image, 0) >= LOGO_REPEAT_LIMIT
+        )
+        cleaned.append(dict(h, image="" if is_logo else image))
+    return cleaned
+
+
 def _article_for(sources, headlines):
     """
     Picks the news story to show next to a pick: the first of its source
-    headlines that has a photo, or else simply its first source headline.
+    headlines that has a real photo, or else simply its first source headline.
     `sources` are headline numbers starting at 1.
     """
+    headlines = _real_photos(headlines)
     stories = [headlines[n - 1] for n in sources if isinstance(n, int) and 1 <= n <= len(headlines)]
     if not stories:
         return None
@@ -220,7 +245,8 @@ def _with_tickers(day_date, days, picks):
     for extra in day.get("picks", []):
         for n in extra.get("sources", []):
             used.setdefault(n, []).append(extra["ticker"])
-    return [dict(h, tickers=used.get(i, [])) for i, h in enumerate(day.get("headlines", []), start=1)]
+    headlines = _real_photos(day.get("headlines", []))
+    return [dict(h, tickers=used.get(i, [])) for i, h in enumerate(headlines, start=1)]
 
 
 def _brief(pick):
