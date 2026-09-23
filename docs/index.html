@@ -461,7 +461,20 @@ footer .disclaimer { font: 400 italic 13px/1.4 var(--serif); color: var(--ink); 
 
 <div class="tooltip" id="tooltip" role="status" aria-live="polite"></div>
 
-<script src="data.js"></script>
-<script src="app.js"></script>
+<script>
+  // Load the newest data.js and app.js every time (the "?v=" number makes
+  // the browser skip any older copy it saved), then start the page.
+  (function () {
+    var v = Date.now();
+    function load(src, next) {
+      var s = document.createElement("script");
+      s.src = src + "?v=" + v;
+      s.onload = next;
+      s.onerror = next;
+      document.body.appendChild(s);
+    }
+    load("data.js", function () { load("app.js"); });
+  })();
+</script>
 </body>
 </html>

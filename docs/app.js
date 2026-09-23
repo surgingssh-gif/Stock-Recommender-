@@ -935,7 +935,9 @@
   showTab();
   // Opening a bookmarked tab (e.g. .../#results) makes the browser jump to that
   // section; start at the top instead so the title and menu stay in view.
-  window.addEventListener("load", function () { window.scrollTo(0, 0); });
+  // (app.js may load after the page has finished loading, so check both.)
+  if (document.readyState === "complete") window.scrollTo(0, 0);
+  else window.addEventListener("load", function () { window.scrollTo(0, 0); });
   document.getElementById("archive-more").addEventListener("click", function () {
     archiveLimit += 6;
     renderArchive();
