@@ -21,6 +21,9 @@ LOG_FILE = "picks_log.csv"
 DAYS_DIR = os.path.join("data", "days")
 OUTPUT_FILE = os.path.join("docs", "data.js")
 
+# How far back the stock charts go before a stock's first pick.
+CHART_LOOKBACK_DAYS = 180
+
 
 # --- Reading the saved picks -------------------------------------------------
 
@@ -62,12 +65,12 @@ def read_days(days_dir=DAYS_DIR):
 
 def fetch_history(ticker, start_date):
     """
-    Returns daily closing prices from start_date to today as a list of
-    [date, price] pairs, or [] if Yahoo has nothing for this ticker.
+    Returns daily closing prices from about 6 months before start_date up to
+    today, as a list of [date, price] pairs, or [] if Yahoo has nothing for
+    this ticker. The extra months give the stock charts some context.
     """
     try:
-        # Start a few days early so the chart has a point on or before the pick.
-        start = date.fromisoformat(start_date) - timedelta(days=5)
+        start = date.fromisoformat(start_date) - timedelta(days=CHART_LOOKBACK_DAYS)
         history = yf.Ticker(ticker).history(start=start.isoformat())
         return [
             [index.strftime("%Y-%m-%d"), round(float(close), 2)]
@@ -211,6 +214,8 @@ def build_data(picks, days, histories):
         "stats": summarize(enriched),
         "picks": enriched,
         "days": day_list,
+        # Full price history per ticker, for the big stock charts.
+        "charts": {t: h for t, h in sorted(histories.items()) if h},
     }
 
 

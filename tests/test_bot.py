@@ -172,5 +172,6 @@ def test_build_data_scores_and_merges_details(tmp_path):
     assert stats["total_picks"] == 3 and stats["days_tracked"] == 2
     assert stats["judged"] == 2 and stats["correct"] == 1 and stats["hit_rate"] == 50.0
     assert stats["best"]["ticker"] == "XOM" and stats["worst"]["ticker"] == "DAL"
+    assert data["charts"]["XOM"][0] == ["2026-09-18", 95.0]  # full history kept for the big chart
     assert data["days"][1]["market_mood"] == "Energy is in focus."
     assert data["days"][1]["headlines"][0]["headline"] == "Oil jumps 5% after supply cut"
