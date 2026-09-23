@@ -1,26 +1,36 @@
 window.DASHBOARD_DATA = {
- "generated_at": "2026-09-23T04:09:32Z",
+ "generated_at": "2026-09-23T14:49:50Z",
  "stats": {
   "total_picks": 7,
   "days_tracked": 1,
-  "hit_rate": null,
-  "judged": 0,
-  "correct": 0,
-  "avg_directional_return": null,
-  "best": null,
-  "worst": null,
+  "hit_rate": 42.9,
+  "judged": 7,
+  "correct": 3,
+  "avg_directional_return": 0.86,
+  "best": {
+   "date": "2026-09-22",
+   "ticker": "CPRI",
+   "direction": "bullish",
+   "directional_return_pct": 8.87
+  },
+  "worst": {
+   "date": "2026-09-22",
+   "ticker": "RCL",
+   "direction": "bullish",
+   "directional_return_pct": -9.84
+  },
   "by_direction": [
    {
     "label": "bullish",
     "count": 5,
-    "hit_rate": null,
-    "avg_directional_return": null
+    "hit_rate": 40.0,
+    "avg_directional_return": 0.71
    },
    {
     "label": "bearish",
     "count": 2,
-    "hit_rate": null,
-    "avg_directional_return": null
+    "hit_rate": 50.0,
+    "avg_directional_return": 1.24
    }
   ],
   "by_confidence": [
@@ -33,22 +43,22 @@ window.DASHBOARD_DATA = {
    {
     "label": "medium",
     "count": 5,
-    "hit_rate": null,
-    "avg_directional_return": null
+    "hit_rate": 40.0,
+    "avg_directional_return": 2.28
    },
    {
     "label": "low",
     "count": 2,
-    "hit_rate": null,
-    "avg_directional_return": null
+    "hit_rate": 50.0,
+    "avg_directional_return": -2.69
    }
   ],
   "by_day": [
    {
     "date": "2026-09-22",
     "count": 7,
-    "hit_rate": null,
-    "avg_directional_return": null
+    "hit_rate": 42.9,
+    "avg_directional_return": 0.86
    }
   ],
   "top_buys": {
@@ -56,62 +66,89 @@ window.DASHBOARD_DATA = {
     {
      "label": "Top 5 buys",
      "count": 5,
-     "hit_rate": null,
-     "avg_directional_return": null
+     "hit_rate": 40.0,
+     "avg_directional_return": 0.71
     },
     {
      "label": "Other picks",
      "count": 2,
-     "hit_rate": null,
-     "avg_directional_return": null
+     "hit_rate": 50.0,
+     "avg_directional_return": 1.24
     }
    ],
-   "judged": 0,
+   "judged": 5,
    "by_day": [
     {
      "date": "2026-09-22",
-     "hit_rate": null,
-     "avg_directional_return": null,
+     "hit_rate": 40.0,
+     "avg_directional_return": 0.71,
      "buys": [
       {
        "top_rank": 1,
        "ticker": "CPRI",
        "company": "Capri Holdings",
-       "return_pct": null,
-       "correct": null
+       "return_pct": 8.87,
+       "correct": true
       },
       {
        "top_rank": 2,
        "ticker": "NVDA",
        "company": "NVIDIA",
-       "return_pct": null,
-       "correct": null
+       "return_pct": -0.66,
+       "correct": false
       },
       {
        "top_rank": 3,
        "ticker": "DAL",
        "company": "Delta Air Lines",
-       "return_pct": null,
-       "correct": null
+       "return_pct": -0.13,
+       "correct": false
       },
       {
        "top_rank": 4,
        "ticker": "BHF",
        "company": "Brighthouse Financial",
-       "return_pct": null,
-       "correct": null
+       "return_pct": 5.3,
+       "correct": true
       },
       {
        "top_rank": 5,
        "ticker": "RCL",
        "company": "Royal Caribbean",
-       "return_pct": null,
-       "correct": null
+       "return_pct": -9.84,
+       "correct": false
       }
      ]
     }
    ]
-  }
+  },
+  "weeks": [
+   {
+    "week_start": "2026-09-21",
+    "week_end": "2026-09-25",
+    "days": 1,
+    "count": 7,
+    "judged": 7,
+    "correct": 3,
+    "hit_rate": 42.9,
+    "avg_directional_return": 0.86,
+    "best": {
+     "date": "2026-09-22",
+     "ticker": "CPRI",
+     "direction": "bullish",
+     "directional_return_pct": 8.87
+    },
+    "worst": {
+     "date": "2026-09-22",
+     "ticker": "RCL",
+     "direction": "bullish",
+     "directional_return_pct": -9.84
+    },
+    "top5_count": 5,
+    "top5_hit_rate": 40.0,
+    "top5_avg": 0.71
+   }
+  ]
  },
  "picks": [
   {
@@ -131,14 +168,14 @@ window.DASHBOARD_DATA = {
    },
    "history": [
     [
-     "2026-09-21",
-     158.3
+     "2026-09-23",
+     161.45
     ]
    ],
-   "price_now": null,
-   "return_pct": null,
-   "directional_return_pct": null,
-   "correct": null
+   "price_now": 161.45,
+   "return_pct": 1.99,
+   "directional_return_pct": -1.99,
+   "correct": false
   },
   {
    "date": "2026-09-22",
@@ -157,14 +194,14 @@ window.DASHBOARD_DATA = {
    },
    "history": [
     [
-     "2026-09-21",
-     82.5
+     "2026-09-23",
+     82.39
     ]
    ],
-   "price_now": null,
-   "return_pct": null,
-   "directional_return_pct": null,
-   "correct": null
+   "price_now": 82.39,
+   "return_pct": -0.13,
+   "directional_return_pct": -0.13,
+   "correct": false
   },
   {
    "date": "2026-09-22",
@@ -183,14 +220,14 @@ window.DASHBOARD_DATA = {
    },
    "history": [
     [
-     "2026-09-21",
-     14.31
+     "2026-09-23",
+     15.58
     ]
    ],
-   "price_now": null,
-   "return_pct": null,
-   "directional_return_pct": null,
-   "correct": null
+   "price_now": 15.58,
+   "return_pct": 8.87,
+   "directional_return_pct": 8.87,
+   "correct": true
   },
   {
    "date": "2026-09-22",
@@ -209,14 +246,14 @@ window.DASHBOARD_DATA = {
    },
    "history": [
     [
-     "2026-09-21",
-     49.84
+     "2026-09-23",
+     52.48
     ]
    ],
-   "price_now": null,
-   "return_pct": null,
-   "directional_return_pct": null,
-   "correct": null
+   "price_now": 52.48,
+   "return_pct": 5.3,
+   "directional_return_pct": 5.3,
+   "correct": true
   },
   {
    "date": "2026-09-22",
@@ -235,14 +272,14 @@ window.DASHBOARD_DATA = {
    },
    "history": [
     [
-     "2026-09-21",
-     250.25
+     "2026-09-23",
+     225.62
     ]
    ],
-   "price_now": null,
-   "return_pct": null,
-   "directional_return_pct": null,
-   "correct": null
+   "price_now": 225.62,
+   "return_pct": -9.84,
+   "directional_return_pct": -9.84,
+   "correct": false
   },
   {
    "date": "2026-09-22",
@@ -261,14 +298,14 @@ window.DASHBOARD_DATA = {
    },
    "history": [
     [
-     "2026-09-21",
-     111.46
+     "2026-09-23",
+     106.48
     ]
    ],
-   "price_now": null,
-   "return_pct": null,
-   "directional_return_pct": null,
-   "correct": null
+   "price_now": 106.48,
+   "return_pct": -4.47,
+   "directional_return_pct": 4.47,
+   "correct": true
   },
   {
    "date": "2026-09-22",
@@ -287,14 +324,14 @@ window.DASHBOARD_DATA = {
    },
    "history": [
     [
-     "2026-09-21",
-     227.38
+     "2026-09-23",
+     225.89
     ]
    ],
-   "price_now": null,
-   "return_pct": null,
-   "directional_return_pct": null,
-   "correct": null
+   "price_now": 225.89,
+   "return_pct": -0.66,
+   "directional_return_pct": -0.66,
+   "correct": false
   }
  ],
  "days": [
@@ -1372,6 +1409,10 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-21",
     338.98
+   ],
+   [
+    "2026-09-23",
+    338.15
    ]
   ],
   "AMZN": [
@@ -1862,6 +1903,10 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-21",
     258.45
+   ],
+   [
+    "2026-09-23",
+    249.21
    ]
   ],
   "BHF": [
@@ -2356,6 +2401,10 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-21",
     49.84
+   ],
+   [
+    "2026-09-23",
+    52.48
    ]
   ],
   "CPRI": [
@@ -2850,6 +2899,10 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-21",
     14.31
+   ],
+   [
+    "2026-09-23",
+    15.58
    ]
   ],
   "CSCO": [
@@ -3344,6 +3397,10 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-21",
     111.46
+   ],
+   [
+    "2026-09-23",
+    106.48
    ]
   ],
   "DAL": [
@@ -3838,6 +3895,10 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-21",
     82.5
+   ],
+   [
+    "2026-09-23",
+    82.39
    ]
   ],
   "DIA": [
@@ -4328,6 +4389,10 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-21",
     519.78
+   ],
+   [
+    "2026-09-23",
+    516.23
    ]
   ],
   "GLD": [
@@ -4818,6 +4883,10 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-21",
     398.38
+   ],
+   [
+    "2026-09-23",
+    392.89
    ]
   ],
   "GOOGL": [
@@ -5308,6 +5377,10 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-21",
     354.97
+   ],
+   [
+    "2026-09-23",
+    341.82
    ]
   ],
   "JPM": [
@@ -5798,6 +5871,10 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-21",
     352.04
+   ],
+   [
+    "2026-09-23",
+    339.95
    ]
   ],
   "META": [
@@ -6288,6 +6365,10 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-21",
     741.25
+   ],
+   [
+    "2026-09-23",
+    746.92
    ]
   ],
   "MSFT": [
@@ -6778,6 +6859,10 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-21",
     501.61
+   ],
+   [
+    "2026-09-23",
+    499.18
    ]
   ],
   "NVDA": [
@@ -7272,6 +7357,10 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-21",
     227.38
+   ],
+   [
+    "2026-09-23",
+    225.89
    ]
   ],
   "QQQ": [
@@ -7762,6 +7851,10 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-21",
     741.47
+   ],
+   [
+    "2026-09-23",
+    740.33
    ]
   ],
   "RCL": [
@@ -8256,6 +8349,10 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-21",
     250.25
+   ],
+   [
+    "2026-09-23",
+    225.62
    ]
   ],
   "SPY": [
@@ -8746,6 +8843,10 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-21",
     773.5
+   ],
+   [
+    "2026-09-23",
+    769.21
    ]
   ],
   "TLT": [
@@ -9236,6 +9337,10 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-21",
     81.8
+   ],
+   [
+    "2026-09-23",
+    80.78
    ]
   ],
   "TSLA": [
@@ -9726,6 +9831,10 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-21",
     375.3
+   ],
+   [
+    "2026-09-23",
+    379.45
    ]
   ],
   "XOM": [
@@ -10220,9 +10329,205 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-21",
     158.3
+   ],
+   [
+    "2026-09-23",
+    161.45
    ]
   ]
  },
+ "sectors": [
+  {
+   "ticker": "XLK",
+   "name": "Technology",
+   "changes": {
+    "1D": -0.08,
+    "1W": 6.08,
+    "1M": 6.33,
+    "3M": 5.82
+   }
+  },
+  {
+   "ticker": "XLC",
+   "name": "Communication",
+   "changes": {
+    "1D": -1.59,
+    "1W": -0.65,
+    "1M": 1.7,
+    "3M": 5.61
+   }
+  },
+  {
+   "ticker": "XLY",
+   "name": "Consumer Discretionary",
+   "changes": {
+    "1D": -1.39,
+    "1W": 0.03,
+    "1M": -6.02,
+    "3M": -2.5
+   }
+  },
+  {
+   "ticker": "XLP",
+   "name": "Consumer Staples",
+   "changes": {
+    "1D": 0.89,
+    "1W": -0.64,
+    "1M": -3.25,
+    "3M": -0.63
+   }
+  },
+  {
+   "ticker": "XLE",
+   "name": "Energy",
+   "changes": {
+    "1D": 0.18,
+    "1W": -4.53,
+    "1M": -1.09,
+    "3M": 15.57
+   }
+  },
+  {
+   "ticker": "XLF",
+   "name": "Financials",
+   "changes": {
+    "1D": -1.72,
+    "1W": -3.02,
+    "1M": -4.09,
+    "3M": 2.33
+   }
+  },
+  {
+   "ticker": "XLV",
+   "name": "Health Care",
+   "changes": {
+    "1D": 0.41,
+    "1W": 1.6,
+    "1M": -2.44,
+    "3M": 11.94
+   }
+  },
+  {
+   "ticker": "XLI",
+   "name": "Industrials",
+   "changes": {
+    "1D": 0.25,
+    "1W": 1.19,
+    "1M": -5.21,
+    "3M": -4.09
+   }
+  },
+  {
+   "ticker": "XLB",
+   "name": "Materials",
+   "changes": {
+    "1D": 1.27,
+    "1W": -0.32,
+    "1M": -5.54,
+    "3M": -0.59
+   }
+  },
+  {
+   "ticker": "XLRE",
+   "name": "Real Estate",
+   "changes": {
+    "1D": -1.01,
+    "1W": -1.29,
+    "1M": -5.68,
+    "3M": -4.77
+   }
+  },
+  {
+   "ticker": "XLU",
+   "name": "Utilities",
+   "changes": {
+    "1D": -1.72,
+    "1W": -2.58,
+    "1M": -5.89,
+    "3M": -10.68
+   }
+  }
+ ],
+ "events": [
+  {
+   "date": "2026-10-09",
+   "kind": "earnings",
+   "ticker": "DAL",
+   "label": "Delta Air Lines earnings"
+  },
+  {
+   "date": "2026-10-13",
+   "kind": "earnings",
+   "ticker": "JPM",
+   "label": "JPMorgan Chase earnings"
+  },
+  {
+   "date": "2026-10-21",
+   "kind": "earnings",
+   "ticker": "TSLA",
+   "label": "Tesla earnings"
+  },
+  {
+   "date": "2026-10-27",
+   "kind": "earnings",
+   "ticker": "RCL",
+   "label": "Royal Caribbean earnings"
+  },
+  {
+   "date": "2026-10-28",
+   "kind": "earnings",
+   "ticker": "GOOGL",
+   "label": "Alphabet (Google) earnings"
+  },
+  {
+   "date": "2026-10-28",
+   "kind": "fed",
+   "ticker": null,
+   "label": "Fed interest-rate decision"
+  },
+  {
+   "date": "2026-10-28",
+   "kind": "earnings",
+   "ticker": "META",
+   "label": "Meta Platforms earnings"
+  },
+  {
+   "date": "2026-10-28",
+   "kind": "earnings",
+   "ticker": "MSFT",
+   "label": "Microsoft earnings"
+  },
+  {
+   "date": "2026-10-29",
+   "kind": "earnings",
+   "ticker": "AMZN",
+   "label": "Amazon earnings"
+  },
+  {
+   "date": "2026-10-29",
+   "kind": "earnings",
+   "ticker": "AAPL",
+   "label": "Apple earnings"
+  },
+  {
+   "date": "2026-10-30",
+   "kind": "earnings",
+   "ticker": "XOM",
+   "label": "Exxon Mobil earnings"
+  },
+  {
+   "date": "2026-11-03",
+   "kind": "earnings",
+   "ticker": "CPRI",
+   "label": "Capri Holdings earnings"
+  },
+  {
+   "date": "2026-11-05",
+   "kind": "earnings",
+   "ticker": "BHF",
+   "label": "Brighthouse Financial earnings"
+  }
+ ],
  "watchlist": [
   {
    "ticker": "SPY",
@@ -10331,13 +10636,13 @@ window.DASHBOARD_DATA = {
     "image": ""
    },
    "price_at_pick": 14.31,
-   "price_now": null,
-   "return_pct": null,
-   "correct": null,
+   "price_now": 15.58,
+   "return_pct": 8.87,
+   "correct": true,
    "history": [
     [
-     "2026-09-21",
-     14.31
+     "2026-09-23",
+     15.58
     ]
    ]
   },
@@ -10363,13 +10668,13 @@ window.DASHBOARD_DATA = {
     "image": "https://image.cnbcfm.com/api/v1/image/108279787-1773856963026-gettyimages-2266693711-NVIDIA_GTC.jpeg?v=1779315606&w=1920&h=1080"
    },
    "price_at_pick": 227.38,
-   "price_now": null,
-   "return_pct": null,
-   "correct": null,
+   "price_now": 225.89,
+   "return_pct": -0.66,
+   "correct": false,
    "history": [
     [
-     "2026-09-21",
-     227.38
+     "2026-09-23",
+     225.89
     ]
    ]
   },
@@ -10396,13 +10701,13 @@ window.DASHBOARD_DATA = {
     "image": "https://image.cnbcfm.com/api/v1/image/107258957-1687219415290-gettyimages-1187731711-qantas-1a-4_2019111514639035.jpeg?v=1790117286&w=1920&h=1080"
    },
    "price_at_pick": 82.5,
-   "price_now": null,
-   "return_pct": null,
-   "correct": null,
+   "price_now": 82.39,
+   "return_pct": -0.13,
+   "correct": false,
    "history": [
     [
-     "2026-09-21",
-     82.5
+     "2026-09-23",
+     82.39
     ]
    ]
   },
@@ -10427,13 +10732,13 @@ window.DASHBOARD_DATA = {
     "image": ""
    },
    "price_at_pick": 49.84,
-   "price_now": null,
-   "return_pct": null,
-   "correct": null,
+   "price_now": 52.48,
+   "return_pct": 5.3,
+   "correct": true,
    "history": [
     [
-     "2026-09-21",
-     49.84
+     "2026-09-23",
+     52.48
     ]
    ]
   },
@@ -10458,13 +10763,13 @@ window.DASHBOARD_DATA = {
     "image": "https://image.cnbcfm.com/api/v1/image/108366440-1790105281800-gettyimages-2161029164-AFP_363W4FY.jpeg?v=1790105475&w=1920&h=1080"
    },
    "price_at_pick": 250.25,
-   "price_now": null,
-   "return_pct": null,
-   "correct": null,
+   "price_now": 225.62,
+   "return_pct": -9.84,
+   "correct": false,
    "history": [
     [
-     "2026-09-21",
-     250.25
+     "2026-09-23",
+     225.62
     ]
    ]
   }
