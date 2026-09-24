@@ -406,3 +406,28 @@ def test_sector_moves_and_weekly_report():
     last_week = cards[1]
     assert (last_week["count"], last_week["hit_rate"], last_week["top5_hit_rate"]) == (2, 50.0, 100.0)
     assert last_week["best"]["ticker"] == "A" and last_week["worst"]["ticker"] == "B"
+
+
+def test_pretend_portfolio_follows_the_top_5_and_compares_with_spy():
+    from build_dashboard import pretend_portfolio
+
+    picks = [
+        {"date": "2026-09-22", "ticker": "A", "top_rank": 1, "price_at_pick": 10.0},
+        {"date": "2026-09-22", "ticker": "B", "top_rank": 2, "price_at_pick": 20.0},
+        {"date": "2026-09-22", "ticker": "C", "top_rank": None, "price_at_pick": 5.0},  # not a top buy
+        {"date": "2026-09-24", "ticker": "C", "top_rank": 1, "price_at_pick": 5.0},
+    ]
+    histories = {
+        "SPY": [["2026-09-21", 100.0], ["2026-09-22", 101.0], ["2026-09-23", 102.0], ["2026-09-24", 103.0]],
+        "A": [["2026-09-22", 11.0], ["2026-09-23", 12.0]],   # +10%, then +20%
+        "B": [["2026-09-22", 20.0], ["2026-09-23", 18.0]],   # 0%, then -10%
+        "C": [["2026-09-24", 5.5]],                          # +10%
+    }
+    result = pretend_portfolio(picks, histories)
+    days = [row[0] for row in result["series"]]
+    assert days == ["2026-09-21", "2026-09-22", "2026-09-23", "2026-09-24"]
+    top5 = [row[1] for row in result["series"]]
+    assert top5 == [10000, 10500.0, 10500.0, 11550.0]  # (+10% + 0%)/2, (+20% - 10%)/2, then all in C +10%
+    assert result["series"][-1][2] == 10300.0          # SPY from $100 to $103
+    assert (result["top5_return_pct"], result["spy_return_pct"]) == (15.5, 3.0)
+    assert pretend_portfolio([], histories) is None

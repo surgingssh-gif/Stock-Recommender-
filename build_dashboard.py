@@ -106,6 +106,106 @@ def fetch_earnings_date(ticker):
         return None
 
 
+# Key facts for each stock's fact sheet (the chart popup). Yahoo's names for them.
+FACT_FIELDS = [
+    "quoteType", "sector", "industry", "category", "marketCap", "totalAssets",
+    "trailingPE", "forwardPE", "fiftyTwoWeekHigh", "fiftyTwoWeekLow", "dividendYield",
+    "netExpenseRatio", "beta", "targetMeanPrice", "recommendationKey",
+    "numberOfAnalystOpinions", "longBusinessSummary",
+]
+SUMMARY_LENGTH = 320  # characters of the company description to keep
+
+
+def fetch_facts(ticker):
+    """
+    A few key facts about a stock or fund from Yahoo (size, P/E ratio,
+    52-week range, dividend, analysts' price target...). Missing ones are
+    left out; returns {} if Yahoo has nothing.
+    """
+    try:
+        info = yf.Ticker(ticker).info or {}
+    except Exception:
+        return {}
+    facts = {}
+    for key in FACT_FIELDS:
+        value = info.get(key)
+        if value is None or value == "" or (isinstance(value, float) and not math.isfinite(value)):
+            continue
+        if key == "longBusinessSummary" and len(value) > SUMMARY_LENGTH:
+            value = value[:SUMMARY_LENGTH].rsplit(" ", 1)[0] + "…"
+        facts[key] = round(value, 2) if isinstance(value, float) else value
+    return facts
+
+
+# The pretend portfolio starts with this much money.
+PORTFOLIO_START = 10_000
+
+
+def _price_on(history, day, since):
+    """The latest close on or before `day` (but not before `since`), or None."""
+    price = None
+    for d, close in history:
+        if d > day:
+            break
+        if d >= since:
+            price = close
+    return price
+
+
+def pretend_portfolio(picks, histories, benchmark="SPY"):
+    """
+    What $10,000 would be worth if, every day the bot ran, you had split it
+    equally across that day's Top 5 buys (bought at the pick price) and held
+    them until the next day's Top 5 - compared with simply buying the S&P 500
+    fund (SPY) on the same first day. No trading costs or taxes; just a
+    rough "is this any good?" check.
+
+    Returns None until there's a Top 5 and some prices after it.
+    """
+    groups = {}
+    for p in picks:
+        if p.get("top_rank") and p.get("price_at_pick"):
+            groups.setdefault(p["date"], []).append(p)
+    spy = histories.get(benchmark) or []
+    if not groups or not spy:
+        return None
+    pick_days = sorted(groups)
+    first = pick_days[0]
+    spy_start = _price_on(spy, _day_before(first), "0000")
+    trading_days = [d for d, _ in spy if d >= first]
+    if not trading_days or not spy_start:
+        return None
+
+    start_label = _day_before(first)
+    series = [[start_label, PORTFOLIO_START, PORTFOLIO_START]]
+    value, base, holdings, next_group = PORTFOLIO_START, PORTFOLIO_START, [], 0
+    for day in trading_days:
+        # A new Top 5 was picked this morning: sell the old ones, buy the new ones.
+        while next_group < len(pick_days) and pick_days[next_group] <= day:
+            base = value
+            holdings = groups[pick_days[next_group]]
+            next_group += 1
+        ratios = []
+        for p in holdings:
+            price = _price_on(histories.get(p["ticker"], []), day, p["date"])
+            ratios.append(price / p["price_at_pick"] if price else 1.0)
+        value = base * sum(ratios) / len(ratios)
+        bench = PORTFOLIO_START * _price_on(spy, day, "0000") / spy_start
+        series.append([day, round(value, 2), round(bench, 2)])
+
+    return {
+        "start": PORTFOLIO_START,
+        "series": series,
+        "top5_return_pct": round((series[-1][1] / PORTFOLIO_START - 1) * 100, 2) + 0.0,
+        "spy_return_pct": round((series[-1][2] / PORTFOLIO_START - 1) * 100, 2) + 0.0,
+        "pick_days": len(pick_days),
+    }
+
+
+def _day_before(day):
+    return (date.fromisoformat(day) - timedelta(days=1)).isoformat()
+
+
 # How far ahead the "Coming up" calendar looks.
 EVENT_DAYS_AHEAD = 45
 
@@ -417,7 +517,7 @@ def _brief(pick):
 
 # --- Putting it together -----------------------------------------------------
 
-def build_data(picks, days, histories, events=None):
+def build_data(picks, days, histories, events=None, facts=None):
     """
     Combines picks, daily details and price histories into the one object
     the web page needs. Kept separate from the network calls so it can be
@@ -483,6 +583,10 @@ def build_data(picks, days, histories, events=None):
         "sectors": sector_moves(histories),
         # The "Coming up" calendar (earnings dates and Fed meetings).
         "events": events or [],
+        # Key facts per ticker, for the fact sheet in the chart popup.
+        "facts": facts or {},
+        # The pretend $10,000 portfolio that follows the Top 5.
+        "portfolio": pretend_portfolio(enriched, histories),
         # The "market watch" stocks, with the latest note Claude wrote for each.
         "watchlist": _watchlist_cards(days),
         # Today's "Top 5 buys", with the longer "why" for each.
@@ -515,7 +619,10 @@ def main():
     earnings = {t: fetch_earnings_date(t) for t in sorted(companies - FUNDS)}
     events = build_events(earnings, names, date.today().isoformat())
 
-    data = build_data(picks, days, histories, events)
+    # Fact sheets for every stock that has a chart on the page.
+    facts = {t: fetch_facts(t) for t in sorted(companies | {p["ticker"] for p in picks})}
+
+    data = build_data(picks, days, histories, events, {t: f for t, f in facts.items() if f})
 
     os.makedirs(os.path.dirname(OUTPUT_FILE), exist_ok=True)
     with open(OUTPUT_FILE, "w", encoding="utf-8") as f:

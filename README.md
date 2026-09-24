@@ -165,6 +165,12 @@ stocks moved on the latest day. Click any of them for its chart. Use **Find a st
 flip through them. The daily Discord message links to the dashboard. To use a
 different address, add a `DASHBOARD_URL` secret.
 
+**Fact sheets and My Stocks:** every chart popup has a fact sheet from Yahoo Finance
+(company size, P/E ratio, 52-week range, dividend, analysts' price target). Tap the ☆
+on any stock to add it to **My Stocks**. Starred stocks lead the markets strip and
+have their own view on the Stock Charts tab. Stars are saved in your browser, so
+each device keeps its own list.
+
 **Sectors and Coming Up:** the bottom of the Today tab has a heat map of the 11 market
 sectors (switch between day, week, month and 3 months) and a calendar of upcoming
 earnings dates and Fed meetings. The sector list and Fed dates live in `watchlist.py`.
@@ -174,7 +180,10 @@ Add next year's Fed dates there each December.
 a second automatic run posts how the morning's picks actually moved and refreshes
 the dashboard with closing prices. On Fridays it adds a week-in-review report card.
 The Results tab keeps a **Weekly Report Card** for every week, graded A-F on the
-share of calls that were right. To test it: **Actions** tab > **Evening recap** >
+share of calls that were right. The Results tab also runs **The $10,000 Test**: what
+$10,000 would be worth if you'd split it across each day's Top 5 (held until the next
+Top 5), next to just buying the S&P 500. It ignores trading costs and taxes, so treat
+it as a rough check. To test the recap: **Actions** tab > **Evening recap** >
 **Run workflow**. To preview it on your computer: `python recap.py --dry-run`.
 
 **How the scorecard works:** each pick is compared with the latest closing price.
