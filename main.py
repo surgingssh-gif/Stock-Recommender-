@@ -24,7 +24,7 @@ from zoneinfo import ZoneInfo
 
 from dotenv import load_dotenv
 
-from analyzer import analyze_headlines
+from analyzer import add_price_levels, analyze_headlines
 from discord_notify import build_message, send_to_discord
 from build_dashboard import read_picks
 from market_data import format_market_data, get_market_movers, get_premarket_moves
@@ -124,6 +124,8 @@ def main():
     prices = {}
     if analysis and analysis["picks"]:
         prices = get_prices([p["ticker"] for p in analysis["picks"]])
+        # Turn Claude's target / "proven wrong" percentages into prices.
+        add_price_levels(analysis["picks"], prices)
         missing = [t for t, price in prices.items() if price is None]
         if missing:
             problems.append(f"Couldn't get prices for: {', '.join(missing)}")

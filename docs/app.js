@@ -351,7 +351,13 @@
       stories.appendChild(storyFor(p, cls));
     });
 
+    var sum = today.summary;
     append(lead, [
+      sum ? el("aside", { class: "sixty", "aria-label": "Today in 60 seconds" },
+        el("p", { class: "sixty-label" }, el("span", { "aria-hidden": "true", text: "⏱ " }), "In 60 seconds"),
+        el("dl", null, [["The big story", sum.big_story], ["Top pick", sum.top_pick], ["Watch today", sum.watch]].map(function (r) {
+          return r[1] ? el("div", { class: "sixty-row" }, el("dt", { text: r[0] }), el("dd", { text: r[1] })) : null;
+        }))) : null,
       el("p", { class: "kicker", text: "Markets · " + fmtLongDate(latestDate) }),
       el("h2", { class: "headline", text: headline }),
       parts[1] ? el("p", { class: "deck", text: parts[1] }) : null,
@@ -467,6 +473,30 @@
     box.appendChild(el("p", { class: "band-note", text: "Earnings dates from Yahoo Finance can move. Fed dates from federalreserve.gov." }));
   }
 
+  /* "🎯 Target $108.00 (+8%) · 🛑 Proven wrong below $95.00 (−5%)" for picks with price levels. */
+  function levelsLine(p, cls) {
+    if (!p || !p.target_price || !p.stop_price) return null;
+    var bull = p.direction !== "bearish";
+    var status = p.level_status === "target" ? el("span", { class: "lv-status hit", text: "✓ Target reached" })
+      : p.level_status === "stop" ? el("span", { class: "lv-status miss", text: "✗ Proven wrong" }) : null;
+    return el("p", { class: "levels " + (cls || "") },
+      el("span", { class: "lv", title: "Where the bot thinks the stock could get to over the next few weeks" },
+        el("span", { "aria-hidden": "true", text: "🎯 " }), "Target ", el("strong", { text: fmtPrice(p.target_price) }),
+        p.target_pct ? " (" + (bull ? "+" : "−") + p.target_pct + "%)" : ""),
+      el("span", { class: "sep", "aria-hidden": "true", text: " · " }),
+      el("span", { class: "lv", title: "If the stock gets here, the idea behind the call is proven wrong" },
+        el("span", { "aria-hidden": "true", text: "🛑 " }), "Proven wrong " + (bull ? "below " : "above "),
+        el("strong", { text: fmtPrice(p.stop_price) }),
+        p.stop_pct ? " (" + (bull ? "−" : "+") + p.stop_pct + "%)" : ""),
+      status);
+  }
+
+  function dict(base, extra) { var o = {}; [base, extra].forEach(function (x) { Object.keys(x || {}).forEach(function (k) { o[k] = x[k]; }); }); return o; }
+
+  function themeTag(theme) {
+    return theme ? el("span", { class: "theme-tag", text: theme }) : null;
+  }
+
   /* A small 3-month price line for one stock, colored by its trend. */
   function miniTrend(ticker, cls) {
     var full = (charts[ticker] || []).slice(-63);
@@ -500,8 +530,10 @@
             el("div", { class: "tags" },
               el("span", { class: "tag", text: directionText(p) }),
               p.confidence ? [el("span", { class: "sep", "aria-hidden": "true", text: "·" }),
-                el("span", { class: "tag" }, confidencePips(p.confidence), capitalize(p.confidence))] : null),
+                el("span", { class: "tag" }, confidencePips(p.confidence), capitalize(p.confidence))] : null,
+              themeTag(p.theme)),
             el("p", { class: "tb-pitch", text: p.reason }),
+            levelsLine(p),
             el("p", { class: "call-links" },
               a && safeUrl(a.url) ? [el("span", { class: "src", text: a.source }), " · ", articleLink(a.url, "Read the article ↗", null)] : null,
               charts[p.ticker] ? [a && safeUrl(a.url) ? el("span", { class: "sep", "aria-hidden": "true", text: " · " }) : null,
@@ -565,8 +597,9 @@
         el("div", { class: "tb-top" },
           el("div", null,
             el("h4", null, el("span", { class: "visually-hidden", text: "Number " + b.rank + ": " }),
-              el("span", { class: "ticker", text: b.ticker }), b.company || ""),
+              el("span", { class: "ticker", text: b.ticker }), b.company || "", themeTag(b.theme)),
             el("p", { class: "tb-pitch", text: b.pitch }),
+            levelsLine(dict({ direction: "bullish" }, b)),
             toggle),
           el("div", { class: "tb-price" },
             el("div", { class: "now", text: fmtPrice(b.price_now || b.price_at_pick) }),
@@ -654,6 +687,7 @@
       judged ? el("div", { class: "sc-col" },
         breakdown("By call", stats.by_direction || []),
         breakdown("By confidence", stats.by_confidence || []),
+        breakdown("By news theme", stats.by_theme || [], "wide"),
         el("p", { class: "legend-note" },
           el("span", { class: "key" }, el("i", { style: "background:var(--good)" }), "Right so far"),
           el("span", { class: "key" }, el("i", { style: "background:var(--bad)" }), "Wrong so far"),
@@ -785,6 +819,60 @@
   }
 
   // ---------------------------------------------------------------------------
+  // How long should you hold? The average move 1 day, 1 week and 1 month in
+  // ---------------------------------------------------------------------------
+
+  function renderHold() {
+    var box = document.getElementById("hold");
+    clear(box);
+    var rows = stats.by_horizon || [];
+    var scored = rows.filter(function (r) { return r.count > 0; });
+    if (!scored.length) {
+      box.appendChild(emptyChart("Hold-period results start after the first close",
+        "Each call is scored 1 day, 1 week and 1 month after it's made, to show when the bot's ideas pay off best."));
+      return;
+    }
+    var W = Math.max(280, box.clientWidth || 600), H = 230, top = 26, bottom = 54;
+    var vals = scored.map(function (r) { return r.avg_directional_return; }).concat([0]);
+    var lo = Math.min.apply(null, vals), hi = Math.max.apply(null, vals);
+    var pad = (hi - lo) * 0.2 || 1;
+    var yLo = Math.min(0, lo - pad), yHi = Math.max(0, hi + pad);
+    var y = function (v) { return top + (1 - (v - yLo) / (yHi - yLo)) * (H - top - bottom); };
+    var colW = (W - 20) / rows.length, barW = Math.min(90, colW * 0.5);
+    var plot = svg("svg", { class: "hold-plot", viewBox: "0 0 " + W + " " + H, width: W, height: H, role: "img",
+      "aria-label": "Average move for the call after each hold period: " + rows.map(function (r) {
+        return r.label + " " + (r.count ? fmtPct(r.avg_directional_return) + ", " + Math.round(r.hit_rate) + "% right" : "not reached yet");
+      }).join("; ") });
+    plot.appendChild(svg("line", { x1: 10, x2: W - 10, y1: y(0), y2: y(0), stroke: "var(--ink-2)", "stroke-width": 1 }));
+    rows.forEach(function (r, i) {
+      var cx = 10 + colW * i + colW / 2;
+      if (r.count) {
+        var v = r.avg_directional_return;
+        var y0 = y(0), y1 = y(v), hBar = Math.max(2, Math.abs(y1 - y0));
+        var bar = svg("path", { d: barPath(false, y0, v >= 0 ? y0 - hBar : y0 + hBar, cx - barW / 2, barW),
+          fill: colorFor(v), tabindex: 0, class: "hold-bar" });
+        withTooltip(bar, [["tt-title", "After " + r.label], ["tt-value", fmtPct(v)],
+          ["tt-line", Math.round(r.hit_rate) + "% of calls right"], ["tt-line", r.count + (r.count === 1 ? " call" : " calls") + " scored"]]);
+        plot.appendChild(bar);
+        plot.appendChild(svg("text", { x: cx, y: v >= 0 ? y0 - hBar - 7 : y0 + hBar + 15, "text-anchor": "middle", class: "hold-val", text: fmtPct(v) }));
+      } else {
+        plot.appendChild(svg("text", { x: cx, y: y(0) - 8, "text-anchor": "middle", class: "hold-wait", text: "Not reached yet" }));
+      }
+      plot.appendChild(svg("text", { x: cx, y: H - 30, "text-anchor": "middle", class: "hold-label", text: "After " + r.label }));
+      plot.appendChild(svg("text", { x: cx, y: H - 13, "text-anchor": "middle", class: "hold-sub",
+        text: r.count ? Math.round(r.hit_rate) + "% right · " + r.count + (r.count === 1 ? " call" : " calls") : "—" }));
+    });
+    var best = scored.slice().sort(function (a, b) { return b.avg_directional_return - a.avg_directional_return; })[0];
+    append(box, [
+      el("p", { class: "hold-verdict", text: scored.length < 2
+        ? "Only the 1-day results are in so far. The 1-week and 1-month bars fill in as picks age."
+        : "So far the calls work best after " + best.label + " (average " + fmtPct(best.avg_directional_return) + " for the call)." }),
+      plot,
+      el("p", { class: "legend-note", text: "Average move in the direction of each call, measured from the pick price at the close 1, 5 and 21 trading days later. Blue = the calls were working on average; red = they weren't." })
+    ]);
+  }
+
+  // ---------------------------------------------------------------------------
   // Weekly report cards
   // ---------------------------------------------------------------------------
 
@@ -888,10 +976,10 @@
   }
 
   /* Rows of "hit rate" meters, e.g. bullish vs bearish calls. */
-  function breakdown(title, groups) {
+  function breakdown(title, groups, cls) {
     var rows = groups.filter(function (g) { return g.count > 0; });
     if (!rows.length) return null;
-    return el("div", { class: "breakdown" },
+    return el("div", { class: "breakdown" + (cls ? " " + cls : "") },
       el("h3", { text: title }),
       rows.map(function (g) {
         var has = g.hit_rate !== null && g.hit_rate !== undefined;
@@ -1517,7 +1605,8 @@
           el("span", { class: "m-conf", text: "Picked " + fmtLongDate(p.date) + (p.price_at_pick ? " at " + fmtPrice(p.price_at_pick) : "") }),
           resultBadge(p),
           p.return_pct !== null && p.return_pct !== undefined ? el("span", { class: "m-conf" }, "Since the pick: ", changePill(p.return_pct)) : null),
-        el("p", { class: "m-reason", text: p.reason }));
+        el("p", { class: "m-reason", text: p.reason }),
+        levelsLine(p, "m-levels"));
       if (a && safeUrl(a.url)) {
         sec.appendChild(el("a", { class: "m-article", href: a.url, target: "_blank", rel: "noopener noreferrer" },
           photo(a.image, a.headline, "m-article-photo"),
@@ -1579,7 +1668,9 @@
     var narrow = W < 560;
     var H = narrow ? 230 : 300, left = 6, right = 56, top = 14, bottom = 26;
     var xs = series.map(function (d) { return toMs(d[0]); });
-    var values = series.map(function (d) { return d[1]; }).concat(calls.map(function (p) { return p.price_at_pick; }).filter(Boolean));
+    var levelCall = calls.filter(function (p) { return p.target_price && p.stop_price; })[0];  // newest call with levels
+    var values = series.map(function (d) { return d[1]; }).concat(calls.map(function (p) { return p.price_at_pick; }).filter(Boolean))
+      .concat(levelCall ? [levelCall.target_price, levelCall.stop_price] : []);
     var lo = Math.min.apply(null, values), hi = Math.max.apply(null, values);
     var pad = (hi - lo) * 0.08 || hi * 0.02 || 1;
     var ticks = niceTicks(lo - pad, hi + pad, narrow ? 4 : 5);
@@ -1609,6 +1700,15 @@
     var areaPath = line + "L" + x(xs[xs.length - 1]).toFixed(1) + "," + (H - bottom) + "L" + x(xs[0]).toFixed(1) + "," + (H - bottom) + "Z";
     plot.appendChild(svg("path", { d: areaPath, fill: color, opacity: 0.1 }));
     plot.appendChild(svg("path", { d: line, fill: "none", stroke: color, "stroke-width": 2, "stroke-linejoin": "round", "stroke-linecap": "round" }));
+
+    // Dashed lines at the newest call's target and "proven wrong" prices.
+    if (levelCall) {
+      [[levelCall.target_price, "var(--good)", "Target"], [levelCall.stop_price, "var(--bad)", "Proven wrong"]].forEach(function (lv) {
+        plot.appendChild(svg("line", { x1: left, x2: W - right, y1: y(lv[0]), y2: y(lv[0]), stroke: lv[1], "stroke-width": 1.5, "stroke-dasharray": "5 4" }));
+        plot.appendChild(svg("text", { x: left + 4, y: y(lv[0]) - 5, "text-anchor": "start", fill: "var(--ink-2)", "font-size": 10.5,
+          text: lv[2] + " " + fmtPrice(lv[0]) }));
+      });
+    }
 
     // A dot for each of the bot's calls, at the price when it was picked.
     calls.forEach(function (p) {
@@ -1733,12 +1833,14 @@
     var dir = document.getElementById("f-dir").value;
     var res = document.getElementById("f-res").value;
     var day = document.getElementById("f-date").value;
+    var theme = document.getElementById("f-theme").value;
 
     var rows = picks.filter(function (p) {
       if (dir === "top") { if (!p.top_rank) return false; }
       else if (dir && p.direction !== dir) return false;
       if (res && resultOf(p) !== res) return false;
       if (day && p.date !== day) return false;
+      if (theme && p.theme !== theme) return false;
       if (q) {
         var hay = [p.ticker, p.company, p.reason].join(" ").toLowerCase();
         if (hay.indexOf(q) === -1) return false;
@@ -1765,13 +1867,16 @@
         el("td", { class: "tab", text: fmtTableDate(p.date) }),
         el("td", null, chartLink(p.ticker, p.ticker, "t-link") || el("span", { class: "t", text: p.ticker }),
           p.company ? el("span", { class: "co", text: p.company }) : null,
-          p.top_rank ? el("span", { class: "top-tag", text: "Top 5 · #" + p.top_rank }) : null),
+          p.top_rank ? el("span", { class: "top-tag", text: "Top 5 · #" + p.top_rank }) : null,
+          p.theme ? el("span", { class: "co", text: p.theme }) : null),
         el("td", { class: "tab", text: directionText(p) }),
         el("td", null, p.confidence ? [confidencePips(p.confidence), capitalize(p.confidence)] : "—"),
         el("td", { class: "r tab", text: fmtPrice(p.price_at_pick) }),
         el("td", { class: "r tab", text: fmtPrice(p.price_now) }),
         el("td", { class: "r tab", text: fmtPct(p.directional_return_pct) }),
-        el("td", null, resultBadge(p)),
+        el("td", null, resultBadge(p),
+          p.level_status ? el("span", { class: "lv-status " + (p.level_status === "target" ? "hit" : "miss"),
+            text: p.level_status === "target" ? "🎯 Target reached" : "🛑 Proven wrong" }) : null),
         el("td", { class: "why", text: p.reason })));
     });
     if (!indexed.length) {
@@ -1793,7 +1898,10 @@
   function setupRecord() {
     var dateSelect = document.getElementById("f-date");
     days.forEach(function (d) { dateSelect.appendChild(el("option", { value: d.date, text: fmtTableDate(d.date) })); });
-    ["q", "f-dir", "f-res", "f-date"].forEach(function (id) {
+    var themeSelect = document.getElementById("f-theme");
+    (stats.by_theme || []).forEach(function (t) { themeSelect.appendChild(el("option", { value: t.label, text: t.label })); });
+    themeSelect.hidden = !(stats.by_theme || []).length;
+    ["q", "f-dir", "f-res", "f-date", "f-theme"].forEach(function (id) {
       document.getElementById(id).addEventListener("input", function () { recordLimit = PAGE; renderRecord(); });
     });
     document.getElementById("record-more").addEventListener("click", function () {
@@ -1962,7 +2070,7 @@
   function renderVisibleCharts() {
     if (modalTicker) renderStockModal();
     if (currentTab === "stock-charts") renderStockSection();
-    if (currentTab === "results") { renderPortfolio(); renderCallsChart(); renderDaysChart(); }
+    if (currentTab === "results") { renderPortfolio(); renderHold(); renderCallsChart(); renderDaysChart(); }
   }
 
   setupTheme();

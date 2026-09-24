@@ -61,7 +61,35 @@ chasing news that was already priced in) and adjust. A few days of results \
 are mostly noise, so don't overreact to one call or avoid a stock just \
 because it lost. In "self_check", write one or two plain-English sentences \
 on what your record suggests and how it shaped today's picks. With no track \
-record yet, write: Not enough results yet to learn from."""
+record yet, write: Not enough results yet to learn from.
+- For every pick and top buy, set two price levels as percent moves from \
+today's price: "target_pct" is how far the stock could realistically move in \
+the direction of your call over the next few weeks (e.g. 8 means +8% for a \
+bullish call, -8% for a bearish one), and "stop_pct" is how far it would have \
+to move against your call for the idea to be proven wrong (e.g. 5). Use \
+positive numbers for both. Base them on how much the stock usually moves and \
+how big the news is: a sleepy utility and a volatile small-cap need \
+different levels.
+- Tag every pick and top buy with the one "theme" that best describes the \
+news driving it.
+- Finally, write a 60-second "summary" for someone in a hurry: the day's \
+"big_story" in one sentence, the "top_pick" (your #1 idea and why, in one \
+sentence), and what to "watch" today (one sentence)."""
+
+# What drove each idea. Used on the dashboard to show which kinds of news the
+# bot reads well (and in its track record, so it can learn from that too).
+THEMES = [
+    "Oil & energy", "AI & tech", "Mergers & deals", "Interest rates & the Fed",
+    "Earnings & guidance", "Trade & tariffs", "Regulation & legal",
+    "Geopolitics", "Consumer & retail", "Health & biotech", "Other",
+]
+
+# Fields every idea (pick or top buy) carries: its theme and price levels.
+IDEA_FIELDS = {
+    "theme": {"type": "string", "enum": THEMES},
+    "target_pct": {"type": "number"},
+    "stop_pct": {"type": "number"},
+}
 
 # The exact JSON shape we want back from Claude.
 OUTPUT_SCHEMA = {
@@ -98,10 +126,22 @@ OUTPUT_SCHEMA = {
                     # headline in the list). The dashboard uses them to show
                     # the right article and photo next to each pick.
                     "sources": {"type": "array", "items": {"type": "integer"}},
+                    **IDEA_FIELDS,
                 },
-                "required": ["ticker", "company", "direction", "confidence", "reason", "sources"],
+                "required": ["ticker", "company", "direction", "confidence", "reason", "sources", *IDEA_FIELDS],
                 "additionalProperties": False,
             },
+        },
+        # The "In 60 seconds" box at the top of the Today tab.
+        "summary": {
+            "type": "object",
+            "properties": {
+                "big_story": {"type": "string"},
+                "top_pick": {"type": "string"},
+                "watch": {"type": "string"},
+            },
+            "required": ["big_story", "top_pick", "watch"],
+            "additionalProperties": False,
         },
         # What Claude learned from its own track record, and how it adjusted.
         "self_check": {
@@ -123,13 +163,14 @@ OUTPUT_SCHEMA = {
                     "risks": {"type": "string"},
                     "watch": {"type": "string"},
                     "sources": {"type": "array", "items": {"type": "integer"}},
+                    **IDEA_FIELDS,
                 },
-                "required": ["ticker", "company", "confidence", "pitch", "why", "risks", "watch", "sources"],
+                "required": ["ticker", "company", "confidence", "pitch", "why", "risks", "watch", "sources", *IDEA_FIELDS],
                 "additionalProperties": False,
             },
         },
     },
-    "required": ["market_mood", "picks", "watchlist_notes", "top_buys", "self_check"],
+    "required": ["market_mood", "picks", "watchlist_notes", "top_buys", "self_check", "summary"],
     "additionalProperties": False,
 }
 
@@ -241,8 +282,36 @@ def add_top_buys_to_picks(result):
                 "confidence": buy["confidence"],
                 "reason": buy["pitch"],
                 "sources": buy["sources"],
+                "theme": buy.get("theme", "Other"),
+                "target_pct": buy.get("target_pct"),
+                "stop_pct": buy.get("stop_pct"),
             }
             result["picks"].append(new_pick)
             by_ticker[buy["ticker"]] = new_pick
     result["top_buys"] = top_buys
     return result
+
+
+# Sensible bounds for the price levels, in case Claude's numbers are odd.
+MIN_LEVEL_PCT, MAX_LEVEL_PCT = 1.0, 50.0
+
+
+def add_price_levels(picks, prices):
+    """
+    Turns each pick's target_pct / stop_pct into actual prices, using the
+    price when it was picked. For a bullish call the target is above and the
+    "proven wrong" price below; for a bearish call it's the other way round.
+    Picks without a price (or without levels) get None.
+    """
+    for pick in picks:
+        price = prices.get(pick["ticker"])
+        sign = 1 if pick["direction"] == "bullish" else -1
+        for key, direction in (("target", sign), ("stop", -sign)):
+            pct = pick.get(f"{key}_pct")
+            if price and isinstance(pct, (int, float)):
+                pct = min(max(abs(pct), MIN_LEVEL_PCT), MAX_LEVEL_PCT)
+                pick[f"{key}_pct"] = round(pct, 1)
+                pick[f"{key}_price"] = round(price * (1 + direction * pct / 100), 2)
+            else:
+                pick[f"{key}_price"] = None
+    return picks

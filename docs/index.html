@@ -358,6 +358,35 @@ a { color: inherit; }
 .self-check strong { font: 600 11px/1 var(--sans); letter-spacing: .06em; text-transform: uppercase; color: var(--ink); margin-right: 4px; }
 .about-tag { margin-left: 6px; padding: 1px 5px; border-radius: 3px; border: 1px solid var(--hair); font: 700 9.5px/1.4 var(--sans); letter-spacing: .04em; color: var(--ink-2); }
 
+/* ---- In 60 seconds, price levels, themes, hold periods -------------------- */
+.sixty { margin: 26px 0 0; padding: 12px 16px 6px; border: 1px solid var(--hair); border-top: 3px solid var(--ink); border-radius: 0 0 6px 6px; background: var(--paper); }
+#today .lead > .sixty + .kicker { margin-top: 22px; }
+.sixty-label { margin: 0 0 6px; font: 700 10.5px/1.2 var(--sans); letter-spacing: .12em; text-transform: uppercase; }
+.sixty dl { margin: 0; }
+.sixty-row { display: grid; grid-template-columns: 112px minmax(0, 1fr); gap: 12px; padding: 7px 0; border-top: 1px solid var(--hair); }
+.sixty-row dt { font: 600 11.5px/1.45 var(--sans); color: var(--ink-2); }
+.sixty-row dd { margin: 0; font: 400 14px/1.45 var(--serif); }
+.tb-top > div:first-child { min-width: 0; flex: 1; }
+.levels { margin: 6px 0 0; font: 400 12px/1.5 var(--sans); color: var(--ink-2); }
+.levels strong { font-weight: 600; color: var(--ink); }
+.levels .lv { white-space: nowrap; }
+.m-levels { font-size: 13px; }
+.lv-status { display: inline-block; margin-left: 8px; font: 600 10.5px/1.4 var(--sans); padding: 1px 6px; border-radius: 999px; white-space: nowrap; }
+.lv-status.hit { background: var(--good-wash); }
+.lv-status.miss { background: var(--bad-wash); }
+td .lv-status { display: block; width: max-content; margin: 4px 0 0; }
+.theme-tag { display: inline-block; margin-left: 8px; padding: 1px 7px; border-radius: 999px; border: 1px solid var(--hair); font: 500 10.5px/1.5 var(--sans); color: var(--ink-2); vertical-align: 2px; white-space: nowrap; }
+.tags .theme-tag { margin-left: 8px; vertical-align: 0; }
+.breakdown.wide .meter-row { grid-template-columns: 140px 1fr 64px; }
+.breakdown.wide .name { text-transform: none; }
+.hold-verdict { font: 600 14px/1.4 var(--serif); margin: 0 0 8px; }
+.hold-plot text { font-family: var(--sans); }
+.hold-val { font-size: 13px; font-weight: 700; fill: var(--ink); }
+.hold-label { font-size: 12px; font-weight: 600; fill: var(--ink); }
+.hold-sub, .hold-wait { font-size: 11px; fill: var(--muted); }
+.hold-bar:focus-visible { outline: 2px solid var(--good); }
+#f-theme[hidden] { display: none; }
+
 /* ---- Scorecard ----------------------------------------------------------- */
 .hero-label { font: 600 10px/1.2 var(--sans); letter-spacing: .12em; text-transform: uppercase; color: var(--ink-2); margin: 0; }
 .hero-figure { font: 700 48px/1 var(--sans); letter-spacing: -.02em; margin: 8px 0 6px; }
@@ -677,6 +706,9 @@ footer .disclaimer { font: 400 italic 13px/1.4 var(--serif); color: var(--ink); 
   .day:nth-child(2n) { padding-right: 0; }
 }
 @media (max-width: 680px) {
+  .sixty-row { grid-template-columns: 1fr; gap: 2px; }
+  .levels .lv { white-space: normal; }
+  .breakdown.wide .meter-row { grid-template-columns: 110px 1fr 64px; }
   .facts { grid-template-columns: 1fr 1fr; }
   .pf-value { font-size: 24px; }
   .heat { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -782,6 +814,8 @@ footer .disclaimer { font: 400 italic 13px/1.4 var(--serif); color: var(--ink); 
       <div class="scorecard" id="scorecard"></div>
       <div class="section-head"><h2 id="pf-h">The $10,000 Test</h2><p>What $10,000 would be worth following the Top 5, next to simply buying the S&amp;P 500.</p></div>
       <div class="portfolio" id="portfolio"></div>
+      <div class="section-head"><h2 id="hold-h">How Long Should You Hold?</h2><p>How the calls do 1 day, 1 week and 1 month after they're made.</p></div>
+      <div class="hold" id="hold"></div>
       <div class="section-head"><h2 id="top5-h">How the Top 5 Did</h2><p>Each day's ranked top buys, measured from the price when they were picked.</p></div>
       <div class="top5-record" id="top5-record"></div>
       <div class="section-head"><h2 id="weeks-h">Weekly Report Cards</h2><p>Graded on the share of calls that were right: A 70%+, B 60%+, C 50%+, D 40%+.</p></div>
@@ -804,6 +838,8 @@ footer .disclaimer { font: 400 italic 13px/1.4 var(--serif); color: var(--ink); 
         <select id="f-res"><option value="">All results</option><option value="right">Right so far</option><option value="wrong">Wrong so far</option><option value="open">Too early</option></select>
         <label class="visually-hidden" for="f-date">Date</label>
         <select id="f-date"><option value="">All dates</option></select>
+        <label class="visually-hidden" for="f-theme">Theme</label>
+        <select id="f-theme"><option value="">All themes</option></select>
         <span class="count" id="count" aria-live="polite"></span>
       </div>
       <div class="table-wrap">

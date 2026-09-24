@@ -498,3 +498,62 @@ def test_big_move_alerts_fire_once_per_5_percent_step():
     assert market_is_open(datetime(2026, 9, 24, 10, 0))
     assert not market_is_open(datetime(2026, 9, 24, 8, 0))
     assert not market_is_open(datetime(2026, 9, 26, 11, 0))    # Saturday
+
+
+def test_price_levels_follow_the_direction_of_the_call():
+    from analyzer import add_price_levels
+
+    picks = [
+        {"ticker": "A", "direction": "bullish", "target_pct": 8, "stop_pct": 5},
+        {"ticker": "B", "direction": "bearish", "target_pct": 10, "stop_pct": -4},  # sign ignored
+        {"ticker": "C", "direction": "bullish", "target_pct": 200, "stop_pct": 0.1},  # clamped to 1-50%
+        {"ticker": "D", "direction": "bullish", "target_pct": 8, "stop_pct": 5},     # no price
+    ]
+    add_price_levels(picks, {"A": 100.0, "B": 50.0, "C": 10.0, "D": None})
+    assert (picks[0]["target_price"], picks[0]["stop_price"]) == (108.0, 95.0)
+    assert (picks[1]["target_price"], picks[1]["stop_price"]) == (45.0, 52.0)
+    assert (picks[2]["target_price"], picks[2]["stop_price"]) == (15.0, 9.9)
+    assert (picks[3]["target_price"], picks[3]["stop_price"]) == (None, None)
+
+    msg = build_message("2026-09-22", {"market_mood": "", "picks": picks[:1] and [dict(picks[0], company="A Inc",
+                        confidence="high", reason="r")]}, {"A": 100.0}, [])
+    assert "🎯 $108.00 · 🛑 $95.00" in msg and msg.endswith(f"_{DISCLAIMER}_")
+
+
+def test_hold_periods_and_level_status():
+    from build_dashboard import by_horizon, by_theme, horizon_returns, level_status
+
+    history = [["2026-09-21", 99.0]] + [[f"2026-09-{d:02d}", 100.0 + d - 22] for d in range(22, 30)]
+    bull = {"date": "2026-09-22", "direction": "bullish", "price_at_pick": 100.0,
+            "target_price": 104.0, "stop_price": 95.0}
+    h = horizon_returns(bull, history)
+    assert h == {"1 day": 0.0, "1 week": 4.0, "1 month": None}   # day 1 = pick day's close
+    assert level_status(bull, history) == "target"                 # closed at 104 on the 26th
+    bear = dict(bull, direction="bearish", target_price=90.0, stop_price=103.0)
+    assert horizon_returns(bear, history)["1 week"] == -4.0
+    assert level_status(bear, history) == "stop"
+
+    picks = [dict(bull, theme="AI & tech", horizons=h, correct=True, directional_return_pct=4.0),
+             dict(bear, theme="AI & tech", horizons=horizon_returns(bear, history), correct=False, directional_return_pct=-4.0),
+             dict(bull, theme="Oil & energy", horizons={"1 day": None, "1 week": None, "1 month": None},
+                  correct=None, directional_return_pct=None)]
+    themes = by_theme(picks)
+    assert [(t["label"], t["count"], t["hit_rate"]) for t in themes] == [("AI & tech", 2, 50.0), ("Oil & energy", 1, None)]
+    week = next(r for r in by_horizon(picks) if r["label"] == "1 week")
+    assert (week["count"], week["hit_rate"], week["avg_directional_return"]) == (2, 50.0, 0.0)
+
+
+def test_target_and_stop_alerts_fire_once():
+    from alerts import build_alert_message, find_level_alerts
+
+    pick = {"date": "2026-09-22", "ticker": "RCL", "direction": "bullish", "price_at_pick": 100.0,
+            "target_price": 108.0, "stop_price": 95.0}
+    assert find_level_alerts([pick], {"RCL": 101.0}, {})[0] == []
+    alerts, state = find_level_alerts([pick], {"RCL": 94.5}, {})
+    assert [a["kind"] for a in alerts] == ["stop"]
+    assert find_level_alerts([pick], {"RCL": 94.0}, state)[0] == []  # no repeat
+    msg = build_alert_message([], None, alerts)
+    assert "🛑 **RCL** reached $95.00, where the bot said the idea is proven wrong" in msg
+    assert msg.endswith(f"_{DISCLAIMER}_")
+    bear = dict(pick, direction="bearish", target_price=92.0, stop_price=105.0)
+    assert [a["kind"] for a in find_level_alerts([bear], {"RCL": 91.0}, {})[0]] == ["target"]
