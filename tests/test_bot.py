@@ -473,3 +473,28 @@ def test_self_check_shows_in_discord_message():
     msg = build_message("2026-09-22", dict(FAKE_ANALYSIS, self_check="Bearish calls have lagged."), {}, [])
     assert "Self-check:** Bearish calls have lagged." in msg
     assert msg.endswith(f"_{DISCLAIMER}_")
+
+
+def test_big_move_alerts_fire_once_per_5_percent_step():
+    from alerts import build_alert_message, find_alerts, market_is_open
+
+    pick = {"date": "2026-09-22", "ticker": "RCL", "direction": "bullish", "price_at_pick": 100.0, "top_rank": 5}
+    quiet = {"date": "2026-09-22", "ticker": "XOM", "direction": "bearish", "price_at_pick": 100.0}
+
+    alerts, state = find_alerts([pick, quiet], {"RCL": 94.0, "XOM": 102.0}, {})
+    assert [a["ticker"] for a in alerts] == ["RCL"]          # -6% alerts; +2% doesn't
+    assert alerts[0]["working"] is False                      # a bullish call that fell
+    assert find_alerts([pick], {"RCL": 93.0}, state)[0] == []  # still in the same 5% step: no repeat
+    again, state = find_alerts([pick], {"RCL": 89.0}, state)
+    assert len(again) == 1                                     # -11% reaches the next step
+    flipped, _ = find_alerts([pick], {"RCL": 106.0}, state)
+    assert len(flipped) == 1 and flipped[0]["working"]         # flipped to +6%: alert again
+
+    msg = build_alert_message(alerts, "https://x.test/")
+    assert "▲ **RCL** -6.00% since the pick - ❌ against the call" in msg
+    assert "Top 5 #5" in msg and msg.endswith(f"_{DISCLAIMER}_")
+
+    from datetime import datetime
+    assert market_is_open(datetime(2026, 9, 24, 10, 0))
+    assert not market_is_open(datetime(2026, 9, 24, 8, 0))
+    assert not market_is_open(datetime(2026, 9, 26, 11, 0))    # Saturday

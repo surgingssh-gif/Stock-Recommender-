@@ -1,0 +1,58 @@
+# Checks the bot's recent picks every hour while the US market is open and
+# pings Discord if one has moved 5% or more since it was picked.
+name: Big-move alerts
+
+on:
+  schedule:
+    # At 35 minutes past each hour from 13:35 to 20:35 UTC, Monday-Friday.
+    # That's 9:35 AM - 4:35 PM New York time in summer (8:35 AM - 3:35 PM in
+    # winter). alerts.py itself skips any run outside 9:30 AM - 4:00 PM ET.
+    - cron: "35 13-20 * * 1-5"
+  # Adds a "Run workflow" button on the Actions tab (checks even if the market is closed).
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+# Its own queue, so an alert check never holds up the morning or evening runs.
+concurrency:
+  group: big-move-alerts
+  cancel-in-progress: false
+
+jobs:
+  alerts:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download the code
+        uses: actions/checkout@v5
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install libraries
+        run: pip install -r requirements.txt
+
+      - name: Check for big moves
+        env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          DASHBOARD_URL: ${{ secrets.DASHBOARD_URL }}
+        # A manual run checks even when the market is closed.
+        run: python alerts.py ${{ github.event_name == 'workflow_dispatch' && '--force' || '' }}
+
+      # Remember which alerts were sent, so they aren't repeated.
+      - name: Save alert history
+        run: |
+          git config user.name "stock-news-bot"
+          git config user.email "stock-news-bot@users.noreply.github.com"
+          git add data/alerts.json 2>/dev/null || true
+          if git diff --cached --quiet; then
+            echo "Nothing new to save."
+          else
+            git commit -m "Record big-move alerts for $(date -u +%Y-%m-%d)"
+            # Another run may have saved in the meantime; add our change on top.
+            git pull --rebase
+            git push
+          fi
