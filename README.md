@@ -43,10 +43,12 @@ Ideas for research only, not financial advice.
 | `market_data.py` | Gets the market's biggest movers and pre-market moves from Yahoo. |
 | `watchlist.py` | The "Market watch" stocks shown on the Stock Charts tab every day. Edit it to add or remove stocks. |
 | `recap.py` | The evening recap: after the market closes, posts how the day's picks moved (and a weekly report card on Fridays). |
+| `alerts.py` | Big-move alerts: pings Discord when a recent pick has moved 5% or more. |
 | `build_dashboard.py` | Scores every pick against the latest prices and writes the dashboard data (`docs/data.js`). |
 | `docs/` | The dashboard web page (`index.html`, `app.js`) and its data. |
 | `data/days/` | One file per day with extra details: market mood, confidence, and the headlines Claude read (with links and photos). |
 | `.github/workflows/daily.yml` | Tells GitHub to run the bot every weekday morning. |
+| `.github/workflows/alerts.yml` | Checks for big moves every hour while the market is open. |
 | `.github/workflows/recap.yml` | Tells GitHub to send the evening recap every weekday after the close. |
 | `tests/test_bot.py` | Automatic checks that use fake data, so no keys are needed. |
 
@@ -172,6 +174,12 @@ different address, add a `DASHBOARD_URL` secret.
 on any stock to add it to **My Stocks**. Starred stocks lead the markets strip and
 have their own view on the Stock Charts tab. Stars are saved in your browser, so
 each device keeps its own list.
+
+**Big-move alerts:** every hour while the market is open, the bot checks its picks
+from the last 5 days it ran. If one has moved 5% or more since it was picked, you get
+a Discord ping saying whether the move is with or against the call. It pings again
+only if the move keeps growing (10%, 15%...). To change the 5%, edit `ALERT_STEP` in
+`alerts.py`. To test it: **Actions** tab > **Big-move alerts** > **Run workflow**.
 
 **How the bot learns:** each morning Claude also gets (1) company news for the
 market-watch stocks and anything picked in the last 5 days, (2) the market's biggest
