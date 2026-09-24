@@ -275,6 +275,77 @@ def score_pick(pick, price_now):
     return pick
 
 
+# How long after the pick each "hold period" score is taken, in trading days.
+HORIZONS = [("1 day", 1), ("1 week", 5), ("1 month", 21)]
+
+
+def horizon_returns(pick, history):
+    """
+    The move in the direction of the call after 1 day, 1 week and 1 month
+    (trading days, counting the pick day's close as day 1). A horizon that
+    hasn't been reached yet is None.
+    """
+    start = pick.get("price_at_pick")
+    closes = [c for d, c in history if d >= pick["date"]]
+    sign = 1 if pick["direction"] == "bullish" else -1
+    return {
+        label: round((closes[n - 1] - start) / start * 100 * sign, 2) + 0.0 if start and len(closes) >= n else None
+        for label, n in HORIZONS
+    }
+
+
+def level_status(pick, history):
+    """
+    "target" if the stock closed at or past its target price after the pick,
+    "stop" if it closed at or past its "proven wrong" price - whichever
+    happened first - else None.
+    """
+    target, stop = pick.get("target_price"), pick.get("stop_price")
+    if not (target and stop):
+        return None
+    bullish = pick["direction"] == "bullish"
+    for d, close in history:
+        if d < pick["date"]:
+            continue
+        if (close >= target) if bullish else (close <= target):
+            return "target"
+        if (close <= stop) if bullish else (close >= stop):
+            return "stop"
+    return None
+
+
+def _group_stats(label, picks):
+    return {
+        "label": label,
+        "count": len(picks),
+        "hit_rate": _hit_rate(picks),
+        "avg_directional_return": _average([p["directional_return_pct"] for p in picks]),
+    }
+
+
+def by_theme(picks):
+    """Hit rate and average move for each news theme (most-used first)."""
+    themes = {}
+    for p in picks:
+        if p.get("theme"):
+            themes.setdefault(p["theme"], []).append(p)
+    return [_group_stats(t, ps) for t, ps in sorted(themes.items(), key=lambda kv: (-len(kv[1]), kv[0]))]
+
+
+def by_horizon(picks):
+    """For each hold period: how many calls were right and the average move."""
+    rows = []
+    for label, _ in HORIZONS:
+        moves = [p["horizons"][label] for p in picks if p.get("horizons", {}).get(label) is not None]
+        rows.append({
+            "label": label,
+            "count": len(moves),
+            "hit_rate": round(len([m for m in moves if m > 0]) / len(moves) * 100, 1) if moves else None,
+            "avg_directional_return": _average(moves),
+        })
+    return rows
+
+
 def _hit_rate(picks):
     """Share of picks (with a result) whose call has been right so far."""
     judged = [p for p in picks if p["correct"] is not None]
@@ -504,7 +575,8 @@ def _top_buys(latest_date, days, enriched):
             rank=rank,
             date=latest_date,
             article=_article_for(buy.get("sources", []), day.get("headlines", [])),
-            **{k: pick.get(k) for k in ("price_at_pick", "price_now", "return_pct", "correct", "history")},
+            **{k: pick.get(k) for k in ("price_at_pick", "price_now", "return_pct", "correct", "history",
+                                         "target_price", "stop_price", "target_pct", "stop_pct", "level_status")},
         ))
     return cards
 
@@ -544,11 +616,19 @@ def build_data(picks, days, histories, events=None, facts=None):
             # 1-5 if this was one of the day's "Top 5 buys", otherwise None.
             top_rank=top_tickers.index(pick["ticker"]) + 1 if pick["ticker"] in top_tickers else None,
             confidence=extra.get("confidence"),
+            # What kind of news drove it, and its price levels (newer picks only).
+            theme=extra.get("theme"),
+            target_price=extra.get("target_price"),
+            stop_price=extra.get("stop_price"),
+            target_pct=extra.get("target_pct"),
+            stop_pct=extra.get("stop_pct"),
             # The news story this idea came from (with its photo, if any).
             article=_article_for(extra.get("sources", []), day.get("headlines", [])),
             # Only the part of the price history from the pick date onwards.
             history=[h for h in history if h[0] >= pick["date"]] or history[-1:],
         )
+        full["horizons"] = horizon_returns(full, history)
+        full["level_status"] = level_status(full, history)
         enriched.append(score_pick(full, price_now))
 
     # Newest first, and within a day keep the order Claude gave.
@@ -561,6 +641,7 @@ def build_data(picks, days, histories, events=None, facts=None):
             "date": d,
             "market_mood": days.get(d, {}).get("market_mood"),
             "self_check": days.get(d, {}).get("self_check"),
+            "summary": days.get(d, {}).get("summary"),
             "headlines": _with_tickers(d, days, enriched) if d in recent else [],
             "headline_count": len(days.get(d, {}).get("headlines", [])),
             "tickers": [p["ticker"] for p in enriched if p["date"] == d],
@@ -571,6 +652,8 @@ def build_data(picks, days, histories, events=None, facts=None):
     stats = summarize(enriched)
     stats["top_buys"] = top_buys_record(enriched)
     stats["weeks"] = weekly_report(enriched)
+    stats["by_theme"] = by_theme(enriched)
+    stats["by_horizon"] = by_horizon(enriched)
 
     return {
         "generated_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),

@@ -175,6 +175,21 @@ on any stock to add it to **My Stocks**. Starred stocks lead the markets strip a
 have their own view on the Stock Charts tab. Stars are saved in your browser, so
 each device keeps its own list.
 
+**Targets and "proven wrong" prices:** every idea comes with a 🎯 target price and a
+🛑 price where the idea is proven wrong (Claude picks them as percent moves from the
+pick price, sized to how much that stock usually moves). They show on the Today tab,
+in the chart popup (as dashed lines) and in Discord, and the hourly check pings you
+once when either one is reached.
+
+**Themes and hold periods:** each idea is tagged with the kind of news behind it (Oil &
+energy, AI & tech, Mergers & deals...). The Results tab shows which themes the bot
+reads best, and "How Long Should You Hold?" scores every call 1 day, 1 week and
+1 month after it was made. Claude sees both in its track record. The Record tab can
+be filtered by theme.
+
+**In 60 seconds:** the top of the Today tab has a three-line summary: the big story,
+the top pick, and what to watch today.
+
 **Big-move alerts:** every hour while the market is open, the bot checks its picks
 from the last 5 days it ran. If one has moved 5% or more since it was picked, you get
 a Discord ping saying whether the move is with or against the call. It pings again

@@ -39,9 +39,10 @@ def build_message(date_str, analysis, prices, problems, headlines=None, dashboar
         if top_buys:
             lines.append("**🏆 Top buys of the day**")
             for rank, buy in enumerate(top_buys, start=1):
+                pick = next((p for p in analysis["picks"] if p["ticker"] == buy["ticker"]), None)
                 lines.append(
                     f"{rank}. **{buy['ticker']}** ({buy['company']}) - "
-                    f"{_price_text(prices, buy['ticker'])} - {buy['pitch']}"
+                    f"{_price_text(prices, buy['ticker'])}{_levels_text(pick)} - {buy['pitch']}"
                 )
             lines.append("")
 
@@ -54,7 +55,7 @@ def build_message(date_str, analysis, prices, problems, headlines=None, dashboar
             arrow = "🟢 ▲" if pick["direction"] == "bullish" else "🔴 ▼"
             lines.append(
                 f"{arrow} **{pick['ticker']}** ({pick['company']}) - "
-                f"{pick['direction']}, {pick['confidence']} confidence, {_price_text(prices, pick['ticker'])}"
+                f"{pick['direction']}, {pick['confidence']} confidence, {_price_text(prices, pick['ticker'])}{_levels_text(pick)}"
             )
             lines.append(f"> {pick['reason']}")
             lines.append("")
@@ -71,6 +72,9 @@ def build_message(date_str, analysis, prices, problems, headlines=None, dashboar
             lines.append(f"- {problem}")
         lines.append("")
 
+    if analysis and any(p.get("target_price") for p in analysis["picks"]):
+        lines.append("_🎯 = target price · 🛑 = where the idea is proven wrong (you'll get an alert if either is hit)_")
+        lines.append("")
     if dashboard_url:
         lines.append(f"📰 Full brief, charts and scorecard: {dashboard_url}")
         lines.append("")
@@ -78,6 +82,13 @@ def build_message(date_str, analysis, prices, problems, headlines=None, dashboar
     # Required on every message.
     lines.append(f"_{DISCLAIMER}_")
     return "\n".join(lines)
+
+
+def _levels_text(pick):
+    """' · 🎯 $120.00 · 🛑 $95.00' for a pick with price levels, else ''."""
+    if not pick or not pick.get("target_price") or not pick.get("stop_price"):
+        return ""
+    return f" · 🎯 ${pick['target_price']:,.2f} · 🛑 ${pick['stop_price']:,.2f}"
 
 
 def _price_text(prices, ticker):

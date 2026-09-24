@@ -65,6 +65,28 @@ def build_track_record(data, max_calls=MAX_CALLS):
         groups.append(f"Top 5 buys: {_rate(top)}")
     lines.append(". ".join(groups) + ".")
 
+    # By news theme (only themes with a few results, so one call isn't a "pattern").
+    themes = {}
+    for p in judged:
+        if p.get("theme"):
+            themes.setdefault(p["theme"], []).append(p)
+    theme_lines = [f"{t}: {_rate(ps)}" for t, ps in sorted(themes.items()) if len(ps) >= 3]
+    if theme_lines:
+        lines.append("By theme: " + ". ".join(theme_lines) + ".")
+
+    # How the calls do the longer they're held.
+    horizons = [h for h in (data.get("stats") or {}).get("by_horizon", []) if h.get("count")]
+    if horizons:
+        lines.append("By hold period: " + ", ".join(
+            f"after {h['label']} {h['hit_rate']:.0f}% right, average {h['avg_directional_return']:+.2f}% ({h['count']} calls)"
+            for h in horizons) + ".")
+
+    # Targets and "proven wrong" prices that were reached.
+    hits = [p for p in judged if p.get("level_status")]
+    if hits:
+        reached = len([p for p in hits if p["level_status"] == "target"])
+        lines.append(f"Price levels: {reached} target(s) reached and {len(hits) - reached} 'proven wrong' price(s) hit.")
+
     lines.append("Most recent calls (move since the pick, in the direction of the call):")
     for p in judged[:max_calls]:  # the dashboard lists the newest first
         tags = [p["direction"]]
@@ -72,6 +94,8 @@ def build_track_record(data, max_calls=MAX_CALLS):
             tags.append(f"{p['confidence']} confidence")
         if p.get("top_rank"):
             tags.append(f"Top 5 #{p['top_rank']}")
+        if p.get("theme"):
+            tags.append(p["theme"])
         verdict = "right" if p["correct"] else "wrong"
         lines.append(f"{p['date']} {p['ticker']} {', '.join(tags)}: {p['directional_return_pct']:+.2f}% ({verdict})")
     return "\n".join(lines)

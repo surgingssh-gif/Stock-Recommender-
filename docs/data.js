@@ -1,36 +1,36 @@
 window.DASHBOARD_DATA = {
- "generated_at": "2026-09-24T15:47:10Z",
+ "generated_at": "2026-09-24T16:12:06Z",
  "stats": {
   "total_picks": 14,
   "days_tracked": 2,
   "hit_rate": 50.0,
   "judged": 14,
   "correct": 7,
-  "avg_directional_return": 0.25,
+  "avg_directional_return": 0.22,
   "best": {
    "date": "2026-09-22",
    "ticker": "BHF",
    "direction": "bullish",
-   "directional_return_pct": 7.3
+   "directional_return_pct": 7.34
   },
   "worst": {
    "date": "2026-09-22",
    "ticker": "RCL",
    "direction": "bullish",
-   "directional_return_pct": -6.78
+   "directional_return_pct": -6.73
   },
   "by_direction": [
    {
     "label": "bullish",
     "count": 10,
     "hit_rate": 50.0,
-    "avg_directional_return": 0.74
+    "avg_directional_return": 0.7
    },
    {
     "label": "bearish",
     "count": 4,
     "hit_rate": 50.0,
-    "avg_directional_return": -0.98
+    "avg_directional_return": -0.96
    }
   ],
   "by_confidence": [
@@ -44,13 +44,13 @@ window.DASHBOARD_DATA = {
     "label": "medium",
     "count": 9,
     "hit_rate": 55.6,
-    "avg_directional_return": 1.0
+    "avg_directional_return": 0.92
    },
    {
     "label": "low",
     "count": 5,
     "hit_rate": 40.0,
-    "avg_directional_return": -1.09
+    "avg_directional_return": -1.02
    }
   ],
   "by_day": [
@@ -58,13 +58,13 @@ window.DASHBOARD_DATA = {
     "date": "2026-09-22",
     "count": 7,
     "hit_rate": 42.9,
-    "avg_directional_return": 0.49
+    "avg_directional_return": 0.53
    },
    {
     "date": "2026-09-23",
     "count": 7,
     "hit_rate": 57.1,
-    "avg_directional_return": 0.01
+    "avg_directional_return": -0.08
    }
   ],
   "top_buys": {
@@ -73,13 +73,13 @@ window.DASHBOARD_DATA = {
      "label": "Top 5 buys",
      "count": 10,
      "hit_rate": 50.0,
-     "avg_directional_return": 0.74
+     "avg_directional_return": 0.7
     },
     {
      "label": "Other picks",
      "count": 4,
      "hit_rate": 50.0,
-     "avg_directional_return": -0.98
+     "avg_directional_return": -0.96
     }
    ],
    "judged": 10,
@@ -87,41 +87,41 @@ window.DASHBOARD_DATA = {
     {
      "date": "2026-09-23",
      "hit_rate": 60.0,
-     "avg_directional_return": 1.09,
+     "avg_directional_return": 0.96,
      "buys": [
       {
        "top_rank": 1,
        "ticker": "META",
        "company": "Meta Platforms",
-       "return_pct": 2.54,
+       "return_pct": 1.69,
        "correct": true
       },
       {
        "top_rank": 2,
        "ticker": "DVN",
        "company": "Devon Energy",
-       "return_pct": 2.17,
+       "return_pct": 2.26,
        "correct": true
       },
       {
        "top_rank": 3,
        "ticker": "MU",
        "company": "Micron Technology",
-       "return_pct": -1.3,
+       "return_pct": -1.54,
        "correct": false
       },
       {
        "top_rank": 4,
        "ticker": "IONQ",
        "company": "IonQ",
-       "return_pct": -0.79,
+       "return_pct": -0.49,
        "correct": false
       },
       {
        "top_rank": 5,
        "ticker": "BHF",
        "company": "Brighthouse Financial",
-       "return_pct": 2.85,
+       "return_pct": 2.88,
        "correct": true
       }
      ]
@@ -129,41 +129,41 @@ window.DASHBOARD_DATA = {
     {
      "date": "2026-09-22",
      "hit_rate": 40.0,
-     "avg_directional_return": 0.39,
+     "avg_directional_return": 0.44,
      "buys": [
       {
        "top_rank": 1,
        "ticker": "CPRI",
        "company": "Capri Holdings",
-       "return_pct": 5.87,
+       "return_pct": 5.73,
        "correct": true
       },
       {
        "top_rank": 2,
        "ticker": "NVDA",
        "company": "NVIDIA",
-       "return_pct": -2.32,
+       "return_pct": -2.33,
        "correct": false
       },
       {
        "top_rank": 3,
        "ticker": "DAL",
        "company": "Delta Air Lines",
-       "return_pct": -2.1,
+       "return_pct": -1.83,
        "correct": false
       },
       {
        "top_rank": 4,
        "ticker": "BHF",
        "company": "Brighthouse Financial",
-       "return_pct": 7.3,
+       "return_pct": 7.34,
        "correct": true
       },
       {
        "top_rank": 5,
        "ticker": "RCL",
        "company": "Royal Caribbean",
-       "return_pct": -6.78,
+       "return_pct": -6.73,
        "correct": false
       }
      ]
@@ -179,22 +179,43 @@ window.DASHBOARD_DATA = {
     "judged": 14,
     "correct": 7,
     "hit_rate": 50.0,
-    "avg_directional_return": 0.25,
+    "avg_directional_return": 0.22,
     "best": {
      "date": "2026-09-22",
      "ticker": "BHF",
      "direction": "bullish",
-     "directional_return_pct": 7.3
+     "directional_return_pct": 7.34
     },
     "worst": {
      "date": "2026-09-22",
      "ticker": "RCL",
      "direction": "bullish",
-     "directional_return_pct": -6.78
+     "directional_return_pct": -6.73
     },
     "top5_count": 10,
     "top5_hit_rate": 50.0,
-    "top5_avg": 0.74
+    "top5_avg": 0.7
+   }
+  ],
+  "by_theme": [],
+  "by_horizon": [
+   {
+    "label": "1 day",
+    "count": 14,
+    "hit_rate": 35.7,
+    "avg_directional_return": 0.28
+   },
+   {
+    "label": "1 week",
+    "count": 0,
+    "hit_rate": null,
+    "avg_directional_return": null
+   },
+   {
+    "label": "1 month",
+    "count": 0,
+    "hit_rate": null,
+    "avg_directional_return": null
    }
   ]
  },
@@ -208,6 +229,11 @@ window.DASHBOARD_DATA = {
    "company": "Meta Platforms",
    "top_rank": 1,
    "confidence": "medium",
+   "theme": null,
+   "target_price": null,
+   "stop_price": null,
+   "target_pct": null,
+   "stop_pct": null,
    "article": {
     "headline": "Meta is having a ChatGPT moment with Muse. What is it and what makes it so special",
     "source": "CNBC",
@@ -221,12 +247,18 @@ window.DASHBOARD_DATA = {
     ],
     [
      "2026-09-24",
-     768.4
+     761.98
     ]
    ],
-   "price_now": 768.4,
-   "return_pct": 2.54,
-   "directional_return_pct": 2.54,
+   "horizons": {
+    "1 day": -0.7,
+    "1 week": null,
+    "1 month": null
+   },
+   "level_status": null,
+   "price_now": 761.98,
+   "return_pct": 1.69,
+   "directional_return_pct": 1.69,
    "correct": true
   },
   {
@@ -238,6 +270,11 @@ window.DASHBOARD_DATA = {
    "company": "Devon Energy",
    "top_rank": 2,
    "confidence": "medium",
+   "theme": null,
+   "target_price": null,
+   "stop_price": null,
+   "target_pct": null,
+   "stop_pct": null,
    "article": {
     "headline": "Devon Energy gains on report activist investor Toms Capital is pushing for sale",
     "source": "SeekingAlpha",
@@ -251,12 +288,18 @@ window.DASHBOARD_DATA = {
     ],
     [
      "2026-09-24",
-     49.38
+     49.42
     ]
    ],
-   "price_now": 49.38,
-   "return_pct": 2.17,
-   "directional_return_pct": 2.17,
+   "horizons": {
+    "1 day": -0.6,
+    "1 week": null,
+    "1 month": null
+   },
+   "level_status": null,
+   "price_now": 49.42,
+   "return_pct": 2.26,
+   "directional_return_pct": 2.26,
    "correct": true
   },
   {
@@ -268,6 +311,11 @@ window.DASHBOARD_DATA = {
    "company": "iShares 20+ Year Treasury Bond ETF",
    "top_rank": null,
    "confidence": "medium",
+   "theme": null,
+   "target_price": null,
+   "stop_price": null,
+   "target_pct": null,
+   "stop_pct": null,
    "article": {
     "headline": "US stocks fall as 10-year Treasury yield hits highest since 2007 - Reuters",
     "source": "Reuters",
@@ -281,12 +329,18 @@ window.DASHBOARD_DATA = {
     ],
     [
      "2026-09-24",
-     79.82
+     79.73
     ]
    ],
-   "price_now": 79.82,
-   "return_pct": -0.71,
-   "directional_return_pct": 0.71,
+   "horizons": {
+    "1 day": -0.09,
+    "1 week": null,
+    "1 month": null
+   },
+   "level_status": null,
+   "price_now": 79.73,
+   "return_pct": -0.82,
+   "directional_return_pct": 0.82,
    "correct": true
   },
   {
@@ -298,6 +352,11 @@ window.DASHBOARD_DATA = {
    "company": "IonQ",
    "top_rank": 4,
    "confidence": "low",
+   "theme": null,
+   "target_price": null,
+   "stop_price": null,
+   "target_pct": null,
+   "stop_pct": null,
    "article": {
     "headline": "IonQ shares rally after company says it made a major quantum computing breakthrough",
     "source": "CNBC",
@@ -311,12 +370,18 @@ window.DASHBOARD_DATA = {
     ],
     [
      "2026-09-24",
-     42.74
+     42.87
     ]
    ],
-   "price_now": 42.74,
-   "return_pct": -0.79,
-   "directional_return_pct": -0.79,
+   "horizons": {
+    "1 day": -1.25,
+    "1 week": null,
+    "1 month": null
+   },
+   "level_status": null,
+   "price_now": 42.87,
+   "return_pct": -0.49,
+   "directional_return_pct": -0.49,
    "correct": false
   },
   {
@@ -328,6 +393,11 @@ window.DASHBOARD_DATA = {
    "company": "Valero Energy",
    "top_rank": null,
    "confidence": "low",
+   "theme": null,
+   "target_price": null,
+   "stop_price": null,
+   "target_pct": null,
+   "stop_pct": null,
    "article": {
     "headline": "Trump supports diesel export ban as fuel prices hit records - Reuters",
     "source": "Reuters",
@@ -341,12 +411,18 @@ window.DASHBOARD_DATA = {
     ],
     [
      "2026-09-24",
-     391.33
+     391.72
     ]
    ],
-   "price_now": 391.33,
-   "return_pct": 6.1,
-   "directional_return_pct": -6.1,
+   "horizons": {
+    "1 day": -1.9,
+    "1 week": null,
+    "1 month": null
+   },
+   "level_status": null,
+   "price_now": 391.72,
+   "return_pct": 6.21,
+   "directional_return_pct": -6.21,
    "correct": false
   },
   {
@@ -358,6 +434,11 @@ window.DASHBOARD_DATA = {
    "company": "Brighthouse Financial",
    "top_rank": 5,
    "confidence": "low",
+   "theme": null,
+   "target_price": null,
+   "stop_price": null,
+   "target_pct": null,
+   "stop_pct": null,
    "article": {
     "headline": "Brighthouse Financial jumps on report Sixth Street looks to renew takeover effort",
     "source": "SeekingAlpha",
@@ -371,12 +452,18 @@ window.DASHBOARD_DATA = {
     ],
     [
      "2026-09-24",
-     53.48
+     53.5
     ]
    ],
-   "price_now": 53.48,
-   "return_pct": 2.85,
-   "directional_return_pct": 2.85,
+   "horizons": {
+    "1 day": -0.02,
+    "1 week": null,
+    "1 month": null
+   },
+   "level_status": null,
+   "price_now": 53.5,
+   "return_pct": 2.88,
+   "directional_return_pct": 2.88,
    "correct": true
   },
   {
@@ -388,6 +475,11 @@ window.DASHBOARD_DATA = {
    "company": "Micron Technology",
    "top_rank": 3,
    "confidence": "medium",
+   "theme": null,
+   "target_price": null,
+   "stop_price": null,
+   "target_pct": null,
+   "stop_pct": null,
    "article": {
     "headline": "History rhymes for Meta, and our plan for Micron ahead of earnings",
     "source": "CNBC",
@@ -401,12 +493,18 @@ window.DASHBOARD_DATA = {
     ],
     [
      "2026-09-24",
-     1056.75
+     1054.19
     ]
    ],
-   "price_now": 1056.75,
-   "return_pct": -1.3,
-   "directional_return_pct": -1.3,
+   "horizons": {
+    "1 day": 0.11,
+    "1 week": null,
+    "1 month": null
+   },
+   "level_status": null,
+   "price_now": 1054.19,
+   "return_pct": -1.54,
+   "directional_return_pct": -1.54,
    "correct": false
   },
   {
@@ -418,6 +516,11 @@ window.DASHBOARD_DATA = {
    "company": "Exxon Mobil",
    "top_rank": null,
    "confidence": "medium",
+   "theme": null,
+   "target_price": null,
+   "stop_price": null,
+   "target_pct": null,
+   "stop_pct": null,
    "article": {
     "headline": "Oil falls on increased Gulf supply and hopes for US-Iran talks - Reuters",
     "source": "Reuters",
@@ -431,12 +534,18 @@ window.DASHBOARD_DATA = {
     ],
     [
      "2026-09-24",
-     164.49
+     164.46
     ]
    ],
-   "price_now": 164.49,
-   "return_pct": 3.91,
-   "directional_return_pct": -3.91,
+   "horizons": {
+    "1 day": -1.85,
+    "1 week": null,
+    "1 month": null
+   },
+   "level_status": null,
+   "price_now": 164.46,
+   "return_pct": 3.89,
+   "directional_return_pct": -3.89,
    "correct": false
   },
   {
@@ -448,6 +557,11 @@ window.DASHBOARD_DATA = {
    "company": "Delta Air Lines",
    "top_rank": 3,
    "confidence": "medium",
+   "theme": null,
+   "target_price": null,
+   "stop_price": null,
+   "target_pct": null,
+   "stop_pct": null,
    "article": {
     "headline": "Oil falls on increased Gulf supply and hopes for US-Iran talks - Reuters",
     "source": "Reuters",
@@ -461,12 +575,18 @@ window.DASHBOARD_DATA = {
     ],
     [
      "2026-09-24",
-     80.77
+     80.99
     ]
    ],
-   "price_now": 80.77,
-   "return_pct": -2.1,
-   "directional_return_pct": -2.1,
+   "horizons": {
+    "1 day": -0.91,
+    "1 week": null,
+    "1 month": null
+   },
+   "level_status": null,
+   "price_now": 80.99,
+   "return_pct": -1.83,
+   "directional_return_pct": -1.83,
    "correct": false
   },
   {
@@ -478,6 +598,11 @@ window.DASHBOARD_DATA = {
    "company": "Capri Holdings",
    "top_rank": 1,
    "confidence": "medium",
+   "theme": null,
+   "target_price": null,
+   "stop_price": null,
+   "target_pct": null,
+   "stop_pct": null,
    "article": {
     "headline": "Capri Holdings jumps on report of takeover interest",
     "source": "SeekingAlpha",
@@ -491,12 +616,18 @@ window.DASHBOARD_DATA = {
     ],
     [
      "2026-09-24",
-     15.15
+     15.13
     ]
    ],
-   "price_now": 15.15,
-   "return_pct": 5.87,
-   "directional_return_pct": 5.87,
+   "horizons": {
+    "1 day": 7.83,
+    "1 week": null,
+    "1 month": null
+   },
+   "level_status": null,
+   "price_now": 15.13,
+   "return_pct": 5.73,
+   "directional_return_pct": 5.73,
    "correct": true
   },
   {
@@ -508,6 +639,11 @@ window.DASHBOARD_DATA = {
    "company": "Brighthouse Financial",
    "top_rank": 4,
    "confidence": "medium",
+   "theme": null,
+   "target_price": null,
+   "stop_price": null,
+   "target_pct": null,
+   "stop_pct": null,
    "article": {
     "headline": "Brighthouse Financial jumps on report Sixth Street looks to renew takeover effort",
     "source": "SeekingAlpha",
@@ -521,12 +657,18 @@ window.DASHBOARD_DATA = {
     ],
     [
      "2026-09-24",
-     53.48
+     53.5
     ]
    ],
-   "price_now": 53.48,
-   "return_pct": 7.3,
-   "directional_return_pct": 7.3,
+   "horizons": {
+    "1 day": 4.31,
+    "1 week": null,
+    "1 month": null
+   },
+   "level_status": null,
+   "price_now": 53.5,
+   "return_pct": 7.34,
+   "directional_return_pct": 7.34,
    "correct": true
   },
   {
@@ -538,6 +680,11 @@ window.DASHBOARD_DATA = {
    "company": "Royal Caribbean",
    "top_rank": 5,
    "confidence": "low",
+   "theme": null,
+   "target_price": null,
+   "stop_price": null,
+   "target_pct": null,
+   "stop_pct": null,
    "article": {
     "headline": "Royal Caribbean nears $3 billion deal to take 50% equity stake in Sandals",
     "source": "CNBC",
@@ -555,12 +702,18 @@ window.DASHBOARD_DATA = {
     ],
     [
      "2026-09-24",
-     233.29
+     233.41
     ]
    ],
-   "price_now": 233.29,
-   "return_pct": -6.78,
-   "directional_return_pct": -6.78,
+   "horizons": {
+    "1 day": -6.14,
+    "1 week": null,
+    "1 month": null
+   },
+   "level_status": null,
+   "price_now": 233.41,
+   "return_pct": -6.73,
+   "directional_return_pct": -6.73,
    "correct": false
   },
   {
@@ -572,6 +725,11 @@ window.DASHBOARD_DATA = {
    "company": "Cisco Systems",
    "top_rank": null,
    "confidence": "low",
+   "theme": null,
+   "target_price": null,
+   "stop_price": null,
+   "target_pct": null,
+   "stop_pct": null,
    "article": {
     "headline": "Cisco stock sinks 5% after Piper Sandler cuts price target on growth concerns",
     "source": "CNBC",
@@ -589,12 +747,18 @@ window.DASHBOARD_DATA = {
     ],
     [
      "2026-09-24",
-     105.47
+     105.4
     ]
    ],
-   "price_now": 105.47,
-   "return_pct": -5.37,
-   "directional_return_pct": 5.37,
+   "horizons": {
+    "1 day": 4.5,
+    "1 week": null,
+    "1 month": null
+   },
+   "level_status": null,
+   "price_now": 105.4,
+   "return_pct": -5.44,
+   "directional_return_pct": 5.44,
    "correct": true
   },
   {
@@ -606,6 +770,11 @@ window.DASHBOARD_DATA = {
    "company": "NVIDIA",
    "top_rank": 2,
    "confidence": "medium",
+   "theme": null,
+   "target_price": null,
+   "stop_price": null,
+   "target_pct": null,
+   "stop_pct": null,
    "article": {
     "headline": "A top chip stock analyst sees big things for Nvidia, Broadcom. How his case aligns with ours",
     "source": "CNBC",
@@ -623,12 +792,18 @@ window.DASHBOARD_DATA = {
     ],
     [
      "2026-09-24",
-     222.1
+     222.09
     ]
    ],
-   "price_now": 222.1,
-   "return_pct": -2.32,
-   "directional_return_pct": -2.32,
+   "horizons": {
+    "1 day": 0.66,
+    "1 week": null,
+    "1 month": null
+   },
+   "level_status": null,
+   "price_now": 222.09,
+   "return_pct": -2.33,
+   "directional_return_pct": -2.33,
    "correct": false
   }
  ],
@@ -636,6 +811,8 @@ window.DASHBOARD_DATA = {
   {
    "date": "2026-09-23",
    "market_mood": "Rising Fed rate-hike expectations pushed the 10-year Treasury yield to its highest since 2007, lifting the dollar and knocking gold, while Middle East tension keeps energy markets jumpy with record diesel cracks. On the tech side, Meta's new 'Muse' AI agent and an IonQ quantum breakthrough are grabbing attention ahead of Micron's earnings.",
+   "self_check": null,
+   "summary": null,
    "headlines": [
     {
      "headline": "Cabot Properties erwirbt modernes Logistikprojekt in der Region Hannover",
@@ -1217,6 +1394,8 @@ window.DASHBOARD_DATA = {
   {
    "date": "2026-09-22",
    "market_mood": "Risk appetite is up: hopes for a US-Iran deal and a possible reopening of Hormuz are pushing oil down even as Trump threatens Iran, while an AI-led rally lifted the Nasdaq to an intraday record. A busy M&A tape (Capri, Brighthouse, Royal Caribbean/Sandals, Goldman/Palmer Square) adds deal-driven single-stock moves.",
+   "self_check": null,
+   "summary": null,
    "headlines": [
     {
      "headline": "Oil falls on increased Gulf supply and hopes for US-Iran talks - Reuters",
@@ -2295,7 +2474,7 @@ window.DASHBOARD_DATA = {
    ],
    [
     "2026-09-24",
-    336.18
+    337.32
    ]
   ],
   "AMZN": [
@@ -2793,7 +2972,7 @@ window.DASHBOARD_DATA = {
    ],
    [
     "2026-09-24",
-    246.48
+    246.01
    ]
   ],
   "BHF": [
@@ -3295,7 +3474,7 @@ window.DASHBOARD_DATA = {
    ],
    [
     "2026-09-24",
-    53.48
+    53.5
    ]
   ],
   "CPRI": [
@@ -3797,7 +3976,7 @@ window.DASHBOARD_DATA = {
    ],
    [
     "2026-09-24",
-    15.15
+    15.13
    ]
   ],
   "CSCO": [
@@ -4303,7 +4482,7 @@ window.DASHBOARD_DATA = {
    ],
    [
     "2026-09-24",
-    105.47
+    105.4
    ]
   ],
   "DAL": [
@@ -4805,7 +4984,7 @@ window.DASHBOARD_DATA = {
    ],
    [
     "2026-09-24",
-    80.77
+    80.99
    ]
   ],
   "DIA": [
@@ -5299,7 +5478,7 @@ window.DASHBOARD_DATA = {
    ],
    [
     "2026-09-24",
-    510.95
+    510.85
    ]
   ],
   "DVN": [
@@ -5797,7 +5976,7 @@ window.DASHBOARD_DATA = {
    ],
    [
     "2026-09-24",
-    49.38
+    49.42
    ]
   ],
   "GLD": [
@@ -6295,7 +6474,7 @@ window.DASHBOARD_DATA = {
    ],
    [
     "2026-09-24",
-    389.97
+    389.84
    ]
   ],
   "GOOGL": [
@@ -6793,7 +6972,7 @@ window.DASHBOARD_DATA = {
    ],
    [
     "2026-09-24",
-    338.23
+    339.7
    ]
   ],
   "IONQ": [
@@ -7295,7 +7474,7 @@ window.DASHBOARD_DATA = {
    ],
    [
     "2026-09-24",
-    42.74
+    42.87
    ]
   ],
   "JPM": [
@@ -7793,7 +7972,7 @@ window.DASHBOARD_DATA = {
    ],
    [
     "2026-09-24",
-    336.09
+    336.67
    ]
   ],
   "META": [
@@ -8295,7 +8474,7 @@ window.DASHBOARD_DATA = {
    ],
    [
     "2026-09-24",
-    768.4
+    761.98
    ]
   ],
   "MSFT": [
@@ -8793,7 +8972,7 @@ window.DASHBOARD_DATA = {
    ],
    [
     "2026-09-24",
-    495.25
+    494.33
    ]
   ],
   "MU": [
@@ -9295,7 +9474,7 @@ window.DASHBOARD_DATA = {
    ],
    [
     "2026-09-24",
-    1056.75
+    1054.19
    ]
   ],
   "NVDA": [
@@ -9801,7 +9980,7 @@ window.DASHBOARD_DATA = {
    ],
    [
     "2026-09-24",
-    222.1
+    222.09
    ]
   ],
   "QQQ": [
@@ -10299,7 +10478,7 @@ window.DASHBOARD_DATA = {
    ],
    [
     "2026-09-24",
-    735.82
+    735.04
    ]
   ],
   "RCL": [
@@ -10805,7 +10984,7 @@ window.DASHBOARD_DATA = {
    ],
    [
     "2026-09-24",
-    233.29
+    233.41
    ]
   ],
   "SPY": [
@@ -11303,7 +11482,7 @@ window.DASHBOARD_DATA = {
    ],
    [
     "2026-09-24",
-    764.12
+    763.71
    ]
   ],
   "TLT": [
@@ -11805,7 +11984,7 @@ window.DASHBOARD_DATA = {
    ],
    [
     "2026-09-24",
-    79.82
+    79.73
    ]
   ],
   "TSLA": [
@@ -12303,7 +12482,7 @@ window.DASHBOARD_DATA = {
    ],
    [
     "2026-09-24",
-    376.58
+    375.98
    ]
   ],
   "VLO": [
@@ -12801,7 +12980,7 @@ window.DASHBOARD_DATA = {
    ],
    [
     "2026-09-24",
-    391.33
+    391.72
    ]
   ],
   "XOM": [
@@ -13303,7 +13482,7 @@ window.DASHBOARD_DATA = {
    ],
    [
     "2026-09-24",
-    164.49
+    164.46
    ]
   ]
  },
@@ -13312,30 +13491,30 @@ window.DASHBOARD_DATA = {
    "ticker": "XLK",
    "name": "Technology",
    "changes": {
-    "1D": -1.09,
-    "1W": 5.17,
-    "1M": 7.44,
-    "3M": 5.68
+    "1D": -1.17,
+    "1W": 5.08,
+    "1M": 7.35,
+    "3M": 5.58
    }
   },
   {
    "ticker": "XLC",
    "name": "Communication",
    "changes": {
-    "1D": 0.73,
-    "1W": 0.67,
-    "1M": 1.28,
-    "3M": 6.77
+    "1D": 0.55,
+    "1W": 0.49,
+    "1M": 1.1,
+    "3M": 6.58
    }
   },
   {
    "ticker": "XLY",
    "name": "Consumer Discretionary",
    "changes": {
-    "1D": -0.78,
-    "1W": -0.14,
-    "1M": -6.99,
-    "3M": -4.38
+    "1D": -0.93,
+    "1W": -0.29,
+    "1M": -7.13,
+    "3M": -4.53
    }
   },
   {
@@ -13362,40 +13541,40 @@ window.DASHBOARD_DATA = {
    "ticker": "XLF",
    "name": "Financials",
    "changes": {
-    "1D": -0.46,
-    "1W": -2.5,
-    "1M": -6.56,
-    "3M": 1.93
+    "1D": -0.4,
+    "1W": -2.44,
+    "1M": -6.51,
+    "3M": 1.99
    }
   },
   {
    "ticker": "XLV",
    "name": "Health Care",
    "changes": {
-    "1D": 0.73,
-    "1W": 1.74,
-    "1M": -2.3,
-    "3M": 11.3
+    "1D": 0.52,
+    "1W": 1.53,
+    "1M": -2.5,
+    "3M": 11.07
    }
   },
   {
    "ticker": "XLI",
    "name": "Industrials",
    "changes": {
-    "1D": -0.99,
-    "1W": 0.1,
-    "1M": -5.66,
-    "3M": -6.29
+    "1D": -1.03,
+    "1W": 0.05,
+    "1M": -5.7,
+    "3M": -6.33
    }
   },
   {
    "ticker": "XLB",
    "name": "Materials",
    "changes": {
-    "1D": -0.93,
-    "1W": -0.64,
-    "1M": -6.6,
-    "3M": -2.2
+    "1D": -1.21,
+    "1W": -0.92,
+    "1M": -6.86,
+    "3M": -2.47
    }
   },
   {
@@ -13412,10 +13591,10 @@ window.DASHBOARD_DATA = {
    "ticker": "XLU",
    "name": "Utilities",
    "changes": {
-    "1D": -0.81,
-    "1W": -3.88,
-    "1M": -8.09,
-    "3M": -12.78
+    "1D": -0.55,
+    "1W": -3.63,
+    "1M": -7.86,
+    "3M": -12.56
    }
   }
  ],
@@ -13528,9 +13707,9 @@ window.DASHBOARD_DATA = {
    "quoteType": "EQUITY",
    "sector": "Technology",
    "industry": "Consumer Electronics",
-   "marketCap": 4906125623296,
-   "trailingPE": 38.51,
-   "forwardPE": 35.06,
+   "marketCap": 4921303236608,
+   "trailingPE": 38.63,
+   "forwardPE": 35.17,
    "fiftyTwoWeekHigh": 345.34,
    "fiftyTwoWeekLow": 243.42,
    "dividendYield": 0.32,
@@ -13544,9 +13723,9 @@ window.DASHBOARD_DATA = {
    "quoteType": "EQUITY",
    "sector": "Consumer Cyclical",
    "industry": "Internet Retail",
-   "marketCap": 2658718449664,
-   "trailingPE": 19.81,
-   "forwardPE": 23.73,
+   "marketCap": 2652947611648,
+   "trailingPE": 19.77,
+   "forwardPE": 23.68,
    "fiftyTwoWeekHigh": 287.2,
    "fiftyTwoWeekLow": 196.0,
    "beta": 1.44,
@@ -13559,9 +13738,9 @@ window.DASHBOARD_DATA = {
    "quoteType": "EQUITY",
    "sector": "Financial Services",
    "industry": "Insurance - Life",
-   "marketCap": 3072555264,
+   "marketCap": 3076293632,
    "trailingPE": 4.24,
-   "forwardPE": 2.65,
+   "forwardPE": 2.66,
    "fiftyTwoWeekHigh": 66.8,
    "fiftyTwoWeekLow": 44.51,
    "beta": 0.84,
@@ -13574,9 +13753,9 @@ window.DASHBOARD_DATA = {
    "quoteType": "EQUITY",
    "sector": "Consumer Cyclical",
    "industry": "Luxury Goods",
-   "marketCap": 1738587008,
-   "trailingPE": 19.42,
-   "forwardPE": 5.99,
+   "marketCap": 1737439104,
+   "trailingPE": 19.4,
+   "forwardPE": 5.98,
    "fiftyTwoWeekHigh": 28.27,
    "fiftyTwoWeekLow": 12.4,
    "beta": 1.38,
@@ -13589,9 +13768,9 @@ window.DASHBOARD_DATA = {
    "quoteType": "EQUITY",
    "sector": "Technology",
    "industry": "Communication Equipment",
-   "marketCap": 415844335616,
-   "trailingPE": 31.67,
-   "forwardPE": 18.76,
+   "marketCap": 415430377472,
+   "trailingPE": 31.64,
+   "forwardPE": 18.74,
    "fiftyTwoWeekHigh": 130.37,
    "fiftyTwoWeekLow": 66.81,
    "dividendYield": 1.58,
@@ -13605,9 +13784,9 @@ window.DASHBOARD_DATA = {
    "quoteType": "EQUITY",
    "sector": "Industrials",
    "industry": "Airlines",
-   "marketCap": 53122789376,
-   "trailingPE": 13.4,
-   "forwardPE": 9.52,
+   "marketCap": 53267464192,
+   "trailingPE": 13.43,
+   "forwardPE": 9.55,
    "fiftyTwoWeekHigh": 95.68,
    "fiftyTwoWeekLow": 55.03,
    "dividendYield": 1.05,
@@ -13621,7 +13800,7 @@ window.DASHBOARD_DATA = {
    "quoteType": "ETF",
    "category": "Large Value",
    "totalAssets": 45455503360,
-   "trailingPE": 20.75,
+   "trailingPE": 20.74,
    "fiftyTwoWeekHigh": 546.75,
    "fiftyTwoWeekLow": 450.44,
    "dividendYield": 1.38,
@@ -13632,9 +13811,9 @@ window.DASHBOARD_DATA = {
    "quoteType": "EQUITY",
    "sector": "Energy",
    "industry": "Oil & Gas E&P",
-   "marketCap": 54323499008,
-   "trailingPE": 10.74,
-   "forwardPE": 9.17,
+   "marketCap": 54372999168,
+   "trailingPE": 10.75,
+   "forwardPE": 9.18,
    "fiftyTwoWeekHigh": 52.71,
    "fiftyTwoWeekLow": 31.47,
    "dividendYield": 2.66,
@@ -13658,9 +13837,9 @@ window.DASHBOARD_DATA = {
    "quoteType": "EQUITY",
    "sector": "Communication Services",
    "industry": "Internet Content & Information",
-   "marketCap": 4135980630016,
-   "trailingPE": 16.97,
-   "forwardPE": 22.7,
+   "marketCap": 4154019807232,
+   "trailingPE": 17.04,
+   "forwardPE": 22.8,
    "fiftyTwoWeekHigh": 408.61,
    "fiftyTwoWeekLow": 235.84,
    "dividendYield": 0.26,
@@ -13674,8 +13853,8 @@ window.DASHBOARD_DATA = {
    "quoteType": "EQUITY",
    "sector": "Technology",
    "industry": "Computer Hardware",
-   "marketCap": 17305368576,
-   "forwardPE": -32.67,
+   "marketCap": 17351960576,
+   "forwardPE": -32.76,
    "fiftyTwoWeekHigh": 84.64,
    "fiftyTwoWeekLow": 25.89,
    "beta": 3.29,
@@ -13688,9 +13867,9 @@ window.DASHBOARD_DATA = {
    "quoteType": "EQUITY",
    "sector": "Financial Services",
    "industry": "Banks - Diversified",
-   "marketCap": 893389832192,
-   "trailingPE": 14.41,
-   "forwardPE": 13.45,
+   "marketCap": 895117623296,
+   "trailingPE": 14.44,
+   "forwardPE": 13.48,
    "fiftyTwoWeekHigh": 366.5,
    "fiftyTwoWeekLow": 279.1,
    "dividendYield": 1.96,
@@ -13704,9 +13883,9 @@ window.DASHBOARD_DATA = {
    "quoteType": "EQUITY",
    "sector": "Communication Services",
    "industry": "Internet Content & Information",
-   "marketCap": 1957787729920,
-   "trailingPE": 28.93,
-   "forwardPE": 22.0,
+   "marketCap": 1940855717888,
+   "trailingPE": 28.68,
+   "forwardPE": 21.81,
    "fiftyTwoWeekHigh": 770.9,
    "fiftyTwoWeekLow": 520.26,
    "dividendYield": 0.28,
@@ -13720,9 +13899,9 @@ window.DASHBOARD_DATA = {
    "quoteType": "EQUITY",
    "sector": "Technology",
    "industry": "Software - Infrastructure",
-   "marketCap": 3677353148416,
-   "trailingPE": 27.56,
-   "forwardPE": 20.92,
+   "marketCap": 3670298853376,
+   "trailingPE": 27.51,
+   "forwardPE": 20.88,
    "fiftyTwoWeekHigh": 553.72,
    "fiftyTwoWeekLow": 349.2,
    "dividendYield": 0.78,
@@ -13736,9 +13915,9 @@ window.DASHBOARD_DATA = {
    "quoteType": "EQUITY",
    "sector": "Technology",
    "industry": "Semiconductors",
-   "marketCap": 1193599041536,
-   "trailingPE": 23.87,
-   "forwardPE": 6.64,
+   "marketCap": 1190775619584,
+   "trailingPE": 23.82,
+   "forwardPE": 6.63,
    "fiftyTwoWeekHigh": 1255.0,
    "fiftyTwoWeekLow": 154.65,
    "dividendYield": 0.05,
@@ -13752,7 +13931,7 @@ window.DASHBOARD_DATA = {
    "quoteType": "EQUITY",
    "sector": "Technology",
    "industry": "Semiconductors",
-   "marketCap": 5362082643968,
+   "marketCap": 5362562891776,
    "trailingPE": 28.04,
    "forwardPE": 14.16,
    "fiftyTwoWeekHigh": 236.54,
@@ -13768,7 +13947,7 @@ window.DASHBOARD_DATA = {
    "quoteType": "ETF",
    "category": "Large Growth",
    "totalAssets": 488981004288,
-   "trailingPE": 29.99,
+   "trailingPE": 29.96,
    "fiftyTwoWeekHigh": 748.65,
    "fiftyTwoWeekLow": 555.6,
    "dividendYield": 0.42,
@@ -13779,9 +13958,9 @@ window.DASHBOARD_DATA = {
    "quoteType": "EQUITY",
    "sector": "Consumer Cyclical",
    "industry": "Travel Services",
-   "marketCap": 62392557568,
-   "trailingPE": 14.41,
-   "forwardPE": 11.5,
+   "marketCap": 62498201600,
+   "trailingPE": 14.43,
+   "forwardPE": 11.52,
    "fiftyTwoWeekHigh": 356.39,
    "fiftyTwoWeekLow": 222.22,
    "dividendYield": 2.61,
@@ -13795,7 +13974,7 @@ window.DASHBOARD_DATA = {
    "quoteType": "ETF",
    "category": "Large Blend",
    "totalAssets": 811937038336,
-   "trailingPE": 24.69,
+   "trailingPE": 24.68,
    "fiftyTwoWeekHigh": 779.37,
    "fiftyTwoWeekLow": 629.28,
    "dividendYield": 0.98,
@@ -13806,7 +13985,7 @@ window.DASHBOARD_DATA = {
    "quoteType": "ETF",
    "category": "Long Government",
    "totalAssets": 47046328320,
-   "forwardPE": -3991.5,
+   "forwardPE": -3986.25,
    "fiftyTwoWeekHigh": 92.19,
    "fiftyTwoWeekLow": 79.7,
    "dividendYield": 4.73,
@@ -13817,9 +13996,9 @@ window.DASHBOARD_DATA = {
    "quoteType": "EQUITY",
    "sector": "Consumer Cyclical",
    "industry": "Auto Manufacturers",
-   "marketCap": 1487221817344,
-   "trailingPE": 342.32,
-   "forwardPE": 171.38,
+   "marketCap": 1484476907520,
+   "trailingPE": 341.69,
+   "forwardPE": 171.06,
    "fiftyTwoWeekHigh": 498.83,
    "fiftyTwoWeekLow": 297.38,
    "beta": 1.84,
@@ -13832,8 +14011,8 @@ window.DASHBOARD_DATA = {
    "quoteType": "EQUITY",
    "sector": "Energy",
    "industry": "Oil & Gas Refining & Marketing",
-   "marketCap": 112674643968,
-   "trailingPE": 16.32,
+   "marketCap": 112726482944,
+   "trailingPE": 16.33,
    "forwardPE": 10.29,
    "fiftyTwoWeekHigh": 419.04,
    "fiftyTwoWeekLow": 155.29,
@@ -13848,7 +14027,7 @@ window.DASHBOARD_DATA = {
    "quoteType": "EQUITY",
    "sector": "Energy",
    "industry": "Oil & Gas Integrated",
-   "marketCap": 676245078016,
+   "marketCap": 676327260160,
    "trailingPE": 21.17,
    "forwardPE": 15.18,
    "fiftyTwoWeekHigh": 176.41,
@@ -13881,12 +14060,12 @@ window.DASHBOARD_DATA = {
    ],
    [
     "2026-09-24",
-    9998.58,
-    9878.73
+    9985.27,
+    9873.43
    ]
   ],
-  "top5_return_pct": -0.01,
-  "spy_return_pct": -1.21,
+  "top5_return_pct": -0.15,
+  "spy_return_pct": -1.27,
   "pick_days": 2
  },
  "watchlist": [
@@ -13998,8 +14177,8 @@ window.DASHBOARD_DATA = {
     "image": "https://image.cnbcfm.com/api/v1/image/108366318-1790097195580-gettyimages-2296543491-img_3404.jpeg?v=1790097231&w=1920&h=1080"
    },
    "price_at_pick": 749.33,
-   "price_now": 768.4,
-   "return_pct": 2.54,
+   "price_now": 761.98,
+   "return_pct": 1.69,
    "correct": true,
    "history": [
     [
@@ -14008,9 +14187,14 @@ window.DASHBOARD_DATA = {
     ],
     [
      "2026-09-24",
-     768.4
+     761.98
     ]
-   ]
+   ],
+   "target_price": null,
+   "stop_price": null,
+   "target_pct": null,
+   "stop_pct": null,
+   "level_status": null
   },
   {
    "ticker": "DVN",
@@ -14034,8 +14218,8 @@ window.DASHBOARD_DATA = {
     "image": ""
    },
    "price_at_pick": 48.33,
-   "price_now": 49.38,
-   "return_pct": 2.17,
+   "price_now": 49.42,
+   "return_pct": 2.26,
    "correct": true,
    "history": [
     [
@@ -14044,9 +14228,14 @@ window.DASHBOARD_DATA = {
     ],
     [
      "2026-09-24",
-     49.38
+     49.42
     ]
-   ]
+   ],
+   "target_price": null,
+   "stop_price": null,
+   "target_pct": null,
+   "stop_pct": null,
+   "level_status": null
   },
   {
    "ticker": "MU",
@@ -14069,8 +14258,8 @@ window.DASHBOARD_DATA = {
     "image": "https://image.cnbcfm.com/api/v1/image/108279188-1773779867892-gettyimages-2256072068-MICRON_NY.jpeg?v=1773779901&w=1920&h=1080"
    },
    "price_at_pick": 1070.7,
-   "price_now": 1056.75,
-   "return_pct": -1.3,
+   "price_now": 1054.19,
+   "return_pct": -1.54,
    "correct": false,
    "history": [
     [
@@ -14079,9 +14268,14 @@ window.DASHBOARD_DATA = {
     ],
     [
      "2026-09-24",
-     1056.75
+     1054.19
     ]
-   ]
+   ],
+   "target_price": null,
+   "stop_price": null,
+   "target_pct": null,
+   "stop_pct": null,
+   "level_status": null
   },
   {
    "ticker": "IONQ",
@@ -14103,8 +14297,8 @@ window.DASHBOARD_DATA = {
     "image": "https://image.cnbcfm.com/api/v1/image/108156495-1749474982803-gettyimages-2213364464-img_9891.jpeg?v=1769105128&w=1920&h=1080"
    },
    "price_at_pick": 43.08,
-   "price_now": 42.74,
-   "return_pct": -0.79,
+   "price_now": 42.87,
+   "return_pct": -0.49,
    "correct": false,
    "history": [
     [
@@ -14113,9 +14307,14 @@ window.DASHBOARD_DATA = {
     ],
     [
      "2026-09-24",
-     42.74
+     42.87
     ]
-   ]
+   ],
+   "target_price": null,
+   "stop_price": null,
+   "target_pct": null,
+   "stop_pct": null,
+   "level_status": null
   },
   {
    "ticker": "BHF",
@@ -14138,8 +14337,8 @@ window.DASHBOARD_DATA = {
     "image": ""
    },
    "price_at_pick": 52.0,
-   "price_now": 53.48,
-   "return_pct": 2.85,
+   "price_now": 53.5,
+   "return_pct": 2.88,
    "correct": true,
    "history": [
     [
@@ -14148,9 +14347,14 @@ window.DASHBOARD_DATA = {
     ],
     [
      "2026-09-24",
-     53.48
+     53.5
     ]
-   ]
+   ],
+   "target_price": null,
+   "stop_price": null,
+   "target_pct": null,
+   "stop_pct": null,
+   "level_status": null
   }
  ]
 };
