@@ -18,6 +18,7 @@ from datetime import date, datetime, timedelta, timezone
 
 import yfinance as yf
 
+from logos import load_logos
 from watchlist import FED_MEETINGS, FUNDS, SECTORS, WATCHLIST
 
 LOG_FILE = "picks_log.csv"
@@ -667,6 +668,8 @@ def build_data(picks, days, histories, events=None, facts=None):
         "sectors": sector_moves(histories),
         # The "Coming up" calendar (earnings dates and Fed meetings).
         "events": events or [],
+        # Company logos (saved by the morning run), for the News tab.
+        "logos": {t: url for t, url in load_logos().items() if url},
         # Key facts per ticker, for the fact sheet in the chart popup.
         "facts": facts or {},
         # The pretend $10,000 portfolio that follows the Top 5.

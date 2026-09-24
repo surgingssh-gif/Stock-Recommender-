@@ -41,6 +41,7 @@ Ideas for research only, not financial advice.
 | `discord_notify.py` | Builds the message and posts it to Discord. |
 | `track_record.py` | Sums up how the bot's recent calls did, so Claude can learn from them. |
 | `market_data.py` | Gets the market's biggest movers and pre-market moves from Yahoo. |
+| `logos.py` | Looks up company logos (once per company) for the dashboard. |
 | `watchlist.py` | The "Market watch" stocks shown on the Stock Charts tab every day. Edit it to add or remove stocks. |
 | `recap.py` | The evening recap: after the market closes, posts how the day's picks moved (and a weekly report card on Fridays). |
 | `alerts.py` | Big-move alerts: pings Discord when a recent pick has moved 5% or more. |
@@ -153,8 +154,10 @@ see it (your API keys are never on it).
 To preview it on your computer, run `python build_dashboard.py`, then double-click
 `docs/index.html` to open it in your browser.
 
-**News tab:** the stories behind today's picks lead the page as "Top stories". Each
-shows the article's photo, or the stock's price chart when there's no good photo.
+**News tab:** the stories behind today's picks lead the page as "Top stories", each
+with the company's logo, name and 3-month move. Logos come from Finnhub and are
+looked up once per company by the morning run (saved in `data/logos.json`). Funds
+and companies without a logo show a ticker tile.
 Below that, every other headline is listed newest first, grouped by day, with filters
 for "Behind the picks" and "Company news". Filings (like UK "Form 8.3" notices),
 podcasts and non-English stories are filtered out, both on the page and before the
