@@ -39,6 +39,8 @@ Ideas for research only, not financial advice.
 | `prices.py` | Looks up stock prices. |
 | `picks_log.py` | Adds each pick to `picks_log.csv`. |
 | `discord_notify.py` | Builds the message and posts it to Discord. |
+| `track_record.py` | Sums up how the bot's recent calls did, so Claude can learn from them. |
+| `market_data.py` | Gets the market's biggest movers and pre-market moves from Yahoo. |
 | `watchlist.py` | The "Market watch" stocks shown on the Stock Charts tab every day. Edit it to add or remove stocks. |
 | `recap.py` | The evening recap: after the market closes, posts how the day's picks moved (and a weekly report card on Fridays). |
 | `build_dashboard.py` | Scores every pick against the latest prices and writes the dashboard data (`docs/data.js`). |
@@ -171,6 +173,14 @@ on any stock to add it to **My Stocks**. Starred stocks lead the markets strip a
 have their own view on the Stock Charts tab. Stars are saved in your browser, so
 each device keeps its own list.
 
+**How the bot learns:** each morning Claude also gets (1) company news for the
+market-watch stocks and anything picked in the last 5 days, (2) the market's biggest
+gainers, losers and most-traded stocks, plus pre-market moves, and (3) its own track
+record: which recent calls were right or wrong. It writes a one-line **self-check**
+about what it learned, which appears on the Today tab and in Discord. All of this is
+still one Claude request, and it adds about 2-3 cents a day. If any of the extras
+fail, the bot carries on without them and says so in the message.
+
 **Sectors and Coming Up:** the bottom of the Today tab has a heat map of the 11 market
 sectors (switch between day, week, month and 3 months) and a calendar of upcoming
 earnings dates and Fed meetings. The sector list and Fed dates live in `watchlist.py`.
@@ -208,7 +218,7 @@ call if it's down. New picks show "Too early to tell" until the next market clos
 
 Finnhub, yfinance, Discord and GitHub Actions are free for this use.
 Claude is the only paid part: one request per weekday with about 60 headlines.
-That usually costs around 5-12 cents per run, which adds up to roughly $1-3
+That usually costs around 8-15 cents per run, which adds up to roughly $2-4
 a month on `claude-opus-5`, and less on `claude-sonnet-5`. You can see exact usage at
 https://console.anthropic.com under **Usage**.
 

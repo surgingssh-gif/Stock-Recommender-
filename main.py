@@ -26,10 +26,25 @@ from dotenv import load_dotenv
 
 from analyzer import analyze_headlines
 from discord_notify import build_message, send_to_discord
-from news import fetch_headlines
+from build_dashboard import read_picks
+from market_data import format_market_data, get_market_movers, get_premarket_moves
+from news import fetch_company_news, fetch_headlines
 from picks_log import log_picks, save_day_details
 from prices import get_prices
-from watchlist import WATCHLIST
+from track_record import build_track_record, load_dashboard_data
+from watchlist import FUNDS, WATCHLIST
+
+# Company news is fetched for the market-watch companies plus any stock
+# picked in the last few days.
+RECENT_PICK_DAYS = 5
+
+
+def followed_companies():
+    """Market-watch companies (not funds) plus recent picks, without repeats."""
+    picks = read_picks()
+    recent_days = sorted({p["date"] for p in picks}, reverse=True)[:RECENT_PICK_DAYS]
+    recent = [p["ticker"] for p in picks if p["date"] in recent_days]
+    return list(dict.fromkeys([t for t in WATCHLIST if t not in FUNDS] + recent))
 
 
 def dashboard_url():
@@ -75,6 +90,24 @@ def main():
         except Exception as e:
             problems.append(f"News (Finnhub) failed: {e}")
 
+    # --- Step 1b: Company news + what's moving -------------------------------
+    # Extras that make the picks better; if they fail, the bot carries on.
+    if headlines and finnhub_key:
+        try:
+            company_news = fetch_company_news(finnhub_key, followed_companies(), skip=headlines)
+            headlines += company_news  # added at the end so headline numbers stay in order
+            print(f"Fetched {len(company_news)} company headlines.")
+        except Exception as e:
+            problems.append(f"Company news (Finnhub) failed: {e}")
+    market_text = None
+    if headlines:
+        try:
+            market_text = format_market_data(get_market_movers(), get_premarket_moves(list(WATCHLIST)))
+        except Exception as e:
+            problems.append(f"Market movers (Yahoo) failed: {e}")
+    # How the bot's recent calls have done (from the dashboard data).
+    track_record = build_track_record(load_dashboard_data())
+
     # --- Step 2: Claude analysis --------------------------------------------
     analysis = None
     if headlines:
@@ -82,7 +115,7 @@ def main():
             problems.append("ANTHROPIC_API_KEY is not set, so no analysis was done.")
         else:
             try:
-                analysis = analyze_headlines(headlines, anthropic_key, WATCHLIST)
+                analysis = analyze_headlines(headlines, anthropic_key, WATCHLIST, track_record, market_text)
                 print(f"Claude suggested {len(analysis['picks'])} picks.")
             except Exception as e:
                 problems.append(f"Analysis (Claude) failed: {e}")

@@ -354,6 +354,10 @@ a { color: inherit; }
 .wk-row:last-child { border-bottom: none; }
 .wk-row strong { font-weight: 600; white-space: nowrap; }
 
+.self-check { margin: 12px 0 0; padding: 10px 14px; border-left: 3px solid var(--good); background: var(--paper-2); font: 400 13.5px/1.55 var(--serif); color: var(--ink-2); max-width: 46em; }
+.self-check strong { font: 600 11px/1 var(--sans); letter-spacing: .06em; text-transform: uppercase; color: var(--ink); margin-right: 4px; }
+.about-tag { margin-left: 6px; padding: 1px 5px; border-radius: 3px; border: 1px solid var(--hair); font: 700 9.5px/1.4 var(--sans); letter-spacing: .04em; color: var(--ink-2); }
+
 /* ---- Scorecard ----------------------------------------------------------- */
 .hero-label { font: 600 10px/1.2 var(--sans); letter-spacing: .12em; text-transform: uppercase; color: var(--ink-2); margin: 0; }
 .hero-figure { font: 700 48px/1 var(--sans); letter-spacing: -.02em; margin: 8px 0 6px; }
@@ -831,7 +835,7 @@ footer .disclaimer { font: 400 italic 13px/1.4 var(--serif); color: var(--ink); 
     <section class="tab-panel" id="about" aria-labelledby="about-h">
       <div class="section-head"><h2 id="about-h">How It Works</h2></div>
       <div class="about">
-        <div><h3>The reading</h3><p>Each weekday morning the bot pulls the latest business and world headlines from Finnhub, then sends them all to Claude in a single request.</p></div>
+        <div><h3>The reading</h3><p>Each weekday morning the bot pulls the latest business and world headlines from Finnhub, plus company news for the stocks it follows and a list of the market's biggest movers, then sends it all to Claude in a single request, along with its own track record so it can learn from past calls.</p></div>
         <div><h3>The calls</h3><p>Claude names a handful of US-listed stocks or ETFs the news could move, says whether it leans bullish or bearish, and explains why in plain English. It also ranks its five most promising bullish ideas as the Top 5, with the risks.</p></div>
         <div><h3>The scorecard</h3><p>After the market closes, an evening recap scores each call against the closing price, and on Fridays a weekly report card grades the week. A bullish call is right so far if the stock is up since it was picked; a bearish call if it's down. No trades are ever placed.</p></div>
       </div>

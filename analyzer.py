@@ -48,7 +48,20 @@ each, give a one-line "pitch", then explain in plain English "why" it could be \
 a good buy (2 to 4 sentences), what "risks" could make it go wrong (1 or 2 \
 sentences), and what to "watch" next, like an earnings date or a decision \
 (1 sentence). Be honest about the downside: these are research candidates, \
-not recommendations. If the news is too quiet for 5 solid ideas, return fewer."""
+not recommendations. If the news is too quiet for 5 solid ideas, return fewer.
+- Some headlines are marked "(about TICKER)": those were fetched for that \
+company specifically. You may also get a "Market data" section listing the \
+biggest movers and pre-market moves. Use it to see what the market is already \
+reacting to, but base each idea on the news behind a move, not the move alone, \
+and be wary of chasing a stock that has already jumped.
+- You may also get "Your track record": how your recent calls have done, \
+measured from the price when each was picked. Use it to calibrate: notice \
+which kinds of calls have worked or failed (direction, confidence, sectors, \
+chasing news that was already priced in) and adjust. A few days of results \
+are mostly noise, so don't overreact to one call or avoid a stock just \
+because it lost. In "self_check", write one or two plain-English sentences \
+on what your record suggests and how it shaped today's picks. With no track \
+record yet, write: Not enough results yet to learn from."""
 
 # The exact JSON shape we want back from Claude.
 OUTPUT_SCHEMA = {
@@ -90,6 +103,11 @@ OUTPUT_SCHEMA = {
                 "additionalProperties": False,
             },
         },
+        # What Claude learned from its own track record, and how it adjusted.
+        "self_check": {
+            "type": "string",
+            "description": "One or two sentences on what the recent track record suggests and how it shaped today's picks.",
+        },
         # The "Top 5 buys of the day": the most promising bullish ideas,
         # ranked best first, with a longer explanation for each.
         "top_buys": {
@@ -111,7 +129,7 @@ OUTPUT_SCHEMA = {
             },
         },
     },
-    "required": ["market_mood", "picks", "watchlist_notes", "top_buys"],
+    "required": ["market_mood", "picks", "watchlist_notes", "top_buys", "self_check"],
     "additionalProperties": False,
 }
 
@@ -120,14 +138,15 @@ def _format_headlines(headlines):
     """Turn the list of headline dicts into one numbered block of text."""
     lines = []
     for i, h in enumerate(headlines, start=1):
-        line = f"{i}. [{h['time']}] ({h['source']}) {h['headline']}"
+        about = f" (about {h['about']})" if h.get("about") else ""
+        line = f"{i}. [{h['time']}] ({h['source']}){about} {h['headline']}"
         if h["summary"]:
             line += f"\n   {h['summary']}"
         lines.append(line)
     return "\n".join(lines)
 
 
-def analyze_headlines(headlines, api_key, watchlist=None):
+def analyze_headlines(headlines, api_key, watchlist=None, track_record=None, market_data=None):
     """
     Returns a dict: {"market_mood": "...", "picks": [ {ticker, company,
     direction, confidence, reason, sources}, ... ]}
@@ -135,7 +154,10 @@ def analyze_headlines(headlines, api_key, watchlist=None):
     plus "watchlist_notes": [ {ticker, note}, ... ] for the watchlist tickers,
     plus "top_buys": up to 5 ranked bullish ideas {ticker, company,
     confidence, pitch, why, risks, watch, sources}. Every top buy is also
-    in "picks".
+    in "picks". Also "self_check": what Claude took from its track record.
+
+    track_record - text from track_record.build_track_record() (optional)
+    market_data  - text from market_data.format_market_data() (optional)
 
     Raises an exception if Claude can't be reached or declines to answer,
     so the caller can report it.
@@ -152,6 +174,9 @@ def analyze_headlines(headlines, api_key, watchlist=None):
             "\n\nMarket watch tickers (write one note for each): "
             + ", ".join(f"{t} ({name})" for t, name in watchlist.items())
         )
+    if market_data:
+        user_message += "\n\nMarket data (prices, not news):\n" + market_data
+    user_message += "\n\nYour track record:\n" + (track_record or "No results yet - this is one of the first runs.")
 
     response = client.beta.messages.create(
         model=model,

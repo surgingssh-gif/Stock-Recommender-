@@ -27,6 +27,9 @@ def build_message(date_str, analysis, prices, problems, headlines=None, dashboar
     if analysis:
         lines.append(f"*{analysis['market_mood']}*")
         lines.append("")
+        if analysis.get("self_check"):
+            lines.append(f"🧠 **Self-check:** {analysis['self_check']}")
+            lines.append("")
 
         if not analysis["picks"]:
             lines.append("No strong ideas from today's news.")

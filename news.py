@@ -12,6 +12,7 @@ from datetime import datetime, timezone
 import requests
 
 FINNHUB_NEWS_URL = "https://finnhub.io/api/v1/news"
+FINNHUB_COMPANY_NEWS_URL = "https://finnhub.io/api/v1/company-news"
 
 # Which Finnhub news categories to pull. "general" covers world/business news,
 # "merger" covers deals and acquisitions.
@@ -20,12 +21,79 @@ CATEGORIES = ["general", "merger"]
 # Cap how many headlines we send to Claude, so the API cost stays small.
 MAX_HEADLINES = 60
 
+# Company-specific news: the newest few stories per company, and a cap overall.
+COMPANY_NEWS_PER_TICKER = 2
+MAX_COMPANY_HEADLINES = 30
+
 
 def _hours_to_look_back():
     """On Mondays, look back over the weekend (72h). Otherwise, 24h."""
     if datetime.now(timezone.utc).weekday() == 0:  # 0 = Monday
         return 72
     return 24
+
+
+def _to_headline(article, about=None):
+    """One Finnhub article as the tidy dict the rest of the bot uses."""
+    published = article.get("datetime") or 0
+    headline = {
+        "headline": (article.get("headline") or "").strip(),
+        # Summaries can be long; trim them to keep the Claude call cheap.
+        "summary": (article.get("summary") or "").strip()[:300],
+        "source": article.get("source") or "unknown",
+        "time": datetime.fromtimestamp(published, timezone.utc).strftime("%Y-%m-%d %H:%M UTC"),
+        "published": published,
+        # Link to the full article and its photo (used by the dashboard).
+        "url": article.get("url") or "",
+        "image": article.get("image") or "",
+    }
+    if about:
+        headline["about"] = about  # the company this story was fetched for
+    return headline
+
+
+def fetch_company_news(api_key, tickers, skip=()):
+    """
+    The newest stories about specific companies (the market-watch stocks and
+    recent picks), which general news often misses. `skip` is a list of
+    headlines we already have, so nothing is sent twice.
+
+    One company failing is skipped quietly; raises only if every one fails.
+    """
+    cutoff = time.time() - _hours_to_look_back() * 3600
+    today = datetime.now(timezone.utc).date()
+    start = datetime.fromtimestamp(cutoff, timezone.utc).date()
+    seen = {h["headline"] for h in skip}
+    found, failures = [], 0
+
+    for ticker in tickers:
+        try:
+            response = requests.get(
+                FINNHUB_COMPANY_NEWS_URL,
+                params={"symbol": ticker, "from": start.isoformat(), "to": today.isoformat()},
+                headers={"X-Finnhub-Token": api_key},  # key in a header, never the URL
+                timeout=20,
+            )
+            response.raise_for_status()
+            articles = response.json()
+        except Exception:
+            failures += 1
+            continue
+        kept = 0
+        for article in sorted(articles, key=lambda a: a.get("datetime") or 0, reverse=True):
+            headline = (article.get("headline") or "").strip()
+            if not headline or (article.get("datetime") or 0) < cutoff or headline in seen:
+                continue
+            seen.add(headline)
+            found.append(_to_headline(article, about=ticker))
+            kept += 1
+            if kept == COMPANY_NEWS_PER_TICKER:
+                break
+
+    if tickers and failures == len(tickers):
+        raise RuntimeError("Finnhub company news failed for every company")
+    found.sort(key=lambda h: h["published"], reverse=True)
+    return found[:MAX_COMPANY_HEADLINES]
 
 
 def fetch_headlines(api_key):
@@ -68,17 +136,7 @@ def fetch_headlines(api_key):
                 continue
             seen_headlines.add(headline)
 
-            headlines.append({
-                "headline": headline,
-                # Summaries can be long; trim them to keep the Claude call cheap.
-                "summary": (article.get("summary") or "").strip()[:300],
-                "source": article.get("source") or "unknown",
-                "time": datetime.fromtimestamp(published, timezone.utc).strftime("%Y-%m-%d %H:%M UTC"),
-                "published": published,
-                # Link to the full article and its photo (used by the dashboard).
-                "url": article.get("url") or "",
-                "image": article.get("image") or "",
-            })
+            headlines.append(_to_headline(article))
 
     # If every category failed, treat that as a real failure.
     if errors and not headlines:
