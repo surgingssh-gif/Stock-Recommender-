@@ -356,6 +356,8 @@
       el("h2", { class: "headline", text: headline }),
       parts[1] ? el("p", { class: "deck", text: parts[1] }) : null,
       byline,
+      today.self_check ? el("p", { class: "self-check" },
+        el("strong", { text: "The bot's self-check: " }), today.self_check) : null,
       el("p", { class: "today-score" },
         stats.judged
           ? "Scorecard: " + Math.round(stats.hit_rate) + "% of calls right so far (" + stats.correct + " of " + stats.judged + "). "
@@ -1841,7 +1843,8 @@
       };
       grid.appendChild(el("article", { class: "news-card" + (h.tickers.length ? " led" : "") },
         photo(h.image, h.headline, "news-photo"),
-        el("p", { class: "news-meta", text: h.source + " · " + fmtNewsTime(h.time) }),
+        el("p", { class: "news-meta" }, h.source + " · " + fmtNewsTime(h.time),
+          h.about ? el("span", { class: "about-tag", title: "Fetched as company news for " + h.about, text: h.about }) : null),
         el("h3", null, articleLink(h.url, h.headline, null)),
         h.summary ? el("p", { class: "news-summary", text: h.summary }) : null,
         h.tickers.length ? el("div", { class: "chips" },

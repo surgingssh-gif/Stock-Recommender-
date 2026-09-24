@@ -66,7 +66,10 @@ def test_log_picks_writes_header_and_rows(tmp_path):
     assert len(rows) == 4
 
 
-def _run_main(monkeypatch, tmp_path, *, news=None, analysis=None):
+sent_calls = {}  # what the fake Claude was given on the last _run_main
+
+
+def _run_main(monkeypatch, tmp_path, *, news=None, analysis=None, company_news=()):
     """Runs main() with fake services. Returns the list of messages 'sent'."""
     monkeypatch.chdir(tmp_path)  # so picks_log.csv is written to a temp folder
     monkeypatch.setattr(main, "load_dotenv", lambda: None)
@@ -79,12 +82,21 @@ def _run_main(monkeypatch, tmp_path, *, news=None, analysis=None):
             raise news
         return news
 
-    def fake_analysis(_headlines, _key, _watchlist=None):
+    calls = {}
+
+    def fake_analysis(headlines, _key, _watchlist=None, track_record=None, market_data=None):
+        calls.update(headlines=headlines, track_record=track_record, market_data=market_data)
         if isinstance(analysis, Exception):
             raise analysis
         return analysis
 
     sent = []
+    sent_calls.clear()
+    sent_calls.update(calls=calls)
+    # The extra inputs (company news, market movers) are faked too, so no network is used.
+    monkeypatch.setattr(main, "fetch_company_news", lambda key, tickers, skip=(): list(company_news))
+    monkeypatch.setattr(main, "get_market_movers", lambda: {"Biggest gainers": [("ABC", "ABC Corp", 9.5)]})
+    monkeypatch.setattr(main, "get_premarket_moves", lambda tickers: [("NVDA", 1.2)])
     monkeypatch.setattr(main, "fetch_headlines", fake_news)
     monkeypatch.setattr(main, "analyze_headlines", fake_analysis)
     monkeypatch.setattr(main, "get_prices", lambda tickers: {"XOM": 110.5, "DAL": None})
@@ -431,3 +443,33 @@ def test_pretend_portfolio_follows_the_top_5_and_compares_with_spy():
     assert result["series"][-1][2] == 10300.0          # SPY from $100 to $103
     assert (result["top5_return_pct"], result["spy_return_pct"]) == (15.5, 3.0)
     assert pretend_portfolio([], histories) is None
+
+
+def test_claude_gets_company_news_market_data_and_track_record(monkeypatch, tmp_path):
+    company = [{"headline": "Apple unveils new chip", "summary": "", "source": "CNBC",
+                "time": "2026-09-22 10:00 UTC", "published": 2, "about": "AAPL"}]
+    (tmp_path / "docs").mkdir()
+    (tmp_path / "docs" / "data.js").write_text("window.DASHBOARD_DATA = " + json.dumps({"picks": [
+        {"date": "2026-09-21", "ticker": "XOM", "direction": "bullish", "confidence": "high",
+         "top_rank": 1, "directional_return_pct": 2.5, "correct": True}]}) + ";")
+    _run_main(monkeypatch, tmp_path, news=FAKE_HEADLINES, analysis=FAKE_ANALYSIS, company_news=company)
+    calls = sent_calls["calls"]
+    # Company news is added after the general news, so headline numbers stay in order.
+    assert [h["headline"] for h in calls["headlines"]] == [FAKE_HEADLINES[0]["headline"], "Apple unveils new chip"]
+    assert "ABC (ABC Corp) +9.50%" in calls["market_data"] and "NVDA +1.20%" in calls["market_data"]
+    assert "Overall: 1 of 1 right (100%)" in calls["track_record"]
+    assert "2026-09-21 XOM bullish, high confidence, Top 5 #1: +2.50% (right)" in calls["track_record"]
+
+
+def test_prompt_marks_company_news():
+    from analyzer import _format_headlines
+
+    text = _format_headlines([{"headline": "Apple unveils new chip", "summary": "", "source": "CNBC",
+                               "time": "t", "about": "AAPL"}])
+    assert text == "1. [t] (CNBC) (about AAPL) Apple unveils new chip"
+
+
+def test_self_check_shows_in_discord_message():
+    msg = build_message("2026-09-22", dict(FAKE_ANALYSIS, self_check="Bearish calls have lagged."), {}, [])
+    assert "Self-check:** Bearish calls have lagged." in msg
+    assert msg.endswith(f"_{DISCLAIMER}_")

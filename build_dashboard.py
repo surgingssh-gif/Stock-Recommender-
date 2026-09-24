@@ -560,6 +560,7 @@ def build_data(picks, days, histories, events=None, facts=None):
         {
             "date": d,
             "market_mood": days.get(d, {}).get("market_mood"),
+            "self_check": days.get(d, {}).get("self_check"),
             "headlines": _with_tickers(d, days, enriched) if d in recent else [],
             "headline_count": len(days.get(d, {}).get("headlines", [])),
             "tickers": [p["ticker"] for p in enriched if p["date"] == d],

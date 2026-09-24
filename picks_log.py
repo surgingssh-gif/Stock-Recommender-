@@ -44,6 +44,8 @@ def save_day_details(date_str, analysis, headlines, days_dir=DAYS_DIR):
     details = {
         "date": date_str,
         "market_mood": analysis["market_mood"],
+        # What the bot took from its own track record today.
+        "self_check": analysis.get("self_check"),
         "picks": analysis["picks"],
         # One-sentence notes for the "market watch" stocks (see watchlist.py).
         "watchlist_notes": analysis.get("watchlist_notes", []),
@@ -59,6 +61,7 @@ def save_day_details(date_str, analysis, headlines, days_dir=DAYS_DIR):
                 "summary": h.get("summary", ""),
                 "url": h.get("url", ""),
                 "image": h.get("image", ""),
+                "about": h.get("about", ""),
             }
             for h in headlines
         ],
