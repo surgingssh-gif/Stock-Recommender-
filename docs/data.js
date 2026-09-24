@@ -1,36 +1,36 @@
 window.DASHBOARD_DATA = {
- "generated_at": "2026-09-23T23:43:20Z",
+ "generated_at": "2026-09-24T15:47:10Z",
  "stats": {
   "total_picks": 14,
   "days_tracked": 2,
-  "hit_rate": 28.6,
+  "hit_rate": 50.0,
   "judged": 14,
-  "correct": 4,
-  "avg_directional_return": 0.05,
+  "correct": 7,
+  "avg_directional_return": 0.25,
   "best": {
    "date": "2026-09-22",
-   "ticker": "CPRI",
+   "ticker": "BHF",
    "direction": "bullish",
-   "directional_return_pct": 7.83
+   "directional_return_pct": 7.3
   },
   "worst": {
    "date": "2026-09-22",
    "ticker": "RCL",
    "direction": "bullish",
-   "directional_return_pct": -7.97
+   "directional_return_pct": -6.78
   },
   "by_direction": [
    {
     "label": "bullish",
     "count": 10,
-    "hit_rate": 30.0,
-    "avg_directional_return": -0.0
+    "hit_rate": 50.0,
+    "avg_directional_return": 0.74
    },
    {
     "label": "bearish",
     "count": 4,
-    "hit_rate": 25.0,
-    "avg_directional_return": 0.17
+    "hit_rate": 50.0,
+    "avg_directional_return": -0.98
    }
   ],
   "by_confidence": [
@@ -43,14 +43,14 @@ window.DASHBOARD_DATA = {
    {
     "label": "medium",
     "count": 9,
-    "hit_rate": 33.3,
-    "avg_directional_return": 0.81
+    "hit_rate": 55.6,
+    "avg_directional_return": 1.0
    },
    {
     "label": "low",
     "count": 5,
-    "hit_rate": 20.0,
-    "avg_directional_return": -1.33
+    "hit_rate": 40.0,
+    "avg_directional_return": -1.09
    }
   ],
   "by_day": [
@@ -58,13 +58,13 @@ window.DASHBOARD_DATA = {
     "date": "2026-09-22",
     "count": 7,
     "hit_rate": 42.9,
-    "avg_directional_return": 0.73
+    "avg_directional_return": 0.49
    },
    {
     "date": "2026-09-23",
     "count": 7,
-    "hit_rate": 14.3,
-    "avg_directional_return": -0.64
+    "hit_rate": 57.1,
+    "avg_directional_return": 0.01
    }
   ],
   "top_buys": {
@@ -72,98 +72,98 @@ window.DASHBOARD_DATA = {
     {
      "label": "Top 5 buys",
      "count": 10,
-     "hit_rate": 30.0,
-     "avg_directional_return": -0.0
+     "hit_rate": 50.0,
+     "avg_directional_return": 0.74
     },
     {
      "label": "Other picks",
      "count": 4,
-     "hit_rate": 25.0,
-     "avg_directional_return": 0.17
+     "hit_rate": 50.0,
+     "avg_directional_return": -0.98
     }
    ],
    "judged": 10,
    "by_day": [
     {
      "date": "2026-09-23",
-     "hit_rate": 20.0,
-     "avg_directional_return": -0.49,
+     "hit_rate": 60.0,
+     "avg_directional_return": 1.09,
      "buys": [
       {
        "top_rank": 1,
        "ticker": "META",
        "company": "Meta Platforms",
-       "return_pct": -0.7,
-       "correct": false
+       "return_pct": 2.54,
+       "correct": true
       },
       {
        "top_rank": 2,
        "ticker": "DVN",
        "company": "Devon Energy",
-       "return_pct": -0.6,
-       "correct": false
+       "return_pct": 2.17,
+       "correct": true
       },
       {
        "top_rank": 3,
        "ticker": "MU",
        "company": "Micron Technology",
-       "return_pct": 0.11,
-       "correct": true
+       "return_pct": -1.3,
+       "correct": false
       },
       {
        "top_rank": 4,
        "ticker": "IONQ",
        "company": "IonQ",
-       "return_pct": -1.25,
+       "return_pct": -0.79,
        "correct": false
       },
       {
        "top_rank": 5,
        "ticker": "BHF",
        "company": "Brighthouse Financial",
-       "return_pct": -0.02,
-       "correct": false
+       "return_pct": 2.85,
+       "correct": true
       }
      ]
     },
     {
      "date": "2026-09-22",
      "hit_rate": 40.0,
-     "avg_directional_return": 0.49,
+     "avg_directional_return": 0.39,
      "buys": [
       {
        "top_rank": 1,
        "ticker": "CPRI",
        "company": "Capri Holdings",
-       "return_pct": 7.83,
+       "return_pct": 5.87,
        "correct": true
       },
       {
        "top_rank": 2,
        "ticker": "NVDA",
        "company": "NVIDIA",
-       "return_pct": -0.82,
+       "return_pct": -2.32,
        "correct": false
       },
       {
        "top_rank": 3,
        "ticker": "DAL",
        "company": "Delta Air Lines",
-       "return_pct": -0.91,
+       "return_pct": -2.1,
        "correct": false
       },
       {
        "top_rank": 4,
        "ticker": "BHF",
        "company": "Brighthouse Financial",
-       "return_pct": 4.31,
+       "return_pct": 7.3,
        "correct": true
       },
       {
        "top_rank": 5,
        "ticker": "RCL",
        "company": "Royal Caribbean",
-       "return_pct": -7.97,
+       "return_pct": -6.78,
        "correct": false
       }
      ]
@@ -177,24 +177,24 @@ window.DASHBOARD_DATA = {
     "days": 2,
     "count": 14,
     "judged": 14,
-    "correct": 4,
-    "hit_rate": 28.6,
-    "avg_directional_return": 0.05,
+    "correct": 7,
+    "hit_rate": 50.0,
+    "avg_directional_return": 0.25,
     "best": {
      "date": "2026-09-22",
-     "ticker": "CPRI",
+     "ticker": "BHF",
      "direction": "bullish",
-     "directional_return_pct": 7.83
+     "directional_return_pct": 7.3
     },
     "worst": {
      "date": "2026-09-22",
      "ticker": "RCL",
      "direction": "bullish",
-     "directional_return_pct": -7.97
+     "directional_return_pct": -6.78
     },
     "top5_count": 10,
-    "top5_hit_rate": 30.0,
-    "top5_avg": -0.0
+    "top5_hit_rate": 50.0,
+    "top5_avg": 0.74
    }
   ]
  },
@@ -218,12 +218,16 @@ window.DASHBOARD_DATA = {
     [
      "2026-09-23",
      744.1
+    ],
+    [
+     "2026-09-24",
+     768.4
     ]
    ],
-   "price_now": 744.1,
-   "return_pct": -0.7,
-   "directional_return_pct": -0.7,
-   "correct": false
+   "price_now": 768.4,
+   "return_pct": 2.54,
+   "directional_return_pct": 2.54,
+   "correct": true
   },
   {
    "date": "2026-09-23",
@@ -244,12 +248,16 @@ window.DASHBOARD_DATA = {
     [
      "2026-09-23",
      48.04
+    ],
+    [
+     "2026-09-24",
+     49.38
     ]
    ],
-   "price_now": 48.04,
-   "return_pct": -0.6,
-   "directional_return_pct": -0.6,
-   "correct": false
+   "price_now": 49.38,
+   "return_pct": 2.17,
+   "directional_return_pct": 2.17,
+   "correct": true
   },
   {
    "date": "2026-09-23",
@@ -270,12 +278,16 @@ window.DASHBOARD_DATA = {
     [
      "2026-09-23",
      80.46
+    ],
+    [
+     "2026-09-24",
+     79.82
     ]
    ],
-   "price_now": 80.46,
-   "return_pct": 0.09,
-   "directional_return_pct": -0.09,
-   "correct": false
+   "price_now": 79.82,
+   "return_pct": -0.71,
+   "directional_return_pct": 0.71,
+   "correct": true
   },
   {
    "date": "2026-09-23",
@@ -296,11 +308,15 @@ window.DASHBOARD_DATA = {
     [
      "2026-09-23",
      42.54
+    ],
+    [
+     "2026-09-24",
+     42.74
     ]
    ],
-   "price_now": 42.54,
-   "return_pct": -1.25,
-   "directional_return_pct": -1.25,
+   "price_now": 42.74,
+   "return_pct": -0.79,
+   "directional_return_pct": -0.79,
    "correct": false
   },
   {
@@ -322,11 +338,15 @@ window.DASHBOARD_DATA = {
     [
      "2026-09-23",
      375.84
+    ],
+    [
+     "2026-09-24",
+     391.33
     ]
    ],
-   "price_now": 375.84,
-   "return_pct": 1.9,
-   "directional_return_pct": -1.9,
+   "price_now": 391.33,
+   "return_pct": 6.1,
+   "directional_return_pct": -6.1,
    "correct": false
   },
   {
@@ -348,12 +368,16 @@ window.DASHBOARD_DATA = {
     [
      "2026-09-23",
      51.99
+    ],
+    [
+     "2026-09-24",
+     53.48
     ]
    ],
-   "price_now": 51.99,
-   "return_pct": -0.02,
-   "directional_return_pct": -0.02,
-   "correct": false
+   "price_now": 53.48,
+   "return_pct": 2.85,
+   "directional_return_pct": 2.85,
+   "correct": true
   },
   {
    "date": "2026-09-23",
@@ -374,12 +398,16 @@ window.DASHBOARD_DATA = {
     [
      "2026-09-23",
      1071.88
+    ],
+    [
+     "2026-09-24",
+     1056.75
     ]
    ],
-   "price_now": 1071.88,
-   "return_pct": 0.11,
-   "directional_return_pct": 0.11,
-   "correct": true
+   "price_now": 1056.75,
+   "return_pct": -1.3,
+   "directional_return_pct": -1.3,
+   "correct": false
   },
   {
    "date": "2026-09-22",
@@ -400,11 +428,15 @@ window.DASHBOARD_DATA = {
     [
      "2026-09-23",
      161.23
+    ],
+    [
+     "2026-09-24",
+     164.49
     ]
    ],
-   "price_now": 161.23,
-   "return_pct": 1.85,
-   "directional_return_pct": -1.85,
+   "price_now": 164.49,
+   "return_pct": 3.91,
+   "directional_return_pct": -3.91,
    "correct": false
   },
   {
@@ -426,11 +458,15 @@ window.DASHBOARD_DATA = {
     [
      "2026-09-23",
      81.75
+    ],
+    [
+     "2026-09-24",
+     80.77
     ]
    ],
-   "price_now": 81.75,
-   "return_pct": -0.91,
-   "directional_return_pct": -0.91,
+   "price_now": 80.77,
+   "return_pct": -2.1,
+   "directional_return_pct": -2.1,
    "correct": false
   },
   {
@@ -452,11 +488,15 @@ window.DASHBOARD_DATA = {
     [
      "2026-09-23",
      15.43
+    ],
+    [
+     "2026-09-24",
+     15.15
     ]
    ],
-   "price_now": 15.43,
-   "return_pct": 7.83,
-   "directional_return_pct": 7.83,
+   "price_now": 15.15,
+   "return_pct": 5.87,
+   "directional_return_pct": 5.87,
    "correct": true
   },
   {
@@ -478,11 +518,15 @@ window.DASHBOARD_DATA = {
     [
      "2026-09-23",
      51.99
+    ],
+    [
+     "2026-09-24",
+     53.48
     ]
    ],
-   "price_now": 51.99,
-   "return_pct": 4.31,
-   "directional_return_pct": 4.31,
+   "price_now": 53.48,
+   "return_pct": 7.3,
+   "directional_return_pct": 7.3,
    "correct": true
   },
   {
@@ -508,11 +552,15 @@ window.DASHBOARD_DATA = {
     [
      "2026-09-23",
      230.3
+    ],
+    [
+     "2026-09-24",
+     233.29
     ]
    ],
-   "price_now": 230.3,
-   "return_pct": -7.97,
-   "directional_return_pct": -7.97,
+   "price_now": 233.29,
+   "return_pct": -6.78,
+   "directional_return_pct": -6.78,
    "correct": false
   },
   {
@@ -538,11 +586,15 @@ window.DASHBOARD_DATA = {
     [
      "2026-09-23",
      106.43
+    ],
+    [
+     "2026-09-24",
+     105.47
     ]
    ],
-   "price_now": 106.43,
-   "return_pct": -4.51,
-   "directional_return_pct": 4.51,
+   "price_now": 105.47,
+   "return_pct": -5.37,
+   "directional_return_pct": 5.37,
    "correct": true
   },
   {
@@ -568,11 +620,15 @@ window.DASHBOARD_DATA = {
     [
      "2026-09-23",
      225.51
+    ],
+    [
+     "2026-09-24",
+     222.1
     ]
    ],
-   "price_now": 225.51,
-   "return_pct": -0.82,
-   "directional_return_pct": -0.82,
+   "price_now": 222.1,
+   "return_pct": -2.32,
+   "directional_return_pct": -2.32,
    "correct": false
   }
  ],
@@ -1746,10 +1802,6 @@ window.DASHBOARD_DATA = {
  "charts": {
   "AAPL": [
    [
-    "2026-03-27",
-    248.36
-   ],
-   [
     "2026-03-30",
     246.19
    ],
@@ -2240,13 +2292,13 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-23",
     337.02
+   ],
+   [
+    "2026-09-24",
+    336.18
    ]
   ],
   "AMZN": [
-   [
-    "2026-03-27",
-    199.34
-   ],
    [
     "2026-03-30",
     200.95
@@ -2738,6 +2790,10 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-23",
     249.27
+   ],
+   [
+    "2026-09-24",
+    246.48
    ]
   ],
   "BHF": [
@@ -3236,6 +3292,10 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-23",
     51.99
+   ],
+   [
+    "2026-09-24",
+    53.48
    ]
   ],
   "CPRI": [
@@ -3734,6 +3794,10 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-23",
     15.43
+   ],
+   [
+    "2026-09-24",
+    15.15
    ]
   ],
   "CSCO": [
@@ -4236,6 +4300,10 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-23",
     106.43
+   ],
+   [
+    "2026-09-24",
+    105.47
    ]
   ],
   "DAL": [
@@ -4734,13 +4802,13 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-23",
     81.75
+   ],
+   [
+    "2026-09-24",
+    80.77
    ]
   ],
   "DIA": [
-   [
-    "2026-03-27",
-    448.19
-   ],
    [
     "2026-03-30",
     448.85
@@ -5107,7 +5175,7 @@ window.DASHBOARD_DATA = {
    ],
    [
     "2026-08-10",
-    537.31
+    537.3
    ],
    [
     "2026-08-11",
@@ -5228,6 +5296,10 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-23",
     514.3
+   ],
+   [
+    "2026-09-24",
+    510.95
    ]
   ],
   "DVN": [
@@ -5722,13 +5794,13 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-23",
     48.04
+   ],
+   [
+    "2026-09-24",
+    49.38
    ]
   ],
   "GLD": [
-   [
-    "2026-03-27",
-    414.7
-   ],
    [
     "2026-03-30",
     414.58
@@ -6220,13 +6292,13 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-23",
     392.88
+   ],
+   [
+    "2026-09-24",
+    389.97
    ]
   ],
   "GOOGL": [
-   [
-    "2026-03-27",
-    274.0
-   ],
    [
     "2026-03-30",
     273.16
@@ -6718,6 +6790,10 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-23",
     337.83
+   ],
+   [
+    "2026-09-24",
+    338.23
    ]
   ],
   "IONQ": [
@@ -7216,13 +7292,13 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-23",
     42.54
+   ],
+   [
+    "2026-09-24",
+    42.74
    ]
   ],
   "JPM": [
-   [
-    "2026-03-27",
-    280.14
-   ],
    [
     "2026-03-30",
     281.06
@@ -7714,6 +7790,10 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-23",
     337.53
+   ],
+   [
+    "2026-09-24",
+    336.09
    ]
   ],
   "META": [
@@ -8212,13 +8292,13 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-23",
     744.1
+   ],
+   [
+    "2026-09-24",
+    768.4
    ]
   ],
   "MSFT": [
-   [
-    "2026-03-27",
-    355.33
-   ],
    [
     "2026-03-30",
     357.51
@@ -8710,6 +8790,10 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-23",
     500.59
+   ],
+   [
+    "2026-09-24",
+    495.25
    ]
   ],
   "MU": [
@@ -9208,6 +9292,10 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-23",
     1071.88
+   ],
+   [
+    "2026-09-24",
+    1056.75
    ]
   ],
   "NVDA": [
@@ -9710,13 +9798,13 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-23",
     225.51
+   ],
+   [
+    "2026-09-24",
+    222.1
    ]
   ],
   "QQQ": [
-   [
-    "2026-03-27",
-    561.38
-   ],
    [
     "2026-03-30",
     557.09
@@ -10208,6 +10296,10 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-23",
     741.21
+   ],
+   [
+    "2026-09-24",
+    735.82
    ]
   ],
   "RCL": [
@@ -10710,13 +10802,13 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-23",
     230.3
+   ],
+   [
+    "2026-09-24",
+    233.29
    ]
   ],
   "SPY": [
-   [
-    "2026-03-27",
-    630.89
-   ],
    [
     "2026-03-30",
     628.78
@@ -11208,6 +11300,10 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-23",
     767.81
+   ],
+   [
+    "2026-09-24",
+    764.12
    ]
   ],
   "TLT": [
@@ -11706,13 +11802,13 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-23",
     80.46
+   ],
+   [
+    "2026-09-24",
+    79.82
    ]
   ],
   "TSLA": [
-   [
-    "2026-03-27",
-    361.83
-   ],
    [
     "2026-03-30",
     355.28
@@ -12204,6 +12300,10 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-23",
     380.12
+   ],
+   [
+    "2026-09-24",
+    376.58
    ]
   ],
   "VLO": [
@@ -12698,6 +12798,10 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-23",
     375.84
+   ],
+   [
+    "2026-09-24",
+    391.33
    ]
   ],
   "XOM": [
@@ -13196,6 +13300,10 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-23",
     161.23
+   ],
+   [
+    "2026-09-24",
+    164.49
    ]
   ]
  },
@@ -13204,110 +13312,110 @@ window.DASHBOARD_DATA = {
    "ticker": "XLK",
    "name": "Technology",
    "changes": {
-    "1D": 0.25,
-    "1W": 6.43,
-    "1M": 6.68,
-    "3M": 6.17
+    "1D": -1.09,
+    "1W": 5.17,
+    "1M": 7.44,
+    "3M": 5.68
    }
   },
   {
    "ticker": "XLC",
    "name": "Communication",
    "changes": {
-    "1D": -1.91,
-    "1W": -0.97,
-    "1M": 1.38,
-    "3M": 5.27
+    "1D": 0.73,
+    "1W": 0.67,
+    "1M": 1.28,
+    "3M": 6.77
    }
   },
   {
    "ticker": "XLY",
    "name": "Consumer Discretionary",
    "changes": {
-    "1D": -1.41,
-    "1W": 0.01,
-    "1M": -6.04,
-    "3M": -2.52
+    "1D": -0.78,
+    "1W": -0.14,
+    "1M": -6.99,
+    "3M": -4.38
    }
   },
   {
    "ticker": "XLP",
    "name": "Consumer Staples",
    "changes": {
-    "1D": 0.62,
-    "1W": -0.9,
-    "1M": -3.51,
-    "3M": -0.89
+    "1D": -0.23,
+    "1W": -0.66,
+    "1M": -5.34,
+    "3M": -1.97
    }
   },
   {
    "ticker": "XLE",
    "name": "Energy",
    "changes": {
-    "1D": 0.96,
-    "1W": -2.01,
-    "1M": -0.59,
-    "3M": 17.13
+    "1D": 1.65,
+    "1W": -1.09,
+    "1M": 2.77,
+    "3M": 17.91
    }
   },
   {
    "ticker": "XLF",
    "name": "Financials",
    "changes": {
-    "1D": -0.47,
-    "1W": -2.14,
-    "1M": -5.98,
-    "3M": 1.89
+    "1D": -0.46,
+    "1W": -2.5,
+    "1M": -6.56,
+    "3M": 1.93
    }
   },
   {
    "ticker": "XLV",
    "name": "Health Care",
    "changes": {
-    "1D": -0.12,
-    "1W": 1.07,
-    "1M": -2.96,
-    "3M": 11.35
+    "1D": 0.73,
+    "1W": 1.74,
+    "1M": -2.3,
+    "3M": 11.3
    }
   },
   {
    "ticker": "XLI",
    "name": "Industrials",
    "changes": {
-    "1D": 0.07,
-    "1W": 1.01,
-    "1M": -5.38,
-    "3M": -4.26
+    "1D": -0.99,
+    "1W": 0.1,
+    "1M": -5.66,
+    "3M": -6.29
    }
   },
   {
    "ticker": "XLB",
    "name": "Materials",
    "changes": {
-    "1D": 1.15,
-    "1W": -0.44,
-    "1M": -5.65,
-    "3M": -0.71
+    "1D": -0.93,
+    "1W": -0.64,
+    "1M": -6.6,
+    "3M": -2.2
    }
   },
   {
    "ticker": "XLRE",
    "name": "Real Estate",
    "changes": {
-    "1D": -1.76,
-    "1W": -2.04,
-    "1M": -6.4,
-    "3M": -5.49
+    "1D": -0.33,
+    "1W": -1.77,
+    "1M": -7.23,
+    "3M": -5.53
    }
   },
   {
    "ticker": "XLU",
    "name": "Utilities",
    "changes": {
-    "1D": -2.24,
-    "1W": -3.1,
-    "1M": -6.38,
-    "3M": -11.15
+    "1D": -0.81,
+    "1W": -3.88,
+    "1M": -8.09,
+    "3M": -12.78
    }
   }
  ],
@@ -13415,6 +13523,372 @@ window.DASHBOARD_DATA = {
    "label": "Brighthouse Financial earnings"
   }
  ],
+ "facts": {
+  "AAPL": {
+   "quoteType": "EQUITY",
+   "sector": "Technology",
+   "industry": "Consumer Electronics",
+   "marketCap": 4906125623296,
+   "trailingPE": 38.51,
+   "forwardPE": 35.06,
+   "fiftyTwoWeekHigh": 345.34,
+   "fiftyTwoWeekLow": 243.42,
+   "dividendYield": 0.32,
+   "beta": 1.08,
+   "targetMeanPrice": 328.22,
+   "recommendationKey": "buy",
+   "numberOfAnalystOpinions": 39,
+   "longBusinessSummary": "Apple Inc. designs, manufactures, and markets smartphones, personal computers, tablets, wearables, and accessories worldwide. The company offers iPhone, a line of smartphones; Mac, a line of personal computers; iPad, a line of multi-purpose tablets; and wearables, home, and accessories comprising AirPods, Apple Vision\u2026"
+  },
+  "AMZN": {
+   "quoteType": "EQUITY",
+   "sector": "Consumer Cyclical",
+   "industry": "Internet Retail",
+   "marketCap": 2658718449664,
+   "trailingPE": 19.81,
+   "forwardPE": 23.73,
+   "fiftyTwoWeekHigh": 287.2,
+   "fiftyTwoWeekLow": 196.0,
+   "beta": 1.44,
+   "targetMeanPrice": 329.54,
+   "recommendationKey": "strong_buy",
+   "numberOfAnalystOpinions": 57,
+   "longBusinessSummary": "Amazon.com, Inc. engages in the retail sale of consumer products, advertising, and subscriptions service through online and physical stores in North America and internationally. The company operates through three segments: North America, International, and Amazon Web Services (AWS). It also manufactures and sells\u2026"
+  },
+  "BHF": {
+   "quoteType": "EQUITY",
+   "sector": "Financial Services",
+   "industry": "Insurance - Life",
+   "marketCap": 3072555264,
+   "trailingPE": 4.24,
+   "forwardPE": 2.65,
+   "fiftyTwoWeekHigh": 66.8,
+   "fiftyTwoWeekLow": 44.51,
+   "beta": 0.84,
+   "targetMeanPrice": 65.0,
+   "recommendationKey": "hold",
+   "numberOfAnalystOpinions": 6,
+   "longBusinessSummary": "Brighthouse Financial, Inc. provides annuity and life insurance products in the United States. The company operates through Annuities, Life, and Run-off segments. The Annuities segment offers variable, fixed, index-linked, and income annuities for contract holders' needs for protected wealth accumulation on a\u2026"
+  },
+  "CPRI": {
+   "quoteType": "EQUITY",
+   "sector": "Consumer Cyclical",
+   "industry": "Luxury Goods",
+   "marketCap": 1738587008,
+   "trailingPE": 19.42,
+   "forwardPE": 5.99,
+   "fiftyTwoWeekHigh": 28.27,
+   "fiftyTwoWeekLow": 12.4,
+   "beta": 1.38,
+   "targetMeanPrice": 22.53,
+   "recommendationKey": "buy",
+   "numberOfAnalystOpinions": 16,
+   "longBusinessSummary": "Capri Holdings Limited engages in the design, marketing, distribution, and retail of branded women's and men's apparel, footwear, and accessories in the United States, Canada, Latin America, Europe, the Middle East, Africa, Asia, and the Oceania. It operates through two segments: Michael Kors and Jimmy Choo. The\u2026"
+  },
+  "CSCO": {
+   "quoteType": "EQUITY",
+   "sector": "Technology",
+   "industry": "Communication Equipment",
+   "marketCap": 415844335616,
+   "trailingPE": 31.67,
+   "forwardPE": 18.76,
+   "fiftyTwoWeekHigh": 130.37,
+   "fiftyTwoWeekLow": 66.81,
+   "dividendYield": 1.58,
+   "beta": 0.99,
+   "targetMeanPrice": 137.25,
+   "recommendationKey": "buy",
+   "numberOfAnalystOpinions": 24,
+   "longBusinessSummary": "Cisco Systems, Inc. designs, develops, and sells technologies to power, help, secure, and draw insights from the internet in the Americas, Europe, the Middle East, Africa, the Asia Pacific, Japan, and China. The company provides data center switching; network security, identity and access management, and secure access\u2026"
+  },
+  "DAL": {
+   "quoteType": "EQUITY",
+   "sector": "Industrials",
+   "industry": "Airlines",
+   "marketCap": 53122789376,
+   "trailingPE": 13.4,
+   "forwardPE": 9.52,
+   "fiftyTwoWeekHigh": 95.68,
+   "fiftyTwoWeekLow": 55.03,
+   "dividendYield": 1.05,
+   "beta": 1.29,
+   "targetMeanPrice": 103.44,
+   "recommendationKey": "strong_buy",
+   "numberOfAnalystOpinions": 24,
+   "longBusinessSummary": "Delta Air Lines, Inc. provides scheduled air transportation for passengers and cargo in the United States and internationally. The company operates through two segments, Airline and Refinery. Its domestic network centered on core hubs in Atlanta, Detroit, Minneapolis-St. Paul, and Salt Lake City, as well as coastal\u2026"
+  },
+  "DIA": {
+   "quoteType": "ETF",
+   "category": "Large Value",
+   "totalAssets": 45455503360,
+   "trailingPE": 20.75,
+   "fiftyTwoWeekHigh": 546.75,
+   "fiftyTwoWeekLow": 450.44,
+   "dividendYield": 1.38,
+   "netExpenseRatio": 0.16,
+   "longBusinessSummary": "The Trust\u2019s Portfolio consists of substantially all of the component common stocks that comprise the DJIA, which are weighted in accordance with the terms of the Trust Agreement."
+  },
+  "DVN": {
+   "quoteType": "EQUITY",
+   "sector": "Energy",
+   "industry": "Oil & Gas E&P",
+   "marketCap": 54323499008,
+   "trailingPE": 10.74,
+   "forwardPE": 9.17,
+   "fiftyTwoWeekHigh": 52.71,
+   "fiftyTwoWeekLow": 31.47,
+   "dividendYield": 2.66,
+   "beta": 0.43,
+   "targetMeanPrice": 60.43,
+   "recommendationKey": "strong_buy",
+   "numberOfAnalystOpinions": 28,
+   "longBusinessSummary": "Devon Energy Corporation, an independent energy company, engages in the exploration, development, and production of oil, natural gas, and natural gas liquids in the United States. The company operates in Delaware Basin located in southeast New Mexico and west Texas, Eagle Ford located in North America, Anadarko Basin\u2026"
+  },
+  "GLD": {
+   "quoteType": "ETF",
+   "category": "Commodities Focused",
+   "totalAssets": 152861196288,
+   "fiftyTwoWeekHigh": 509.7,
+   "fiftyTwoWeekLow": 342.47,
+   "dividendYield": 0.0,
+   "netExpenseRatio": 0.4,
+   "longBusinessSummary": "The Trust holds gold bars and from time to time, issues Baskets in exchange for deposits of gold and distributes gold in connection with redemptions of Baskets. The investment objective of the Trust is for the Shares to reflect the performance of the price of gold bullion, less the Trust\u2019s expenses. The Sponsor\u2026"
+  },
+  "GOOGL": {
+   "quoteType": "EQUITY",
+   "sector": "Communication Services",
+   "industry": "Internet Content & Information",
+   "marketCap": 4135980630016,
+   "trailingPE": 16.97,
+   "forwardPE": 22.7,
+   "fiftyTwoWeekHigh": 408.61,
+   "fiftyTwoWeekLow": 235.84,
+   "dividendYield": 0.26,
+   "beta": 1.23,
+   "targetMeanPrice": 429.46,
+   "recommendationKey": "strong_buy",
+   "numberOfAnalystOpinions": 54,
+   "longBusinessSummary": "Alphabet Inc. offers various products and platforms in the United States, Europe, the Middle East, Africa, the Asia-Pacific, Canada, and Latin America. It operates through Google Services, Google Cloud, and Other Bets segments. The Google Services segment provides products and services, including ads, Android, Chrome,\u2026"
+  },
+  "IONQ": {
+   "quoteType": "EQUITY",
+   "sector": "Technology",
+   "industry": "Computer Hardware",
+   "marketCap": 17305368576,
+   "forwardPE": -32.67,
+   "fiftyTwoWeekHigh": 84.64,
+   "fiftyTwoWeekLow": 25.89,
+   "beta": 3.29,
+   "targetMeanPrice": 67.14,
+   "recommendationKey": "strong_buy",
+   "numberOfAnalystOpinions": 13,
+   "longBusinessSummary": "IonQ, Inc. develops quantum computing systems in the United States, Switzerland, and Internationally. It sells access to quantum computers of various qubit capacities. The company also makes access to its quantum computers through cloud platforms, such as Amazon Web Services (AWS), Braket, Microsoft's Azure Quantum,\u2026"
+  },
+  "JPM": {
+   "quoteType": "EQUITY",
+   "sector": "Financial Services",
+   "industry": "Banks - Diversified",
+   "marketCap": 893389832192,
+   "trailingPE": 14.41,
+   "forwardPE": 13.45,
+   "fiftyTwoWeekHigh": 366.5,
+   "fiftyTwoWeekLow": 279.1,
+   "dividendYield": 1.96,
+   "beta": 0.97,
+   "targetMeanPrice": 375.14,
+   "recommendationKey": "buy",
+   "numberOfAnalystOpinions": 21,
+   "longBusinessSummary": "JPMorgan Chase & Co. operates as a bank and financial holding company in the United States, rest of North America, Europe, the Middle East, Africa, the Asia Pacific, Latin America, and the Caribbean. It operates in three segments: Consumer & Community Banking, Commercial & Investment Bank, and Asset & Wealth\u2026"
+  },
+  "META": {
+   "quoteType": "EQUITY",
+   "sector": "Communication Services",
+   "industry": "Internet Content & Information",
+   "marketCap": 1957787729920,
+   "trailingPE": 28.93,
+   "forwardPE": 22.0,
+   "fiftyTwoWeekHigh": 770.9,
+   "fiftyTwoWeekLow": 520.26,
+   "dividendYield": 0.28,
+   "beta": 1.24,
+   "targetMeanPrice": 770.21,
+   "recommendationKey": "strong_buy",
+   "numberOfAnalystOpinions": 56,
+   "longBusinessSummary": "Meta Platforms, Inc. engages in the development of products that enable people to connect and share with friends and family through mobile devices, personal computers, virtual reality (VR) headsets, and AI glasses in the United States, Canada, Europe, Asia-Pacific, and internationally. It operates through two\u2026"
+  },
+  "MSFT": {
+   "quoteType": "EQUITY",
+   "sector": "Technology",
+   "industry": "Software - Infrastructure",
+   "marketCap": 3677353148416,
+   "trailingPE": 27.56,
+   "forwardPE": 20.92,
+   "fiftyTwoWeekHigh": 553.72,
+   "fiftyTwoWeekLow": 349.2,
+   "dividendYield": 0.78,
+   "beta": 1.11,
+   "targetMeanPrice": 577.26,
+   "recommendationKey": "strong_buy",
+   "numberOfAnalystOpinions": 52,
+   "longBusinessSummary": "Microsoft Corporation, a technology company, develops and supports a portfolio of technology solutions for individuals and businesses worldwide. Its products include operating systems, server applications, business solution applications, software development tools, desktop and server management tools, and video games;\u2026"
+  },
+  "MU": {
+   "quoteType": "EQUITY",
+   "sector": "Technology",
+   "industry": "Semiconductors",
+   "marketCap": 1193599041536,
+   "trailingPE": 23.87,
+   "forwardPE": 6.64,
+   "fiftyTwoWeekHigh": 1255.0,
+   "fiftyTwoWeekLow": 154.65,
+   "dividendYield": 0.05,
+   "beta": 2.22,
+   "targetMeanPrice": 1515.54,
+   "recommendationKey": "strong_buy",
+   "numberOfAnalystOpinions": 46,
+   "longBusinessSummary": "Micron Technology, Inc. designs, develops, manufactures, and sells memory and storage products in the United States, Taiwan, Japan, Mainland China, Hong Kong, Europe, and internationally. It operates through the Cloud Memory Business Unit; Core Data Center Business Unit; Mobile and Client Business Unit; and Automotive\u2026"
+  },
+  "NVDA": {
+   "quoteType": "EQUITY",
+   "sector": "Technology",
+   "industry": "Semiconductors",
+   "marketCap": 5362082643968,
+   "trailingPE": 28.04,
+   "forwardPE": 14.16,
+   "fiftyTwoWeekHigh": 236.54,
+   "fiftyTwoWeekLow": 164.27,
+   "dividendYield": 0.44,
+   "beta": 2.22,
+   "targetMeanPrice": 327.7,
+   "recommendationKey": "strong_buy",
+   "numberOfAnalystOpinions": 59,
+   "longBusinessSummary": "NVIDIA Corporation operates as a data center scale AI infrastructure company in the United States, Taiwan, China, Hong Kong, Europe, and internationally. It operates through Compute & Networking, and Graphics segments. The Compute & Networking segment provides data center accelerated computing and networking platforms\u2026"
+  },
+  "QQQ": {
+   "quoteType": "ETF",
+   "category": "Large Growth",
+   "totalAssets": 488981004288,
+   "trailingPE": 29.99,
+   "fiftyTwoWeekHigh": 748.65,
+   "fiftyTwoWeekLow": 555.6,
+   "dividendYield": 0.42,
+   "netExpenseRatio": 0.18,
+   "longBusinessSummary": "To maintain the correspondence between the composition and weights of the securities in the trust (the \"securities\") and the stocks in the NASDAQ-100 Index\u00ae, the adviser adjusts the securities from time to time to conform to periodic changes in the identity and/or relative weights of index securities. The composition\u2026"
+  },
+  "RCL": {
+   "quoteType": "EQUITY",
+   "sector": "Consumer Cyclical",
+   "industry": "Travel Services",
+   "marketCap": 62392557568,
+   "trailingPE": 14.41,
+   "forwardPE": 11.5,
+   "fiftyTwoWeekHigh": 356.39,
+   "fiftyTwoWeekLow": 222.22,
+   "dividendYield": 2.61,
+   "beta": 1.75,
+   "targetMeanPrice": 347.6,
+   "recommendationKey": "buy",
+   "numberOfAnalystOpinions": 25,
+   "longBusinessSummary": "Royal Caribbean Cruises Ltd. operates as a cruise company worldwide. The company operates cruises under the Royal Caribbean International, Celebrity Cruises, and Silversea Cruises brands, which comprise a range of itineraries. As of December 31, 2025, it operated 69 ships. Royal Caribbean Cruises Ltd. was founded in\u2026"
+  },
+  "SPY": {
+   "quoteType": "ETF",
+   "category": "Large Blend",
+   "totalAssets": 811937038336,
+   "trailingPE": 24.69,
+   "fiftyTwoWeekHigh": 779.37,
+   "fiftyTwoWeekLow": 629.28,
+   "dividendYield": 0.98,
+   "netExpenseRatio": 0.09,
+   "longBusinessSummary": "The trust seeks to achieve its investment objective by holding a portfolio of the common stocks that are included in the index (the \u201cPortfolio\u201d), with the weight of each stock in the Portfolio substantially corresponding to the weight of such stock in the index."
+  },
+  "TLT": {
+   "quoteType": "ETF",
+   "category": "Long Government",
+   "totalAssets": 47046328320,
+   "forwardPE": -3991.5,
+   "fiftyTwoWeekHigh": 92.19,
+   "fiftyTwoWeekLow": 79.7,
+   "dividendYield": 4.73,
+   "netExpenseRatio": 0.15,
+   "longBusinessSummary": "The underlying index consists of publicly-issued U.S. Treasury securities that have a remaining maturity greater than twenty years and have $300 million or more of outstanding face value, excluding amounts held by the Federal Reserve System (the \u201cFed\u201d). The fund will invest at least 80% of its assets in the component\u2026"
+  },
+  "TSLA": {
+   "quoteType": "EQUITY",
+   "sector": "Consumer Cyclical",
+   "industry": "Auto Manufacturers",
+   "marketCap": 1487221817344,
+   "trailingPE": 342.32,
+   "forwardPE": 171.38,
+   "fiftyTwoWeekHigh": 498.83,
+   "fiftyTwoWeekLow": 297.38,
+   "beta": 1.84,
+   "targetMeanPrice": 396.94,
+   "recommendationKey": "buy",
+   "numberOfAnalystOpinions": 38,
+   "longBusinessSummary": "Tesla, Inc. designs, develops, manufactures, leases, and sells electric vehicles, and energy generation and storage systems in the United States, China, and internationally. The company operates in two segments, Automotive; and Energy Generation and Storage. The company offers electric vehicles, as well as sells\u2026"
+  },
+  "VLO": {
+   "quoteType": "EQUITY",
+   "sector": "Energy",
+   "industry": "Oil & Gas Refining & Marketing",
+   "marketCap": 112674643968,
+   "trailingPE": 16.32,
+   "forwardPE": 10.29,
+   "fiftyTwoWeekHigh": 419.04,
+   "fiftyTwoWeekLow": 155.29,
+   "dividendYield": 1.28,
+   "beta": 0.57,
+   "targetMeanPrice": 360.32,
+   "recommendationKey": "buy",
+   "numberOfAnalystOpinions": 19,
+   "longBusinessSummary": "Valero Energy Corporation manufactures, markets, and sells petroleum-based and low-carbon liquid transportation fuels and petrochemical products in the United States, Canada, the United Kingdom, Ireland, Latin America, Mexico, Peru, and internationally. It operates through three segments: Refining, Renewable Diesel,\u2026"
+  },
+  "XOM": {
+   "quoteType": "EQUITY",
+   "sector": "Energy",
+   "industry": "Oil & Gas Integrated",
+   "marketCap": 676245078016,
+   "trailingPE": 21.17,
+   "forwardPE": 15.18,
+   "fiftyTwoWeekHigh": 176.41,
+   "fiftyTwoWeekLow": 110.39,
+   "dividendYield": 2.56,
+   "beta": 0.17,
+   "targetMeanPrice": 171.91,
+   "recommendationKey": "buy",
+   "numberOfAnalystOpinions": 22,
+   "longBusinessSummary": "ExxonMobil Holdings Corporation engages in the exploration and production of crude oil and natural gas in the United States, Canada, and internationally. The company operates through Upstream, Energy Products, Chemical Products, and Specialty Products segments. Its Upstream segment explores for and produces crude oil\u2026"
+  }
+ },
+ "portfolio": {
+  "start": 10000,
+  "series": [
+   [
+    "2026-09-21",
+    10000,
+    10000
+   ],
+   [
+    "2026-09-22",
+    9890.35,
+    9998.45
+   ],
+   [
+    "2026-09-23",
+    9841.68,
+    9926.44
+   ],
+   [
+    "2026-09-24",
+    9998.58,
+    9878.73
+   ]
+  ],
+  "top5_return_pct": -0.01,
+  "spy_return_pct": -1.21,
+  "pick_days": 2
+ },
  "watchlist": [
   {
    "ticker": "SPY",
@@ -13524,13 +13998,17 @@ window.DASHBOARD_DATA = {
     "image": "https://image.cnbcfm.com/api/v1/image/108366318-1790097195580-gettyimages-2296543491-img_3404.jpeg?v=1790097231&w=1920&h=1080"
    },
    "price_at_pick": 749.33,
-   "price_now": 744.1,
-   "return_pct": -0.7,
-   "correct": false,
+   "price_now": 768.4,
+   "return_pct": 2.54,
+   "correct": true,
    "history": [
     [
      "2026-09-23",
      744.1
+    ],
+    [
+     "2026-09-24",
+     768.4
     ]
    ]
   },
@@ -13556,13 +14034,17 @@ window.DASHBOARD_DATA = {
     "image": ""
    },
    "price_at_pick": 48.33,
-   "price_now": 48.04,
-   "return_pct": -0.6,
-   "correct": false,
+   "price_now": 49.38,
+   "return_pct": 2.17,
+   "correct": true,
    "history": [
     [
      "2026-09-23",
      48.04
+    ],
+    [
+     "2026-09-24",
+     49.38
     ]
    ]
   },
@@ -13587,13 +14069,17 @@ window.DASHBOARD_DATA = {
     "image": "https://image.cnbcfm.com/api/v1/image/108279188-1773779867892-gettyimages-2256072068-MICRON_NY.jpeg?v=1773779901&w=1920&h=1080"
    },
    "price_at_pick": 1070.7,
-   "price_now": 1071.88,
-   "return_pct": 0.11,
-   "correct": true,
+   "price_now": 1056.75,
+   "return_pct": -1.3,
+   "correct": false,
    "history": [
     [
      "2026-09-23",
      1071.88
+    ],
+    [
+     "2026-09-24",
+     1056.75
     ]
    ]
   },
@@ -13617,13 +14103,17 @@ window.DASHBOARD_DATA = {
     "image": "https://image.cnbcfm.com/api/v1/image/108156495-1749474982803-gettyimages-2213364464-img_9891.jpeg?v=1769105128&w=1920&h=1080"
    },
    "price_at_pick": 43.08,
-   "price_now": 42.54,
-   "return_pct": -1.25,
+   "price_now": 42.74,
+   "return_pct": -0.79,
    "correct": false,
    "history": [
     [
      "2026-09-23",
      42.54
+    ],
+    [
+     "2026-09-24",
+     42.74
     ]
    ]
   },
@@ -13648,13 +14138,17 @@ window.DASHBOARD_DATA = {
     "image": ""
    },
    "price_at_pick": 52.0,
-   "price_now": 51.99,
-   "return_pct": -0.02,
-   "correct": false,
+   "price_now": 53.48,
+   "return_pct": 2.85,
+   "correct": true,
    "history": [
     [
      "2026-09-23",
      51.99
+    ],
+    [
+     "2026-09-24",
+     53.48
     ]
    ]
   }
