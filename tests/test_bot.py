@@ -557,3 +557,18 @@ def test_target_and_stop_alerts_fire_once():
     assert msg.endswith(f"_{DISCLAIMER}_")
     bear = dict(pick, direction="bearish", target_price=92.0, stop_price=105.0)
     assert [a["kind"] for a in find_level_alerts([bear], {"RCL": 91.0}, {})[0]] == ["target"]
+
+
+def test_junk_news_is_filtered():
+    from news import is_junk
+
+    assert is_junk("Form 8.3 - Gooch & Housego plc - Octopus Investments")
+    assert is_junk("PODCAST: Crude hopes - Reuters")
+    assert is_junk("Man Group PLC : Form 8.3 - Rotork plc")
+    assert is_junk("Christian Dior : le groupe familial Arnault poursuit la simplification de ses structures")
+    assert is_junk("Cabot Properties erwirbt modernes Logistikprojekt in der Region Hannover",
+                   "HANNOVER, Deutschland - Cabot Properties, ein weltweit tätiger Investor und Betreiber von Logistik")
+    assert is_junk("توقيع اتفاقية بين Beam Global وشركة سعودية للطاقة")
+    assert not is_junk("Oil jumps 5% after supply cut", "Brent crude rose after OPEC cut output.")
+    assert not is_junk("Nestlé and L'Oréal shares rise in Zürich")
+    assert not is_junk("Bill de Blasio says the Fed should cut rates", "The former mayor said the la Guardia plan...")

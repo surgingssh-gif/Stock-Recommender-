@@ -153,8 +153,12 @@ see it (your API keys are never on it).
 To preview it on your computer, run `python build_dashboard.py`, then double-click
 `docs/index.html` to open it in your browser.
 
-**News photos:** the News tab and each pick show the photo and link from the news
-story behind it. Photos load straight from the news sites, so a few may be missing.
+**News tab:** the stories behind today's picks lead the page as "Top stories". Each
+shows the article's photo, or the stock's price chart when there's no good photo.
+Below that, every other headline is listed newest first, grouped by day, with filters
+for "Behind the picks" and "Company news". Filings (like UK "Form 8.3" notices),
+podcasts and non-English stories are filtered out, both on the page and before the
+news goes to Claude.
 
 **Top 5 buys of the day:** the Today tab starts with Claude's 5 most promising
 bullish ideas, ranked. Click **Show more info** on any of them to see why it could

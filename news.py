@@ -6,6 +6,7 @@ and world news. We grab two categories (general news + mergers), keep only
 headlines from the last day or so, remove duplicates, and return a tidy list.
 """
 
+import re
 import time
 from datetime import datetime, timezone
 
@@ -24,6 +25,29 @@ MAX_HEADLINES = 60
 # Company-specific news: the newest few stories per company, and a cap overall.
 COMPANY_NEWS_PER_TICKER = 2
 MAX_COMPANY_HEADLINES = 30
+
+
+# Stories that aren't news a stock-picker can use: UK takeover-code filings
+# ("Form 8.3 - ..."), podcast listings, and stories not in English.
+JUNK_HEADLINE = re.compile(r"(\bform 8\.\d|^form \d|^podcast\b)", re.IGNORECASE)
+FOREIGN_WORDS = {
+    "der", "und", "von", "ein", "eine", "mit", "für", "auf", "dem", "das",   # German
+    "le", "la", "les", "des", "du", "et", "ses", "sur", "pour", "avec",     # French
+    "el", "los", "las", "para", "una", "del",                              # Spanish
+}
+
+
+def is_junk(headline, summary=""):
+    """True for filings, podcasts and non-English stories (see above)."""
+    if JUNK_HEADLINE.search(headline):
+        return True
+    text = f"{headline} {summary}"
+    # Mostly non-Latin letters (Arabic, Chinese, Russian...) means not English.
+    letters = [c for c in text if c.isalpha()]
+    if letters and sum(1 for c in letters if ord(c) > 0x24F) / len(letters) > 0.3:
+        return True
+    words = re.findall(r"[a-zà-ÿ]+", text.lower())
+    return len({w for w in words if w in FOREIGN_WORDS}) >= 3
 
 
 def _hours_to_look_back():
@@ -84,6 +108,8 @@ def fetch_company_news(api_key, tickers, skip=()):
             headline = (article.get("headline") or "").strip()
             if not headline or (article.get("datetime") or 0) < cutoff or headline in seen:
                 continue
+            if is_junk(headline, article.get("summary") or ""):
+                continue
             seen.add(headline)
             found.append(_to_headline(article, about=ticker))
             kept += 1
@@ -131,8 +157,10 @@ def fetch_headlines(api_key):
             headline = (article.get("headline") or "").strip()
             published = article.get("datetime") or 0
 
-            # Skip empty, old, or duplicate headlines.
+            # Skip empty, old, duplicate or junk headlines.
             if not headline or published < cutoff or headline in seen_headlines:
+                continue
+            if is_junk(headline, article.get("summary") or ""):
                 continue
             seen_headlines.add(headline)
 

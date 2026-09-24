@@ -1923,46 +1923,203 @@
   // News tab: the latest day's headlines as photo cards
   // ---------------------------------------------------------------------------
 
-  var newsLimit = 24, newsOnlyPicks = false;
+  var newsLimit = 30, newsFilter = "all";
+  var MIN_PHOTO_WIDTH = 320;  // smaller images are usually logos or blurry thumbnails
+
+  /*
+   * A news picture in a fixed-shape frame. The frame always shows a tidy
+   * stand-in (the news source's name); a real photo covers it once it has
+   * loaded, but only if it's big enough to look sharp. So every story gets
+   * the same shape, with or without a photo.
+   */
+  function newsImage(h, cls, avoid) {
+    // The stand-in: the price chart of the stock the story is about, if we
+    // have one (preferring one not already shown), otherwise the source's name.
+    var withChart = (h.tickers || []).filter(function (t) { return (charts[t] || []).length > 1; });
+    var ticker = withChart.find(function (t) { return !avoid || avoid.indexOf(t) === -1; }) || withChart[0];
+    if (avoid && ticker) avoid.push(ticker);
+    var frame = el("div", { class: "nimg " + (cls || "") }, ticker ? frameChart(ticker) :
+      el("span", { class: "nimg-src", "aria-hidden": "true", text: h.source || "News" }));
+    var src = safeUrl(h.image);
+    if (src) {
+      var img = el("img", { alt: "", loading: "lazy", decoding: "async", referrerpolicy: "no-referrer" });
+      img.addEventListener("load", function () {
+        if (img.naturalWidth >= MIN_PHOTO_WIDTH) frame.classList.add("has-img"); else img.remove();
+      });
+      img.addEventListener("error", function () { img.remove(); });
+      img.src = src;
+      frame.appendChild(img);
+    }
+    return frame;
+  }
+
+  /* A stock's last 3 months as a picture that fills a news frame. */
+  function frameChart(ticker) {
+    var full = charts[ticker].slice(-63);
+    var w = 320, h = 180, pad = 18;
+    var vals = full.map(function (d) { return d[1]; });
+    var lo = Math.min.apply(null, vals), hi = Math.max.apply(null, vals);
+    if (hi - lo < 1e-9) { lo -= 1; hi += 1; }
+    var x = function (i) { return i * w / (full.length - 1); };
+    var y = function (v) { return pad + 18 + (1 - (v - lo) / (hi - lo)) * (h - 2 * pad - 18); };
+    var line = full.map(function (d, i) { return (i ? "L" : "M") + x(i).toFixed(1) + "," + y(d[1]).toFixed(1); }).join("");
+    var change = (vals[vals.length - 1] - vals[0]) / vals[0] * 100;
+    var color = trendColor(change);
+    return el("div", { class: "nimg-chart", "aria-hidden": "true" },
+      svg("svg", { viewBox: "0 0 " + w + " " + h, preserveAspectRatio: "none" },
+        svg("path", { d: line + "L" + w + "," + h + "L0," + h + "Z", fill: color, opacity: 0.12 }),
+        svg("path", { d: line, fill: "none", stroke: color, "stroke-width": 2.5, "vector-effect": "non-scaling-stroke", "stroke-linejoin": "round" })),
+      el("span", { class: "nimg-label" }, el("strong", { text: ticker }), el("span", { class: "nimg-period", text: "3 months" }), changePill(change)));
+  }
+
+  /* "Today", "Yesterday" or a weekday, in New York time, relative to the edition's date. */
+  function newsDay(t, edition) {
+    var d = new Date(String(t || "").replace(" UTC", "Z").replace(" ", "T"));
+    if (isNaN(d)) return "Earlier";
+    var ny = d.toLocaleDateString("en-CA", { timeZone: "America/New_York" });  // YYYY-MM-DD
+    var diff = Math.round((toDate(edition) - toDate(ny)) / 86400000);
+    if (diff <= 0) return "Today";
+    if (diff === 1) return "Yesterday";
+    return toDate(ny).toLocaleDateString("en-US", { weekday: "long", month: "short", day: "numeric", timeZone: "UTC" });
+  }
+
+  // Same rules as is_junk() in news.py (for stories saved before it existed).
+  var JUNK_HEADLINE = /(\bform 8\.\d|^form \d|^podcast\b)/i;
+  var FOREIGN_WORDS = ["der", "und", "von", "ein", "eine", "mit", "für", "auf", "dem", "das", "le", "la", "les", "des",
+    "du", "et", "ses", "sur", "pour", "avec", "el", "los", "las", "para", "una", "del"];
+  function isJunk(h) {
+    if (JUNK_HEADLINE.test(h.headline)) return true;
+    var letters = (h.headline + " " + (h.summary || "")).match(/\p{L}/gu) || [];
+    var nonLatin = letters.filter(function (c) { return c.charCodeAt(0) > 0x24F; }).length;
+    if (letters.length && nonLatin / letters.length > 0.3) return true;
+    var words = ((h.headline + " " + (h.summary || "")).toLowerCase().match(/[a-zà-ÿ]+/g) || []);
+    var hits = {};
+    words.forEach(function (w) { if (FOREIGN_WORDS.indexOf(w) !== -1) hits[w] = true; });
+    return Object.keys(hits).length >= 3;
+  }
+
+  /* Headline without a trailing " - Reuters" (the source is shown anyway). */
+  function cleanHeadline(h) {
+    return String(h.headline).replace(new RegExp("\\s+[-–]\\s+" + String(h.source || "").replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + "$", "i"), "");
+  }
+
+  /* The summary, unless it just repeats the headline or is shouting legal boilerplate. */
+  function cleanSummary(h) {
+    var sum = String(h.summary || "").trim();
+    if (!sum) return "";
+    var head = cleanHeadline(h).toLowerCase();
+    if (sum.toLowerCase().indexOf(head.slice(0, 40)) === 0) return "";
+    var letters = sum.replace(/[^A-Za-z]/g, "");
+    if (letters.length > 20 && letters.replace(/[^A-Z]/g, "").length / letters.length > 0.6) return "";
+    return sum;
+  }
+
+  function newsChips(h, day) {
+    if (!h.tickers.length) return null;
+    return el("div", { class: "chips" },
+      el("span", { class: "led-label", text: "Led to" }),
+      h.tickers.map(function (t) {
+        var p = picks.find(function (q) { return q.date === day.date && q.ticker === t; });
+        var label = (p && p.direction === "bearish" ? "▼ " : "▲ ") + t;
+        return chartLink(t, label, "chip chip-link") || el("span", { class: "chip", text: label });
+      }));
+  }
+
+  function newsMeta(h, timeOnPhonesOnly) {
+    return el("p", { class: "news-meta" },
+      el("span", { class: "news-src", text: h.source }),
+      el("span", { class: timeOnPhonesOnly ? "meta-time phone-only" : "meta-time", text: " · " + fmtNewsTime(h.time) }),
+      h.about ? el("span", { class: "about-tag", title: "Company news for " + h.about, text: h.about }) : null);
+  }
+
+  /* One of the top stories: picture on top (or beside it, for the lead). */
+  function topStory(h, day, lead, shown) {
+    return el("article", { class: "top-story" + (lead ? " lead-story" : "") },
+      newsImage(h, lead ? "nimg-lead" : "nimg-top", shown),
+      el("div", { class: "top-story-text" },
+        newsMeta(h),
+        el("h3", null, articleLink(h.url, cleanHeadline(h), null)),
+        cleanSummary(h) ? el("p", { class: "news-summary", text: cleanSummary(h) }) : null,
+        newsChips(h, day)));
+  }
+
+  /* A row in the "All headlines" list: time and headline (text only, like a wire service). */
+  function riverItem(h, day) {
+    return el("article", { class: "river-item" },
+      el("time", { class: "river-time", text: fmtNewsTime(h.time).replace(" ET", "") }),
+      el("div", { class: "river-text" },
+        newsMeta(h, true),
+        el("h3", null, articleLink(h.url, cleanHeadline(h), null)),
+        cleanSummary(h) ? el("p", { class: "news-summary", text: cleanSummary(h) }) : null,
+        newsChips(h, day)));
+  }
 
   function renderNews() {
-    var grid = document.getElementById("news-grid");
+    var leadBox = document.getElementById("news-lead");
+    var river = document.getElementById("news-river");
     var more = document.getElementById("news-more");
     var note = document.getElementById("news-note");
-    clear(grid);
+    var filters = document.getElementById("news-filters");
+    [leadBox, river, filters].forEach(clear);
     var day = days.find(function (d) { return d.headlines && d.headlines.length; });
     if (!day) {
       note.textContent = "";
       more.hidden = true;
-      grid.appendChild(emptyChart("Headlines arrive with the next morning run",
+      river.appendChild(emptyChart("Headlines arrive with the next morning run",
         "Each weekday the bot saves the stories it read, with photos and links to the full articles. They'll show up here."));
       return;
     }
-    // Stories behind the day's picks come first, then the rest in their original order.
-    var all = day.headlines.slice().sort(function (a, b) { return (b.tickers.length > 0) - (a.tickers.length > 0); });
-    var list = newsOnlyPicks ? all.filter(function (h) { return h.tickers.length; }) : all;
-    note.textContent = fmtLongDate(day.date) + " · " + day.headlines.length + " stories · " +
-      all.filter(function (h) { return h.tickers.length; }).length + " led to picks";
+    var all = day.headlines.filter(function (h) { return !isJunk(h); });
+    var led = all.filter(function (h) { return h.tickers.length; });
+    var company = all.filter(function (h) { return h.about; });
+    note.textContent = fmtLongDate(day.date) + " · " + all.length + " stories";
 
-    list.slice(0, newsLimit).forEach(function (h) {
-      var dirOf = function (t) {
-        var p = picks.find(function (q) { return q.date === day.date && q.ticker === t; });
-        return p && p.direction === "bearish" ? "▼ " : "▲ ";
-      };
-      grid.appendChild(el("article", { class: "news-card" + (h.tickers.length ? " led" : "") },
-        photo(h.image, h.headline, "news-photo"),
-        el("p", { class: "news-meta" }, h.source + " · " + fmtNewsTime(h.time),
-          h.about ? el("span", { class: "about-tag", title: "Fetched as company news for " + h.about, text: h.about }) : null),
-        el("h3", null, articleLink(h.url, h.headline, null)),
-        h.summary ? el("p", { class: "news-summary", text: h.summary }) : null,
-        h.tickers.length ? el("div", { class: "chips" },
-          el("span", { class: "led-label", text: "Led to" }),
-          h.tickers.map(function (t) {
-            return chartLink(t, dirOf(t) + t, "chip chip-link") || el("span", { class: "chip", text: dirOf(t) + t });
-          })) : null));
+    // Filter buttons.
+    [["all", "All stories", all.length], ["led", "Behind the picks", led.length], ["company", "Company news", company.length]].forEach(function (f) {
+      if (f[0] !== "all" && !f[2]) return;
+      var b = el("button", { type: "button", class: "pill", "aria-pressed": String(newsFilter === f[0]) }, f[1] + " ", el("span", { class: "pill-n", text: String(f[2]) }));
+      b.addEventListener("click", function () { newsFilter = f[0]; newsLimit = 30; renderNews(); });
+      filters.appendChild(b);
     });
-    more.hidden = list.length <= newsLimit;
+
+    // Top stories: the news behind today's picks (most picks first), shown big.
+    var list = newsFilter === "led" ? led : newsFilter === "company" ? company : all;
+    var top = [];
+    if (newsFilter === "all") {
+      // Most picks first, and spread across different stocks where possible.
+      var used = {};
+      var ranked = led.slice().sort(function (a, b) { return b.tickers.length - a.tickers.length; });
+      var fresh = ranked.filter(function (h) {
+        var isNew = h.tickers.some(function (t) { return !used[t]; });
+        h.tickers.forEach(function (t) { used[t] = true; });
+        return isNew;
+      });
+      top = fresh.concat(ranked.filter(function (h) { return fresh.indexOf(h) === -1; })).slice(0, 5);
+      if (top.length) {
+        leadBox.appendChild(el("h3", { class: "news-kicker", text: "Top stories · behind today's picks" }));
+        var grid = el("div", { class: "top-stories" + (top.length === 1 ? " single" : "") });
+        var shown = [];
+        top.forEach(function (h, i) { grid.appendChild(topStory(h, day, i === 0, shown)); });
+        leadBox.appendChild(grid);
+      }
+    }
+
+    // Everything else, newest first, grouped by day.
+    var rest = list.filter(function (h) { return top.indexOf(h) === -1; })
+      .sort(function (a, b) { return String(b.time).localeCompare(String(a.time)); });
+    if (rest.length) {
+      river.appendChild(el("h3", { class: "news-kicker", text: newsFilter === "all" ? "All headlines" : newsFilter === "led" ? "Behind the picks" : "Company news" }));
+    }
+    var lastGroup = null;
+    rest.slice(0, newsLimit).forEach(function (h) {
+      var group = newsDay(h.time, day.date);
+      if (group !== lastGroup) { river.appendChild(el("p", { class: "river-day", text: group })); lastGroup = group; }
+      river.appendChild(riverItem(h, day));
+    });
+    more.hidden = rest.length <= newsLimit;
+    more.textContent = "Show " + Math.min(30, rest.length - newsLimit) + " more stories";
   }
+
 
   // ---------------------------------------------------------------------------
   // Archive (one card per day)
@@ -2084,12 +2241,7 @@
   setupRecord();
   renderArchive();
   renderNews();
-  document.getElementById("news-more").addEventListener("click", function () { newsLimit += 24; renderNews(); });
-  document.getElementById("news-only").addEventListener("change", function (e) {
-    newsOnlyPicks = e.target.checked;
-    newsLimit = 24;
-    renderNews();
-  });
+  document.getElementById("news-more").addEventListener("click", function () { newsLimit += 30; renderNews(); });
   window.addEventListener("hashchange", showTab);
   showTab();
   // Opening a bookmarked tab (e.g. .../#results) makes the browser jump to that
