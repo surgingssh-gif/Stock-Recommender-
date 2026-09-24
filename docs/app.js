@@ -1924,52 +1924,44 @@
   // ---------------------------------------------------------------------------
 
   var newsLimit = 30, newsFilter = "all";
-  var MIN_PHOTO_WIDTH = 320;  // smaller images are usually logos or blurry thumbnails
-
   /*
-   * A news picture in a fixed-shape frame. The frame always shows a tidy
-   * stand-in (the news source's name); a real photo covers it once it has
-   * loaded, but only if it's big enough to look sharp. So every story gets
-   * the same shape, with or without a photo.
+   * The picture for a top story: the logo of the company it's about, with its
+   * name and 3-month move, in a fixed-shape frame so every story matches.
+   * Funds and companies without a logo get a tile with the ticker instead.
    */
-  function newsImage(h, cls, avoid) {
-    // The stand-in: the price chart of the stock the story is about, if we
-    // have one (preferring one not already shown), otherwise the source's name.
-    var withChart = (h.tickers || []).filter(function (t) { return (charts[t] || []).length > 1; });
-    var ticker = withChart.find(function (t) { return !avoid || avoid.indexOf(t) === -1; }) || withChart[0];
-    if (avoid && ticker) avoid.push(ticker);
-    var frame = el("div", { class: "nimg " + (cls || "") }, ticker ? frameChart(ticker) :
-      el("span", { class: "nimg-src", "aria-hidden": "true", text: h.source || "News" }));
-    var src = safeUrl(h.image);
+  var LOGO_FALLBACK_URL = "https://static2.finnhub.io/file/publicdatany/finnhubimage/stock_logo/";
+
+  function logoMark(ticker, cls) {
+    var box = el("span", { class: "logo-mark " + (cls || "") }, el("span", { class: "logo-mono", text: ticker.slice(0, 4) }));
+    var facts = (DATA.facts || {})[ticker] || {};
+    var isFund = facts.quoteType === "ETF" || facts.quoteType === "MUTUALFUND";
+    var src = safeUrl((DATA.logos || {})[ticker]) || (isFund ? null : LOGO_FALLBACK_URL + encodeURIComponent(ticker) + ".png");
     if (src) {
       var img = el("img", { alt: "", loading: "lazy", decoding: "async", referrerpolicy: "no-referrer" });
-      img.addEventListener("load", function () {
-        if (img.naturalWidth >= MIN_PHOTO_WIDTH) frame.classList.add("has-img"); else img.remove();
-      });
+      img.addEventListener("load", function () { if (img.naturalWidth >= 32) box.classList.add("has-logo"); else img.remove(); });
       img.addEventListener("error", function () { img.remove(); });
       img.src = src;
-      frame.appendChild(img);
+      box.appendChild(img);
     }
-    return frame;
+    return box;
   }
 
-  /* A stock's last 3 months as a picture that fills a news frame. */
-  function frameChart(ticker) {
-    var full = charts[ticker].slice(-63);
-    var w = 320, h = 180, pad = 18;
-    var vals = full.map(function (d) { return d[1]; });
-    var lo = Math.min.apply(null, vals), hi = Math.max.apply(null, vals);
-    if (hi - lo < 1e-9) { lo -= 1; hi += 1; }
-    var x = function (i) { return i * w / (full.length - 1); };
-    var y = function (v) { return pad + 18 + (1 - (v - lo) / (hi - lo)) * (h - 2 * pad - 18); };
-    var line = full.map(function (d, i) { return (i ? "L" : "M") + x(i).toFixed(1) + "," + y(d[1]).toFixed(1); }).join("");
-    var change = (vals[vals.length - 1] - vals[0]) / vals[0] * 100;
-    var color = trendColor(change);
-    return el("div", { class: "nimg-chart", "aria-hidden": "true" },
-      svg("svg", { viewBox: "0 0 " + w + " " + h, preserveAspectRatio: "none" },
-        svg("path", { d: line + "L" + w + "," + h + "L0," + h + "Z", fill: color, opacity: 0.12 }),
-        svg("path", { d: line, fill: "none", stroke: color, "stroke-width": 2.5, "vector-effect": "non-scaling-stroke", "stroke-linejoin": "round" })),
-      el("span", { class: "nimg-label" }, el("strong", { text: ticker }), el("span", { class: "nimg-period", text: "3 months" }), changePill(change)));
+  function newsImage(h, cls, avoid) {
+    // The company the story is about (preferring one not already shown).
+    var tickers = h.tickers || [];
+    var ticker = tickers.find(function (t) { return !avoid || avoid.indexOf(t) === -1; }) || tickers[0];
+    if (avoid && ticker) avoid.push(ticker);
+    if (!ticker) {
+      return el("div", { class: "nimg " + (cls || "") }, el("span", { class: "nimg-src", "aria-hidden": "true", text: h.source || "News" }));
+    }
+    var recent = (charts[ticker] || []).slice(-63);
+    var change = recent.length > 1 ? (recent[recent.length - 1][1] - recent[0][1]) / recent[0][1] * 100 : null;
+    return el("div", { class: "nimg nimg-logo " + (cls || ""), "aria-hidden": "true" },
+      logoMark(ticker),
+      el("span", { class: "logo-text" },
+        el("span", { class: "logo-name", text: companyOf(ticker) || ticker }),
+        el("span", { class: "logo-sub" }, el("strong", { text: ticker }),
+          change === null ? null : [el("span", { class: "nimg-period", text: " · 3 months" }), changePill(change)])));
   }
 
   /* "Today", "Yesterday" or a weekday, in New York time, relative to the edition's date. */

@@ -97,6 +97,7 @@ def _run_main(monkeypatch, tmp_path, *, news=None, analysis=None, company_news=(
     monkeypatch.setattr(main, "fetch_company_news", lambda key, tickers, skip=(): list(company_news))
     monkeypatch.setattr(main, "get_market_movers", lambda: {"Biggest gainers": [("ABC", "ABC Corp", 9.5)]})
     monkeypatch.setattr(main, "get_premarket_moves", lambda tickers: [("NVDA", 1.2)])
+    monkeypatch.setattr(main, "update_logos", lambda key, tickers: 0)
     monkeypatch.setattr(main, "fetch_headlines", fake_news)
     monkeypatch.setattr(main, "analyze_headlines", fake_analysis)
     monkeypatch.setattr(main, "get_prices", lambda tickers: {"XOM": 110.5, "DAL": None})
@@ -572,3 +573,31 @@ def test_junk_news_is_filtered():
     assert not is_junk("Oil jumps 5% after supply cut", "Brent crude rose after OPEC cut output.")
     assert not is_junk("Nestlé and L'Oréal shares rise in Zürich")
     assert not is_junk("Bill de Blasio says the Fed should cut rates", "The former mayor said the la Guardia plan...")
+
+
+def test_logos_are_looked_up_once_and_saved(monkeypatch, tmp_path):
+    import logos
+
+    calls = []
+
+    class FakeResponse:
+        def __init__(self, logo):
+            self.logo = logo
+
+        def raise_for_status(self):
+            pass
+
+        def json(self):
+            return {"logo": self.logo}
+
+    def fake_get(url, params, headers, timeout):
+        calls.append(params["symbol"])
+        assert "token" not in url and headers["X-Finnhub-Token"] == "key"  # key stays out of the URL
+        return FakeResponse({"AAPL": "https://img.test/AAPL.png"}.get(params["symbol"], ""))
+
+    monkeypatch.setattr(logos.requests, "get", fake_get)
+    path = tmp_path / "logos.json"
+    assert logos.update_logos("key", ["AAPL", "SPY"], path) == 2
+    assert logos.load_logos(path) == {"AAPL": "https://img.test/AAPL.png", "SPY": ""}
+    assert logos.update_logos("key", ["AAPL", "SPY", "AAPL"], path) == 0  # already saved
+    assert calls == ["AAPL", "SPY"]

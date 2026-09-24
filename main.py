@@ -27,6 +27,7 @@ from dotenv import load_dotenv
 from analyzer import add_price_levels, analyze_headlines
 from discord_notify import build_message, send_to_discord
 from build_dashboard import read_picks
+from logos import update_logos
 from market_data import format_market_data, get_market_movers, get_premarket_moves
 from news import fetch_company_news, fetch_headlines
 from picks_log import log_picks, save_day_details
@@ -140,6 +141,14 @@ def main():
             print("Saved picks to picks_log.csv and data/days/.")
         except Exception as e:
             problems.append(f"Saving picks failed: {e}")
+
+    # --- Step 4b: Company logos for the dashboard (new companies only) -------
+    if finnhub_key and not dry_run:
+        tickers = list(WATCHLIST) + [p["ticker"] for p in (analysis or {}).get("picks", [])]
+        try:
+            update_logos(finnhub_key, tickers)
+        except Exception as e:
+            print(f"Logo lookup failed (the dashboard will use ticker tiles): {e}")
 
     # --- Step 5: Send the message -------------------------------------------
     # Also print problems here, so they show up in the GitHub Actions log.
