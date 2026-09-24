@@ -509,9 +509,9 @@ figcaption { font: 400 11px/1.5 var(--sans); color: var(--muted); margin-top: 10
 .nimg-src { font: italic 600 15px/1.2 var(--serif); color: var(--muted); padding: 8px; text-align: center; }
 .nimg img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity .25s; }
 .nimg.has-img img { opacity: 1; }
-.nimg-lead { aspect-ratio: 16 / 9; }
+.nimg-lead { aspect-ratio: 2 / 1; max-height: 200px; width: 100%; }
 .nimg-lead .nimg-src { font-size: 22px; }
-.nimg-top { aspect-ratio: 16 / 9; }
+.nimg-top { aspect-ratio: 5 / 2; }
 .nimg-chart { position: absolute; inset: 0; background: var(--paper); }
 .nimg-chart svg { position: absolute; inset: 0; width: 100%; height: 100%; }
 .nimg-label { position: absolute; top: 10px; left: 12px; display: flex; align-items: center; gap: 6px; font: 400 11px/1 var(--sans); color: var(--muted); }
@@ -527,7 +527,7 @@ figcaption { font: 400 11px/1.5 var(--sans); color: var(--muted); margin-top: 10
 .top-story h3 a, .river-item h3 a { text-decoration: none; }
 .top-story h3 a:hover, .river-item h3 a:hover { text-decoration: underline; text-underline-offset: 3px; }
 .top-story .nimg { margin-bottom: 10px; }
-.lead-story { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: 24px; align-items: center; padding-bottom: 22px; border-bottom: 1px solid var(--hair); }
+.lead-story { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0, 0.75fr) minmax(0, 1fr); gap: 24px; align-items: center; padding-bottom: 22px; border-bottom: 1px solid var(--hair); }
 .lead-story .nimg { margin: 0; }
 .lead-story h3 { font-size: clamp(22px, 2.4vw, 28px); line-height: 1.18; }
 .lead-story .news-summary { font-size: 15px; -webkit-line-clamp: 4; margin-top: 10px; }
@@ -732,6 +732,7 @@ footer .disclaimer { font: 400 italic 13px/1.4 var(--serif); color: var(--ink); 
 }
 @media (max-width: 680px) {
   .lead-story { grid-template-columns: 1fr; gap: 12px; }
+  .nimg-lead { aspect-ratio: 5 / 2; max-height: 150px; }
   .top-stories { grid-template-columns: 1fr; gap: 0; }
   .top-story:not(.lead-story) { display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: 12px; padding: 14px 0; border-bottom: 1px solid var(--hair); }
   .top-story:not(.lead-story) .nimg { width: 96px; aspect-ratio: 4 / 3; margin: 0; }
