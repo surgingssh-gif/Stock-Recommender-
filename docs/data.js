@@ -1,36 +1,36 @@
 window.DASHBOARD_DATA = {
- "generated_at": "2026-09-24T17:28:48Z",
+ "generated_at": "2026-09-24T23:53:24Z",
  "stats": {
   "total_picks": 22,
   "days_tracked": 3,
-  "hit_rate": 68.8,
-  "judged": 16,
-  "correct": 11,
-  "avg_directional_return": 0.7,
+  "hit_rate": 68.2,
+  "judged": 22,
+  "correct": 15,
+  "avg_directional_return": 0.9,
   "best": {
    "date": "2026-09-22",
    "ticker": "BHF",
    "direction": "bullish",
-   "directional_return_pct": 6.84
+   "directional_return_pct": 7.26
   },
   "worst": {
-   "date": "2026-09-23",
-   "ticker": "VLO",
-   "direction": "bearish",
-   "directional_return_pct": -5.81
+   "date": "2026-09-22",
+   "ticker": "RCL",
+   "direction": "bullish",
+   "directional_return_pct": -4.5
   },
   "by_direction": [
    {
     "label": "bullish",
     "count": 16,
-    "hit_rate": 75.0,
-    "avg_directional_return": 1.13
+    "hit_rate": 68.8,
+    "avg_directional_return": 1.26
    },
    {
     "label": "bearish",
     "count": 6,
-    "hit_rate": 50.0,
-    "avg_directional_return": -0.43
+    "hit_rate": 66.7,
+    "avg_directional_return": -0.05
    }
   ],
   "by_confidence": [
@@ -43,14 +43,14 @@ window.DASHBOARD_DATA = {
    {
     "label": "medium",
     "count": 13,
-    "hit_rate": 72.7,
-    "avg_directional_return": 1.08
+    "hit_rate": 76.9,
+    "avg_directional_return": 1.44
    },
    {
     "label": "low",
     "count": 9,
-    "hit_rate": 60.0,
-    "avg_directional_return": 0.15
+    "hit_rate": 55.6,
+    "avg_directional_return": 0.13
    }
   ],
   "by_day": [
@@ -58,19 +58,19 @@ window.DASHBOARD_DATA = {
     "date": "2026-09-22",
     "count": 7,
     "hit_rate": 57.1,
-    "avg_directional_return": 1.57
+    "avg_directional_return": 1.37
    },
    {
     "date": "2026-09-23",
     "count": 7,
     "hit_rate": 85.7,
-    "avg_directional_return": 0.63
+    "avg_directional_return": 1.5
    },
    {
     "date": "2026-09-24",
     "count": 8,
-    "hit_rate": 50.0,
-    "avg_directional_return": -0.0
+    "hit_rate": 62.5,
+    "avg_directional_return": -0.02
    }
   ],
   "top_buys": {
@@ -78,98 +78,98 @@ window.DASHBOARD_DATA = {
     {
      "label": "Top 5 buys",
      "count": 15,
-     "hit_rate": 75.0,
-     "avg_directional_return": 1.2
+     "hit_rate": 73.3,
+     "avg_directional_return": 1.38
     },
     {
      "label": "Other picks",
      "count": 7,
-     "hit_rate": 50.0,
-     "avg_directional_return": -0.37
+     "hit_rate": 57.1,
+     "avg_directional_return": -0.11
     }
    ],
-   "judged": 12,
+   "judged": 15,
    "by_day": [
     {
      "date": "2026-09-24",
-     "hit_rate": 50.0,
-     "avg_directional_return": -0.0,
+     "hit_rate": 60.0,
+     "avg_directional_return": -0.08,
      "buys": [
       {
        "top_rank": 1,
        "ticker": "XOM",
        "company": "Exxon Mobil",
-       "return_pct": 0.0,
-       "correct": null
+       "return_pct": -0.28,
+       "correct": false
       },
       {
        "top_rank": 2,
        "ticker": "META",
        "company": "Meta Platforms",
-       "return_pct": -0.01,
-       "correct": false
+       "return_pct": 0.84,
+       "correct": true
       },
       {
        "top_rank": 3,
        "ticker": "MSFT",
        "company": "Microsoft",
-       "return_pct": 0.0,
+       "return_pct": 0.43,
        "correct": true
       },
       {
        "top_rank": 4,
        "ticker": "VLO",
        "company": "Valero Energy",
-       "return_pct": 0.0,
-       "correct": null
+       "return_pct": -1.89,
+       "correct": false
       },
       {
        "top_rank": 5,
        "ticker": "JPM",
        "company": "JPMorgan Chase",
-       "return_pct": 0.0,
-       "correct": null
+       "return_pct": 0.49,
+       "correct": true
       }
      ]
     },
     {
      "date": "2026-09-23",
      "hit_rate": 100.0,
-     "avg_directional_return": 1.92,
+     "avg_directional_return": 2.62,
      "buys": [
       {
        "top_rank": 1,
        "ticker": "META",
        "company": "Meta Platforms",
-       "return_pct": 2.89,
+       "return_pct": 3.77,
        "correct": true
       },
       {
        "top_rank": 2,
        "ticker": "DVN",
        "company": "Devon Energy",
-       "return_pct": 1.32,
+       "return_pct": 1.18,
        "correct": true
       },
       {
        "top_rank": 3,
        "ticker": "MU",
        "company": "Micron Technology",
-       "return_pct": 0.33,
+       "return_pct": 0.92,
        "correct": true
       },
       {
        "top_rank": 4,
        "ticker": "IONQ",
        "company": "IonQ",
-       "return_pct": 2.65,
+       "return_pct": 4.41,
        "correct": true
       },
       {
        "top_rank": 5,
        "ticker": "BHF",
        "company": "Brighthouse Financial",
-       "return_pct": 2.4,
+       "return_pct": 2.81,
        "correct": true
       }
      ]
@@ -177,7 +177,7 @@ window.DASHBOARD_DATA = {
     {
      "date": "2026-09-22",
      "hit_rate": 60.0,
-     "avg_directional_return": 1.69,
+     "avg_directional_return": 1.6,
      "buys": [
       {
        "top_rank": 1,
@@ -190,28 +190,28 @@ window.DASHBOARD_DATA = {
        "top_rank": 2,
        "ticker": "NVDA",
        "company": "NVIDIA",
-       "return_pct": -1.46,
+       "return_pct": -1.23,
        "correct": false
       },
       {
        "top_rank": 3,
        "ticker": "DAL",
        "company": "Delta Air Lines",
-       "return_pct": 0.1,
+       "return_pct": 0.32,
        "correct": true
       },
       {
        "top_rank": 4,
        "ticker": "BHF",
        "company": "Brighthouse Financial",
-       "return_pct": 6.84,
+       "return_pct": 7.26,
        "correct": true
       },
       {
        "top_rank": 5,
        "ticker": "RCL",
        "company": "Royal Caribbean",
-       "return_pct": -3.2,
+       "return_pct": -4.5,
        "correct": false
       }
      ]
@@ -224,59 +224,59 @@ window.DASHBOARD_DATA = {
     "week_end": "2026-09-25",
     "days": 3,
     "count": 22,
-    "judged": 16,
-    "correct": 11,
-    "hit_rate": 68.8,
-    "avg_directional_return": 0.7,
+    "judged": 22,
+    "correct": 15,
+    "hit_rate": 68.2,
+    "avg_directional_return": 0.9,
     "best": {
      "date": "2026-09-22",
      "ticker": "BHF",
      "direction": "bullish",
-     "directional_return_pct": 6.84
+     "directional_return_pct": 7.26
     },
     "worst": {
-     "date": "2026-09-23",
-     "ticker": "VLO",
-     "direction": "bearish",
-     "directional_return_pct": -5.81
+     "date": "2026-09-22",
+     "ticker": "RCL",
+     "direction": "bullish",
+     "directional_return_pct": -4.5
     },
     "top5_count": 15,
-    "top5_hit_rate": 75.0,
-    "top5_avg": 1.2
+    "top5_hit_rate": 73.3,
+    "top5_avg": 1.38
    }
   ],
   "by_theme": [
    {
     "label": "AI & tech",
     "count": 2,
-    "hit_rate": 50.0,
-    "avg_directional_return": -0.01
+    "hit_rate": 100.0,
+    "avg_directional_return": 0.64
    },
    {
     "label": "Interest rates & the Fed",
     "count": 2,
-    "hit_rate": null,
-    "avg_directional_return": 0.0
+    "hit_rate": 100.0,
+    "avg_directional_return": 0.53
    },
    {
     "label": "Mergers & deals",
     "count": 2,
-    "hit_rate": null,
-    "avg_directional_return": 0.0
+    "hit_rate": 50.0,
+    "avg_directional_return": -0.17
    },
    {
     "label": "Oil & energy",
     "count": 2,
-    "hit_rate": null,
-    "avg_directional_return": 0.0
+    "hit_rate": 0.0,
+    "avg_directional_return": -1.08
    }
   ],
   "by_horizon": [
    {
     "label": "1 day",
     "count": 22,
-    "hit_rate": 22.7,
-    "avg_directional_return": 0.18
+    "hit_rate": 45.5,
+    "avg_directional_return": 0.17
    },
    {
     "label": "1 week",
@@ -316,19 +316,19 @@ window.DASHBOARD_DATA = {
    "history": [
     [
      "2026-09-24",
-     162.59
+     162.14
     ]
    ],
    "horizons": {
-    "1 day": 0.0,
+    "1 day": -0.28,
     "1 week": null,
     "1 month": null
    },
    "level_status": null,
-   "price_now": 162.59,
-   "return_pct": 0.0,
-   "directional_return_pct": 0.0,
-   "correct": null
+   "price_now": 162.14,
+   "return_pct": -0.28,
+   "directional_return_pct": -0.28,
+   "correct": false
   },
   {
    "date": "2026-09-24",
@@ -353,19 +353,19 @@ window.DASHBOARD_DATA = {
    "history": [
     [
      "2026-09-24",
-     390.24
+     382.86
     ]
    ],
    "horizons": {
-    "1 day": 0.0,
+    "1 day": -1.89,
     "1 week": null,
     "1 month": null
    },
    "level_status": null,
-   "price_now": 390.24,
-   "return_pct": 0.0,
-   "directional_return_pct": 0.0,
-   "correct": null
+   "price_now": 382.86,
+   "return_pct": -1.89,
+   "directional_return_pct": -1.89,
+   "correct": false
   },
   {
    "date": "2026-09-24",
@@ -390,19 +390,19 @@ window.DASHBOARD_DATA = {
    "history": [
     [
      "2026-09-24",
-     79.87
+     79.42
     ]
    ],
    "horizons": {
-    "1 day": 0.0,
+    "1 day": 0.56,
     "1 week": null,
     "1 month": null
    },
    "level_status": null,
-   "price_now": 79.87,
-   "return_pct": 0.0,
-   "directional_return_pct": 0.0,
-   "correct": null
+   "price_now": 79.42,
+   "return_pct": -0.56,
+   "directional_return_pct": 0.56,
+   "correct": true
   },
   {
    "date": "2026-09-24",
@@ -427,19 +427,19 @@ window.DASHBOARD_DATA = {
    "history": [
     [
      "2026-09-24",
-     771.0
+     777.59
     ]
    ],
    "horizons": {
-    "1 day": -0.01,
+    "1 day": 0.84,
     "1 week": null,
     "1 month": null
    },
    "level_status": null,
-   "price_now": 771.0,
-   "return_pct": -0.01,
-   "directional_return_pct": -0.01,
-   "correct": false
+   "price_now": 777.59,
+   "return_pct": 0.84,
+   "directional_return_pct": 0.84,
+   "correct": true
   },
   {
    "date": "2026-09-24",
@@ -464,19 +464,19 @@ window.DASHBOARD_DATA = {
    "history": [
     [
      "2026-09-24",
-     33.74
+     33.69
     ]
    ],
    "horizons": {
-    "1 day": 0.0,
+    "1 day": 0.15,
     "1 week": null,
     "1 month": null
    },
    "level_status": null,
-   "price_now": 33.74,
-   "return_pct": 0.0,
-   "directional_return_pct": 0.0,
-   "correct": null
+   "price_now": 33.69,
+   "return_pct": -0.15,
+   "directional_return_pct": 0.15,
+   "correct": true
   },
   {
    "date": "2026-09-24",
@@ -501,19 +501,19 @@ window.DASHBOARD_DATA = {
    "history": [
     [
      "2026-09-24",
-     101.32
+     100.81
     ]
    ],
    "horizons": {
-    "1 day": 0.0,
+    "1 day": -0.5,
     "1 week": null,
     "1 month": null
    },
    "level_status": null,
-   "price_now": 101.32,
-   "return_pct": 0.0,
-   "directional_return_pct": 0.0,
-   "correct": null
+   "price_now": 100.81,
+   "return_pct": -0.5,
+   "directional_return_pct": -0.5,
+   "correct": false
   },
   {
    "date": "2026-09-24",
@@ -538,18 +538,18 @@ window.DASHBOARD_DATA = {
    "history": [
     [
      "2026-09-24",
-     495.82
+     497.93
     ]
    ],
    "horizons": {
-    "1 day": 0.0,
+    "1 day": 0.43,
     "1 week": null,
     "1 month": null
    },
    "level_status": null,
-   "price_now": 495.82,
-   "return_pct": 0.0,
-   "directional_return_pct": 0.0,
+   "price_now": 497.93,
+   "return_pct": 0.43,
+   "directional_return_pct": 0.43,
    "correct": true
   },
   {
@@ -575,19 +575,19 @@ window.DASHBOARD_DATA = {
    "history": [
     [
      "2026-09-24",
-     336.92
+     338.56
     ]
    ],
    "horizons": {
-    "1 day": 0.0,
+    "1 day": 0.49,
     "1 week": null,
     "1 month": null
    },
    "level_status": null,
-   "price_now": 336.92,
-   "return_pct": 0.0,
-   "directional_return_pct": 0.0,
-   "correct": null
+   "price_now": 338.56,
+   "return_pct": 0.49,
+   "directional_return_pct": 0.49,
+   "correct": true
   },
   {
    "date": "2026-09-23",
@@ -616,7 +616,7 @@ window.DASHBOARD_DATA = {
     ],
     [
      "2026-09-24",
-     771.0
+     777.59
     ]
    ],
    "horizons": {
@@ -625,9 +625,9 @@ window.DASHBOARD_DATA = {
     "1 month": null
    },
    "level_status": null,
-   "price_now": 771.0,
-   "return_pct": 2.89,
-   "directional_return_pct": 2.89,
+   "price_now": 777.59,
+   "return_pct": 3.77,
+   "directional_return_pct": 3.77,
    "correct": true
   },
   {
@@ -657,7 +657,7 @@ window.DASHBOARD_DATA = {
     ],
     [
      "2026-09-24",
-     48.97
+     48.9
     ]
    ],
    "horizons": {
@@ -666,9 +666,9 @@ window.DASHBOARD_DATA = {
     "1 month": null
    },
    "level_status": null,
-   "price_now": 48.97,
-   "return_pct": 1.32,
-   "directional_return_pct": 1.32,
+   "price_now": 48.9,
+   "return_pct": 1.18,
+   "directional_return_pct": 1.18,
    "correct": true
   },
   {
@@ -698,7 +698,7 @@ window.DASHBOARD_DATA = {
     ],
     [
      "2026-09-24",
-     79.87
+     79.42
     ]
    ],
    "horizons": {
@@ -707,9 +707,9 @@ window.DASHBOARD_DATA = {
     "1 month": null
    },
    "level_status": null,
-   "price_now": 79.87,
-   "return_pct": -0.65,
-   "directional_return_pct": 0.65,
+   "price_now": 79.42,
+   "return_pct": -1.21,
+   "directional_return_pct": 1.21,
    "correct": true
   },
   {
@@ -739,7 +739,7 @@ window.DASHBOARD_DATA = {
     ],
     [
      "2026-09-24",
-     44.22
+     44.98
     ]
    ],
    "horizons": {
@@ -748,9 +748,9 @@ window.DASHBOARD_DATA = {
     "1 month": null
    },
    "level_status": null,
-   "price_now": 44.22,
-   "return_pct": 2.65,
-   "directional_return_pct": 2.65,
+   "price_now": 44.98,
+   "return_pct": 4.41,
+   "directional_return_pct": 4.41,
    "correct": true
   },
   {
@@ -780,7 +780,7 @@ window.DASHBOARD_DATA = {
     ],
     [
      "2026-09-24",
-     390.24
+     382.86
     ]
    ],
    "horizons": {
@@ -789,9 +789,9 @@ window.DASHBOARD_DATA = {
     "1 month": null
    },
    "level_status": null,
-   "price_now": 390.24,
-   "return_pct": 5.81,
-   "directional_return_pct": -5.81,
+   "price_now": 382.86,
+   "return_pct": 3.81,
+   "directional_return_pct": -3.81,
    "correct": false
   },
   {
@@ -821,7 +821,7 @@ window.DASHBOARD_DATA = {
     ],
     [
      "2026-09-24",
-     53.25
+     53.46
     ]
    ],
    "horizons": {
@@ -830,9 +830,9 @@ window.DASHBOARD_DATA = {
     "1 month": null
    },
    "level_status": null,
-   "price_now": 53.25,
-   "return_pct": 2.4,
-   "directional_return_pct": 2.4,
+   "price_now": 53.46,
+   "return_pct": 2.81,
+   "directional_return_pct": 2.81,
    "correct": true
   },
   {
@@ -862,7 +862,7 @@ window.DASHBOARD_DATA = {
     ],
     [
      "2026-09-24",
-     1074.19
+     1080.53
     ]
    ],
    "horizons": {
@@ -871,9 +871,9 @@ window.DASHBOARD_DATA = {
     "1 month": null
    },
    "level_status": null,
-   "price_now": 1074.19,
-   "return_pct": 0.33,
-   "directional_return_pct": 0.33,
+   "price_now": 1080.53,
+   "return_pct": 0.92,
+   "directional_return_pct": 0.92,
    "correct": true
   },
   {
@@ -903,7 +903,7 @@ window.DASHBOARD_DATA = {
     ],
     [
      "2026-09-24",
-     162.59
+     162.14
     ]
    ],
    "horizons": {
@@ -912,9 +912,9 @@ window.DASHBOARD_DATA = {
     "1 month": null
    },
    "level_status": null,
-   "price_now": 162.59,
-   "return_pct": 2.71,
-   "directional_return_pct": -2.71,
+   "price_now": 162.14,
+   "return_pct": 2.43,
+   "directional_return_pct": -2.43,
    "correct": false
   },
   {
@@ -944,7 +944,7 @@ window.DASHBOARD_DATA = {
     ],
     [
      "2026-09-24",
-     82.58
+     82.76
     ]
    ],
    "horizons": {
@@ -953,9 +953,9 @@ window.DASHBOARD_DATA = {
     "1 month": null
    },
    "level_status": null,
-   "price_now": 82.58,
-   "return_pct": 0.1,
-   "directional_return_pct": 0.1,
+   "price_now": 82.76,
+   "return_pct": 0.32,
+   "directional_return_pct": 0.32,
    "correct": true
   },
   {
@@ -1026,7 +1026,7 @@ window.DASHBOARD_DATA = {
     ],
     [
      "2026-09-24",
-     53.25
+     53.46
     ]
    ],
    "horizons": {
@@ -1035,9 +1035,9 @@ window.DASHBOARD_DATA = {
     "1 month": null
    },
    "level_status": null,
-   "price_now": 53.25,
-   "return_pct": 6.84,
-   "directional_return_pct": 6.84,
+   "price_now": 53.46,
+   "return_pct": 7.26,
+   "directional_return_pct": 7.26,
    "correct": true
   },
   {
@@ -1071,7 +1071,7 @@ window.DASHBOARD_DATA = {
     ],
     [
      "2026-09-24",
-     242.24
+     238.98
     ]
    ],
    "horizons": {
@@ -1080,9 +1080,9 @@ window.DASHBOARD_DATA = {
     "1 month": null
    },
    "level_status": null,
-   "price_now": 242.24,
-   "return_pct": -3.2,
-   "directional_return_pct": -3.2,
+   "price_now": 238.98,
+   "return_pct": -4.5,
+   "directional_return_pct": -4.5,
    "correct": false
   },
   {
@@ -1116,7 +1116,7 @@ window.DASHBOARD_DATA = {
     ],
     [
      "2026-09-24",
-     105.57
+     106.97
     ]
    ],
    "horizons": {
@@ -1125,9 +1125,9 @@ window.DASHBOARD_DATA = {
     "1 month": null
    },
    "level_status": null,
-   "price_now": 105.57,
-   "return_pct": -5.28,
-   "directional_return_pct": 5.28,
+   "price_now": 106.97,
+   "return_pct": -4.03,
+   "directional_return_pct": 4.03,
    "correct": true
   },
   {
@@ -1161,7 +1161,7 @@ window.DASHBOARD_DATA = {
     ],
     [
      "2026-09-24",
-     224.05
+     224.58
     ]
    ],
    "horizons": {
@@ -1170,9 +1170,9 @@ window.DASHBOARD_DATA = {
     "1 month": null
    },
    "level_status": null,
-   "price_now": 224.05,
-   "return_pct": -1.46,
-   "directional_return_pct": -1.46,
+   "price_now": 224.58,
+   "return_pct": -1.23,
+   "directional_return_pct": -1.23,
    "correct": false
   }
  ],
@@ -3755,7 +3755,7 @@ window.DASHBOARD_DATA = {
    ],
    [
     "2026-09-24",
-    338.04
+    335.92
    ]
   ],
   "AMZN": [
@@ -4253,7 +4253,7 @@ window.DASHBOARD_DATA = {
    ],
    [
     "2026-09-24",
-    249.23
+    249.38
    ]
   ],
   "BHF": [
@@ -4755,7 +4755,7 @@ window.DASHBOARD_DATA = {
    ],
    [
     "2026-09-24",
-    53.25
+    53.46
    ]
   ],
   "CPRI": [
@@ -5763,7 +5763,7 @@ window.DASHBOARD_DATA = {
    ],
    [
     "2026-09-24",
-    105.57
+    106.97
    ]
   ],
   "DAL": [
@@ -6265,7 +6265,7 @@ window.DASHBOARD_DATA = {
    ],
    [
     "2026-09-24",
-    82.58
+    82.76
    ]
   ],
   "DIA": [
@@ -6635,7 +6635,7 @@ window.DASHBOARD_DATA = {
    ],
    [
     "2026-08-10",
-    537.31
+    537.3
    ],
    [
     "2026-08-11",
@@ -6759,7 +6759,7 @@ window.DASHBOARD_DATA = {
    ],
    [
     "2026-09-24",
-    512.39
+    512.68
    ]
   ],
   "DVN": [
@@ -7257,7 +7257,7 @@ window.DASHBOARD_DATA = {
    ],
    [
     "2026-09-24",
-    48.97
+    48.9
    ]
   ],
   "GDDY": [
@@ -7751,7 +7751,7 @@ window.DASHBOARD_DATA = {
    ],
    [
     "2026-09-24",
-    101.32
+    100.81
    ]
   ],
   "GLD": [
@@ -8249,7 +8249,7 @@ window.DASHBOARD_DATA = {
    ],
    [
     "2026-09-24",
-    390.67
+    391.69
    ]
   ],
   "GOOGL": [
@@ -8747,7 +8747,7 @@ window.DASHBOARD_DATA = {
    ],
    [
     "2026-09-24",
-    341.34
+    342.36
    ]
   ],
   "IONQ": [
@@ -9249,7 +9249,7 @@ window.DASHBOARD_DATA = {
    ],
    [
     "2026-09-24",
-    44.22
+    44.98
    ]
   ],
   "JPM": [
@@ -9747,7 +9747,7 @@ window.DASHBOARD_DATA = {
    ],
    [
     "2026-09-24",
-    336.92
+    338.56
    ]
   ],
   "META": [
@@ -10249,7 +10249,7 @@ window.DASHBOARD_DATA = {
    ],
    [
     "2026-09-24",
-    771.0
+    777.59
    ]
   ],
   "MGM": [
@@ -10743,7 +10743,7 @@ window.DASHBOARD_DATA = {
    ],
    [
     "2026-09-24",
-    33.74
+    33.69
    ]
   ],
   "MSFT": [
@@ -11241,7 +11241,7 @@ window.DASHBOARD_DATA = {
    ],
    [
     "2026-09-24",
-    495.82
+    497.93
    ]
   ],
   "MU": [
@@ -11743,7 +11743,7 @@ window.DASHBOARD_DATA = {
    ],
    [
     "2026-09-24",
-    1074.19
+    1080.53
    ]
   ],
   "NVDA": [
@@ -12249,7 +12249,7 @@ window.DASHBOARD_DATA = {
    ],
    [
     "2026-09-24",
-    224.05
+    224.58
    ]
   ],
   "QQQ": [
@@ -12747,7 +12747,7 @@ window.DASHBOARD_DATA = {
    ],
    [
     "2026-09-24",
-    740.38
+    741.1
    ]
   ],
   "RCL": [
@@ -13253,7 +13253,7 @@ window.DASHBOARD_DATA = {
    ],
    [
     "2026-09-24",
-    242.24
+    238.98
    ]
   ],
   "SPY": [
@@ -13751,7 +13751,7 @@ window.DASHBOARD_DATA = {
    ],
    [
     "2026-09-24",
-    767.14
+    767.18
    ]
   ],
   "TLT": [
@@ -14253,7 +14253,7 @@ window.DASHBOARD_DATA = {
    ],
    [
     "2026-09-24",
-    79.87
+    79.42
    ]
   ],
   "TSLA": [
@@ -14751,7 +14751,7 @@ window.DASHBOARD_DATA = {
    ],
    [
     "2026-09-24",
-    380.92
+    377.94
    ]
   ],
   "VLO": [
@@ -15249,7 +15249,7 @@ window.DASHBOARD_DATA = {
    ],
    [
     "2026-09-24",
-    390.24
+    382.86
    ]
   ],
   "XOM": [
@@ -15751,7 +15751,7 @@ window.DASHBOARD_DATA = {
    ],
    [
     "2026-09-24",
-    162.59
+    162.14
    ]
   ]
  },
@@ -15760,110 +15760,110 @@ window.DASHBOARD_DATA = {
    "ticker": "XLK",
    "name": "Technology",
    "changes": {
-    "1D": -0.4,
-    "1W": 5.89,
-    "1M": 8.18,
-    "3M": 6.4
+    "1D": -0.32,
+    "1W": 5.98,
+    "1M": 8.27,
+    "3M": 6.49
    }
   },
   {
    "ticker": "XLC",
    "name": "Communication",
    "changes": {
-    "1D": 1.06,
-    "1W": 0.99,
-    "1M": 1.61,
-    "3M": 7.12
+    "1D": 1.27,
+    "1W": 1.21,
+    "1M": 1.82,
+    "3M": 7.35
    }
   },
   {
    "ticker": "XLY",
    "name": "Consumer Discretionary",
    "changes": {
-    "1D": -0.15,
-    "1W": 0.49,
-    "1M": -6.4,
-    "3M": -3.78
+    "1D": -0.3,
+    "1W": 0.35,
+    "1M": -6.54,
+    "3M": -3.92
    }
   },
   {
    "ticker": "XLP",
    "name": "Consumer Staples",
    "changes": {
-    "1D": -0.32,
-    "1W": -0.75,
-    "1M": -5.42,
-    "3M": -2.05
+    "1D": -0.89,
+    "1W": -1.32,
+    "1M": -5.96,
+    "3M": -2.61
    }
   },
   {
    "ticker": "XLE",
    "name": "Energy",
    "changes": {
-    "1D": 0.82,
-    "1W": -1.9,
-    "1M": 1.93,
-    "3M": 16.94
+    "1D": 0.37,
+    "1W": -2.34,
+    "1M": 1.48,
+    "3M": 16.42
    }
   },
   {
    "ticker": "XLF",
    "name": "Financials",
    "changes": {
-    "1D": -0.31,
-    "1W": -2.35,
-    "1M": -6.42,
-    "3M": 2.08
+    "1D": -0.02,
+    "1W": -2.07,
+    "1M": -6.14,
+    "3M": 2.38
    }
   },
   {
    "ticker": "XLV",
    "name": "Health Care",
    "changes": {
-    "1D": 0.47,
-    "1W": 1.48,
-    "1M": -2.55,
-    "3M": 11.02
+    "1D": 0.63,
+    "1W": 1.64,
+    "1M": -2.39,
+    "3M": 11.19
    }
   },
   {
    "ticker": "XLI",
    "name": "Industrials",
    "changes": {
-    "1D": -0.47,
-    "1W": 0.62,
-    "1M": -5.16,
-    "3M": -5.8
+    "1D": -0.75,
+    "1W": 0.34,
+    "1M": -5.43,
+    "3M": -6.06
    }
   },
   {
    "ticker": "XLB",
    "name": "Materials",
    "changes": {
-    "1D": -1.03,
-    "1W": -0.74,
-    "1M": -6.69,
-    "3M": -2.3
+    "1D": -1.19,
+    "1W": -0.9,
+    "1M": -6.84,
+    "3M": -2.45
    }
   },
   {
    "ticker": "XLRE",
    "name": "Real Estate",
    "changes": {
-    "1D": 0.02,
-    "1W": -1.41,
-    "1M": -6.9,
-    "3M": -5.19
+    "1D": -0.45,
+    "1W": -1.88,
+    "1M": -7.34,
+    "3M": -5.64
    }
   },
   {
    "ticker": "XLU",
    "name": "Utilities",
    "changes": {
-    "1D": -0.4,
-    "1W": -3.49,
-    "1M": -7.72,
-    "3M": -12.43
+    "1D": -0.98,
+    "1W": -4.05,
+    "1M": -8.25,
+    "3M": -12.94
    }
   }
  ],
@@ -16002,9 +16002,9 @@ window.DASHBOARD_DATA = {
    "quoteType": "EQUITY",
    "sector": "Technology",
    "industry": "Consumer Electronics",
-   "marketCap": 4934019317760,
-   "trailingPE": 38.73,
-   "forwardPE": 35.26,
+   "marketCap": 4902477103104,
+   "trailingPE": 38.48,
+   "forwardPE": 35.03,
    "fiftyTwoWeekHigh": 345.34,
    "fiftyTwoWeekLow": 243.42,
    "dividendYield": 0.32,
@@ -16018,9 +16018,9 @@ window.DASHBOARD_DATA = {
    "quoteType": "EQUITY",
    "sector": "Consumer Cyclical",
    "industry": "Internet Retail",
-   "marketCap": 2688326828032,
-   "trailingPE": 20.03,
-   "forwardPE": 23.99,
+   "marketCap": 2689890779136,
+   "trailingPE": 20.05,
+   "forwardPE": 24.01,
    "fiftyTwoWeekHigh": 287.2,
    "fiftyTwoWeekLow": 196.0,
    "beta": 1.44,
@@ -16033,9 +16033,9 @@ window.DASHBOARD_DATA = {
    "quoteType": "EQUITY",
    "sector": "Financial Services",
    "industry": "Insurance - Life",
-   "marketCap": 3062484992,
-   "trailingPE": 4.22,
-   "forwardPE": 2.64,
+   "marketCap": 3074568192,
+   "trailingPE": 4.24,
+   "forwardPE": 2.65,
    "fiftyTwoWeekHigh": 66.8,
    "fiftyTwoWeekLow": 44.51,
    "beta": 0.84,
@@ -16048,8 +16048,8 @@ window.DASHBOARD_DATA = {
    "quoteType": "EQUITY",
    "sector": "Consumer Cyclical",
    "industry": "Luxury Goods",
-   "marketCap": 1744326784,
-   "trailingPE": 19.48,
+   "marketCap": 1743752832,
+   "trailingPE": 19.47,
    "forwardPE": 6.01,
    "fiftyTwoWeekHigh": 28.27,
    "fiftyTwoWeekLow": 12.4,
@@ -16063,9 +16063,9 @@ window.DASHBOARD_DATA = {
    "quoteType": "EQUITY",
    "sector": "Technology",
    "industry": "Communication Equipment",
-   "marketCap": 416184598528,
-   "trailingPE": 31.7,
-   "forwardPE": 18.78,
+   "marketCap": 421738512384,
+   "trailingPE": 32.12,
+   "forwardPE": 19.03,
    "fiftyTwoWeekHigh": 130.37,
    "fiftyTwoWeekLow": 66.81,
    "dividendYield": 1.58,
@@ -16079,14 +16079,14 @@ window.DASHBOARD_DATA = {
    "quoteType": "EQUITY",
    "sector": "Industrials",
    "industry": "Airlines",
-   "marketCap": 54306512896,
-   "trailingPE": 13.69,
-   "forwardPE": 9.73,
+   "marketCap": 54424883200,
+   "trailingPE": 13.72,
+   "forwardPE": 9.75,
    "fiftyTwoWeekHigh": 95.68,
    "fiftyTwoWeekLow": 55.03,
    "dividendYield": 1.05,
    "beta": 1.29,
-   "targetMeanPrice": 103.44,
+   "targetMeanPrice": 103.69,
    "recommendationKey": "strong_buy",
    "numberOfAnalystOpinions": 24,
    "longBusinessSummary": "Delta Air Lines, Inc. provides scheduled air transportation for passengers and cargo in the United States and internationally. The company operates through two segments, Airline and Refinery. Its domestic network centered on core hubs in Atlanta, Detroit, Minneapolis-St. Paul, and Salt Lake City, as well as coastal\u2026"
@@ -16095,7 +16095,7 @@ window.DASHBOARD_DATA = {
    "quoteType": "ETF",
    "category": "Large Value",
    "totalAssets": 45455503360,
-   "trailingPE": 20.81,
+   "trailingPE": 20.82,
    "fiftyTwoWeekHigh": 546.75,
    "fiftyTwoWeekLow": 450.44,
    "dividendYield": 1.38,
@@ -16106,9 +16106,9 @@ window.DASHBOARD_DATA = {
    "quoteType": "EQUITY",
    "sector": "Energy",
    "industry": "Oil & Gas E&P",
-   "marketCap": 53883502592,
-   "trailingPE": 10.65,
-   "forwardPE": 9.1,
+   "marketCap": 53790003200,
+   "trailingPE": 10.63,
+   "forwardPE": 9.08,
    "fiftyTwoWeekHigh": 52.71,
    "fiftyTwoWeekLow": 31.47,
    "dividendYield": 2.66,
@@ -16122,13 +16122,13 @@ window.DASHBOARD_DATA = {
    "quoteType": "EQUITY",
    "sector": "Technology",
    "industry": "Software - Infrastructure",
-   "marketCap": 12841443328,
-   "trailingPE": 15.07,
-   "forwardPE": 9.19,
+   "marketCap": 12767354880,
+   "trailingPE": 14.98,
+   "forwardPE": 9.14,
    "fiftyTwoWeekHigh": 143.34,
    "fiftyTwoWeekLow": 71.59,
    "beta": 0.94,
-   "targetMeanPrice": 105.19,
+   "targetMeanPrice": 106.12,
    "recommendationKey": "buy",
    "numberOfAnalystOpinions": 16,
    "longBusinessSummary": "GoDaddy Inc. engages in the design and development of cloud-based products in the United States and internationally. It operates in two segments: Applications and Commerce (A&C), and Core Platform (Core). The A&C segment offers applications products, including Websites + Marketing, a mobile-optimized online tool that\u2026"
@@ -16147,9 +16147,9 @@ window.DASHBOARD_DATA = {
    "quoteType": "EQUITY",
    "sector": "Communication Services",
    "industry": "Internet Content & Information",
-   "marketCap": 4175299870720,
-   "trailingPE": 17.13,
-   "forwardPE": 22.91,
+   "marketCap": 4187040514048,
+   "trailingPE": 17.18,
+   "forwardPE": 22.98,
    "fiftyTwoWeekHigh": 408.61,
    "fiftyTwoWeekLow": 235.84,
    "dividendYield": 0.26,
@@ -16163,8 +16163,8 @@ window.DASHBOARD_DATA = {
    "quoteType": "EQUITY",
    "sector": "Technology",
    "industry": "Computer Hardware",
-   "marketCap": 17902944256,
-   "forwardPE": -33.8,
+   "marketCap": 18223001600,
+   "forwardPE": -34.41,
    "fiftyTwoWeekHigh": 84.64,
    "fiftyTwoWeekLow": 25.89,
    "beta": 3.29,
@@ -16177,14 +16177,14 @@ window.DASHBOARD_DATA = {
    "quoteType": "EQUITY",
    "sector": "Financial Services",
    "industry": "Banks - Diversified",
-   "marketCap": 895609339904,
-   "trailingPE": 14.45,
-   "forwardPE": 13.48,
+   "marketCap": 899955556352,
+   "trailingPE": 14.52,
+   "forwardPE": 13.55,
    "fiftyTwoWeekHigh": 366.5,
    "fiftyTwoWeekLow": 279.1,
    "dividendYield": 1.96,
    "beta": 0.97,
-   "targetMeanPrice": 375.14,
+   "targetMeanPrice": 374.24,
    "recommendationKey": "buy",
    "numberOfAnalystOpinions": 21,
    "longBusinessSummary": "JPMorgan Chase & Co. operates as a bank and financial holding company in the United States, rest of North America, Europe, the Middle East, Africa, the Asia Pacific, Latin America, and the Caribbean. It operates in three segments: Consumer & Community Banking, Commercial & Investment Bank, and Asset & Wealth\u2026"
@@ -16193,40 +16193,40 @@ window.DASHBOARD_DATA = {
    "quoteType": "EQUITY",
    "sector": "Communication Services",
    "industry": "Internet Content & Information",
-   "marketCap": 1964509495296,
-   "trailingPE": 29.03,
-   "forwardPE": 22.08,
-   "fiftyTwoWeekHigh": 774.25,
+   "marketCap": 1980915384320,
+   "trailingPE": 29.28,
+   "forwardPE": 22.26,
+   "fiftyTwoWeekHigh": 779.82,
    "fiftyTwoWeekLow": 520.26,
    "dividendYield": 0.28,
    "beta": 1.24,
-   "targetMeanPrice": 770.21,
+   "targetMeanPrice": 786.8,
    "recommendationKey": "strong_buy",
-   "numberOfAnalystOpinions": 56,
+   "numberOfAnalystOpinions": 57,
    "longBusinessSummary": "Meta Platforms, Inc. engages in the development of products that enable people to connect and share with friends and family through mobile devices, personal computers, virtual reality (VR) headsets, and AI glasses in the United States, Canada, Europe, Asia-Pacific, and internationally. It operates through two\u2026"
   },
   "MGM": {
    "quoteType": "EQUITY",
    "sector": "Consumer Cyclical",
    "industry": "Resorts & Casinos",
-   "marketCap": 8633699328,
-   "trailingPE": 20.45,
-   "forwardPE": 16.33,
+   "marketCap": 8619627520,
+   "trailingPE": 20.42,
+   "forwardPE": 16.31,
    "fiftyTwoWeekHigh": 51.59,
    "fiftyTwoWeekLow": 29.19,
    "beta": 1.28,
-   "targetMeanPrice": 50.63,
+   "targetMeanPrice": 49.33,
    "recommendationKey": "buy",
-   "numberOfAnalystOpinions": 18,
+   "numberOfAnalystOpinions": 19,
    "longBusinessSummary": "MGM Resorts International, through its subsidiaries, operates as a gaming and entertainment company in the United States, China, and internationally. It operates through four segments: Las Vegas Strip Resorts, Regional Operations, MGM China, and MGM Digital. The company operates casino resorts that offer gaming,\u2026"
   },
   "MSFT": {
    "quoteType": "EQUITY",
    "sector": "Technology",
    "industry": "Software - Infrastructure",
-   "marketCap": 3682253930496,
-   "trailingPE": 27.6,
-   "forwardPE": 20.94,
+   "marketCap": 3697401921536,
+   "trailingPE": 27.71,
+   "forwardPE": 21.03,
    "fiftyTwoWeekHigh": 553.72,
    "fiftyTwoWeekLow": 349.2,
    "dividendYield": 0.78,
@@ -16240,9 +16240,9 @@ window.DASHBOARD_DATA = {
    "quoteType": "EQUITY",
    "sector": "Technology",
    "industry": "Semiconductors",
-   "marketCap": 1213104259072,
-   "trailingPE": 24.26,
-   "forwardPE": 6.75,
+   "marketCap": 1220343234560,
+   "trailingPE": 24.41,
+   "forwardPE": 6.79,
    "fiftyTwoWeekHigh": 1255.0,
    "fiftyTwoWeekLow": 154.65,
    "dividendYield": 0.05,
@@ -16256,9 +16256,9 @@ window.DASHBOARD_DATA = {
    "quoteType": "EQUITY",
    "sector": "Technology",
    "industry": "Semiconductors",
-   "marketCap": 5410738667520,
-   "trailingPE": 28.29,
-   "forwardPE": 14.29,
+   "marketCap": 5422933082112,
+   "trailingPE": 28.36,
+   "forwardPE": 14.32,
    "fiftyTwoWeekHigh": 236.54,
    "fiftyTwoWeekLow": 164.27,
    "dividendYield": 0.44,
@@ -16272,7 +16272,7 @@ window.DASHBOARD_DATA = {
    "quoteType": "ETF",
    "category": "Large Growth",
    "totalAssets": 488981004288,
-   "trailingPE": 30.18,
+   "trailingPE": 30.21,
    "fiftyTwoWeekHigh": 748.65,
    "fiftyTwoWeekLow": 555.6,
    "dividendYield": 0.42,
@@ -16283,14 +16283,14 @@ window.DASHBOARD_DATA = {
    "quoteType": "EQUITY",
    "sector": "Consumer Cyclical",
    "industry": "Travel Services",
-   "marketCap": 64819687424,
-   "trailingPE": 14.97,
-   "forwardPE": 11.95,
+   "marketCap": 63915696128,
+   "trailingPE": 14.76,
+   "forwardPE": 11.78,
    "fiftyTwoWeekHigh": 356.39,
    "fiftyTwoWeekLow": 222.22,
    "dividendYield": 2.61,
    "beta": 1.75,
-   "targetMeanPrice": 347.6,
+   "targetMeanPrice": 348.28,
    "recommendationKey": "buy",
    "numberOfAnalystOpinions": 25,
    "longBusinessSummary": "Royal Caribbean Cruises Ltd. operates as a cruise company worldwide. The company operates cruises under the Royal Caribbean International, Celebrity Cruises, and Silversea Cruises brands, which comprise a range of itineraries. As of December 31, 2025, it operated 69 ships. Royal Caribbean Cruises Ltd. was founded in\u2026"
@@ -16310,9 +16310,9 @@ window.DASHBOARD_DATA = {
    "quoteType": "ETF",
    "category": "Long Government",
    "totalAssets": 47046328320,
-   "forwardPE": -3994.25,
+   "forwardPE": -3971.0,
    "fiftyTwoWeekHigh": 92.19,
-   "fiftyTwoWeekLow": 79.7,
+   "fiftyTwoWeekLow": 79.42,
    "dividendYield": 4.73,
    "netExpenseRatio": 0.15,
    "longBusinessSummary": "The underlying index consists of publicly-issued U.S. Treasury securities that have a remaining maturity greater than twenty years and have $300 million or more of outstanding face value, excluding amounts held by the Federal Reserve System (the \u201cFed\u201d). The fund will invest at least 80% of its assets in the component\u2026"
@@ -16321,13 +16321,13 @@ window.DASHBOARD_DATA = {
    "quoteType": "EQUITY",
    "sector": "Consumer Cyclical",
    "industry": "Auto Manufacturers",
-   "marketCap": 1504955334656,
-   "trailingPE": 346.4,
-   "forwardPE": 173.42,
+   "marketCap": 1492691976192,
+   "trailingPE": 356.55,
+   "forwardPE": 172.01,
    "fiftyTwoWeekHigh": 498.83,
    "fiftyTwoWeekLow": 297.38,
    "beta": 1.84,
-   "targetMeanPrice": 396.94,
+   "targetMeanPrice": 396.62,
    "recommendationKey": "buy",
    "numberOfAnalystOpinions": 38,
    "longBusinessSummary": "Tesla, Inc. designs, develops, manufactures, leases, and sells electric vehicles, and energy generation and storage systems in the United States, China, and internationally. The company operates in two segments, Automotive; and Energy Generation and Storage. The company offers electric vehicles, as well as sells\u2026"
@@ -16336,9 +16336,9 @@ window.DASHBOARD_DATA = {
    "quoteType": "EQUITY",
    "sector": "Energy",
    "industry": "Oil & Gas Refining & Marketing",
-   "marketCap": 112360808448,
-   "trailingPE": 16.27,
-   "forwardPE": 10.26,
+   "marketCap": 110235901952,
+   "trailingPE": 15.97,
+   "forwardPE": 10.06,
    "fiftyTwoWeekHigh": 419.04,
    "fiftyTwoWeekLow": 155.29,
    "dividendYield": 1.28,
@@ -16352,9 +16352,9 @@ window.DASHBOARD_DATA = {
    "quoteType": "EQUITY",
    "sector": "Energy",
    "industry": "Oil & Gas Integrated",
-   "marketCap": 668720234496,
-   "trailingPE": 20.93,
-   "forwardPE": 15.01,
+   "marketCap": 666705395712,
+   "trailingPE": 20.87,
+   "forwardPE": 14.96,
    "fiftyTwoWeekHigh": 176.41,
    "fiftyTwoWeekLow": 110.39,
    "dividendYield": 2.56,
@@ -16385,11 +16385,11 @@ window.DASHBOARD_DATA = {
    ],
    [
     "2026-09-24",
-    9841.55,
-    9917.78
+    9833.66,
+    9918.29
    ]
   ],
-  "top5_return_pct": -1.58,
+  "top5_return_pct": -1.66,
   "spy_return_pct": -0.82,
   "pick_days": 3
  },
@@ -16507,13 +16507,13 @@ window.DASHBOARD_DATA = {
     "image": ""
    },
    "price_at_pick": 162.59,
-   "price_now": 162.59,
-   "return_pct": 0.0,
-   "correct": null,
+   "price_now": 162.14,
+   "return_pct": -0.28,
+   "correct": false,
    "history": [
     [
      "2026-09-24",
-     162.59
+     162.14
     ]
    ],
    "target_price": 172.35,
@@ -16546,13 +16546,13 @@ window.DASHBOARD_DATA = {
     "image": "https://image.cnbcfm.com/api/v1/image/108367420-1790256219071-gettyimages-2296215783-META_CONNECT.jpeg?v=1790256353&w=1920&h=1080"
    },
    "price_at_pick": 771.08,
-   "price_now": 771.0,
-   "return_pct": -0.01,
-   "correct": false,
+   "price_now": 777.59,
+   "return_pct": 0.84,
+   "correct": true,
    "history": [
     [
      "2026-09-24",
-     771.0
+     777.59
     ]
    ],
    "target_price": 817.34,
@@ -16584,13 +16584,13 @@ window.DASHBOARD_DATA = {
     "image": "https://image.cnbcfm.com/api/v1/image/108324167-17818086432026-06-18t184626z_2089636406_rc2fwlandty4_rtrmadp_0_france-tech.jpeg?v=1781808690&w=1920&h=1080"
    },
    "price_at_pick": 495.8,
-   "price_now": 495.82,
-   "return_pct": 0.0,
+   "price_now": 497.93,
+   "return_pct": 0.43,
    "correct": true,
    "history": [
     [
      "2026-09-24",
-     495.82
+     497.93
     ]
    ],
    "target_price": 525.55,
@@ -16622,13 +16622,13 @@ window.DASHBOARD_DATA = {
     "image": ""
    },
    "price_at_pick": 390.24,
-   "price_now": 390.24,
-   "return_pct": 0.0,
-   "correct": null,
+   "price_now": 382.86,
+   "return_pct": -1.89,
+   "correct": false,
    "history": [
     [
      "2026-09-24",
-     390.24
+     382.86
     ]
    ],
    "target_price": 417.56,
@@ -16662,13 +16662,13 @@ window.DASHBOARD_DATA = {
     "image": "https://image.cnbcfm.com/api/v1/image/108287977-1775572555121-gettyimages-2269656389-WILLIAMS_INTERVIEW.jpeg?v=1775572583&w=1920&h=1080"
    },
    "price_at_pick": 336.92,
-   "price_now": 336.92,
-   "return_pct": 0.0,
-   "correct": null,
+   "price_now": 338.56,
+   "return_pct": 0.49,
+   "correct": true,
    "history": [
     [
      "2026-09-24",
-     336.92
+     338.56
     ]
    ],
    "target_price": 353.77,
