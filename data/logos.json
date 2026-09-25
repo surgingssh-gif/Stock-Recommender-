@@ -1,7 +1,9 @@
 {
   "AAPL": "https://static2.finnhub.io/file/publicdatany/finnhubimage/stock_logo/AAPL.png",
   "AMZN": "https://static2.finnhub.io/file/publicdatany/finnhubimage/stock_logo/AMZN.png",
+  "DAL": "https://static2.finnhub.io/file/publicdatany/finnhubimage/stock_logo/DAL.png",
   "DIA": "",
+  "DVN": "https://static2.finnhub.io/file/publicdatany/finnhubimage/stock_logo/DVN.png",
   "GDDY": "https://static2.finnhub.io/file/publicdatany/finnhubimage/stock_logo/GDDY.png",
   "GLD": "",
   "GOOGL": "https://static2.finnhub.io/file/publicdatany/finnhubimage/stock_logo/GOOG.png",
@@ -11,6 +13,7 @@
   "MSFT": "https://static2.finnhub.io/file/publicdatany/finnhubimage/stock_logo/MSFT.png",
   "NVDA": "https://static2.finnhub.io/file/publicdatany/finnhubimage/stock_logo/942959144056.png",
   "QQQ": "",
+  "RKLB": "https://static2.finnhub.io/file/publicdatany/finnhubimage/stock_logo/950811866506.png",
   "SPY": "",
   "TLT": "",
   "TSLA": "https://static2.finnhub.io/file/publicdatany/finnhubimage/stock_logo/TSLA.png",
