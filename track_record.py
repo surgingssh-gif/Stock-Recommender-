@@ -65,6 +65,14 @@ def build_track_record(data, max_calls=MAX_CALLS):
         groups.append(f"Top 5 buys: {_rate(top)}")
     lines.append(". ".join(groups) + ".")
 
+    # Compared with simply buying the S&P 500 over the same time.
+    market = (data.get("stats") or {}).get("vs_market") or {}
+    if market.get("judged"):
+        lines.append(
+            f"Against the market: {market['beat']} of {market['judged']} calls beat the S&P 500 "
+            f"({market['rate']:.0f}%), by {market['avg_vs_market']:+.2f}% on average."
+        )
+
     # By news theme (only themes with a few results, so one call isn't a "pattern").
     themes = {}
     for p in judged:
@@ -87,7 +95,7 @@ def build_track_record(data, max_calls=MAX_CALLS):
         reached = len([p for p in hits if p["level_status"] == "target"])
         lines.append(f"Price levels: {reached} target(s) reached and {len(hits) - reached} 'proven wrong' price(s) hit.")
 
-    lines.append("Most recent calls (move since the pick, in the direction of the call):")
+    lines.append("Most recent calls (move from the opening price after the pick, in the direction of the call):")
     for p in judged[:max_calls]:  # the dashboard lists the newest first
         tags = [p["direction"]]
         if p.get("confidence"):
@@ -97,5 +105,6 @@ def build_track_record(data, max_calls=MAX_CALLS):
         if p.get("theme"):
             tags.append(p["theme"])
         verdict = "right" if p["correct"] else "wrong"
-        lines.append(f"{p['date']} {p['ticker']} {', '.join(tags)}: {p['directional_return_pct']:+.2f}% ({verdict})")
+        vs = f", {p['vs_market_pct']:+.2f}% vs the S&P 500" if p.get("vs_market_pct") is not None else ""
+        lines.append(f"{p['date']} {p['ticker']} {', '.join(tags)}: {p['directional_return_pct']:+.2f}% ({verdict}{vs})")
     return "\n".join(lines)

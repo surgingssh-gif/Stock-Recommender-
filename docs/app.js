@@ -89,6 +89,9 @@
   }
   function capitalize(s) { return s ? s.charAt(0).toUpperCase() + s.slice(1) : s; }
 
+  /* The price a pick is scored from: the opening price after the pick (older data: the logged pick price). */
+  function entryOf(p) { return p.entry_price !== undefined ? p.entry_price : p.price_at_pick; }
+
   function resultOf(p) { return p.correct === true ? "right" : p.correct === false ? "wrong" : "open"; }
   var RESULT_LABEL = { right: "Right so far", wrong: "Wrong so far", open: "Too early to tell" };
 
@@ -171,7 +174,7 @@
 
   function showTooltip(event, lines) {
     clear(tooltip);
-    lines.forEach(function (line) { tooltip.appendChild(el("div", { class: line[0], text: line[1] })); });
+    lines.forEach(function (line) { if (line) tooltip.appendChild(el("div", { class: line[0], text: line[1] })); });
     var x, y;
     if (event.type === "focus") {
       var box = event.target.getBoundingClientRect();
@@ -248,7 +251,7 @@
     var series = full.slice(-63);
     var w = large ? 300 : 100, h = large ? 200 : 100, pad = large ? 16 : 8;
     var values = series.map(function (d) { return d[1]; });
-    if (p.price_at_pick) values.push(p.price_at_pick);
+    if (entryOf(p)) values.push(entryOf(p));
     var lo = Math.min.apply(null, values), hi = Math.max.apply(null, values);
     if (hi - lo < 1e-9) { lo -= 1; hi += 1; }
     var x = function (i) { return pad + i * (w - 2 * pad) / (series.length - 1); };
@@ -265,7 +268,7 @@
     if (idx === -1) idx = series.length - 1;
     var r = resultOf(p);
     art.appendChild(svg("line", { x1: x(idx), x2: x(idx), y1: pad / 2, y2: h - pad / 2, stroke: "var(--muted)", "stroke-width": 1, "vector-effect": "non-scaling-stroke", opacity: 0.6 }));
-    art.appendChild(svg("circle", { cx: x(idx), cy: y(p.price_at_pick || series[idx][1]), r: large ? 5 : 4,
+    art.appendChild(svg("circle", { cx: x(idx), cy: y(entryOf(p) || series[idx][1]), r: large ? 5 : 4,
       fill: r === "right" ? "var(--good)" : r === "wrong" ? "var(--bad)" : "var(--ink)", stroke: "var(--paper-2)", "stroke-width": 2 }));
     return art;
   }
@@ -275,21 +278,21 @@
     var w = 100, h = 28, pad = 4;
     var pts = (p.history || []).filter(function (d) { return d[1] !== null; });
     var values = pts.map(function (d) { return d[1]; });
-    if (p.price_at_pick) values.push(p.price_at_pick);
+    if (entryOf(p)) values.push(entryOf(p));
     if (!values.length) return null;
     var lo = Math.min.apply(null, values), hi = Math.max.apply(null, values);
     if (hi - lo < 1e-9) { lo -= 1; hi += 1; }
     var y = function (v) { return pad + (1 - (v - lo) / (hi - lo)) * (h - 2 * pad); };
     var x = function (i) { return pts.length < 2 ? w - pad : pad + i * (w - 2 * pad) / (pts.length - 1); };
     var chart = svg("svg", { width: w, height: h, viewBox: "0 0 " + w + " " + h, "aria-hidden": "true" });
-    if (p.price_at_pick) {
-      chart.appendChild(svg("line", { x1: 0, x2: w, y1: y(p.price_at_pick), y2: y(p.price_at_pick), stroke: "var(--hair)", "stroke-width": 1 }));
+    if (entryOf(p)) {
+      chart.appendChild(svg("line", { x1: 0, x2: w, y1: y(entryOf(p)), y2: y(entryOf(p)), stroke: "var(--hair)", "stroke-width": 1 }));
     }
     if (pts.length > 1) {
       var d = pts.map(function (pt, i) { return (i ? "L" : "M") + x(i).toFixed(1) + "," + y(pt[1]).toFixed(1); }).join("");
       chart.appendChild(svg("path", { d: d, fill: "none", stroke: "var(--spark)", "stroke-width": 2, "stroke-linejoin": "round", "stroke-linecap": "round" }));
     }
-    var last = pts.length ? pts[pts.length - 1][1] : p.price_at_pick;
+    var last = pts.length ? pts[pts.length - 1][1] : entryOf(p);
     chart.appendChild(svg("circle", {
       cx: x(Math.max(0, pts.length - 1)), cy: y(last), r: 4,
       fill: colorFor(p.directional_return_pct || 0), stroke: "var(--paper)", "stroke-width": 2
@@ -662,7 +665,7 @@
     var judged = stats.judged || 0;
     var hero = stats.hit_rate === null || stats.hit_rate === undefined ? "—" : Math.round(stats.hit_rate) + "%";
     var heroNote = judged
-      ? stats.correct + " of " + judged + " calls are working, measured from the price when each was picked."
+      ? stats.correct + " of " + judged + " calls are working, measured from the opening price after each pick (what you could actually have paid)."
       : "Calls are scored against later prices, so the newest ideas start at zero. The first results arrive after the next market close.";
 
     // Before any call has a result, only show numbers that already mean something.
@@ -671,6 +674,8 @@
       ? el("div", { class: "tiles" },
           tile("Ideas published", String(stats.total_picks || 0), (stats.days_tracked || 0) + (stats.days_tracked === 1 ? " trading day" : " trading days")),
           tile("Average move for the call", fmtPct(stats.avg_directional_return), "Above zero means calls are working"),
+          stats.vs_market && stats.vs_market.judged ? tile("Beat the S&P 500", Math.round(stats.vs_market.rate) + "% of calls",
+            stats.vs_market.beat + " of " + stats.vs_market.judged + " · " + fmtPct(stats.vs_market.avg_vs_market) + " vs the market on average") : null,
           tile("Best call", best.ticker + " " + fmtPct(best.directional_return_pct, 1), capitalize(best.direction) + " · " + fmtShortDate(best.date)),
           tile("Worst call", worst.ticker + " " + fmtPct(worst.directional_return_pct, 1), capitalize(worst.direction) + " · " + fmtShortDate(worst.date)))
       : el("div", { class: "tiles" },
@@ -692,7 +697,7 @@
           el("span", { class: "key" }, el("i", { style: "background:var(--good)" }), "Right so far"),
           el("span", { class: "key" }, el("i", { style: "background:var(--bad)" }), "Wrong so far"),
           el("br"),
-          "A bullish call is right so far if the stock is up since the pick; a bearish call if it's down.")) : null
+          "A bullish call is right so far if the stock is up since it could first be bought (the next opening bell); a bearish call if it's down. \"Beat the S&P 500\" also checks it did better than simply buying the market over the same time.")) : null
     ]);
   }
 
@@ -1058,7 +1063,8 @@
         ["tt-value", fmtPct(v) + " for the call"],
         ["tt-title", p.ticker + (p.company ? " · " + p.company : "")],
         ["tt-line", capitalize(p.direction) + " call · " + fmtTableDate(p.date)],
-        ["tt-line", fmtPrice(p.price_at_pick) + " → " + fmtPrice(p.price_now)],
+        ["tt-line", "Bought at " + fmtPrice(entryOf(p)) + " → " + fmtPrice(p.price_now)],
+        p.vs_market_pct !== null && p.vs_market_pct !== undefined ? ["tt-line", fmtPct(p.vs_market_pct) + " vs the S&P 500"] : null,
         ["tt-line", RESULT_LABEL[resultOf(p)]]
       ]);
       list.appendChild(row);
@@ -1602,7 +1608,8 @@
         el("div", { class: "m-call" },
           el("span", { class: "kind-tag pick", text: directionText(p) }),
           p.confidence ? el("span", { class: "m-conf" }, confidencePips(p.confidence), capitalize(p.confidence) + " confidence") : null,
-          el("span", { class: "m-conf", text: "Picked " + fmtLongDate(p.date) + (p.price_at_pick ? " at " + fmtPrice(p.price_at_pick) : "") }),
+          el("span", { class: "m-conf", text: "Picked " + fmtLongDate(p.date) + (entryOf(p) ? ", bought at the open for " + fmtPrice(entryOf(p)) : "") }),
+          p.vs_market_pct !== null && p.vs_market_pct !== undefined ? el("span", { class: "m-conf" }, "vs the S&P 500: ", changePill(p.vs_market_pct)) : null,
           resultBadge(p),
           p.return_pct !== null && p.return_pct !== undefined ? el("span", { class: "m-conf" }, "Since the pick: ", changePill(p.return_pct)) : null),
         el("p", { class: "m-reason", text: p.reason }),
@@ -1669,7 +1676,7 @@
     var H = narrow ? 230 : 300, left = 6, right = 56, top = 14, bottom = 26;
     var xs = series.map(function (d) { return toMs(d[0]); });
     var levelCall = calls.filter(function (p) { return p.target_price && p.stop_price; })[0];  // newest call with levels
-    var values = series.map(function (d) { return d[1]; }).concat(calls.map(function (p) { return p.price_at_pick; }).filter(Boolean))
+    var values = series.map(function (d) { return d[1]; }).concat(calls.map(function (p) { return entryOf(p); }).filter(Boolean))
       .concat(levelCall ? [levelCall.target_price, levelCall.stop_price] : []);
     var lo = Math.min.apply(null, values), hi = Math.max.apply(null, values);
     var pad = (hi - lo) * 0.08 || hi * 0.02 || 1;
@@ -1712,8 +1719,8 @@
 
     // A dot for each of the bot's calls, at the price when it was picked.
     calls.forEach(function (p) {
-      if (!p.price_at_pick) return;
-      var cx = x(Math.max(xs[0], Math.min(xs[xs.length - 1], toMs(p.date)))), cy = y(p.price_at_pick);
+      if (!entryOf(p)) return;
+      var cx = x(Math.max(xs[0], Math.min(xs[xs.length - 1], toMs(p.entry_date || p.date)))), cy = y(entryOf(p));
       var r = resultOf(p);
       plot.appendChild(svg("circle", { cx: cx, cy: cy, r: 5, "stroke-width": 2, stroke: r === "open" ? "var(--ink)" : "var(--paper)",
         fill: r === "right" ? "var(--good)" : r === "wrong" ? "var(--bad)" : "var(--paper)" }));
@@ -1871,16 +1878,17 @@
           p.theme ? el("span", { class: "co", text: p.theme }) : null),
         el("td", { class: "tab", text: directionText(p) }),
         el("td", null, p.confidence ? [confidencePips(p.confidence), capitalize(p.confidence)] : "—"),
-        el("td", { class: "r tab", text: fmtPrice(p.price_at_pick) }),
+        el("td", { class: "r tab", text: fmtPrice(entryOf(p)) }),
         el("td", { class: "r tab", text: fmtPrice(p.price_now) }),
         el("td", { class: "r tab", text: fmtPct(p.directional_return_pct) }),
+        el("td", { class: "r tab", text: fmtPct(p.vs_market_pct) }),
         el("td", null, resultBadge(p),
           p.level_status ? el("span", { class: "lv-status " + (p.level_status === "target" ? "hit" : "miss"),
             text: p.level_status === "target" ? "🎯 Target reached" : "🛑 Proven wrong" }) : null),
         el("td", { class: "why", text: p.reason })));
     });
     if (!indexed.length) {
-      tbody.appendChild(el("tr", null, el("td", { colspan: 9, text: picks.length ? "No picks match these filters." : "No picks yet." })));
+      tbody.appendChild(el("tr", null, el("td", { colspan: 10, text: picks.length ? "No picks match these filters." : "No picks yet." })));
     }
     var shown = Math.min(indexed.length, recordLimit);
     document.getElementById("count").textContent = "Showing " + shown + " of " + indexed.length +

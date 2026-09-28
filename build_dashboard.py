@@ -14,7 +14,8 @@ import csv
 import json
 import math
 import os
-from datetime import date, datetime, timedelta, timezone
+from datetime import date, datetime, time, timedelta, timezone
+from zoneinfo import ZoneInfo
 
 import yfinance as yf
 
@@ -79,23 +80,53 @@ def read_days(days_dir=DAYS_DIR):
 
 # --- Prices ------------------------------------------------------------------
 
-def fetch_history(ticker, start_date):
+def fetch_prices(ticker, start_date):
     """
-    Returns daily closing prices from about 6 months before start_date up to
-    today, as a list of [date, price] pairs, or [] if Yahoo has nothing for
-    this ticker. The extra months give the stock charts some context.
+    Returns (closes, opens) from about 6 months before start_date up to today:
+    closes is a list of [date, price] pairs (for the charts), opens is a dict
+    {date: opening price} (for scoring picks). Both are empty if Yahoo has
+    nothing for this ticker. The extra months give the charts some context.
     """
     try:
         start = date.fromisoformat(start_date) - timedelta(days=CHART_LOOKBACK_DAYS)
         history = yf.Ticker(ticker).history(start=start.isoformat())
-        # Skip blank ("NaN") rows, which Yahoo sometimes returns for today.
-        return [
-            [index.strftime("%Y-%m-%d"), round(float(close), 2)]
-            for index, close in history["Close"].items()
-            if math.isfinite(close)
-        ]
+        closes, opens = [], {}
+        for index, row in history.iterrows():
+            day = index.strftime("%Y-%m-%d")
+            # Skip blank ("NaN") rows, which Yahoo sometimes returns for today.
+            if math.isfinite(row["Close"]):
+                closes.append([day, round(float(row["Close"]), 2)])
+            if math.isfinite(row["Open"]) and row["Open"] > 0:
+                opens[day] = round(float(row["Open"]), 2)
+        return closes, opens
     except Exception:
-        return []
+        return [], {}
+
+
+NEW_YORK = ZoneInfo("America/New_York")
+
+
+def entry_date(pick_date, picked_at=None):
+    """
+    The day a pick could first have been bought at the opening bell. The bot
+    normally runs before the market opens, so that's the pick's own day; a
+    pick made after 9:30 AM New York time (e.g. a late manual run) waits for
+    the next day's open. `picked_at` is the run's UTC time, if it was saved.
+    """
+    if not picked_at:
+        return pick_date
+    ny = datetime.fromisoformat(picked_at.replace("Z", "+00:00")).astimezone(NEW_YORK)
+    if ny.time() < time(9, 30):
+        return ny.date().isoformat()
+    return (ny.date() + timedelta(days=1)).isoformat()
+
+
+def _first_open(opens, day):
+    """(date, opening price) of the first session on or after `day`, or (None, None)."""
+    for d in sorted(opens):
+        if d >= day:
+            return d, opens[d]
+    return None, None
 
 
 def fetch_earnings_date(ticker):
@@ -153,26 +184,32 @@ def _price_on(history, day, since):
     return price
 
 
-def pretend_portfolio(picks, histories, benchmark="SPY"):
+def pretend_portfolio(picks, histories, benchmark="SPY", opens=None):
     """
     What $10,000 would be worth if, every day the bot ran, you had split it
-    equally across that day's Top 5 buys (bought at the pick price) and held
-    them until the next day's Top 5 - compared with simply buying the S&P 500
-    fund (SPY) on the same first day. No trading costs or taxes; just a
-    rough "is this any good?" check.
+    equally across that day's Top 5 buys (bought at the opening price) and
+    held them until the next day's Top 5 - compared with simply buying the
+    S&P 500 fund (SPY) at the same first open. No trading costs or taxes;
+    just a rough "is this any good?" check.
 
     Returns None until there's a Top 5 and some prices after it.
     """
+    def entry(p):
+        return p["entry_price"] if "entry_price" in p else p.get("price_at_pick")
+
     groups = {}
     for p in picks:
-        if p.get("top_rank") and p.get("price_at_pick"):
-            groups.setdefault(p["date"], []).append(p)
+        if p.get("top_rank") and entry(p):
+            groups.setdefault(p.get("entry_date") or p["date"], []).append(p)
     spy = histories.get(benchmark) or []
     if not groups or not spy:
         return None
     pick_days = sorted(groups)
     first = pick_days[0]
-    spy_start = _price_on(spy, _day_before(first), "0000")
+    if opens is not None:
+        spy_start = (opens.get(benchmark) or {}).get(first)
+    else:
+        spy_start = _price_on(spy, _day_before(first), "0000")
     trading_days = [d for d, _ in spy if d >= first]
     if not trading_days or not spy_start:
         return None
@@ -188,8 +225,8 @@ def pretend_portfolio(picks, histories, benchmark="SPY"):
             next_group += 1
         ratios = []
         for p in holdings:
-            price = _price_on(histories.get(p["ticker"], []), day, p["date"])
-            ratios.append(price / p["price_at_pick"] if price else 1.0)
+            price = _price_on(histories.get(p["ticker"], []), day, p.get("entry_date") or p["date"])
+            ratios.append(price / entry(p) if price else 1.0)
         value = base * sum(ratios) / len(ratios)
         bench = PORTFOLIO_START * _price_on(spy, day, "0000") / spy_start
         series.append([day, round(value, 2), round(bench, 2)])
@@ -261,7 +298,9 @@ def score_pick(pick, price_now):
       correct                 - True/False, or None if we can't tell yet
     """
     pick = dict(pick, price_now=price_now)
-    start = pick["price_at_pick"]
+    # Scored from the opening price you could actually have bought at (or the
+    # logged pick price for older data without opening prices).
+    start = pick["entry_price"] if "entry_price" in pick else pick["price_at_pick"]
     if start and price_now:
         move = (price_now - start) / start * 100
         sign = 1 if pick["direction"] == "bullish" else -1
@@ -286,8 +325,8 @@ def horizon_returns(pick, history):
     (trading days, counting the pick day's close as day 1). A horizon that
     hasn't been reached yet is None.
     """
-    start = pick.get("price_at_pick")
-    closes = [c for d, c in history if d >= pick["date"]]
+    start = pick["entry_price"] if "entry_price" in pick else pick.get("price_at_pick")
+    closes = [c for d, c in history if d >= (pick.get("entry_date") or pick["date"])]
     sign = 1 if pick["direction"] == "bullish" else -1
     return {
         label: round((closes[n - 1] - start) / start * 100 * sign, 2) + 0.0 if start and len(closes) >= n else None
@@ -345,6 +384,50 @@ def by_horizon(picks):
             "avg_directional_return": _average(moves),
         })
     return rows
+
+
+# The fund that stands in for "the market" (the S&P 500).
+MARKET_TICKER = "SPY"
+
+
+def _market_move(spy_opens, spy_closes, start_day):
+    """The S&P 500's move (%) from the open on start_day to the latest close."""
+    if not start_day or start_day not in spy_opens:
+        return {}
+    later = [c for d, c in spy_closes if d >= start_day]
+    if not later:
+        return {}
+    return {"market_move_pct": round((later[-1] - spy_opens[start_day]) / spy_opens[start_day] * 100, 2) + 0.0}
+
+
+def vs_market(pick, market):
+    """
+    Adds how the call did compared with the S&P 500 over the same time:
+      vs_market_pct - the move for the call minus what the market did for the
+                      same bet (bullish: stock move - market move; bearish:
+                      market move - stock move). Positive = beat the market.
+      beat_market   - True/False, or None if we can't tell yet.
+    """
+    pick = dict(pick, **market)
+    move, mkt = pick.get("return_pct"), market.get("market_move_pct")
+    if move is None or mkt is None:
+        return dict(pick, vs_market_pct=None, beat_market=None)
+    sign = 1 if pick["direction"] == "bullish" else -1
+    diff = round((move - mkt) * sign, 2) + 0.0
+    return dict(pick, vs_market_pct=diff, beat_market=diff > 0 if diff != 0 else None)
+
+
+def market_record(picks):
+    """How often the calls beat the S&P 500, overall and for the Top 5."""
+    def rate(ps):
+        judged = [p for p in ps if p.get("beat_market") is not None]
+        return {
+            "judged": len(judged),
+            "beat": len([p for p in judged if p["beat_market"]]),
+            "rate": round(len([p for p in judged if p["beat_market"]]) / len(judged) * 100, 1) if judged else None,
+            "avg_vs_market": _average([p.get("vs_market_pct") for p in ps]),
+        }
+    return dict(rate(picks), top5=rate([p for p in picks if p.get("top_rank")]))
 
 
 def _hit_rate(picks):
@@ -590,7 +673,7 @@ def _brief(pick):
 
 # --- Putting it together -----------------------------------------------------
 
-def build_data(picks, days, histories, events=None, facts=None):
+def build_data(picks, days, histories, events=None, facts=None, opens=None):
     """
     Combines picks, daily details and price histories into the one object
     the web page needs. Kept separate from the network calls so it can be
@@ -603,13 +686,20 @@ def build_data(picks, days, histories, events=None, facts=None):
         day = days.get(pick["date"], {})
         extra = next((p for p in day.get("picks", []) if p["ticker"] == pick["ticker"]), {})
         history = histories.get(pick["ticker"], [])
-        # Only score a pick against prices from its own day or later. (If
-        # Yahoo is missing recent days, older prices would give fake results.)
-        since_pick = [h for h in history if h[0] >= pick["date"]]
-        price_now = since_pick[-1][1] if since_pick else None
         if pick["price_at_pick"] is None:
             # No price was logged: use that day's closing price, if known.
             pick = dict(pick, price_at_pick=next((c for d, c in history if d == pick["date"]), None))
+        # When it could have been bought: at the next opening bell after the pick.
+        market = {}
+        if opens is not None:
+            start_day, entry = _first_open(opens.get(pick["ticker"], {}), entry_date(pick["date"], day.get("picked_at")))
+            pick = dict(pick, entry_date=start_day, entry_price=entry)
+            market = _market_move(opens.get(MARKET_TICKER, {}), histories.get(MARKET_TICKER, []), start_day)
+        scored_from = pick.get("entry_date") or pick["date"]
+        # Only score a pick against prices from then on. (If Yahoo is
+        # missing recent days, older prices would give fake results.)
+        since_pick = [h for h in history if h[0] >= scored_from]
+        price_now = since_pick[-1][1] if since_pick else None
         top_tickers = [b["ticker"] for b in day.get("top_buys") or []]
         full = dict(
             pick,
@@ -630,7 +720,7 @@ def build_data(picks, days, histories, events=None, facts=None):
         )
         full["horizons"] = horizon_returns(full, history)
         full["level_status"] = level_status(full, history)
-        enriched.append(score_pick(full, price_now))
+        enriched.append(vs_market(score_pick(full, price_now), market))
 
     # Newest first, and within a day keep the order Claude gave.
     enriched.sort(key=lambda p: p["date"], reverse=True)
@@ -655,6 +745,7 @@ def build_data(picks, days, histories, events=None, facts=None):
     stats["weeks"] = weekly_report(enriched)
     stats["by_theme"] = by_theme(enriched)
     stats["by_horizon"] = by_horizon(enriched)
+    stats["vs_market"] = market_record(enriched)
 
     return {
         "generated_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
@@ -673,7 +764,7 @@ def build_data(picks, days, histories, events=None, facts=None):
         # Key facts per ticker, for the fact sheet in the chart popup.
         "facts": facts or {},
         # The pretend $10,000 portfolio that follows the Top 5.
-        "portfolio": pretend_portfolio(enriched, histories),
+        "portfolio": pretend_portfolio(enriched, histories, opens=opens),
         # The "market watch" stocks, with the latest note Claude wrote for each.
         "watchlist": _watchlist_cards(days),
         # Today's "Top 5 buys", with the longer "why" for each.
@@ -692,7 +783,9 @@ def main():
     # Market-watch stocks and sector funds get the same ~6 months of history, counted from today.
     for t in list(WATCHLIST) + list(SECTORS):
         first_seen.setdefault(t, date.today().isoformat())
-    histories = {t: fetch_history(t, d) for t, d in first_seen.items()}
+    prices = {t: fetch_prices(t, d) for t, d in first_seen.items()}
+    histories = {t: closes for t, (closes, _) in prices.items()}
+    opens = {t: day_opens for t, (_, day_opens) in prices.items()}
     missing = [t for t, h in histories.items() if not h]
     if missing:
         print(f"No price history for: {', '.join(missing)}")
@@ -709,7 +802,7 @@ def main():
     # Fact sheets for every stock that has a chart on the page.
     facts = {t: fetch_facts(t) for t in sorted(companies | {p["ticker"] for p in picks})}
 
-    data = build_data(picks, days, histories, events, {t: f for t, f in facts.items() if f})
+    data = build_data(picks, days, histories, events, {t: f for t, f in facts.items() if f}, opens)
 
     os.makedirs(os.path.dirname(OUTPUT_FILE), exist_ok=True)
     with open(OUTPUT_FILE, "w", encoding="utf-8") as f:

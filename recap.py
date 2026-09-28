@@ -19,38 +19,50 @@ from zoneinfo import ZoneInfo
 import yfinance as yf
 from dotenv import load_dotenv
 
-from build_dashboard import latest_run_only, read_days, read_picks
+from build_dashboard import entry_date, latest_run_only, read_days, read_picks
 from discord_notify import DISCLAIMER, send_to_discord
 from main import dashboard_url
 
 
-def get_close(ticker, date_str):
-    """
-    The latest closing price on or after `date_str`, or None if there isn't
-    one yet. (Yahoo occasionally skips a day, so an exact date can be missing.)
-    """
+def get_sessions(ticker):
+    """The last ~10 trading days as [(date, open, close), ...], or [] if Yahoo has nothing."""
     try:
         history = yf.Ticker(ticker).history(period="10d")
-        closes = [
-            float(close) for index, close in history["Close"].dropna().items()
-            if index.strftime("%Y-%m-%d") >= date_str
+        return [
+            (index.strftime("%Y-%m-%d"), round(float(row["Open"]), 2), round(float(row["Close"]), 2))
+            for index, row in history.iterrows()
+            if row["Open"] == row["Open"] and row["Close"] == row["Close"]  # skip blank (NaN) rows
         ]
-        return round(closes[-1], 2) if closes else None
     except Exception:
-        return None
+        return []
 
 
-def score(pick, close):
+def open_and_close(sessions, start_day):
     """
-    Adds "move" (percent since the pick, in the direction of the call, so
-    positive = the call worked) and "raw_move" (plain percent) to a pick.
+    (opening price on the first session on or after start_day, latest close
+    since then), or (None, None). The open is what you could actually have
+    bought at, since the bot picks before the market opens.
     """
-    start = pick["price_at_pick"]
+    later = [s for s in sessions if s[0] >= start_day]
+    if not later:
+        return None, None
+    return later[0][1], later[-1][2]
+
+
+def score(pick, close, entry=None, market_move=None):
+    """
+    Adds "move" (percent in the direction of the call, so positive = the call
+    worked), "raw_move" (plain percent) and "vs_market" (how much better the
+    call did than the same bet on the S&P 500) to a pick. Measured from
+    `entry` (the opening price) when given, else from the logged pick price.
+    """
+    start = entry or pick["price_at_pick"]
     if not (start and close):
-        return dict(pick, close=close, move=None, raw_move=None)
+        return dict(pick, entry=start, close=close, move=None, raw_move=None, vs_market=None)
     raw = (close - start) / start * 100
     sign = 1 if pick["direction"] == "bullish" else -1
-    return dict(pick, close=close, move=raw * sign, raw_move=raw)
+    vs = (raw - market_move) * sign if market_move is not None else None
+    return dict(pick, entry=start, close=close, move=raw * sign, raw_move=raw, vs_market=vs)
 
 
 def _line(p, rank=None):
@@ -62,7 +74,7 @@ def _line(p, rank=None):
     mark = "✅" if p["move"] > 0 else "❌" if p["move"] < 0 else "➖"
     return (
         f"{prefix}{mark} {arrow} **{p['ticker']}** {p['raw_move']:+.2f}% "
-        f"(${p['price_at_pick']:,.2f} → ${p['close']:,.2f})"
+        f"(${p['entry']:,.2f} → ${p['close']:,.2f})"
     )
 
 
@@ -73,7 +85,11 @@ def _summary(scored):
         return "No closing prices yet, so nothing to score."
     right = len([p for p in judged if p["move"] > 0])
     avg = sum(p["move"] for p in judged) / len(judged)
-    return f"{right} of {len(judged)} calls worked · average {avg:+.2f}% for the calls"
+    text = f"{right} of {len(judged)} calls worked · average {avg:+.2f}% for the calls"
+    vs = [p for p in judged if p.get("vs_market") is not None]
+    if vs:
+        text += f" · {len([p for p in vs if p['vs_market'] > 0])} of {len(vs)} beat the S&P 500"
+    return text
 
 
 def build_recap(date_str, today_picks, top_tickers, week_picks=None, dashboard=None):
@@ -154,21 +170,29 @@ def main():
         print(f"No picks for {date_str}; no recap to send.")
         return
 
-    # One closing-price lookup per ticker.
-    tickers = {p["ticker"] for p in (week or todays)}
-    earliest = min(p["date"] for p in (week or todays))
-    closes = {t: get_close(t, earliest) for t in sorted(tickers)}
-    if not any(closes.values()):
-        # Market holiday, or Yahoo hasn't got today's close yet.
-        print(f"No closing prices for {date_str} (market closed?); no recap sent.")
+    # One price lookup per ticker (plus SPY, the S&P 500, to compare with).
+    tickers = {p["ticker"] for p in (week or todays)} | {"SPY"}
+    sessions = {t: get_sessions(t) for t in sorted(tickers)}
+    if not any(s[0] >= date_str for rows in sessions.values() for s in rows):
+        # Market holiday, or Yahoo hasn't got today's prices yet.
+        print(f"No prices for {date_str} (market closed?); no recap sent.")
         return
+
+    def scored(p):
+        # Bought at the first opening bell after the pick; compared with the
+        # S&P 500 bought at that same open.
+        start_day = entry_date(p["date"], days.get(p["date"], {}).get("picked_at"))
+        entry, close = open_and_close(sessions.get(p["ticker"], []), start_day)
+        spy_open, spy_close = open_and_close(sessions["SPY"], start_day)
+        market = (spy_close - spy_open) / spy_open * 100 if spy_open and spy_close else None
+        return score(p, close, entry, market)
 
     def top_of(p):
         day_top = [b["ticker"] for b in days.get(p["date"], {}).get("top_buys") or []]
         return p["ticker"] in day_top
 
-    scored_today = [score(p, closes.get(p["ticker"])) for p in todays]
-    scored_week = [dict(score(p, closes.get(p["ticker"])), top=top_of(p)) for p in week] if week else None
+    scored_today = [scored(p) for p in todays]
+    scored_week = [dict(scored(p), top=top_of(p)) for p in week] if week else None
 
     message = build_recap(date_str, scored_today, top_tickers, scored_week, dashboard_url())
     if dry_run or not webhook_url:

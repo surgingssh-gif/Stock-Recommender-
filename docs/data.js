@@ -1,36 +1,36 @@
 window.DASHBOARD_DATA = {
- "generated_at": "2026-09-25T23:57:51Z",
+ "generated_at": "2026-09-28T16:47:27Z",
  "stats": {
   "total_picks": 29,
   "days_tracked": 4,
-  "hit_rate": 58.6,
+  "hit_rate": 48.3,
   "judged": 29,
-  "correct": 17,
-  "avg_directional_return": 0.64,
+  "correct": 14,
+  "avg_directional_return": 0.0,
   "best": {
    "date": "2026-09-22",
-   "ticker": "BHF",
+   "ticker": "RCL",
    "direction": "bullish",
-   "directional_return_pct": 6.82
+   "directional_return_pct": 4.48
   },
   "worst": {
-   "date": "2026-09-23",
-   "ticker": "VLO",
-   "direction": "bearish",
-   "directional_return_pct": -4.98
+   "date": "2026-09-25",
+   "ticker": "GDDY",
+   "direction": "bullish",
+   "directional_return_pct": -4.35
   },
   "by_direction": [
    {
     "label": "bullish",
     "count": 21,
-    "hit_rate": 57.1,
-    "avg_directional_return": 0.74
+    "hit_rate": 42.9,
+    "avg_directional_return": -0.5
    },
    {
     "label": "bearish",
     "count": 8,
     "hit_rate": 62.5,
-    "avg_directional_return": 0.37
+    "avg_directional_return": 1.32
    }
   ],
   "by_confidence": [
@@ -43,14 +43,14 @@ window.DASHBOARD_DATA = {
    {
     "label": "medium",
     "count": 18,
-    "hit_rate": 55.6,
-    "avg_directional_return": 0.76
+    "hit_rate": 38.9,
+    "avg_directional_return": -0.44
    },
    {
     "label": "low",
     "count": 11,
     "hit_rate": 63.6,
-    "avg_directional_return": 0.45
+    "avg_directional_return": 0.72
    }
   ],
   "by_day": [
@@ -58,25 +58,25 @@ window.DASHBOARD_DATA = {
     "date": "2026-09-22",
     "count": 7,
     "hit_rate": 57.1,
-    "avg_directional_return": 2.01
+    "avg_directional_return": 0.23
    },
    {
     "date": "2026-09-23",
     "count": 7,
-    "hit_rate": 71.4,
-    "avg_directional_return": 0.43
+    "hit_rate": 42.9,
+    "avg_directional_return": -0.55
    },
    {
     "date": "2026-09-24",
     "count": 8,
-    "hit_rate": 50.0,
-    "avg_directional_return": 0.18
+    "hit_rate": 62.5,
+    "avg_directional_return": 0.85
    },
    {
     "date": "2026-09-25",
     "count": 7,
-    "hit_rate": 57.1,
-    "avg_directional_return": -0.0
+    "hit_rate": 28.6,
+    "avg_directional_return": -0.64
    }
   ],
   "top_buys": {
@@ -84,183 +84,183 @@ window.DASHBOARD_DATA = {
     {
      "label": "Top 5 buys",
      "count": 20,
-     "hit_rate": 60.0,
-     "avg_directional_return": 0.98
+     "hit_rate": 45.0,
+     "avg_directional_return": -0.41
     },
     {
      "label": "Other picks",
      "count": 9,
      "hit_rate": 55.6,
-     "avg_directional_return": -0.13
+     "avg_directional_return": 0.92
     }
    ],
    "judged": 20,
    "by_day": [
     {
      "date": "2026-09-25",
-     "hit_rate": 60.0,
-     "avg_directional_return": 0.06,
+     "hit_rate": 0.0,
+     "avg_directional_return": -1.83,
      "buys": [
       {
        "top_rank": 1,
        "ticker": "DAL",
        "company": "Delta Air Lines",
-       "return_pct": 0.17,
-       "correct": true
+       "return_pct": -0.87,
+       "correct": false
       },
       {
        "top_rank": 2,
        "ticker": "DVN",
        "company": "Devon Energy",
-       "return_pct": -0.06,
+       "return_pct": -1.25,
        "correct": false
       },
       {
        "top_rank": 3,
        "ticker": "RKLB",
        "company": "Rocket Lab",
-       "return_pct": -0.5,
+       "return_pct": -1.9,
        "correct": false
       },
       {
        "top_rank": 4,
        "ticker": "JPM",
        "company": "JPMorgan Chase",
-       "return_pct": 0.38,
-       "correct": true
+       "return_pct": -0.76,
+       "correct": false
       },
       {
        "top_rank": 5,
        "ticker": "GDDY",
        "company": "GoDaddy",
-       "return_pct": 0.33,
-       "correct": true
+       "return_pct": -4.35,
+       "correct": false
       }
      ]
     },
     {
      "date": "2026-09-24",
-     "hit_rate": 40.0,
-     "avg_directional_return": 0.28,
+     "hit_rate": 60.0,
+     "avg_directional_return": 0.46,
      "buys": [
       {
        "top_rank": 1,
        "ticker": "XOM",
        "company": "Exxon Mobil",
-       "return_pct": -1.23,
+       "return_pct": -0.41,
        "correct": false
       },
       {
        "top_rank": 2,
        "ticker": "META",
        "company": "Meta Platforms",
-       "return_pct": -2.52,
+       "return_pct": -3.19,
        "correct": false
       },
       {
        "top_rank": 3,
        "ticker": "MSFT",
        "company": "Microsoft",
-       "return_pct": 4.11,
+       "return_pct": 3.32,
        "correct": true
       },
       {
        "top_rank": 4,
        "ticker": "VLO",
        "company": "Valero Energy",
-       "return_pct": -0.78,
-       "correct": false
+       "return_pct": 2.57,
+       "correct": true
       },
       {
        "top_rank": 5,
        "ticker": "JPM",
        "company": "JPMorgan Chase",
-       "return_pct": 1.82,
+       "return_pct": 0.01,
        "correct": true
       }
      ]
     },
     {
      "date": "2026-09-23",
-     "hit_rate": 80.0,
-     "avg_directional_return": 1.34,
+     "hit_rate": 40.0,
+     "avg_directional_return": -1.08,
      "buys": [
       {
        "top_rank": 1,
        "ticker": "META",
        "company": "Meta Platforms",
-       "return_pct": 0.31,
-       "correct": true
+       "return_pct": -3.61,
+       "correct": false
       },
       {
        "top_rank": 2,
        "ticker": "DVN",
        "company": "Devon Energy",
-       "return_pct": -2.65,
+       "return_pct": -0.3,
        "correct": false
       },
       {
        "top_rank": 3,
        "ticker": "MU",
        "company": "Micron Technology",
-       "return_pct": 1.08,
-       "correct": true
+       "return_pct": -4.04,
+       "correct": false
       },
       {
        "top_rank": 4,
        "ticker": "IONQ",
        "company": "IonQ",
-       "return_pct": 5.57,
+       "return_pct": 2.25,
        "correct": true
       },
       {
        "top_rank": 5,
        "ticker": "BHF",
        "company": "Brighthouse Financial",
-       "return_pct": 2.38,
+       "return_pct": 0.29,
        "correct": true
       }
      ]
     },
     {
      "date": "2026-09-22",
-     "hit_rate": 60.0,
-     "avg_directional_return": 2.25,
+     "hit_rate": 80.0,
+     "avg_directional_return": 0.81,
      "buys": [
       {
        "top_rank": 1,
        "ticker": "CPRI",
        "company": "Capri Holdings",
-       "return_pct": 5.52,
-       "correct": true
+       "return_pct": -2.74,
+       "correct": false
       },
       {
        "top_rank": 2,
        "ticker": "NVDA",
        "company": "NVIDIA",
-       "return_pct": -1.02,
-       "correct": false
+       "return_pct": 1.33,
+       "correct": true
       },
       {
        "top_rank": 3,
        "ticker": "DAL",
        "company": "Delta Air Lines",
-       "return_pct": 2.96,
+       "return_pct": 0.69,
        "correct": true
       },
       {
        "top_rank": 4,
        "ticker": "BHF",
        "company": "Brighthouse Financial",
-       "return_pct": 6.82,
+       "return_pct": 0.29,
        "correct": true
       },
       {
        "top_rank": 5,
        "ticker": "RCL",
        "company": "Royal Caribbean",
-       "return_pct": -3.02,
-       "correct": false
+       "return_pct": 4.48,
+       "correct": true
       }
      ]
     }
@@ -273,24 +273,24 @@ window.DASHBOARD_DATA = {
     "days": 4,
     "count": 29,
     "judged": 29,
-    "correct": 17,
-    "hit_rate": 58.6,
-    "avg_directional_return": 0.64,
+    "correct": 14,
+    "hit_rate": 48.3,
+    "avg_directional_return": 0.0,
     "best": {
      "date": "2026-09-22",
-     "ticker": "BHF",
+     "ticker": "RCL",
      "direction": "bullish",
-     "directional_return_pct": 6.82
+     "directional_return_pct": 4.48
     },
     "worst": {
-     "date": "2026-09-23",
-     "ticker": "VLO",
-     "direction": "bearish",
-     "directional_return_pct": -4.98
+     "date": "2026-09-25",
+     "ticker": "GDDY",
+     "direction": "bullish",
+     "directional_return_pct": -4.35
     },
     "top5_count": 20,
-    "top5_hit_rate": 60.0,
-    "top5_avg": 0.98
+    "top5_hit_rate": 45.0,
+    "top5_avg": -0.41
    }
   ],
   "by_theme": [
@@ -298,33 +298,33 @@ window.DASHBOARD_DATA = {
     "label": "Interest rates & the Fed",
     "count": 5,
     "hit_rate": 80.0,
-    "avg_directional_return": 0.51
+    "avg_directional_return": 1.25
    },
    {
     "label": "Mergers & deals",
     "count": 5,
-    "hit_rate": 40.0,
-    "avg_directional_return": -0.18
+    "hit_rate": 20.0,
+    "avg_directional_return": -1.07
    },
    {
     "label": "Oil & energy",
     "count": 3,
     "hit_rate": 33.3,
-    "avg_directional_return": -0.61
+    "avg_directional_return": 0.43
    },
    {
     "label": "AI & tech",
     "count": 2,
     "hit_rate": 50.0,
-    "avg_directional_return": 0.8
+    "avg_directional_return": 0.06
    }
   ],
   "by_horizon": [
    {
     "label": "1 day",
     "count": 29,
-    "hit_rate": 48.3,
-    "avg_directional_return": 0.21
+    "hit_rate": 55.2,
+    "avg_directional_return": -0.09
    },
    {
     "label": "1 week",
@@ -338,7 +338,19 @@ window.DASHBOARD_DATA = {
     "hit_rate": null,
     "avg_directional_return": null
    }
-  ]
+  ],
+  "vs_market": {
+   "judged": 29,
+   "beat": 14,
+   "rate": 48.3,
+   "avg_vs_market": 0.13,
+   "top5": {
+    "judged": 20,
+    "beat": 9,
+    "rate": 45.0,
+    "avg_vs_market": -0.07
+   }
+  }
  },
  "picks": [
   {
@@ -347,6 +359,8 @@ window.DASHBOARD_DATA = {
    "direction": "bearish",
    "reason": "The 10-year yield just hit a 19-year high and traders are building Fed rate-hike bets, which pushes long-bond prices lower.",
    "price_at_pick": 79.05,
+   "entry_date": "2026-09-25",
+   "entry_price": 79.37,
    "company": "iShares 20+ Year Treasury Bond ETF",
    "top_rank": null,
    "confidence": "medium",
@@ -365,18 +379,25 @@ window.DASHBOARD_DATA = {
     [
      "2026-09-25",
      79.32
+    ],
+    [
+     "2026-09-28",
+     78.44
     ]
    ],
    "horizons": {
-    "1 day": -0.34,
+    "1 day": 0.06,
     "1 week": null,
     "1 month": null
    },
    "level_status": null,
-   "price_now": 79.32,
-   "return_pct": 0.34,
-   "directional_return_pct": -0.34,
-   "correct": false
+   "price_now": 78.44,
+   "return_pct": -1.17,
+   "directional_return_pct": 1.17,
+   "correct": true,
+   "market_move_pct": -0.24,
+   "vs_market_pct": 0.93,
+   "beat_market": true
   },
   {
    "date": "2026-09-25",
@@ -384,6 +405,8 @@ window.DASHBOARD_DATA = {
    "direction": "bullish",
    "reason": "Oil fell about 3% as the US and Iran explore an end to the war, and cheaper jet fuel is a direct boost to airline margins.",
    "price_at_pick": 84.8,
+   "entry_date": "2026-09-25",
+   "entry_price": 84.0,
    "company": "Delta Air Lines",
    "top_rank": 1,
    "confidence": "medium",
@@ -402,18 +425,25 @@ window.DASHBOARD_DATA = {
     [
      "2026-09-25",
      84.94
+    ],
+    [
+     "2026-09-28",
+     83.27
     ]
    ],
    "horizons": {
-    "1 day": 0.17,
+    "1 day": 1.12,
     "1 week": null,
     "1 month": null
    },
    "level_status": null,
-   "price_now": 84.94,
-   "return_pct": 0.17,
-   "directional_return_pct": 0.17,
-   "correct": true
+   "price_now": 83.27,
+   "return_pct": -0.87,
+   "directional_return_pct": -0.87,
+   "correct": false,
+   "market_move_pct": -0.24,
+   "vs_market_pct": -0.63,
+   "beat_market": false
   },
   {
    "date": "2026-09-25",
@@ -421,6 +451,8 @@ window.DASHBOARD_DATA = {
    "direction": "bullish",
    "reason": "Reports say BP is reviewing Devon's South Texas Eagle Ford assets as a multibillion-dollar acquisition, which could unlock value even with oil softening.",
    "price_at_pick": 47.08,
+   "entry_date": "2026-09-25",
+   "entry_price": 47.84,
    "company": "Devon Energy",
    "top_rank": 2,
    "confidence": "medium",
@@ -439,18 +471,25 @@ window.DASHBOARD_DATA = {
     [
      "2026-09-25",
      47.05
+    ],
+    [
+     "2026-09-28",
+     47.24
     ]
    ],
    "horizons": {
-    "1 day": -0.06,
+    "1 day": -1.65,
     "1 week": null,
     "1 month": null
    },
    "level_status": null,
-   "price_now": 47.05,
-   "return_pct": -0.06,
-   "directional_return_pct": -0.06,
-   "correct": false
+   "price_now": 47.24,
+   "return_pct": -1.25,
+   "directional_return_pct": -1.25,
+   "correct": false,
+   "market_move_pct": -0.24,
+   "vs_market_pct": -1.01,
+   "beat_market": false
   },
   {
    "date": "2026-09-25",
@@ -458,6 +497,8 @@ window.DASHBOARD_DATA = {
    "direction": "bullish",
    "reason": "Iridium stockholders approved the acquisition by Rocket Lab, clearing a key hurdle toward a deal that materially expands its space business.",
    "price_at_pick": 74.32,
+   "entry_date": "2026-09-25",
+   "entry_price": 74.15,
    "company": "Rocket Lab",
    "top_rank": 3,
    "confidence": "medium",
@@ -476,18 +517,25 @@ window.DASHBOARD_DATA = {
     [
      "2026-09-25",
      73.95
+    ],
+    [
+     "2026-09-28",
+     72.74
     ]
    ],
    "horizons": {
-    "1 day": -0.5,
+    "1 day": -0.27,
     "1 week": null,
     "1 month": null
    },
    "level_status": null,
-   "price_now": 73.95,
-   "return_pct": -0.5,
-   "directional_return_pct": -0.5,
-   "correct": false
+   "price_now": 72.74,
+   "return_pct": -1.9,
+   "directional_return_pct": -1.9,
+   "correct": false,
+   "market_move_pct": -0.24,
+   "vs_market_pct": -1.66,
+   "beat_market": false
   },
   {
    "date": "2026-09-25",
@@ -495,6 +543,8 @@ window.DASHBOARD_DATA = {
    "direction": "bullish",
    "reason": "RBC calls a potential Gen Digital acquisition of GoDaddy transformational, keeping takeover speculation alive in the shares.",
    "price_at_pick": 96.82,
+   "entry_date": "2026-09-25",
+   "entry_price": 99.3,
    "company": "GoDaddy",
    "top_rank": 5,
    "confidence": "low",
@@ -513,18 +563,25 @@ window.DASHBOARD_DATA = {
     [
      "2026-09-25",
      97.14
+    ],
+    [
+     "2026-09-28",
+     94.98
     ]
    ],
    "horizons": {
-    "1 day": 0.33,
+    "1 day": -2.18,
     "1 week": null,
     "1 month": null
    },
    "level_status": null,
-   "price_now": 97.14,
-   "return_pct": 0.33,
-   "directional_return_pct": 0.33,
-   "correct": true
+   "price_now": 94.98,
+   "return_pct": -4.35,
+   "directional_return_pct": -4.35,
+   "correct": false,
+   "market_move_pct": -0.24,
+   "vs_market_pct": -4.11,
+   "beat_market": false
   },
   {
    "date": "2026-09-25",
@@ -532,6 +589,8 @@ window.DASHBOARD_DATA = {
    "direction": "bearish",
    "reason": "Gold is on track for a weekly loss as Fed rate-hike expectations build and war-risk premium fades on US-Iran diplomacy.",
    "price_at_pick": 393.42,
+   "entry_date": "2026-09-25",
+   "entry_price": 392.21,
    "company": "SPDR Gold Shares",
    "top_rank": null,
    "confidence": "low",
@@ -550,18 +609,25 @@ window.DASHBOARD_DATA = {
     [
      "2026-09-25",
      393.41
+    ],
+    [
+     "2026-09-28",
+     378.59
     ]
    ],
    "horizons": {
-    "1 day": 0.0,
+    "1 day": -0.31,
     "1 week": null,
     "1 month": null
    },
-   "level_status": null,
-   "price_now": 393.41,
-   "return_pct": 0.0,
-   "directional_return_pct": 0.0,
-   "correct": true
+   "level_status": "target",
+   "price_now": 378.59,
+   "return_pct": -3.47,
+   "directional_return_pct": 3.47,
+   "correct": true,
+   "market_move_pct": -0.24,
+   "vs_market_pct": 3.23,
+   "beat_market": true
   },
   {
    "date": "2026-09-25",
@@ -569,6 +635,8 @@ window.DASHBOARD_DATA = {
    "direction": "bullish",
    "reason": "A 19-year high in the 10-year yield supports bank lending margins.",
    "price_at_pick": 341.76,
+   "entry_date": "2026-09-25",
+   "entry_price": 340.77,
    "company": "JPMorgan Chase",
    "top_rank": 4,
    "confidence": "medium",
@@ -587,18 +655,25 @@ window.DASHBOARD_DATA = {
     [
      "2026-09-25",
      343.06
+    ],
+    [
+     "2026-09-28",
+     338.17
     ]
    ],
    "horizons": {
-    "1 day": 0.38,
+    "1 day": 0.67,
     "1 week": null,
     "1 month": null
    },
    "level_status": null,
-   "price_now": 343.06,
-   "return_pct": 0.38,
-   "directional_return_pct": 0.38,
-   "correct": true
+   "price_now": 338.17,
+   "return_pct": -0.76,
+   "directional_return_pct": -0.76,
+   "correct": false,
+   "market_move_pct": -0.24,
+   "vs_market_pct": -0.52,
+   "beat_market": false
   },
   {
    "date": "2026-09-24",
@@ -606,6 +681,8 @@ window.DASHBOARD_DATA = {
    "direction": "bullish",
    "reason": "Oil jumped about 4% after Houthi missiles hit Saudi Arabia and US-Iran talks stalled, with Hormuz shipping still below normal \u2014 a direct benefit to large integrated producers.",
    "price_at_pick": 162.59,
+   "entry_date": "2026-09-24",
+   "entry_price": 163.06,
    "company": "Exxon Mobil",
    "top_rank": 1,
    "confidence": "medium",
@@ -628,18 +705,25 @@ window.DASHBOARD_DATA = {
     [
      "2026-09-25",
      160.59
+    ],
+    [
+     "2026-09-28",
+     162.39
     ]
    ],
    "horizons": {
-    "1 day": -0.28,
+    "1 day": -0.56,
     "1 week": null,
     "1 month": null
    },
    "level_status": null,
-   "price_now": 160.59,
-   "return_pct": -1.23,
-   "directional_return_pct": -1.23,
-   "correct": false
+   "price_now": 162.39,
+   "return_pct": -0.41,
+   "directional_return_pct": -0.41,
+   "correct": false,
+   "market_move_pct": 0.38,
+   "vs_market_pct": -0.79,
+   "beat_market": false
   },
   {
    "date": "2026-09-24",
@@ -647,6 +731,8 @@ window.DASHBOARD_DATA = {
    "direction": "bullish",
    "reason": "The White House denied the reported diesel export ban that knocked refiners lower, and refining margins stay firm with tight inventories and rising crack spreads.",
    "price_at_pick": 390.24,
+   "entry_date": "2026-09-24",
+   "entry_price": 379.06,
    "company": "Valero Energy",
    "top_rank": 4,
    "confidence": "low",
@@ -669,18 +755,25 @@ window.DASHBOARD_DATA = {
     [
      "2026-09-25",
      387.18
+    ],
+    [
+     "2026-09-28",
+     388.81
     ]
    ],
    "horizons": {
-    "1 day": -1.89,
+    "1 day": 1.0,
     "1 week": null,
     "1 month": null
    },
    "level_status": null,
-   "price_now": 387.18,
-   "return_pct": -0.78,
-   "directional_return_pct": -0.78,
-   "correct": false
+   "price_now": 388.81,
+   "return_pct": 2.57,
+   "directional_return_pct": 2.57,
+   "correct": true,
+   "market_move_pct": 0.38,
+   "vs_market_pct": 2.19,
+   "beat_market": true
   },
   {
    "date": "2026-09-24",
@@ -688,6 +781,8 @@ window.DASHBOARD_DATA = {
    "direction": "bearish",
    "reason": "Fed officials Williams and Paulson both flagged further rate hikes and the 10-year yield hit a 19-year high of 5.11%, which pushes long-bond prices down.",
    "price_at_pick": 79.87,
+   "entry_date": "2026-09-24",
+   "entry_price": 80.35,
    "company": "iShares 20+ Year Treasury Bond ETF",
    "top_rank": null,
    "confidence": "medium",
@@ -710,18 +805,25 @@ window.DASHBOARD_DATA = {
     [
      "2026-09-25",
      79.32
+    ],
+    [
+     "2026-09-28",
+     78.44
     ]
    ],
    "horizons": {
-    "1 day": 0.56,
+    "1 day": 1.16,
     "1 week": null,
     "1 month": null
    },
    "level_status": null,
-   "price_now": 79.32,
-   "return_pct": -0.69,
-   "directional_return_pct": 0.69,
-   "correct": true
+   "price_now": 78.44,
+   "return_pct": -2.38,
+   "directional_return_pct": 2.38,
+   "correct": true,
+   "market_move_pct": 0.38,
+   "vs_market_pct": 2.76,
+   "beat_market": true
   },
   {
    "date": "2026-09-24",
@@ -729,6 +831,8 @@ window.DASHBOARD_DATA = {
    "direction": "bullish",
    "reason": "Meta is nearing its first 52-week high in a year as its Muse AI assistant and $14B Scale AI bet win over skeptics, though Amazon blocking Muse is a real friction point.",
    "price_at_pick": 771.08,
+   "entry_date": "2026-09-24",
+   "entry_price": 744.36,
    "company": "Meta Platforms",
    "top_rank": 2,
    "confidence": "medium",
@@ -751,18 +855,25 @@ window.DASHBOARD_DATA = {
     [
      "2026-09-25",
      751.66
+    ],
+    [
+     "2026-09-28",
+     720.59
     ]
    ],
    "horizons": {
-    "1 day": 0.84,
+    "1 day": 4.46,
     "1 week": null,
     "1 month": null
    },
-   "level_status": null,
-   "price_now": 751.66,
-   "return_pct": -2.52,
-   "directional_return_pct": -2.52,
-   "correct": false
+   "level_status": "stop",
+   "price_now": 720.59,
+   "return_pct": -3.19,
+   "directional_return_pct": -3.19,
+   "correct": false,
+   "market_move_pct": 0.38,
+   "vs_market_pct": -3.57,
+   "beat_market": false
   },
   {
    "date": "2026-09-24",
@@ -770,6 +881,8 @@ window.DASHBOARD_DATA = {
    "direction": "bearish",
    "reason": "Barry Diller's People Inc. pulled its offer for the rest of MGM, removing the takeover premium that had supported the shares; such deal breaks often keep bleeding.",
    "price_at_pick": 33.74,
+   "entry_date": "2026-09-24",
+   "entry_price": 33.87,
    "company": "MGM Resorts International",
    "top_rank": null,
    "confidence": "low",
@@ -792,18 +905,25 @@ window.DASHBOARD_DATA = {
     [
      "2026-09-25",
      32.58
+    ],
+    [
+     "2026-09-28",
+     32.36
     ]
    ],
    "horizons": {
-    "1 day": 0.15,
+    "1 day": 0.53,
     "1 week": null,
     "1 month": null
    },
    "level_status": null,
-   "price_now": 32.58,
-   "return_pct": -3.44,
-   "directional_return_pct": 3.44,
-   "correct": true
+   "price_now": 32.36,
+   "return_pct": -4.46,
+   "directional_return_pct": 4.46,
+   "correct": true,
+   "market_move_pct": 0.38,
+   "vs_market_pct": 4.84,
+   "beat_market": true
   },
   {
    "date": "2026-09-24",
@@ -811,6 +931,8 @@ window.DASHBOARD_DATA = {
    "direction": "bullish",
    "reason": "Reports that Gen Digital has made a takeover offer sent the stock jumping; if a formal bid follows there may be more premium to come, but unconfirmed deal chatter can unwind fast.",
    "price_at_pick": 101.32,
+   "entry_date": "2026-09-24",
+   "entry_price": 97.22,
    "company": "GoDaddy",
    "top_rank": null,
    "confidence": "low",
@@ -833,18 +955,25 @@ window.DASHBOARD_DATA = {
     [
      "2026-09-25",
      97.14
+    ],
+    [
+     "2026-09-28",
+     94.98
     ]
    ],
    "horizons": {
-    "1 day": -0.5,
+    "1 day": 3.69,
     "1 week": null,
     "1 month": null
    },
-   "level_status": null,
-   "price_now": 97.14,
-   "return_pct": -4.13,
-   "directional_return_pct": -4.13,
-   "correct": false
+   "level_status": "stop",
+   "price_now": 94.98,
+   "return_pct": -2.3,
+   "directional_return_pct": -2.3,
+   "correct": false,
+   "market_move_pct": 0.38,
+   "vs_market_pct": -2.68,
+   "beat_market": false
   },
   {
    "date": "2026-09-24",
@@ -852,6 +981,8 @@ window.DASHBOARD_DATA = {
    "direction": "bullish",
    "reason": "A long-time skeptic at Stifel just upgraded Microsoft to buy, a sentiment inflection on the cloud/AI leader.",
    "price_at_pick": 495.8,
+   "entry_date": "2026-09-24",
+   "entry_price": 495.07,
    "company": "Microsoft",
    "top_rank": 3,
    "confidence": "medium",
@@ -874,18 +1005,25 @@ window.DASHBOARD_DATA = {
     [
      "2026-09-25",
      516.17
+    ],
+    [
+     "2026-09-28",
+     511.51
     ]
    ],
    "horizons": {
-    "1 day": 0.43,
+    "1 day": 0.58,
     "1 week": null,
     "1 month": null
    },
    "level_status": null,
-   "price_now": 516.17,
-   "return_pct": 4.11,
-   "directional_return_pct": 4.11,
-   "correct": true
+   "price_now": 511.51,
+   "return_pct": 3.32,
+   "directional_return_pct": 3.32,
+   "correct": true,
+   "market_move_pct": 0.38,
+   "vs_market_pct": 2.94,
+   "beat_market": true
   },
   {
    "date": "2026-09-24",
@@ -893,6 +1031,8 @@ window.DASHBOARD_DATA = {
    "direction": "bullish",
    "reason": "Higher-for-longer rates and a 'booming economy' narrative favor the biggest US bank.",
    "price_at_pick": 336.92,
+   "entry_date": "2026-09-24",
+   "entry_price": 338.12,
    "company": "JPMorgan Chase",
    "top_rank": 5,
    "confidence": "low",
@@ -915,18 +1055,25 @@ window.DASHBOARD_DATA = {
     [
      "2026-09-25",
      343.06
+    ],
+    [
+     "2026-09-28",
+     338.17
     ]
    ],
    "horizons": {
-    "1 day": 0.49,
+    "1 day": 0.13,
     "1 week": null,
     "1 month": null
    },
    "level_status": null,
-   "price_now": 343.06,
-   "return_pct": 1.82,
-   "directional_return_pct": 1.82,
-   "correct": true
+   "price_now": 338.17,
+   "return_pct": 0.01,
+   "directional_return_pct": 0.01,
+   "correct": true,
+   "market_move_pct": 0.38,
+   "vs_market_pct": -0.37,
+   "beat_market": false
   },
   {
    "date": "2026-09-23",
@@ -934,6 +1081,8 @@ window.DASHBOARD_DATA = {
    "direction": "bullish",
    "reason": "Meta's new Muse AI agent is being called its 'ChatGPT moment' and lands right as the Connect developer keynote takes place, which can drive sentiment and product momentum.",
    "price_at_pick": 749.33,
+   "entry_date": "2026-09-23",
+   "entry_price": 747.6,
    "company": "Meta Platforms",
    "top_rank": 1,
    "confidence": "medium",
@@ -960,18 +1109,25 @@ window.DASHBOARD_DATA = {
     [
      "2026-09-25",
      751.66
+    ],
+    [
+     "2026-09-28",
+     720.59
     ]
    ],
    "horizons": {
-    "1 day": -0.7,
+    "1 day": -0.47,
     "1 week": null,
     "1 month": null
    },
    "level_status": null,
-   "price_now": 751.66,
-   "return_pct": 0.31,
-   "directional_return_pct": 0.31,
-   "correct": true
+   "price_now": 720.59,
+   "return_pct": -3.61,
+   "directional_return_pct": -3.61,
+   "correct": false,
+   "market_move_pct": -0.75,
+   "vs_market_pct": -2.86,
+   "beat_market": false
   },
   {
    "date": "2026-09-23",
@@ -979,6 +1135,8 @@ window.DASHBOARD_DATA = {
    "direction": "bullish",
    "reason": "Shares rose on a report that activist Toms Capital is pushing Devon to explore a sale, which often puts a floor under the stock.",
    "price_at_pick": 48.33,
+   "entry_date": "2026-09-23",
+   "entry_price": 47.38,
    "company": "Devon Energy",
    "top_rank": 2,
    "confidence": "medium",
@@ -1005,18 +1163,25 @@ window.DASHBOARD_DATA = {
     [
      "2026-09-25",
      47.05
+    ],
+    [
+     "2026-09-28",
+     47.24
     ]
    ],
    "horizons": {
-    "1 day": -0.6,
+    "1 day": 1.39,
     "1 week": null,
     "1 month": null
    },
    "level_status": null,
-   "price_now": 47.05,
-   "return_pct": -2.65,
-   "directional_return_pct": -2.65,
-   "correct": false
+   "price_now": 47.24,
+   "return_pct": -0.3,
+   "directional_return_pct": -0.3,
+   "correct": false,
+   "market_move_pct": -0.75,
+   "vs_market_pct": 0.45,
+   "beat_market": true
   },
   {
    "date": "2026-09-23",
@@ -1024,6 +1189,8 @@ window.DASHBOARD_DATA = {
    "direction": "bearish",
    "reason": "The 10-year yield hit its highest since 2007 on Fed rate-hike expectations, and long-dated bond funds fall when yields rise.",
    "price_at_pick": 80.39,
+   "entry_date": "2026-09-23",
+   "entry_price": 81.48,
    "company": "iShares 20+ Year Treasury Bond ETF",
    "top_rank": null,
    "confidence": "medium",
@@ -1050,18 +1217,25 @@ window.DASHBOARD_DATA = {
     [
      "2026-09-25",
      79.32
+    ],
+    [
+     "2026-09-28",
+     78.44
     ]
    ],
    "horizons": {
-    "1 day": -0.09,
+    "1 day": 1.25,
     "1 week": null,
     "1 month": null
    },
    "level_status": null,
-   "price_now": 79.32,
-   "return_pct": -1.33,
-   "directional_return_pct": 1.33,
-   "correct": true
+   "price_now": 78.44,
+   "return_pct": -3.73,
+   "directional_return_pct": 3.73,
+   "correct": true,
+   "market_move_pct": -0.75,
+   "vs_market_pct": 2.98,
+   "beat_market": true
   },
   {
    "date": "2026-09-23",
@@ -1069,6 +1243,8 @@ window.DASHBOARD_DATA = {
    "direction": "bullish",
    "reason": "IonQ says it demonstrated the industry's first real-time end-to-end error decoder, a technical milestone that sent shares sharply higher premarket.",
    "price_at_pick": 43.08,
+   "entry_date": "2026-09-23",
+   "entry_price": 45.84,
    "company": "IonQ",
    "top_rank": 4,
    "confidence": "low",
@@ -1095,18 +1271,25 @@ window.DASHBOARD_DATA = {
     [
      "2026-09-25",
      45.48
+    ],
+    [
+     "2026-09-28",
+     46.87
     ]
    ],
    "horizons": {
-    "1 day": -1.25,
+    "1 day": -7.2,
     "1 week": null,
     "1 month": null
    },
    "level_status": null,
-   "price_now": 45.48,
-   "return_pct": 5.57,
-   "directional_return_pct": 5.57,
-   "correct": true
+   "price_now": 46.87,
+   "return_pct": 2.25,
+   "directional_return_pct": 2.25,
+   "correct": true,
+   "market_move_pct": -0.75,
+   "vs_market_pct": 3.0,
+   "beat_market": true
   },
   {
    "date": "2026-09-23",
@@ -1114,6 +1297,8 @@ window.DASHBOARD_DATA = {
    "direction": "bearish",
    "reason": "Trump backing a diesel export ban could trap fuel in the US market and compress the record refining margins that have been boosting refiners.",
    "price_at_pick": 368.82,
+   "entry_date": "2026-09-23",
+   "entry_price": 380.43,
    "company": "Valero Energy",
    "top_rank": null,
    "confidence": "low",
@@ -1140,18 +1325,25 @@ window.DASHBOARD_DATA = {
     [
      "2026-09-25",
      387.18
+    ],
+    [
+     "2026-09-28",
+     388.81
     ]
    ],
    "horizons": {
-    "1 day": -1.9,
+    "1 day": 1.21,
     "1 week": null,
     "1 month": null
    },
    "level_status": null,
-   "price_now": 387.18,
-   "return_pct": 4.98,
-   "directional_return_pct": -4.98,
-   "correct": false
+   "price_now": 388.81,
+   "return_pct": 2.2,
+   "directional_return_pct": -2.2,
+   "correct": false,
+   "market_move_pct": -0.75,
+   "vs_market_pct": -2.95,
+   "beat_market": false
   },
   {
    "date": "2026-09-23",
@@ -1159,6 +1351,8 @@ window.DASHBOARD_DATA = {
    "direction": "bullish",
    "reason": "Shares jumped on a report that Sixth Street is renewing a takeover attempt, a classic deal-speculation catalyst.",
    "price_at_pick": 52.0,
+   "entry_date": "2026-09-23",
+   "entry_price": 51.88,
    "company": "Brighthouse Financial",
    "top_rank": 5,
    "confidence": "low",
@@ -1185,18 +1379,25 @@ window.DASHBOARD_DATA = {
     [
      "2026-09-25",
      53.24
+    ],
+    [
+     "2026-09-28",
+     52.03
     ]
    ],
    "horizons": {
-    "1 day": -0.02,
+    "1 day": 0.21,
     "1 week": null,
     "1 month": null
    },
    "level_status": null,
-   "price_now": 53.24,
-   "return_pct": 2.38,
-   "directional_return_pct": 2.38,
-   "correct": true
+   "price_now": 52.03,
+   "return_pct": 0.29,
+   "directional_return_pct": 0.29,
+   "correct": true,
+   "market_move_pct": -0.75,
+   "vs_market_pct": 1.04,
+   "beat_market": true
   },
   {
    "date": "2026-09-23",
@@ -1204,6 +1405,8 @@ window.DASHBOARD_DATA = {
    "direction": "bullish",
    "reason": "Memory maker reports earnings into a still-hot AI chip cycle.",
    "price_at_pick": 1070.7,
+   "entry_date": "2026-09-23",
+   "entry_price": 1100.07,
    "company": "Micron Technology",
    "top_rank": 3,
    "confidence": "medium",
@@ -1230,18 +1433,25 @@ window.DASHBOARD_DATA = {
     [
      "2026-09-25",
      1082.28
+    ],
+    [
+     "2026-09-28",
+     1055.67
     ]
    ],
    "horizons": {
-    "1 day": 0.11,
+    "1 day": -2.56,
     "1 week": null,
     "1 month": null
    },
    "level_status": null,
-   "price_now": 1082.28,
-   "return_pct": 1.08,
-   "directional_return_pct": 1.08,
-   "correct": true
+   "price_now": 1055.67,
+   "return_pct": -4.04,
+   "directional_return_pct": -4.04,
+   "correct": false,
+   "market_move_pct": -0.75,
+   "vs_market_pct": -3.29,
+   "beat_market": false
   },
   {
    "date": "2026-09-22",
@@ -1249,6 +1459,8 @@ window.DASHBOARD_DATA = {
    "direction": "bearish",
    "reason": "Crude slipped on higher Gulf supply and optimism about US-Iran talks and a Hormuz reopening, which trims the price backdrop for big oil producers.",
    "price_at_pick": 158.3,
+   "entry_date": "2026-09-23",
+   "entry_price": 159.62,
    "company": "Exxon Mobil",
    "top_rank": null,
    "confidence": "medium",
@@ -1279,18 +1491,25 @@ window.DASHBOARD_DATA = {
     [
      "2026-09-25",
      160.59
+    ],
+    [
+     "2026-09-28",
+     162.39
     ]
    ],
    "horizons": {
-    "1 day": -0.26,
+    "1 day": -1.01,
     "1 week": null,
     "1 month": null
    },
    "level_status": null,
-   "price_now": 160.59,
-   "return_pct": 1.45,
-   "directional_return_pct": -1.45,
-   "correct": false
+   "price_now": 162.39,
+   "return_pct": 1.74,
+   "directional_return_pct": -1.74,
+   "correct": false,
+   "market_move_pct": -0.75,
+   "vs_market_pct": -2.49,
+   "beat_market": false
   },
   {
    "date": "2026-09-22",
@@ -1298,6 +1517,8 @@ window.DASHBOARD_DATA = {
    "direction": "bullish",
    "reason": "Cheaper jet fuel from falling crude is a direct cost win for airlines, and calmer Middle East headlines support international travel demand.",
    "price_at_pick": 82.5,
+   "entry_date": "2026-09-23",
+   "entry_price": 82.7,
    "company": "Delta Air Lines",
    "top_rank": 3,
    "confidence": "medium",
@@ -1328,18 +1549,25 @@ window.DASHBOARD_DATA = {
     [
      "2026-09-25",
      84.94
+    ],
+    [
+     "2026-09-28",
+     83.27
     ]
    ],
    "horizons": {
-    "1 day": 1.72,
+    "1 day": -1.15,
     "1 week": null,
     "1 month": null
    },
    "level_status": null,
-   "price_now": 84.94,
-   "return_pct": 2.96,
-   "directional_return_pct": 2.96,
-   "correct": true
+   "price_now": 83.27,
+   "return_pct": 0.69,
+   "directional_return_pct": 0.69,
+   "correct": true,
+   "market_move_pct": -0.75,
+   "vs_market_pct": 1.44,
+   "beat_market": true
   },
   {
    "date": "2026-09-22",
@@ -1347,6 +1575,8 @@ window.DASHBOARD_DATA = {
    "direction": "bullish",
    "reason": "Reports of takeover interest with an analyst valuing the company at $25-$26 a share put a deal premium under the stock.",
    "price_at_pick": 14.31,
+   "entry_date": "2026-09-23",
+   "entry_price": 15.31,
    "company": "Capri Holdings",
    "top_rank": 1,
    "confidence": "medium",
@@ -1377,18 +1607,25 @@ window.DASHBOARD_DATA = {
     [
      "2026-09-25",
      15.1
+    ],
+    [
+     "2026-09-28",
+     14.89
     ]
    ],
    "horizons": {
-    "1 day": 6.15,
+    "1 day": 0.78,
     "1 week": null,
     "1 month": null
    },
    "level_status": null,
-   "price_now": 15.1,
-   "return_pct": 5.52,
-   "directional_return_pct": 5.52,
-   "correct": true
+   "price_now": 14.89,
+   "return_pct": -2.74,
+   "directional_return_pct": -2.74,
+   "correct": false,
+   "market_move_pct": -0.75,
+   "vs_market_pct": -1.99,
+   "beat_market": false
   },
   {
    "date": "2026-09-22",
@@ -1396,6 +1633,8 @@ window.DASHBOARD_DATA = {
    "direction": "bullish",
    "reason": "Shares jumped on a report that Sixth Street is reviving its takeover effort, a classic deal catalyst.",
    "price_at_pick": 49.84,
+   "entry_date": "2026-09-23",
+   "entry_price": 51.88,
    "company": "Brighthouse Financial",
    "top_rank": 4,
    "confidence": "medium",
@@ -1426,18 +1665,25 @@ window.DASHBOARD_DATA = {
     [
      "2026-09-25",
      53.24
+    ],
+    [
+     "2026-09-28",
+     52.03
     ]
    ],
    "horizons": {
-    "1 day": 4.13,
+    "1 day": 0.21,
     "1 week": null,
     "1 month": null
    },
    "level_status": null,
-   "price_now": 53.24,
-   "return_pct": 6.82,
-   "directional_return_pct": 6.82,
-   "correct": true
+   "price_now": 52.03,
+   "return_pct": 0.29,
+   "directional_return_pct": 0.29,
+   "correct": true,
+   "market_move_pct": -0.75,
+   "vs_market_pct": 1.04,
+   "beat_market": true
   },
   {
    "date": "2026-09-22",
@@ -1445,6 +1691,8 @@ window.DASHBOARD_DATA = {
    "direction": "bullish",
    "reason": "A near-$3 billion deal for half of Sandals would push the company beyond cruises into all-inclusive resorts, broadening its growth story.",
    "price_at_pick": 250.25,
+   "entry_date": "2026-09-23",
+   "entry_price": 236.14,
    "company": "Royal Caribbean",
    "top_rank": 5,
    "confidence": "low",
@@ -1475,18 +1723,25 @@ window.DASHBOARD_DATA = {
     [
      "2026-09-25",
      242.7
+    ],
+    [
+     "2026-09-28",
+     246.72
     ]
    ],
    "horizons": {
-    "1 day": -6.14,
+    "1 day": -2.47,
     "1 week": null,
     "1 month": null
    },
    "level_status": null,
-   "price_now": 242.7,
-   "return_pct": -3.02,
-   "directional_return_pct": -3.02,
-   "correct": false
+   "price_now": 246.72,
+   "return_pct": 4.48,
+   "directional_return_pct": 4.48,
+   "correct": true,
+   "market_move_pct": -0.75,
+   "vs_market_pct": 5.23,
+   "beat_market": true
   },
   {
    "date": "2026-09-22",
@@ -1494,6 +1749,8 @@ window.DASHBOARD_DATA = {
    "direction": "bearish",
    "reason": "The stock sank 5% after Piper Sandler cut its target on worries that networking growth is peaking after a record summer run.",
    "price_at_pick": 111.46,
+   "entry_date": "2026-09-23",
+   "entry_price": 106.22,
    "company": "Cisco Systems",
    "top_rank": null,
    "confidence": "low",
@@ -1524,18 +1781,25 @@ window.DASHBOARD_DATA = {
     [
      "2026-09-25",
      106.7
+    ],
+    [
+     "2026-09-28",
+     106.99
     ]
    ],
    "horizons": {
-    "1 day": 4.5,
+    "1 day": -0.2,
     "1 week": null,
     "1 month": null
    },
    "level_status": null,
-   "price_now": 106.7,
-   "return_pct": -4.27,
-   "directional_return_pct": 4.27,
-   "correct": true
+   "price_now": 106.99,
+   "return_pct": 0.72,
+   "directional_return_pct": -0.72,
+   "correct": false,
+   "market_move_pct": -0.75,
+   "vs_market_pct": -1.47,
+   "beat_market": false
   },
   {
    "date": "2026-09-22",
@@ -1543,6 +1807,8 @@ window.DASHBOARD_DATA = {
    "direction": "bullish",
    "reason": "AI leadership plus near-term catalysts keep the Nasdaq's engine running.",
    "price_at_pick": 227.38,
+   "entry_date": "2026-09-23",
+   "entry_price": 228.03,
    "company": "NVIDIA",
    "top_rank": 2,
    "confidence": "medium",
@@ -1573,18 +1839,25 @@ window.DASHBOARD_DATA = {
     [
      "2026-09-25",
      225.07
+    ],
+    [
+     "2026-09-28",
+     231.06
     ]
    ],
    "horizons": {
-    "1 day": 0.66,
+    "1 day": -1.11,
     "1 week": null,
     "1 month": null
    },
    "level_status": null,
-   "price_now": 225.07,
-   "return_pct": -1.02,
-   "directional_return_pct": -1.02,
-   "correct": false
+   "price_now": 231.06,
+   "return_pct": 1.33,
+   "directional_return_pct": 1.33,
+   "correct": true,
+   "market_move_pct": -0.75,
+   "vs_market_pct": 2.08,
+   "beat_market": true
   }
  ],
  "days": [
@@ -4520,14 +4793,6 @@ window.DASHBOARD_DATA = {
  "charts": {
   "AAPL": [
    [
-    "2026-03-30",
-    246.19
-   ],
-   [
-    "2026-03-31",
-    253.34
-   ],
-   [
     "2026-04-01",
     255.17
    ],
@@ -5018,17 +5283,13 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-25",
     341.07
+   ],
+   [
+    "2026-09-28",
+    340.49
    ]
   ],
   "AMZN": [
-   [
-    "2026-03-30",
-    200.95
-   ],
-   [
-    "2026-03-31",
-    208.27
-   ],
    [
     "2026-04-01",
     210.57
@@ -5520,6 +5781,10 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-25",
     249.67
+   ],
+   [
+    "2026-09-28",
+    246.68
    ]
   ],
   "BHF": [
@@ -6030,6 +6295,10 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-25",
     53.24
+   ],
+   [
+    "2026-09-28",
+    52.03
    ]
   ],
   "CPRI": [
@@ -6540,6 +6809,10 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-25",
     15.1
+   ],
+   [
+    "2026-09-28",
+    14.89
    ]
   ],
   "CSCO": [
@@ -7050,6 +7323,10 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-25",
     106.7
+   ],
+   [
+    "2026-09-28",
+    106.99
    ]
   ],
   "DAL": [
@@ -7560,17 +7837,13 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-25",
     84.94
+   ],
+   [
+    "2026-09-28",
+    83.27
    ]
   ],
   "DIA": [
-   [
-    "2026-03-30",
-    448.85
-   ],
-   [
-    "2026-03-31",
-    459.91
-   ],
    [
     "2026-04-01",
     462.18
@@ -8062,6 +8335,10 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-25",
     517.49
+   ],
+   [
+    "2026-09-28",
+    514.92
    ]
   ],
   "DVN": [
@@ -8568,6 +8845,10 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-25",
     47.05
+   ],
+   [
+    "2026-09-28",
+    47.24
    ]
   ],
   "GDDY": [
@@ -9070,6 +9351,10 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-25",
     97.14
+   ],
+   [
+    "2026-09-28",
+    94.98
    ]
   ],
   "GLD": [
@@ -9572,17 +9857,13 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-25",
     393.41
+   ],
+   [
+    "2026-09-28",
+    378.59
    ]
   ],
   "GOOGL": [
-   [
-    "2026-03-30",
-    273.16
-   ],
-   [
-    "2026-03-31",
-    287.2
-   ],
    [
     "2026-04-01",
     297.02
@@ -10074,6 +10355,10 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-25",
     343.92
+   ],
+   [
+    "2026-09-28",
+    340.4
    ]
   ],
   "IONQ": [
@@ -10580,6 +10865,10 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-25",
     45.48
+   ],
+   [
+    "2026-09-28",
+    46.87
    ]
   ],
   "JPM": [
@@ -11082,6 +11371,10 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-25",
     343.06
+   ],
+   [
+    "2026-09-28",
+    338.17
    ]
   ],
   "META": [
@@ -11588,6 +11881,10 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-25",
     751.66
+   ],
+   [
+    "2026-09-28",
+    720.59
    ]
   ],
   "MGM": [
@@ -12090,6 +12387,10 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-25",
     32.58
+   ],
+   [
+    "2026-09-28",
+    32.36
    ]
   ],
   "MSFT": [
@@ -12592,6 +12893,10 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-25",
     516.17
+   ],
+   [
+    "2026-09-28",
+    511.51
    ]
   ],
   "MU": [
@@ -13098,6 +13403,10 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-25",
     1082.28
+   ],
+   [
+    "2026-09-28",
+    1055.67
    ]
   ],
   "NVDA": [
@@ -13608,17 +13917,13 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-25",
     225.07
+   ],
+   [
+    "2026-09-28",
+    231.06
    ]
   ],
   "QQQ": [
-   [
-    "2026-03-30",
-    557.09
-   ],
-   [
-    "2026-03-31",
-    575.95
-   ],
    [
     "2026-04-01",
     583.06
@@ -14110,6 +14415,10 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-25",
     744.5
+   ],
+   [
+    "2026-09-28",
+    737.72
    ]
   ],
   "RCL": [
@@ -14620,6 +14929,10 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-25",
     242.7
+   ],
+   [
+    "2026-09-28",
+    246.72
    ]
   ],
   "RKLB": [
@@ -15122,17 +15435,13 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-25",
     73.95
+   ],
+   [
+    "2026-09-28",
+    72.74
    ]
   ],
   "SPY": [
-   [
-    "2026-03-30",
-    628.78
-   ],
-   [
-    "2026-03-31",
-    647.06
-   ],
    [
     "2026-04-01",
     651.94
@@ -15624,6 +15933,10 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-25",
     771.35
+   ],
+   [
+    "2026-09-28",
+    766.97
    ]
   ],
   "TLT": [
@@ -16130,17 +16443,13 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-25",
     79.32
+   ],
+   [
+    "2026-09-28",
+    78.44
    ]
   ],
   "TSLA": [
-   [
-    "2026-03-30",
-    355.28
-   ],
-   [
-    "2026-03-31",
-    371.75
-   ],
    [
     "2026-04-01",
     381.26
@@ -16632,6 +16941,10 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-25",
     372.11
+   ],
+   [
+    "2026-09-28",
+    359.69
    ]
   ],
   "VLO": [
@@ -17138,6 +17451,10 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-25",
     387.18
+   ],
+   [
+    "2026-09-28",
+    388.81
    ]
   ],
   "XOM": [
@@ -17648,6 +17965,10 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-25",
     160.59
+   ],
+   [
+    "2026-09-28",
+    162.39
    ]
   ]
  },
@@ -17656,110 +17977,110 @@ window.DASHBOARD_DATA = {
    "ticker": "XLK",
    "name": "Technology",
    "changes": {
-    "1D": 0.8,
-    "1W": 3.64,
-    "1M": 7.47,
-    "3M": 8.5
+    "1D": -0.63,
+    "1W": 0.1,
+    "1M": 3.53,
+    "3M": 5.32
    }
   },
   {
    "ticker": "XLC",
    "name": "Communication",
    "changes": {
-    "1D": -0.9,
-    "1W": 2.27,
-    "1M": 0.64,
-    "3M": 6.74
+    "1D": -1.5,
+    "1W": -3.04,
+    "1M": 0.2,
+    "3M": 3.47
    }
   },
   {
    "ticker": "XLY",
    "name": "Consumer Discretionary",
    "changes": {
-    "1D": 0.22,
-    "1W": -0.21,
-    "1M": -5.42,
-    "3M": -3.12
+    "1D": -1.23,
+    "1W": -2.7,
+    "1M": -5.56,
+    "3M": -6.55
    }
   },
   {
    "ticker": "XLP",
    "name": "Consumer Staples",
    "changes": {
-    "1D": 0.44,
-    "1W": -0.24,
-    "1M": -4.26,
-    "3M": -2.5
+    "1D": 0.15,
+    "1W": 0.32,
+    "1M": -2.77,
+    "3M": -1.96
    }
   },
   {
    "ticker": "XLE",
    "name": "Energy",
    "changes": {
-    "1D": -0.89,
-    "1W": -2.96,
-    "1M": -0.03,
-    "3M": 15.92
+    "1D": 0.4,
+    "1W": -0.27,
+    "1M": 0.6,
+    "3M": 16.95
    }
   },
   {
    "ticker": "XLF",
    "name": "Financials",
    "changes": {
-    "1D": 0.57,
-    "1W": -1.47,
-    "1M": -5.53,
-    "3M": 2.74
+    "1D": -0.89,
+    "1W": -2.77,
+    "1M": -5.77,
+    "3M": 1.53
    }
   },
   {
    "ticker": "XLV",
    "name": "Health Care",
    "changes": {
-    "1D": 0.49,
-    "1W": 1.76,
-    "1M": -1.26,
-    "3M": 6.87
+    "1D": 0.39,
+    "1W": 1.39,
+    "1M": 0.25,
+    "3M": 7.01
    }
   },
   {
    "ticker": "XLI",
    "name": "Industrials",
    "changes": {
-    "1D": 0.95,
-    "1W": 0.67,
-    "1M": -5.24,
-    "3M": -5.69
+    "1D": -0.97,
+    "1W": -0.71,
+    "1M": -5.35,
+    "3M": -7.4
    }
   },
   {
    "ticker": "XLB",
    "name": "Materials",
    "changes": {
-    "1D": 0.24,
-    "1W": 0.08,
-    "1M": -6.78,
-    "3M": -3.04
+    "1D": -0.66,
+    "1W": -0.48,
+    "1M": -6.64,
+    "3M": -1.9
    }
   },
   {
    "ticker": "XLRE",
    "name": "Real Estate",
    "changes": {
-    "1D": -0.22,
-    "1W": -1.45,
-    "1M": -7.05,
-    "3M": -7.36
+    "1D": -0.58,
+    "1W": -2.98,
+    "1M": -6.71,
+    "3M": -7.25
    }
   },
   {
    "ticker": "XLU",
    "name": "Utilities",
    "changes": {
-    "1D": 0.38,
-    "1W": -3.16,
-    "1M": -8.52,
-    "3M": -13.85
+    "1D": -0.73,
+    "1W": -3.54,
+    "1M": -8.49,
+    "3M": -14.14
    }
   }
  ],
@@ -17883,6 +18204,12 @@ window.DASHBOARD_DATA = {
    "kind": "earnings",
    "ticker": "RKLB",
    "label": "Rocket Lab earnings"
+  },
+  {
+   "date": "2026-11-12",
+   "kind": "earnings",
+   "ticker": "CSCO",
+   "label": "Cisco Systems earnings"
   }
  ],
  "logos": {
@@ -17907,9 +18234,9 @@ window.DASHBOARD_DATA = {
    "quoteType": "EQUITY",
    "sector": "Technology",
    "industry": "Consumer Electronics",
-   "marketCap": 4977636933632,
-   "trailingPE": 39.07,
-   "forwardPE": 35.58,
+   "marketCap": 4969533014016,
+   "trailingPE": 39.01,
+   "forwardPE": 35.52,
    "fiftyTwoWeekHigh": 345.34,
    "fiftyTwoWeekLow": 243.42,
    "dividendYield": 0.32,
@@ -17923,14 +18250,14 @@ window.DASHBOARD_DATA = {
    "quoteType": "EQUITY",
    "sector": "Consumer Cyclical",
    "industry": "Internet Retail",
-   "marketCap": 2693018681344,
-   "trailingPE": 20.1,
-   "forwardPE": 24.02,
+   "marketCap": 2660390141952,
+   "trailingPE": 19.84,
+   "forwardPE": 23.55,
    "fiftyTwoWeekHigh": 287.2,
    "fiftyTwoWeekLow": 196.0,
    "beta": 1.44,
    "targetMeanPrice": 329.54,
-   "recommendationKey": "buy",
+   "recommendationKey": "strong_buy",
    "numberOfAnalystOpinions": 57,
    "longBusinessSummary": "Amazon.com, Inc. engages in the retail sale of consumer products, advertising, and subscriptions service through online and physical stores in North America and internationally. The company operates through three segments: North America, International, and Amazon Web Services (AWS). It also manufactures and sells\u2026"
   },
@@ -17938,9 +18265,9 @@ window.DASHBOARD_DATA = {
    "quoteType": "EQUITY",
    "sector": "Financial Services",
    "industry": "Insurance - Life",
-   "marketCap": 3061915648,
-   "trailingPE": 4.22,
-   "forwardPE": 2.64,
+   "marketCap": 2992039168,
+   "trailingPE": 4.13,
+   "forwardPE": 2.58,
    "fiftyTwoWeekHigh": 66.8,
    "fiftyTwoWeekLow": 44.51,
    "beta": 0.84,
@@ -17953,9 +18280,9 @@ window.DASHBOARD_DATA = {
    "quoteType": "EQUITY",
    "sector": "Consumer Cyclical",
    "industry": "Luxury Goods",
-   "marketCap": 1716139392,
-   "trailingPE": 19.36,
-   "forwardPE": 5.97,
+   "marketCap": 1706444032,
+   "trailingPE": 19.06,
+   "forwardPE": 5.88,
    "fiftyTwoWeekHigh": 28.27,
    "fiftyTwoWeekLow": 12.4,
    "beta": 1.38,
@@ -17968,9 +18295,9 @@ window.DASHBOARD_DATA = {
    "quoteType": "EQUITY",
    "sector": "Technology",
    "industry": "Communication Equipment",
-   "marketCap": 420674011136,
-   "trailingPE": 32.04,
-   "forwardPE": 18.98,
+   "marketCap": 421541380096,
+   "trailingPE": 32.11,
+   "forwardPE": 19.02,
    "fiftyTwoWeekHigh": 130.37,
    "fiftyTwoWeekLow": 66.81,
    "dividendYield": 1.57,
@@ -17984,14 +18311,14 @@ window.DASHBOARD_DATA = {
    "quoteType": "EQUITY",
    "sector": "Industrials",
    "industry": "Airlines",
-   "marketCap": 55858503680,
-   "trailingPE": 14.09,
-   "forwardPE": 10.16,
+   "marketCap": 54742908928,
+   "trailingPE": 13.8,
+   "forwardPE": 10.03,
    "fiftyTwoWeekHigh": 95.68,
    "fiftyTwoWeekLow": 55.03,
-   "dividendYield": 1.04,
+   "dividendYield": 1.01,
    "beta": 1.29,
-   "targetMeanPrice": 103.69,
+   "targetMeanPrice": 102.94,
    "recommendationKey": "strong_buy",
    "numberOfAnalystOpinions": 24,
    "longBusinessSummary": "Delta Air Lines, Inc. provides scheduled air transportation for passengers and cargo in the United States and internationally. The company operates through two segments, Airline and Refinery. Its domestic network centered on core hubs in Atlanta, Detroit, Minneapolis-St. Paul, and Salt Lake City, as well as coastal\u2026"
@@ -18000,7 +18327,7 @@ window.DASHBOARD_DATA = {
    "quoteType": "ETF",
    "category": "Large Value",
    "totalAssets": 45455503360,
-   "trailingPE": 21.01,
+   "trailingPE": 20.91,
    "fiftyTwoWeekHigh": 546.75,
    "fiftyTwoWeekLow": 450.44,
    "dividendYield": 1.38,
@@ -18011,14 +18338,14 @@ window.DASHBOARD_DATA = {
    "quoteType": "EQUITY",
    "sector": "Energy",
    "industry": "Oil & Gas E&P",
-   "marketCap": 51754999808,
-   "trailingPE": 10.23,
-   "forwardPE": 8.74,
+   "marketCap": 51969499136,
+   "trailingPE": 10.27,
+   "forwardPE": 8.77,
    "fiftyTwoWeekHigh": 52.71,
    "fiftyTwoWeekLow": 31.47,
-   "dividendYield": 2.62,
+   "dividendYield": 2.72,
    "beta": 0.43,
-   "targetMeanPrice": 60.43,
+   "targetMeanPrice": 60.39,
    "recommendationKey": "strong_buy",
    "numberOfAnalystOpinions": 28,
    "longBusinessSummary": "Devon Energy Corporation, an independent energy company, engages in the exploration, development, and production of oil, natural gas, and natural gas liquids in the United States. The company operates in Delaware Basin located in southeast New Mexico and west Texas, Eagle Ford located in North America, Anadarko Basin\u2026"
@@ -18027,9 +18354,9 @@ window.DASHBOARD_DATA = {
    "quoteType": "EQUITY",
    "sector": "Technology",
    "industry": "Software - Infrastructure",
-   "marketCap": 12302558208,
-   "trailingPE": 14.43,
-   "forwardPE": 8.81,
+   "marketCap": 12030265344,
+   "trailingPE": 14.11,
+   "forwardPE": 8.61,
    "fiftyTwoWeekHigh": 142.49,
    "fiftyTwoWeekLow": 71.59,
    "beta": 0.94,
@@ -18043,7 +18370,7 @@ window.DASHBOARD_DATA = {
    "category": "Commodities Focused",
    "totalAssets": 152861196288,
    "fiftyTwoWeekHigh": 509.7,
-   "fiftyTwoWeekLow": 345.31,
+   "fiftyTwoWeekLow": 350.87,
    "dividendYield": 0.0,
    "netExpenseRatio": 0.4,
    "longBusinessSummary": "The Trust holds gold bars and from time to time, issues Baskets in exchange for deposits of gold and distributes gold in connection with redemptions of Baskets. The investment objective of the Trust is for the Shares to reflect the performance of the price of gold bullion, less the Trust\u2019s expenses. The Sponsor\u2026"
@@ -18052,14 +18379,14 @@ window.DASHBOARD_DATA = {
    "quoteType": "EQUITY",
    "sector": "Communication Services",
    "industry": "Internet Content & Information",
-   "marketCap": 4206119354368,
-   "trailingPE": 17.26,
-   "forwardPE": 23.08,
+   "marketCap": 4162703065088,
+   "trailingPE": 17.1,
+   "forwardPE": 22.54,
    "fiftyTwoWeekHigh": 408.61,
    "fiftyTwoWeekLow": 235.84,
    "dividendYield": 0.26,
    "beta": 1.23,
-   "targetMeanPrice": 429.46,
+   "targetMeanPrice": 429.55,
    "recommendationKey": "strong_buy",
    "numberOfAnalystOpinions": 54,
    "longBusinessSummary": "Alphabet Inc. offers various products and platforms in the United States, Europe, the Middle East, Africa, the Asia-Pacific, Canada, and Latin America. It operates through Google Services, Google Cloud, and Other Bets segments. The Google Services segment provides products and services, including ads, Android, Chrome,\u2026"
@@ -18068,8 +18395,8 @@ window.DASHBOARD_DATA = {
    "quoteType": "EQUITY",
    "sector": "Technology",
    "industry": "Computer Hardware",
-   "marketCap": 18425569280,
-   "forwardPE": -34.79,
+   "marketCap": 18968451072,
+   "forwardPE": -36.22,
    "fiftyTwoWeekHigh": 84.64,
    "fiftyTwoWeekLow": 25.89,
    "beta": 3.29,
@@ -18082,14 +18409,14 @@ window.DASHBOARD_DATA = {
    "quoteType": "EQUITY",
    "sector": "Financial Services",
    "industry": "Banks - Diversified",
-   "marketCap": 911917383680,
-   "trailingPE": 14.7,
-   "forwardPE": 13.73,
+   "marketCap": 898839150592,
+   "trailingPE": 14.49,
+   "forwardPE": 13.5,
    "fiftyTwoWeekHigh": 366.5,
    "fiftyTwoWeekLow": 279.1,
-   "dividendYield": 1.95,
+   "dividendYield": 1.92,
    "beta": 0.97,
-   "targetMeanPrice": 374.24,
+   "targetMeanPrice": 375.81,
    "recommendationKey": "buy",
    "numberOfAnalystOpinions": 21,
    "longBusinessSummary": "JPMorgan Chase & Co. operates as a bank and financial holding company in the United States, rest of North America, Europe, the Middle East, Africa, the Asia Pacific, Latin America, and the Caribbean. It operates in three segments: Consumer & Community Banking, Commercial & Investment Bank, and Asset & Wealth\u2026"
@@ -18098,14 +18425,14 @@ window.DASHBOARD_DATA = {
    "quoteType": "EQUITY",
    "sector": "Communication Services",
    "industry": "Internet Content & Information",
-   "marketCap": 1914858373120,
-   "trailingPE": 28.34,
-   "forwardPE": 21.5,
+   "marketCap": 1834981392384,
+   "trailingPE": 27.15,
+   "forwardPE": 20.6,
    "fiftyTwoWeekHigh": 779.82,
    "fiftyTwoWeekLow": 520.26,
-   "dividendYield": 0.27,
+   "dividendYield": 0.28,
    "beta": 1.24,
-   "targetMeanPrice": 791.63,
+   "targetMeanPrice": 790.27,
    "recommendationKey": "strong_buy",
    "numberOfAnalystOpinions": 57,
    "longBusinessSummary": "Meta Platforms, Inc. engages in the development of products that enable people to connect and share with friends and family through mobile devices, personal computers, virtual reality (VR) headsets, and AI glasses in the United States, Canada, Europe, Asia-Pacific, and internationally. It operates through two\u2026"
@@ -18114,9 +18441,9 @@ window.DASHBOARD_DATA = {
    "quoteType": "EQUITY",
    "sector": "Consumer Cyclical",
    "industry": "Resorts & Casinos",
-   "marketCap": 8196892160,
-   "trailingPE": 19.75,
-   "forwardPE": 15.77,
+   "marketCap": 8279550976,
+   "trailingPE": 19.61,
+   "forwardPE": 15.66,
    "fiftyTwoWeekHigh": 51.59,
    "fiftyTwoWeekLow": 29.19,
    "beta": 1.28,
@@ -18129,12 +18456,12 @@ window.DASHBOARD_DATA = {
    "quoteType": "EQUITY",
    "sector": "Technology",
    "industry": "Software - Infrastructure",
-   "marketCap": 3832843862016,
-   "trailingPE": 28.72,
-   "forwardPE": 21.8,
+   "marketCap": 3798909321216,
+   "trailingPE": 28.49,
+   "forwardPE": 21.61,
    "fiftyTwoWeekHigh": 553.72,
    "fiftyTwoWeekLow": 349.2,
-   "dividendYield": 0.79,
+   "dividendYield": 0.76,
    "beta": 1.11,
    "targetMeanPrice": 577.26,
    "recommendationKey": "strong_buy",
@@ -18145,14 +18472,14 @@ window.DASHBOARD_DATA = {
    "quoteType": "EQUITY",
    "sector": "Technology",
    "industry": "Semiconductors",
-   "marketCap": 1222319669248,
-   "trailingPE": 24.49,
-   "forwardPE": 6.79,
+   "marketCap": 1192255160320,
+   "trailingPE": 23.85,
+   "forwardPE": 6.55,
    "fiftyTwoWeekHigh": 1255.0,
-   "fiftyTwoWeekLow": 155.18,
+   "fiftyTwoWeekLow": 159.97,
    "dividendYield": 0.05,
    "beta": 2.22,
-   "targetMeanPrice": 1515.54,
+   "targetMeanPrice": 1520.76,
    "recommendationKey": "strong_buy",
    "numberOfAnalystOpinions": 46,
    "longBusinessSummary": "Micron Technology, Inc. designs, develops, manufactures, and sells memory and storage products in the United States, Taiwan, Japan, Mainland China, Hong Kong, Europe, and internationally. It operates through the Cloud Memory Business Unit; Core Data Center Business Unit; Mobile and Client Business Unit; and Automotive\u2026"
@@ -18161,12 +18488,12 @@ window.DASHBOARD_DATA = {
    "quoteType": "EQUITY",
    "sector": "Technology",
    "industry": "Semiconductors",
-   "marketCap": 5434765213696,
-   "trailingPE": 28.45,
-   "forwardPE": 14.35,
+   "marketCap": 5582424113152,
+   "trailingPE": 29.26,
+   "forwardPE": 14.74,
    "fiftyTwoWeekHigh": 236.54,
    "fiftyTwoWeekLow": 164.27,
-   "dividendYield": 0.45,
+   "dividendYield": 0.44,
    "beta": 2.22,
    "targetMeanPrice": 327.7,
    "recommendationKey": "strong_buy",
@@ -18177,7 +18504,7 @@ window.DASHBOARD_DATA = {
    "quoteType": "ETF",
    "category": "Large Growth",
    "totalAssets": 488981004288,
-   "trailingPE": 30.34,
+   "trailingPE": 30.07,
    "fiftyTwoWeekHigh": 748.65,
    "fiftyTwoWeekLow": 555.6,
    "dividendYield": 0.42,
@@ -18188,12 +18515,12 @@ window.DASHBOARD_DATA = {
    "quoteType": "EQUITY",
    "sector": "Consumer Cyclical",
    "industry": "Travel Services",
-   "marketCap": 64910618624,
-   "trailingPE": 14.99,
-   "forwardPE": 11.96,
+   "marketCap": 65971064832,
+   "trailingPE": 15.24,
+   "forwardPE": 12.15,
    "fiftyTwoWeekHigh": 356.39,
    "fiftyTwoWeekLow": 222.22,
-   "dividendYield": 2.51,
+   "dividendYield": 2.47,
    "beta": 1.75,
    "targetMeanPrice": 348.28,
    "recommendationKey": "buy",
@@ -18204,13 +18531,13 @@ window.DASHBOARD_DATA = {
    "quoteType": "EQUITY",
    "sector": "Industrials",
    "industry": "Aerospace & Defense",
-   "marketCap": 47284441088,
-   "forwardPE": 1623.13,
+   "marketCap": 46459604992,
+   "forwardPE": 1594.82,
    "fiftyTwoWeekHigh": 151.0,
    "fiftyTwoWeekLow": 37.57,
    "beta": 2.61,
    "targetMeanPrice": 109.37,
-   "recommendationKey": "buy",
+   "recommendationKey": "none",
    "numberOfAnalystOpinions": 19,
    "longBusinessSummary": "Rocket Lab Corporation, a space company, provides launch services and space systems solutions in the United States, Canada, Japan, and internationally. The company operates through launch services and space systems segments. The company provides launch services, spacecraft design services, spacecraft components,\u2026"
   },
@@ -18218,7 +18545,7 @@ window.DASHBOARD_DATA = {
    "quoteType": "ETF",
    "category": "Large Blend",
    "totalAssets": 811937038336,
-   "trailingPE": 24.92,
+   "trailingPE": 24.78,
    "fiftyTwoWeekHigh": 779.37,
    "fiftyTwoWeekLow": 629.28,
    "dividendYield": 0.98,
@@ -18229,9 +18556,9 @@ window.DASHBOARD_DATA = {
    "quoteType": "ETF",
    "category": "Long Government",
    "totalAssets": 47046328320,
-   "forwardPE": -3966.0,
+   "forwardPE": -3922.49,
    "fiftyTwoWeekHigh": 92.19,
-   "fiftyTwoWeekLow": 78.83,
+   "fiftyTwoWeekLow": 78.27,
    "dividendYield": 4.73,
    "netExpenseRatio": 0.15,
    "longBusinessSummary": "The underlying index consists of publicly-issued U.S. Treasury securities that have a remaining maturity greater than twenty years and have $300 million or more of outstanding face value, excluding amounts held by the Federal Reserve System (the \u201cFed\u201d). The fund will invest at least 80% of its assets in the component\u2026"
@@ -18240,13 +18567,13 @@ window.DASHBOARD_DATA = {
    "quoteType": "EQUITY",
    "sector": "Consumer Cyclical",
    "industry": "Auto Manufacturers",
-   "marketCap": 1469666033664,
-   "trailingPE": 338.28,
-   "forwardPE": 171.25,
+   "marketCap": 1420731219968,
+   "trailingPE": 333.07,
+   "forwardPE": 165.55,
    "fiftyTwoWeekHigh": 498.83,
    "fiftyTwoWeekLow": 297.38,
    "beta": 1.84,
-   "targetMeanPrice": 396.62,
+   "targetMeanPrice": 395.83,
    "recommendationKey": "buy",
    "numberOfAnalystOpinions": 38,
    "longBusinessSummary": "Tesla, Inc. designs, develops, manufactures, leases, and sells electric vehicles, and energy generation and storage systems in the United States, China, and internationally. The company operates in two segments, Automotive; and Energy Generation and Storage. The company offers electric vehicles, as well as sells\u2026"
@@ -18255,12 +18582,12 @@ window.DASHBOARD_DATA = {
    "quoteType": "EQUITY",
    "sector": "Energy",
    "industry": "Oil & Gas Refining & Marketing",
-   "marketCap": 111479750656,
-   "trailingPE": 16.15,
-   "forwardPE": 10.18,
+   "marketCap": 111933243392,
+   "trailingPE": 16.22,
+   "forwardPE": 10.22,
    "fiftyTwoWeekHigh": 419.04,
    "fiftyTwoWeekLow": 155.29,
-   "dividendYield": 1.25,
+   "dividendYield": 1.24,
    "beta": 0.57,
    "targetMeanPrice": 360.32,
    "recommendationKey": "buy",
@@ -18271,12 +18598,12 @@ window.DASHBOARD_DATA = {
    "quoteType": "EQUITY",
    "sector": "Energy",
    "industry": "Oil & Gas Integrated",
-   "marketCap": 660331954176,
-   "trailingPE": 20.67,
-   "forwardPE": 14.5,
+   "marketCap": 667692302336,
+   "trailingPE": 20.9,
+   "forwardPE": 14.66,
    "fiftyTwoWeekHigh": 176.41,
    "fiftyTwoWeekLow": 110.39,
-   "dividendYield": 2.54,
+   "dividendYield": 2.57,
    "beta": 0.17,
    "targetMeanPrice": 172.55,
    "recommendationKey": "buy",
@@ -18288,34 +18615,34 @@ window.DASHBOARD_DATA = {
   "start": 10000,
   "series": [
    [
-    "2026-09-21",
+    "2026-09-22",
     10000,
     10000
    ],
    [
-    "2026-09-22",
-    10130.43,
-    9998.45
-   ],
-   [
     "2026-09-23",
-    10080.58,
-    9926.44
+    9876.44,
+    9935.56
    ],
    [
     "2026-09-24",
-    10072.37,
-    9918.29
+    9987.26,
+    9927.41
    ],
    [
     "2026-09-25",
-    10078.7,
-    9972.2
+    9941.22,
+    9981.37
+   ],
+   [
+    "2026-09-28",
+    9804.73,
+    9924.69
    ]
   ],
-  "top5_return_pct": 0.79,
-  "spy_return_pct": -0.28,
-  "pick_days": 4
+  "top5_return_pct": -1.95,
+  "spy_return_pct": -0.75,
+  "pick_days": 3
  },
  "watchlist": [
   {
@@ -18430,13 +18757,17 @@ window.DASHBOARD_DATA = {
     "image": "https://image.cnbcfm.com/api/v1/image/106993739-1640610359787-gettyimages-1237413027-HOLIDAY_TRAVEL.jpeg?v=1776684852&w=1920&h=1080"
    },
    "price_at_pick": 84.8,
-   "price_now": 84.94,
-   "return_pct": 0.17,
-   "correct": true,
+   "price_now": 83.27,
+   "return_pct": -0.87,
+   "correct": false,
    "history": [
     [
      "2026-09-25",
      84.94
+    ],
+    [
+     "2026-09-28",
+     83.27
     ]
    ],
    "target_price": 89.89,
@@ -18467,13 +18798,17 @@ window.DASHBOARD_DATA = {
     "image": "https://www.chartmill.com/images/uploads/CM_Gap_Stocks_Small_free_ad767b11cf.webp"
    },
    "price_at_pick": 47.08,
-   "price_now": 47.05,
-   "return_pct": -0.06,
+   "price_now": 47.24,
+   "return_pct": -1.25,
    "correct": false,
    "history": [
     [
      "2026-09-25",
      47.05
+    ],
+    [
+     "2026-09-28",
+     47.24
     ]
    ],
    "target_price": 50.38,
@@ -18504,13 +18839,17 @@ window.DASHBOARD_DATA = {
     "image": ""
    },
    "price_at_pick": 74.32,
-   "price_now": 73.95,
-   "return_pct": -0.5,
+   "price_now": 72.74,
+   "return_pct": -1.9,
    "correct": false,
    "history": [
     [
      "2026-09-25",
      73.95
+    ],
+    [
+     "2026-09-28",
+     72.74
     ]
    ],
    "target_price": 81.01,
@@ -18542,13 +18881,17 @@ window.DASHBOARD_DATA = {
     "image": "https://image.cnbcfm.com/api/v1/image/108337969-1784647816415-gettyimages-2287059636-anotherday241789531_ymselgek.jpeg?v=1784647890&w=1920&h=1080"
    },
    "price_at_pick": 341.76,
-   "price_now": 343.06,
-   "return_pct": 0.38,
-   "correct": true,
+   "price_now": 338.17,
+   "return_pct": -0.76,
+   "correct": false,
    "history": [
     [
      "2026-09-25",
      343.06
+    ],
+    [
+     "2026-09-28",
+     338.17
     ]
    ],
    "target_price": 358.85,
@@ -18578,13 +18921,17 @@ window.DASHBOARD_DATA = {
     "image": ""
    },
    "price_at_pick": 96.82,
-   "price_now": 97.14,
-   "return_pct": 0.33,
-   "correct": true,
+   "price_now": 94.98,
+   "return_pct": -4.35,
+   "correct": false,
    "history": [
     [
      "2026-09-25",
      97.14
+    ],
+    [
+     "2026-09-28",
+     94.98
     ]
    ],
    "target_price": 104.57,

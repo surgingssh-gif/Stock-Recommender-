@@ -601,3 +601,56 @@ def test_logos_are_looked_up_once_and_saved(monkeypatch, tmp_path):
     assert logos.load_logos(path) == {"AAPL": "https://img.test/AAPL.png", "SPY": ""}
     assert logos.update_logos("key", ["AAPL", "SPY", "AAPL"], path) == 0  # already saved
     assert calls == ["AAPL", "SPY"]
+
+
+def test_picks_are_scored_from_the_next_open_and_against_the_market():
+    from build_dashboard import entry_date
+
+    # Morning run (before 9:30 AM New York time): bought at that day's open.
+    assert entry_date("2026-09-24", "2026-09-24T12:31:00Z") == "2026-09-24"
+    # Late-night run: bought at the next day's open. Older data without a time: the pick's own day.
+    assert entry_date("2026-09-22", "2026-09-23T03:36:36Z") == "2026-09-23"
+    assert entry_date("2026-09-22", None) == "2026-09-22"
+
+    picks = [
+        {"date": "2026-09-22", "ticker": "UP", "direction": "bullish", "reason": "r", "price_at_pick": 100.0},
+        {"date": "2026-09-22", "ticker": "DN", "direction": "bearish", "reason": "r", "price_at_pick": 50.0},
+    ]
+    days = {"2026-09-22": {"date": "2026-09-22", "picked_at": "2026-09-23T03:36:36Z", "headlines": [],
+                           "picks": [{"ticker": "UP", "sources": []}, {"ticker": "DN", "sources": []}],
+                           "top_buys": [_top_buy("UP")]}}
+    histories = {
+        "UP": [["2026-09-22", 100.0], ["2026-09-23", 108.0], ["2026-09-24", 110.0]],
+        "DN": [["2026-09-22", 50.0], ["2026-09-23", 49.0], ["2026-09-24", 48.0]],
+        "SPY": [["2026-09-22", 500.0], ["2026-09-23", 505.0], ["2026-09-24", 510.0]],
+    }
+    # UP jumped overnight on the news: it opened at 105, so a real buyer paid 105, not 100.
+    opens = {"UP": {"2026-09-22": 99.0, "2026-09-23": 105.0}, "DN": {"2026-09-23": 50.0},
+             "SPY": {"2026-09-22": 499.0, "2026-09-23": 500.0}}
+    data = build_data(picks, days, histories, opens=opens)
+    up = next(p for p in data["picks"] if p["ticker"] == "UP")
+    dn = next(p for p in data["picks"] if p["ticker"] == "DN")
+    assert (up["entry_date"], up["entry_price"]) == ("2026-09-23", 105.0)
+    assert up["return_pct"] == 4.76 and up["market_move_pct"] == 2.0
+    assert up["vs_market_pct"] == 2.76 and up["beat_market"] is True
+    # Bearish DN fell 4% while the market rose 2%: right, and well ahead of the market.
+    assert dn["return_pct"] == -4.0 and dn["vs_market_pct"] == 6.0 and dn["beat_market"] is True
+    assert data["stats"]["vs_market"]["rate"] == 100.0
+    assert data["stats"]["vs_market"]["top5"]["judged"] == 1
+    # The $10k test buys the Top 5 (just UP) and SPY at the same open.
+    pf = data["portfolio"]
+    assert pf["series"][-1][1:] == [10476.19, 10200.0]
+
+
+def test_recap_scores_from_the_open_and_counts_market_beaters():
+    from recap import build_recap, open_and_close, score
+
+    sessions = [("2026-09-24", 90.0, 95.0), ("2026-09-25", 100.0, 102.0)]
+    assert open_and_close(sessions, "2026-09-25") == (100.0, 102.0)
+    assert open_and_close(sessions, "2026-09-28") == (None, None)
+    p = score({"date": "2026-09-25", "ticker": "XOM", "direction": "bullish", "price_at_pick": 98.0},
+              102.0, entry=100.0, market_move=1.0)
+    assert (round(p["move"], 2), round(p["vs_market"], 2)) == (2.0, 1.0)
+    msg = build_recap("2026-09-25", [p], [])
+    assert "1 of 1 calls worked" in msg and "1 of 1 beat the S&P 500" in msg
+    assert "($100.00 → $102.00)" in msg and msg.endswith(f"_{DISCLAIMER}_")
