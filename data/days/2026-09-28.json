@@ -1,0 +1,1103 @@
+{
+  "date": "2026-09-28",
+  "picked_at": "2026-09-28T19:48:29Z",
+  "market_mood": "Stocks fell as US-Iran talks stalled, pushing oil and Treasury yields higher; gold slid on rate-hike bets while AI investors await Micron's Wednesday report.",
+  "self_check": "My record shows rate/Fed calls (especially bearish TLT) working well while merger-arb style bullish calls have mostly failed (1 of 5), so today I leaned on macro-driven energy and rates ideas and skipped the many M&A headlines.",
+  "picks": [
+    {
+      "ticker": "TLT",
+      "company": "iShares 20+ Year Treasury Bond ETF",
+      "direction": "bearish",
+      "confidence": "medium",
+      "reason": "Treasury yields keep climbing on oil-driven inflation fears and rate-hike bets, and bond prices fall when yields rise.",
+      "sources": [
+        3,
+        60,
+        85,
+        87
+      ],
+      "theme": "Interest rates & the Fed",
+      "target_pct": 3,
+      "stop_pct": 2.5,
+      "target_price": 76.25,
+      "stop_price": 80.58
+    },
+    {
+      "ticker": "VLO",
+      "company": "Valero Energy",
+      "direction": "bullish",
+      "confidence": "medium",
+      "reason": "Record UK diesel prices from the Iran conflict point to fat refining margins, and refiners led September's energy rally.",
+      "sources": [
+        14,
+        88,
+        51
+      ],
+      "theme": "Oil & energy",
+      "target_pct": 7,
+      "stop_pct": 5,
+      "target_price": 415.76,
+      "stop_price": 369.13
+    },
+    {
+      "ticker": "LNG",
+      "company": "Cheniere Energy",
+      "direction": "bullish",
+      "confidence": "medium",
+      "reason": "Qatar extended force majeure on LNG cargoes to European and Asian buyers, making reliable US LNG supply more valuable.",
+      "sources": [
+        22,
+        46,
+        53
+      ],
+      "theme": "Oil & energy",
+      "target_pct": 7,
+      "stop_pct": 5,
+      "target_price": 289.56,
+      "stop_price": 257.09
+    },
+    {
+      "ticker": "NVDA",
+      "company": "NVIDIA",
+      "direction": "bullish",
+      "confidence": "medium",
+      "reason": "Nvidia added $150 billion to its buyback and management is publicly calling the stock cheap at ~16.5x forward earnings, with Micron's results Wednesday a near-term AI catalyst.",
+      "sources": [
+        69,
+        27,
+        7
+      ],
+      "theme": "AI & tech",
+      "target_pct": 7,
+      "stop_pct": 5,
+      "target_price": 244.52,
+      "stop_price": 217.09
+    },
+    {
+      "ticker": "AAL",
+      "company": "American Airlines",
+      "direction": "bearish",
+      "confidence": "low",
+      "reason": "Airlines are jet-fuel price takers, and the US-Iran stalemate keeps crude and distillate prices elevated.",
+      "sources": [
+        51,
+        14,
+        23
+      ],
+      "theme": "Oil & energy",
+      "target_pct": 7,
+      "stop_pct": 6,
+      "target_price": 12.59,
+      "stop_price": 14.35
+    },
+    {
+      "ticker": "RTX",
+      "company": "RTX Corp",
+      "direction": "bullish",
+      "confidence": "low",
+      "reason": "Russia is lifting 2027 military spending 27% and the EU added new sanctions, keeping global defense budgets on an upward path.",
+      "sources": [
+        6,
+        43,
+        9
+      ],
+      "theme": "Geopolitics",
+      "target_pct": 5,
+      "stop_pct": 4,
+      "target_price": 196.28,
+      "stop_price": 179.45
+    },
+    {
+      "ticker": "XOM",
+      "company": "Exxon Mobil",
+      "direction": "bullish",
+      "confidence": "low",
+      "reason": "Cash-rich major leveraged to an oil price kept high by the Iran stalemate.",
+      "sources": [
+        23,
+        54,
+        51,
+        86
+      ],
+      "theme": "Oil & energy",
+      "target_pct": 5,
+      "stop_pct": 4,
+      "target_price": 170.78,
+      "stop_price": 156.14
+    },
+    {
+      "ticker": "RCL",
+      "company": "Royal Caribbean",
+      "direction": "bullish",
+      "confidence": "low",
+      "reason": "Two Wall Street upgrades after a sharp pullback, with travel demand still resilient.",
+      "sources": [
+        73,
+        81
+      ],
+      "theme": "Consumer & retail",
+      "target_pct": 8,
+      "stop_pct": 6,
+      "target_price": 262.73,
+      "stop_price": 228.67
+    }
+  ],
+  "watchlist_notes": [
+    {
+      "ticker": "SPY",
+      "note": "Broad market slipped as elevated oil prices and rising bond yields weighed on sentiment."
+    },
+    {
+      "ticker": "QQQ",
+      "note": "Tech held up better than the market, but Micron's Wednesday results are a key test for the AI trade."
+    },
+    {
+      "ticker": "DIA",
+      "note": "Dow lagged with higher yields and energy costs pressuring cyclicals."
+    },
+    {
+      "ticker": "AAPL",
+      "note": "No major company news; supplier TSMC's chart strength is the only tangential item."
+    },
+    {
+      "ticker": "MSFT",
+      "note": "Meta's push into enterprise AI adds a new competitive headline for Azure/Copilot."
+    },
+    {
+      "ticker": "NVDA",
+      "note": "Nvidia added $150B to its buyback and says it can keep AI models controlled, a supportive signal ahead of Micron's print."
+    },
+    {
+      "ticker": "AMZN",
+      "note": "Shares slipped on worries that cheaper Anthropic models reduce revenue per call on Bedrock."
+    },
+    {
+      "ticker": "GOOGL",
+      "note": "Headlines flag agentic-AI security risks around Gemini, a minor reputational overhang."
+    },
+    {
+      "ticker": "META",
+      "note": "Meta is entering enterprise AI, taking on Microsoft and Google \u2014 a new growth story but also a spending risk."
+    },
+    {
+      "ticker": "TSLA",
+      "note": "No major news today beyond commentary comparing it with SpaceX."
+    },
+    {
+      "ticker": "JPM",
+      "note": "Rising long yields help net interest income, though the stock dipped on AI-agent security chatter."
+    },
+    {
+      "ticker": "XOM",
+      "note": "Higher crude from the US-Iran stalemate supports earnings, while climate lawsuits remain a background legal risk."
+    },
+    {
+      "ticker": "GLD",
+      "note": "Gold fell more than 2% as traders priced in possible US rate hikes."
+    },
+    {
+      "ticker": "TLT",
+      "note": "Long bonds keep sliding as yields climb on inflation and rate-hike fears."
+    }
+  ],
+  "top_buys": [
+    {
+      "ticker": "VLO",
+      "company": "Valero Energy",
+      "confidence": "medium",
+      "pitch": "Record diesel prices from the Iran conflict should lift refining margins.",
+      "why": "UK diesel hit record highs because of the Iran war, and diesel cracks are the single biggest driver of refiner profits. Energy stocks already led a strong September, showing money is rotating into the sector. Valero is one of the most direct plays on distillate margins.",
+      "risks": "A sudden US-Iran breakthrough would crush crude and product prices, and refiners fall fast when cracks roll over.",
+      "watch": "The separate US-Iran mediator talks expected Monday or Tuesday.",
+      "sources": [
+        14,
+        88,
+        51,
+        5
+      ],
+      "theme": "Oil & energy",
+      "target_pct": 7,
+      "stop_pct": 5
+    },
+    {
+      "ticker": "LNG",
+      "company": "Cheniere Energy",
+      "confidence": "medium",
+      "pitch": "Qatari force majeure on LNG cargoes makes US export capacity more valuable.",
+      "why": "Qatar extended force majeure notices to European and Asian buyers, meaning some contracted gas simply isn't arriving. European storage is low heading into winter, which pushes buyers toward US suppliers like Cheniere. Cheniere's contracted, fee-based model benefits from tighter global gas without taking full commodity risk.",
+      "risks": "A de-escalation in the Gulf could normalize Qatari flows quickly, and Cheniere's contracted earnings limit the upside from spot spikes.",
+      "watch": "Whether Qatar lifts the force majeure notices and Hormuz shipping traffic trends.",
+      "sources": [
+        22,
+        46,
+        53
+      ],
+      "theme": "Oil & energy",
+      "target_pct": 7,
+      "stop_pct": 5
+    },
+    {
+      "ticker": "NVDA",
+      "company": "NVIDIA",
+      "confidence": "medium",
+      "pitch": "A record $150B buyback plus a supportive AI catalyst this week.",
+      "why": "Nvidia added $150 billion to its repurchase program, an unusually direct signal that management sees the stock as cheap at about 16.5x forward earnings. Buybacks of that size provide steady demand for the shares. Micron's Wednesday report could confirm that AI memory and data-center demand remain very strong, which historically lifts the whole AI chain.",
+      "risks": "If Micron disappoints or yields keep rising, high-multiple tech sells off first regardless of buybacks.",
+      "watch": "Micron's earnings after the close Wednesday.",
+      "sources": [
+        69,
+        27,
+        7
+      ],
+      "theme": "AI & tech",
+      "target_pct": 7,
+      "stop_pct": 5
+    },
+    {
+      "ticker": "XOM",
+      "company": "Exxon Mobil",
+      "confidence": "low",
+      "pitch": "Cash-rich major leveraged to an oil price kept high by the Iran stalemate.",
+      "why": "Oil rose again after Trump dismissed an Iranian overture, and commentary notes majors are sitting on unusually strong cash flows. Exxon converts higher crude directly into free cash flow, buybacks and dividends. It is also a defensive way to hold equity exposure while yields pressure growth stocks.",
+      "risks": "A diplomatic breakthrough would knock oil back quickly, and pending climate lawsuits are a long-term legal overhang.",
+      "watch": "Outcome of the US-Iran mediator talks this week and weekly crude inventories.",
+      "sources": [
+        23,
+        54,
+        51,
+        86
+      ],
+      "theme": "Oil & energy",
+      "target_pct": 5,
+      "stop_pct": 4
+    },
+    {
+      "ticker": "RCL",
+      "company": "Royal Caribbean",
+      "confidence": "low",
+      "pitch": "Two Wall Street upgrades after a sharp pullback, with travel demand still resilient.",
+      "why": "Bank of America and Deutsche Bank both moved to Buy, arguing the August selloff created an attractive entry. They cite travel demand holding up better than feared. Sentiment catalysts like dual upgrades often mark a near-term bottom in beaten-down consumer names.",
+      "risks": "Higher fuel costs from the oil spike hit cruise operators' margins, and Carnival's upcoming results could reset the whole group lower.",
+      "watch": "Carnival's earnings report as a read-across for cruise demand.",
+      "sources": [
+        73,
+        81
+      ],
+      "theme": "Consumer & retail",
+      "target_pct": 8,
+      "stop_pct": 6
+    }
+  ],
+  "headlines": [
+    {
+      "headline": "UK examines foreign state involvement in suspected airbase plot, releases suspects - Reuters",
+      "source": "Reuters",
+      "time": "2026-09-28 19:11 UTC",
+      "summary": "UK examines foreign state involvement in suspected airbase plot, releases suspects\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQSXYwS1pBdDdVa1JYckZZdFNGeWpwdGRUR0hOX1NuMV9vOWFBYUlDbDAzdjFVbVZ1c2J1N0xrM0hPc2RvLVhlM2d5MlZ4WnJtOW9iSzJGNEw2UTJhR25tdWZKYzhucGVKZG1sRDYyZDZudmViaGRjMmdLNVdqS1NWZERRR3EyY1JxMG5tWUNDTTJpZFJxbHZkR0FqU3BPdFBpMTdGWmVWOGQzOEJq?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "What the market needs to branch out beyond AI stocks. Plus, a win for CrowdStrike",
+      "source": "CNBC",
+      "time": "2026-09-28 18:54 UTC",
+      "summary": "Every weekday, the Investing Club releases the Homestretch; an actionable afternoon update just in time for the last hour of trading.",
+      "url": "https://www.cnbc.com/2026/09/28/what-the-market-needs-to-branch-out-beyond-ai-stocks-plus-a-win-for-crowdstrike-.html",
+      "image": "https://image.cnbcfm.com/api/v1/image/108316343-1780518921561-gettyimages-2243418927-NVIDIA_AI_KEYNOTE.jpeg?v=1780519019&w=1920&h=1080",
+      "about": ""
+    },
+    {
+      "headline": "Wall St declines as oil prices, Treasury yields remain elevated - Reuters",
+      "source": "Reuters",
+      "time": "2026-09-28 18:48 UTC",
+      "summary": "Wall St declines as oil prices, Treasury yields remain elevated\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxOMG5ieTU4M0RYMC1lQi0wbDVONnJJbW5NS3pya2xkLXUxSFF3ajh5ZWlER3B5ZW1IR0J3ZjRxZFFCTDd2ajh4ZnVHZ2xqY1U2c0pIamh2MGhzWVlIMVVieHpOXzg0bnJwRFlTaEg4dVdycUc1X25ZQlZkUUsxUGZ3TGc1RDlNWjg2U1RFQ3JEUWx2NGIxb0ZvZXJJb0F6MjcxOER2WHFIdmtSei1fZHdBS29YcGhvUFk?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "Feds can't withhold counterterrorism funds from states to force election admin changes, judge rules",
+      "source": "CNBC",
+      "time": "2026-09-28 18:41 UTC",
+      "summary": "The judge said FEMA never explained how the election changes it wanted were \"tied to the goal of shoring up vulnerabilities to terrorist attacks.\"",
+      "url": "https://www.cnbc.com/2026/09/28/elections-dhs-counterterrorism.html",
+      "image": "https://image.cnbcfm.com/api/v1/image/108315203-1780408967315-gettyimages-2278723586-sm1_5165.jpeg?v=1780409020&w=1920&h=1080",
+      "about": ""
+    },
+    {
+      "headline": "US, Iran set to hold separate talks with mediators on Monday or Tuesday, official says - Reuters",
+      "source": "Reuters",
+      "time": "2026-09-28 18:08 UTC",
+      "summary": "US, Iran set to hold separate talks with mediators on Monday or Tuesday, official says\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxQMmZHcTFrcTNwTDVHTi1veU9KdXk1SC11X1NDWHB3VnBhbUQyOXh6Y002MFJaN1cyb0pfLVRIZnE4RUgwR1pieG0zY05NajZrNmFIbl9CTmpGbENaa01VOGEwZVZURnphdVdmUHJ2cWxGMURSNXNrRzdGanlKdWhqc0NiMWlHRnhTWlN4dlZIMjlNSEhxVlpkNFI4N1VTWHZfYWZsNi1lcE9GYjFsWDVmRW1QbFk2WjBhTWpfUS1aSTBNc3dBYW90RDVadjg?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "EXCLUSIVE: Russia raises 2027 military spending by 27%, budget documents show - Reuters",
+      "source": "Reuters",
+      "time": "2026-09-28 17:56 UTC",
+      "summary": "EXCLUSIVE: Russia raises 2027 military spending by 27%, budget documents show\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPbHg0MGZvUkU3a2FULXNNc1pDUkE5VTZaZFptZ0R0dHhoc29SbmotRkg5SndfWk1rcy1hbzAxY2VKbDhzUVIxUlpoaVZCU0MwYmRub0FGR1VOaHpjaXBxTmhPcnJ5MDJUOExCTE56X3h6aDVRR2FRN1V1VWRJMmNnYTNBOXhxVjlJd1hHbnZfVWo1Rk55d04xM1FGOTdfbU1BVmZHYVgyb0tYUQ?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "A key test looms for the AI trade this week. Here's how Mike Khouw is trading it",
+      "source": "CNBC",
+      "time": "2026-09-28 17:48 UTC",
+      "summary": "Micron reports after the bell Wednesday.",
+      "url": "https://www.cnbc.com/2026/09/28/a-key-test-looms-for-the-ai-trade-this-week-heres-how-mike-khouw-is-trading-it.html",
+      "image": "https://image.cnbcfm.com/api/v1/image/108326697-1782389225408-gettyimages-2277830126-boivin-notitle260527_npNF9.jpeg?v=1782389330&w=1920&h=1080",
+      "about": ""
+    },
+    {
+      "headline": "BP evaluating sale of its Brazilian biofuels business - Bloomberg",
+      "source": "SeekingAlpha",
+      "time": "2026-09-28 17:35 UTC",
+      "summary": "",
+      "url": "https://seekingalpha.com/news/4647735-bp-evaluating-sale-of-its-brazilian-biofuels-businesss-bloomberg?utm_source=feed_news_m_a&utm_medium=referral&feed_item_type=news",
+      "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567050932/sa_jgen9y.png",
+      "about": ""
+    },
+    {
+      "headline": "Suspected plot to attack UK's Fairford airbase, used by US: What do we know? - Reuters",
+      "source": "Reuters",
+      "time": "2026-09-28 17:02 UTC",
+      "summary": "Suspected plot to attack UK's Fairford airbase, used by US: What do we know?\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxPbnV2QWZzNUNIR09FaDEtTFBwU0g2SmZwZ0U3YVNNd0kyVGFQTDFLU2Y1T1FSOUFnSVNHNmtoc2hCYklVeHg4QVJ0UDJPRndqZVBiV3h1U3ZsZmpRQzdELWdMejhzazZMenlmT3FrdkVaM0dBRlBieGRlWG1DRDVnOTB0bjhiT3ppNzZSaWFwc2tGMU83U2c?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "Lee Enterprises and USA TODAY Co. Realign Local Newspaper Portfolios",
+      "source": "GlobalNewswire",
+      "time": "2026-09-28 17:00 UTC",
+      "summary": "Lee Enterprises announced a strategic agreement with USA Today Co. to acquire publications in South Dakota and Montana.",
+      "url": "https://www.globenewswire.com/news-release/2026/09/28/3370175/0/en/lee-enterprises-and-usa-today-co-realign-local-newspaper-portfolios.html",
+      "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567047094/gnw_ngwqnq.png",
+      "about": ""
+    },
+    {
+      "headline": "ZIM Integrated falls on report prime minister's office recommends rejecting sale",
+      "source": "SeekingAlpha",
+      "time": "2026-09-28 16:49 UTC",
+      "summary": "",
+      "url": "https://seekingalpha.com/news/4647709-zim-integrated-falls-on-report-prime-ministers-office-recommends-rejecting-sale?utm_source=feed_news_m_a&utm_medium=referral&feed_item_type=news",
+      "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567050932/sa_jgen9y.png",
+      "about": ""
+    },
+    {
+      "headline": "Traust Structured Announces Erin Rooney as Managing Director, Strategic Growth & M&A Advisor",
+      "source": "GlobalNewswire",
+      "time": "2026-09-28 16:38 UTC",
+      "summary": "San Juan, PR, Sept.  28, 2026  (GLOBE NEWSWIRE) -- Traust Structured expands its leadership team as the company advances its aviation, aerospace and U.S. defense manufacturing platforms.",
+      "url": "https://www.globenewswire.com/news-release/2026/09/28/3370166/0/en/traust-structured-announces-erin-rooney-as-managing-director-strategic-growth-m-a-advisor.html",
+      "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567047094/gnw_ngwqnq.png",
+      "about": ""
+    },
+    {
+      "headline": "Ex-Disney CEO Bob Chapek says he raised concerns with the board 'weekly' during Iger power battle",
+      "source": "CNBC",
+      "time": "2026-09-28 16:02 UTC",
+      "summary": "Former Disney CEO Bob Chapek was ousted from his role as CEO in late 2022, less than three years after taking the post, and replaced by Iger.",
+      "url": "https://www.cnbc.com/2026/09/28/disney-bob-chapek-bob-iger-power-battle-board.html",
+      "image": "https://image.cnbcfm.com/api/v1/image/107116506-1662762534450-gettyimages-1243031526-pinocchio310150.jpeg?v=1693994401&w=1920&h=1080",
+      "about": ""
+    },
+    {
+      "headline": "UK diesel prices hit record highs due to impact of Iran war - Reuters",
+      "source": "Reuters",
+      "time": "2026-09-28 15:56 UTC",
+      "summary": "UK diesel prices hit record highs due to impact of Iran war\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPMHN4d1VGcVBGY1ZfajlGSnJvbkFEakJsRzZKalQ2ZTFWQUVBMjI1MWZ4alBFVjdBSkJXUDRkeF9tVTBoczdqN1h4TXRWX0dzd3ZDd1dUck1Fa09YanhkZS12U29PckVfTkRyTUlwd09jTVJRalZ3NEJqMDZLZXNnMmhIWTZGR2lUa19sRFZtandaNmE2Mnh6MjV5bnp1bGl2b2VFZ1NzLTM?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "Nvidia says it can keep AI models under control \u2014 plus, what to do about Boeing's dip",
+      "source": "CNBC",
+      "time": "2026-09-28 15:50 UTC",
+      "summary": "The Investing Club holds its \"Morning Meeting\" every weekday at 10:20 a.m. ET.",
+      "url": "https://www.cnbc.com/2026/09/28/nvidia-says-it-can-control-ai-models-plus-how-to-act-on-boeings-dip.html",
+      "image": "https://image.cnbcfm.com/api/v1/image/108238699-1765235082525-gettyimages-2250822575-anotherday158736751_zvzj8lw0.jpeg?v=1772638767&w=1920&h=1080",
+      "about": ""
+    },
+    {
+      "headline": "UK police release five on bail after arrests at airbase - Reuters",
+      "source": "Reuters",
+      "time": "2026-09-28 14:52 UTC",
+      "summary": "UK police release five on bail after arrests at airbase\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxONk93UTV0VmU2MTRiTHp0LXBrbnI0RTVabF9XYkstWm91LTZ0aFBnT0FzeTNENUtaakYwUlloc0M1SHFhSDVsQ09jNGlwQUtVM09iejRseHY1SVkxREx6aFRyYjRNU3JreGNRNXYxNVBhblZQN19OYW44X0hYdEE4d3J1TVlVcFJBOUNrbVBOT0xXYTFHeHoxaFhRNmF3bzRzV3U4bA?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "ZIM Integrated gains on report Israeli minister may change his position on a sale",
+      "source": "SeekingAlpha",
+      "time": "2026-09-28 14:42 UTC",
+      "summary": "",
+      "url": "https://seekingalpha.com/news/4647629-zim-integrated-gains-on-report-israeli-minister-may-change-his-postion-on-a-sale?utm_source=feed_news_m_a&utm_medium=referral&feed_item_type=news",
+      "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567050932/sa_jgen9y.png",
+      "about": ""
+    },
+    {
+      "headline": "BBB National Programs Names Ahmad Akbari as Vice President, National Partners and Business Development",
+      "source": "GlobalNewswire",
+      "time": "2026-09-28 14:30 UTC",
+      "summary": "BBB National Programs today announced that Ahmad Akbari, a business and financial services executive with more than 25 years of experience across national operations, private banking, consumer and business banking, and financial consulting, has joined the organization as Vice President, Business Dev",
+      "url": "https://www.globenewswire.com/news-release/2026/09/28/3370038/0/en/bbb-national-programs-names-ahmad-akbari-as-vice-president-national-partners-and-business-development.html",
+      "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567047094/gnw_ngwqnq.png",
+      "about": ""
+    },
+    {
+      "headline": "New grads say employers set the bar too high for entry-level roles: 'No job is willing to give you that first experience'",
+      "source": "CNBC",
+      "time": "2026-09-28 14:26 UTC",
+      "summary": "77% of new grads believe businesses call for too much experience when hiring for entry-level jobs, shutting them out of an increasingly competitive market.",
+      "url": "https://www.cnbc.com/2026/09/28/new-grads-entry-level-job-experience.html",
+      "image": "https://image.cnbcfm.com/api/v1/image/108367745-1790282641573-gettyimages-2203399905-ma116464.jpeg?v=1790349200&w=1920&h=1080",
+      "about": ""
+    },
+    {
+      "headline": "Evonik rejects \u20ac10.3B bid from BASF - FT",
+      "source": "SeekingAlpha",
+      "time": "2026-09-28 14:11 UTC",
+      "summary": "",
+      "url": "https://seekingalpha.com/news/4647615-evonik-rejects-103b-bid-from-basf---ft?utm_source=feed_news_m_a&utm_medium=referral&feed_item_type=news",
+      "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567050932/sa_jgen9y.png",
+      "about": ""
+    },
+    {
+      "headline": "Mitratech Fast-Tracks Autonomous Legal Execution with New AI Acquisition",
+      "source": "GlobalNewswire",
+      "time": "2026-09-28 13:30 UTC",
+      "summary": "Mitratech Legal acquires AI-native startup BotDojo, embedding native AI agents into its Systems of Record to accelerate ARIES\u2122 AI.",
+      "url": "https://www.globenewswire.com/news-release/2026/09/28/3369945/0/en/mitratech-fast-tracks-autonomous-legal-execution-with-new-ai-acquisition.html",
+      "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567047094/gnw_ngwqnq.png",
+      "about": ""
+    },
+    {
+      "headline": "Qatar extends force majeure notices on LNG supply to Edison, some Asian clients - Reuters",
+      "source": "Reuters",
+      "time": "2026-09-28 13:28 UTC",
+      "summary": "Qatar extends force majeure notices on LNG supply to Edison, some Asian clients\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPTGR2YWh1SkZjYkRfN2stTV9rMm0xYzZnamc2WnVlZTJVSWNkMTBQb2RHa2RKRVhhMUpBWjlVYWZJZ0hwS3ktOTFkMzNZV0hqYXR1d01jOWdaTGFmR3JKZkxvZDV5MmM5WjA4LVljTnd0c3JQdFBlMkNubkgzYWZnQ2dmRDE3ZzNxNHAyLUdrdDZLVHZjOFE2NjdLYWZLZWVKQU5ETkNNQ2VabmhYdXh0YmR2TDBDdWhQZHBlbFFXcFQ0d0Vv?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "Most Gulf bourses retreat after Trump dismisses Iranian overture - Reuters",
+      "source": "Reuters",
+      "time": "2026-09-28 13:09 UTC",
+      "summary": "Most Gulf bourses retreat after Trump dismisses Iranian overture\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOdlA3OUhOR3U5TUp4SHJWOHd1MFJhZ1MxNTRfZm5ZdnFsNTkzVGNEeFRBSmtsbmFRRHc0YWtETzM1VGx3NHc2a0JfanR3bGZIVEhvQ0hubEplTnA0UEJablJwOFJyUjlnNFJwM3BZVDZoU0lyZkFqcHdiVGp2R21IUVlPcGExeXdkQ0s0M3NnU1htTE85UnhaNTVTWVc3YVIwUy1sMmg4eHIxM2Zyd3loXw?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "Iran rejects suggestion it is linked to UK airbase arrests - Reuters",
+      "source": "Reuters",
+      "time": "2026-09-28 13:08 UTC",
+      "summary": "Iran rejects suggestion it is linked to UK airbase arrests\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQRUdZZDhWYThZSjI3WV93NFpQdU5NcXJqVjZtWWJvRGNwNHBYQmpLYXRDY1RQb0loN2tfb0NXcGYwVG04X0hnVEdUMGJPczZndUNVQXlfMkFKb0NWeXdRV3NuU3daQ2JVa19MaUhxZmtmem9vUGl0MlJxNE42Q0Y2eGdISGdwanMxcmEzNHkwVzFGd1E2ZTZTZ0lBVVI4SjUybWI3MklIbmlKajRGcGc?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "Lebanon hopes for new staff-level agreement with IMF - Reuters",
+      "source": "Reuters",
+      "time": "2026-09-28 12:59 UTC",
+      "summary": "Lebanon hopes for new staff-level agreement with IMF\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNbXBIaDZyWUVya3RQVlRrN0hqczB5LWhkMGVlUHY5LUtjOHY1emdEdTI3bmdRQjlEb0xIQXFpNDdHdGt1QnliUDY2RzV6cXlyOEV3WlUyZE5iaE5Xajdrc2RFLVdjOUVCSG1xRFpuSnhqRTVDWU5WV2pNcWNjVmVkbHlUdFYtQTNlOVM4YXpNR1dmdVJBTzZtZFVVd19GX0dFZ1RSbzhOWl9PQQ?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "Lifecore Biomedical to be acquired by Webster Equity Partners",
+      "source": "SeekingAlpha",
+      "time": "2026-09-28 12:57 UTC",
+      "summary": "",
+      "url": "https://seekingalpha.com/news/4647552-lifecore-biomedical-to-be-acquired-by-webster-equity-partners?utm_source=feed_news_m_a&utm_medium=referral&feed_item_type=news",
+      "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567050932/sa_jgen9y.png",
+      "about": ""
+    },
+    {
+      "headline": "Jim Cramer's top 10 things to watch in the stock market Monday",
+      "source": "CNBC",
+      "time": "2026-09-28 12:50 UTC",
+      "summary": "The relentless climb in bond yields continues, and Nvidia adds $150 billion to its buyback program.",
+      "url": "https://www.cnbc.com/2026/09/28/jim-cramers-top-10-things-to-watch-in-the-stock-market-monday.html",
+      "image": "https://image.cnbcfm.com/api/v1/image/108326763-1782392209142-gettyimages-2282654401-06212026qabooswaters-10_iwaqipn9.jpeg?v=1782392429&w=1920&h=1080",
+      "about": ""
+    },
+    {
+      "headline": "Lifecore Biomedical to be Acquired by Webster Equity Partners",
+      "source": "GlobalNewswire",
+      "time": "2026-09-28 12:45 UTC",
+      "summary": "Lifecore Biomedical to be Acquired by Webster Equity Partners",
+      "url": "https://www.globenewswire.com/news-release/2026/09/28/3369877/23089/en/lifecore-biomedical-to-be-acquired-by-webster-equity-partners.html",
+      "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567047094/gnw_ngwqnq.png",
+      "about": ""
+    },
+    {
+      "headline": "Goldgroup to invest $75M in Luca Mining as part of cozamin Deal",
+      "source": "SeekingAlpha",
+      "time": "2026-09-28 12:35 UTC",
+      "summary": "",
+      "url": "https://seekingalpha.com/news/4647534-goldgroup-to-invest-75m-in-luca-mining-as-part-of-cozamin-deal?utm_source=feed_news_m_a&utm_medium=referral&feed_item_type=news",
+      "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567050932/sa_jgen9y.png",
+      "about": ""
+    },
+    {
+      "headline": "ECGI Holdings Enters Letter of Intent to Acquire 100% of Avanta Group",
+      "source": "GlobalNewswire",
+      "time": "2026-09-28 12:30 UTC",
+      "summary": "Proposed Acquisition Would Mark ECGI\u2019s Entry into the $5.3 Trillion U.S. Healthcare Industry with an Experienced Operating Team Across Medicare Advantage, Healthcare Services, Insurance Administration and AI-Enabled Health Technology Proposed Acquisition Would Mark ECGI\u2019s Entry into the $5.3 Trillio",
+      "url": "https://www.globenewswire.com/news-release/2026/09/28/3369864/0/en/ecgi-holdings-enters-letter-of-intent-to-acquire-100-of-avanta-group.html",
+      "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567047094/gnw_ngwqnq.png",
+      "about": ""
+    },
+    {
+      "headline": "Virtualware completa la adquisici\u00f3n de la empresa brit\u00e1nica Virtalis",
+      "source": "GlobalNewswire",
+      "time": "2026-09-28 12:29 UTC",
+      "summary": "La adquisici\u00f3n duplica con creces el tama\u00f1o de la empresa, con unos ingresos proforma que pasan de 4,32 millones de euros a 10 millones de euros.",
+      "url": "https://www.globenewswire.com/news-release/2026/09/28/3369856/0/es/virtualware-completa-la-adquisici%C3%B3n-de-la-empresa-brit%C3%A1nica-virtalis.html",
+      "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567047094/gnw_ngwqnq.png",
+      "about": ""
+    },
+    {
+      "headline": "Virtualware completes the acquisition of British company Virtalis",
+      "source": "GlobalNewswire",
+      "time": "2026-09-28 12:29 UTC",
+      "summary": "The acquisition more than doubles the company\u2019s scale, with pro forma revenue increasing from \u20ac4.32 million to \u20ac10 million based on projected 2026 results",
+      "url": "https://www.globenewswire.com/news-release/2026/09/28/3369856/0/en/virtualware-completes-the-acquisition-of-british-company-virtalis.html",
+      "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567047094/gnw_ngwqnq.png",
+      "about": ""
+    },
+    {
+      "headline": "GOWell Energy Technology Commences Trading on Nasdaq Under Ticker Symbol \"GOW\u201d",
+      "source": "GlobalNewswire",
+      "time": "2026-09-28 12:00 UTC",
+      "summary": "Listing follows completion of business combination with Inflection Point Acquisition Corp. V and positions GOWell to scale technologies designed to help keep energy wells safe, efficient and productive Listing follows completion of business combination with Inflection Point Acquisition Corp. V and p",
+      "url": "https://www.globenewswire.com/news-release/2026/09/28/3369838/0/en/gowell-energy-technology-commences-trading-on-nasdaq-under-ticker-symbol-gow.html",
+      "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567047094/gnw_ngwqnq.png",
+      "about": ""
+    },
+    {
+      "headline": "Nu in talks to buy Monzo in \u00a38B-\u00a310B deal - report",
+      "source": "SeekingAlpha",
+      "time": "2026-09-28 11:52 UTC",
+      "summary": "",
+      "url": "https://seekingalpha.com/news/4647509-nu-in-talks-to-buy-monzo-in-8b-10b-deal---report?utm_source=feed_news_m_a&utm_medium=referral&feed_item_type=news",
+      "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567050932/sa_jgen9y.png",
+      "about": ""
+    },
+    {
+      "headline": "Valley National Bancorp to acquire Bluevine for $340M",
+      "source": "SeekingAlpha",
+      "time": "2026-09-28 11:38 UTC",
+      "summary": "",
+      "url": "https://seekingalpha.com/news/4647508-valley-national-bancorp-to-acquire-bluevine-for-340m?utm_source=feed_news_m_a&utm_medium=referral&feed_item_type=news",
+      "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567050932/sa_jgen9y.png",
+      "about": ""
+    },
+    {
+      "headline": "Brixmor Property, Everview to acquire Slate Grocery REIT for $2.34B",
+      "source": "SeekingAlpha",
+      "time": "2026-09-28 11:34 UTC",
+      "summary": "",
+      "url": "https://seekingalpha.com/news/4647500-brixmor-property-everview-to-acquire-slate-grocery-reit-for-234b?utm_source=feed_news_m_a&utm_medium=referral&feed_item_type=news",
+      "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567050932/sa_jgen9y.png",
+      "about": ""
+    },
+    {
+      "headline": "Valley National Bancorp to Acquire Bluevine Inc., Accelerating Its Digital Small Business Growth Strategy and Meaningfully Enhancing Its Core Funding Capabilities",
+      "source": "GlobalNewswire",
+      "time": "2026-09-28 11:30 UTC",
+      "summary": "NEW YORK, N.Y. and JERSEY CITY, N.J., Sept.  28, 2026  (GLOBE NEWSWIRE) -- Valley National Bancorp (\u201cValley\u201d) (NASDAQ: VLY) and Bluevine Inc. (\u201cBluevine\u201d) announced today that they have entered into a definitive agreement whereby Valley will acquire Bluevine, a leading nationwide digital banking pla",
+      "url": "https://www.globenewswire.com/news-release/2026/09/28/3369793/0/en/valley-national-bancorp-to-acquire-bluevine-inc-accelerating-its-digital-small-business-growth-strategy-and-meaningfully-enhancing-its-core-funding-capabilities.html",
+      "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567047094/gnw_ngwqnq.png",
+      "about": ""
+    },
+    {
+      "headline": "Intermap Announces PCI Shareholder Approval of Acquisition",
+      "source": "GlobalNewswire",
+      "time": "2026-09-28 11:30 UTC",
+      "summary": "Closing expected mid-October 2026 Closing expected mid-October 2026",
+      "url": "https://www.globenewswire.com/news-release/2026/09/28/3369779/0/en/intermap-announces-pci-shareholder-approval-of-acquisition.html",
+      "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567047094/gnw_ngwqnq.png",
+      "about": ""
+    },
+    {
+      "headline": "Inside information: Preliminary result of S-Bank Plc's voluntary recommended public cash tender offer for all the shares in Oma Savings Bank Plc",
+      "source": "GlobalNewswire",
+      "time": "2026-09-28 11:05 UTC",
+      "summary": "NOT FOR RELEASE, PUBLICATION OR DISTRIBUTION, IN WHOLE OR IN PART, DIRECTLY OR INDIRECTLY, IN OR INTO AUSTRALIA, CANADA, HONG KONG, JAPAN, NEW ZEALAND OR SOUTH AFRICA OR IN ANY OTHER JURISDICTION IN WHICH THE TENDER OFFER WOULD BE PROHIBITED BY APPLICABLE LAW. FOR FURTHER INFORMATION, PLEASE SEE SEC",
+      "url": "https://www.globenewswire.com/news-release/2026/09/28/3369767/0/en/inside-information-preliminary-result-of-s-bank-plc-s-voluntary-recommended-public-cash-tender-offer-for-all-the-shares-in-oma-savings-bank-plc.html",
+      "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567047094/gnw_ngwqnq.png",
+      "about": ""
+    },
+    {
+      "headline": "Sis\u00e4piiritieto: S-Pankki Oyj:n kaikista Oma S\u00e4\u00e4st\u00f6pankki Oyj:n osakkeista tekem\u00e4n vapaaehtoisen suositellun julkisen k\u00e4teisostotarjouksen alustava tulos",
+      "source": "GlobalNewswire",
+      "time": "2026-09-28 11:05 UTC",
+      "summary": "EI JULKISTETTAVAKSI TAI LEVITETT\u00c4V\u00c4KSI, KOKONAAN TAI OSITTAIN, SUORAAN TAI V\u00c4LILLISESTI, AUSTRALIASSA, KANADASSA, HONGKONGISSA, JAPANISSA, UUDESSA-SEELANNISSA TAI ETEL\u00c4-AFRIKASSA TAI N\u00c4IHIN MAIHIN TAI MILL\u00c4\u00c4N MUULLA ALUEELLA TAI MILLEK\u00c4\u00c4N MUULLE ALUEELLE, JOSSA OSTOTARJOUS OLISI SOVELTUVAN LAIN VAST",
+      "url": "https://www.globenewswire.com/news-release/2026/09/28/3369767/0/fi/sis%C3%A4piiritieto-s-pankki-oyj-n-kaikista-oma-s%C3%A4%C3%A4st%C3%B6pankki-oyj-n-osakkeista-tekem%C3%A4n-vapaaehtoisen-suositellun-julkisen-k%C3%A4teisostotarjouksen-alustava-tulos.html",
+      "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567047094/gnw_ngwqnq.png",
+      "about": ""
+    },
+    {
+      "headline": "Whole Foods co-founder shares 3 tips for launching a successful second act: 'I'm relearning some lessons'",
+      "source": "CNBC",
+      "time": "2026-09-28 11:00 UTC",
+      "summary": "John Mackey is learning that what helped him build Whole Foods Market into a multibillion-dollar business can help him in his second act, but only if he's patient.",
+      "url": "https://www.cnbc.com/2026/09/28/whole-foods-co-founders-3-tips-for-launching-a-successful-second-act.html",
+      "image": "https://image.cnbcfm.com/api/v1/image/104534224-1790354840846-John_mackey.png?v=1790354868&w=1920&h=1080",
+      "about": ""
+    },
+    {
+      "headline": "Affiliate of Jefferson Energy Companies Agrees to Acquire Crude Oil Logistics Assets from USD Group",
+      "source": "GlobalNewswire",
+      "time": "2026-09-28 10:30 UTC",
+      "summary": "NEW YORK, Sept.  28, 2026  (GLOBE NEWSWIRE) -- FTAI Energy Partners LLC (\u201cJefferson\u201d or the \u201cCompany\u201d), a subsidiary of FTAI Infrastructure Inc. (NASDAQ: FIP), today announced that its subsidiary has entered into a definitive agreement to acquire the Port Arthur Terminal in Port Arthur, Texas, and a",
+      "url": "https://www.globenewswire.com/news-release/2026/09/28/3369717/0/en/affiliate-of-jefferson-energy-companies-agrees-to-acquire-crude-oil-logistics-assets-from-usd-group.html",
+      "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567047094/gnw_ngwqnq.png",
+      "about": ""
+    },
+    {
+      "headline": "EU imposes sanctions over deportation of Ukrainian children to Russia - Reuters",
+      "source": "Reuters",
+      "time": "2026-09-28 10:19 UTC",
+      "summary": "EU imposes sanctions over deportation of Ukrainian children to Russia\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQY1dmdFlnNnVwd3NndFlUZ0ZrcU9kSnRhMnJnYUFXalhpekx3LWVHazdLb1NMRWFrcTFqVVZDc2FIMDBQX1hxMXY4cng0ekJOeFpnU1NnQ1pwaW9JSUh6X1RPcjdlV1MyYnNlY253WUNHNkZqeUxPaUo1Z3lDSzZCRjZsTVpES2hjQzhpaHFrQ2lqX2lNRUdQWGk0ZGt5ZjNRMW5jMlg0V0Y?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "Zymeworks Announces Updated 2026 Financial Guidance and Final Transaction Details Following Theravance Biopharma Acquisition",
+      "source": "GlobalNewswire",
+      "time": "2026-09-28 10:00 UTC",
+      "summary": "VANCOUVER, British Columbia, Sept.  28, 2026  (GLOBE NEWSWIRE) -- \u00a0Zymeworks Inc. (Nasdaq: ZYME), a biotechnology company managing a portfolio of licensed healthcare assets while developing a diverse pipeline of novel, multifunctional biotherapeutics, today announced the final transaction details an",
+      "url": "https://www.globenewswire.com/news-release/2026/09/28/3369687/0/en/zymeworks-announces-updated-2026-financial-guidance-and-final-transaction-details-following-theravance-biopharma-acquisition.html",
+      "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567047094/gnw_ngwqnq.png",
+      "about": ""
+    },
+    {
+      "headline": "FTAI Acquires 27 Boeing 737-700 Aircraft from WestJet",
+      "source": "GlobalNewswire",
+      "time": "2026-09-28 10:00 UTC",
+      "summary": "Transaction Includes Sale-Leaseback of 17 Aircraft with Strategic Capital\u2019s Second Investment Vehicle and Acquisition of 10 Off-Lease Aircraft to Support FTAI\u2019s Aerospace Products Business Transaction Includes Sale-Leaseback of 17 Aircraft with Strategic Capital\u2019s Second Investment Vehicle and Acqui",
+      "url": "https://www.globenewswire.com/news-release/2026/09/28/3369685/35538/en/ftai-acquires-27-boeing-737-700-aircraft-from-westjet.html",
+      "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567047094/gnw_ngwqnq.png",
+      "about": ""
+    },
+    {
+      "headline": "Qatar-linked LNG traffic through Hormuz strait picks up despite conflict - Reuters",
+      "source": "Reuters",
+      "time": "2026-09-28 09:33 UTC",
+      "summary": "Qatar-linked LNG traffic through Hormuz strait picks up despite conflict\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPWGJVSUk3X2d2T1ZVNjM0UmE0RTRXZEpvMWwyaXNrbFkzeWFEWG9RUTlLMFhyaUJ5NjJKb01FTEcyMXYtaXc4V29xRnc1WWJqeDZrQzlZZ2h3cUM0ZGhjWDJUQ0tiTFVJUzNlNjJPRVJSSTJYWUlhejNDeHFZeGRNS2M1YlNvbG1oaXZnaXo1VHJPeWxvTzJab1U4Zk5mb3IxeWR0QUhtbjZjYnlyUU8wVmRNZ1BBX3VpS2IzYlRvdS11QQ?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "International Petroleum Corporation Announces Results of  Normal Course Issuer Bid",
+      "source": "GlobalNewswire",
+      "time": "2026-09-28 09:00 UTC",
+      "summary": "International Petroleum Corporation (IPC or the Corporation) (TSX, Nasdaq Stockholm: IPCO) is pleased to announce that IPC repurchased a total of 148,500 IPC common shares (ISIN: CA46016U1084) during the period of September 21 to 25, 2026 under IPC\u2019s previously announced normal course issuer bid / s",
+      "url": "https://www.globenewswire.com/news-release/2026/09/28/3369600/0/en/international-petroleum-corporation-announces-results-of-normal-course-issuer-bid.html",
+      "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567047094/gnw_ngwqnq.png",
+      "about": ""
+    },
+    {
+      "headline": "Schouw & Co. share buy-back programme, week 39 2026",
+      "source": "GlobalNewswire",
+      "time": "2026-09-28 09:00 UTC",
+      "summary": "On 2 January 2026, Schouw & Co. initiated a share buy-back programme as outlined in Company Announcement no. 59 of 18 December 2025. Under the programme, Schouw & Co. will acquire shares for up to DKK 240 million during the period 2 January to 31 December 2026. As outlined in Company Announcement no",
+      "url": "https://www.globenewswire.com/news-release/2026/09/28/3369599/0/en/schouw-co-share-buy-back-programme-week-39-2026.html",
+      "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567047094/gnw_ngwqnq.png",
+      "about": ""
+    },
+    {
+      "headline": "Form-8.3 ADVANCED MEDICAL SOLUTIONS GROUP PLC - 25 09 2026 - (CGWL)",
+      "source": "GlobalNewswire",
+      "time": "2026-09-28 08:41 UTC",
+      "summary": "FORM 8.3",
+      "url": "https://www.globenewswire.com/news-release/2026/09/28/3369587/0/en/form-8-3-advanced-medical-solutions-group-plc-25-09-2026-cgwl.html",
+      "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567047094/gnw_ngwqnq.png",
+      "about": ""
+    },
+    {
+      "headline": "A.P. Moller Capital Agrees to Acquire a Majority Stake in Euroports Group",
+      "source": "GlobalNewswire",
+      "time": "2026-09-28 08:10 UTC",
+      "summary": "A.P. Moller Capital Agrees to Acquire a Majority Stake in Euroports Group",
+      "url": "https://www.globenewswire.com/news-release/2026/09/28/3369556/0/en/a-p-moller-capital-agrees-to-acquire-a-majority-stake-in-euroports-group.html",
+      "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567047094/gnw_ngwqnq.png",
+      "about": ""
+    },
+    {
+      "headline": "South African rand slips as US-Iran stalemate pushes oil prices higher - Reuters",
+      "source": "Reuters",
+      "time": "2026-09-28 07:54 UTC",
+      "summary": "South African rand slips as US-Iran stalemate pushes oil prices higher\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPYXVjeHhnVS1HLV9mVnYtVHVhQ3NjcEFqREZJYUpRU3RhSElhQlJ4NERfQWhjdm44RGNQMFdBZlNfcU5PN1JuOU1DWW04RjFBSDZETlE5Z0h2VUkyRFJVTHdiTzBfM0lGVUw0akY5a01yM0J6WElBbERxREpBQkk3OGFjTDkyVElrUTRTckpFRHZ3aURTVkduYS0zdnMtZkVUenZrSk1kdEVoRnNpbkVlanlmdnQ0a2s?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "Tullow Oil swings to positive free cash flow as Ghana output, higher oil prices drive growth - Reuters",
+      "source": "Reuters",
+      "time": "2026-09-28 06:44 UTC",
+      "summary": "Tullow Oil swings to positive free cash flow as Ghana output, higher oil prices drive growth\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxNcVhQbFJWa3BzeDliUGZGQ1ZVY19mbmY1bmNleGw0ODF6RjV2a0ljSkp3a29lLTBpd1A5M2hxWTg0UmZoSWUzRHFPTEhMQ0t0bUVWWmdIbXJJVW5qVHpfSnZxTzlWdTczY0RZamlVVldsZVZKS185Q21LcG82bkYwZEV0UkdET1AzVUozeWgwekpYSXhJZHo5NVZxV0k2aTBpT2pwUjRreS10dlRNMDBxM2NzYWRkcmFqZkdDMDFNWm1BTkpQcFdGdzN3?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "German gas supply is secure despite low storage levels, VNG chief says - Reuters",
+      "source": "Reuters",
+      "time": "2026-09-28 06:02 UTC",
+      "summary": "German gas supply is secure despite low storage levels, VNG chief says\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxOVDRjSXY3THA4d0lJaGlLM05DM3FVeDc3TFVFa3p2d1Z5OWRiNnBxbVhqMkVoZmw0M0xNeDVaNXhrTVN6bnhTRy1Pc0E4VXEwSjhsS3VkcE9BSjZMQ0hUM0FfM010Zk8zNGlZTUN0MmRZbS1ZTEhxQUFGWUVDUFBESzRKWkYxUUZMVjJIZzd0ZjZVbDViRFRDTkFpUjlCalJfODhOQUk5OC1Nc3d1X2NOdE5aUk1tWS1PdDdJZkNR?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "COMMENTARY: Cash-rich oil majors face post-Iran strategy rethink - Reuters",
+      "source": "Reuters",
+      "time": "2026-09-28 06:00 UTC",
+      "summary": "COMMENTARY: Cash-rich oil majors face post-Iran strategy rethink\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxPQ21VRGFRWnc1czVkOUdJbGJ3ZmMwNGUtVTFmbkxJcFBWZWNXdnVUcUFFajJGNFJJSGkwYldyWi1PNFhzQlQtUjhaNzg4OE9QRTF1bXd5dkVGR3BzZUJCaVFweUxuSlJhRjZfank4Tl9Ec2ZveGJKdlFFWjZXbEFud0FOVVR6bmhzVmNqMm5fN2xQcnI5TEdtU25NX3p6QkxRbE5wM0RGa2pIVDZMWjhrMHV6UEZZMlNielBwLWVHWmtYWU5LTnZJ?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "Siris to Acquire 19.1% Stake in Agfa-Gevaert",
+      "source": "GlobalNewswire",
+      "time": "2026-09-28 05:45 UTC",
+      "summary": "Strategic Investment to Build on Partnership Established Through Agreement to Combine Agfa\u2019s Digital Printing Solutions Business with Siris Portfolio Company EFI Strategic Investment to Build on Partnership Established Through Agreement to Combine Agfa\u2019s Digital Printing Solutions Business with Siri",
+      "url": "https://www.globenewswire.com/news-release/2026/09/28/3369505/0/en/siris-to-acquire-19-1-stake-in-agfa-gevaert.html",
+      "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567047094/gnw_ngwqnq.png",
+      "about": ""
+    },
+    {
+      "headline": "Northern Star shares jump as miner rejects $27B Gold Fields bid",
+      "source": "SeekingAlpha",
+      "time": "2026-09-28 05:11 UTC",
+      "summary": "",
+      "url": "https://seekingalpha.com/news/4647426-northern-star-shares-jump-as-miner-rejects-27b-gold-fields-bid?utm_source=feed_news_m_a&utm_medium=referral&feed_item_type=news",
+      "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567050932/sa_jgen9y.png",
+      "about": ""
+    },
+    {
+      "headline": "Saudi foreign minister arrives in Washington for talks with Rubio - Reuters",
+      "source": "Reuters",
+      "time": "2026-09-28 04:38 UTC",
+      "summary": "Saudi foreign minister arrives in Washington for talks with Rubio\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNVVJqTlphdG95ZW84dGEzcXFwZTNrcVZWeS04TEQ5THdTNHg4UnE5NWlxbUVqRlF3ZHVvNnVpTEhMOTV2MVhMNEMxRk9DNTFXMGQ5ZUhiXy11RzZqSUFnVUc2LVhyRF9Ia2lBM3dJT1F5LTBEUlFyV21QYmtob0pTX09hb3VTVW9hTXF3cG5pVWhfYmdESHIzREZlMmcxSEVlQ0VUNHYyVU45bDRyc3lqNVVR?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "Oil woes push rupee to over one-week low, RBI caps fall near 96/USD - Reuters",
+      "source": "Reuters",
+      "time": "2026-09-28 02:50 UTC",
+      "summary": "Oil woes push rupee to over one-week low, RBI caps fall near 96/USD\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxQTVl1TmI5dWRwRlVoQ3RIWUlrVFg1d1FGV3F1dC15UDFHUWpGN1NYaGNRT2YxQmlnQXdqbmpVaUozc1p3d2pzX3d6T2ZLTE9tYmV0Y1JlcGxlcVZYSjI1dDRYQkdhZ0tyZ09FT3JqTUNwQl9Edk9MaGxYdlJHbUtwaWZXMjJpQXVpcTZHNlFtRktOMC0wLWR1aDI3dWxkWE9uelVmMUpDRmJJV3dOaDB3YmdqSDIwdHlGbEE?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "Indian shares slide to near six-month low as US-Iran deadlock lifts oil prices - Reuters",
+      "source": "Reuters",
+      "time": "2026-09-28 02:19 UTC",
+      "summary": "Indian shares slide to near six-month low as US-Iran deadlock lifts oil prices\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNQmUtcnhXbVNOQ0lacFk2Z1JXa0JON1VtZTRsYnZVMDlKdjh0dXhobk9tajVtRVdUbE5RV2MxUy1MbUpkNkc4UXNvalZoZXltbUNScGEyanBReERmbTRuQnB2d2M2dkU3NkJ0anMybXdHWV9QWElRVG9WcDhNSzE4eTV4VWs4WWluaGpYR1NZZTNuYVFPNWZwUk1YcXNOR0NrN0REb2V5eENFRjFaTVNpeWtJdw?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "Gold drops more than 2% on US rate-hike bets - Reuters",
+      "source": "Reuters",
+      "time": "2026-09-28 01:41 UTC",
+      "summary": "Gold drops more than 2% on US rate-hike bets\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQenE0aVBHOTNMeURZcVZjN3J0S1RMZ2kzakFJYklBMXhZckhuTGxLVnVaa2pmZjg0MzJHMU1fOGwwY3pfWjBXYmZUcGYtUjMzOFB4UW9ydUdKZDNOU2JrTHotMk9qa1ZGNkZXdGs3b0NKcGhveU11cmZGOC0wbzM1WWVJSzk3bDAxLWs3QUxVSy02QQ?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "Top dow jones movers in Monday's session",
+      "source": "ChartMill",
+      "time": "2026-09-28 19:10 UTC",
+      "summary": "Curious about the dow jones stocks that are in motion on Monday? Join us as we explore the top movers within the dow jones index during today's session.",
+      "url": "https://finnhub.io/api/news?id=e7314e47396ff982ffb99f585545511c858008d4c9e0017fe81912982ec663c9",
+      "image": "https://www.chartmill.com/images/uploads/CM_Top_Movers_Small_free_2b4ff2fc22.webp",
+      "about": "MSFT"
+    },
+    {
+      "headline": "Stay informed with the top movers within the S&P500 index on Monday.",
+      "source": "ChartMill",
+      "time": "2026-09-28 19:05 UTC",
+      "summary": "Curious about the S&P500 stocks that are in motion on Monday? Join us as we explore the top movers within the S&P500 index during today's session.",
+      "url": "https://finnhub.io/api/news?id=c12fd4505fe17fdad5ac70e1ca08de2c446637afd094d810b99c6d6f5a82993e",
+      "image": "https://www.chartmill.com/images/uploads/CM_Top_Movers_Small_free_2b4ff2fc22.webp",
+      "about": "META"
+    },
+    {
+      "headline": "What's going on in today's session: S&P500 most active stocks",
+      "source": "ChartMill",
+      "time": "2026-09-28 18:05 UTC",
+      "summary": "Curious about the most active S&P500 stocks in today's session? Join us as we explore the US markets on Monday and uncover the stocks that are leading the way in terms of trading volume and market attention.",
+      "url": "https://finnhub.io/api/news?id=e93f8bbdaf9e27b5576156150c176c8ec6a78c8e81bd48cdc72fc49106290908",
+      "image": "https://www.chartmill.com/images/uploads/CM_Most_Active_Stocks_Small_free_fec0650b7f.webp",
+      "about": "NVDA"
+    },
+    {
+      "headline": "Check out the stocks that are attracting the most attention and driving market activity.",
+      "source": "ChartMill",
+      "time": "2026-09-28 18:00 UTC",
+      "summary": "Curious about the most active stocks in today's session? Get a glimpse into the stocks that are generating the highest trading volume and capturing market attention.",
+      "url": "https://finnhub.io/api/news?id=aa5c01df4e86fe33abb5dc1f0841723fa722fd7bc72975919bdc2c8e410531f8",
+      "image": "https://www.chartmill.com/images/uploads/CM_Most_Active_Stocks_Small_free_fec0650b7f.webp",
+      "about": "NVDA"
+    },
+    {
+      "headline": "The minivan renaissance: Why SUV sales are falling behind",
+      "source": "Yahoo",
+      "time": "2026-09-28 17:50 UTC",
+      "summary": "Turney Duff chats with Barron's associate editor Al Root, Kelly Intelligence founder and CEO Kevin Kelly, Cleo Capital managing director Sarah Kunst, and Yahoo Finance Senior Autos Reporter Pras Subramanian about the rising popularity of minivans.",
+      "url": "https://finnhub.io/api/news?id=aaf00bb55e975364e6d3d91e3a0ce4a437f4d920fe1c2f49d2227c41b48271f5",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "TSLA"
+    },
+    {
+      "headline": "Update: US Equity Indexes Fall in Midday Trading as Treasury Yields Rise Amid US-Iran Deadlock",
+      "source": "Yahoo",
+      "time": "2026-09-28 17:38 UTC",
+      "summary": "(Updates with index/price action, macroeconomic data, corporate developments, and geopolitical news",
+      "url": "https://finnhub.io/api/news?id=d7e0427dcae96ca3d8f26dc08bffab97f881185c065ade94a9770dba9285272d",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "META"
+    },
+    {
+      "headline": "Meta enters the enterprise AI battle",
+      "source": "Yahoo",
+      "time": "2026-09-28 17:32 UTC",
+      "summary": "The Mark Hang panel discusses Meta's (META) moving into the enterprise space, igniting competition with giants Microsoft (MSFT) and Alphabet (GOOGL, GOOG).",
+      "url": "https://finnhub.io/api/news?id=9d072b023522014ef64dd69619ae7dd18de4fdd9864a5da21f6b1951489d18a5",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "MSFT"
+    },
+    {
+      "headline": "Cantor Backs Rocket Lab\u2019s Launch Momentum After 97th Electron Mission \u2013 Highlights These \u2018Competitive Advantages\u2019",
+      "source": "Yahoo",
+      "time": "2026-09-28 17:15 UTC",
+      "summary": "Cantor Fitzgerald said Rocket Lab\u2019s launch record is a key differentiator, while reiterating an \u2018Overweight\u2019 rating and $122 price target.",
+      "url": "https://finnhub.io/api/news?id=b712a5f4bdaec48174050ccf761382ca88d8382dc72964e5de4602c580519164",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "RKLB"
+    },
+    {
+      "headline": "Nvidia Thinks Its Stock Is Cheap. It\u2019s Buying Back $150 Billion.",
+      "source": "Yahoo",
+      "time": "2026-09-28 17:15 UTC",
+      "summary": "Nvidia says it\u2019s funding a \u201conce-in-a-generation platform shift\u201d while handing investors a record $150 billion buyback. At 16.5x forward earnings, Jensen Huang appears happy to buy his own dip.",
+      "url": "https://finnhub.io/api/news?id=b465c1391d162d8efe8e4a3f9ae71a39454b88aaacebfad7bd0e046e87d14c6b",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "AAPL"
+    },
+    {
+      "headline": "Manifest Joins Chainguard's Athena Coalition to Find Open-Source Risk Inside Software Products",
+      "source": "Yahoo",
+      "time": "2026-09-28 17:15 UTC",
+      "summary": "WASHINGTON, September 28, 2026--Manifest Cyber, a leader in software and AI supply chain security, today announced it has joined Athena, the Chainguard-led industry coalition for the orchestrated defense of open-source software. Manifest joins JPMorganChase, Morgan Stanley, Cisco, Cloudflare, Akamai",
+      "url": "https://finnhub.io/api/news?id=b697fd0938a092207b96bcc22c58ea74e76f0fb6275f0d7c663d13a9aa19df43",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "CSCO"
+    },
+    {
+      "headline": "Claude and Gemini hacks bring agentic AI risks into underwriting",
+      "source": "Yahoo",
+      "time": "2026-09-28 17:13 UTC",
+      "summary": "Insurers face a new frontier of liabilities as autonomous AI agents escape testing environments and accidentally hack real-world organisations, explains Beatriz Benito",
+      "url": "https://finnhub.io/api/news?id=c0181cd0a563af7444f9f9027f2b6f8b599d63182b6826140d3e640e25db5059",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "GOOGL"
+    },
+    {
+      "headline": "Your Micron Shares Could Swing Hundreds Of Dollars, And That Is The Calm Case",
+      "source": "Yahoo",
+      "time": "2026-09-28 17:10 UTC",
+      "summary": "Micron Technology (MU) stock trades near $1,082. Options expiring in roughly a year price a likely range from about $597 to about $1,963, with roughly two-in-three odds of finishing inside it. That is a huge band. Yet options expect Micron to trade calmer than it has, and the supply contracts behind",
+      "url": "https://finnhub.io/api/news?id=171c3aabe032b0f874d8589bb0f500c8e52403f194cc19a6005b258f977ebd86",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "MU"
+    },
+    {
+      "headline": "RCL Stock In Focus \u2014 Wall Street Turns Bullish On Cruise Line Operator As Travel Demand Stays Strong",
+      "source": "Yahoo",
+      "time": "2026-09-28 17:05 UTC",
+      "summary": "Bank of America and Deutsche Bank both upgraded Royal Caribbean to \u2018Buy,\u2019 citing resilient travel demand and a more attractive risk-reward after the stock\u2019s sharp pullback in August.",
+      "url": "https://finnhub.io/api/news?id=72096c84b4c420fc0a2279b09d39db0b245394a8580144e44888a404d0d65363",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "RCL"
+    },
+    {
+      "headline": "JPMorgan Stock Slips 1% as Bank Agents Get an Open Safety Layer",
+      "source": "Yahoo",
+      "time": "2026-09-28 17:01 UTC",
+      "summary": "A $19.8 billion technology budget gives agent controls internal relevance without proving outside revenue.",
+      "url": "https://finnhub.io/api/news?id=6b02a3f5b42a58d67432c97214734bd19bf99ef8ded0256d871ac308a4836a2f",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "JPM"
+    },
+    {
+      "headline": "AZO Stock Gets A Target Reduction From JPMorgan \u2013 But Analyst Believes It\u2019s Good Time To Add To Positions At Current Levels",
+      "source": "Yahoo",
+      "time": "2026-09-28 16:55 UTC",
+      "summary": "JPMorgan sees AutoZone\u2019s valuation as attractive at current levels as estimates are being \u201cright-sized,\u201d according to a note cited by The Fly.",
+      "url": "https://finnhub.io/api/news?id=785951bf421fcf2b21910a507803415554e479b03f867092a10ae016c7c0b61b",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "JPM"
+    },
+    {
+      "headline": "5 Reasons to Buy Stocks Now",
+      "source": "Yahoo",
+      "time": "2026-09-28 16:45 UTC",
+      "summary": "The convergence of extreme sentiment, a breadth washout, an inflation overreaction, political gridlock, and favorable seasonal tailwinds creates a compelling setup for investors.",
+      "url": "https://finnhub.io/api/news?id=23091f96b6b72656eb910d5aacd009542f2d8c43aa24a1595c3d6f3264c638f0",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "MU"
+    },
+    {
+      "headline": "Uncover the latest developments among dow jones stocks in today's session.",
+      "source": "ChartMill",
+      "time": "2026-09-28 16:40 UTC",
+      "summary": "Uncover the latest developments among dow jones stocks in today's session. Stay tuned to the dow jones index's top gainers and losers on Monday.",
+      "url": "https://finnhub.io/api/news?id=6c56b5887c380fd32f9a884079e1fe3cbcc341a5694652b43eb419128632c5bd",
+      "image": "https://www.chartmill.com/images/uploads/CM_Top_Movers_Small_free_2b4ff2fc22.webp",
+      "about": "AMZN"
+    },
+    {
+      "headline": "Amazon Stock Falls as Cheaper Claude Tests Bedrock Elasticity",
+      "source": "Yahoo",
+      "time": "2026-09-28 16:34 UTC",
+      "summary": "Lower model costs can reduce revenue per call while expanding total cloud consumption.",
+      "url": "https://finnhub.io/api/news?id=383e129bcad1c4de7d66c2c767d9b7dbe75b7d664f80f0e17207c8886bf6ea31",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "AMZN"
+    },
+    {
+      "headline": "Bro's built a $85K/month website widget for mechanics:",
+      "source": "Yahoo",
+      "time": "2026-09-28 16:32 UTC",
+      "summary": "Meet Tom. He built Avenue, a simple embed that lets customers of electricians, mechanics and repair shops book or buy without ever picking up the phone.No coding background. No fancy funnel. He got his first customers by walking door to door with an iPad, showing tradies the product on their own bra",
+      "url": "https://finnhub.io/api/news?id=ff0f965d2fec94748d318d84a61fa519194aa975e64bcda84efdf53d319846c1",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "GOOGL"
+    },
+    {
+      "headline": "Nvidia, Apple Partner TSMC Reveals These Clues On How To Read Charts",
+      "source": "Yahoo",
+      "time": "2026-09-28 16:15 UTC",
+      "summary": "As TSMC stock teases a breakout, it flashes telltale indicators and provides multiple ways to view the chart action.",
+      "url": "https://finnhub.io/api/news?id=3a36147a553fee3998f18faa01b847a1e1da1bea610477eafb5366892b46750a",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "AAPL"
+    },
+    {
+      "headline": "Why Analysts Are Upgrading Royal Caribbean Right Before Carnival Earnings",
+      "source": "Yahoo",
+      "time": "2026-09-28 15:55 UTC",
+      "summary": "Royal Caribbean stock is upgraded to Buy as Wall Street believes the recent share price decline offers an attractive entry.",
+      "url": "https://finnhub.io/api/news?id=211f9fa6e570ee1087a7bc2a44613c8038053d4163ed324c856252fe93554ca6",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "RCL"
+    },
+    {
+      "headline": "CSCO's Security Growth Accelerates: Can It Outpace DDOG & CRWD?",
+      "source": "Yahoo",
+      "time": "2026-09-28 15:35 UTC",
+      "summary": "Cisco Systems' integrated security and observability push is gaining traction as adoption grows, strengthening its position against Datadog and CrowdStrike.",
+      "url": "https://finnhub.io/api/news?id=6e54bbbebd6f79a70d12da6a9a2b4e2b04e24a84076995c77dca1f6eda79aaa0",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "CSCO"
+    },
+    {
+      "headline": "Kirsten Harmon Joins Vinson & Elkins as NY-Based Corporate Partner",
+      "source": "Yahoo",
+      "time": "2026-09-28 15:28 UTC",
+      "summary": "By Karen Roman Vinson & Elkins said Kirsten Harmon is the firm\u2019s latest New York-based partner in its Corporate practice, having previously served at as partner at Simpson Thacher & Bartlett. Ms. Harmon has experience on a broad range of capital markets transactions, including initial public offerin",
+      "url": "https://finnhub.io/api/news?id=8d664df2182f1603b97916326190d67f5b9f107421a4e240a414a71193b29599",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "RKLB"
+    },
+    {
+      "headline": "SpaceX vs. Tesla: Which Elon Musk Stock Is the Better Buy for the Next 5 Years?",
+      "source": "Yahoo",
+      "time": "2026-09-28 15:25 UTC",
+      "summary": "Both could deliver outstanding returns, but there are good reasons to be cautious.",
+      "url": "https://finnhub.io/api/news?id=f5768e7377628f5a563dd28a7c1194e44ead46e91850b8bb75d00da90f144c94",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "TSLA"
+    },
+    {
+      "headline": "The Bond Bloodbath Spreads",
+      "source": "SeekingAlpha",
+      "time": "2026-09-28 15:18 UTC",
+      "summary": "The primary driving force behind falling bond values is best described not by \u00e2\u0080\u009cinflation\u00e2\u0080\u009d but \u00e2\u0080\u009cdepreciation.\u00e2\u0080\u009d",
+      "url": "https://finnhub.io/api/news?id=e8af15e51b49d2fe353f17b0b930d889b0ffd60dda3bb9a8a5af63778f813abd",
+      "image": "https://static.seekingalpha.com/cdn/s3/uploads/getty_images/1437550766/image_1437550766.jpg?io=getty-c-w1536",
+      "about": "TLT"
+    },
+    {
+      "headline": "Why Your Energy Bill Is About to Skyrocket $1,465 a Year Higher \u2014 Unless This Happens",
+      "source": "Yahoo",
+      "time": "2026-09-28 15:14 UTC",
+      "summary": "Climate lawsuits are quietly moving through courts across the country, and a looming Supreme Court case could determine whether energy companies or everyday households foot a bill that one analysis puts in the billions.",
+      "url": "https://finnhub.io/api/news?id=e8abc9537b3f6be23d407dcc9457f10292b4ebe11a64f41652d1e49186d65279",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "XOM"
+    },
+    {
+      "headline": "Nvidia, Meta, Kodiak Sciences, MongoDB, SpaceX, IonQ, and More Stocks That Explain Today\u2019s Market",
+      "source": "Yahoo",
+      "time": "2026-09-28 15:09 UTC",
+      "summary": "FEATURE  Stocks fell Monday after talks between the U.S. and Iran failed to reach a peace deal, driving oil prices and bond yields higher even as President Donald Trump signaled negotiations would continue this week.",
+      "url": "https://finnhub.io/api/news?id=fdfb40cce8f6d87e54afa9f75537ce079cc9acea3ec7d68594b9de582c29f2ee",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "XOM"
+    },
+    {
+      "headline": "These Energy Stocks Just Delivered Massive September Gains",
+      "source": "Yahoo",
+      "time": "2026-09-28 14:41 UTC",
+      "summary": "CVR Energy, Solaris Lead Powerful Energy Stock Rally as September Ends",
+      "url": "https://finnhub.io/api/news?id=ca7514616eea150b078634e918e15b6e0447640fc02f9d625f56a829ab693b29",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "VLO"
+    },
+    {
+      "headline": "China: Up The Value Chain",
+      "source": "SeekingAlpha",
+      "time": "2026-09-28 14:35 UTC",
+      "summary": "AI was a key topic when Trump met Xi Jinping, underscoring China\u00e2\u0080\u0099s move up the manufacturing value chain into advanced tech. We're neutral Chinese equities but see value in physical AI.",
+      "url": "https://finnhub.io/api/news?id=88a66afb56f7939c6647dfbc3331b2e7180e718db3d0adad72bfa3e637957468",
+      "image": "https://static.seekingalpha.com/cdn/s3/uploads/getty_images/2257924602/image_2257924602.jpg?io=getty-c-w1536",
+      "about": "TLT"
+    },
+    {
+      "headline": "You Don't Need To Be Good at Sales To Start a Small Business",
+      "source": "Yahoo",
+      "time": "2026-09-28 14:30 UTC",
+      "summary": "NORTHAMPTON, MA / ACCESS Newswire / September 28, 2026 / How do you get your first customers if you hate selling.You can be good at something and still be terrible at selling yourself.",
+      "url": "https://finnhub.io/api/news?id=9a7fab9e7ca77b480a1728b3970d1b8c54fd6e8cae7d1ec922e9f888f85d8268",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "GDDY"
+    }
+  ]
+}
