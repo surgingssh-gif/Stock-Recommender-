@@ -226,9 +226,14 @@ Top 5), next to just buying the S&P 500. It ignores trading costs and taxes, so 
 it as a rough check. To test the recap: **Actions** tab > **Evening recap** >
 **Run workflow**. To preview it on your computer: `python recap.py --dry-run`.
 
-**How the scorecard works:** each pick is compared with the latest closing price.
-A bullish call is "right so far" if the stock is up since it was picked; a bearish
-call if it's down. New picks show "Too early to tell" until the next market close.
+**How the scorecard works:** each pick is scored from the **opening price** on the
+first trading day after it was made, because that's the earliest you could actually
+have bought it. The bot runs before the market opens, so that's usually the same day.
+Scoring from the night before would give the bot credit for overnight jumps nobody
+could have caught. A bullish call is "right so far" if the stock is up since then; a
+bearish call if it's down. **Beat the S&P 500** also checks whether the call did
+better than simply buying the S&P 500 (SPY) at the same open. New picks show
+"Too early to tell" until the next market close.
 
 ---
 

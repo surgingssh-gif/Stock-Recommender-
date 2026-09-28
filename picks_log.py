@@ -6,6 +6,7 @@ checked later. Open the file in Excel or Google Sheets to look at it.
 import csv
 import json
 import os
+from datetime import datetime, timezone
 
 LOG_FILE = "picks_log.csv"
 COLUMNS = ["date", "ticker", "direction", "reason", "price_at_pick"]
@@ -43,6 +44,8 @@ def save_day_details(date_str, analysis, headlines, days_dir=DAYS_DIR):
     os.makedirs(days_dir, exist_ok=True)
     details = {
         "date": date_str,
+        # When the bot ran (UTC), so picks are scored from the next opening bell.
+        "picked_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
         "market_mood": analysis["market_mood"],
         # What the bot took from its own track record today.
         "self_check": analysis.get("self_check"),

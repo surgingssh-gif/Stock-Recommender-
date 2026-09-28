@@ -867,7 +867,7 @@ footer .disclaimer { font: 400 italic 13px/1.4 var(--serif); color: var(--ink); 
       <div class="portfolio" id="portfolio"></div>
       <div class="section-head"><h2 id="hold-h">How Long Should You Hold?</h2><p>How the calls do 1 day, 1 week and 1 month after they're made.</p></div>
       <div class="hold" id="hold"></div>
-      <div class="section-head"><h2 id="top5-h">How the Top 5 Did</h2><p>Each day's ranked top buys, measured from the price when they were picked.</p></div>
+      <div class="section-head"><h2 id="top5-h">How the Top 5 Did</h2><p>Each day's ranked top buys, measured from the opening price after they were picked.</p></div>
       <div class="top5-record" id="top5-record"></div>
       <div class="section-head"><h2 id="weeks-h">Weekly Report Cards</h2><p>Graded on the share of calls that were right: A 70%+, B 60%+, C 50%+, D 40%+.</p></div>
       <div class="weeks" id="weeks"></div>
@@ -901,9 +901,10 @@ footer .disclaimer { font: 400 italic 13px/1.4 var(--serif); color: var(--ink); 
             <th scope="col" data-key="ticker"><button type="button">Stock</button></th>
             <th scope="col" data-key="direction"><button type="button">Call</button></th>
             <th scope="col" data-key="confidence"><button type="button">Confidence</button></th>
-            <th scope="col" class="r" data-key="price_at_pick"><button type="button">Picked at</button></th>
+            <th scope="col" class="r" data-key="entry_price"><button type="button" title="The opening price after the pick: what you could actually have paid">Bought at</button></th>
             <th scope="col" class="r" data-key="price_now"><button type="button">Latest</button></th>
             <th scope="col" class="r" data-key="directional_return_pct"><button type="button">For the call</button></th>
+            <th scope="col" class="r" data-key="vs_market_pct"><button type="button" title="How much better (or worse) the call did than the same bet on the S&amp;P 500">vs S&amp;P</button></th>
             <th scope="col" data-key="correct"><button type="button">Result</button></th>
             <th scope="col">Why</th>
           </tr></thead>
