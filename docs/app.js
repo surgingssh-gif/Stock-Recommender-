@@ -15,6 +15,8 @@
   var days = DATA.days || [];
   var stats = DATA.stats || {};
   var SVG_NS = "http://www.w3.org/2000/svg";
+  // Animations are skipped for people who've asked their device for less motion.
+  var MOTION = !(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
 
   // ---------------------------------------------------------------------------
   // Small helpers
@@ -1404,6 +1406,23 @@
       bar.appendChild(b);
     });
     bar.setAttribute("aria-label", "Markets at the close on " + fmtShortDate(last));
+    // Ticker tape: a second, hidden copy of the items lets the strip scroll in
+    // an endless loop (paused on hover; off for people who prefer less motion).
+    bar.classList.remove("tape");
+    if (MOTION && items.length > 4) {
+      var track = el("div", { class: "mk-track" });
+      while (bar.firstChild) track.appendChild(bar.firstChild);
+      Array.prototype.slice.call(track.children).forEach(function (b) {
+        var copy = b.cloneNode(true);
+        copy.setAttribute("aria-hidden", "true");
+        copy.setAttribute("tabindex", "-1");
+        copy.addEventListener("click", function () { b.click(); });
+        track.appendChild(copy);
+      });
+      track.style.setProperty("--tape-seconds", Math.max(30, items.length * 4.5) + "s");
+      bar.appendChild(track);
+      bar.classList.add("tape");
+    }
   }
 
   function setupFinder() {
@@ -2253,6 +2272,119 @@
     archiveLimit += 6;
     renderArchive();
   });
+
+  // ---------------------------------------------------------------------------
+  // Motion: things glide in as they come into view, chart lines draw
+  // themselves, and headline numbers count up. All skipped with reduced motion.
+  // ---------------------------------------------------------------------------
+
+  var REVEAL = [".sixty", ".tb-row", ".call-row", ".story", ".top-story", ".river-item", ".stock-cell", ".heat-tile",
+    ".cal-item", ".wk", ".t5-day", ".tile", ".meter-row", ".pf-hero", ".day", ".news-card", ".fact", ".m-section",
+    ".band-main", ".band-side", ".chart-grid > figure", ".about > div"].join(",");
+  var settled = {};   // panels whose first view has finished animating
+  var seen = new WeakSet();
+  var io = MOTION && "IntersectionObserver" in window ? new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      var node = e.target;
+      node.classList.add("in");
+      io.unobserve(node);
+      // Once it has arrived, drop the animation classes so hover effects work.
+      if (node.classList.contains("reveal")) {
+        setTimeout(function () { node.classList.remove("reveal", "in"); }, 700 + (parseInt(node.style.getPropertyValue("--d"), 10) || 0));
+      }
+      if (node.matches(".hero-figure, .pf-value")) countUp(node);
+    });
+  }, { rootMargin: "0px 0px -6% 0px" }) : null;
+
+  function panelOf(node) {
+    var p = node.closest && node.closest(".tab-panel, .modal");
+    return p ? p.id : "";
+  }
+
+  function animateNew() {
+    if (!io) return;
+    // Items glide in (staggered within each list). After a tab's first view,
+    // re-drawn items (e.g. after changing a filter) just appear.
+    var counts = new Map();
+    document.querySelectorAll(REVEAL).forEach(function (node) {
+      if (seen.has(node)) return;
+      seen.add(node);
+      if (settled[panelOf(node)]) return;
+      var parent = node.parentNode;
+      var i = counts.get(parent) || 0;
+      counts.set(parent, i + 1);
+      node.style.setProperty("--d", Math.min(i, 10) * 55 + "ms");
+      node.classList.add("reveal");
+      io.observe(node);
+    });
+    // Chart lines trace themselves from left to right.
+    document.querySelectorAll("svg path[fill='none'][stroke]").forEach(function (path) {
+      if (seen.has(path)) return;
+      seen.add(path);
+      if (path.closest(".tooltip")) return;
+      path.setAttribute("pathLength", "1");
+      path.classList.add("draw");
+    });
+    // Big numbers count up to their value.
+    document.querySelectorAll(".hero-figure, .pf-value").forEach(function (node) {
+      if (seen.has(node)) return;
+      seen.add(node);
+      io.observe(node);
+    });
+  }
+
+  /* Counts a number like "48%" or "$9,804.73" up from zero. */
+  function countUp(node) {
+    var m = /^([^\d−-]*)([−-]?)([\d,]+(?:\.\d+)?)(.*)$/.exec(node.textContent);
+    if (!m) return;
+    var target = parseFloat(m[3].replace(/,/g, "")), decimals = (m[3].split(".")[1] || "").length;
+    var fmt = function (v) {
+      return m[1] + m[2] + v.toLocaleString("en-US", { minimumFractionDigits: decimals, maximumFractionDigits: decimals }) + m[4];
+    };
+    var start = performance.now(), dur = 900;
+    (function step(now) {
+      var t = Math.min(1, (now - start) / dur), eased = 1 - Math.pow(1 - t, 3);
+      node.textContent = fmt(target * eased);
+      if (t < 1) requestAnimationFrame(step);
+    })(start);
+  }
+
+  if (io) {
+    document.documentElement.classList.add("motion");
+    var queued = false;
+    new MutationObserver(function () {
+      if (queued) return;
+      queued = true;
+      requestAnimationFrame(function () { queued = false; animateNew(); });
+    }).observe(document.querySelector("main"), { childList: true, subtree: true });
+    new MutationObserver(function () {
+      if (queued) return;
+      queued = true;
+      requestAnimationFrame(function () { queued = false; animateNew(); });
+    }).observe(modal, { childList: true, subtree: true });
+    animateNew();
+    // A tab counts as "settled" a moment after it's first shown.
+    var settle = function () {
+      var id = currentTab;
+      setTimeout(function () { settled[id] = true; }, 1500);
+    };
+    window.addEventListener("hashchange", settle);
+    settle();
+  }
+
+  // Live market status next to the edition line (New York hours, weekdays).
+  (function marketStatus() {
+    var badge = document.getElementById("market-status");
+    if (!badge) return;
+    var parts = new Intl.DateTimeFormat("en-US", { timeZone: "America/New_York", weekday: "short", hour: "numeric", minute: "numeric", hour12: false })
+      .formatToParts(new Date()).reduce(function (o, p) { o[p.type] = p.value; return o; }, {});
+    var mins = parseInt(parts.hour, 10) % 24 * 60 + parseInt(parts.minute, 10);
+    var open = ["Sat", "Sun"].indexOf(parts.weekday) === -1 && mins >= 570 && mins < 960;
+    badge.className = "market-status " + (open ? "open" : "closed");
+    badge.textContent = open ? "Market open" : "Market closed";
+    setTimeout(marketStatus, 60000);
+  })();
 
   // Redraw the charts when the window width changes (e.g. phone rotation).
   var lastWidth = window.innerWidth, timer = null;
