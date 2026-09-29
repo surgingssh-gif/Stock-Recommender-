@@ -1,36 +1,36 @@
 window.DASHBOARD_DATA = {
- "generated_at": "2026-09-28T19:48:44Z",
+ "generated_at": "2026-09-29T01:00:52Z",
  "stats": {
   "total_picks": 37,
   "days_tracked": 5,
-  "hit_rate": 41.4,
+  "hit_rate": 51.7,
   "judged": 29,
-  "correct": 12,
-  "avg_directional_return": -0.38,
+  "correct": 15,
+  "avg_directional_return": 0.52,
   "best": {
    "date": "2026-09-24",
-   "ticker": "MGM",
-   "direction": "bearish",
-   "directional_return_pct": 5.96
+   "ticker": "MSFT",
+   "direction": "bullish",
+   "directional_return_pct": 4.26
   },
   "worst": {
    "date": "2026-09-25",
    "ticker": "GDDY",
    "direction": "bullish",
-   "directional_return_pct": -5.37
+   "directional_return_pct": -2.18
   },
   "by_direction": [
    {
     "label": "bullish",
     "count": 27,
-    "hit_rate": 33.3,
-    "avg_directional_return": -1.08
+    "hit_rate": 52.4,
+    "avg_directional_return": 0.5
    },
    {
     "label": "bearish",
     "count": 10,
-    "hit_rate": 62.5,
-    "avg_directional_return": 1.46
+    "hit_rate": 50.0,
+    "avg_directional_return": 0.58
    }
   ],
   "by_confidence": [
@@ -43,40 +43,40 @@ window.DASHBOARD_DATA = {
    {
     "label": "medium",
     "count": 22,
-    "hit_rate": 38.9,
-    "avg_directional_return": -0.73
+    "hit_rate": 55.6,
+    "avg_directional_return": 0.44
    },
    {
     "label": "low",
     "count": 15,
     "hit_rate": 45.5,
-    "avg_directional_return": 0.19
+    "avg_directional_return": 0.66
    }
   ],
   "by_day": [
    {
     "date": "2026-09-22",
     "count": 7,
-    "hit_rate": 57.1,
-    "avg_directional_return": -0.09
+    "hit_rate": 42.9,
+    "avg_directional_return": 0.63
    },
    {
     "date": "2026-09-23",
     "count": 7,
-    "hit_rate": 28.6,
-    "avg_directional_return": -1.38
+    "hit_rate": 42.9,
+    "avg_directional_return": 0.13
    },
    {
     "date": "2026-09-24",
     "count": 8,
-    "hit_rate": 50.0,
-    "avg_directional_return": 0.74
+    "hit_rate": 75.0,
+    "avg_directional_return": 1.54
    },
    {
     "date": "2026-09-25",
     "count": 7,
-    "hit_rate": 28.6,
-    "avg_directional_return": -0.98
+    "hit_rate": 42.9,
+    "avg_directional_return": -0.37
    },
    {
     "date": "2026-09-28",
@@ -90,14 +90,14 @@ window.DASHBOARD_DATA = {
     {
      "label": "Top 5 buys",
      "count": 25,
-     "hit_rate": 35.0,
-     "avg_directional_return": -0.97
+     "hit_rate": 55.0,
+     "avg_directional_return": 0.53
     },
     {
      "label": "Other picks",
      "count": 12,
-     "hit_rate": 55.6,
-     "avg_directional_return": 0.92
+     "hit_rate": 44.4,
+     "avg_directional_return": 0.51
     }
    ],
    "judged": 20,
@@ -146,168 +146,168 @@ window.DASHBOARD_DATA = {
     },
     {
      "date": "2026-09-25",
-     "hit_rate": 0.0,
-     "avg_directional_return": -2.27,
+     "hit_rate": 40.0,
+     "avg_directional_return": -0.46,
      "buys": [
       {
        "top_rank": 1,
        "ticker": "DAL",
        "company": "Delta Air Lines",
-       "return_pct": -0.05,
-       "correct": false
+       "return_pct": 1.12,
+       "correct": true
       },
       {
        "top_rank": 2,
        "ticker": "DVN",
        "company": "Devon Energy",
-       "return_pct": -2.3,
+       "return_pct": -1.65,
        "correct": false
       },
       {
        "top_rank": 3,
        "ticker": "RKLB",
        "company": "Rocket Lab",
-       "return_pct": -2.59,
+       "return_pct": -0.27,
        "correct": false
       },
       {
        "top_rank": 4,
        "ticker": "JPM",
        "company": "JPMorgan Chase",
-       "return_pct": -1.03,
-       "correct": false
+       "return_pct": 0.67,
+       "correct": true
       },
       {
        "top_rank": 5,
        "ticker": "GDDY",
        "company": "GoDaddy",
-       "return_pct": -5.37,
+       "return_pct": -2.18,
        "correct": false
       }
      ]
     },
     {
      "date": "2026-09-24",
-     "hit_rate": 40.0,
-     "avg_directional_return": 0.23,
+     "hit_rate": 80.0,
+     "avg_directional_return": 1.47,
      "buys": [
       {
        "top_rank": 1,
        "ticker": "XOM",
        "company": "Exxon Mobil",
-       "return_pct": -0.25,
+       "return_pct": -1.51,
        "correct": false
       },
       {
        "top_rank": 2,
        "ticker": "META",
        "company": "Meta Platforms",
-       "return_pct": -3.69,
-       "correct": false
+       "return_pct": 0.98,
+       "correct": true
       },
       {
        "top_rank": 3,
        "ticker": "MSFT",
        "company": "Microsoft",
-       "return_pct": 2.85,
+       "return_pct": 4.26,
        "correct": true
       },
       {
        "top_rank": 4,
        "ticker": "VLO",
        "company": "Valero Energy",
-       "return_pct": 2.51,
+       "return_pct": 2.14,
        "correct": true
       },
       {
        "top_rank": 5,
        "ticker": "JPM",
        "company": "JPMorgan Chase",
-       "return_pct": -0.26,
-       "correct": false
+       "return_pct": 1.46,
+       "correct": true
       }
      ]
     },
     {
      "date": "2026-09-23",
-     "hit_rate": 20.0,
-     "avg_directional_return": -2.21,
+     "hit_rate": 40.0,
+     "avg_directional_return": 0.01,
      "buys": [
       {
        "top_rank": 1,
        "ticker": "META",
        "company": "Meta Platforms",
-       "return_pct": -4.1,
-       "correct": false
+       "return_pct": 0.54,
+       "correct": true
       },
       {
        "top_rank": 2,
        "ticker": "DVN",
        "company": "Devon Energy",
-       "return_pct": -1.35,
+       "return_pct": -0.7,
        "correct": false
       },
       {
        "top_rank": 3,
        "ticker": "MU",
        "company": "Micron Technology",
-       "return_pct": -4.22,
+       "return_pct": -1.62,
        "correct": false
       },
       {
        "top_rank": 4,
        "ticker": "IONQ",
        "company": "IonQ",
-       "return_pct": -1.61,
+       "return_pct": -0.79,
        "correct": false
       },
       {
        "top_rank": 5,
        "ticker": "BHF",
        "company": "Brighthouse Financial",
-       "return_pct": 0.25,
+       "return_pct": 2.62,
        "correct": true
       }
      ]
     },
     {
      "date": "2026-09-22",
-     "hit_rate": 80.0,
-     "avg_directional_return": 0.35,
+     "hit_rate": 60.0,
+     "avg_directional_return": 1.09,
      "buys": [
       {
        "top_rank": 1,
        "ticker": "CPRI",
        "company": "Capri Holdings",
-       "return_pct": -3.2,
+       "return_pct": -1.37,
        "correct": false
       },
       {
        "top_rank": 2,
        "ticker": "NVDA",
        "company": "NVIDIA",
-       "return_pct": 0.21,
-       "correct": true
+       "return_pct": -1.3,
+       "correct": false
       },
       {
        "top_rank": 3,
        "ticker": "DAL",
        "company": "Delta Air Lines",
-       "return_pct": 1.52,
+       "return_pct": 2.71,
        "correct": true
       },
       {
        "top_rank": 4,
        "ticker": "BHF",
        "company": "Brighthouse Financial",
-       "return_pct": 0.25,
+       "return_pct": 2.62,
        "correct": true
       },
       {
        "top_rank": 5,
        "ticker": "RCL",
        "company": "Royal Caribbean",
-       "return_pct": 2.99,
+       "return_pct": 2.78,
        "correct": true
       }
      ]
@@ -336,50 +336,50 @@ window.DASHBOARD_DATA = {
     "days": 4,
     "count": 29,
     "judged": 29,
-    "correct": 12,
-    "hit_rate": 41.4,
-    "avg_directional_return": -0.38,
+    "correct": 15,
+    "hit_rate": 51.7,
+    "avg_directional_return": 0.52,
     "best": {
      "date": "2026-09-24",
-     "ticker": "MGM",
-     "direction": "bearish",
-     "directional_return_pct": 5.96
+     "ticker": "MSFT",
+     "direction": "bullish",
+     "directional_return_pct": 4.26
     },
     "worst": {
      "date": "2026-09-25",
      "ticker": "GDDY",
      "direction": "bullish",
-     "directional_return_pct": -5.37
+     "directional_return_pct": -2.18
     },
     "top5_count": 20,
-    "top5_hit_rate": 35.0,
-    "top5_avg": -0.97
+    "top5_hit_rate": 55.0,
+    "top5_avg": 0.53
    }
   ],
   "by_theme": [
    {
     "label": "Oil & energy",
     "count": 7,
-    "hit_rate": 33.3,
-    "avg_directional_return": 0.74
+    "hit_rate": 66.7,
+    "avg_directional_return": 0.58
    },
    {
     "label": "Interest rates & the Fed",
     "count": 6,
-    "hit_rate": 60.0,
-    "avg_directional_return": 1.08
+    "hit_rate": 80.0,
+    "avg_directional_return": 0.63
    },
    {
     "label": "Mergers & deals",
     "count": 5,
     "hit_rate": 20.0,
-    "avg_directional_return": -1.53
+    "avg_directional_return": -0.07
    },
    {
     "label": "AI & tech",
     "count": 3,
-    "hit_rate": 50.0,
-    "avg_directional_return": -0.42
+    "hit_rate": 100.0,
+    "avg_directional_return": 2.62
    },
    {
     "label": "Consumer & retail",
@@ -416,14 +416,14 @@ window.DASHBOARD_DATA = {
   ],
   "vs_market": {
    "judged": 29,
-   "beat": 13,
-   "rate": 44.8,
-   "avg_vs_market": -0.17,
+   "beat": 16,
+   "rate": 55.2,
+   "avg_vs_market": 0.39,
    "top5": {
     "judged": 20,
-    "beat": 8,
-    "rate": 40.0,
-    "avg_vs_market": -0.43
+    "beat": 11,
+    "rate": 55.0,
+    "avg_vs_market": 0.3
    }
   }
  },
@@ -452,8 +452,8 @@ window.DASHBOARD_DATA = {
    },
    "history": [
     [
-     "2026-09-28",
-     78.6
+     "2026-09-25",
+     79.32
     ]
    ],
    "horizons": {
@@ -462,7 +462,7 @@ window.DASHBOARD_DATA = {
     "1 month": null
    },
    "level_status": null,
-   "price_now": 78.6,
+   "price_now": null,
    "return_pct": null,
    "directional_return_pct": null,
    "correct": null,
@@ -493,8 +493,8 @@ window.DASHBOARD_DATA = {
    },
    "history": [
     [
-     "2026-09-28",
-     388.56
+     "2026-09-25",
+     387.18
     ]
    ],
    "horizons": {
@@ -503,7 +503,7 @@ window.DASHBOARD_DATA = {
     "1 month": null
    },
    "level_status": null,
-   "price_now": 388.56,
+   "price_now": null,
    "return_pct": null,
    "directional_return_pct": null,
    "correct": null,
@@ -534,8 +534,8 @@ window.DASHBOARD_DATA = {
    },
    "history": [
     [
-     "2026-09-28",
-     270.67
+     "2026-09-25",
+     268.54
     ]
    ],
    "horizons": {
@@ -544,7 +544,7 @@ window.DASHBOARD_DATA = {
     "1 month": null
    },
    "level_status": null,
-   "price_now": 270.67,
+   "price_now": null,
    "return_pct": null,
    "directional_return_pct": null,
    "correct": null,
@@ -575,8 +575,8 @@ window.DASHBOARD_DATA = {
    },
    "history": [
     [
-     "2026-09-28",
-     228.52
+     "2026-09-25",
+     225.07
     ]
    ],
    "horizons": {
@@ -585,7 +585,7 @@ window.DASHBOARD_DATA = {
     "1 month": null
    },
    "level_status": null,
-   "price_now": 228.52,
+   "price_now": null,
    "return_pct": null,
    "directional_return_pct": null,
    "correct": null,
@@ -616,8 +616,8 @@ window.DASHBOARD_DATA = {
    },
    "history": [
     [
-     "2026-09-28",
-     13.55
+     "2026-09-25",
+     13.87
     ]
    ],
    "horizons": {
@@ -626,7 +626,7 @@ window.DASHBOARD_DATA = {
     "1 month": null
    },
    "level_status": null,
-   "price_now": 13.55,
+   "price_now": null,
    "return_pct": null,
    "directional_return_pct": null,
    "correct": null,
@@ -657,8 +657,8 @@ window.DASHBOARD_DATA = {
    },
    "history": [
     [
-     "2026-09-28",
-     186.93
+     "2026-09-25",
+     189.4
     ]
    ],
    "horizons": {
@@ -667,7 +667,7 @@ window.DASHBOARD_DATA = {
     "1 month": null
    },
    "level_status": null,
-   "price_now": 186.93,
+   "price_now": null,
    "return_pct": null,
    "directional_return_pct": null,
    "correct": null,
@@ -698,8 +698,8 @@ window.DASHBOARD_DATA = {
    },
    "history": [
     [
-     "2026-09-28",
-     162.66
+     "2026-09-25",
+     160.59
     ]
    ],
    "horizons": {
@@ -708,7 +708,7 @@ window.DASHBOARD_DATA = {
     "1 month": null
    },
    "level_status": null,
-   "price_now": 162.66,
+   "price_now": null,
    "return_pct": null,
    "directional_return_pct": null,
    "correct": null,
@@ -739,8 +739,8 @@ window.DASHBOARD_DATA = {
    },
    "history": [
     [
-     "2026-09-28",
-     243.21
+     "2026-09-25",
+     242.7
     ]
    ],
    "horizons": {
@@ -749,7 +749,7 @@ window.DASHBOARD_DATA = {
     "1 month": null
    },
    "level_status": null,
-   "price_now": 243.21,
+   "price_now": null,
    "return_pct": null,
    "directional_return_pct": null,
    "correct": null,
@@ -782,10 +782,6 @@ window.DASHBOARD_DATA = {
     [
      "2026-09-25",
      79.32
-    ],
-    [
-     "2026-09-28",
-     78.6
     ]
    ],
    "horizons": {
@@ -794,12 +790,12 @@ window.DASHBOARD_DATA = {
     "1 month": null
    },
    "level_status": null,
-   "price_now": 78.6,
-   "return_pct": -0.97,
-   "directional_return_pct": 0.97,
+   "price_now": 79.32,
+   "return_pct": -0.06,
+   "directional_return_pct": 0.06,
    "correct": true,
-   "market_move_pct": -0.44,
-   "vs_market_pct": 0.53,
+   "market_move_pct": 0.33,
+   "vs_market_pct": 0.39,
    "beat_market": true
   },
   {
@@ -828,10 +824,6 @@ window.DASHBOARD_DATA = {
     [
      "2026-09-25",
      84.94
-    ],
-    [
-     "2026-09-28",
-     83.96
     ]
    ],
    "horizons": {
@@ -840,12 +832,12 @@ window.DASHBOARD_DATA = {
     "1 month": null
    },
    "level_status": null,
-   "price_now": 83.96,
-   "return_pct": -0.05,
-   "directional_return_pct": -0.05,
-   "correct": false,
-   "market_move_pct": -0.44,
-   "vs_market_pct": 0.39,
+   "price_now": 84.94,
+   "return_pct": 1.12,
+   "directional_return_pct": 1.12,
+   "correct": true,
+   "market_move_pct": 0.33,
+   "vs_market_pct": 0.79,
    "beat_market": true
   },
   {
@@ -874,10 +866,6 @@ window.DASHBOARD_DATA = {
     [
      "2026-09-25",
      47.05
-    ],
-    [
-     "2026-09-28",
-     46.74
     ]
    ],
    "horizons": {
@@ -886,12 +874,12 @@ window.DASHBOARD_DATA = {
     "1 month": null
    },
    "level_status": null,
-   "price_now": 46.74,
-   "return_pct": -2.3,
-   "directional_return_pct": -2.3,
+   "price_now": 47.05,
+   "return_pct": -1.65,
+   "directional_return_pct": -1.65,
    "correct": false,
-   "market_move_pct": -0.44,
-   "vs_market_pct": -1.86,
+   "market_move_pct": 0.33,
+   "vs_market_pct": -1.98,
    "beat_market": false
   },
   {
@@ -920,10 +908,6 @@ window.DASHBOARD_DATA = {
     [
      "2026-09-25",
      73.95
-    ],
-    [
-     "2026-09-28",
-     72.23
     ]
    ],
    "horizons": {
@@ -932,12 +916,12 @@ window.DASHBOARD_DATA = {
     "1 month": null
    },
    "level_status": null,
-   "price_now": 72.23,
-   "return_pct": -2.59,
-   "directional_return_pct": -2.59,
+   "price_now": 73.95,
+   "return_pct": -0.27,
+   "directional_return_pct": -0.27,
    "correct": false,
-   "market_move_pct": -0.44,
-   "vs_market_pct": -2.15,
+   "market_move_pct": 0.33,
+   "vs_market_pct": -0.6,
    "beat_market": false
   },
   {
@@ -966,10 +950,6 @@ window.DASHBOARD_DATA = {
     [
      "2026-09-25",
      97.14
-    ],
-    [
-     "2026-09-28",
-     93.97
     ]
    ],
    "horizons": {
@@ -978,12 +958,12 @@ window.DASHBOARD_DATA = {
     "1 month": null
    },
    "level_status": null,
-   "price_now": 93.97,
-   "return_pct": -5.37,
-   "directional_return_pct": -5.37,
+   "price_now": 97.14,
+   "return_pct": -2.18,
+   "directional_return_pct": -2.18,
    "correct": false,
-   "market_move_pct": -0.44,
-   "vs_market_pct": -4.93,
+   "market_move_pct": 0.33,
+   "vs_market_pct": -2.51,
    "beat_market": false
   },
   {
@@ -1012,10 +992,6 @@ window.DASHBOARD_DATA = {
     [
      "2026-09-25",
      393.41
-    ],
-    [
-     "2026-09-28",
-     378.31
     ]
    ],
    "horizons": {
@@ -1023,13 +999,13 @@ window.DASHBOARD_DATA = {
     "1 week": null,
     "1 month": null
    },
-   "level_status": "target",
-   "price_now": 378.31,
-   "return_pct": -3.54,
-   "directional_return_pct": 3.54,
-   "correct": true,
-   "market_move_pct": -0.44,
-   "vs_market_pct": 3.1,
+   "level_status": null,
+   "price_now": 393.41,
+   "return_pct": 0.31,
+   "directional_return_pct": -0.31,
+   "correct": false,
+   "market_move_pct": 0.33,
+   "vs_market_pct": 0.02,
    "beat_market": true
   },
   {
@@ -1058,10 +1034,6 @@ window.DASHBOARD_DATA = {
     [
      "2026-09-25",
      343.06
-    ],
-    [
-     "2026-09-28",
-     337.25
     ]
    ],
    "horizons": {
@@ -1070,13 +1042,13 @@ window.DASHBOARD_DATA = {
     "1 month": null
    },
    "level_status": null,
-   "price_now": 337.25,
-   "return_pct": -1.03,
-   "directional_return_pct": -1.03,
-   "correct": false,
-   "market_move_pct": -0.44,
-   "vs_market_pct": -0.59,
-   "beat_market": false
+   "price_now": 343.06,
+   "return_pct": 0.67,
+   "directional_return_pct": 0.67,
+   "correct": true,
+   "market_move_pct": 0.33,
+   "vs_market_pct": 0.34,
+   "beat_market": true
   },
   {
    "date": "2026-09-24",
@@ -1108,10 +1080,6 @@ window.DASHBOARD_DATA = {
     [
      "2026-09-25",
      160.59
-    ],
-    [
-     "2026-09-28",
-     162.66
     ]
    ],
    "horizons": {
@@ -1120,12 +1088,12 @@ window.DASHBOARD_DATA = {
     "1 month": null
    },
    "level_status": null,
-   "price_now": 162.66,
-   "return_pct": -0.25,
-   "directional_return_pct": -0.25,
+   "price_now": 160.59,
+   "return_pct": -1.51,
+   "directional_return_pct": -1.51,
    "correct": false,
-   "market_move_pct": 0.18,
-   "vs_market_pct": -0.43,
+   "market_move_pct": 0.95,
+   "vs_market_pct": -2.46,
    "beat_market": false
   },
   {
@@ -1158,10 +1126,6 @@ window.DASHBOARD_DATA = {
     [
      "2026-09-25",
      387.18
-    ],
-    [
-     "2026-09-28",
-     388.56
     ]
    ],
    "horizons": {
@@ -1170,12 +1134,12 @@ window.DASHBOARD_DATA = {
     "1 month": null
    },
    "level_status": null,
-   "price_now": 388.56,
-   "return_pct": 2.51,
-   "directional_return_pct": 2.51,
+   "price_now": 387.18,
+   "return_pct": 2.14,
+   "directional_return_pct": 2.14,
    "correct": true,
-   "market_move_pct": 0.18,
-   "vs_market_pct": 2.33,
+   "market_move_pct": 0.95,
+   "vs_market_pct": 1.19,
    "beat_market": true
   },
   {
@@ -1208,10 +1172,6 @@ window.DASHBOARD_DATA = {
     [
      "2026-09-25",
      79.32
-    ],
-    [
-     "2026-09-28",
-     78.6
     ]
    ],
    "horizons": {
@@ -1220,12 +1180,12 @@ window.DASHBOARD_DATA = {
     "1 month": null
    },
    "level_status": null,
-   "price_now": 78.6,
-   "return_pct": -2.18,
-   "directional_return_pct": 2.18,
+   "price_now": 79.32,
+   "return_pct": -1.28,
+   "directional_return_pct": 1.28,
    "correct": true,
-   "market_move_pct": 0.18,
-   "vs_market_pct": 2.36,
+   "market_move_pct": 0.95,
+   "vs_market_pct": 2.23,
    "beat_market": true
   },
   {
@@ -1258,10 +1218,6 @@ window.DASHBOARD_DATA = {
     [
      "2026-09-25",
      751.66
-    ],
-    [
-     "2026-09-28",
-     716.92
     ]
    ],
    "horizons": {
@@ -1269,14 +1225,14 @@ window.DASHBOARD_DATA = {
     "1 week": null,
     "1 month": null
    },
-   "level_status": "stop",
-   "price_now": 716.92,
-   "return_pct": -3.69,
-   "directional_return_pct": -3.69,
-   "correct": false,
-   "market_move_pct": 0.18,
-   "vs_market_pct": -3.87,
-   "beat_market": false
+   "level_status": null,
+   "price_now": 751.66,
+   "return_pct": 0.98,
+   "directional_return_pct": 0.98,
+   "correct": true,
+   "market_move_pct": 0.95,
+   "vs_market_pct": 0.03,
+   "beat_market": true
   },
   {
    "date": "2026-09-24",
@@ -1308,10 +1264,6 @@ window.DASHBOARD_DATA = {
     [
      "2026-09-25",
      32.58
-    ],
-    [
-     "2026-09-28",
-     31.85
     ]
    ],
    "horizons": {
@@ -1320,12 +1272,12 @@ window.DASHBOARD_DATA = {
     "1 month": null
    },
    "level_status": null,
-   "price_now": 31.85,
-   "return_pct": -5.96,
-   "directional_return_pct": 5.96,
+   "price_now": 32.58,
+   "return_pct": -3.81,
+   "directional_return_pct": 3.81,
    "correct": true,
-   "market_move_pct": 0.18,
-   "vs_market_pct": 6.14,
+   "market_move_pct": 0.95,
+   "vs_market_pct": 4.76,
    "beat_market": true
   },
   {
@@ -1358,10 +1310,6 @@ window.DASHBOARD_DATA = {
     [
      "2026-09-25",
      97.14
-    ],
-    [
-     "2026-09-28",
-     93.97
     ]
    ],
    "horizons": {
@@ -1369,13 +1317,13 @@ window.DASHBOARD_DATA = {
     "1 week": null,
     "1 month": null
    },
-   "level_status": "stop",
-   "price_now": 93.97,
-   "return_pct": -3.34,
-   "directional_return_pct": -3.34,
+   "level_status": null,
+   "price_now": 97.14,
+   "return_pct": -0.08,
+   "directional_return_pct": -0.08,
    "correct": false,
-   "market_move_pct": 0.18,
-   "vs_market_pct": -3.52,
+   "market_move_pct": 0.95,
+   "vs_market_pct": -1.03,
    "beat_market": false
   },
   {
@@ -1408,10 +1356,6 @@ window.DASHBOARD_DATA = {
     [
      "2026-09-25",
      516.17
-    ],
-    [
-     "2026-09-28",
-     509.18
     ]
    ],
    "horizons": {
@@ -1420,12 +1364,12 @@ window.DASHBOARD_DATA = {
     "1 month": null
    },
    "level_status": null,
-   "price_now": 509.18,
-   "return_pct": 2.85,
-   "directional_return_pct": 2.85,
+   "price_now": 516.17,
+   "return_pct": 4.26,
+   "directional_return_pct": 4.26,
    "correct": true,
-   "market_move_pct": 0.18,
-   "vs_market_pct": 2.67,
+   "market_move_pct": 0.95,
+   "vs_market_pct": 3.31,
    "beat_market": true
   },
   {
@@ -1458,10 +1402,6 @@ window.DASHBOARD_DATA = {
     [
      "2026-09-25",
      343.06
-    ],
-    [
-     "2026-09-28",
-     337.25
     ]
    ],
    "horizons": {
@@ -1470,13 +1410,13 @@ window.DASHBOARD_DATA = {
     "1 month": null
    },
    "level_status": null,
-   "price_now": 337.25,
-   "return_pct": -0.26,
-   "directional_return_pct": -0.26,
-   "correct": false,
-   "market_move_pct": 0.18,
-   "vs_market_pct": -0.44,
-   "beat_market": false
+   "price_now": 343.06,
+   "return_pct": 1.46,
+   "directional_return_pct": 1.46,
+   "correct": true,
+   "market_move_pct": 0.95,
+   "vs_market_pct": 0.51,
+   "beat_market": true
   },
   {
    "date": "2026-09-23",
@@ -1512,10 +1452,6 @@ window.DASHBOARD_DATA = {
     [
      "2026-09-25",
      751.66
-    ],
-    [
-     "2026-09-28",
-     716.92
     ]
    ],
    "horizons": {
@@ -1524,13 +1460,13 @@ window.DASHBOARD_DATA = {
     "1 month": null
    },
    "level_status": null,
-   "price_now": 716.92,
-   "return_pct": -4.1,
-   "directional_return_pct": -4.1,
-   "correct": false,
-   "market_move_pct": -0.95,
-   "vs_market_pct": -3.15,
-   "beat_market": false
+   "price_now": 751.66,
+   "return_pct": 0.54,
+   "directional_return_pct": 0.54,
+   "correct": true,
+   "market_move_pct": -0.19,
+   "vs_market_pct": 0.73,
+   "beat_market": true
   },
   {
    "date": "2026-09-23",
@@ -1566,10 +1502,6 @@ window.DASHBOARD_DATA = {
     [
      "2026-09-25",
      47.05
-    ],
-    [
-     "2026-09-28",
-     46.74
     ]
    ],
    "horizons": {
@@ -1578,12 +1510,12 @@ window.DASHBOARD_DATA = {
     "1 month": null
    },
    "level_status": null,
-   "price_now": 46.74,
-   "return_pct": -1.35,
-   "directional_return_pct": -1.35,
+   "price_now": 47.05,
+   "return_pct": -0.7,
+   "directional_return_pct": -0.7,
    "correct": false,
-   "market_move_pct": -0.95,
-   "vs_market_pct": -0.4,
+   "market_move_pct": -0.19,
+   "vs_market_pct": -0.51,
    "beat_market": false
   },
   {
@@ -1620,10 +1552,6 @@ window.DASHBOARD_DATA = {
     [
      "2026-09-25",
      79.32
-    ],
-    [
-     "2026-09-28",
-     78.6
     ]
    ],
    "horizons": {
@@ -1632,12 +1560,12 @@ window.DASHBOARD_DATA = {
     "1 month": null
    },
    "level_status": null,
-   "price_now": 78.6,
-   "return_pct": -3.53,
-   "directional_return_pct": 3.53,
+   "price_now": 79.32,
+   "return_pct": -2.65,
+   "directional_return_pct": 2.65,
    "correct": true,
-   "market_move_pct": -0.95,
-   "vs_market_pct": 2.58,
+   "market_move_pct": -0.19,
+   "vs_market_pct": 2.46,
    "beat_market": true
   },
   {
@@ -1674,10 +1602,6 @@ window.DASHBOARD_DATA = {
     [
      "2026-09-25",
      45.48
-    ],
-    [
-     "2026-09-28",
-     45.1
     ]
    ],
    "horizons": {
@@ -1686,12 +1610,12 @@ window.DASHBOARD_DATA = {
     "1 month": null
    },
    "level_status": null,
-   "price_now": 45.1,
-   "return_pct": -1.61,
-   "directional_return_pct": -1.61,
+   "price_now": 45.48,
+   "return_pct": -0.79,
+   "directional_return_pct": -0.79,
    "correct": false,
-   "market_move_pct": -0.95,
-   "vs_market_pct": -0.66,
+   "market_move_pct": -0.19,
+   "vs_market_pct": -0.6,
    "beat_market": false
   },
   {
@@ -1728,10 +1652,6 @@ window.DASHBOARD_DATA = {
     [
      "2026-09-25",
      387.18
-    ],
-    [
-     "2026-09-28",
-     388.56
     ]
    ],
    "horizons": {
@@ -1740,12 +1660,12 @@ window.DASHBOARD_DATA = {
     "1 month": null
    },
    "level_status": null,
-   "price_now": 388.56,
-   "return_pct": 2.14,
-   "directional_return_pct": -2.14,
+   "price_now": 387.18,
+   "return_pct": 1.77,
+   "directional_return_pct": -1.77,
    "correct": false,
-   "market_move_pct": -0.95,
-   "vs_market_pct": -3.09,
+   "market_move_pct": -0.19,
+   "vs_market_pct": -1.96,
    "beat_market": false
   },
   {
@@ -1782,10 +1702,6 @@ window.DASHBOARD_DATA = {
     [
      "2026-09-25",
      53.24
-    ],
-    [
-     "2026-09-28",
-     52.01
     ]
    ],
    "horizons": {
@@ -1794,12 +1710,12 @@ window.DASHBOARD_DATA = {
     "1 month": null
    },
    "level_status": null,
-   "price_now": 52.01,
-   "return_pct": 0.25,
-   "directional_return_pct": 0.25,
+   "price_now": 53.24,
+   "return_pct": 2.62,
+   "directional_return_pct": 2.62,
    "correct": true,
-   "market_move_pct": -0.95,
-   "vs_market_pct": 1.2,
+   "market_move_pct": -0.19,
+   "vs_market_pct": 2.81,
    "beat_market": true
   },
   {
@@ -1836,10 +1752,6 @@ window.DASHBOARD_DATA = {
     [
      "2026-09-25",
      1082.28
-    ],
-    [
-     "2026-09-28",
-     1053.7
     ]
    ],
    "horizons": {
@@ -1848,12 +1760,12 @@ window.DASHBOARD_DATA = {
     "1 month": null
    },
    "level_status": null,
-   "price_now": 1053.7,
-   "return_pct": -4.22,
-   "directional_return_pct": -4.22,
+   "price_now": 1082.28,
+   "return_pct": -1.62,
+   "directional_return_pct": -1.62,
    "correct": false,
-   "market_move_pct": -0.95,
-   "vs_market_pct": -3.27,
+   "market_move_pct": -0.19,
+   "vs_market_pct": -1.43,
    "beat_market": false
   },
   {
@@ -1894,10 +1806,6 @@ window.DASHBOARD_DATA = {
     [
      "2026-09-25",
      160.59
-    ],
-    [
-     "2026-09-28",
-     162.66
     ]
    ],
    "horizons": {
@@ -1906,12 +1814,12 @@ window.DASHBOARD_DATA = {
     "1 month": null
    },
    "level_status": null,
-   "price_now": 162.66,
-   "return_pct": 1.9,
-   "directional_return_pct": -1.9,
+   "price_now": 160.59,
+   "return_pct": 0.61,
+   "directional_return_pct": -0.61,
    "correct": false,
-   "market_move_pct": -0.95,
-   "vs_market_pct": -2.85,
+   "market_move_pct": -0.19,
+   "vs_market_pct": -0.8,
    "beat_market": false
   },
   {
@@ -1952,10 +1860,6 @@ window.DASHBOARD_DATA = {
     [
      "2026-09-25",
      84.94
-    ],
-    [
-     "2026-09-28",
-     83.96
     ]
    ],
    "horizons": {
@@ -1964,12 +1868,12 @@ window.DASHBOARD_DATA = {
     "1 month": null
    },
    "level_status": null,
-   "price_now": 83.96,
-   "return_pct": 1.52,
-   "directional_return_pct": 1.52,
+   "price_now": 84.94,
+   "return_pct": 2.71,
+   "directional_return_pct": 2.71,
    "correct": true,
-   "market_move_pct": -0.95,
-   "vs_market_pct": 2.47,
+   "market_move_pct": -0.19,
+   "vs_market_pct": 2.9,
    "beat_market": true
   },
   {
@@ -2010,10 +1914,6 @@ window.DASHBOARD_DATA = {
     [
      "2026-09-25",
      15.1
-    ],
-    [
-     "2026-09-28",
-     14.82
     ]
    ],
    "horizons": {
@@ -2022,12 +1922,12 @@ window.DASHBOARD_DATA = {
     "1 month": null
    },
    "level_status": null,
-   "price_now": 14.82,
-   "return_pct": -3.2,
-   "directional_return_pct": -3.2,
+   "price_now": 15.1,
+   "return_pct": -1.37,
+   "directional_return_pct": -1.37,
    "correct": false,
-   "market_move_pct": -0.95,
-   "vs_market_pct": -2.25,
+   "market_move_pct": -0.19,
+   "vs_market_pct": -1.18,
    "beat_market": false
   },
   {
@@ -2068,10 +1968,6 @@ window.DASHBOARD_DATA = {
     [
      "2026-09-25",
      53.24
-    ],
-    [
-     "2026-09-28",
-     52.01
     ]
    ],
    "horizons": {
@@ -2080,12 +1976,12 @@ window.DASHBOARD_DATA = {
     "1 month": null
    },
    "level_status": null,
-   "price_now": 52.01,
-   "return_pct": 0.25,
-   "directional_return_pct": 0.25,
+   "price_now": 53.24,
+   "return_pct": 2.62,
+   "directional_return_pct": 2.62,
    "correct": true,
-   "market_move_pct": -0.95,
-   "vs_market_pct": 1.2,
+   "market_move_pct": -0.19,
+   "vs_market_pct": 2.81,
    "beat_market": true
   },
   {
@@ -2126,10 +2022,6 @@ window.DASHBOARD_DATA = {
     [
      "2026-09-25",
      242.7
-    ],
-    [
-     "2026-09-28",
-     243.21
     ]
    ],
    "horizons": {
@@ -2138,12 +2030,12 @@ window.DASHBOARD_DATA = {
     "1 month": null
    },
    "level_status": null,
-   "price_now": 243.21,
-   "return_pct": 2.99,
-   "directional_return_pct": 2.99,
+   "price_now": 242.7,
+   "return_pct": 2.78,
+   "directional_return_pct": 2.78,
    "correct": true,
-   "market_move_pct": -0.95,
-   "vs_market_pct": 3.94,
+   "market_move_pct": -0.19,
+   "vs_market_pct": 2.97,
    "beat_market": true
   },
   {
@@ -2184,10 +2076,6 @@ window.DASHBOARD_DATA = {
     [
      "2026-09-25",
      106.7
-    ],
-    [
-     "2026-09-28",
-     106.74
     ]
    ],
    "horizons": {
@@ -2196,12 +2084,12 @@ window.DASHBOARD_DATA = {
     "1 month": null
    },
    "level_status": null,
-   "price_now": 106.74,
-   "return_pct": 0.49,
-   "directional_return_pct": -0.49,
+   "price_now": 106.7,
+   "return_pct": 0.45,
+   "directional_return_pct": -0.45,
    "correct": false,
-   "market_move_pct": -0.95,
-   "vs_market_pct": -1.44,
+   "market_move_pct": -0.19,
+   "vs_market_pct": -0.64,
    "beat_market": false
   },
   {
@@ -2242,10 +2130,6 @@ window.DASHBOARD_DATA = {
     [
      "2026-09-25",
      225.07
-    ],
-    [
-     "2026-09-28",
-     228.52
     ]
    ],
    "horizons": {
@@ -2254,13 +2138,13 @@ window.DASHBOARD_DATA = {
     "1 month": null
    },
    "level_status": null,
-   "price_now": 228.52,
-   "return_pct": 0.21,
-   "directional_return_pct": 0.21,
-   "correct": true,
-   "market_move_pct": -0.95,
-   "vs_market_pct": 1.16,
-   "beat_market": true
+   "price_now": 225.07,
+   "return_pct": -1.3,
+   "directional_return_pct": -1.3,
+   "correct": false,
+   "market_move_pct": -0.19,
+   "vs_market_pct": -1.11,
+   "beat_market": false
   }
  ],
  "days": [
@@ -6651,17 +6535,9 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-25",
     13.87
-   ],
-   [
-    "2026-09-28",
-    13.55
    ]
   ],
   "AAPL": [
-   [
-    "2026-04-01",
-    255.17
-   ],
    [
     "2026-04-02",
     255.46
@@ -7149,17 +7025,9 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-25",
     341.07
-   ],
-   [
-    "2026-09-28",
-    338.48
    ]
   ],
   "AMZN": [
-   [
-    "2026-04-01",
-    210.57
-   ],
    [
     "2026-04-02",
     209.77
@@ -7647,10 +7515,6 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-25",
     249.67
-   ],
-   [
-    "2026-09-28",
-    246.12
    ]
   ],
   "BHF": [
@@ -8161,10 +8025,6 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-25",
     53.24
-   ],
-   [
-    "2026-09-28",
-    52.01
    ]
   ],
   "CPRI": [
@@ -8675,10 +8535,6 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-25",
     15.1
-   ],
-   [
-    "2026-09-28",
-    14.82
    ]
   ],
   "CSCO": [
@@ -9189,10 +9045,6 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-25",
     106.7
-   ],
-   [
-    "2026-09-28",
-    106.74
    ]
   ],
   "DAL": [
@@ -9703,17 +9555,9 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-25",
     84.94
-   ],
-   [
-    "2026-09-28",
-    83.96
    ]
   ],
   "DIA": [
-   [
-    "2026-04-01",
-    462.18
-   ],
    [
     "2026-04-02",
     461.76
@@ -10068,7 +9912,7 @@ window.DASHBOARD_DATA = {
    ],
    [
     "2026-08-10",
-    537.3
+    537.31
    ],
    [
     "2026-08-11",
@@ -10201,10 +10045,6 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-25",
     517.49
-   ],
-   [
-    "2026-09-28",
-    514.12
    ]
   ],
   "DVN": [
@@ -10711,10 +10551,6 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-25",
     47.05
-   ],
-   [
-    "2026-09-28",
-    46.74
    ]
   ],
   "GDDY": [
@@ -11217,10 +11053,6 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-25",
     97.14
-   ],
-   [
-    "2026-09-28",
-    93.97
    ]
   ],
   "GLD": [
@@ -11723,17 +11555,9 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-25",
     393.41
-   ],
-   [
-    "2026-09-28",
-    378.31
    ]
   ],
   "GOOGL": [
-   [
-    "2026-04-01",
-    297.02
-   ],
    [
     "2026-04-02",
     295.4
@@ -12221,10 +12045,6 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-25",
     343.92
-   ],
-   [
-    "2026-09-28",
-    342.27
    ]
   ],
   "IONQ": [
@@ -12731,10 +12551,6 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-25",
     45.48
-   ],
-   [
-    "2026-09-28",
-    45.1
    ]
   ],
   "JPM": [
@@ -13237,10 +13053,6 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-25",
     343.06
-   ],
-   [
-    "2026-09-28",
-    337.25
    ]
   ],
   "LNG": [
@@ -13735,10 +13547,6 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-25",
     268.54
-   ],
-   [
-    "2026-09-28",
-    270.67
    ]
   ],
   "META": [
@@ -14245,10 +14053,6 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-25",
     751.66
-   ],
-   [
-    "2026-09-28",
-    716.92
    ]
   ],
   "MGM": [
@@ -14751,10 +14555,6 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-25",
     32.58
-   ],
-   [
-    "2026-09-28",
-    31.85
    ]
   ],
   "MSFT": [
@@ -15257,10 +15057,6 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-25",
     516.17
-   ],
-   [
-    "2026-09-28",
-    509.18
    ]
   ],
   "MU": [
@@ -15767,10 +15563,6 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-25",
     1082.28
-   ],
-   [
-    "2026-09-28",
-    1053.7
    ]
   ],
   "NVDA": [
@@ -16281,17 +16073,9 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-25",
     225.07
-   ],
-   [
-    "2026-09-28",
-    228.52
    ]
   ],
   "QQQ": [
-   [
-    "2026-04-01",
-    583.06
-   ],
    [
     "2026-04-02",
     583.73
@@ -16779,10 +16563,6 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-25",
     744.5
-   ],
-   [
-    "2026-09-28",
-    736.54
    ]
   ],
   "RCL": [
@@ -17293,10 +17073,6 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-25",
     242.7
-   ],
-   [
-    "2026-09-28",
-    243.21
    ]
   ],
   "RKLB": [
@@ -17799,10 +17575,6 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-25",
     73.95
-   ],
-   [
-    "2026-09-28",
-    72.23
    ]
   ],
   "RTX": [
@@ -18297,17 +18069,9 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-25",
     189.4
-   ],
-   [
-    "2026-09-28",
-    186.93
    ]
   ],
   "SPY": [
-   [
-    "2026-04-01",
-    651.94
-   ],
    [
     "2026-04-02",
     652.52
@@ -18795,10 +18559,6 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-25",
     771.35
-   ],
-   [
-    "2026-09-28",
-    765.43
    ]
   ],
   "TLT": [
@@ -19305,17 +19065,9 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-25",
     79.32
-   ],
-   [
-    "2026-09-28",
-    78.6
    ]
   ],
   "TSLA": [
-   [
-    "2026-04-01",
-    381.26
-   ],
    [
     "2026-04-02",
     360.59
@@ -19803,10 +19555,6 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-25",
     372.11
-   ],
-   [
-    "2026-09-28",
-    358.06
    ]
   ],
   "VLO": [
@@ -20313,10 +20061,6 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-25",
     387.18
-   ],
-   [
-    "2026-09-28",
-    388.56
    ]
   ],
   "XOM": [
@@ -20827,10 +20571,6 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-25",
     160.59
-   ],
-   [
-    "2026-09-28",
-    162.66
    ]
   ]
  },
@@ -20839,110 +20579,110 @@ window.DASHBOARD_DATA = {
    "ticker": "XLK",
    "name": "Technology",
    "changes": {
-    "1D": -0.93,
-    "1W": -0.21,
-    "1M": 3.21,
-    "3M": 4.99
+    "1D": 0.8,
+    "1W": 3.64,
+    "1M": 7.47,
+    "3M": 8.5
    }
   },
   {
    "ticker": "XLC",
    "name": "Communication",
    "changes": {
-    "1D": -1.58,
-    "1W": -3.12,
-    "1M": 0.12,
-    "3M": 3.39
+    "1D": -0.9,
+    "1W": 2.27,
+    "1M": 0.64,
+    "3M": 6.74
    }
   },
   {
    "ticker": "XLY",
    "name": "Consumer Discretionary",
    "changes": {
-    "1D": -1.32,
-    "1W": -2.79,
-    "1M": -5.65,
-    "3M": -6.64
+    "1D": 0.22,
+    "1W": -0.21,
+    "1M": -5.42,
+    "3M": -3.12
    }
   },
   {
    "ticker": "XLP",
    "name": "Consumer Staples",
    "changes": {
-    "1D": 0.4,
-    "1W": 0.57,
-    "1M": -2.52,
-    "3M": -1.71
+    "1D": 0.44,
+    "1W": -0.24,
+    "1M": -4.26,
+    "3M": -2.5
    }
   },
   {
    "ticker": "XLE",
    "name": "Energy",
    "changes": {
-    "1D": 0.18,
-    "1W": -0.5,
-    "1M": 0.37,
-    "3M": 16.69
+    "1D": -0.89,
+    "1W": -2.96,
+    "1M": -0.03,
+    "3M": 15.92
    }
   },
   {
    "ticker": "XLF",
    "name": "Financials",
    "changes": {
-    "1D": -1.15,
-    "1W": -3.02,
-    "1M": -6.02,
-    "3M": 1.27
+    "1D": 0.57,
+    "1W": -1.47,
+    "1M": -5.53,
+    "3M": 2.74
    }
   },
   {
    "ticker": "XLV",
    "name": "Health Care",
    "changes": {
-    "1D": 0.33,
-    "1W": 1.33,
-    "1M": 0.19,
-    "3M": 6.95
+    "1D": 0.49,
+    "1W": 1.76,
+    "1M": -1.26,
+    "3M": 6.87
    }
   },
   {
    "ticker": "XLI",
    "name": "Industrials",
    "changes": {
-    "1D": -1.02,
-    "1W": -0.76,
-    "1M": -5.4,
-    "3M": -7.45
+    "1D": 0.95,
+    "1W": 0.67,
+    "1M": -5.24,
+    "3M": -5.69
    }
   },
   {
    "ticker": "XLB",
    "name": "Materials",
    "changes": {
-    "1D": -0.54,
-    "1W": -0.36,
-    "1M": -6.53,
-    "3M": -1.78
+    "1D": 0.24,
+    "1W": 0.08,
+    "1M": -6.78,
+    "3M": -3.04
    }
   },
   {
    "ticker": "XLRE",
    "name": "Real Estate",
    "changes": {
-    "1D": -0.51,
-    "1W": -2.91,
-    "1M": -6.64,
-    "3M": -7.18
+    "1D": -0.22,
+    "1W": -1.45,
+    "1M": -7.05,
+    "3M": -7.36
    }
   },
   {
    "ticker": "XLU",
    "name": "Utilities",
    "changes": {
-    "1D": -0.56,
-    "1W": -3.37,
-    "1M": -8.33,
-    "3M": -13.99
+    "1D": 0.38,
+    "1W": -3.16,
+    "1M": -8.52,
+    "3M": -13.85
    }
   }
  ],
@@ -21118,8 +20858,8 @@ window.DASHBOARD_DATA = {
    "quoteType": "EQUITY",
    "sector": "Industrials",
    "industry": "Airlines",
-   "marketCap": 8966382592,
-   "forwardPE": 6.68,
+   "marketCap": 8949833728,
+   "forwardPE": 6.84,
    "fiftyTwoWeekHigh": 18.79,
    "fiftyTwoWeekLow": 10.09,
    "beta": 1.33,
@@ -21132,9 +20872,9 @@ window.DASHBOARD_DATA = {
    "quoteType": "EQUITY",
    "sector": "Technology",
    "industry": "Consumer Electronics",
-   "marketCap": 4939838390272,
-   "trailingPE": 38.77,
-   "forwardPE": 35.31,
+   "marketCap": 4938670276608,
+   "trailingPE": 39.08,
+   "forwardPE": 35.3,
    "fiftyTwoWeekHigh": 345.34,
    "fiftyTwoWeekLow": 243.42,
    "dividendYield": 0.32,
@@ -21148,7 +20888,7 @@ window.DASHBOARD_DATA = {
    "quoteType": "EQUITY",
    "sector": "Consumer Cyclical",
    "industry": "Internet Retail",
-   "marketCap": 2654835310592,
+   "marketCap": 2655051055104,
    "trailingPE": 19.8,
    "forwardPE": 23.5,
    "fiftyTwoWeekHigh": 287.2,
@@ -21163,8 +20903,8 @@ window.DASHBOARD_DATA = {
    "quoteType": "EQUITY",
    "sector": "Financial Services",
    "industry": "Insurance - Life",
-   "marketCap": 2990026240,
-   "trailingPE": 4.12,
+   "marketCap": 2992901888,
+   "trailingPE": 4.22,
    "forwardPE": 2.58,
    "fiftyTwoWeekHigh": 66.8,
    "fiftyTwoWeekLow": 44.51,
@@ -21178,9 +20918,9 @@ window.DASHBOARD_DATA = {
    "quoteType": "EQUITY",
    "sector": "Consumer Cyclical",
    "industry": "Luxury Goods",
-   "marketCap": 1687158272,
-   "trailingPE": 19.03,
-   "forwardPE": 5.87,
+   "marketCap": 1697834368,
+   "trailingPE": 19.46,
+   "forwardPE": 5.85,
    "fiftyTwoWeekHigh": 28.27,
    "fiftyTwoWeekLow": 12.4,
    "beta": 1.38,
@@ -21193,8 +20933,8 @@ window.DASHBOARD_DATA = {
    "quoteType": "EQUITY",
    "sector": "Technology",
    "industry": "Communication Equipment",
-   "marketCap": 420890836992,
-   "trailingPE": 32.06,
+   "marketCap": 420831723520,
+   "trailingPE": 32.05,
    "forwardPE": 18.99,
    "fiftyTwoWeekHigh": 130.37,
    "fiftyTwoWeekLow": 66.81,
@@ -21209,9 +20949,9 @@ window.DASHBOARD_DATA = {
    "quoteType": "EQUITY",
    "sector": "Industrials",
    "industry": "Airlines",
-   "marketCap": 55219949568,
-   "trailingPE": 13.93,
-   "forwardPE": 10.18,
+   "marketCap": 55260061696,
+   "trailingPE": 13.94,
+   "forwardPE": 10.19,
    "fiftyTwoWeekHigh": 95.68,
    "fiftyTwoWeekLow": 55.03,
    "dividendYield": 1.01,
@@ -21225,7 +20965,7 @@ window.DASHBOARD_DATA = {
    "quoteType": "ETF",
    "category": "Large Value",
    "totalAssets": 45455503360,
-   "trailingPE": 20.88,
+   "trailingPE": 20.87,
    "fiftyTwoWeekHigh": 546.75,
    "fiftyTwoWeekLow": 450.44,
    "dividendYield": 1.38,
@@ -21236,9 +20976,9 @@ window.DASHBOARD_DATA = {
    "quoteType": "EQUITY",
    "sector": "Energy",
    "industry": "Oil & Gas E&P",
-   "marketCap": 51425001472,
+   "marketCap": 51402997760,
    "trailingPE": 10.16,
-   "forwardPE": 8.68,
+   "forwardPE": 8.67,
    "fiftyTwoWeekHigh": 52.71,
    "fiftyTwoWeekLow": 31.47,
    "dividendYield": 2.72,
@@ -21252,9 +20992,9 @@ window.DASHBOARD_DATA = {
    "quoteType": "EQUITY",
    "sector": "Technology",
    "industry": "Software - Infrastructure",
-   "marketCap": 11898551296,
-   "trailingPE": 13.96,
-   "forwardPE": 8.52,
+   "marketCap": 11868155904,
+   "trailingPE": 13.92,
+   "forwardPE": 8.5,
    "fiftyTwoWeekHigh": 142.49,
    "fiftyTwoWeekLow": 71.59,
    "beta": 0.94,
@@ -21277,9 +21017,9 @@ window.DASHBOARD_DATA = {
    "quoteType": "EQUITY",
    "sector": "Communication Services",
    "industry": "Internet Content & Information",
-   "marketCap": 4186000850944,
-   "trailingPE": 17.19,
-   "forwardPE": 22.71,
+   "marketCap": 4191810224128,
+   "trailingPE": 17.21,
+   "forwardPE": 22.7,
    "fiftyTwoWeekHigh": 408.61,
    "fiftyTwoWeekLow": 235.84,
    "dividendYield": 0.26,
@@ -21293,8 +21033,8 @@ window.DASHBOARD_DATA = {
    "quoteType": "EQUITY",
    "sector": "Technology",
    "industry": "Computer Hardware",
-   "marketCap": 18267566080,
-   "forwardPE": -34.89,
+   "marketCap": 18060947456,
+   "forwardPE": -34.49,
    "fiftyTwoWeekHigh": 84.64,
    "fiftyTwoWeekLow": 25.89,
    "beta": 3.29,
@@ -21307,9 +21047,9 @@ window.DASHBOARD_DATA = {
    "quoteType": "EQUITY",
    "sector": "Financial Services",
    "industry": "Banks - Diversified",
-   "marketCap": 896592969728,
-   "trailingPE": 14.46,
-   "forwardPE": 13.5,
+   "marketCap": 894718902272,
+   "trailingPE": 14.7,
+   "forwardPE": 13.44,
    "fiftyTwoWeekHigh": 366.5,
    "fiftyTwoWeekLow": 279.1,
    "dividendYield": 1.92,
@@ -21323,9 +21063,9 @@ window.DASHBOARD_DATA = {
    "quoteType": "EQUITY",
    "sector": "Energy",
    "industry": "Oil & Gas Midstream",
-   "marketCap": 55901569024,
-   "trailingPE": 20.49,
-   "forwardPE": 12.85,
+   "marketCap": 55691935744,
+   "trailingPE": 20.41,
+   "forwardPE": 12.8,
    "fiftyTwoWeekHigh": 300.89,
    "fiftyTwoWeekLow": 186.2,
    "dividendYield": 0.83,
@@ -21339,9 +21079,9 @@ window.DASHBOARD_DATA = {
    "quoteType": "EQUITY",
    "sector": "Communication Services",
    "industry": "Internet Content & Information",
-   "marketCap": 1826307178496,
-   "trailingPE": 27.02,
-   "forwardPE": 20.58,
+   "marketCap": 1823046369280,
+   "trailingPE": 26.97,
+   "forwardPE": 20.55,
    "fiftyTwoWeekHigh": 779.82,
    "fiftyTwoWeekLow": 520.26,
    "dividendYield": 0.28,
@@ -21355,8 +21095,8 @@ window.DASHBOARD_DATA = {
    "quoteType": "EQUITY",
    "sector": "Consumer Cyclical",
    "industry": "Resorts & Casinos",
-   "marketCap": 8014487040,
-   "trailingPE": 19.31,
+   "marketCap": 8151420416,
+   "trailingPE": 19.79,
    "forwardPE": 15.42,
    "fiftyTwoWeekHigh": 51.59,
    "fiftyTwoWeekLow": 29.19,
@@ -21370,7 +21110,7 @@ window.DASHBOARD_DATA = {
    "quoteType": "EQUITY",
    "sector": "Technology",
    "industry": "Software - Infrastructure",
-   "marketCap": 3781087985664,
+   "marketCap": 3781236359168,
    "trailingPE": 28.35,
    "forwardPE": 21.51,
    "fiftyTwoWeekHigh": 553.72,
@@ -21386,8 +21126,8 @@ window.DASHBOARD_DATA = {
    "quoteType": "EQUITY",
    "sector": "Technology",
    "industry": "Semiconductors",
-   "marketCap": 1190143197184,
-   "trailingPE": 23.8,
+   "marketCap": 1190357762048,
+   "trailingPE": 24.45,
    "forwardPE": 6.54,
    "fiftyTwoWeekHigh": 1255.0,
    "fiftyTwoWeekLow": 159.97,
@@ -21402,9 +21142,9 @@ window.DASHBOARD_DATA = {
    "quoteType": "EQUITY",
    "sector": "Technology",
    "industry": "Semiconductors",
-   "marketCap": 5517347913728,
-   "trailingPE": 28.92,
-   "forwardPE": 14.57,
+   "marketCap": 5526282305536,
+   "trailingPE": 28.97,
+   "forwardPE": 14.59,
    "fiftyTwoWeekHigh": 236.54,
    "fiftyTwoWeekLow": 164.27,
    "dividendYield": 0.44,
@@ -21429,9 +21169,9 @@ window.DASHBOARD_DATA = {
    "quoteType": "EQUITY",
    "sector": "Consumer Cyclical",
    "industry": "Travel Services",
-   "marketCap": 65085800448,
-   "trailingPE": 15.03,
-   "forwardPE": 11.91,
+   "marketCap": 64881201152,
+   "trailingPE": 14.98,
+   "forwardPE": 11.87,
    "fiftyTwoWeekHigh": 356.39,
    "fiftyTwoWeekLow": 222.22,
    "dividendYield": 2.47,
@@ -21459,9 +21199,9 @@ window.DASHBOARD_DATA = {
    "quoteType": "EQUITY",
    "sector": "Industrials",
    "industry": "Aerospace & Defense",
-   "marketCap": 251895971840,
-   "trailingPE": 32.9,
-   "forwardPE": 23.8,
+   "marketCap": 252920283136,
+   "trailingPE": 33.04,
+   "forwardPE": 23.9,
    "fiftyTwoWeekHigh": 226.88,
    "fiftyTwoWeekLow": 155.64,
    "dividendYield": 1.54,
@@ -21475,7 +21215,7 @@ window.DASHBOARD_DATA = {
    "quoteType": "ETF",
    "category": "Large Blend",
    "totalAssets": 811937038336,
-   "trailingPE": 24.73,
+   "trailingPE": 24.74,
    "fiftyTwoWeekHigh": 779.37,
    "fiftyTwoWeekLow": 629.28,
    "dividendYield": 0.98,
@@ -21486,7 +21226,7 @@ window.DASHBOARD_DATA = {
    "quoteType": "ETF",
    "category": "Long Government",
    "totalAssets": 47046328320,
-   "forwardPE": -3930.74,
+   "forwardPE": -3931.0,
    "fiftyTwoWeekHigh": 92.19,
    "fiftyTwoWeekLow": 78.27,
    "dividendYield": 4.73,
@@ -21497,9 +21237,9 @@ window.DASHBOARD_DATA = {
    "quoteType": "EQUITY",
    "sector": "Consumer Cyclical",
    "industry": "Auto Manufacturers",
-   "marketCap": 1414155206656,
-   "trailingPE": 331.53,
-   "forwardPE": 165.54,
+   "marketCap": 1411765764096,
+   "trailingPE": 330.97,
+   "forwardPE": 164.5,
    "fiftyTwoWeekHigh": 498.83,
    "fiftyTwoWeekLow": 297.38,
    "beta": 1.84,
@@ -21512,9 +21252,9 @@ window.DASHBOARD_DATA = {
    "quoteType": "EQUITY",
    "sector": "Energy",
    "industry": "Oil & Gas Refining & Marketing",
-   "marketCap": 111839657984,
-   "trailingPE": 16.2,
-   "forwardPE": 10.21,
+   "marketCap": 112167903232,
+   "trailingPE": 16.25,
+   "forwardPE": 10.24,
    "fiftyTwoWeekHigh": 419.04,
    "fiftyTwoWeekLow": 155.29,
    "dividendYield": 1.24,
@@ -21528,9 +21268,9 @@ window.DASHBOARD_DATA = {
    "quoteType": "EQUITY",
    "sector": "Energy",
    "industry": "Oil & Gas Integrated",
-   "marketCap": 668864151552,
-   "trailingPE": 20.94,
-   "forwardPE": 14.69,
+   "marketCap": 668267970560,
+   "trailingPE": 20.92,
+   "forwardPE": 14.67,
    "fiftyTwoWeekHigh": 176.41,
    "fiftyTwoWeekLow": 110.39,
    "dividendYield": 2.57,
@@ -21563,15 +21303,10 @@ window.DASHBOARD_DATA = {
     "2026-09-25",
     9941.22,
     9981.37
-   ],
-   [
-    "2026-09-28",
-    9760.81,
-    9904.76
    ]
   ],
-  "top5_return_pct": -2.39,
-  "spy_return_pct": -0.95,
+  "top5_return_pct": -0.59,
+  "spy_return_pct": -0.19,
   "pick_days": 3
  },
  "watchlist": [
@@ -21687,13 +21422,13 @@ window.DASHBOARD_DATA = {
     "image": ""
    },
    "price_at_pick": 388.56,
-   "price_now": 388.56,
+   "price_now": null,
    "return_pct": null,
    "correct": null,
    "history": [
     [
-     "2026-09-28",
-     388.56
+     "2026-09-25",
+     387.18
     ]
    ],
    "target_price": 415.76,
@@ -21725,13 +21460,13 @@ window.DASHBOARD_DATA = {
     "image": ""
    },
    "price_at_pick": 270.62,
-   "price_now": 270.67,
+   "price_now": null,
    "return_pct": null,
    "correct": null,
    "history": [
     [
-     "2026-09-28",
-     270.67
+     "2026-09-25",
+     268.54
     ]
    ],
    "target_price": 289.56,
@@ -21763,13 +21498,13 @@ window.DASHBOARD_DATA = {
     "image": "https://image.cnbcfm.com/api/v1/image/108326763-1782392209142-gettyimages-2282654401-06212026qabooswaters-10_iwaqipn9.jpeg?v=1782392429&w=1920&h=1080"
    },
    "price_at_pick": 228.52,
-   "price_now": 228.52,
+   "price_now": null,
    "return_pct": null,
    "correct": null,
    "history": [
     [
-     "2026-09-28",
-     228.52
+     "2026-09-25",
+     225.07
     ]
    ],
    "target_price": 244.52,
@@ -21802,13 +21537,13 @@ window.DASHBOARD_DATA = {
     "image": ""
    },
    "price_at_pick": 162.65,
-   "price_now": 162.66,
+   "price_now": null,
    "return_pct": null,
    "correct": null,
    "history": [
     [
-     "2026-09-28",
-     162.66
+     "2026-09-25",
+     160.59
     ]
    ],
    "target_price": 170.78,
@@ -21839,13 +21574,13 @@ window.DASHBOARD_DATA = {
     "image": ""
    },
    "price_at_pick": 243.27,
-   "price_now": 243.21,
+   "price_now": null,
    "return_pct": null,
    "correct": null,
    "history": [
     [
-     "2026-09-28",
-     243.21
+     "2026-09-25",
+     242.7
     ]
    ],
    "target_price": 262.73,
