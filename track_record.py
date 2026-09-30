@@ -62,7 +62,7 @@ def build_track_record(data, max_calls=MAX_CALLS):
             groups.append(f"{label}: {_rate(subset)}")
     top = [p for p in judged if p.get("top_rank")]
     if top:
-        groups.append(f"Top 5 buys: {_rate(top)}")
+        groups.append(f"Top 5 ideas: {_rate(top)}")
     lines.append(". ".join(groups) + ".")
 
     # Compared with simply buying the S&P 500 over the same time.
@@ -108,3 +108,21 @@ def build_track_record(data, max_calls=MAX_CALLS):
         vs = f", {p['vs_market_pct']:+.2f}% vs the S&P 500" if p.get("vs_market_pct") is not None else ""
         lines.append(f"{p['date']} {p['ticker']} {', '.join(tags)}: {p['directional_return_pct']:+.2f}% ({verdict}{vs})")
     return "\n".join(lines)
+
+
+# How many of the bot's recent run-days to list, so it can avoid repeating itself.
+RECENT_DAYS = 3
+
+
+def recent_picks_text(picks, days=RECENT_DAYS):
+    """
+    "2026-09-29: XOM bullish, TLT bearish, ..." for the last few days the bot
+    ran (from picks_log.csv rows), newest first, or None if there are none.
+    """
+    by_day = {}
+    for p in picks:
+        by_day.setdefault(p["date"], []).append(p)
+    lines = []
+    for day in sorted(by_day, reverse=True)[:days]:
+        lines.append(f"{day}: " + ", ".join(f"{p['ticker']} {p['direction']}" for p in by_day[day]))
+    return "\n".join(lines) or None

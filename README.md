@@ -163,12 +163,19 @@ for "Behind the picks" and "Company news". Filings (like UK "Form 8.3" notices),
 podcasts and non-English stories are filtered out, both on the page and before the
 news goes to Claude.
 
-**Top 5 buys of the day:** the Today tab starts with Claude's 5 most promising
-bullish ideas, ranked. Click **Show more info** on any of them to see why it could
-be a good buy, what could go wrong, what to watch next, and the news story behind
-it. Every top buy is also saved to `picks_log.csv`, so the scorecard tracks them too.
-The Results tab has a **How the Top 5 Did** section comparing them with the other
-picks, and The Record can be filtered to **Top 5 buys only**.
+**Top 5 ideas of the day:** the Today tab starts with the 5 ideas Claude believes in
+most, ranked. They can be bullish or bearish (▼ = the bot expects the stock to fall).
+Click **Show more info** on any of them to see why it could work, what could go
+wrong, what to watch next, and the news story behind it. Every top idea is also saved
+to `picks_log.csv`, so the scorecard tracks them too. The Results tab has a **How the
+Top 5 Did** section comparing them with the other picks, and The Record can be
+filtered to **Top 5 ideas only**.
+
+**How the bot avoids common mistakes:** each morning Claude also sees the **market
+backdrop** (the S&P 500's and each sector's recent moves), **its own recent picks**
+(so it only repeats a stock when there's genuinely new news), and guidance to
+favor effects that are still unfolding over news the market has already priced in.
+It's told to use "high" confidence only for its one or two strongest ideas.
 
 **Getting around:** the strip under the menu shows how the big market funds and
 stocks moved on the latest day. Click any of them for its chart. Use **Find a stock**

@@ -221,7 +221,8 @@ a { color: inherit; }
 .story.first h3 { font-size: 21px; }
 .story.first p.reason { font-size: 15.5px; max-width: 46em; }
 
-/* ---- Top 5 buys of the day (Today tab) ------------------------------------ */
+/* ---- Top 5 ideas of the day (Today tab) ----------------------------------- */
+.tb-bear { margin: 4px 0 0; font: 600 11.5px/1.4 var(--sans); color: var(--bad); }
 .top-buys { margin-top: 24px; border-top: 2px solid var(--rule); }
 .tb-head { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 4px 12px; padding: 10px 0 6px; }
 .tb-head h3 { margin: 0; font: 700 20px/1.2 var(--serif); }
@@ -920,7 +921,7 @@ footer .disclaimer { font: 400 italic 13px/1.4 var(--serif); color: var(--ink); 
       <div class="portfolio" id="portfolio"></div>
       <div class="section-head"><h2 id="hold-h">How Long Should You Hold?</h2><p>How the calls do 1 day, 1 week and 1 month after they're made.</p></div>
       <div class="hold" id="hold"></div>
-      <div class="section-head"><h2 id="top5-h">How the Top 5 Did</h2><p>Each day's ranked top buys, measured from the opening price after they were picked.</p></div>
+      <div class="section-head"><h2 id="top5-h">How the Top 5 Did</h2><p>Each day's ranked top ideas, measured from the opening price after they were picked.</p></div>
       <div class="top5-record" id="top5-record"></div>
       <div class="section-head"><h2 id="weeks-h">Weekly Report Cards</h2><p>Graded on the share of calls that were right: A 70%+, B 60%+, C 50%+, D 40%+.</p></div>
       <div class="weeks" id="weeks"></div>
@@ -937,7 +938,7 @@ footer .disclaimer { font: 400 italic 13px/1.4 var(--serif); color: var(--ink); 
         <label class="visually-hidden" for="q">Search picks</label>
         <input id="q" type="search" placeholder="Search ticker, company or reason">
         <label class="visually-hidden" for="f-dir">Call</label>
-        <select id="f-dir"><option value="">All calls</option><option value="bullish">Bullish</option><option value="bearish">Bearish</option><option value="top">Top 5 buys only</option></select>
+        <select id="f-dir"><option value="">All calls</option><option value="bullish">Bullish</option><option value="bearish">Bearish</option><option value="top">Top 5 ideas only</option></select>
         <label class="visually-hidden" for="f-res">Result</label>
         <select id="f-res"><option value="">All results</option><option value="right">Right so far</option><option value="wrong">Wrong so far</option><option value="open">Too early</option></select>
         <label class="visually-hidden" for="f-date">Date</label>

@@ -344,7 +344,7 @@
       todays.length + " ideas (" + bulls + " bullish, " + (todays.length - bulls) + " bearish)",
       today.headlines && today.headlines.length ? " from " + today.headlines.length + " headlines" : "");
 
-    // The "Top 5 buys" get their own box; the other calls follow as stories.
+    // The "Top 5 ideas" get their own box; the other calls follow as stories.
     var topBuys = (DATA.top_buys || []).filter(function (b) { return b.date === latestDate; });
     var topTickers = topBuys.map(function (b) { return b.ticker; });
     var others = todays.filter(function (p) { return topTickers.indexOf(p.ticker) === -1; });
@@ -550,7 +550,7 @@
   }
 
   // ---------------------------------------------------------------------------
-  // Top 5 buys of the day: a ranked list; "Show more info" opens the details
+  // Top 5 ideas of the day (bullish or bearish): a ranked list; "Show more info" opens the details
   // ---------------------------------------------------------------------------
 
   function renderTopBuys(buys) {
@@ -558,7 +558,7 @@
     buys.forEach(function (b) { list.appendChild(topBuyRow(b)); });
     return el("section", { class: "top-buys", "aria-labelledby": "tb-h" },
       el("div", { class: "tb-head" },
-        el("h3", { id: "tb-h", text: "Top " + buys.length + " Buys of the Day" }),
+        el("h3", { id: "tb-h", text: "Top " + buys.length + " Ideas of the Day" }),
         el("span", { text: "Ranked by Claude from this morning's news" })),
       list,
       el("p", { class: "tb-note", text: "Research candidates, not recommendations. Ideas for research only, not financial advice." }));
@@ -578,7 +578,7 @@
     var a = b.article;
     var more = el("div", { class: "tb-more", id: moreId, hidden: "" },
       el("div", { class: "tb-points" },
-        tbPoint("Why it could be a good buy", b.why),
+        tbPoint("Why it could work", b.why),
         tbPoint("What could go wrong", b.risks),
         tbPoint("What to watch", b.watch)),
       el("div", { class: "tb-links" },
@@ -605,6 +605,7 @@
               el("span", { class: "ticker", text: b.ticker }), b.company || "", themeTag(b.theme)),
             el("p", { class: "tb-pitch", text: b.pitch }),
             levelsLine(dict({ direction: "bullish" }, b)),
+            b.direction === "bearish" ? el("p", { class: "tb-bear", text: "▼ Bearish idea: the bot expects this stock to fall." }) : null,
             toggle),
           el("div", { class: "tb-price" },
             el("div", { class: "now", text: fmtPrice(b.price_now || b.price_at_pick) }),
@@ -704,7 +705,7 @@
   }
 
   // ---------------------------------------------------------------------------
-  // How the Top 5 did: top buys vs. the other picks, and one row per day
+  // How the Top 5 did: top ideas vs. the other picks, and one row per day
   // ---------------------------------------------------------------------------
 
   var top5Limit = 10;  // days shown before "Show older days"
@@ -739,7 +740,7 @@
         hero("Buying the S&P 500", "s2", last[2], pf.spy_return_pct),
         el("p", { class: "pf-verdict", text: Math.abs(lead) < 0.005 ? "Dead even so far." :
           (lead > 0 ? "The Top 5 are ahead by " : "The S&P 500 is ahead by ") + fmtMoney(Math.abs(lead)) + "." }),
-        el("p", { class: "legend-note", text: "Each day the bot runs, the money is split equally across that day's Top 5 at the pick price and held until the next day's Top 5. " +
+        el("p", { class: "legend-note", text: "Each day the bot runs, the money is split equally across that day's Top 5 at the opening price (betting against the stock for bearish ideas) and held until the next day's Top 5. " +
           pf.pick_days + (pf.pick_days === 1 ? " day" : " days") + " so far. No trading costs or taxes, so it's a rough check, not real results." })),
       chartBox
     ]);
@@ -913,7 +914,7 @@
             el("span", { text: graded ? gradeFor(w.hit_rate) : "…" }),
             el("small", { text: graded ? Math.round(w.hit_rate) + "% right" : "Pending" }))),
         row("Average move for the calls", w.avg_directional_return === null ? "—" : changePill(w.avg_directional_return)),
-        row("Top 5 buys", w.top5_count ? (w.top5_hit_rate === null ? "Pending" : Math.round(w.top5_hit_rate) + "% right") : "—"),
+        row("Top 5 ideas", w.top5_count ? (w.top5_hit_rate === null ? "Pending" : Math.round(w.top5_hit_rate) + "% right") : "—"),
         row("Best call", brief(w.best)),
         row("Worst call", brief(w.worst))));
     });
@@ -925,7 +926,7 @@
     var rec = stats.top_buys || { groups: [], by_day: [] };
     if (!rec.by_day.length) {
       box.appendChild(emptyChart("The first Top 5 is on its way",
-        "Once the bot has picked its first Top 5 buys, you'll see here how each one has done since."));
+        "Once the bot has picked its first Top 5 ideas, you'll see here how each one has done since."));
       return;
     }
     var top = rec.groups[0], rest = rec.groups[1];

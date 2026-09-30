@@ -28,11 +28,12 @@ from analyzer import add_price_levels, analyze_headlines
 from discord_notify import build_message, send_to_discord
 from build_dashboard import read_picks
 from logos import update_logos
-from market_data import format_market_data, get_market_movers, get_premarket_moves
+from market_data import format_market_data, get_market_backdrop, get_market_movers, get_premarket_moves
 from news import fetch_company_news, fetch_headlines
 from picks_log import log_picks, save_day_details
 from prices import get_prices
-from track_record import build_track_record, load_dashboard_data
+from build_dashboard import latest_run_only, read_days
+from track_record import build_track_record, load_dashboard_data, recent_picks_text
 from watchlist import FUNDS, WATCHLIST
 
 # Company news is fetched for the market-watch companies plus any stock
@@ -106,8 +107,19 @@ def main():
             market_text = format_market_data(get_market_movers(), get_premarket_moves(list(WATCHLIST)))
         except Exception as e:
             problems.append(f"Market movers (Yahoo) failed: {e}")
+        try:
+            backdrop = get_market_backdrop()
+            if backdrop:
+                market_text = "Market backdrop:\n" + backdrop + ("\n\n" + market_text if market_text else "")
+        except Exception as e:
+            problems.append(f"Market backdrop (Yahoo) failed: {e}")
     # How the bot's recent calls have done (from the dashboard data).
     track_record = build_track_record(load_dashboard_data())
+    # What it picked on the last few days, so it doesn't repeat the same bets.
+    try:
+        recent = recent_picks_text(latest_run_only(read_picks(), read_days()))
+    except Exception:
+        recent = None
 
     # --- Step 2: Claude analysis --------------------------------------------
     analysis = None
@@ -116,7 +128,7 @@ def main():
             problems.append("ANTHROPIC_API_KEY is not set, so no analysis was done.")
         else:
             try:
-                analysis = analyze_headlines(headlines, anthropic_key, WATCHLIST, track_record, market_text)
+                analysis = analyze_headlines(headlines, anthropic_key, WATCHLIST, track_record, market_text, recent)
                 print(f"Claude suggested {len(analysis['picks'])} picks.")
             except Exception as e:
                 problems.append(f"Analysis (Claude) failed: {e}")

@@ -84,8 +84,8 @@ def _run_main(monkeypatch, tmp_path, *, news=None, analysis=None, company_news=(
 
     calls = {}
 
-    def fake_analysis(headlines, _key, _watchlist=None, track_record=None, market_data=None):
-        calls.update(headlines=headlines, track_record=track_record, market_data=market_data)
+    def fake_analysis(headlines, _key, _watchlist=None, track_record=None, market_data=None, recent_picks=None):
+        calls.update(headlines=headlines, track_record=track_record, market_data=market_data, recent_picks=recent_picks)
         if isinstance(analysis, Exception):
             raise analysis
         return analysis
@@ -98,6 +98,7 @@ def _run_main(monkeypatch, tmp_path, *, news=None, analysis=None, company_news=(
     monkeypatch.setattr(main, "get_market_movers", lambda: {"Biggest gainers": [("ABC", "ABC Corp", 9.5)]})
     monkeypatch.setattr(main, "get_premarket_moves", lambda tickers: [("NVDA", 1.2)])
     monkeypatch.setattr(main, "update_logos", lambda key, tickers: 0)
+    monkeypatch.setattr(main, "get_market_backdrop", lambda: "S&P 500 (SPY): 1 week -1.2%")
     monkeypatch.setattr(main, "fetch_headlines", fake_news)
     monkeypatch.setattr(main, "analyze_headlines", fake_analysis)
     monkeypatch.setattr(main, "get_prices", lambda tickers: {"XOM": 110.5, "DAL": None})
@@ -318,8 +319,8 @@ def test_top_buys_become_picks_and_skip_bearish_clashes():
 def test_message_lists_top_buys_first_without_repeats():
     analysis = dict(FAKE_ANALYSIS, top_buys=[_top_buy("XOM", company="Exxon Mobil")])
     msg = build_message("2026-09-22", analysis, {"XOM": 110.5, "DAL": None}, [])
-    assert "Top buys of the day" in msg
-    assert "1. **XOM** (Exxon Mobil) - $110.50 - XOM pitch" in msg
+    assert "Top ideas of the day" in msg
+    assert "1. ▲ **XOM** (Exxon Mobil) - $110.50 - XOM pitch" in msg
     assert msg.count("**XOM**") == 1  # not repeated under "Other ideas"
     assert "Other ideas" in msg and "**DAL**" in msg
     assert msg.endswith(f"_{DISCLAIMER}_")
@@ -458,6 +459,7 @@ def test_claude_gets_company_news_market_data_and_track_record(monkeypatch, tmp_
     # Company news is added after the general news, so headline numbers stay in order.
     assert [h["headline"] for h in calls["headlines"]] == [FAKE_HEADLINES[0]["headline"], "Apple unveils new chip"]
     assert "ABC (ABC Corp) +9.50%" in calls["market_data"] and "NVDA +1.20%" in calls["market_data"]
+    assert calls["market_data"].startswith("Market backdrop:\nS&P 500 (SPY): 1 week -1.2%")
     assert "Overall: 1 of 1 right (100%)" in calls["track_record"]
     assert "2026-09-21 XOM bullish, high confidence, Top 5 #1: +2.50% (right)" in calls["track_record"]
 
@@ -654,3 +656,32 @@ def test_recap_scores_from_the_open_and_counts_market_beaters():
     msg = build_recap("2026-09-25", [p], [])
     assert "1 of 1 calls worked" in msg and "1 of 1 beat the S&P 500" in msg
     assert "($100.00 → $102.00)" in msg and msg.endswith(f"_{DISCLAIMER}_")
+
+
+def test_top_ideas_can_be_bearish_and_count_as_bets_against_the_stock():
+    from analyzer import add_top_buys_to_picks
+    from build_dashboard import pretend_portfolio
+
+    result = {"market_mood": "", "watchlist_notes": [],
+              "picks": [dict(p, sources=[1]) for p in FAKE_ANALYSIS["picks"]],  # XOM bullish, DAL bearish
+              "top_buys": [_top_buy("DAL", direction="bearish"), _top_buy("XOM", direction="bearish"),
+                           _top_buy("TSLA", direction="bearish")]}
+    add_top_buys_to_picks(result)
+    # DAL matches its bearish pick; XOM clashes with its bullish pick; TSLA is added as a bearish pick.
+    assert [b["ticker"] for b in result["top_buys"]] == ["DAL", "TSLA"]
+    assert next(p for p in result["picks"] if p["ticker"] == "TSLA")["direction"] == "bearish"
+
+    picks = [{"date": "2026-09-22", "ticker": "A", "direction": "bearish", "top_rank": 1, "price_at_pick": 100.0}]
+    histories = {"SPY": [["2026-09-21", 100.0], ["2026-09-22", 100.0]], "A": [["2026-09-22", 90.0]]}
+    # The stock fell 10%, so betting against it made 10%.
+    assert pretend_portfolio(picks, histories)["series"][-1][1] == 11000.0
+
+
+def test_recent_picks_are_listed_for_claude():
+    from track_record import recent_picks_text
+
+    picks = [{"date": d, "ticker": t, "direction": "bullish"} for d, t in
+             [("2026-09-24", "OLD"), ("2026-09-25", "XOM"), ("2026-09-28", "TLT"), ("2026-09-29", "XOM"), ("2026-09-29", "DAL")]]
+    assert recent_picks_text(picks) == (
+        "2026-09-29: XOM bullish, DAL bullish\n2026-09-28: TLT bullish\n2026-09-25: XOM bullish")
+    assert recent_picks_text([]) is None
