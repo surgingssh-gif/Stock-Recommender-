@@ -1,36 +1,36 @@
 window.DASHBOARD_DATA = {
- "generated_at": "2026-09-30T00:28:43Z",
+ "generated_at": "2026-09-30T18:05:40Z",
  "stats": {
-  "total_picks": 44,
-  "days_tracked": 6,
-  "hit_rate": 44.8,
-  "judged": 29,
-  "correct": 13,
-  "avg_directional_return": -0.47,
+  "total_picks": 50,
+  "days_tracked": 7,
+  "hit_rate": 50.0,
+  "judged": 44,
+  "correct": 22,
+  "avg_directional_return": 0.34,
   "best": {
-   "date": "2026-09-24",
-   "ticker": "MGM",
-   "direction": "bearish",
-   "directional_return_pct": 5.93
+   "date": "2026-09-22",
+   "ticker": "RCL",
+   "direction": "bullish",
+   "directional_return_pct": 12.72
   },
   "worst": {
-   "date": "2026-09-25",
-   "ticker": "GDDY",
+   "date": "2026-09-22",
+   "ticker": "CPRI",
    "direction": "bullish",
-   "directional_return_pct": -5.63
+   "directional_return_pct": -6.73
   },
   "by_direction": [
    {
     "label": "bullish",
-    "count": 32,
-    "hit_rate": 38.1,
-    "avg_directional_return": -1.19
+    "count": 37,
+    "hit_rate": 40.6,
+    "avg_directional_return": -0.15
    },
    {
     "label": "bearish",
-    "count": 12,
-    "hit_rate": 62.5,
-    "avg_directional_return": 1.43
+    "count": 13,
+    "hit_rate": 75.0,
+    "avg_directional_return": 1.64
    }
   ],
   "by_confidence": [
@@ -42,51 +42,57 @@ window.DASHBOARD_DATA = {
    },
    {
     "label": "medium",
-    "count": 27,
-    "hit_rate": 44.4,
-    "avg_directional_return": -0.76
+    "count": 29,
+    "hit_rate": 48.1,
+    "avg_directional_return": -0.23
    },
    {
     "label": "low",
-    "count": 17,
-    "hit_rate": 45.5,
-    "avg_directional_return": 0.01
+    "count": 21,
+    "hit_rate": 52.9,
+    "avg_directional_return": 1.25
    }
   ],
   "by_day": [
    {
     "date": "2026-09-22",
     "count": 7,
-    "hit_rate": 57.1,
-    "avg_directional_return": -0.1
+    "hit_rate": 42.9,
+    "avg_directional_return": 0.06
    },
    {
     "date": "2026-09-23",
     "count": 7,
-    "hit_rate": 28.6,
-    "avg_directional_return": -1.6
+    "hit_rate": 14.3,
+    "avg_directional_return": -1.66
    },
    {
     "date": "2026-09-24",
     "count": 8,
-    "hit_rate": 50.0,
-    "avg_directional_return": 0.68
+    "hit_rate": 62.5,
+    "avg_directional_return": 2.03
    },
    {
     "date": "2026-09-25",
     "count": 7,
-    "hit_rate": 42.9,
-    "avg_directional_return": -1.03
+    "hit_rate": 28.6,
+    "avg_directional_return": -1.1
    },
    {
     "date": "2026-09-28",
     "count": 8,
-    "hit_rate": null,
-    "avg_directional_return": null
+    "hit_rate": 75.0,
+    "avg_directional_return": 1.93
    },
    {
     "date": "2026-09-29",
     "count": 7,
+    "hit_rate": 71.4,
+    "avg_directional_return": 0.32
+   },
+   {
+    "date": "2026-09-30",
+    "count": 6,
     "hit_rate": null,
     "avg_directional_return": null
    }
@@ -95,267 +101,309 @@ window.DASHBOARD_DATA = {
    "groups": [
     {
      "label": "Top 5 buys",
-     "count": 30,
-     "hit_rate": 40.0,
-     "avg_directional_return": -1.07
+     "count": 35,
+     "hit_rate": 43.3,
+     "avg_directional_return": -0.09
     },
     {
      "label": "Other picks",
-     "count": 14,
-     "hit_rate": 55.6,
-     "avg_directional_return": 0.87
+     "count": 15,
+     "hit_rate": 64.3,
+     "avg_directional_return": 1.26
     }
    ],
-   "judged": 20,
+   "judged": 30,
    "by_day": [
     {
-     "date": "2026-09-29",
+     "date": "2026-09-30",
      "hit_rate": null,
      "avg_directional_return": null,
+     "buys": [
+      {
+       "top_rank": 1,
+       "ticker": "XOM",
+       "company": "Exxon Mobil",
+       "return_pct": null,
+       "correct": null
+      },
+      {
+       "top_rank": 2,
+       "ticker": "QRVO",
+       "company": "Qorvo",
+       "return_pct": null,
+       "correct": null
+      },
+      {
+       "top_rank": 3,
+       "ticker": "CAT",
+       "company": "Caterpillar",
+       "return_pct": null,
+       "correct": null
+      },
+      {
+       "top_rank": 4,
+       "ticker": "ITGR",
+       "company": "Integer Holdings",
+       "return_pct": null,
+       "correct": null
+      },
+      {
+       "top_rank": 5,
+       "ticker": "MAT",
+       "company": "Mattel",
+       "return_pct": null,
+       "correct": null
+      }
+     ]
+    },
+    {
+     "date": "2026-09-29",
+     "hit_rate": 60.0,
+     "avg_directional_return": 0.1,
      "buys": [
       {
        "top_rank": 1,
        "ticker": "RTX",
        "company": "RTX Corporation",
-       "return_pct": null,
-       "correct": null
+       "return_pct": -0.04,
+       "correct": false
       },
       {
        "top_rank": 2,
        "ticker": "META",
        "company": "Meta Platforms",
-       "return_pct": null,
-       "correct": null
+       "return_pct": 0.61,
+       "correct": true
       },
       {
        "top_rank": 3,
        "ticker": "LNG",
        "company": "Cheniere Energy",
-       "return_pct": null,
-       "correct": null
+       "return_pct": 0.36,
+       "correct": true
       },
       {
        "top_rank": 4,
        "ticker": "PWP",
        "company": "Perella Weinberg Partners",
-       "return_pct": null,
-       "correct": null
+       "return_pct": -1.72,
+       "correct": false
       },
       {
        "top_rank": 5,
        "ticker": "XOM",
        "company": "Exxon Mobil",
-       "return_pct": null,
-       "correct": null
+       "return_pct": 1.28,
+       "correct": true
       }
      ]
     },
     {
      "date": "2026-09-28",
-     "hit_rate": null,
-     "avg_directional_return": null,
+     "hit_rate": 80.0,
+     "avg_directional_return": 2.11,
      "buys": [
       {
        "top_rank": 1,
        "ticker": "VLO",
        "company": "Valero Energy",
-       "return_pct": null,
-       "correct": null
+       "return_pct": 3.71,
+       "correct": true
       },
       {
        "top_rank": 2,
        "ticker": "LNG",
        "company": "Cheniere Energy",
-       "return_pct": null,
-       "correct": null
+       "return_pct": 1.07,
+       "correct": true
       },
       {
        "top_rank": 3,
        "ticker": "NVDA",
        "company": "NVIDIA",
-       "return_pct": null,
-       "correct": null
+       "return_pct": -0.25,
+       "correct": false
       },
       {
        "top_rank": 4,
        "ticker": "XOM",
        "company": "Exxon Mobil",
-       "return_pct": null,
-       "correct": null
+       "return_pct": 2.55,
+       "correct": true
       },
       {
        "top_rank": 5,
        "ticker": "RCL",
        "company": "Royal Caribbean",
-       "return_pct": null,
-       "correct": null
+       "return_pct": 3.49,
+       "correct": true
       }
      ]
     },
     {
      "date": "2026-09-25",
-     "hit_rate": 20.0,
-     "avg_directional_return": -2.36,
+     "hit_rate": 0.0,
+     "avg_directional_return": -2.58,
      "buys": [
       {
        "top_rank": 1,
        "ticker": "DAL",
        "company": "Delta Air Lines",
-       "return_pct": 0.04,
-       "correct": true
+       "return_pct": -0.55,
+       "correct": false
       },
       {
        "top_rank": 2,
        "ticker": "DVN",
        "company": "Devon Energy",
-       "return_pct": -2.32,
+       "return_pct": -2.68,
        "correct": false
       },
       {
        "top_rank": 3,
        "ticker": "RKLB",
        "company": "Rocket Lab",
-       "return_pct": -2.64,
+       "return_pct": -3.37,
        "correct": false
       },
       {
        "top_rank": 4,
        "ticker": "JPM",
        "company": "JPMorgan Chase",
-       "return_pct": -1.23,
+       "return_pct": -2.56,
        "correct": false
       },
       {
        "top_rank": 5,
        "ticker": "GDDY",
        "company": "GoDaddy",
-       "return_pct": -5.63,
+       "return_pct": -3.74,
        "correct": false
       }
      ]
     },
     {
      "date": "2026-09-24",
-     "hit_rate": 40.0,
-     "avg_directional_return": 0.2,
+     "hit_rate": 60.0,
+     "avg_directional_return": 1.31,
      "buys": [
       {
        "top_rank": 1,
        "ticker": "XOM",
        "company": "Exxon Mobil",
-       "return_pct": -0.33,
-       "correct": false
+       "return_pct": 0.76,
+       "correct": true
       },
       {
        "top_rank": 2,
        "ticker": "META",
        "company": "Meta Platforms",
-       "return_pct": -3.86,
+       "return_pct": -1.47,
        "correct": false
       },
       {
        "top_rank": 3,
        "ticker": "MSFT",
        "company": "Microsoft",
-       "return_pct": 2.86,
+       "return_pct": 4.64,
        "correct": true
       },
       {
        "top_rank": 4,
        "ticker": "VLO",
        "company": "Valero Energy",
-       "return_pct": 2.77,
+       "return_pct": 4.4,
        "correct": true
       },
       {
        "top_rank": 5,
        "ticker": "JPM",
        "company": "JPMorgan Chase",
-       "return_pct": -0.45,
+       "return_pct": -1.8,
        "correct": false
       }
      ]
     },
     {
      "date": "2026-09-23",
-     "hit_rate": 20.0,
-     "avg_directional_return": -2.46,
+     "hit_rate": 0.0,
+     "avg_directional_return": -2.47,
      "buys": [
       {
        "top_rank": 1,
        "ticker": "META",
        "company": "Meta Platforms",
-       "return_pct": -4.28,
+       "return_pct": -1.9,
        "correct": false
       },
       {
        "top_rank": 2,
        "ticker": "DVN",
        "company": "Devon Energy",
-       "return_pct": -1.37,
+       "return_pct": -1.73,
        "correct": false
       },
       {
        "top_rank": 3,
        "ticker": "MU",
        "company": "Micron Technology",
-       "return_pct": -4.19,
+       "return_pct": -2.71,
        "correct": false
       },
       {
        "top_rank": 4,
        "ticker": "IONQ",
        "company": "IonQ",
-       "return_pct": -2.75,
+       "return_pct": -2.97,
        "correct": false
       },
       {
        "top_rank": 5,
        "ticker": "BHF",
        "company": "Brighthouse Financial",
-       "return_pct": 0.31,
-       "correct": true
+       "return_pct": -3.03,
+       "correct": false
       }
      ]
     },
     {
      "date": "2026-09-22",
-     "hit_rate": 80.0,
-     "avg_directional_return": 0.32,
+     "hit_rate": 60.0,
+     "avg_directional_return": 1.0,
      "buys": [
       {
        "top_rank": 1,
        "ticker": "CPRI",
        "company": "Capri Holdings",
-       "return_pct": -3.4,
+       "return_pct": -6.73,
        "correct": false
       },
       {
        "top_rank": 2,
        "ticker": "NVDA",
        "company": "NVIDIA",
-       "return_pct": 0.36,
+       "return_pct": 1.04,
        "correct": true
       },
       {
        "top_rank": 3,
        "ticker": "DAL",
        "company": "Delta Air Lines",
-       "return_pct": 1.61,
+       "return_pct": 1.02,
        "correct": true
       },
       {
        "top_rank": 4,
        "ticker": "BHF",
        "company": "Brighthouse Financial",
-       "return_pct": 0.31,
-       "correct": true
+       "return_pct": -3.03,
+       "correct": false
       },
       {
        "top_rank": 5,
        "ticker": "RCL",
        "company": "Royal Caribbean",
-       "return_pct": 2.73,
+       "return_pct": 12.72,
        "correct": true
       }
      ]
@@ -366,17 +414,27 @@ window.DASHBOARD_DATA = {
    {
     "week_start": "2026-09-28",
     "week_end": "2026-10-02",
-    "days": 2,
-    "count": 15,
-    "judged": 0,
-    "correct": 0,
-    "hit_rate": null,
-    "avg_directional_return": null,
-    "best": null,
-    "worst": null,
-    "top5_count": 10,
-    "top5_hit_rate": null,
-    "top5_avg": null
+    "days": 3,
+    "count": 21,
+    "judged": 15,
+    "correct": 11,
+    "hit_rate": 73.3,
+    "avg_directional_return": 1.18,
+    "best": {
+     "date": "2026-09-28",
+     "ticker": "AAL",
+     "direction": "bearish",
+     "directional_return_pct": 4.04
+    },
+    "worst": {
+     "date": "2026-09-29",
+     "ticker": "PWP",
+     "direction": "bullish",
+     "directional_return_pct": -1.72
+    },
+    "top5_count": 15,
+    "top5_hit_rate": 70.0,
+    "top5_avg": 1.11
    },
    {
     "week_start": "2026-09-21",
@@ -384,59 +442,65 @@ window.DASHBOARD_DATA = {
     "days": 4,
     "count": 29,
     "judged": 29,
-    "correct": 13,
-    "hit_rate": 44.8,
-    "avg_directional_return": -0.47,
+    "correct": 11,
+    "hit_rate": 37.9,
+    "avg_directional_return": -0.09,
     "best": {
-     "date": "2026-09-24",
-     "ticker": "MGM",
-     "direction": "bearish",
-     "directional_return_pct": 5.93
+     "date": "2026-09-22",
+     "ticker": "RCL",
+     "direction": "bullish",
+     "directional_return_pct": 12.72
     },
     "worst": {
-     "date": "2026-09-25",
-     "ticker": "GDDY",
+     "date": "2026-09-22",
+     "ticker": "CPRI",
      "direction": "bullish",
-     "directional_return_pct": -5.63
+     "directional_return_pct": -6.73
     },
     "top5_count": 20,
-    "top5_hit_rate": 40.0,
-    "top5_avg": -1.07
+    "top5_hit_rate": 30.0,
+    "top5_avg": -0.68
    }
   ],
   "by_theme": [
    {
     "label": "Oil & energy",
-    "count": 9,
-    "hit_rate": 66.7,
-    "avg_directional_return": 0.83
+    "count": 11,
+    "hit_rate": 88.9,
+    "avg_directional_return": 1.96
    },
    {
     "label": "Interest rates & the Fed",
     "count": 8,
-    "hit_rate": 60.0,
-    "avg_directional_return": 1.01
+    "hit_rate": 75.0,
+    "avg_directional_return": 0.9
    },
    {
     "label": "Mergers & deals",
-    "count": 6,
-    "hit_rate": 20.0,
-    "avg_directional_return": -1.65
+    "count": 8,
+    "hit_rate": 16.7,
+    "avg_directional_return": -0.87
    },
    {
     "label": "AI & tech",
     "count": 4,
     "hit_rate": 50.0,
-    "avg_directional_return": -0.5
+    "avg_directional_return": 0.88
+   },
+   {
+    "label": "Consumer & retail",
+    "count": 2,
+    "hit_rate": 100.0,
+    "avg_directional_return": 3.49
    },
    {
     "label": "Geopolitics",
     "count": 2,
-    "hit_rate": null,
-    "avg_directional_return": null
+    "hit_rate": 0.0,
+    "avg_directional_return": -0.2
    },
    {
-    "label": "Consumer & retail",
+    "label": "Other",
     "count": 1,
     "hit_rate": null,
     "avg_directional_return": null
@@ -445,15 +509,15 @@ window.DASHBOARD_DATA = {
   "by_horizon": [
    {
     "label": "1 day",
-    "count": 29,
-    "hit_rate": 55.2,
-    "avg_directional_return": -0.09
+    "count": 44,
+    "hit_rate": 61.4,
+    "avg_directional_return": 0.1
    },
    {
     "label": "1 week",
-    "count": 0,
-    "hit_rate": null,
-    "avg_directional_return": null
+    "count": 22,
+    "hit_rate": 45.5,
+    "avg_directional_return": 0.69
    },
    {
     "label": "1 month",
@@ -463,27 +527,273 @@ window.DASHBOARD_DATA = {
    }
   ],
   "vs_market": {
-   "judged": 29,
-   "beat": 13,
-   "rate": 44.8,
-   "avg_vs_market": -0.26,
+   "judged": 44,
+   "beat": 22,
+   "rate": 50.0,
+   "avg_vs_market": 0.4,
    "top5": {
-    "judged": 20,
-    "beat": 8,
-    "rate": 40.0,
-    "avg_vs_market": -0.56
+    "judged": 30,
+    "beat": 13,
+    "rate": 43.3,
+    "avg_vs_market": 0.08
    }
   }
  },
  "picks": [
+  {
+   "date": "2026-09-30",
+   "ticker": "XOM",
+   "direction": "bullish",
+   "reason": "Oil is above $91 with US-Iran talks stalled, Houthi attacks prompting a Saudi airspace advisory and the US strategic reserve at 44-year lows, which keeps a geopolitical premium in crude.",
+   "price_at_pick": 164.29,
+   "entry_date": null,
+   "entry_price": null,
+   "company": "Exxon Mobil",
+   "top_rank": 1,
+   "confidence": "medium",
+   "theme": "Oil & energy",
+   "target_price": 174.15,
+   "stop_price": 157.72,
+   "target_pct": 6,
+   "stop_pct": 4,
+   "article": {
+    "headline": "America\u2019s Strategic Oil Reserves Are at 44-Year Lows \u2014 And Trump Just Gave Away Another 40 Million Barrels",
+    "source": "Yahoo",
+    "url": "https://finnhub.io/api/news?id=44d33fc42532cdeb278f063bff74bee051fa1261e68643db0366bef2cc3abf93",
+    "image": ""
+   },
+   "history": [
+    [
+     "2026-09-30",
+     164.3
+    ]
+   ],
+   "horizons": {
+    "1 day": null,
+    "1 week": null,
+    "1 month": null
+   },
+   "level_status": null,
+   "price_now": 164.3,
+   "return_pct": null,
+   "directional_return_pct": null,
+   "correct": null,
+   "vs_market_pct": null,
+   "beat_market": null
+  },
+  {
+   "date": "2026-09-30",
+   "ticker": "QRVO",
+   "direction": "bullish",
+   "reason": "Skyworks said it has received all regulatory clearances for the Qorvo combination, removing the main hurdle and narrowing the deal spread as closing approaches.",
+   "price_at_pick": 114.35,
+   "entry_date": null,
+   "entry_price": null,
+   "company": "Qorvo",
+   "top_rank": 2,
+   "confidence": "medium",
+   "theme": "Mergers & deals",
+   "target_price": 122.35,
+   "stop_price": 109.78,
+   "target_pct": 7,
+   "stop_pct": 4,
+   "article": {
+    "headline": "Skyworks Receives All Necessary Clearances for Proposed Combination with Qorvo",
+    "source": "GlobalNewswire",
+    "url": "https://www.globenewswire.com/news-release/2026/09/30/3371865/0/en/skyworks-receives-all-necessary-clearances-for-proposed-combination-with-qorvo.html",
+    "image": ""
+   },
+   "history": [
+    [
+     "2026-09-30",
+     114.35
+    ]
+   ],
+   "horizons": {
+    "1 day": null,
+    "1 week": null,
+    "1 month": null
+   },
+   "level_status": null,
+   "price_now": 114.35,
+   "return_pct": null,
+   "directional_return_pct": null,
+   "correct": null,
+   "vs_market_pct": null,
+   "beat_market": null
+  },
+  {
+   "date": "2026-09-30",
+   "ticker": "DAL",
+   "direction": "bearish",
+   "reason": "Jet fuel costs rise with crude above $91 and tight diesel/distillate markets, plus Middle East airspace advisories complicate routes ahead of Delta's October 9 earnings.",
+   "price_at_pick": 83.54,
+   "entry_date": null,
+   "entry_price": null,
+   "company": "Delta Air Lines",
+   "top_rank": null,
+   "confidence": "low",
+   "theme": "Oil & energy",
+   "target_price": 78.53,
+   "stop_price": 87.72,
+   "target_pct": 6,
+   "stop_pct": 5,
+   "article": {
+    "headline": "America\u2019s Strategic Oil Reserves Are at 44-Year Lows \u2014 And Trump Just Gave Away Another 40 Million Barrels",
+    "source": "Yahoo",
+    "url": "https://finnhub.io/api/news?id=44d33fc42532cdeb278f063bff74bee051fa1261e68643db0366bef2cc3abf93",
+    "image": ""
+   },
+   "history": [
+    [
+     "2026-09-30",
+     83.54
+    ]
+   ],
+   "horizons": {
+    "1 day": null,
+    "1 week": null,
+    "1 month": null
+   },
+   "level_status": null,
+   "price_now": 83.54,
+   "return_pct": null,
+   "directional_return_pct": null,
+   "correct": null,
+   "vs_market_pct": null,
+   "beat_market": null
+  },
+  {
+   "date": "2026-09-30",
+   "ticker": "MAT",
+   "direction": "bullish",
+   "reason": "Mattel named Roger Lynch CEO and Chairman, a leadership reset that comes as holiday retail sales are forecast to top $1 trillion for the first time.",
+   "price_at_pick": 12.76,
+   "entry_date": null,
+   "entry_price": null,
+   "company": "Mattel",
+   "top_rank": 5,
+   "confidence": "low",
+   "theme": "Consumer & retail",
+   "target_price": 13.78,
+   "stop_price": 11.99,
+   "target_pct": 8,
+   "stop_pct": 6,
+   "article": {
+    "headline": "Mattel names Roger Lynch as CEO, replacing Ynon Kreiz",
+    "source": "CNBC",
+    "url": "https://www.cnbc.com/2026/09/30/mattel-roger-lynch-ceo.html",
+    "image": "https://image.cnbcfm.com/api/v1/image/107254056-1686310935286-gettyimages-1258548463-AFP_33HR32Z.jpeg?v=1713812620&w=1920&h=1080"
+   },
+   "history": [
+    [
+     "2026-09-30",
+     12.77
+    ]
+   ],
+   "horizons": {
+    "1 day": null,
+    "1 week": null,
+    "1 month": null
+   },
+   "level_status": null,
+   "price_now": 12.77,
+   "return_pct": null,
+   "directional_return_pct": null,
+   "correct": null,
+   "vs_market_pct": null,
+   "beat_market": null
+  },
+  {
+   "date": "2026-09-30",
+   "ticker": "ITGR",
+   "direction": "bullish",
+   "reason": "Integer received early termination of the antitrust waiting period for its pending acquisition by KKR, speeding the path to closing.",
+   "price_at_pick": 126.4,
+   "entry_date": null,
+   "entry_price": null,
+   "company": "Integer Holdings",
+   "top_rank": 4,
+   "confidence": "low",
+   "theme": "Mergers & deals",
+   "target_price": 132.72,
+   "stop_price": 122.61,
+   "target_pct": 5,
+   "stop_pct": 3,
+   "article": {
+    "headline": "Integer Receives Early Termination of Hart-Scott-Rodino Waiting Period for Pending Acquisition by KKR",
+    "source": "GlobalNewswire",
+    "url": "https://www.globenewswire.com/news-release/2026/09/30/3371809/26755/en/integer-receives-early-termination-of-hart-scott-rodino-waiting-period-for-pending-acquisition-by-kkr.html",
+    "image": ""
+   },
+   "history": [
+    [
+     "2026-09-30",
+     126.4
+    ]
+   ],
+   "horizons": {
+    "1 day": null,
+    "1 week": null,
+    "1 month": null
+   },
+   "level_status": null,
+   "price_now": 126.4,
+   "return_pct": null,
+   "directional_return_pct": null,
+   "correct": null,
+   "vs_market_pct": null,
+   "beat_market": null
+  },
+  {
+   "date": "2026-09-30",
+   "ticker": "CAT",
+   "direction": "bullish",
+   "reason": "Caterpillar announced a $1 billion North Carolina expansion and agreed to buy the Fabick dealership, signals of confidence in demand and more control over distribution.",
+   "price_at_pick": 819.27,
+   "entry_date": null,
+   "entry_price": null,
+   "company": "Caterpillar",
+   "top_rank": 3,
+   "confidence": "low",
+   "theme": "Other",
+   "target_price": 868.43,
+   "stop_price": 786.5,
+   "target_pct": 6,
+   "stop_pct": 4,
+   "article": {
+    "headline": "Caterpillar plans $1B North Carolina expansion, agrees to buy Fabick dealership",
+    "source": "SeekingAlpha",
+    "url": "https://seekingalpha.com/news/4648514-caterpillar-plans-1b-north-carolina-expansion-agrees-to-buy-fabick-dealership?utm_source=feed_news_m_a&utm_medium=referral&feed_item_type=news",
+    "image": ""
+   },
+   "history": [
+    [
+     "2026-09-30",
+     819.33
+    ]
+   ],
+   "horizons": {
+    "1 day": null,
+    "1 week": null,
+    "1 month": null
+   },
+   "level_status": null,
+   "price_now": 819.33,
+   "return_pct": null,
+   "directional_return_pct": null,
+   "correct": null,
+   "vs_market_pct": null,
+   "beat_market": null
+  },
   {
    "date": "2026-09-29",
    "ticker": "RTX",
    "direction": "bullish",
    "reason": "The Pentagon awarded Raytheon a $20.7 billion AMRAAM missile contract amid stockpile concerns, a large multi-year revenue visibility boost while Middle East conflict continues.",
    "price_at_pick": 187.5,
-   "entry_date": null,
-   "entry_price": null,
+   "entry_date": "2026-09-30",
+   "entry_price": 186.38,
    "company": "RTX Corporation",
    "top_rank": 1,
    "confidence": "medium",
@@ -500,22 +810,27 @@ window.DASHBOARD_DATA = {
    },
    "history": [
     [
-     "2026-09-28",
-     187.66
+     "2026-09-29",
+     186.94
+    ],
+    [
+     "2026-09-30",
+     186.31
     ]
    ],
    "horizons": {
-    "1 day": null,
+    "1 day": -0.04,
     "1 week": null,
     "1 month": null
    },
    "level_status": null,
-   "price_now": null,
-   "return_pct": null,
-   "directional_return_pct": null,
-   "correct": null,
-   "vs_market_pct": null,
-   "beat_market": null
+   "price_now": 186.31,
+   "return_pct": -0.04,
+   "directional_return_pct": -0.04,
+   "correct": false,
+   "market_move_pct": 0.11,
+   "vs_market_pct": -0.15,
+   "beat_market": false
   },
   {
    "date": "2026-09-29",
@@ -523,8 +838,8 @@ window.DASHBOARD_DATA = {
    "direction": "bullish",
    "reason": "Shares surged on a report that Piper Sandler is in talks to acquire the advisory firm; takeover talk plus a hot M&A cycle supports the price.",
    "price_at_pick": 16.42,
-   "entry_date": null,
-   "entry_price": null,
+   "entry_date": "2026-09-30",
+   "entry_price": 16.28,
    "company": "Perella Weinberg Partners",
    "top_rank": 4,
    "confidence": "medium",
@@ -541,22 +856,27 @@ window.DASHBOARD_DATA = {
    },
    "history": [
     [
-     "2026-09-28",
-     14.64
+     "2026-09-29",
+     16.37
+    ],
+    [
+     "2026-09-30",
+     16.0
     ]
    ],
    "horizons": {
-    "1 day": null,
+    "1 day": -1.72,
     "1 week": null,
     "1 month": null
    },
    "level_status": null,
-   "price_now": null,
-   "return_pct": null,
-   "directional_return_pct": null,
-   "correct": null,
-   "vs_market_pct": null,
-   "beat_market": null
+   "price_now": 16.0,
+   "return_pct": -1.72,
+   "directional_return_pct": -1.72,
+   "correct": false,
+   "market_move_pct": 0.11,
+   "vs_market_pct": -1.83,
+   "beat_market": false
   },
   {
    "date": "2026-09-29",
@@ -564,8 +884,8 @@ window.DASHBOARD_DATA = {
    "direction": "bearish",
    "reason": "Treasury yields are rising with oil and a firm dollar, and Reuters says the bond market is bracing for a new era of higher rates, which pushes long-bond prices down.",
    "price_at_pick": 77.96,
-   "entry_date": null,
-   "entry_price": null,
+   "entry_date": "2026-09-30",
+   "entry_price": 78.18,
    "company": "iShares 20+ Year Treasury Bond ETF",
    "top_rank": null,
    "confidence": "medium",
@@ -582,22 +902,27 @@ window.DASHBOARD_DATA = {
    },
    "history": [
     [
-     "2026-09-28",
-     78.62
+     "2026-09-29",
+     78.23
+    ],
+    [
+     "2026-09-30",
+     77.61
     ]
    ],
    "horizons": {
-    "1 day": null,
+    "1 day": 0.73,
     "1 week": null,
     "1 month": null
    },
    "level_status": null,
-   "price_now": null,
-   "return_pct": null,
-   "directional_return_pct": null,
-   "correct": null,
-   "vs_market_pct": null,
-   "beat_market": null
+   "price_now": 77.61,
+   "return_pct": -0.73,
+   "directional_return_pct": 0.73,
+   "correct": true,
+   "market_move_pct": 0.11,
+   "vs_market_pct": 0.84,
+   "beat_market": true
   },
   {
    "date": "2026-09-29",
@@ -605,8 +930,8 @@ window.DASHBOARD_DATA = {
    "direction": "bullish",
    "reason": "Analysts flagged Meta's Muse shopping agent as a real threat to Apple's services and search economics, putting Meta on the winning side of the AI-agent shift.",
    "price_at_pick": 730.35,
-   "entry_date": null,
-   "entry_price": null,
+   "entry_date": "2026-09-30",
+   "entry_price": 729.0,
    "company": "Meta Platforms",
    "top_rank": 2,
    "confidence": "medium",
@@ -623,22 +948,27 @@ window.DASHBOARD_DATA = {
    },
    "history": [
     [
-     "2026-09-28",
-     715.62
+     "2026-09-29",
+     738.79
+    ],
+    [
+     "2026-09-30",
+     733.43
     ]
    ],
    "horizons": {
-    "1 day": null,
+    "1 day": 0.61,
     "1 week": null,
     "1 month": null
    },
    "level_status": null,
-   "price_now": null,
-   "return_pct": null,
-   "directional_return_pct": null,
-   "correct": null,
-   "vs_market_pct": null,
-   "beat_market": null
+   "price_now": 733.43,
+   "return_pct": 0.61,
+   "directional_return_pct": 0.61,
+   "correct": true,
+   "market_move_pct": 0.11,
+   "vs_market_pct": 0.5,
+   "beat_market": true
   },
   {
    "date": "2026-09-29",
@@ -646,8 +976,8 @@ window.DASHBOARD_DATA = {
    "direction": "bearish",
    "reason": "Gold sits near a seven-week low with the dollar near a two-month peak and yields climbing, and renewed US-Iran talks reduce safe-haven demand.",
    "price_at_pick": 381.64,
-   "entry_date": null,
-   "entry_price": null,
+   "entry_date": "2026-09-30",
+   "entry_price": 384.39,
    "company": "SPDR Gold Shares",
    "top_rank": null,
    "confidence": "low",
@@ -664,22 +994,27 @@ window.DASHBOARD_DATA = {
    },
    "history": [
     [
-     "2026-09-28",
-     377.91
+     "2026-09-29",
+     382.89
+    ],
+    [
+     "2026-09-30",
+     380.39
     ]
    ],
    "horizons": {
-    "1 day": null,
+    "1 day": 1.04,
     "1 week": null,
     "1 month": null
    },
    "level_status": null,
-   "price_now": null,
-   "return_pct": null,
-   "directional_return_pct": null,
-   "correct": null,
-   "vs_market_pct": null,
-   "beat_market": null
+   "price_now": 380.39,
+   "return_pct": -1.04,
+   "directional_return_pct": 1.04,
+   "correct": true,
+   "market_move_pct": 0.11,
+   "vs_market_pct": 1.15,
+   "beat_market": true
   },
   {
    "date": "2026-09-29",
@@ -687,8 +1022,8 @@ window.DASHBOARD_DATA = {
    "direction": "bullish",
    "reason": "Cheniere signed a long-term LNG sale and purchase agreement with Petrobras, adding contracted cash flow at a time of tight global energy supply.",
    "price_at_pick": 267.89,
-   "entry_date": null,
-   "entry_price": null,
+   "entry_date": "2026-09-30",
+   "entry_price": 267.98,
    "company": "Cheniere Energy",
    "top_rank": 3,
    "confidence": "medium",
@@ -705,22 +1040,27 @@ window.DASHBOARD_DATA = {
    },
    "history": [
     [
-     "2026-09-28",
-     269.65
+     "2026-09-29",
+     267.29
+    ],
+    [
+     "2026-09-30",
+     268.94
     ]
    ],
    "horizons": {
-    "1 day": null,
+    "1 day": 0.36,
     "1 week": null,
     "1 month": null
    },
    "level_status": null,
-   "price_now": null,
-   "return_pct": null,
-   "directional_return_pct": null,
-   "correct": null,
-   "vs_market_pct": null,
-   "beat_market": null
+   "price_now": 268.94,
+   "return_pct": 0.36,
+   "directional_return_pct": 0.36,
+   "correct": true,
+   "market_move_pct": 0.11,
+   "vs_market_pct": 0.25,
+   "beat_market": true
   },
   {
    "date": "2026-09-29",
@@ -728,8 +1068,8 @@ window.DASHBOARD_DATA = {
    "direction": "bullish",
    "reason": "WTI above $90 with Middle East supply risk keeps upstream cash flow strong.",
    "price_at_pick": 161.41,
-   "entry_date": null,
-   "entry_price": null,
+   "entry_date": "2026-09-30",
+   "entry_price": 162.23,
    "company": "Exxon Mobil",
    "top_rank": 5,
    "confidence": "low",
@@ -746,22 +1086,27 @@ window.DASHBOARD_DATA = {
    },
    "history": [
     [
-     "2026-09-28",
-     162.52
+     "2026-09-29",
+     161.35
+    ],
+    [
+     "2026-09-30",
+     164.3
     ]
    ],
    "horizons": {
-    "1 day": null,
+    "1 day": 1.28,
     "1 week": null,
     "1 month": null
    },
    "level_status": null,
-   "price_now": null,
-   "return_pct": null,
-   "directional_return_pct": null,
-   "correct": null,
-   "vs_market_pct": null,
-   "beat_market": null
+   "price_now": 164.3,
+   "return_pct": 1.28,
+   "directional_return_pct": 1.28,
+   "correct": true,
+   "market_move_pct": 0.11,
+   "vs_market_pct": 1.17,
+   "beat_market": true
   },
   {
    "date": "2026-09-28",
@@ -769,8 +1114,8 @@ window.DASHBOARD_DATA = {
    "direction": "bearish",
    "reason": "Treasury yields keep climbing on oil-driven inflation fears and rate-hike bets, and bond prices fall when yields rise.",
    "price_at_pick": 78.61,
-   "entry_date": null,
-   "entry_price": null,
+   "entry_date": "2026-09-29",
+   "entry_price": 78.52,
    "company": "iShares 20+ Year Treasury Bond ETF",
    "top_rank": null,
    "confidence": "medium",
@@ -789,20 +1134,29 @@ window.DASHBOARD_DATA = {
     [
      "2026-09-28",
      78.62
+    ],
+    [
+     "2026-09-29",
+     78.23
+    ],
+    [
+     "2026-09-30",
+     77.61
     ]
    ],
    "horizons": {
-    "1 day": null,
+    "1 day": 0.37,
     "1 week": null,
     "1 month": null
    },
    "level_status": null,
-   "price_now": 78.62,
-   "return_pct": null,
-   "directional_return_pct": null,
-   "correct": null,
-   "vs_market_pct": null,
-   "beat_market": null
+   "price_now": 77.61,
+   "return_pct": -1.16,
+   "directional_return_pct": 1.16,
+   "correct": true,
+   "market_move_pct": 0.06,
+   "vs_market_pct": 1.22,
+   "beat_market": true
   },
   {
    "date": "2026-09-28",
@@ -810,8 +1164,8 @@ window.DASHBOARD_DATA = {
    "direction": "bullish",
    "reason": "Record UK diesel prices from the Iran conflict point to fat refining margins, and refiners led September's energy rally.",
    "price_at_pick": 388.56,
-   "entry_date": null,
-   "entry_price": null,
+   "entry_date": "2026-09-29",
+   "entry_price": 381.57,
    "company": "Valero Energy",
    "top_rank": 1,
    "confidence": "medium",
@@ -830,20 +1184,29 @@ window.DASHBOARD_DATA = {
     [
      "2026-09-28",
      389.57
+    ],
+    [
+     "2026-09-29",
+     387.72
+    ],
+    [
+     "2026-09-30",
+     395.74
     ]
    ],
    "horizons": {
-    "1 day": null,
+    "1 day": 1.61,
     "1 week": null,
     "1 month": null
    },
    "level_status": null,
-   "price_now": 389.57,
-   "return_pct": null,
-   "directional_return_pct": null,
-   "correct": null,
-   "vs_market_pct": null,
-   "beat_market": null
+   "price_now": 395.74,
+   "return_pct": 3.71,
+   "directional_return_pct": 3.71,
+   "correct": true,
+   "market_move_pct": 0.06,
+   "vs_market_pct": 3.65,
+   "beat_market": true
   },
   {
    "date": "2026-09-28",
@@ -851,8 +1214,8 @@ window.DASHBOARD_DATA = {
    "direction": "bullish",
    "reason": "Qatar extended force majeure on LNG cargoes to European and Asian buyers, making reliable US LNG supply more valuable.",
    "price_at_pick": 270.62,
-   "entry_date": null,
-   "entry_price": null,
+   "entry_date": "2026-09-29",
+   "entry_price": 266.1,
    "company": "Cheniere Energy",
    "top_rank": 2,
    "confidence": "medium",
@@ -871,20 +1234,29 @@ window.DASHBOARD_DATA = {
     [
      "2026-09-28",
      269.65
+    ],
+    [
+     "2026-09-29",
+     267.29
+    ],
+    [
+     "2026-09-30",
+     268.94
     ]
    ],
    "horizons": {
-    "1 day": null,
+    "1 day": 0.45,
     "1 week": null,
     "1 month": null
    },
    "level_status": null,
-   "price_now": 269.65,
-   "return_pct": null,
-   "directional_return_pct": null,
-   "correct": null,
-   "vs_market_pct": null,
-   "beat_market": null
+   "price_now": 268.94,
+   "return_pct": 1.07,
+   "directional_return_pct": 1.07,
+   "correct": true,
+   "market_move_pct": 0.06,
+   "vs_market_pct": 1.01,
+   "beat_market": true
   },
   {
    "date": "2026-09-28",
@@ -892,8 +1264,8 @@ window.DASHBOARD_DATA = {
    "direction": "bullish",
    "reason": "Nvidia added $150 billion to its buyback and management is publicly calling the stock cheap at ~16.5x forward earnings, with Micron's results Wednesday a near-term AI catalyst.",
    "price_at_pick": 228.52,
-   "entry_date": null,
-   "entry_price": null,
+   "entry_date": "2026-09-29",
+   "entry_price": 230.97,
    "company": "NVIDIA",
    "top_rank": 3,
    "confidence": "medium",
@@ -912,20 +1284,29 @@ window.DASHBOARD_DATA = {
     [
      "2026-09-28",
      228.86
+    ],
+    [
+     "2026-09-29",
+     227.21
+    ],
+    [
+     "2026-09-30",
+     230.4
     ]
    ],
    "horizons": {
-    "1 day": null,
+    "1 day": -1.63,
     "1 week": null,
     "1 month": null
    },
    "level_status": null,
-   "price_now": 228.86,
-   "return_pct": null,
-   "directional_return_pct": null,
-   "correct": null,
-   "vs_market_pct": null,
-   "beat_market": null
+   "price_now": 230.4,
+   "return_pct": -0.25,
+   "directional_return_pct": -0.25,
+   "correct": false,
+   "market_move_pct": 0.06,
+   "vs_market_pct": -0.31,
+   "beat_market": false
   },
   {
    "date": "2026-09-28",
@@ -933,8 +1314,8 @@ window.DASHBOARD_DATA = {
    "direction": "bearish",
    "reason": "Airlines are jet-fuel price takers, and the US-Iran stalemate keeps crude and distillate prices elevated.",
    "price_at_pick": 13.54,
-   "entry_date": null,
-   "entry_price": null,
+   "entry_date": "2026-09-29",
+   "entry_price": 13.86,
    "company": "American Airlines",
    "top_rank": null,
    "confidence": "low",
@@ -953,20 +1334,29 @@ window.DASHBOARD_DATA = {
     [
      "2026-09-28",
      13.52
+    ],
+    [
+     "2026-09-29",
+     13.61
+    ],
+    [
+     "2026-09-30",
+     13.3
     ]
    ],
    "horizons": {
-    "1 day": null,
+    "1 day": 1.8,
     "1 week": null,
     "1 month": null
    },
    "level_status": null,
-   "price_now": 13.52,
-   "return_pct": null,
-   "directional_return_pct": null,
-   "correct": null,
-   "vs_market_pct": null,
-   "beat_market": null
+   "price_now": 13.3,
+   "return_pct": -4.04,
+   "directional_return_pct": 4.04,
+   "correct": true,
+   "market_move_pct": 0.06,
+   "vs_market_pct": 4.1,
+   "beat_market": true
   },
   {
    "date": "2026-09-28",
@@ -974,8 +1364,8 @@ window.DASHBOARD_DATA = {
    "direction": "bullish",
    "reason": "Russia is lifting 2027 military spending 27% and the EU added new sanctions, keeping global defense budgets on an upward path.",
    "price_at_pick": 186.93,
-   "entry_date": null,
-   "entry_price": null,
+   "entry_date": "2026-09-29",
+   "entry_price": 187.0,
    "company": "RTX Corp",
    "top_rank": null,
    "confidence": "low",
@@ -994,20 +1384,29 @@ window.DASHBOARD_DATA = {
     [
      "2026-09-28",
      187.66
+    ],
+    [
+     "2026-09-29",
+     186.94
+    ],
+    [
+     "2026-09-30",
+     186.31
     ]
    ],
    "horizons": {
-    "1 day": null,
+    "1 day": -0.03,
     "1 week": null,
     "1 month": null
    },
    "level_status": null,
-   "price_now": 187.66,
-   "return_pct": null,
-   "directional_return_pct": null,
-   "correct": null,
-   "vs_market_pct": null,
-   "beat_market": null
+   "price_now": 186.31,
+   "return_pct": -0.37,
+   "directional_return_pct": -0.37,
+   "correct": false,
+   "market_move_pct": 0.06,
+   "vs_market_pct": -0.43,
+   "beat_market": false
   },
   {
    "date": "2026-09-28",
@@ -1015,8 +1414,8 @@ window.DASHBOARD_DATA = {
    "direction": "bullish",
    "reason": "Cash-rich major leveraged to an oil price kept high by the Iran stalemate.",
    "price_at_pick": 162.65,
-   "entry_date": null,
-   "entry_price": null,
+   "entry_date": "2026-09-29",
+   "entry_price": 160.22,
    "company": "Exxon Mobil",
    "top_rank": 4,
    "confidence": "low",
@@ -1035,20 +1434,29 @@ window.DASHBOARD_DATA = {
     [
      "2026-09-28",
      162.52
+    ],
+    [
+     "2026-09-29",
+     161.35
+    ],
+    [
+     "2026-09-30",
+     164.3
     ]
    ],
    "horizons": {
-    "1 day": null,
+    "1 day": 0.71,
     "1 week": null,
     "1 month": null
    },
    "level_status": null,
-   "price_now": 162.52,
-   "return_pct": null,
-   "directional_return_pct": null,
-   "correct": null,
-   "vs_market_pct": null,
-   "beat_market": null
+   "price_now": 164.3,
+   "return_pct": 2.55,
+   "directional_return_pct": 2.55,
+   "correct": true,
+   "market_move_pct": 0.06,
+   "vs_market_pct": 2.49,
+   "beat_market": true
   },
   {
    "date": "2026-09-28",
@@ -1056,8 +1464,8 @@ window.DASHBOARD_DATA = {
    "direction": "bullish",
    "reason": "Two Wall Street upgrades after a sharp pullback, with travel demand still resilient.",
    "price_at_pick": 243.27,
-   "entry_date": null,
-   "entry_price": null,
+   "entry_date": "2026-09-29",
+   "entry_price": 257.2,
    "company": "Royal Caribbean",
    "top_rank": 5,
    "confidence": "low",
@@ -1076,20 +1484,29 @@ window.DASHBOARD_DATA = {
     [
      "2026-09-28",
      242.59
+    ],
+    [
+     "2026-09-29",
+     260.67
+    ],
+    [
+     "2026-09-30",
+     266.17
     ]
    ],
    "horizons": {
-    "1 day": null,
+    "1 day": 1.35,
     "1 week": null,
     "1 month": null
    },
-   "level_status": null,
-   "price_now": 242.59,
-   "return_pct": null,
-   "directional_return_pct": null,
-   "correct": null,
-   "vs_market_pct": null,
-   "beat_market": null
+   "level_status": "target",
+   "price_now": 266.17,
+   "return_pct": 3.49,
+   "directional_return_pct": 3.49,
+   "correct": true,
+   "market_move_pct": 0.06,
+   "vs_market_pct": 3.43,
+   "beat_market": true
   },
   {
    "date": "2026-09-25",
@@ -1121,6 +1538,14 @@ window.DASHBOARD_DATA = {
     [
      "2026-09-28",
      78.62
+    ],
+    [
+     "2026-09-29",
+     78.23
+    ],
+    [
+     "2026-09-30",
+     77.61
     ]
    ],
    "horizons": {
@@ -1129,12 +1554,12 @@ window.DASHBOARD_DATA = {
     "1 month": null
    },
    "level_status": null,
-   "price_now": 78.62,
-   "return_pct": -0.94,
-   "directional_return_pct": 0.94,
+   "price_now": 77.61,
+   "return_pct": -2.22,
+   "directional_return_pct": 2.22,
    "correct": true,
-   "market_move_pct": -0.41,
-   "vs_market_pct": 0.53,
+   "market_move_pct": -0.19,
+   "vs_market_pct": 2.03,
    "beat_market": true
   },
   {
@@ -1167,6 +1592,14 @@ window.DASHBOARD_DATA = {
     [
      "2026-09-28",
      84.03
+    ],
+    [
+     "2026-09-29",
+     84.87
+    ],
+    [
+     "2026-09-30",
+     83.54
     ]
    ],
    "horizons": {
@@ -1175,13 +1608,13 @@ window.DASHBOARD_DATA = {
     "1 month": null
    },
    "level_status": null,
-   "price_now": 84.03,
-   "return_pct": 0.04,
-   "directional_return_pct": 0.04,
-   "correct": true,
-   "market_move_pct": -0.41,
-   "vs_market_pct": 0.45,
-   "beat_market": true
+   "price_now": 83.54,
+   "return_pct": -0.55,
+   "directional_return_pct": -0.55,
+   "correct": false,
+   "market_move_pct": -0.19,
+   "vs_market_pct": -0.36,
+   "beat_market": false
   },
   {
    "date": "2026-09-25",
@@ -1213,6 +1646,14 @@ window.DASHBOARD_DATA = {
     [
      "2026-09-28",
      46.73
+    ],
+    [
+     "2026-09-29",
+     46.6
+    ],
+    [
+     "2026-09-30",
+     46.56
     ]
    ],
    "horizons": {
@@ -1221,12 +1662,12 @@ window.DASHBOARD_DATA = {
     "1 month": null
    },
    "level_status": null,
-   "price_now": 46.73,
-   "return_pct": -2.32,
-   "directional_return_pct": -2.32,
+   "price_now": 46.56,
+   "return_pct": -2.68,
+   "directional_return_pct": -2.68,
    "correct": false,
-   "market_move_pct": -0.41,
-   "vs_market_pct": -1.91,
+   "market_move_pct": -0.19,
+   "vs_market_pct": -2.49,
    "beat_market": false
   },
   {
@@ -1259,6 +1700,14 @@ window.DASHBOARD_DATA = {
     [
      "2026-09-28",
      72.19
+    ],
+    [
+     "2026-09-29",
+     69.7
+    ],
+    [
+     "2026-09-30",
+     71.65
     ]
    ],
    "horizons": {
@@ -1267,12 +1716,12 @@ window.DASHBOARD_DATA = {
     "1 month": null
    },
    "level_status": null,
-   "price_now": 72.19,
-   "return_pct": -2.64,
-   "directional_return_pct": -2.64,
+   "price_now": 71.65,
+   "return_pct": -3.37,
+   "directional_return_pct": -3.37,
    "correct": false,
-   "market_move_pct": -0.41,
-   "vs_market_pct": -2.23,
+   "market_move_pct": -0.19,
+   "vs_market_pct": -3.18,
    "beat_market": false
   },
   {
@@ -1305,6 +1754,14 @@ window.DASHBOARD_DATA = {
     [
      "2026-09-28",
      93.71
+    ],
+    [
+     "2026-09-29",
+     94.06
+    ],
+    [
+     "2026-09-30",
+     95.59
     ]
    ],
    "horizons": {
@@ -1313,12 +1770,12 @@ window.DASHBOARD_DATA = {
     "1 month": null
    },
    "level_status": null,
-   "price_now": 93.71,
-   "return_pct": -5.63,
-   "directional_return_pct": -5.63,
+   "price_now": 95.59,
+   "return_pct": -3.74,
+   "directional_return_pct": -3.74,
    "correct": false,
-   "market_move_pct": -0.41,
-   "vs_market_pct": -5.22,
+   "market_move_pct": -0.19,
+   "vs_market_pct": -3.55,
    "beat_market": false
   },
   {
@@ -1351,6 +1808,14 @@ window.DASHBOARD_DATA = {
     [
      "2026-09-28",
      377.91
+    ],
+    [
+     "2026-09-29",
+     382.89
+    ],
+    [
+     "2026-09-30",
+     380.39
     ]
    ],
    "horizons": {
@@ -1359,12 +1824,12 @@ window.DASHBOARD_DATA = {
     "1 month": null
    },
    "level_status": "target",
-   "price_now": 377.91,
-   "return_pct": -3.65,
-   "directional_return_pct": 3.65,
+   "price_now": 380.39,
+   "return_pct": -3.01,
+   "directional_return_pct": 3.01,
    "correct": true,
-   "market_move_pct": -0.41,
-   "vs_market_pct": 3.24,
+   "market_move_pct": -0.19,
+   "vs_market_pct": 2.82,
    "beat_market": true
   },
   {
@@ -1397,6 +1862,14 @@ window.DASHBOARD_DATA = {
     [
      "2026-09-28",
      336.59
+    ],
+    [
+     "2026-09-29",
+     334.98
+    ],
+    [
+     "2026-09-30",
+     332.04
     ]
    ],
    "horizons": {
@@ -1405,12 +1878,12 @@ window.DASHBOARD_DATA = {
     "1 month": null
    },
    "level_status": null,
-   "price_now": 336.59,
-   "return_pct": -1.23,
-   "directional_return_pct": -1.23,
+   "price_now": 332.04,
+   "return_pct": -2.56,
+   "directional_return_pct": -2.56,
    "correct": false,
-   "market_move_pct": -0.41,
-   "vs_market_pct": -0.82,
+   "market_move_pct": -0.19,
+   "vs_market_pct": -2.37,
    "beat_market": false
   },
   {
@@ -1447,21 +1920,29 @@ window.DASHBOARD_DATA = {
     [
      "2026-09-28",
      162.52
+    ],
+    [
+     "2026-09-29",
+     161.35
+    ],
+    [
+     "2026-09-30",
+     164.3
     ]
    ],
    "horizons": {
     "1 day": -0.56,
-    "1 week": null,
+    "1 week": 0.76,
     "1 month": null
    },
    "level_status": null,
-   "price_now": 162.52,
-   "return_pct": -0.33,
-   "directional_return_pct": -0.33,
-   "correct": false,
-   "market_move_pct": 0.2,
-   "vs_market_pct": -0.53,
-   "beat_market": false
+   "price_now": 164.3,
+   "return_pct": 0.76,
+   "directional_return_pct": 0.76,
+   "correct": true,
+   "market_move_pct": 0.42,
+   "vs_market_pct": 0.34,
+   "beat_market": true
   },
   {
    "date": "2026-09-24",
@@ -1497,20 +1978,28 @@ window.DASHBOARD_DATA = {
     [
      "2026-09-28",
      389.57
+    ],
+    [
+     "2026-09-29",
+     387.72
+    ],
+    [
+     "2026-09-30",
+     395.74
     ]
    ],
    "horizons": {
     "1 day": 1.0,
-    "1 week": null,
+    "1 week": 4.4,
     "1 month": null
    },
    "level_status": null,
-   "price_now": 389.57,
-   "return_pct": 2.77,
-   "directional_return_pct": 2.77,
+   "price_now": 395.74,
+   "return_pct": 4.4,
+   "directional_return_pct": 4.4,
    "correct": true,
-   "market_move_pct": 0.2,
-   "vs_market_pct": 2.57,
+   "market_move_pct": 0.42,
+   "vs_market_pct": 3.98,
    "beat_market": true
   },
   {
@@ -1547,20 +2036,28 @@ window.DASHBOARD_DATA = {
     [
      "2026-09-28",
      78.62
+    ],
+    [
+     "2026-09-29",
+     78.23
+    ],
+    [
+     "2026-09-30",
+     77.61
     ]
    ],
    "horizons": {
     "1 day": 1.16,
-    "1 week": null,
+    "1 week": 3.41,
     "1 month": null
    },
    "level_status": null,
-   "price_now": 78.62,
-   "return_pct": -2.15,
-   "directional_return_pct": 2.15,
+   "price_now": 77.61,
+   "return_pct": -3.41,
+   "directional_return_pct": 3.41,
    "correct": true,
-   "market_move_pct": 0.2,
-   "vs_market_pct": 2.35,
+   "market_move_pct": 0.42,
+   "vs_market_pct": 3.83,
    "beat_market": true
   },
   {
@@ -1597,20 +2094,28 @@ window.DASHBOARD_DATA = {
     [
      "2026-09-28",
      715.62
+    ],
+    [
+     "2026-09-29",
+     738.79
+    ],
+    [
+     "2026-09-30",
+     733.43
     ]
    ],
    "horizons": {
     "1 day": 4.46,
-    "1 week": null,
+    "1 week": -1.47,
     "1 month": null
    },
    "level_status": "stop",
-   "price_now": 715.62,
-   "return_pct": -3.86,
-   "directional_return_pct": -3.86,
+   "price_now": 733.43,
+   "return_pct": -1.47,
+   "directional_return_pct": -1.47,
    "correct": false,
-   "market_move_pct": 0.2,
-   "vs_market_pct": -4.06,
+   "market_move_pct": 0.42,
+   "vs_market_pct": -1.89,
    "beat_market": false
   },
   {
@@ -1647,20 +2152,28 @@ window.DASHBOARD_DATA = {
     [
      "2026-09-28",
      31.86
+    ],
+    [
+     "2026-09-29",
+     31.52
+    ],
+    [
+     "2026-09-30",
+     31.17
     ]
    ],
    "horizons": {
     "1 day": 0.53,
-    "1 week": null,
+    "1 week": 7.97,
     "1 month": null
    },
-   "level_status": null,
-   "price_now": 31.86,
-   "return_pct": -5.93,
-   "directional_return_pct": 5.93,
+   "level_status": "target",
+   "price_now": 31.17,
+   "return_pct": -7.97,
+   "directional_return_pct": 7.97,
    "correct": true,
-   "market_move_pct": 0.2,
-   "vs_market_pct": 6.13,
+   "market_move_pct": 0.42,
+   "vs_market_pct": 8.39,
    "beat_market": true
   },
   {
@@ -1697,20 +2210,28 @@ window.DASHBOARD_DATA = {
     [
      "2026-09-28",
      93.71
+    ],
+    [
+     "2026-09-29",
+     94.06
+    ],
+    [
+     "2026-09-30",
+     95.59
     ]
    ],
    "horizons": {
     "1 day": 3.69,
-    "1 week": null,
+    "1 week": -1.68,
     "1 month": null
    },
    "level_status": "stop",
-   "price_now": 93.71,
-   "return_pct": -3.61,
-   "directional_return_pct": -3.61,
+   "price_now": 95.59,
+   "return_pct": -1.68,
+   "directional_return_pct": -1.68,
    "correct": false,
-   "market_move_pct": 0.2,
-   "vs_market_pct": -3.81,
+   "market_move_pct": 0.42,
+   "vs_market_pct": -2.1,
    "beat_market": false
   },
   {
@@ -1747,20 +2268,28 @@ window.DASHBOARD_DATA = {
     [
      "2026-09-28",
      509.22
+    ],
+    [
+     "2026-09-29",
+     508.96
+    ],
+    [
+     "2026-09-30",
+     518.02
     ]
    ],
    "horizons": {
     "1 day": 0.58,
-    "1 week": null,
+    "1 week": 4.64,
     "1 month": null
    },
    "level_status": null,
-   "price_now": 509.22,
-   "return_pct": 2.86,
-   "directional_return_pct": 2.86,
+   "price_now": 518.02,
+   "return_pct": 4.64,
+   "directional_return_pct": 4.64,
    "correct": true,
-   "market_move_pct": 0.2,
-   "vs_market_pct": 2.66,
+   "market_move_pct": 0.42,
+   "vs_market_pct": 4.22,
    "beat_market": true
   },
   {
@@ -1797,20 +2326,28 @@ window.DASHBOARD_DATA = {
     [
      "2026-09-28",
      336.59
+    ],
+    [
+     "2026-09-29",
+     334.98
+    ],
+    [
+     "2026-09-30",
+     332.04
     ]
    ],
    "horizons": {
     "1 day": 0.13,
-    "1 week": null,
+    "1 week": -1.8,
     "1 month": null
    },
    "level_status": null,
-   "price_now": 336.59,
-   "return_pct": -0.45,
-   "directional_return_pct": -0.45,
+   "price_now": 332.04,
+   "return_pct": -1.8,
+   "directional_return_pct": -1.8,
    "correct": false,
-   "market_move_pct": 0.2,
-   "vs_market_pct": -0.65,
+   "market_move_pct": 0.42,
+   "vs_market_pct": -2.22,
    "beat_market": false
   },
   {
@@ -1851,20 +2388,28 @@ window.DASHBOARD_DATA = {
     [
      "2026-09-28",
      715.62
+    ],
+    [
+     "2026-09-29",
+     738.79
+    ],
+    [
+     "2026-09-30",
+     733.43
     ]
    ],
    "horizons": {
     "1 day": -0.47,
-    "1 week": null,
+    "1 week": -1.18,
     "1 month": null
    },
    "level_status": null,
-   "price_now": 715.62,
-   "return_pct": -4.28,
-   "directional_return_pct": -4.28,
+   "price_now": 733.43,
+   "return_pct": -1.9,
+   "directional_return_pct": -1.9,
    "correct": false,
-   "market_move_pct": -0.93,
-   "vs_market_pct": -3.35,
+   "market_move_pct": -0.71,
+   "vs_market_pct": -1.19,
    "beat_market": false
   },
   {
@@ -1905,20 +2450,28 @@ window.DASHBOARD_DATA = {
     [
      "2026-09-28",
      46.73
+    ],
+    [
+     "2026-09-29",
+     46.6
+    ],
+    [
+     "2026-09-30",
+     46.56
     ]
    ],
    "horizons": {
     "1 day": 1.39,
-    "1 week": null,
+    "1 week": -1.65,
     "1 month": null
    },
    "level_status": null,
-   "price_now": 46.73,
-   "return_pct": -1.37,
-   "directional_return_pct": -1.37,
+   "price_now": 46.56,
+   "return_pct": -1.73,
+   "directional_return_pct": -1.73,
    "correct": false,
-   "market_move_pct": -0.93,
-   "vs_market_pct": -0.44,
+   "market_move_pct": -0.71,
+   "vs_market_pct": -1.02,
    "beat_market": false
   },
   {
@@ -1959,20 +2512,28 @@ window.DASHBOARD_DATA = {
     [
      "2026-09-28",
      78.62
+    ],
+    [
+     "2026-09-29",
+     78.23
+    ],
+    [
+     "2026-09-30",
+     77.61
     ]
    ],
    "horizons": {
     "1 day": 1.25,
-    "1 week": null,
+    "1 week": 3.99,
     "1 month": null
    },
    "level_status": null,
-   "price_now": 78.62,
-   "return_pct": -3.51,
-   "directional_return_pct": 3.51,
+   "price_now": 77.61,
+   "return_pct": -4.75,
+   "directional_return_pct": 4.75,
    "correct": true,
-   "market_move_pct": -0.93,
-   "vs_market_pct": 2.58,
+   "market_move_pct": -0.71,
+   "vs_market_pct": 4.04,
    "beat_market": true
   },
   {
@@ -2013,20 +2574,28 @@ window.DASHBOARD_DATA = {
     [
      "2026-09-28",
      44.58
+    ],
+    [
+     "2026-09-29",
+     43.91
+    ],
+    [
+     "2026-09-30",
+     44.48
     ]
    ],
    "horizons": {
     "1 day": -7.2,
-    "1 week": null,
+    "1 week": -4.21,
     "1 month": null
    },
    "level_status": null,
-   "price_now": 44.58,
-   "return_pct": -2.75,
-   "directional_return_pct": -2.75,
+   "price_now": 44.48,
+   "return_pct": -2.97,
+   "directional_return_pct": -2.97,
    "correct": false,
-   "market_move_pct": -0.93,
-   "vs_market_pct": -1.82,
+   "market_move_pct": -0.71,
+   "vs_market_pct": -2.26,
    "beat_market": false
   },
   {
@@ -2067,20 +2636,28 @@ window.DASHBOARD_DATA = {
     [
      "2026-09-28",
      389.57
+    ],
+    [
+     "2026-09-29",
+     387.72
+    ],
+    [
+     "2026-09-30",
+     395.74
     ]
    ],
    "horizons": {
     "1 day": 1.21,
-    "1 week": null,
+    "1 week": -1.92,
     "1 month": null
    },
    "level_status": null,
-   "price_now": 389.57,
-   "return_pct": 2.4,
-   "directional_return_pct": -2.4,
+   "price_now": 395.74,
+   "return_pct": 4.02,
+   "directional_return_pct": -4.02,
    "correct": false,
-   "market_move_pct": -0.93,
-   "vs_market_pct": -3.33,
+   "market_move_pct": -0.71,
+   "vs_market_pct": -4.73,
    "beat_market": false
   },
   {
@@ -2121,21 +2698,29 @@ window.DASHBOARD_DATA = {
     [
      "2026-09-28",
      52.04
+    ],
+    [
+     "2026-09-29",
+     52.0
+    ],
+    [
+     "2026-09-30",
+     50.31
     ]
    ],
    "horizons": {
     "1 day": 0.21,
-    "1 week": null,
+    "1 week": 0.23,
     "1 month": null
    },
    "level_status": null,
-   "price_now": 52.04,
-   "return_pct": 0.31,
-   "directional_return_pct": 0.31,
-   "correct": true,
-   "market_move_pct": -0.93,
-   "vs_market_pct": 1.24,
-   "beat_market": true
+   "price_now": 50.31,
+   "return_pct": -3.03,
+   "directional_return_pct": -3.03,
+   "correct": false,
+   "market_move_pct": -0.71,
+   "vs_market_pct": -2.32,
+   "beat_market": false
   },
   {
    "date": "2026-09-23",
@@ -2175,20 +2760,28 @@ window.DASHBOARD_DATA = {
     [
      "2026-09-28",
      1053.98
+    ],
+    [
+     "2026-09-29",
+     1065.08
+    ],
+    [
+     "2026-09-30",
+     1070.23
     ]
    ],
    "horizons": {
     "1 day": -2.56,
-    "1 week": null,
+    "1 week": -3.18,
     "1 month": null
    },
    "level_status": null,
-   "price_now": 1053.98,
-   "return_pct": -4.19,
-   "directional_return_pct": -4.19,
+   "price_now": 1070.23,
+   "return_pct": -2.71,
+   "directional_return_pct": -2.71,
    "correct": false,
-   "market_move_pct": -0.93,
-   "vs_market_pct": -3.26,
+   "market_move_pct": -0.71,
+   "vs_market_pct": -2.0,
    "beat_market": false
   },
   {
@@ -2233,20 +2826,28 @@ window.DASHBOARD_DATA = {
     [
      "2026-09-28",
      162.52
+    ],
+    [
+     "2026-09-29",
+     161.35
+    ],
+    [
+     "2026-09-30",
+     164.3
     ]
    ],
    "horizons": {
     "1 day": -1.01,
-    "1 week": null,
+    "1 week": -1.08,
     "1 month": null
    },
    "level_status": null,
-   "price_now": 162.52,
-   "return_pct": 1.82,
-   "directional_return_pct": -1.82,
+   "price_now": 164.3,
+   "return_pct": 2.93,
+   "directional_return_pct": -2.93,
    "correct": false,
-   "market_move_pct": -0.93,
-   "vs_market_pct": -2.75,
+   "market_move_pct": -0.71,
+   "vs_market_pct": -3.64,
    "beat_market": false
   },
   {
@@ -2291,20 +2892,28 @@ window.DASHBOARD_DATA = {
     [
      "2026-09-28",
      84.03
+    ],
+    [
+     "2026-09-29",
+     84.87
+    ],
+    [
+     "2026-09-30",
+     83.54
     ]
    ],
    "horizons": {
     "1 day": -1.15,
-    "1 week": null,
+    "1 week": 2.62,
     "1 month": null
    },
    "level_status": null,
-   "price_now": 84.03,
-   "return_pct": 1.61,
-   "directional_return_pct": 1.61,
+   "price_now": 83.54,
+   "return_pct": 1.02,
+   "directional_return_pct": 1.02,
    "correct": true,
-   "market_move_pct": -0.93,
-   "vs_market_pct": 2.54,
+   "market_move_pct": -0.71,
+   "vs_market_pct": 1.73,
    "beat_market": true
   },
   {
@@ -2349,20 +2958,28 @@ window.DASHBOARD_DATA = {
     [
      "2026-09-28",
      14.79
+    ],
+    [
+     "2026-09-29",
+     14.66
+    ],
+    [
+     "2026-09-30",
+     14.28
     ]
    ],
    "horizons": {
     "1 day": 0.78,
-    "1 week": null,
+    "1 week": -4.25,
     "1 month": null
    },
    "level_status": null,
-   "price_now": 14.79,
-   "return_pct": -3.4,
-   "directional_return_pct": -3.4,
+   "price_now": 14.28,
+   "return_pct": -6.73,
+   "directional_return_pct": -6.73,
    "correct": false,
-   "market_move_pct": -0.93,
-   "vs_market_pct": -2.47,
+   "market_move_pct": -0.71,
+   "vs_market_pct": -6.02,
    "beat_market": false
   },
   {
@@ -2407,21 +3024,29 @@ window.DASHBOARD_DATA = {
     [
      "2026-09-28",
      52.04
+    ],
+    [
+     "2026-09-29",
+     52.0
+    ],
+    [
+     "2026-09-30",
+     50.31
     ]
    ],
    "horizons": {
     "1 day": 0.21,
-    "1 week": null,
+    "1 week": 0.23,
     "1 month": null
    },
    "level_status": null,
-   "price_now": 52.04,
-   "return_pct": 0.31,
-   "directional_return_pct": 0.31,
-   "correct": true,
-   "market_move_pct": -0.93,
-   "vs_market_pct": 1.24,
-   "beat_market": true
+   "price_now": 50.31,
+   "return_pct": -3.03,
+   "directional_return_pct": -3.03,
+   "correct": false,
+   "market_move_pct": -0.71,
+   "vs_market_pct": -2.32,
+   "beat_market": false
   },
   {
    "date": "2026-09-22",
@@ -2465,20 +3090,28 @@ window.DASHBOARD_DATA = {
     [
      "2026-09-28",
      242.59
+    ],
+    [
+     "2026-09-29",
+     260.67
+    ],
+    [
+     "2026-09-30",
+     266.17
     ]
    ],
    "horizons": {
     "1 day": -2.47,
-    "1 week": null,
+    "1 week": 10.39,
     "1 month": null
    },
    "level_status": null,
-   "price_now": 242.59,
-   "return_pct": 2.73,
-   "directional_return_pct": 2.73,
+   "price_now": 266.17,
+   "return_pct": 12.72,
+   "directional_return_pct": 12.72,
    "correct": true,
-   "market_move_pct": -0.93,
-   "vs_market_pct": 3.66,
+   "market_move_pct": -0.71,
+   "vs_market_pct": 13.43,
    "beat_market": true
   },
   {
@@ -2523,20 +3156,28 @@ window.DASHBOARD_DATA = {
     [
      "2026-09-28",
      106.74
+    ],
+    [
+     "2026-09-29",
+     106.94
+    ],
+    [
+     "2026-09-30",
+     108.02
     ]
    ],
    "horizons": {
     "1 day": -0.2,
-    "1 week": null,
+    "1 week": -0.68,
     "1 month": null
    },
    "level_status": null,
-   "price_now": 106.74,
-   "return_pct": 0.49,
-   "directional_return_pct": -0.49,
+   "price_now": 108.02,
+   "return_pct": 1.69,
+   "directional_return_pct": -1.69,
    "correct": false,
-   "market_move_pct": -0.93,
-   "vs_market_pct": -1.42,
+   "market_move_pct": -0.71,
+   "vs_market_pct": -2.4,
    "beat_market": false
   },
   {
@@ -2581,24 +3222,974 @@ window.DASHBOARD_DATA = {
     [
      "2026-09-28",
      228.86
+    ],
+    [
+     "2026-09-29",
+     227.21
+    ],
+    [
+     "2026-09-30",
+     230.4
     ]
    ],
    "horizons": {
     "1 day": -1.11,
-    "1 week": null,
+    "1 week": -0.36,
     "1 month": null
    },
    "level_status": null,
-   "price_now": 228.86,
-   "return_pct": 0.36,
-   "directional_return_pct": 0.36,
+   "price_now": 230.4,
+   "return_pct": 1.04,
+   "directional_return_pct": 1.04,
    "correct": true,
-   "market_move_pct": -0.93,
-   "vs_market_pct": 1.29,
+   "market_move_pct": -0.71,
+   "vs_market_pct": 1.75,
    "beat_market": true
   }
  ],
  "days": [
+  {
+   "date": "2026-09-30",
+   "market_mood": "Geopolitics still dominates: stalled US-Iran talks, Houthi attacks near Saudi airspace and a US pullout from Iraq are keeping oil above $90, while a cooler-than-expected PCE print supported stocks and a heavy wave of M&A clearances (Skyworks/Qorvo, Integer/KKR) kept deal desks busy. Micron's earnings after the close is the key tech catalyst.",
+   "self_check": "My record is mixed (45%), with merger-arb ideas the weakest (1 of 5) and oil and rate calls the best, so today I leaned toward energy and kept deal plays small and only where regulatory approval is already in hand.",
+   "summary": null,
+   "headlines": [
+    {
+     "headline": "Passengers overcame pilot who tried to crash flydubai flight, Israel says - Reuters",
+     "source": "Reuters",
+     "time": "2026-09-30 17:28 UTC",
+     "summary": "Passengers overcame pilot who tried to crash flydubai flight, Israel says\u00a0\u00a0Reuters",
+     "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxOWnpLNmZJUXN6UzQ0RlhKSFhxT2xYMWZ1R1VwYVdZX3ZuZWFTYUZyV1VYTVhralA5Y0ROVjlNVl9XOGpTSWhEcGM3UE01WVA3clNKcm5KdDZ2dUY1U3FyODdsWkkzSWs2VW5NZUJWQXFYQ0dxamNudlljZl92REs3SnFXSEUzTEswdjh4NnRia2VWZGd2TGE2SmZ6VDBQTXpiRDM0SDZSZ29ubUZUd3Zsa0E4LTBoRmxpSDRjd0JkcmhYbkNV?oc=5",
+     "image": "",
+     "about": "",
+     "tickers": []
+    },
+    {
+     "headline": "Sterlington Advises DigitalBridge Management Team on Acquisition by SoftBank Group",
+     "source": "BusinessWire",
+     "time": "2026-09-30 16:44 UTC",
+     "summary": "NEW YORK--(BUSINESS WIRE)--Sterlington advised the management team of DigitalBridge Group, Inc. (DigitalBridge) on its completed acquisition by SoftBank Group Corp. for approximately $3.1 billion. Sterlington advised DigitalBridge's management on all aspects of the transaction, including go-forward ",
+     "url": "http://www.businesswire.com/news/home/20260930437719/en/Sterlington-Advises-DigitalBridge-Management-Team-on-Acquisition-by-SoftBank-Group/?feedref=JjAwJuNHiystnCoBq_hl-Rc4vIAVcHHkbDcwJimU8QtrtlakeQ9hNboBqTAWIjTge3KWq9s9jif-UkBjBsFRyYAbRTSLTc1mgvhPlnaBA55M-oupQnbXnhKsYk8RmHF_kAy2gZikaX3QWV6xOvgFlA==",
+     "image": "",
+     "about": "",
+     "tickers": []
+    },
+    {
+     "headline": "UK links Iran to suspected plot outside airbase used by US bombers - Reuters",
+     "source": "Reuters",
+     "time": "2026-09-30 16:19 UTC",
+     "summary": "UK links Iran to suspected plot outside airbase used by US bombers\u00a0\u00a0Reuters",
+     "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPLXZwczdvclVqQk9CUG8tcG81SUlpdmZLcVUtcmxUWW1xLXFQU09BX3FhZ2NkRnlOMUNZaUJiOW4yT09PLVR4TGUxQW9yT2xuOTU5VzY3dVVoeXNhLVRpWTVIU01obUpZd1hKZElLMks0OGRydDRyMFZYTjZ6cWdnbElqbFpLQW5abGx2ZHZlck1ta0ZSNmxn?oc=5",
+     "image": "",
+     "about": "",
+     "tickers": []
+    },
+    {
+     "headline": "Capgemini closes the sale of Capgemini Government Solutions",
+     "source": "GlobalNewswire",
+     "time": "2026-09-30 16:15 UTC",
+     "summary": "Media Relations:Sam ConnattyTel.: +44 (0) 7811 486517E-Mail: sam.connatty@capgemini.com",
+     "url": "https://www.globenewswire.com/news-release/2026/09/30/3372253/0/en/capgemini-closes-the-sale-of-capgemini-government-solutions.html",
+     "image": "",
+     "about": "",
+     "tickers": []
+    },
+    {
+     "headline": "Capgemini finalise la cession de Capgemini Government Solutions",
+     "source": "GlobalNewswire",
+     "time": "2026-09-30 16:15 UTC",
+     "summary": "Relations Presse\u00a0:Victoire GruxT\u00e9l. : +33 6 04 52 16 55E-mail: victoire.grux@capgemini.com",
+     "url": "https://www.globenewswire.com/news-release/2026/09/30/3372253/0/fr/capgemini-finalise-la-cession-de-capgemini-government-solutions.html",
+     "image": "",
+     "about": "",
+     "tickers": []
+    },
+    {
+     "headline": "EU aviation agency issues Saudi airspace advisory after Houthi attacks - Reuters",
+     "source": "Reuters",
+     "time": "2026-09-30 16:09 UTC",
+     "summary": "EU aviation agency issues Saudi airspace advisory after Houthi attacks\u00a0\u00a0Reuters",
+     "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxOQWJfYXZITmYzSU9mUTRTTlBVdm5fWm5IUHE0dWxwY28wR2tqbUI4eGdNTU0tRDJvR2Y4SDFLWlUxUUY4dkdEdzlOcGoyWTcyN3Z0eXc3bzRkQWlEMUZyZE80cXpnZjg0VDZvZXNsRElURDdDTDROOFNEZTAydWRpQkJiX2hfNGQ0UmU1Y2Q2NF92REtqNVExeDFEZVotNmxLZXdRUVlXRzRsTFk2UWJ5REMxZXROSnRnUXI3UHNBQnVFdw?oc=5",
+     "image": "",
+     "about": "",
+     "tickers": [
+      "XOM",
+      "DAL"
+     ]
+    },
+    {
+     "headline": "Higher interest rates can be scary for stocks \u2014 but it's not that simple",
+     "source": "CNBC",
+     "time": "2026-09-30 15:43 UTC",
+     "summary": "Investors should be more selective when interest rates are on the rise. That doesn't mean leave the market all together.",
+     "url": "https://www.cnbc.com/2026/09/30/higher-interest-rates-can-be-scary-for-stocks-but-its-not-that-simple.html",
+     "image": "https://image.cnbcfm.com/api/v1/image/108295609-1776882616323-gettyimages-2271950132-AFP_A8NJ9YH.jpeg?v=1776882638&w=1920&h=1080",
+     "about": "",
+     "tickers": []
+    },
+    {
+     "headline": "Powerus to Complete Merger with Aureus Greenway Holdings October 1 and Trade as PUSA on Nasdaq",
+     "source": "GlobalNewswire",
+     "time": "2026-09-30 15:37 UTC",
+     "summary": "ROCK HILL, S.C., Sept.  30, 2026  (GLOBE NEWSWIRE) -- Autonomous Power Corporation, dba Powerus (\u201cPowerus\u201d), and Aureus Greenway Holdings Inc. (Nasdaq: PUSA) (\u201cAGH\u201d), today announced that the parties currently expect to complete their previously announced merger tomorrow, on October 1, 2026, subject",
+     "url": "https://www.globenewswire.com/news-release/2026/09/30/3372212/0/en/powerus-to-complete-merger-with-aureus-greenway-holdings-october-1-and-trade-as-pusa-on-nasdaq.html",
+     "image": "",
+     "about": "",
+     "tickers": []
+    },
+    {
+     "headline": "UK antitrust regulator says Brink's deal for NCR Atleos could hurt competition",
+     "source": "SeekingAlpha",
+     "time": "2026-09-30 15:26 UTC",
+     "summary": "",
+     "url": "https://seekingalpha.com/news/4648649-uk-anitrust-regulator-says-brinks-deal-for-ncr-atleos-could-hurt-competition?utm_source=feed_news_m_a&utm_medium=referral&feed_item_type=news",
+     "image": "",
+     "about": "",
+     "tickers": []
+    },
+    {
+     "headline": "Top Ships Inc. Announces Closing of the Acquisition of three High Specification Newbuilding MR Tankers",
+     "source": "GlobalNewswire",
+     "time": "2026-09-30 14:45 UTC",
+     "summary": "ATHENS, Greece, Sept.  30, 2026  (GLOBE NEWSWIRE) -- TOP Ships Inc. (the \"Company\" or \"TOP Ships\") (NYSE American: TOPS), an international owner and operator of modern, fuel-efficient \"ECO\" tanker vessels, announced today the closing of the previously announced share purchase agreement dated July 28",
+     "url": "https://www.globenewswire.com/news-release/2026/09/30/3372135/14465/en/top-ships-inc-announces-closing-of-the-acquisition-of-three-high-specification-newbuilding-mr-tankers.html",
+     "image": "",
+     "about": "",
+     "tickers": []
+    },
+    {
+     "headline": "Parents who want to help their kids in a tough job market should avoid this 1 move, says career expert",
+     "source": "CNBC",
+     "time": "2026-09-30 14:40 UTC",
+     "summary": "Some well-meaning career advice from parents is \"totally useless\" for new grads today, according to journalist Jodi Kantor.",
+     "url": "https://www.cnbc.com/2026/09/30/parents-avoid-meddling-adult-kids-job-search.html",
+     "image": "https://image.cnbcfm.com/api/v1/image/108369433-1790694000537-gettyimages-2189465841-dsc02883.jpeg?v=1790694017&w=1920&h=1080",
+     "about": "",
+     "tickers": []
+    },
+    {
+     "headline": "Bank of England sees growing risk that dangers from AI and debt will materialise - Reuters",
+     "source": "Reuters",
+     "time": "2026-09-30 14:26 UTC",
+     "summary": "Bank of England sees growing risk that dangers from AI and debt will materialise\u00a0\u00a0Reuters",
+     "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxNdDZxOXc0SzIwN2d4Z1p6eDRBOTNfaVlDdFVHSk9LWlZqNk5UUHFwaFEtWDM5VTJFUHFMTFN5bGpaRWZmUldDLW1fQTFTMDlQNGd0QlRHWWxkOFU2SUhUTUtYUUFLZkJhblEwd0xKTnpHLXFDSk1hb1Y0NGJqdzFBVWItVVZjLXd6OUpRbEtHcGRRQmFXZjdlM2tGYzJGaHAyQ0VuM3FkX2dNR1BKMEFQZmwxUkp0NDJxREJLSlhn?oc=5",
+     "image": "",
+     "about": "",
+     "tickers": []
+    },
+    {
+     "headline": "Ceconomy gains on report JD.com is nearing EU approval for deal",
+     "source": "SeekingAlpha",
+     "time": "2026-09-30 14:16 UTC",
+     "summary": "",
+     "url": "https://seekingalpha.com/news/4648557-ceconomy-gains-on-report-jd-com-is-nearing-eu-approval-for-deal?utm_source=feed_news_m_a&utm_medium=referral&feed_item_type=news",
+     "image": "",
+     "about": "",
+     "tickers": []
+    },
+    {
+     "headline": "MV-J\u00e4\u00e4hdytys st\u00e4rker sitt servicen\u00e4tverk i norra Finland genom f\u00f6rv\u00e4rvet av Lapin Kylm\u00e4tekniikka",
+     "source": "GlobalNewswire",
+     "time": "2026-09-30 13:53 UTC",
+     "summary": "Nordic Climate Group har tecknat avtal om att f\u00f6rv\u00e4rva verksamheten Lapin Kylm\u00e4tekniikka i Ylitornio, Finland.",
+     "url": "https://www.globenewswire.com/news-release/2026/09/30/3372053/0/sv/mv-j%C3%A4%C3%A4hdytys-st%C3%A4rker-sitt-servicen%C3%A4tverk-i-norra-finland-genom-f%C3%B6rv%C3%A4rvet-av-lapin-kylm%C3%A4tekniikka.html",
+     "image": "",
+     "about": "",
+     "tickers": []
+    },
+    {
+     "headline": "MV-J\u00e4\u00e4hdytyksen palveluverkosto vahvistuu Lapissa \u2013liiketoimintakauppa Lapin Kylm\u00e4tekniikka Oy:n kanssa",
+     "source": "GlobalNewswire",
+     "time": "2026-09-30 13:53 UTC",
+     "summary": "Nordic Climate Group on allekirjoittanut sopimuksen Lapin Kylm\u00e4tekniikan liiketoiminnan ostamisesta Suomen Ylitorniossa.",
+     "url": "https://www.globenewswire.com/news-release/2026/09/30/3372053/0/fi/mv-j%C3%A4%C3%A4hdytyksen-palveluverkosto-vahvistuu-lapissa-liiketoimintakauppa-lapin-kylm%C3%A4tekniikka-oy-n-kanssa.html",
+     "image": "",
+     "about": "",
+     "tickers": []
+    },
+    {
+     "headline": "MV-J\u00e4\u00e4hdytys strengthens its service network in northern Finland with Lapin Kylm\u00e4tekniikka",
+     "source": "GlobalNewswire",
+     "time": "2026-09-30 13:53 UTC",
+     "summary": "Nordic Climate Group has signed an agreement to acquire the business of Lapin Kylm\u00e4tekniikka in Ylitornio, Finland.",
+     "url": "https://www.globenewswire.com/news-release/2026/09/30/3372053/0/en/mv-j%C3%A4%C3%A4hdytys-strengthens-its-service-network-in-northern-finland-with-lapin-kylm%C3%A4tekniikka.html",
+     "image": "",
+     "about": "",
+     "tickers": []
+    },
+    {
+     "headline": "Navitas Semiconductor gets HSR early termination for Claros deal",
+     "source": "SeekingAlpha",
+     "time": "2026-09-30 13:41 UTC",
+     "summary": "",
+     "url": "https://seekingalpha.com/news/4648532-navitas-semiconductor-gets-hsr-early-termination-for-claros-deal?utm_source=feed_news_m_a&utm_medium=referral&feed_item_type=news",
+     "image": "",
+     "about": "",
+     "tickers": []
+    },
+    {
+     "headline": "We're scooping up shares of 2 stocks that fell victim to a September swoon",
+     "source": "CNBC",
+     "time": "2026-09-30 13:38 UTC",
+     "summary": "Both stocks have pulled back this month, but our reasons for owning them have not changed.",
+     "url": "https://www.cnbc.com/2026/09/30/were-scooping-up-shares-of-2-stocks-that-fell-victim-to-a-september-swoon.html",
+     "image": "https://image.cnbcfm.com/api/v1/image/108126999-17437959902025-04-04t194522z_1966743906_rc27rda17sjy_rtrmadp_0_usa-stocks.jpeg?v=1747687355&w=1920&h=1080",
+     "about": "",
+     "tickers": []
+    },
+    {
+     "headline": "Israeli strikes kill six people in Gaza, medics say - Reuters",
+     "source": "Reuters",
+     "time": "2026-09-30 13:25 UTC",
+     "summary": "Israeli strikes kill six people in Gaza, medics say\u00a0\u00a0Reuters",
+     "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxPamZFVnF3ODVXUkV4Q3ViOWR5aEpob1QzOVJWSTdQQ0otU2p0MkVTaWdJRXVfTU1hUng1eGZ3dkJqVk1JVjZlV0E0WVVUdGV4NzFZNF9OQ1FaRlFHdmJNRUJVNk84UUJNcDN5Nm41UzhhM21qV1NPaDgzMndCQVI1bG42OVBBWU5QWnJLUklLTHR3bmpGUEstano1Q1lwOVl1RDZZcg?oc=5",
+     "image": "",
+     "about": "",
+     "tickers": []
+    },
+    {
+     "headline": "Spectrotel and AireSpring Announce Closing of Merger, Bringing Together Scale, Intelligence, and Network Control",
+     "source": "GlobalNewswire",
+     "time": "2026-09-30 13:25 UTC",
+     "summary": "The combined company creates a differentiated managed network services platform built to meet the evolving demands of distributed and global enterprises The combined company creates a differentiated managed network services platform built to meet the evolving demands of distributed and global enterp",
+     "url": "https://www.globenewswire.com/news-release/2026/09/30/3372018/0/en/spectrotel-and-airespring-announce-closing-of-merger-bringing-together-scale-intelligence-and-network-control.html",
+     "image": "",
+     "about": "",
+     "tickers": []
+    },
+    {
+     "headline": "Caterpillar plans $1B North Carolina expansion, agrees to buy Fabick dealership",
+     "source": "SeekingAlpha",
+     "time": "2026-09-30 13:21 UTC",
+     "summary": "",
+     "url": "https://seekingalpha.com/news/4648514-caterpillar-plans-1b-north-carolina-expansion-agrees-to-buy-fabick-dealership?utm_source=feed_news_m_a&utm_medium=referral&feed_item_type=news",
+     "image": "",
+     "about": "",
+     "tickers": [
+      "CAT"
+     ]
+    },
+    {
+     "headline": "Jim Cramer's top 10 things to watch in the stock market Wednesday",
+     "source": "CNBC",
+     "time": "2026-09-30 13:15 UTC",
+     "summary": "Micron reports earnings tonight, and the PCE price index for August came in cooler than expected.",
+     "url": "https://www.cnbc.com/2026/09/30/jim-cramers-top-10-things-to-watch-in-the-stock-market-wednesday.html",
+     "image": "https://image.cnbcfm.com/api/v1/image/108242674-1765922857470-gettyimages-2251668534-MICRON_EARNS.jpeg?v=1773262309&w=1920&h=1080",
+     "about": "",
+     "tickers": []
+    },
+    {
+     "headline": "Choice Hotels to acquire Harvest Hosts for $130M",
+     "source": "SeekingAlpha",
+     "time": "2026-09-30 13:14 UTC",
+     "summary": "",
+     "url": "https://seekingalpha.com/news/4648508-choice-hotels-to-acquire-harvest-hosts-for-130m?utm_source=feed_news_m_a&utm_medium=referral&feed_item_type=news",
+     "image": "",
+     "about": "",
+     "tickers": []
+    },
+    {
+     "headline": "Skyworks receives all regulatory approvals for Qorvo deal",
+     "source": "SeekingAlpha",
+     "time": "2026-09-30 12:54 UTC",
+     "summary": "",
+     "url": "https://seekingalpha.com/news/4648487-skyworks-receives-all-regulatory-approvals-for-qorvo-deal?utm_source=feed_news_m_a&utm_medium=referral&feed_item_type=news",
+     "image": "",
+     "about": "",
+     "tickers": [
+      "QRVO"
+     ]
+    },
+    {
+     "headline": "Peoples Bancorp Inc. and Capital Bancorp, Inc. Announce Merger Agreement",
+     "source": "GlobalNewswire",
+     "time": "2026-09-30 12:50 UTC",
+     "summary": "PEOPLES BANCORP INC. AND CAPITAL BANCORP, INC. ANNOUNCE MERGER AGREEMENT",
+     "url": "https://www.globenewswire.com/news-release/2026/09/30/3371896/0/en/peoples-bancorp-inc-and-capital-bancorp-inc-announce-merger-agreement.html",
+     "image": "",
+     "about": "",
+     "tickers": []
+    },
+    {
+     "headline": "Mattel names Roger Lynch as CEO, replacing Ynon Kreiz",
+     "source": "CNBC",
+     "time": "2026-09-30 12:45 UTC",
+     "summary": "Mattel announced on Wednesday that Roger Lynch would serve as CEO and Chairman, replacing Ynon Kreiz.",
+     "url": "https://www.cnbc.com/2026/09/30/mattel-roger-lynch-ceo.html",
+     "image": "https://image.cnbcfm.com/api/v1/image/107254056-1686310935286-gettyimages-1258548463-AFP_33HR32Z.jpeg?v=1713812620&w=1920&h=1080",
+     "about": "",
+     "tickers": [
+      "MAT"
+     ]
+    },
+    {
+     "headline": "Trump Media & Technology Group and TAE Technologies File Form S-4 Registration Statement for Proposed Merger",
+     "source": "GlobalNewswire",
+     "time": "2026-09-30 12:30 UTC",
+     "summary": "Trump Media & Technology Group and TAE Technologies File Form S-4 Registration Statement for Proposed Merger",
+     "url": "https://www.globenewswire.com/news-release/2026/09/30/3371872/0/en/trump-media-technology-group-and-tae-technologies-file-form-s-4-registration-statement-for-proposed-merger.html",
+     "image": "",
+     "about": "",
+     "tickers": []
+    },
+    {
+     "headline": "Skyworks Receives All Necessary Clearances for Proposed Combination with Qorvo",
+     "source": "GlobalNewswire",
+     "time": "2026-09-30 12:30 UTC",
+     "summary": "IRVINE, Calif., Sept.  30, 2026  (GLOBE NEWSWIRE) -- Skyworks Solutions, Inc. (Nasdaq: SWKS) today announced that it has received all necessary regulatory clearances to proceed with the previously announced transaction with Qorvo, Inc. (Nasdaq: QRVO) (the \u201cMergers\u201d). The parties expect to close the ",
+     "url": "https://www.globenewswire.com/news-release/2026/09/30/3371865/0/en/skyworks-receives-all-necessary-clearances-for-proposed-combination-with-qorvo.html",
+     "image": "",
+     "about": "",
+     "tickers": [
+      "QRVO"
+     ]
+    },
+    {
+     "headline": "Tennis star Jessica Pegula says helping her family run the Buffalo Bills could be in her future",
+     "source": "CNBC",
+     "time": "2026-09-30 12:00 UTC",
+     "summary": "Tennis star Jessica Pegula says she's open to helping her family run the Buffalo Bills after her playing career is over.",
+     "url": "https://www.cnbc.com/2026/09/30/tennis-star-jessica-pegula-on-buffalo-bills-sabres-family-ownership.html",
+     "image": "https://image.cnbcfm.com/api/v1/image/108369482-1790696430767-gettyimages-2294056641-20260910_CDC04178JPG.jpeg?v=1790696581&w=1920&h=1080",
+     "about": "",
+     "tickers": []
+    },
+    {
+     "headline": "Integer Receives Early Termination of Hart-Scott-Rodino Waiting Period for Pending Acquisition by KKR",
+     "source": "GlobalNewswire",
+     "time": "2026-09-30 12:00 UTC",
+     "summary": "PLANO, Texas, Sept.  30, 2026  (GLOBE NEWSWIRE) -- Integer Holdings Corporation (NYSE: ITGR) (\u201cInteger\u201d or the \u201cCompany\u201d), a leading global medical device contract development and manufacturing organization (CDMO), today announced that it has received early termination of the waiting period under th",
+     "url": "https://www.globenewswire.com/news-release/2026/09/30/3371809/26755/en/integer-receives-early-termination-of-hart-scott-rodino-waiting-period-for-pending-acquisition-by-kkr.html",
+     "image": "",
+     "about": "",
+     "tickers": [
+      "ITGR"
+     ]
+    },
+    {
+     "headline": "Man City guilty of \u2018sham\u2019 sponsorship deals after decade of English soccer dominance",
+     "source": "CNBC",
+     "time": "2026-09-30 11:55 UTC",
+     "summary": "English soccer club Manchester City has been found guilty of breaking Premier League financial rules over nine seasons.",
+     "url": "https://www.cnbc.com/2026/09/30/manchester-city-guilty-premier-league-financial-rules.html",
+     "image": "https://image.cnbcfm.com/api/v1/image/108370124-1790768679700-gettyimages-2297281354-visionhaus-mancityheadlines_0139.jpeg?v=1790768687&w=1920&h=1080",
+     "about": "",
+     "tickers": []
+    },
+    {
+     "headline": "Joy mixed with fear as US forces quit Iraq leaving potential security vacuum - Reuters",
+     "source": "Reuters",
+     "time": "2026-09-30 11:45 UTC",
+     "summary": "Joy mixed with fear as US forces quit Iraq leaving potential security vacuum\u00a0\u00a0Reuters",
+     "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxOemFDVTJ6blJhRFNIeVgzYzJoRzUtcG45RURTckFyYzJZb2RlX0g5TndKd1lqbmdSOG1HREZRTFZaM3dSTFZaQ3ZrQTg3a2xSZ2YyRldVT2JCMDZlVmVJOVFHTjI3TnExSktyZ25ZMjU5cXZrdDlITjVTOC11a2sxbmRjd2pvZC10UlRDQlRYclVTREt3S2c5TXRLc1NkdUxJcGFz?oc=5",
+     "image": "",
+     "about": "",
+     "tickers": []
+    },
+    {
+     "headline": "Peoples to acquire Capital Bancorp in ~$728M all-stock deal",
+     "source": "SeekingAlpha",
+     "time": "2026-09-30 11:35 UTC",
+     "summary": "",
+     "url": "https://seekingalpha.com/news/4648417-peoples-to-acquire-capital-bancorp-in-728m-all-stock-deal?utm_source=feed_news_m_a&utm_medium=referral&feed_item_type=news",
+     "image": "",
+     "about": "",
+     "tickers": []
+    },
+    {
+     "headline": "Micron earnings hit Wall Street after the bell. Here's how traders are positioned into the report",
+     "source": "CNBC",
+     "time": "2026-09-30 11:34 UTC",
+     "summary": "In the near term, the market needs to get through Micron earnings. The good news is options traders think it could be a slam dunk.",
+     "url": "https://www.cnbc.com/2026/09/30/micron-earnings-hit-wall-street-after-the-bell-heres-how-traders-are-positioned-into-the-report.html",
+     "image": "https://image.cnbcfm.com/api/v1/image/108368260-1790359531546-gettyimages-2295231797-INDIA_SEMICON.jpeg?v=1790359643&w=1920&h=1080",
+     "about": "",
+     "tickers": []
+    },
+    {
+     "headline": "Holiday retail sales are expected to top $1 trillion as inflation boosts growth",
+     "source": "CNBC",
+     "time": "2026-09-30 11:30 UTC",
+     "summary": "Holiday retail sales are expected to grow this holiday season and top $1 trillion for the first time, though that growth is boosted by inflation.",
+     "url": "https://www.cnbc.com/2026/09/30/holiday-retail-sales-inflation.html",
+     "image": "https://image.cnbcfm.com/api/v1/image/108367739-1790282022471-gettyimages-1408834057-1w3a0239.jpeg?v=1790282046&w=1920&h=1080",
+     "about": "",
+     "tickers": [
+      "MAT"
+     ]
+    },
+    {
+     "headline": "Final result of S-Bank Plc\u2019s voluntary recommended public cash tender offer for all the shares in Oma Savings Bank Plc: S-Bank Plc completes the tender offer and commences a subsequent offer period",
+     "source": "GlobalNewswire",
+     "time": "2026-09-30 11:05 UTC",
+     "summary": "NOT FOR RELEASE, PUBLICATION OR DISTRIBUTION, IN WHOLE OR IN PART, DIRECTLY OR INDIRECTLY, IN OR INTO AUSTRALIA, CANADA, HONG KONG, JAPAN, NEW ZEALAND OR SOUTH AFRICA OR IN ANY OTHER JURISDICTION IN WHICH THE TENDER OFFER WOULD BE PROHIBITED BY APPLICABLE LAW. FOR FURTHER INFORMATION, PLEASE SEE SEC",
+     "url": "https://www.globenewswire.com/news-release/2026/09/30/3371764/0/en/final-result-of-s-bank-plc-s-voluntary-recommended-public-cash-tender-offer-for-all-the-shares-in-oma-savings-bank-plc-s-bank-plc-completes-the-tender-offer-and-commences-a-subsequ.html",
+     "image": "",
+     "about": "",
+     "tickers": []
+    },
+    {
+     "headline": "S-Pankki Oyj:n kaikista Oma S\u00e4\u00e4st\u00f6pankki Oyj:n osakkeista tekem\u00e4n vapaaehtoisen suositellun julkisen k\u00e4teisostotarjouksen lopullinen tulos: S-Pankki Oyj toteuttaa ostotarjouksen ja aloittaa j\u00e4lkik\u00e4teisen tarjousajan",
+     "source": "GlobalNewswire",
+     "time": "2026-09-30 11:05 UTC",
+     "summary": "EI JULKISTETTAVAKSI TAI LEVITETT\u00c4V\u00c4KSI, KOKONAAN TAI OSITTAIN, SUORAAN TAI V\u00c4LILLISESTI, AUSTRALIASSA, KANADASSA, HONGKONGISSA, JAPANISSA, UUDESSA-SEELANNISSA TAI ETEL\u00c4-AFRIKASSA TAI N\u00c4IHIN MAIHIN TAI MILL\u00c4\u00c4N MUULLA ALUEELLA TAI MILLEK\u00c4\u00c4N MUULLE ALUEELLE, JOSSA OSTOTARJOUS OLISI SOVELTUVAN LAIN VAST",
+     "url": "https://www.globenewswire.com/news-release/2026/09/30/3371764/0/fi/s-pankki-oyj-n-kaikista-oma-s%C3%A4%C3%A4st%C3%B6pankki-oyj-n-osakkeista-tekem%C3%A4n-vapaaehtoisen-suositellun-julkisen-k%C3%A4teisostotarjouksen-lopullinen-tulos-s-pankki-oyj-toteuttaa-ostotarjouksen-ja-.html",
+     "image": "",
+     "about": "",
+     "tickers": []
+    },
+    {
+     "headline": "Hormel Foods to buy Brakebush Brothers for about $1.055B",
+     "source": "SeekingAlpha",
+     "time": "2026-09-30 10:38 UTC",
+     "summary": "",
+     "url": "https://seekingalpha.com/news/4648398-hormel-foods-to-buy-brakebush-brothers-for-about-1055b?utm_source=feed_news_m_a&utm_medium=referral&feed_item_type=news",
+     "image": "",
+     "about": "",
+     "tickers": []
+    },
+    {
+     "headline": "NEXT10 Outlines Strategy to Build BFCH Into a High-Growth Health-and-Wellness Platform",
+     "source": "GlobalNewswire",
+     "time": "2026-09-30 10:30 UTC",
+     "summary": "Strategic transaction aligns NXTN and BFCH around a separately traded wellness platform combining operating assets, experienced leadership and multiple ave",
+     "url": "https://www.globenewswire.com/news-release/2026/09/30/3371710/0/en/next10-outlines-strategy-to-build-bfch-into-a-high-growth-health-and-wellness-platform.html",
+     "image": "",
+     "about": "",
+     "tickers": []
+    },
+    {
+     "headline": "Kenon to buy 25% of equity interest in Vicinity District Energy",
+     "source": "SeekingAlpha",
+     "time": "2026-09-30 10:26 UTC",
+     "summary": "",
+     "url": "https://seekingalpha.com/news/4648381-kenon-to-buy-25-of-equity-interest-in-vicinity-district-energy?utm_source=feed_news_m_a&utm_medium=referral&feed_item_type=news",
+     "image": "",
+     "about": "",
+     "tickers": []
+    },
+    {
+     "headline": "Harrison Street Asset Management to Acquire Majority Stake in Vicinity Energy, Largest U.S. Provider of District Energy Solutions",
+     "source": "GlobalNewswire",
+     "time": "2026-09-30 10:08 UTC",
+     "summary": "Harrison Street signs agreement to acquire Vicinity Energy - the largest provider of district energy solutions in the United States.",
+     "url": "https://www.globenewswire.com/news-release/2026/09/30/3371678/0/en/harrison-street-asset-management-to-acquire-majority-stake-in-vicinity-energy-largest-u-s-provider-of-district-energy-solutions.html",
+     "image": "",
+     "about": "",
+     "tickers": []
+    },
+    {
+     "headline": "Form-8.3 ADVANCED MEDICAL SOLUTIONS GROUP PLC - 29 09 2026 - (CGWL)",
+     "source": "GlobalNewswire",
+     "time": "2026-09-30 09:21 UTC",
+     "summary": "FORM 8.3",
+     "url": "https://www.globenewswire.com/news-release/2026/09/30/3371652/0/en/form-8-3-advanced-medical-solutions-group-plc-29-09-2026-cgwl.html",
+     "image": "",
+     "about": "",
+     "tickers": []
+    },
+    {
+     "headline": "Ken Griffin pledges $3 billion to Carnegie Mellon University in 'historic' gift",
+     "source": "CNBC",
+     "time": "2026-09-30 09:00 UTC",
+     "summary": "Citadel CEO Ken Griffin is committing $3 billion to Carnegie Mellon University, a \"historic\" gift that includes $2 billion to establish a new Miami campus.",
+     "url": "https://www.cnbc.com/2026/09/30/ken-griffin-pledges-3-billion-to-carnegie-mellon-university.html",
+     "image": "https://image.cnbcfm.com/api/v1/image/108369742-1790709037825-gettyimages-2256843447-DAVOS_WEF_2026.jpeg?v=1790709153&w=1920&h=1080",
+     "about": "",
+     "tickers": []
+    },
+    {
+     "headline": "MT H\u00f8jgaard Holding A/S: MT H\u00f8jgaard Danmark k\u00f8ber Nordisk Fundering",
+     "source": "GlobalNewswire",
+     "time": "2026-09-30 08:00 UTC",
+     "summary": "MT H\u00f8jgaard Holdings forretningsenhed MT H\u00f8jgaard Danmark har indg\u00e5et aftale om at k\u00f8be 100% af aktierne i den danske funderingsspecialist Nordisk Fundering A/S. K\u00f8bsprisen for aktierne er 52 mio. kr. (enterprise value), hvoraf 16 mio. kr. er earn-out og derved betinget af fremtidige forhold. K\u00f8bet ",
+     "url": "https://www.globenewswire.com/news-release/2026/09/30/3371559/0/da/mt-h%C3%B8jgaard-holding-a-s-mt-h%C3%B8jgaard-danmark-k%C3%B8ber-nordisk-fundering.html",
+     "image": "",
+     "about": "",
+     "tickers": []
+    },
+    {
+     "headline": "MT H\u00f8jgaard Holding A/S: MT H\u00f8jgaard Danmark acquires Nordisk Fundering",
+     "source": "GlobalNewswire",
+     "time": "2026-09-30 08:00 UTC",
+     "summary": "MT H\u00f8jgaard Holding\u2019s business MT H\u00f8jgaard Danmark has entered into an agreement to acquire 100% of the shares in the Danish foundation engineering specialist Nordisk Fundering A/S. The purchase price for the shares is DKK 52 million (enterprise value), of which DKK 16 million is an earn-out and thu",
+     "url": "https://www.globenewswire.com/news-release/2026/09/30/3371559/0/en/mt-h%C3%B8jgaard-holding-a-s-mt-h%C3%B8jgaard-danmark-acquires-nordisk-fundering.html",
+     "image": "",
+     "about": "",
+     "tickers": []
+    },
+    {
+     "headline": "Iran receives US feedback on seven-day trust-building plan - Reuters",
+     "source": "Reuters",
+     "time": "2026-09-30 07:29 UTC",
+     "summary": "Iran receives US feedback on seven-day trust-building plan\u00a0\u00a0Reuters",
+     "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQMXVGNEhtaUhtTVlCMndfQ0l3ZUthempGR3UwQklJTXN0MlQ4cG44bWdMWnRzOGJibUl1cFJXcDJSMDZNT2VmNlgyMG0zbms2dVJ3ZEszVmlucmdrX0pWdmp5cjNaQ2x3QUpIQjJFU0RMcTVCbFVfQ0xfaWU0MXVNTzdNUnZpMW5qX2VvSU9wY0ZJN0NPZFFTMWtiLS1HNDZmbWVaWWphVEVKeDZQVXc?oc=5",
+     "image": "",
+     "about": "",
+     "tickers": []
+    },
+    {
+     "headline": "Terumo Neuro Signs Agreement to Acquire Arsenal Medical \u2013 Advancing Next-Generation Liquid Embolic Innovation for Treating Chronic Subdural Hematoma (cSDH)",
+     "source": "GlobalNewswire",
+     "time": "2026-09-30 06:30 UTC",
+     "summary": "Proposed acquisition would add NeoCast\u2122, an investigational technology designed for controlled delivery and predictable distal penetration, to Terumo Neuro\u2019s neurovascular portfolio. Proposed acquisition would add NeoCast\u2122, an investigational technology designed for controlled delivery and predictab",
+     "url": "https://www.globenewswire.com/news-release/2026/09/30/3371536/0/en/terumo-neuro-signs-agreement-to-acquire-arsenal-medical-advancing-next-generation-liquid-embolic-innovation-for-treating-chronic-subdural-hematoma-csdh.html",
+     "image": "",
+     "about": "",
+     "tickers": []
+    },
+    {
+     "headline": "How the US controls Iraq's oil revenues - Reuters",
+     "source": "Reuters",
+     "time": "2026-09-30 05:17 UTC",
+     "summary": "How the US controls Iraq's oil revenues\u00a0\u00a0Reuters",
+     "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxNaGpibmlmMTlRdFhRRHZROFhCNERCYTU3ZFBhZHpGTjZwTlVjeTVBUUZ0Vm1JUE5jVnlzTEVjM1VvYTZoOWF0WklCeDVHcHM1ZDdKWlZLT3RfS0Y5TV9PWF9hX1VmOGdsakhkNlY1ay1WSTBLSm5IZVV4QUVPcnFzTjhsV2hkMFUwMFY4SjNaMA?oc=5",
+     "image": "",
+     "about": "",
+     "tickers": []
+    },
+    {
+     "headline": "Iran says it receives US response to latest proposal as Washington pulls out of Iraq - Reuters",
+     "source": "Reuters",
+     "time": "2026-09-30 02:48 UTC",
+     "summary": "Iran says it receives US response to latest proposal as Washington pulls out of Iraq\u00a0\u00a0Reuters",
+     "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxPR2hTZHg3aFBHZnJsWE56aHhkcXdubk5JOFFvRmhzb3lWQjFrd3NVbmJDOVk4SjBTSE4tSm1pbXJVUVFGSWxKdUMwV1JhcE83TVVhWC12ZkNBZThNaGRrLXNSZE9jUWEtbWxPV3hnRDlHcFBmaldvdjNHYUxyM3NiYS1iX3BjZVZYN0hfbWdMN0Y5SDJkVHhPOHh3?oc=5",
+     "image": "",
+     "about": "",
+     "tickers": [
+      "XOM"
+     ]
+    },
+    {
+     "headline": "Indian shares open flat after foreign outflows - Reuters",
+     "source": "Reuters",
+     "time": "2026-09-30 02:24 UTC",
+     "summary": "Indian shares open flat after foreign outflows\u00a0\u00a0Reuters",
+     "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNRTNmakVIbE1QRkJkd0VLTm03TjkxX29LaTgtekt5UmxjUVBzckppYmctZVc5V0JWNUNtR2dOaVRpU1F1eTd4M2YybFJ1TC1ncEZzZERrd0ptTGlKSHVZVnRxcHhnUldJVDlLdUhIM0ZYS3IxNzk4TWctZVdVbFMyUTEtbWd6MjYwMWs4RFE4b3ZERVZlLUdNYWF3d0xHX2pNbEVNdll3?oc=5",
+     "image": "",
+     "about": "",
+     "tickers": []
+    },
+    {
+     "headline": "Oil prices rise on stalled US-Iran talks and tight fuel markets - Reuters",
+     "source": "Reuters",
+     "time": "2026-09-30 01:39 UTC",
+     "summary": "Oil prices rise on stalled US-Iran talks and tight fuel markets\u00a0\u00a0Reuters",
+     "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPbEZNSGlvd0hfTjdOVTQxTEVYczRjUjdId3NlSGJDSV90UVVjTGhjaFF2OS1xckpOWElrcWRoUXNPa29WTHhsLW9yWVc2N1REdXZONl9iZ2ZUSkNOQ0xndE16LWpMa3c3T2FHWE0yajBlek1La3hVeTVnWkpLc2hhTTRNMnVILWY0RG9VbzVVZnZGV0JmM3VJWkNhVmlfNDlVMThOSVNtNlR3cFJUekNpMVZ3aE03Zw?oc=5",
+     "image": "",
+     "about": "",
+     "tickers": [
+      "XOM",
+      "DAL"
+     ]
+    },
+    {
+     "headline": "Apollo Funds Announce Completion of Acquisition of Nippon Sheet Glass, Marking New Chapter of Growth",
+     "source": "GlobalNewswire",
+     "time": "2026-09-30 00:30 UTC",
+     "summary": "TOKYO and NEW YORK, Sept.  29, 2026  (GLOBE NEWSWIRE) -- Apollo (NYSE: APO) today announced the successful completion of Apollo managed funds\u2019 (\u201cApollo Funds\u201d) acquisition of Nippon Sheet Glass Co., Ltd., a leading global company in architectural, automotive, and solar glass, and the launch of its n",
+     "url": "https://www.globenewswire.com/news-release/2026/09/30/3371474/0/en/apollo-funds-announce-completion-of-acquisition-of-nippon-sheet-glass-marking-new-chapter-of-growth.html",
+     "image": "",
+     "about": "",
+     "tickers": []
+    },
+    {
+     "headline": "US Senate blocks measure demanding report on rights violations in West Bank - Reuters",
+     "source": "Reuters",
+     "time": "2026-09-30 00:24 UTC",
+     "summary": "US Senate blocks measure demanding report on rights violations in West Bank\u00a0\u00a0Reuters",
+     "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxOUGhfRnlGRDR1eXJDT3ozZFo3UkRSekVkZ1BnbG91bFdpYmU0TWFxQlVUNXAzZTljYUFDYXNlWFFFLU8yOWlSdWg2X3BZY0kwWDFmaVdtTUd2U0ZBTHdyb0lLMDZrcjV6Q2RiTF91bmtPNUhibE1KSFp0MG5QSHl6dmlWaWtUY3Y1dG11bXg0aTMtb1NyTU1LSFB3VUk0d1drVHVqdlFMQ1ZxMmJpZnEySkpZcXc3TzJSWW55Tmg2OA?oc=5",
+     "image": "",
+     "about": "",
+     "tickers": []
+    },
+    {
+     "headline": "Trump says he does not know if Iran is going to 'give up yet' - Reuters",
+     "source": "Reuters",
+     "time": "2026-09-29 21:12 UTC",
+     "summary": "Trump says he does not know if Iran is going to 'give up yet'\u00a0\u00a0Reuters",
+     "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNalM2cldRTWlLdGZFN2FTOExtVVFrODNCbVJaeTBZMVZXVllmU2IzRHJScWd3cHl0SERRT21NdDNuSXFuaGFvak83czlLbGNfTUpkcXUzWGxYZlhfWmxWOXhaeVQ4Q0RRY2JKWlk1RjVsd2xJVklodUxiZXpJdHpLMFdnVmVxd2lXYzBjTF9sNUduZWRRb25Cdk42bFNxSWd1UTVaNTY1WXhnNm1yMmdj?oc=5",
+     "image": "",
+     "about": "",
+     "tickers": []
+    },
+    {
+     "headline": "Rubio says UK airbase incident involved a foreign state - Reuters",
+     "source": "Reuters",
+     "time": "2026-09-29 21:06 UTC",
+     "summary": "Rubio says UK airbase incident involved a foreign state\u00a0\u00a0Reuters",
+     "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxORFpiaUU2ZUhub0d4T044ZzdtZEhwSklBLXRIMk9RWk8wMUlSUElhV0FydEMyN3R4enJjVmttUS1Cb0xoeklqQmMwOG9Rb3F4Mzd1bmtXSHRVM0ZKSWE3X2oweDN3emF0SHpnXzhGbGJpSUg2Nk0wNlZlUTlLNl9SRU4tRWdqNHp2WHFpck5ha2s3SXhfNk0yREVTak1RQWM?oc=5",
+     "image": "",
+     "about": "",
+     "tickers": []
+    },
+    {
+     "headline": "US imposes sanctions on 13 tied to Iran weapons procurement - Reuters",
+     "source": "Reuters",
+     "time": "2026-09-29 21:03 UTC",
+     "summary": "US imposes sanctions on 13 tied to Iran weapons procurement\u00a0\u00a0Reuters",
+     "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxOWWZ2NlJ3d0swV0JKWFhhREdzNmxnUlhaSlE0eFlrbUhBZ3RBMXhQeEJSS1JCTnR2UV82cTA4YW4yUDR5YnNUd1FmN2M1Z1liMWhfNEJOUnFMLVYtTzFCMjFSTWJuaWlhUFdHc3lLVE9tMHZUWkRldzJXaFd3SDdqX1NIOXJxRTBFZF9FT1Fvalg1b25FWm1RVEYySkUzZS1nNHItOXMtVUVTQjVt?oc=5",
+     "image": "",
+     "about": "",
+     "tickers": []
+    },
+    {
+     "headline": "Goldman Sachs CEO succession planning faces one big problem",
+     "source": "CNBC",
+     "time": "2026-09-29 20:50 UTC",
+     "summary": "The Goldman Sachs board has reportedly discussed replacing CEO David Solomon, 64, with president John Waldron, 57, as early as next year.",
+     "url": "https://www.cnbc.com/2026/09/29/goldman-sachs-ceo-succession-planning.html",
+     "image": "https://image.cnbcfm.com/api/v1/image/108369799-1790711959824-Waldron_Solomon.jpg?v=1790712098&w=1920&h=1080",
+     "about": "",
+     "tickers": []
+    },
+    {
+     "headline": "UAE vice president visits Saudi Arabia in first visit since rift - Reuters",
+     "source": "Reuters",
+     "time": "2026-09-29 20:15 UTC",
+     "summary": "UAE vice president visits Saudi Arabia in first visit since rift\u00a0\u00a0Reuters",
+     "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNdzR2NEpSUUY2Z0lEcGVnNE1lSWliUFgxVVBVYkNlVGpMZk9KM0N6SG9Ud0hOeVB0VndVcW5RVW5IbnpTWl9pajNaTnRrNXlFQWF5Wnd2VGlhUjUtdzdwMExKaE1TUGR5c0pJdjdfZlY3OEFpajJlTTJwTFdqTlRBbE1vbGdPNU4zM19uZ2tmbXVfRGdNTHpwQ3l2ZllrdXcyTHhPREMwTXY5MjJ3RFFicnhHbk15dw?oc=5",
+     "image": "",
+     "about": "",
+     "tickers": []
+    },
+    {
+     "headline": "Gold Fields evaluates revised bid for Northern Star Resources - Bloomberg",
+     "source": "SeekingAlpha",
+     "time": "2026-09-29 19:36 UTC",
+     "summary": "",
+     "url": "https://seekingalpha.com/news/4648188-gold-fields-evaluates-revised-bid-for-northern-star-resources---bloomberg?utm_source=feed_news_m_a&utm_medium=referral&feed_item_type=news",
+     "image": "",
+     "about": "",
+     "tickers": []
+    },
+    {
+     "headline": "Somali pirates killed 5 crew members of hijacked tanker before rescue mission, Puntland says - Reuters",
+     "source": "Reuters",
+     "time": "2026-09-29 19:29 UTC",
+     "summary": "Somali pirates killed 5 crew members of hijacked tanker before rescue mission, Puntland says\u00a0\u00a0Reuters",
+     "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxOVE5DblJUcnNzckpCaVd1Z3J3LUxMRkZIOHR0ZUpnRFRlenczcWhvV01PUHlqN1lsbEljZ0ZQckhMUllRdXhuRzFHcUFUdU0xdHVRSFI5RUxidzRCX21zUWVTOU1VZ2NMUE5UNDhZWm10UFVMZ2pnNENJQlExSVNWUlAwMjEyQUUyb1pWSHR5ejZVV2ZUOE5OTUVPaTZUSVdXMGRfZ1VRSnRodFU1NVY2UF9OTHBYNWp4Tkcxb1RRNXg?oc=5",
+     "image": "",
+     "about": "",
+     "tickers": []
+    },
+    {
+     "headline": "J.P. Morgan Snags \u00a31B Loan For Spitalfields Office Redevelopment",
+     "source": "Yahoo",
+     "time": "2026-09-30 17:18 UTC",
+     "summary": "ING and DBS provided \u00a31B to redevelop One Spitalfields, offering 700K SF of office space, pre-let secured.",
+     "url": "https://finnhub.io/api/news?id=f748c4114cd04cdafcaf6d82f24fc65c93046cca5e48c00089cf607919d9c8a1",
+     "image": "",
+     "about": "JPM",
+     "tickers": []
+    },
+    {
+     "headline": "Ford and JPMorganChase launch Michigan LIFT manufacturing platform",
+     "source": "Yahoo",
+     "time": "2026-09-30 16:58 UTC",
+     "summary": "The public-private initiative pairs innovative suppliers with industrial buyers, financing, and state resources to scale domestic production",
+     "url": "https://finnhub.io/api/news?id=86fcaed4621508025f860d902309f5537b526d086e5aa751951c8600ddf3bd22",
+     "image": "",
+     "about": "JPM",
+     "tickers": []
+    },
+    {
+     "headline": "Uncover the latest developments among dow jones stocks in today's session.",
+     "source": "ChartMill",
+     "time": "2026-09-30 16:40 UTC",
+     "summary": "Stay updated with the movement of dow jones stocks in today's session. Discover which dow jones stocks are making waves on Wednesday.",
+     "url": "https://finnhub.io/api/news?id=77ef1c904bb3386988b017a5a99d23d7af9be8d6552ba602ebe18ed579b59213",
+     "image": "https://www.chartmill.com/images/uploads/CM_Top_Movers_Small_free_2b4ff2fc22.webp",
+     "about": "AAPL",
+     "tickers": []
+    },
+    {
+     "headline": "Uncover the latest developments among S&P500 stocks in today's session.",
+     "source": "ChartMill",
+     "time": "2026-09-30 16:35 UTC",
+     "summary": "Stay informed about the performance of the S&P500 index in the middle of the day on Wednesday. Uncover the top gainers and losers in today's session for valuable insights.",
+     "url": "https://finnhub.io/api/news?id=a1d687bb68e5ab3a14c7763cfe0a634749ff03bce370bf705b046929109ce482",
+     "image": "https://www.chartmill.com/images/uploads/CM_Top_Movers_Small_free_2b4ff2fc22.webp",
+     "about": "GOOGL",
+     "tickers": []
+    },
+    {
+     "headline": "Corning vs. Honeywell International: Which Technology Stock Is a Better Buy in 2026?",
+     "source": "Yahoo",
+     "time": "2026-09-30 15:51 UTC",
+     "summary": "Corning trades at a premium valuation despite concentrated customer risks, while Honeywell offers cheaper entry points with diversified revenue streams and stronger free cash flow generation.",
+     "url": "https://finnhub.io/api/news?id=d14b151e499de4cf899876567dd47db75823eb6d70e590af0f301ee362b48451",
+     "image": "",
+     "about": "NVDA",
+     "tickers": []
+    },
+    {
+     "headline": "Could Buying Constellation Energy Today Set You Up for Life?",
+     "source": "Yahoo",
+     "time": "2026-09-30 15:50 UTC",
+     "summary": "Will the power producer deliver even bigger gains over the long term?",
+     "url": "https://finnhub.io/api/news?id=658839c5fcf180103d60c10c4cc8bea118d4f020862a906f0107e7d90cd7326d",
+     "image": "",
+     "about": "NVDA",
+     "tickers": []
+    },
+    {
+     "headline": "Amazon Target Lifted as Rosenblatt Says AI Agents Won\u2019t Disrupt Business Model",
+     "source": "Yahoo",
+     "time": "2026-09-30 15:45 UTC",
+     "summary": "Rosenblatt raised its price target on Amazon (NASDAQ:AMZN) to $360 from $335 and kept its Buy rating. The firm says that concerns about AI shopping agents replacing Amazon\u2019s retail media model are overstated. The higher target comes with the stock at $246.39, after a 7.52% drop over the past month. ",
+     "url": "https://finnhub.io/api/news?id=06c88b73028e8cee8ce985ccdbeecbf06308e43349b76063dd9030db7434a4bb",
+     "image": "",
+     "about": "AMZN",
+     "tickers": []
+    },
+    {
+     "headline": "America\u2019s Strategic Oil Reserves Are at 44-Year Lows \u2014 And Trump Just Gave Away Another 40 Million Barrels",
+     "source": "Yahoo",
+     "time": "2026-09-30 15:41 UTC",
+     "summary": "Oil markets are operating with little room for error. West Texas Intermediate crude trades above $91 a barrel this morning, while the Iran conflict, disrupted shipping, and tight diesel supplies continue putting a geopolitical premium on energy prices. Now America\u2019s insurance policy against another ",
+     "url": "https://finnhub.io/api/news?id=44d33fc42532cdeb278f063bff74bee051fa1261e68643db0366bef2cc3abf93",
+     "image": "",
+     "about": "XOM",
+     "tickers": [
+      "XOM",
+      "DAL"
+     ]
+    },
+    {
+     "headline": "Is CrowdStrike Stock Paying You Enough For The Swings?",
+     "source": "Yahoo",
+     "time": "2026-09-30 15:40 UTC",
+     "summary": "You may own CrowdStrike (CRWD), a cybersecurity company whose shares rose 5.1% in five sessions as the S&P 500 fell 1.2%. You likely hold it beside an index fund, and your whole account swings more when one holding jumps. Have the gains on CrowdStrike been big enough to pay for those swings.",
+     "url": "https://finnhub.io/api/news?id=3b1ce86d6a5a6ec27a855140d43c0c1efa159ba482de8fbac8d67d462daf838a",
+     "image": "",
+     "about": "MSFT",
+     "tickers": []
+    },
+    {
+     "headline": "Stock Market Today: Nasdaq Leads Rise; AI Giant Microsoft Tests A New Entry (Live Coverage)",
+     "source": "Yahoo",
+     "time": "2026-09-30 15:40 UTC",
+     "summary": "Stock Market Today: The Dow Jones index rises Wednesday on surprise inflation data. Micron earnings are due after the close.",
+     "url": "https://finnhub.io/api/news?id=bdf695d8ec59f60c9c792ad96f4f917a700d182be709eb34dd52b4ee23a6cc54",
+     "image": "",
+     "about": "AAPL",
+     "tickers": []
+    },
+    {
+     "headline": "Why Gabelli Bought Microsoft Corporation (MSFT) Near Its 52-Week Lows",
+     "source": "Yahoo",
+     "time": "2026-09-30 15:39 UTC",
+     "summary": "Gabelli Investment Management Firm recently released its \u201cDividend Growth Fund\u201d second-quarter 2026 investor letter. A copy of the letter can be downloaded here. The Fund faced a second quarter in which a dramatic stock-market rebound was led by semiconductor and industrial shares, while the Fund\u2019s ",
+     "url": "https://finnhub.io/api/news?id=c437ac83055b258fa5ce5069a03b9527248e3ae84b6df10d9339f1417a8e10d7",
+     "image": "",
+     "about": "MSFT",
+     "tickers": []
+    },
+    {
+     "headline": "If You Buy Micron Today, Here's Where It Could Be in 5 Years",
+     "source": "Yahoo",
+     "time": "2026-09-30 15:38 UTC",
+     "summary": "The AI megatrend is transforming the boom-and-bust memory industry.",
+     "url": "https://finnhub.io/api/news?id=e3c89e61f4cbde9013e0a0333318c405b839142de4bd6df63de03708993cbba3",
+     "image": "",
+     "about": "MU",
+     "tickers": []
+    },
+    {
+     "headline": "European Stocks Close Lower in Wednesday Trading; UK GDP Growth Slows Slightly in Q2",
+     "source": "Yahoo",
+     "time": "2026-09-30 15:36 UTC",
+     "summary": "The European stock markets closed lower in Wednesday trading amid easing bond yields and oil prices",
+     "url": "https://finnhub.io/api/news?id=e81fc2dc4bba43e085cbb35871ccc976ccf583688804bc622ead1c5c1d428519",
+     "image": "",
+     "about": "XOM",
+     "tickers": []
+    },
+    {
+     "headline": "The AI Revolution Could Be Microsoft\u2019s Next Trillion-Dollar Opportunity",
+     "source": "Yahoo",
+     "time": "2026-09-30 15:30 UTC",
+     "summary": "Azure's explosive backlog and Copilot's paid seat growth have bulls eyeing targets near $700, but a capex surge that outpaced free cash flow by a wide margin could threaten the entire AI thesis before it pays off.",
+     "url": "https://finnhub.io/api/news?id=eae9b312e71ee662f58c3d5de5d579c5c2a9ec52b72e7ea4125d2d519ac0d804",
+     "image": "",
+     "about": "AMZN",
+     "tickers": []
+    },
+    {
+     "headline": "Did You Miss Out on Nvidia and Micron Technology? This Super Semiconductor Stock Could Soar Over the Next Few Years.",
+     "source": "Yahoo",
+     "time": "2026-09-30 15:29 UTC",
+     "summary": "This company is becoming one of the most important equipment suppliers to the semiconductor industry.",
+     "url": "https://finnhub.io/api/news?id=8e4e36db86b660bc024dd21306765d7ad451df4f58d55059e6f44e2b7ca84bff",
+     "image": "",
+     "about": "MU",
+     "tickers": []
+    },
+    {
+     "headline": "Top Midday Stories: Fed's Preferred Inflation Gauge Rises as Expected in August; AI Companies Sign White House Accord",
+     "source": "Yahoo",
+     "time": "2026-09-30 15:28 UTC",
+     "summary": "All three major US stock indexes were up in late-morning trading Wednesday after the latest reading",
+     "url": "https://finnhub.io/api/news?id=c51fe03761bdf6a695ea9c95b6ae8be182927ca0959f6e0ca8872796207e1991",
+     "image": "",
+     "about": "GOOGL",
+     "tickers": []
+    },
+    {
+     "headline": "ROYAL CARIBBEAN REVEALS 2028 SUMMER LINEUP OF ALASKA VACATIONS",
+     "source": "Yahoo",
+     "time": "2026-09-30 15:09 UTC",
+     "summary": "Royal Caribbean has unveiled its 2028 Alaska lineup, offering more ways for vacationers to experience the beauty of the Last Frontier on Anthem, the newly amplified Ovation, Serenade and Voyager of the Seas beginning in April 2028. Adventurers can explore Alaska's majestic glaciers, diverse wildlife",
+     "url": "https://finnhub.io/api/news?id=ea15b18a7ebb011dda4892eace84adbfccb08fb6d4ab07f2cdb0ddcd24faaf7b",
+     "image": "",
+     "about": "RCL",
+     "tickers": []
+    },
+    {
+     "headline": "Jensen Huang's biggest Q3 moves, Rubrik CEO talks tech & cybersecurity",
+     "source": "Yahoo",
+     "time": "2026-09-30 15:07 UTC",
+     "summary": "Yahoo Finance Executive Editor Brian Sozzi takes a look at the biggest stories as the trading day kicks off, weighing in on Micron (MU), SanDisk (SNDK), Jensen Huang's big third quarter, and more.Rubrik (RBRK) CEO Bipul Sinha sits down with Sozzi for a conversation about the state of tech and cybers",
+     "url": "https://finnhub.io/api/news?id=93c2707e2f0a9186fdc9d902e22d99166b282dd6cefb5bab97000b1450b46872",
+     "image": "",
+     "about": "META",
+     "tickers": []
+    },
+    {
+     "headline": "3 Space Stocks to Buy in October",
+     "source": "Yahoo",
+     "time": "2026-09-30 15:07 UTC",
+     "summary": "SpaceX has cooled off, but these three space stocks still offer real upside, from launch infrastructure to profitable defense components.",
+     "url": "https://finnhub.io/api/news?id=2759e491fbbad0507f8cdf053f7ecd6454200a82d25da6155d27d5f8086ad958",
+     "image": "",
+     "about": "RKLB",
+     "tickers": []
+    },
+    {
+     "headline": "Meta Stock Could Be Worth Much More If Its AI Strategy Pays Off",
+     "source": "Yahoo",
+     "time": "2026-09-30 15:00 UTC",
+     "summary": "Meta is riding a 25% monthly rally while simultaneously pouring over $130 billion into AI and watching free cash flow crater. Whether that gamble transforms the ad giant into something far more valuable depends on a few critical variables analysts are split on.",
+     "url": "https://finnhub.io/api/news?id=017b1425c9698e9d16834379721f56834544526d5c497d09abdbdc16b98b86c2",
+     "image": "",
+     "about": "META",
+     "tickers": []
+    },
+    {
+     "headline": "Eni Launches 30% Power & Gas Discount Amid Rising Energy Costs",
+     "source": "Yahoo",
+     "time": "2026-09-30 14:51 UTC",
+     "summary": "E offers a 30% discount on household power and gas rates for two years, with dual-service customers expected to save about 200 euros annually.",
+     "url": "https://finnhub.io/api/news?id=b3a0f56fe9dd0a8b13192c6db750cd7da842c43018847e3742034544b578933f",
+     "image": "",
+     "about": "VLO",
+     "tickers": []
+    },
+    {
+     "headline": "Why VICI\u2019s 1.3x Dividend Coverage Ratio Looks Safer Than Its Falling Stock Price Suggests",
+     "source": "Yahoo",
+     "time": "2026-09-30 14:45 UTC",
+     "summary": "VICI Properties stock has shed nearly a quarter of its value in a year, yet the company just raised its dividend again. The casino landlord's lease structure tells a story the falling share price ignores, but one tenant relationship could upend the whole picture.",
+     "url": "https://finnhub.io/api/news?id=bfc7037a44138f1791eda3e5d6c08bbc071919533389052270df298bfd5561f0",
+     "image": "",
+     "about": "MGM",
+     "tickers": []
+    },
+    {
+     "headline": "VOYA Lags Industry, Trades at a Discount: Time to Hold or Buy?",
+     "source": "Yahoo",
+     "time": "2026-09-30 14:45 UTC",
+     "summary": "Voya Financial's retirement, investment management and wealth businesses are expanding, while capital generation and buybacks support shareholder returns.",
+     "url": "https://finnhub.io/api/news?id=03b6e21e971f585710ef8b95d422c1906905e9b6151b13af8101e0a73a2adb61",
+     "image": "",
+     "about": "BHF",
+     "tickers": []
+    },
+    {
+     "headline": "Cathie Wood Just Bought More Tesla as a Bear Sounds a $30 Billion Warning",
+     "source": "Yahoo",
+     "time": "2026-09-30 14:19 UTC",
+     "summary": "Tesla says it has no plans to tap its new credit facilities this year, but its massive AI and manufacturing spending is putting future cash needs under scrutiny.",
+     "url": "https://finnhub.io/api/news?id=76433ac7bcb976ba99b727a545e025adde0e40930cf4132115c0092f987daac2",
+     "image": "",
+     "about": "TSLA",
+     "tickers": []
+    },
+    {
+     "headline": "AST SpaceMobile Jumps 5% on Takeover Speculation; Rocket Lab Rises 5%, SpaceX Treads Water",
+     "source": "Yahoo",
+     "time": "2026-09-30 14:03 UTC",
+     "summary": "A quiet executive compensation filing at AST SpaceMobile set off a wave of takeover speculation Wednesday, sending shares surging alongside Rocket Lab while investors scramble to separate genuine signal from noise in an already volatile space sector.",
+     "url": "https://finnhub.io/api/news?id=cf8378397b189cf534c37486827b99efb7f82bd0bd1c5fdfd7e8079f001528c2",
+     "image": "",
+     "about": "RKLB",
+     "tickers": []
+    },
+    {
+     "headline": "Trucking fleets repurpose diesel tractors with swappable electric batteries",
+     "source": "Yahoo",
+     "time": "2026-09-30 13:55 UTC",
+     "summary": "New businesses such as powertrain converter Janus Electric are moving farther into U.S. markets, including California and Texas.",
+     "url": "https://finnhub.io/api/news?id=2252a781a27fbe66600cc7462af3959b8ef41a37a70c857d6d424331832528fa",
+     "image": "",
+     "about": "TSLA",
+     "tickers": []
+    },
+    {
+     "headline": "Can L3Harris' FAA Air Traffic Modernization Support Growth?",
+     "source": "Yahoo",
+     "time": "2026-09-30 13:41 UTC",
+     "summary": "LHX is likely to benefit from FAA air traffic modernization as higher Mission Networks revenues and federal funding support new growth opportunities.",
+     "url": "https://finnhub.io/api/news?id=9e70cac7f0187628f1107e1ad8f496bfa2a7905144ae4a124c9b1244e351755c",
+     "image": "",
+     "about": "RTX",
+     "tickers": []
+    },
+    {
+     "headline": "How Investors Are Reacting To Delta Air Lines (DAL) Dividend And Transatlantic Expansion Strategy",
+     "source": "Yahoo",
+     "time": "2026-09-30 13:10 UTC",
+     "summary": "Delta Air Lines\u2019 board recently affirmed a quarterly dividend of US$0.2150 per share, payable on November 5, 2026, to shareholders of record as of October 15, 2026, while investors await its October 9 earnings report and monitor expanding transatlantic routes. Beyond the dividend, Delta\u2019s push into ",
+     "url": "https://finnhub.io/api/news?id=f19901a1bc5176c725c36e154e2c9365fd348a8fedb5c650b91da1e49065ca8e",
+     "image": "",
+     "about": "DAL",
+     "tickers": [
+      "DAL"
+     ]
+    },
+    {
+     "headline": "Elon Musk takes aim at Delta for refusing to use Starlink for Wi-Fi",
+     "source": "Yahoo",
+     "time": "2026-09-30 13:10 UTC",
+     "summary": "In a post on X this week, SpaceX (SPCX) founder and CEO Elon Musk took aim at Delta Air Lines (DAL) for not using Starlink to offer internet access on its flights. The 8:30 Hosts Julie Hyman, Pras Subramanian, and Jake Conley break down the story.",
+     "url": "https://finnhub.io/api/news?id=3d9f02d4a929cb26a79cc80db22cffc0fbc8edd38bd34be0c2393f0b1ed262bd",
+     "image": "",
+     "about": "DAL",
+     "tickers": []
+    },
+    {
+     "headline": "Oil and gas industry collaboration establishes first comprehensive guidelines for upstream scale risk",
+     "source": "Yahoo",
+     "time": "2026-09-30 13:00 UTC",
+     "summary": "Specialists from across the oil and gas industry have come together to establish a comprehensive, publicly available framework for assessing and managing upstream mineral scale risk, addressing longstanding inconsistencies in how scale threats are evaluated.",
+     "url": "https://finnhub.io/api/news?id=46433328cbf8bf1cf4d7e356105835a572e933e2f704eacad7fe7a788ceca0b4",
+     "image": "",
+     "about": "DVN",
+     "tickers": []
+    }
+   ],
+   "headline_count": 90,
+   "tickers": [
+    "XOM",
+    "QRVO",
+    "DAL",
+    "MAT",
+    "ITGR",
+    "CAT"
+   ]
+  },
   {
    "date": "2026-09-29",
    "market_mood": "Risk sentiment is cautious: oil near $90 and rising Treasury yields are pressuring stocks, while Middle East headlines swing between renewed US-Iran talks and continued fighting. Deal flow is heavy (Perella Weinberg, AMD/World Labs, Xeris, Sangoma) and AI remains the dominant tech story ahead of Micron's earnings.",
@@ -7943,6 +9534,14 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-28",
     13.52
+   ],
+   [
+    "2026-09-29",
+    13.61
+   ],
+   [
+    "2026-09-30",
+    13.3
    ]
   ],
   "AAPL": [
@@ -8433,6 +10032,14 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-28",
     338.4
+   ],
+   [
+    "2026-09-29",
+    329.4
+   ],
+   [
+    "2026-09-30",
+    336.31
    ]
   ],
   "AMZN": [
@@ -8923,6 +10530,14 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-28",
     246.15
+   ],
+   [
+    "2026-09-29",
+    246.67
+   ],
+   [
+    "2026-09-30",
+    250.73
    ]
   ],
   "BHF": [
@@ -9437,6 +11052,512 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-28",
     52.04
+   ],
+   [
+    "2026-09-29",
+    52.0
+   ],
+   [
+    "2026-09-30",
+    50.31
+   ]
+  ],
+  "CAT": [
+   [
+    "2026-04-06",
+    718.54
+   ],
+   [
+    "2026-04-07",
+    721.72
+   ],
+   [
+    "2026-04-08",
+    768.69
+   ],
+   [
+    "2026-04-09",
+    784.12
+   ],
+   [
+    "2026-04-10",
+    787.7
+   ],
+   [
+    "2026-04-13",
+    788.76
+   ],
+   [
+    "2026-04-14",
+    791.27
+   ],
+   [
+    "2026-04-15",
+    767.28
+   ],
+   [
+    "2026-04-16",
+    769.76
+   ],
+   [
+    "2026-04-17",
+    791.67
+   ],
+   [
+    "2026-04-20",
+    796.92
+   ],
+   [
+    "2026-04-21",
+    798.97
+   ],
+   [
+    "2026-04-22",
+    807.37
+   ],
+   [
+    "2026-04-23",
+    833.69
+   ],
+   [
+    "2026-04-24",
+    829.25
+   ],
+   [
+    "2026-04-27",
+    827.26
+   ],
+   [
+    "2026-04-28",
+    816.36
+   ],
+   [
+    "2026-04-29",
+    808.55
+   ],
+   [
+    "2026-04-30",
+    888.46
+   ],
+   [
+    "2026-05-01",
+    888.02
+   ],
+   [
+    "2026-05-04",
+    873.16
+   ],
+   [
+    "2026-05-05",
+    902.92
+   ],
+   [
+    "2026-05-06",
+    925.21
+   ],
+   [
+    "2026-05-07",
+    894.03
+   ],
+   [
+    "2026-05-08",
+    895.79
+   ],
+   [
+    "2026-05-11",
+    925.07
+   ],
+   [
+    "2026-05-12",
+    910.45
+   ],
+   [
+    "2026-05-13",
+    900.63
+   ],
+   [
+    "2026-05-14",
+    918.52
+   ],
+   [
+    "2026-05-15",
+    886.67
+   ],
+   [
+    "2026-05-18",
+    862.35
+   ],
+   [
+    "2026-05-19",
+    858.56
+   ],
+   [
+    "2026-05-20",
+    870.94
+   ],
+   [
+    "2026-05-21",
+    864.35
+   ],
+   [
+    "2026-05-22",
+    878.26
+   ],
+   [
+    "2026-05-26",
+    906.87
+   ],
+   [
+    "2026-05-27",
+    908.25
+   ],
+   [
+    "2026-05-28",
+    886.03
+   ],
+   [
+    "2026-05-29",
+    874.25
+   ],
+   [
+    "2026-06-01",
+    863.76
+   ],
+   [
+    "2026-06-02",
+    908.13
+   ],
+   [
+    "2026-06-03",
+    924.47
+   ],
+   [
+    "2026-06-04",
+    938.74
+   ],
+   [
+    "2026-06-05",
+    902.61
+   ],
+   [
+    "2026-06-08",
+    913.94
+   ],
+   [
+    "2026-06-09",
+    913.01
+   ],
+   [
+    "2026-06-10",
+    854.57
+   ],
+   [
+    "2026-06-11",
+    895.97
+   ],
+   [
+    "2026-06-12",
+    908.88
+   ],
+   [
+    "2026-06-15",
+    932.2
+   ],
+   [
+    "2026-06-16",
+    943.71
+   ],
+   [
+    "2026-06-17",
+    954.15
+   ],
+   [
+    "2026-06-18",
+    983.99
+   ],
+   [
+    "2026-06-22",
+    1020.39
+   ],
+   [
+    "2026-06-23",
+    982.42
+   ],
+   [
+    "2026-06-24",
+    992.61
+   ],
+   [
+    "2026-06-25",
+    1055.05
+   ],
+   [
+    "2026-06-26",
+    995.62
+   ],
+   [
+    "2026-06-29",
+    1031.28
+   ],
+   [
+    "2026-06-30",
+    1062.93
+   ],
+   [
+    "2026-07-01",
+    989.57
+   ],
+   [
+    "2026-07-02",
+    961.75
+   ],
+   [
+    "2026-07-06",
+    968.12
+   ],
+   [
+    "2026-07-07",
+    938.38
+   ],
+   [
+    "2026-07-08",
+    946.32
+   ],
+   [
+    "2026-07-09",
+    936.65
+   ],
+   [
+    "2026-07-10",
+    950.65
+   ],
+   [
+    "2026-07-13",
+    929.75
+   ],
+   [
+    "2026-07-14",
+    931.61
+   ],
+   [
+    "2026-07-15",
+    912.61
+   ],
+   [
+    "2026-07-16",
+    875.55
+   ],
+   [
+    "2026-07-17",
+    878.65
+   ],
+   [
+    "2026-07-20",
+    864.3
+   ],
+   [
+    "2026-07-21",
+    889.97
+   ],
+   [
+    "2026-07-22",
+    889.31
+   ],
+   [
+    "2026-07-23",
+    894.54
+   ],
+   [
+    "2026-07-24",
+    888.73
+   ],
+   [
+    "2026-07-27",
+    873.28
+   ],
+   [
+    "2026-07-28",
+    840.85
+   ],
+   [
+    "2026-07-29",
+    782.71
+   ],
+   [
+    "2026-07-30",
+    809.14
+   ],
+   [
+    "2026-07-31",
+    814.81
+   ],
+   [
+    "2026-08-03",
+    830.03
+   ],
+   [
+    "2026-08-04",
+    876.54
+   ],
+   [
+    "2026-08-05",
+    871.08
+   ],
+   [
+    "2026-08-06",
+    856.96
+   ],
+   [
+    "2026-08-07",
+    842.19
+   ],
+   [
+    "2026-08-10",
+    837.58
+   ],
+   [
+    "2026-08-11",
+    843.37
+   ],
+   [
+    "2026-08-12",
+    855.6
+   ],
+   [
+    "2026-08-13",
+    854.6
+   ],
+   [
+    "2026-08-14",
+    856.57
+   ],
+   [
+    "2026-08-17",
+    881.65
+   ],
+   [
+    "2026-08-18",
+    840.87
+   ],
+   [
+    "2026-08-19",
+    816.15
+   ],
+   [
+    "2026-08-20",
+    815.39
+   ],
+   [
+    "2026-08-21",
+    827.9
+   ],
+   [
+    "2026-08-24",
+    811.02
+   ],
+   [
+    "2026-08-25",
+    811.29
+   ],
+   [
+    "2026-08-26",
+    821.93
+   ],
+   [
+    "2026-08-27",
+    817.0
+   ],
+   [
+    "2026-08-28",
+    800.25
+   ],
+   [
+    "2026-08-31",
+    797.47
+   ],
+   [
+    "2026-09-01",
+    779.16
+   ],
+   [
+    "2026-09-02",
+    792.28
+   ],
+   [
+    "2026-09-03",
+    800.14
+   ],
+   [
+    "2026-09-04",
+    813.94
+   ],
+   [
+    "2026-09-08",
+    822.48
+   ],
+   [
+    "2026-09-09",
+    815.56
+   ],
+   [
+    "2026-09-10",
+    805.0
+   ],
+   [
+    "2026-09-11",
+    818.57
+   ],
+   [
+    "2026-09-14",
+    784.0
+   ],
+   [
+    "2026-09-15",
+    783.54
+   ],
+   [
+    "2026-09-16",
+    782.72
+   ],
+   [
+    "2026-09-17",
+    798.57
+   ],
+   [
+    "2026-09-18",
+    808.99
+   ],
+   [
+    "2026-09-21",
+    816.5
+   ],
+   [
+    "2026-09-22",
+    808.01
+   ],
+   [
+    "2026-09-23",
+    812.02
+   ],
+   [
+    "2026-09-24",
+    805.25
+   ],
+   [
+    "2026-09-25",
+    821.58
+   ],
+   [
+    "2026-09-28",
+    819.95
+   ],
+   [
+    "2026-09-29",
+    826.64
+   ],
+   [
+    "2026-09-30",
+    819.33
    ]
   ],
   "CPRI": [
@@ -9951,6 +12072,14 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-28",
     14.79
+   ],
+   [
+    "2026-09-29",
+    14.66
+   ],
+   [
+    "2026-09-30",
+    14.28
    ]
   ],
   "CSCO": [
@@ -10465,6 +12594,14 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-28",
     106.74
+   ],
+   [
+    "2026-09-29",
+    106.94
+   ],
+   [
+    "2026-09-30",
+    108.02
    ]
   ],
   "DAL": [
@@ -10979,6 +13116,14 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-28",
     84.03
+   ],
+   [
+    "2026-09-29",
+    84.87
+   ],
+   [
+    "2026-09-30",
+    83.54
    ]
   ],
   "DIA": [
@@ -11469,6 +13614,14 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-28",
     514.02
+   ],
+   [
+    "2026-09-29",
+    512.88
+   ],
+   [
+    "2026-09-30",
+    511.54
    ]
   ],
   "DVN": [
@@ -11979,6 +14132,14 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-28",
     46.73
+   ],
+   [
+    "2026-09-29",
+    46.6
+   ],
+   [
+    "2026-09-30",
+    46.56
    ]
   ],
   "GDDY": [
@@ -12485,6 +14646,14 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-28",
     93.71
+   ],
+   [
+    "2026-09-29",
+    94.06
+   ],
+   [
+    "2026-09-30",
+    95.59
    ]
   ],
   "GLD": [
@@ -12991,6 +15160,14 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-28",
     377.91
+   ],
+   [
+    "2026-09-29",
+    382.89
+   ],
+   [
+    "2026-09-30",
+    380.39
    ]
   ],
   "GOOGL": [
@@ -13481,6 +15658,14 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-28",
     342.75
+   ],
+   [
+    "2026-09-29",
+    340.92
+   ],
+   [
+    "2026-09-30",
+    349.57
    ]
   ],
   "IONQ": [
@@ -13991,6 +16176,512 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-28",
     44.58
+   ],
+   [
+    "2026-09-29",
+    43.91
+   ],
+   [
+    "2026-09-30",
+    44.48
+   ]
+  ],
+  "ITGR": [
+   [
+    "2026-04-06",
+    85.63
+   ],
+   [
+    "2026-04-07",
+    85.11
+   ],
+   [
+    "2026-04-08",
+    87.48
+   ],
+   [
+    "2026-04-09",
+    86.67
+   ],
+   [
+    "2026-04-10",
+    85.11
+   ],
+   [
+    "2026-04-13",
+    87.73
+   ],
+   [
+    "2026-04-14",
+    88.63
+   ],
+   [
+    "2026-04-15",
+    87.94
+   ],
+   [
+    "2026-04-16",
+    88.37
+   ],
+   [
+    "2026-04-17",
+    90.2
+   ],
+   [
+    "2026-04-20",
+    89.32
+   ],
+   [
+    "2026-04-21",
+    85.62
+   ],
+   [
+    "2026-04-22",
+    85.16
+   ],
+   [
+    "2026-04-23",
+    84.86
+   ],
+   [
+    "2026-04-24",
+    86.02
+   ],
+   [
+    "2026-04-27",
+    85.35
+   ],
+   [
+    "2026-04-28",
+    84.64
+   ],
+   [
+    "2026-04-29",
+    83.67
+   ],
+   [
+    "2026-04-30",
+    88.51
+   ],
+   [
+    "2026-05-01",
+    84.03
+   ],
+   [
+    "2026-05-04",
+    83.95
+   ],
+   [
+    "2026-05-05",
+    85.85
+   ],
+   [
+    "2026-05-06",
+    86.29
+   ],
+   [
+    "2026-05-07",
+    87.92
+   ],
+   [
+    "2026-05-08",
+    88.12
+   ],
+   [
+    "2026-05-11",
+    84.85
+   ],
+   [
+    "2026-05-12",
+    84.98
+   ],
+   [
+    "2026-05-13",
+    89.39
+   ],
+   [
+    "2026-05-14",
+    89.82
+   ],
+   [
+    "2026-05-15",
+    88.16
+   ],
+   [
+    "2026-05-18",
+    89.97
+   ],
+   [
+    "2026-05-19",
+    90.44
+   ],
+   [
+    "2026-05-20",
+    91.49
+   ],
+   [
+    "2026-05-21",
+    90.0
+   ],
+   [
+    "2026-05-22",
+    89.28
+   ],
+   [
+    "2026-05-26",
+    90.14
+   ],
+   [
+    "2026-05-27",
+    88.97
+   ],
+   [
+    "2026-05-28",
+    90.05
+   ],
+   [
+    "2026-05-29",
+    89.38
+   ],
+   [
+    "2026-06-01",
+    90.16
+   ],
+   [
+    "2026-06-02",
+    90.31
+   ],
+   [
+    "2026-06-03",
+    90.89
+   ],
+   [
+    "2026-06-04",
+    92.74
+   ],
+   [
+    "2026-06-05",
+    91.98
+   ],
+   [
+    "2026-06-08",
+    91.89
+   ],
+   [
+    "2026-06-09",
+    94.1
+   ],
+   [
+    "2026-06-10",
+    91.37
+   ],
+   [
+    "2026-06-11",
+    92.1
+   ],
+   [
+    "2026-06-12",
+    90.98
+   ],
+   [
+    "2026-06-15",
+    90.85
+   ],
+   [
+    "2026-06-16",
+    91.3
+   ],
+   [
+    "2026-06-17",
+    89.5
+   ],
+   [
+    "2026-06-18",
+    90.96
+   ],
+   [
+    "2026-06-22",
+    90.1
+   ],
+   [
+    "2026-06-23",
+    89.54
+   ],
+   [
+    "2026-06-24",
+    91.38
+   ],
+   [
+    "2026-06-25",
+    93.12
+   ],
+   [
+    "2026-06-26",
+    93.89
+   ],
+   [
+    "2026-06-29",
+    91.22
+   ],
+   [
+    "2026-06-30",
+    93.45
+   ],
+   [
+    "2026-07-01",
+    94.57
+   ],
+   [
+    "2026-07-02",
+    95.14
+   ],
+   [
+    "2026-07-06",
+    93.4
+   ],
+   [
+    "2026-07-07",
+    91.9
+   ],
+   [
+    "2026-07-08",
+    91.15
+   ],
+   [
+    "2026-07-09",
+    91.95
+   ],
+   [
+    "2026-07-10",
+    93.68
+   ],
+   [
+    "2026-07-13",
+    96.38
+   ],
+   [
+    "2026-07-14",
+    93.31
+   ],
+   [
+    "2026-07-15",
+    95.56
+   ],
+   [
+    "2026-07-16",
+    99.62
+   ],
+   [
+    "2026-07-17",
+    95.42
+   ],
+   [
+    "2026-07-20",
+    96.09
+   ],
+   [
+    "2026-07-21",
+    96.31
+   ],
+   [
+    "2026-07-22",
+    96.56
+   ],
+   [
+    "2026-07-23",
+    97.5
+   ],
+   [
+    "2026-07-24",
+    98.62
+   ],
+   [
+    "2026-07-27",
+    99.4
+   ],
+   [
+    "2026-07-28",
+    100.38
+   ],
+   [
+    "2026-07-29",
+    99.82
+   ],
+   [
+    "2026-07-30",
+    100.86
+   ],
+   [
+    "2026-07-31",
+    121.21
+   ],
+   [
+    "2026-08-03",
+    124.45
+   ],
+   [
+    "2026-08-04",
+    125.05
+   ],
+   [
+    "2026-08-05",
+    125.0
+   ],
+   [
+    "2026-08-06",
+    126.07
+   ],
+   [
+    "2026-08-07",
+    125.27
+   ],
+   [
+    "2026-08-10",
+    125.08
+   ],
+   [
+    "2026-08-11",
+    125.04
+   ],
+   [
+    "2026-08-12",
+    125.08
+   ],
+   [
+    "2026-08-13",
+    125.06
+   ],
+   [
+    "2026-08-14",
+    125.26
+   ],
+   [
+    "2026-08-17",
+    125.08
+   ],
+   [
+    "2026-08-18",
+    125.09
+   ],
+   [
+    "2026-08-19",
+    125.3
+   ],
+   [
+    "2026-08-20",
+    125.21
+   ],
+   [
+    "2026-08-21",
+    125.2
+   ],
+   [
+    "2026-08-24",
+    125.07
+   ],
+   [
+    "2026-08-25",
+    125.39
+   ],
+   [
+    "2026-08-26",
+    125.19
+   ],
+   [
+    "2026-08-27",
+    125.3
+   ],
+   [
+    "2026-08-28",
+    125.33
+   ],
+   [
+    "2026-08-31",
+    125.25
+   ],
+   [
+    "2026-09-01",
+    125.39
+   ],
+   [
+    "2026-09-02",
+    125.31
+   ],
+   [
+    "2026-09-03",
+    125.5
+   ],
+   [
+    "2026-09-04",
+    126.5
+   ],
+   [
+    "2026-09-08",
+    126.2
+   ],
+   [
+    "2026-09-09",
+    125.86
+   ],
+   [
+    "2026-09-10",
+    126.05
+   ],
+   [
+    "2026-09-11",
+    126.0
+   ],
+   [
+    "2026-09-14",
+    126.13
+   ],
+   [
+    "2026-09-15",
+    126.21
+   ],
+   [
+    "2026-09-16",
+    126.11
+   ],
+   [
+    "2026-09-17",
+    126.33
+   ],
+   [
+    "2026-09-18",
+    126.28
+   ],
+   [
+    "2026-09-21",
+    126.38
+   ],
+   [
+    "2026-09-22",
+    126.33
+   ],
+   [
+    "2026-09-23",
+    126.32
+   ],
+   [
+    "2026-09-24",
+    126.17
+   ],
+   [
+    "2026-09-25",
+    126.34
+   ],
+   [
+    "2026-09-28",
+    126.38
+   ],
+   [
+    "2026-09-29",
+    126.33
+   ],
+   [
+    "2026-09-30",
+    126.4
    ]
   ],
   "JPM": [
@@ -14497,6 +17188,14 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-28",
     336.59
+   ],
+   [
+    "2026-09-29",
+    334.98
+   ],
+   [
+    "2026-09-30",
+    332.04
    ]
   ],
   "LNG": [
@@ -14995,6 +17694,512 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-28",
     269.65
+   ],
+   [
+    "2026-09-29",
+    267.29
+   ],
+   [
+    "2026-09-30",
+    268.94
+   ]
+  ],
+  "MAT": [
+   [
+    "2026-04-06",
+    14.51
+   ],
+   [
+    "2026-04-07",
+    14.42
+   ],
+   [
+    "2026-04-08",
+    14.45
+   ],
+   [
+    "2026-04-09",
+    14.64
+   ],
+   [
+    "2026-04-10",
+    14.64
+   ],
+   [
+    "2026-04-13",
+    14.53
+   ],
+   [
+    "2026-04-14",
+    14.55
+   ],
+   [
+    "2026-04-15",
+    14.84
+   ],
+   [
+    "2026-04-16",
+    15.0
+   ],
+   [
+    "2026-04-17",
+    15.19
+   ],
+   [
+    "2026-04-20",
+    14.91
+   ],
+   [
+    "2026-04-21",
+    14.88
+   ],
+   [
+    "2026-04-22",
+    15.15
+   ],
+   [
+    "2026-04-23",
+    14.76
+   ],
+   [
+    "2026-04-24",
+    14.54
+   ],
+   [
+    "2026-04-27",
+    14.72
+   ],
+   [
+    "2026-04-28",
+    14.79
+   ],
+   [
+    "2026-04-29",
+    14.89
+   ],
+   [
+    "2026-04-30",
+    15.08
+   ],
+   [
+    "2026-05-01",
+    14.93
+   ],
+   [
+    "2026-05-04",
+    14.85
+   ],
+   [
+    "2026-05-05",
+    14.72
+   ],
+   [
+    "2026-05-06",
+    15.08
+   ],
+   [
+    "2026-05-07",
+    15.0
+   ],
+   [
+    "2026-05-08",
+    15.39
+   ],
+   [
+    "2026-05-11",
+    14.99
+   ],
+   [
+    "2026-05-12",
+    15.18
+   ],
+   [
+    "2026-05-13",
+    14.82
+   ],
+   [
+    "2026-05-14",
+    15.11
+   ],
+   [
+    "2026-05-15",
+    15.15
+   ],
+   [
+    "2026-05-18",
+    14.94
+   ],
+   [
+    "2026-05-19",
+    15.0
+   ],
+   [
+    "2026-05-20",
+    14.89
+   ],
+   [
+    "2026-05-21",
+    14.97
+   ],
+   [
+    "2026-05-22",
+    15.09
+   ],
+   [
+    "2026-05-26",
+    15.07
+   ],
+   [
+    "2026-05-27",
+    14.9
+   ],
+   [
+    "2026-05-28",
+    14.89
+   ],
+   [
+    "2026-05-29",
+    14.94
+   ],
+   [
+    "2026-06-01",
+    14.86
+   ],
+   [
+    "2026-06-02",
+    14.37
+   ],
+   [
+    "2026-06-03",
+    14.34
+   ],
+   [
+    "2026-06-04",
+    14.2
+   ],
+   [
+    "2026-06-05",
+    14.08
+   ],
+   [
+    "2026-06-08",
+    14.21
+   ],
+   [
+    "2026-06-09",
+    14.49
+   ],
+   [
+    "2026-06-10",
+    14.69
+   ],
+   [
+    "2026-06-11",
+    14.66
+   ],
+   [
+    "2026-06-12",
+    14.65
+   ],
+   [
+    "2026-06-15",
+    14.35
+   ],
+   [
+    "2026-06-16",
+    14.13
+   ],
+   [
+    "2026-06-17",
+    13.67
+   ],
+   [
+    "2026-06-18",
+    14.04
+   ],
+   [
+    "2026-06-22",
+    13.89
+   ],
+   [
+    "2026-06-23",
+    13.77
+   ],
+   [
+    "2026-06-24",
+    13.88
+   ],
+   [
+    "2026-06-25",
+    13.81
+   ],
+   [
+    "2026-06-26",
+    13.98
+   ],
+   [
+    "2026-06-29",
+    13.69
+   ],
+   [
+    "2026-06-30",
+    13.88
+   ],
+   [
+    "2026-07-01",
+    13.74
+   ],
+   [
+    "2026-07-02",
+    13.34
+   ],
+   [
+    "2026-07-06",
+    13.05
+   ],
+   [
+    "2026-07-07",
+    13.42
+   ],
+   [
+    "2026-07-08",
+    13.17
+   ],
+   [
+    "2026-07-09",
+    13.18
+   ],
+   [
+    "2026-07-10",
+    13.33
+   ],
+   [
+    "2026-07-13",
+    13.84
+   ],
+   [
+    "2026-07-14",
+    13.67
+   ],
+   [
+    "2026-07-15",
+    13.86
+   ],
+   [
+    "2026-07-16",
+    14.65
+   ],
+   [
+    "2026-07-17",
+    14.3
+   ],
+   [
+    "2026-07-20",
+    14.14
+   ],
+   [
+    "2026-07-21",
+    14.2
+   ],
+   [
+    "2026-07-22",
+    14.4
+   ],
+   [
+    "2026-07-23",
+    14.24
+   ],
+   [
+    "2026-07-24",
+    14.34
+   ],
+   [
+    "2026-07-27",
+    14.8
+   ],
+   [
+    "2026-07-28",
+    15.44
+   ],
+   [
+    "2026-07-29",
+    15.37
+   ],
+   [
+    "2026-07-30",
+    15.21
+   ],
+   [
+    "2026-07-31",
+    15.09
+   ],
+   [
+    "2026-08-03",
+    14.88
+   ],
+   [
+    "2026-08-04",
+    14.86
+   ],
+   [
+    "2026-08-05",
+    14.46
+   ],
+   [
+    "2026-08-06",
+    14.49
+   ],
+   [
+    "2026-08-07",
+    14.79
+   ],
+   [
+    "2026-08-10",
+    14.74
+   ],
+   [
+    "2026-08-11",
+    15.03
+   ],
+   [
+    "2026-08-12",
+    14.65
+   ],
+   [
+    "2026-08-13",
+    14.88
+   ],
+   [
+    "2026-08-14",
+    15.03
+   ],
+   [
+    "2026-08-17",
+    14.58
+   ],
+   [
+    "2026-08-18",
+    14.5
+   ],
+   [
+    "2026-08-19",
+    14.53
+   ],
+   [
+    "2026-08-20",
+    14.72
+   ],
+   [
+    "2026-08-21",
+    14.51
+   ],
+   [
+    "2026-08-24",
+    14.82
+   ],
+   [
+    "2026-08-25",
+    15.26
+   ],
+   [
+    "2026-08-26",
+    15.23
+   ],
+   [
+    "2026-08-27",
+    14.92
+   ],
+   [
+    "2026-08-28",
+    15.14
+   ],
+   [
+    "2026-08-31",
+    14.95
+   ],
+   [
+    "2026-09-01",
+    14.59
+   ],
+   [
+    "2026-09-02",
+    14.64
+   ],
+   [
+    "2026-09-03",
+    14.3
+   ],
+   [
+    "2026-09-04",
+    14.53
+   ],
+   [
+    "2026-09-08",
+    14.14
+   ],
+   [
+    "2026-09-09",
+    13.76
+   ],
+   [
+    "2026-09-10",
+    13.81
+   ],
+   [
+    "2026-09-11",
+    14.01
+   ],
+   [
+    "2026-09-14",
+    14.03
+   ],
+   [
+    "2026-09-15",
+    13.42
+   ],
+   [
+    "2026-09-16",
+    13.17
+   ],
+   [
+    "2026-09-17",
+    13.31
+   ],
+   [
+    "2026-09-18",
+    13.26
+   ],
+   [
+    "2026-09-21",
+    13.08
+   ],
+   [
+    "2026-09-22",
+    13.21
+   ],
+   [
+    "2026-09-23",
+    13.08
+   ],
+   [
+    "2026-09-24",
+    13.14
+   ],
+   [
+    "2026-09-25",
+    13.29
+   ],
+   [
+    "2026-09-28",
+    13.34
+   ],
+   [
+    "2026-09-29",
+    13.22
+   ],
+   [
+    "2026-09-30",
+    12.77
    ]
   ],
   "META": [
@@ -15505,6 +18710,14 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-28",
     715.62
+   ],
+   [
+    "2026-09-29",
+    738.79
+   ],
+   [
+    "2026-09-30",
+    733.43
    ]
   ],
   "MGM": [
@@ -16011,6 +19224,14 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-28",
     31.86
+   ],
+   [
+    "2026-09-29",
+    31.52
+   ],
+   [
+    "2026-09-30",
+    31.17
    ]
   ],
   "MSFT": [
@@ -16517,6 +19738,14 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-28",
     509.22
+   ],
+   [
+    "2026-09-29",
+    508.96
+   ],
+   [
+    "2026-09-30",
+    518.02
    ]
   ],
   "MU": [
@@ -17027,6 +20256,14 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-28",
     1053.98
+   ],
+   [
+    "2026-09-29",
+    1065.08
+   ],
+   [
+    "2026-09-30",
+    1070.23
    ]
   ],
   "NVDA": [
@@ -17541,6 +20778,14 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-28",
     228.86
+   ],
+   [
+    "2026-09-29",
+    227.21
+   ],
+   [
+    "2026-09-30",
+    230.4
    ]
   ],
   "PWP": [
@@ -18035,6 +21280,14 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-28",
     14.64
+   ],
+   [
+    "2026-09-29",
+    16.37
+   ],
+   [
+    "2026-09-30",
+    16.0
    ]
   ],
   "QQQ": [
@@ -18525,6 +21778,512 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-28",
     736.53
+   ],
+   [
+    "2026-09-29",
+    737.93
+   ],
+   [
+    "2026-09-30",
+    743.64
+   ]
+  ],
+  "QRVO": [
+   [
+    "2026-04-06",
+    79.43
+   ],
+   [
+    "2026-04-07",
+    77.78
+   ],
+   [
+    "2026-04-08",
+    79.57
+   ],
+   [
+    "2026-04-09",
+    79.83
+   ],
+   [
+    "2026-04-10",
+    79.81
+   ],
+   [
+    "2026-04-13",
+    79.77
+   ],
+   [
+    "2026-04-14",
+    80.61
+   ],
+   [
+    "2026-04-15",
+    81.19
+   ],
+   [
+    "2026-04-16",
+    81.72
+   ],
+   [
+    "2026-04-17",
+    81.9
+   ],
+   [
+    "2026-04-20",
+    82.61
+   ],
+   [
+    "2026-04-21",
+    83.09
+   ],
+   [
+    "2026-04-22",
+    84.98
+   ],
+   [
+    "2026-04-23",
+    84.65
+   ],
+   [
+    "2026-04-24",
+    87.8
+   ],
+   [
+    "2026-04-27",
+    85.84
+   ],
+   [
+    "2026-04-28",
+    84.87
+   ],
+   [
+    "2026-04-29",
+    86.48
+   ],
+   [
+    "2026-04-30",
+    94.22
+   ],
+   [
+    "2026-05-01",
+    93.5
+   ],
+   [
+    "2026-05-04",
+    92.53
+   ],
+   [
+    "2026-05-05",
+    96.35
+   ],
+   [
+    "2026-05-06",
+    88.94
+   ],
+   [
+    "2026-05-07",
+    88.97
+   ],
+   [
+    "2026-05-08",
+    90.53
+   ],
+   [
+    "2026-05-11",
+    93.41
+   ],
+   [
+    "2026-05-12",
+    89.73
+   ],
+   [
+    "2026-05-13",
+    91.51
+   ],
+   [
+    "2026-05-14",
+    90.46
+   ],
+   [
+    "2026-05-15",
+    92.25
+   ],
+   [
+    "2026-05-18",
+    94.21
+   ],
+   [
+    "2026-05-19",
+    94.57
+   ],
+   [
+    "2026-05-20",
+    98.78
+   ],
+   [
+    "2026-05-21",
+    97.74
+   ],
+   [
+    "2026-05-22",
+    106.43
+   ],
+   [
+    "2026-05-26",
+    108.23
+   ],
+   [
+    "2026-05-27",
+    103.91
+   ],
+   [
+    "2026-05-28",
+    106.42
+   ],
+   [
+    "2026-05-29",
+    103.56
+   ],
+   [
+    "2026-06-01",
+    99.97
+   ],
+   [
+    "2026-06-02",
+    102.74
+   ],
+   [
+    "2026-06-03",
+    104.73
+   ],
+   [
+    "2026-06-04",
+    103.97
+   ],
+   [
+    "2026-06-05",
+    98.28
+   ],
+   [
+    "2026-06-08",
+    99.89
+   ],
+   [
+    "2026-06-09",
+    97.94
+   ],
+   [
+    "2026-06-10",
+    95.0
+   ],
+   [
+    "2026-06-11",
+    97.66
+   ],
+   [
+    "2026-06-12",
+    98.59
+   ],
+   [
+    "2026-06-15",
+    101.28
+   ],
+   [
+    "2026-06-16",
+    96.56
+   ],
+   [
+    "2026-06-17",
+    94.65
+   ],
+   [
+    "2026-06-18",
+    98.42
+   ],
+   [
+    "2026-06-22",
+    101.98
+   ],
+   [
+    "2026-06-23",
+    99.6
+   ],
+   [
+    "2026-06-24",
+    97.18
+   ],
+   [
+    "2026-06-25",
+    95.37
+   ],
+   [
+    "2026-06-26",
+    93.88
+   ],
+   [
+    "2026-06-29",
+    93.54
+   ],
+   [
+    "2026-06-30",
+    93.27
+   ],
+   [
+    "2026-07-01",
+    90.88
+   ],
+   [
+    "2026-07-02",
+    87.57
+   ],
+   [
+    "2026-07-06",
+    87.13
+   ],
+   [
+    "2026-07-07",
+    85.13
+   ],
+   [
+    "2026-07-08",
+    83.87
+   ],
+   [
+    "2026-07-09",
+    85.45
+   ],
+   [
+    "2026-07-10",
+    85.81
+   ],
+   [
+    "2026-07-13",
+    84.35
+   ],
+   [
+    "2026-07-14",
+    82.51
+   ],
+   [
+    "2026-07-15",
+    83.44
+   ],
+   [
+    "2026-07-16",
+    83.5
+   ],
+   [
+    "2026-07-17",
+    85.5
+   ],
+   [
+    "2026-07-20",
+    85.72
+   ],
+   [
+    "2026-07-21",
+    88.93
+   ],
+   [
+    "2026-07-22",
+    89.48
+   ],
+   [
+    "2026-07-23",
+    86.73
+   ],
+   [
+    "2026-07-24",
+    86.51
+   ],
+   [
+    "2026-07-27",
+    89.76
+   ],
+   [
+    "2026-07-28",
+    91.76
+   ],
+   [
+    "2026-07-29",
+    89.5
+   ],
+   [
+    "2026-07-30",
+    90.74
+   ],
+   [
+    "2026-07-31",
+    90.57
+   ],
+   [
+    "2026-08-03",
+    89.49
+   ],
+   [
+    "2026-08-04",
+    95.04
+   ],
+   [
+    "2026-08-05",
+    95.25
+   ],
+   [
+    "2026-08-06",
+    95.33
+   ],
+   [
+    "2026-08-07",
+    99.08
+   ],
+   [
+    "2026-08-10",
+    97.0
+   ],
+   [
+    "2026-08-11",
+    96.68
+   ],
+   [
+    "2026-08-12",
+    98.24
+   ],
+   [
+    "2026-08-13",
+    98.44
+   ],
+   [
+    "2026-08-14",
+    98.11
+   ],
+   [
+    "2026-08-17",
+    96.04
+   ],
+   [
+    "2026-08-18",
+    95.7
+   ],
+   [
+    "2026-08-19",
+    96.81
+   ],
+   [
+    "2026-08-20",
+    96.31
+   ],
+   [
+    "2026-08-21",
+    95.56
+   ],
+   [
+    "2026-08-24",
+    95.37
+   ],
+   [
+    "2026-08-25",
+    94.34
+   ],
+   [
+    "2026-08-26",
+    95.14
+   ],
+   [
+    "2026-08-27",
+    96.18
+   ],
+   [
+    "2026-08-28",
+    94.73
+   ],
+   [
+    "2026-08-31",
+    96.08
+   ],
+   [
+    "2026-09-01",
+    96.4
+   ],
+   [
+    "2026-09-02",
+    100.63
+   ],
+   [
+    "2026-09-03",
+    100.38
+   ],
+   [
+    "2026-09-04",
+    102.84
+   ],
+   [
+    "2026-09-08",
+    104.07
+   ],
+   [
+    "2026-09-09",
+    105.24
+   ],
+   [
+    "2026-09-10",
+    112.36
+   ],
+   [
+    "2026-09-11",
+    116.65
+   ],
+   [
+    "2026-09-14",
+    107.98
+   ],
+   [
+    "2026-09-15",
+    118.06
+   ],
+   [
+    "2026-09-16",
+    113.97
+   ],
+   [
+    "2026-09-17",
+    119.51
+   ],
+   [
+    "2026-09-18",
+    117.18
+   ],
+   [
+    "2026-09-21",
+    117.21
+   ],
+   [
+    "2026-09-22",
+    118.44
+   ],
+   [
+    "2026-09-23",
+    119.59
+   ],
+   [
+    "2026-09-24",
+    116.34
+   ],
+   [
+    "2026-09-25",
+    117.97
+   ],
+   [
+    "2026-09-28",
+    116.3
+   ],
+   [
+    "2026-09-29",
+    116.75
+   ],
+   [
+    "2026-09-30",
+    114.35
    ]
   ],
   "RCL": [
@@ -19039,6 +22798,14 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-28",
     242.59
+   ],
+   [
+    "2026-09-29",
+    260.67
+   ],
+   [
+    "2026-09-30",
+    266.17
    ]
   ],
   "RKLB": [
@@ -19545,6 +23312,14 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-28",
     72.19
+   ],
+   [
+    "2026-09-29",
+    69.7
+   ],
+   [
+    "2026-09-30",
+    71.65
    ]
   ],
   "RTX": [
@@ -20043,6 +23818,14 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-28",
     187.66
+   ],
+   [
+    "2026-09-29",
+    186.94
+   ],
+   [
+    "2026-09-30",
+    186.31
    ]
   ],
   "SPY": [
@@ -20533,6 +24316,14 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-28",
     765.61
+   ],
+   [
+    "2026-09-29",
+    764.2
+   ],
+   [
+    "2026-09-30",
+    767.31
    ]
   ],
   "TLT": [
@@ -21043,6 +24834,14 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-28",
     78.62
+   ],
+   [
+    "2026-09-29",
+    78.23
+   ],
+   [
+    "2026-09-30",
+    77.61
    ]
   ],
   "TSLA": [
@@ -21533,6 +25332,14 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-28",
     357.45
+   ],
+   [
+    "2026-09-29",
+    352.84
+   ],
+   [
+    "2026-09-30",
+    353.49
    ]
   ],
   "VLO": [
@@ -22043,6 +25850,14 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-28",
     389.57
+   ],
+   [
+    "2026-09-29",
+    387.72
+   ],
+   [
+    "2026-09-30",
+    395.74
    ]
   ],
   "XOM": [
@@ -22557,6 +26372,14 @@ window.DASHBOARD_DATA = {
    [
     "2026-09-28",
     162.52
+   ],
+   [
+    "2026-09-29",
+    161.35
+   ],
+   [
+    "2026-09-30",
+    164.3
    ]
   ]
  },
@@ -22565,110 +26388,110 @@ window.DASHBOARD_DATA = {
    "ticker": "XLK",
    "name": "Technology",
    "changes": {
-    "1D": -0.89,
-    "1W": -0.16,
-    "1M": 3.26,
-    "3M": 5.04
+    "1D": 1.05,
+    "1W": 0.61,
+    "1M": 5.51,
+    "3M": 6.01
    }
   },
   {
    "ticker": "XLC",
    "name": "Communication",
    "changes": {
-    "1D": -1.58,
-    "1W": -3.11,
-    "1M": 0.13,
-    "3M": 3.39
+    "1D": 0.31,
+    "1W": -0.66,
+    "1M": 0.66,
+    "3M": 2.23
    }
   },
   {
    "ticker": "XLY",
    "name": "Consumer Discretionary",
    "changes": {
-    "1D": -1.41,
-    "1W": -2.88,
-    "1M": -5.73,
-    "3M": -6.73
+    "1D": 0.01,
+    "1W": -1.35,
+    "1M": -6.16,
+    "3M": -7.36
    }
   },
   {
    "ticker": "XLP",
    "name": "Consumer Staples",
    "changes": {
-    "1D": 0.27,
-    "1W": 0.44,
-    "1M": -2.65,
-    "3M": -1.84
+    "1D": -0.81,
+    "1W": -1.5,
+    "1M": -3.83,
+    "3M": -1.9
    }
   },
   {
    "ticker": "XLE",
    "name": "Energy",
    "changes": {
-    "1D": 0.1,
-    "1W": -0.58,
-    "1M": 0.29,
-    "3M": 16.6
+    "1D": 0.88,
+    "1W": -0.46,
+    "1M": -2.36,
+    "3M": 18.25
    }
   },
   {
    "ticker": "XLF",
    "name": "Financials",
    "changes": {
-    "1D": -1.19,
-    "1W": -3.06,
-    "1M": -6.05,
-    "3M": 1.23
+    "1D": -0.76,
+    "1W": -1.72,
+    "1M": -6.8,
+    "3M": -1.81
    }
   },
   {
    "ticker": "XLV",
    "name": "Health Care",
    "changes": {
-    "1D": 0.33,
-    "1W": 1.33,
-    "1M": 0.19,
-    "3M": 6.95
+    "1D": -0.57,
+    "1W": 0.56,
+    "1M": -0.08,
+    "3M": 6.81
    }
   },
   {
    "ticker": "XLI",
    "name": "Industrials",
    "changes": {
-    "1D": -0.97,
-    "1W": -0.71,
-    "1M": -5.35,
-    "3M": -7.4
+    "1D": -0.7,
+    "1W": -1.26,
+    "1M": -3.84,
+    "3M": -8.16
    }
   },
   {
    "ticker": "XLB",
    "name": "Materials",
    "changes": {
-    "1D": -0.66,
-    "1W": -0.48,
-    "1M": -6.64,
-    "3M": -1.9
+    "1D": 0.02,
+    "1W": -2.33,
+    "1M": -6.37,
+    "3M": -3.31
    }
   },
   {
    "ticker": "XLRE",
    "name": "Real Estate",
    "changes": {
-    "1D": -0.51,
-    "1W": -2.91,
-    "1M": -6.64,
-    "3M": -7.18
+    "1D": -0.63,
+    "1W": -1.82,
+    "1M": -6.08,
+    "3M": -6.23
    }
   },
   {
    "ticker": "XLU",
    "name": "Utilities",
    "changes": {
-    "1D": -0.66,
-    "1W": -3.47,
-    "1M": -8.42,
-    "3M": -14.08
+    "1D": -0.2,
+    "1W": -0.3,
+    "1M": -5.46,
+    "3M": -10.82
    }
   }
  ],
@@ -22714,6 +26537,12 @@ window.DASHBOARD_DATA = {
    "kind": "earnings",
    "ticker": "VLO",
    "label": "Valero Energy earnings"
+  },
+  {
+   "date": "2026-10-27",
+   "kind": "earnings",
+   "ticker": "MAT",
+   "label": "Mattel earnings"
   },
   {
    "date": "2026-10-27",
@@ -22766,6 +26595,12 @@ window.DASHBOARD_DATA = {
   {
    "date": "2026-10-29",
    "kind": "earnings",
+   "ticker": "CAT",
+   "label": "Caterpillar earnings"
+  },
+  {
+   "date": "2026-10-29",
+   "kind": "earnings",
    "ticker": "LNG",
    "label": "Cheniere Energy earnings"
   },
@@ -22774,6 +26609,12 @@ window.DASHBOARD_DATA = {
    "kind": "earnings",
    "ticker": "GDDY",
    "label": "GoDaddy earnings"
+  },
+  {
+   "date": "2026-10-29",
+   "kind": "earnings",
+   "ticker": "ITGR",
+   "label": "Integer Holdings earnings"
   },
   {
    "date": "2026-10-30",
@@ -22814,6 +26655,12 @@ window.DASHBOARD_DATA = {
   {
    "date": "2026-11-09",
    "kind": "earnings",
+   "ticker": "QRVO",
+   "label": "Qorvo earnings"
+  },
+  {
+   "date": "2026-11-09",
+   "kind": "earnings",
    "ticker": "RKLB",
    "label": "Rocket Lab earnings"
   },
@@ -22828,17 +26675,21 @@ window.DASHBOARD_DATA = {
   "AAL": "https://static2.finnhub.io/file/publicdatany/finnhubimage/stock_logo/AAL.png",
   "AAPL": "https://static2.finnhub.io/file/publicdatany/finnhubimage/stock_logo/AAPL.png",
   "AMZN": "https://static2.finnhub.io/file/publicdatany/finnhubimage/stock_logo/AMZN.png",
+  "CAT": "https://static2.finnhub.io/file/publicdatany/finnhubimage/stock_logo/CAT.png",
   "DAL": "https://static2.finnhub.io/file/publicdatany/finnhubimage/stock_logo/DAL.png",
   "DVN": "https://static2.finnhub.io/file/publicdatany/finnhubimage/stock_logo/DVN.png",
   "GDDY": "https://static2.finnhub.io/file/publicdatany/finnhubimage/stock_logo/GDDY.png",
   "GOOGL": "https://static2.finnhub.io/file/publicdatany/finnhubimage/stock_logo/GOOG.png",
+  "ITGR": "https://static2.finnhub.io/file/publicdatany/finnhubimage/stock_logo/ITGR.png",
   "JPM": "https://static2.finnhub.io/file/publicdatany/finnhubimage/stock_logo/JPM.png",
   "LNG": "https://static2.finnhub.io/file/publicdatany/finnhubimage/stock_logo/LNG.png",
+  "MAT": "https://static2.finnhub.io/file/publicdatany/finnhubimage/stock_logo/MAT.png",
   "META": "https://static2.finnhub.io/file/publicdatany/finnhubimage/stock_logo/FB.png",
   "MGM": "https://static2.finnhub.io/file/publicdatany/finnhubimage/stock_logo/MGM.png",
   "MSFT": "https://static2.finnhub.io/file/publicdatany/finnhubimage/stock_logo/MSFT.png",
   "NVDA": "https://static2.finnhub.io/file/publicdatany/finnhubimage/stock_logo/942959144056.png",
   "PWP": "https://static2.finnhub.io/file/publicdatany/finnhubimage/stock_logo/950766939306.png",
+  "QRVO": "https://static2.finnhub.io/file/publicdatany/finnhubimage/stock_logo/QRVO.png",
   "RCL": "https://static2.finnhub.io/file/publicdatany/finnhubimage/stock_logo/RCL.png",
   "RKLB": "https://static2.finnhub.io/file/publicdatany/finnhubimage/stock_logo/950811866506.png",
   "RTX": "https://static2.finnhub.io/file/publicdatany/finnhubimage/stock_logo/RTX.png",
@@ -22851,8 +26702,8 @@ window.DASHBOARD_DATA = {
    "quoteType": "EQUITY",
    "sector": "Industrials",
    "industry": "Airlines",
-   "marketCap": 9009410048,
-   "forwardPE": 6.89,
+   "marketCap": 8804200448,
+   "forwardPE": 7.05,
    "fiftyTwoWeekHigh": 18.79,
    "fiftyTwoWeekLow": 10.09,
    "beta": 1.33,
@@ -22865,12 +26716,12 @@ window.DASHBOARD_DATA = {
    "quoteType": "EQUITY",
    "sector": "Technology",
    "industry": "Consumer Electronics",
-   "marketCap": 4807323025408,
-   "trailingPE": 37.73,
-   "forwardPE": 34.36,
+   "marketCap": 4907876745216,
+   "trailingPE": 38.52,
+   "forwardPE": 35.08,
    "fiftyTwoWeekHigh": 345.34,
    "fiftyTwoWeekLow": 243.42,
-   "dividendYield": 0.32,
+   "dividendYield": 0.33,
    "beta": 1.08,
    "targetMeanPrice": 328.22,
    "recommendationKey": "buy",
@@ -22881,13 +26732,13 @@ window.DASHBOARD_DATA = {
    "quoteType": "EQUITY",
    "sector": "Consumer Cyclical",
    "industry": "Internet Retail",
-   "marketCap": 2660659888128,
-   "trailingPE": 19.84,
-   "forwardPE": 23.55,
+   "marketCap": 2704398352384,
+   "trailingPE": 20.17,
+   "forwardPE": 23.97,
    "fiftyTwoWeekHigh": 287.2,
    "fiftyTwoWeekLow": 196.0,
    "beta": 1.44,
-   "targetMeanPrice": 329.54,
+   "targetMeanPrice": 329.98,
    "recommendationKey": "strong_buy",
    "numberOfAnalystOpinions": 57,
    "longBusinessSummary": "Amazon.com, Inc. engages in the retail sale of consumer products, advertising, and subscriptions service through online and physical stores in North America and internationally. The company operates through three segments: North America, International, and Amazon Web Services (AWS). It also manufactures and sells\u2026"
@@ -22896,9 +26747,9 @@ window.DASHBOARD_DATA = {
    "quoteType": "EQUITY",
    "sector": "Financial Services",
    "industry": "Insurance - Life",
-   "marketCap": 2990601216,
-   "trailingPE": 4.12,
-   "forwardPE": 2.58,
+   "marketCap": 2892256512,
+   "trailingPE": 3.99,
+   "forwardPE": 2.5,
    "fiftyTwoWeekHigh": 66.8,
    "fiftyTwoWeekLow": 44.51,
    "beta": 0.84,
@@ -22907,13 +26758,29 @@ window.DASHBOARD_DATA = {
    "numberOfAnalystOpinions": 6,
    "longBusinessSummary": "Brighthouse Financial, Inc. provides annuity and life insurance products in the United States. The company operates through Annuities, Life, and Run-off segments. The Annuities segment offers variable, fixed, index-linked, and income annuities for contract holders' needs for protected wealth accumulation on a\u2026"
   },
+  "CAT": {
+   "quoteType": "EQUITY",
+   "sector": "Industrials",
+   "industry": "Farm & Heavy Construction Machinery",
+   "marketCap": 376625430528,
+   "trailingPE": 35.27,
+   "forwardPE": 25.31,
+   "fiftyTwoWeekHigh": 1073.46,
+   "fiftyTwoWeekLow": 471.14,
+   "dividendYield": 0.79,
+   "beta": 1.59,
+   "targetMeanPrice": 975.61,
+   "recommendationKey": "buy",
+   "numberOfAnalystOpinions": 26,
+   "longBusinessSummary": "Caterpillar Inc. provides construction and mining equipment, off-highway diesel and natural gas engines, industrial gas turbines, and diesel-electric locomotives in the United States and internationally. The Construction Industries segment offers asphalt pavers, cold planers, compactors, forestry machines, material\u2026"
+  },
   "CPRI": {
    "quoteType": "EQUITY",
    "sector": "Consumer Cyclical",
    "industry": "Luxury Goods",
-   "marketCap": 1666132736,
-   "trailingPE": 18.79,
-   "forwardPE": 5.8,
+   "marketCap": 1622945024,
+   "trailingPE": 18.31,
+   "forwardPE": 5.65,
    "fiftyTwoWeekHigh": 28.27,
    "fiftyTwoWeekLow": 12.4,
    "beta": 1.38,
@@ -22926,28 +26793,28 @@ window.DASHBOARD_DATA = {
    "quoteType": "EQUITY",
    "sector": "Technology",
    "industry": "Communication Equipment",
-   "marketCap": 421620252672,
-   "trailingPE": 32.11,
-   "forwardPE": 19.02,
+   "marketCap": 425897951232,
+   "trailingPE": 32.44,
+   "forwardPE": 19.22,
    "fiftyTwoWeekHigh": 130.37,
    "fiftyTwoWeekLow": 66.81,
    "dividendYield": 1.57,
    "beta": 0.99,
-   "targetMeanPrice": 137.25,
+   "targetMeanPrice": 136.16,
    "recommendationKey": "buy",
-   "numberOfAnalystOpinions": 24,
+   "numberOfAnalystOpinions": 25,
    "longBusinessSummary": "Cisco Systems, Inc. designs, develops, and sells technologies to power, help, secure, and draw insights from the internet in the Americas, Europe, the Middle East, Africa, the Asia Pacific, Japan, and China. The company provides data center switching; network security, identity and access management, and secure access\u2026"
   },
   "DAL": {
    "quoteType": "EQUITY",
    "sector": "Industrials",
    "industry": "Airlines",
-   "marketCap": 55812468736,
-   "trailingPE": 14.07,
-   "forwardPE": 10.29,
+   "marketCap": 54950981632,
+   "trailingPE": 13.86,
+   "forwardPE": 10.13,
    "fiftyTwoWeekHigh": 95.68,
    "fiftyTwoWeekLow": 55.03,
-   "dividendYield": 1.02,
+   "dividendYield": 1.01,
    "beta": 1.29,
    "targetMeanPrice": 102.94,
    "recommendationKey": "strong_buy",
@@ -22958,7 +26825,7 @@ window.DASHBOARD_DATA = {
    "quoteType": "ETF",
    "category": "Large Value",
    "totalAssets": 45455503360,
-   "trailingPE": 20.83,
+   "trailingPE": 20.77,
    "fiftyTwoWeekHigh": 546.75,
    "fiftyTwoWeekLow": 450.44,
    "dividendYield": 1.38,
@@ -22969,12 +26836,12 @@ window.DASHBOARD_DATA = {
    "quoteType": "EQUITY",
    "sector": "Energy",
    "industry": "Oil & Gas E&P",
-   "marketCap": 51259998208,
-   "trailingPE": 10.13,
-   "forwardPE": 8.65,
+   "marketCap": 51210502144,
+   "trailingPE": 10.12,
+   "forwardPE": 8.64,
    "fiftyTwoWeekHigh": 52.71,
    "fiftyTwoWeekLow": 31.47,
-   "dividendYield": 2.74,
+   "dividendYield": 2.75,
    "beta": 0.43,
    "targetMeanPrice": 60.39,
    "recommendationKey": "strong_buy",
@@ -22985,10 +26852,10 @@ window.DASHBOARD_DATA = {
    "quoteType": "EQUITY",
    "sector": "Technology",
    "industry": "Software - Infrastructure",
-   "marketCap": 11912482816,
-   "trailingPE": 13.98,
-   "forwardPE": 8.53,
-   "fiftyTwoWeekHigh": 141.32,
+   "marketCap": 12105620480,
+   "trailingPE": 14.16,
+   "forwardPE": 8.67,
+   "fiftyTwoWeekHigh": 139.44,
    "fiftyTwoWeekLow": 71.59,
    "beta": 0.94,
    "targetMeanPrice": 106.75,
@@ -23001,7 +26868,7 @@ window.DASHBOARD_DATA = {
    "category": "Commodities Focused",
    "totalAssets": 152861196288,
    "fiftyTwoWeekHigh": 509.7,
-   "fiftyTwoWeekLow": 350.87,
+   "fiftyTwoWeekLow": 351.4,
    "dividendYield": 0.0,
    "netExpenseRatio": 0.4,
    "longBusinessSummary": "The Trust holds gold bars and from time to time, issues Baskets in exchange for deposits of gold and distributes gold in connection with redemptions of Baskets. The investment objective of the Trust is for the Shares to reflect the performance of the price of gold bullion, less the Trust\u2019s expenses. The Sponsor\u2026"
@@ -23010,9 +26877,9 @@ window.DASHBOARD_DATA = {
    "quoteType": "EQUITY",
    "sector": "Communication Services",
    "industry": "Internet Content & Information",
-   "marketCap": 4169429680128,
-   "trailingPE": 17.12,
-   "forwardPE": 22.62,
+   "marketCap": 4275095994368,
+   "trailingPE": 17.53,
+   "forwardPE": 23.19,
    "fiftyTwoWeekHigh": 408.61,
    "fiftyTwoWeekLow": 235.84,
    "dividendYield": 0.26,
@@ -23026,8 +26893,8 @@ window.DASHBOARD_DATA = {
    "quoteType": "EQUITY",
    "sector": "Technology",
    "industry": "Computer Hardware",
-   "marketCap": 17789505536,
-   "forwardPE": -33.97,
+   "marketCap": 18016382976,
+   "forwardPE": -34.41,
    "fiftyTwoWeekHigh": 84.64,
    "fiftyTwoWeekLow": 25.89,
    "beta": 3.29,
@@ -23036,16 +26903,31 @@ window.DASHBOARD_DATA = {
    "numberOfAnalystOpinions": 14,
    "longBusinessSummary": "IonQ, Inc. develops quantum computing systems in the United States, Switzerland, and Internationally. It sells access to quantum computers of various qubit capacities. The company also makes access to its quantum computers through cloud platforms, such as Amazon Web Services (AWS), Braket, Microsoft's Azure Quantum,\u2026"
   },
+  "ITGR": {
+   "quoteType": "EQUITY",
+   "sector": "Healthcare",
+   "industry": "Medical Devices",
+   "marketCap": 4297399296,
+   "trailingPE": 34.63,
+   "forwardPE": 18.4,
+   "fiftyTwoWeekHigh": 126.8,
+   "fiftyTwoWeekLow": 62.0,
+   "beta": 0.61,
+   "targetMeanPrice": 121.8,
+   "recommendationKey": "none",
+   "numberOfAnalystOpinions": 5,
+   "longBusinessSummary": "Integer Holdings Corporation operates as a medical device contract development and manufacturing company in the United States, Costa Rica, Puerto Rico, Ireland, and internationally. The company offers products for interventional cardiology, structural heart, heart failure, peripheral vascular, neurovascular,\u2026"
+  },
   "JPM": {
    "quoteType": "EQUITY",
    "sector": "Financial Services",
    "industry": "Banks - Diversified",
-   "marketCap": 890439270400,
-   "trailingPE": 14.36,
-   "forwardPE": 13.41,
+   "marketCap": 882677317632,
+   "trailingPE": 14.22,
+   "forwardPE": 13.29,
    "fiftyTwoWeekHigh": 366.5,
    "fiftyTwoWeekLow": 279.1,
-   "dividendYield": 1.96,
+   "dividendYield": 1.97,
    "beta": 0.97,
    "targetMeanPrice": 375.81,
    "recommendationKey": "buy",
@@ -23056,28 +26938,43 @@ window.DASHBOARD_DATA = {
    "quoteType": "EQUITY",
    "sector": "Energy",
    "industry": "Oil & Gas Midstream",
-   "marketCap": 55204515840,
-   "trailingPE": 20.23,
-   "forwardPE": 12.69,
+   "marketCap": 55545298944,
+   "trailingPE": 20.37,
+   "forwardPE": 12.77,
    "fiftyTwoWeekHigh": 300.89,
    "fiftyTwoWeekLow": 186.2,
-   "dividendYield": 0.82,
+   "dividendYield": 0.83,
    "beta": -0.0,
    "targetMeanPrice": 310.19,
    "recommendationKey": "strong_buy",
    "numberOfAnalystOpinions": 21,
    "longBusinessSummary": "Cheniere Energy, Inc., an energy infrastructure company, primarily engages in the liquefied natural gas (LNG) related businesses in the United States. The company owns and operates the Sabine Pass LNG terminal in Cameron Parish, Louisiana; and the Corpus Christi LNG terminal near Corpus Christi, Texas. It also owns\u2026"
   },
+  "MAT": {
+   "quoteType": "EQUITY",
+   "sector": "Consumer Cyclical",
+   "industry": "Leisure",
+   "marketCap": 3648389120,
+   "trailingPE": 9.6,
+   "forwardPE": 8.04,
+   "fiftyTwoWeekHigh": 22.48,
+   "fiftyTwoWeekLow": 12.44,
+   "beta": 0.73,
+   "targetMeanPrice": 18.15,
+   "recommendationKey": "buy",
+   "numberOfAnalystOpinions": 13,
+   "longBusinessSummary": "Mattel, Inc., a play and family entertainment company, designs, manufactures, markets, and sells toys, games, and other products in North America, Europe, the Middle East, Africa, Latin America, and the Asia Pacific. The company offers dolls and accessories, books, content, and lifestyle products for children under\u2026"
+  },
   "META": {
    "quoteType": "EQUITY",
    "sector": "Communication Services",
    "industry": "Internet Content & Information",
-   "marketCap": 1882072023040,
-   "trailingPE": 27.83,
-   "forwardPE": 21.13,
+   "marketCap": 1868430180352,
+   "trailingPE": 26.76,
+   "forwardPE": 20.98,
    "fiftyTwoWeekHigh": 779.82,
    "fiftyTwoWeekLow": 520.26,
-   "dividendYield": 0.29,
+   "dividendYield": 0.28,
    "beta": 1.24,
    "targetMeanPrice": 793.91,
    "recommendationKey": "strong_buy",
@@ -23088,9 +26985,9 @@ window.DASHBOARD_DATA = {
    "quoteType": "EQUITY",
    "sector": "Consumer Cyclical",
    "industry": "Resorts & Casinos",
-   "marketCap": 7930203648,
-   "trailingPE": 19.1,
-   "forwardPE": 15.26,
+   "marketCap": 7843403776,
+   "trailingPE": 18.89,
+   "forwardPE": 15.09,
    "fiftyTwoWeekHigh": 51.59,
    "fiftyTwoWeekLow": 29.19,
    "beta": 1.28,
@@ -23103,14 +27000,14 @@ window.DASHBOARD_DATA = {
    "quoteType": "EQUITY",
    "sector": "Technology",
    "industry": "Software - Infrastructure",
-   "marketCap": 3779305668608,
-   "trailingPE": 28.34,
-   "forwardPE": 21.5,
+   "marketCap": 3846581256192,
+   "trailingPE": 28.84,
+   "forwardPE": 21.88,
    "fiftyTwoWeekHigh": 553.72,
    "fiftyTwoWeekLow": 349.2,
    "dividendYield": 0.77,
    "beta": 1.11,
-   "targetMeanPrice": 577.26,
+   "targetMeanPrice": 578.42,
    "recommendationKey": "strong_buy",
    "numberOfAnalystOpinions": 52,
    "longBusinessSummary": "Microsoft Corporation, a technology company, develops and supports a portfolio of technology solutions for individuals and businesses worldwide. Its products include operating systems, server applications, business solution applications, software development tools, desktop and server management tools, and video games;\u2026"
@@ -23119,11 +27016,11 @@ window.DASHBOARD_DATA = {
    "quoteType": "EQUITY",
    "sector": "Technology",
    "industry": "Semiconductors",
-   "marketCap": 1202894012416,
-   "trailingPE": 24.06,
-   "forwardPE": 6.6,
+   "marketCap": 1208851628032,
+   "trailingPE": 24.22,
+   "forwardPE": 6.63,
    "fiftyTwoWeekHigh": 1255.0,
-   "fiftyTwoWeekLow": 163.96,
+   "fiftyTwoWeekLow": 165.5,
    "dividendYield": 0.05,
    "beta": 2.22,
    "targetMeanPrice": 1520.76,
@@ -23135,9 +27032,9 @@ window.DASHBOARD_DATA = {
    "quoteType": "EQUITY",
    "sector": "Technology",
    "industry": "Semiconductors",
-   "marketCap": 5486440087552,
-   "trailingPE": 28.69,
-   "forwardPE": 14.49,
+   "marketCap": 5562041368576,
+   "trailingPE": 29.12,
+   "forwardPE": 14.69,
    "fiftyTwoWeekHigh": 236.54,
    "fiftyTwoWeekLow": 164.27,
    "dividendYield": 0.44,
@@ -23151,12 +27048,12 @@ window.DASHBOARD_DATA = {
    "quoteType": "EQUITY",
    "sector": "Financial Services",
    "industry": "Capital Markets",
-   "marketCap": 1593281408,
-   "trailingPE": 62.96,
-   "forwardPE": 11.19,
+   "marketCap": 1557269504,
+   "trailingPE": 61.54,
+   "forwardPE": 10.94,
    "fiftyTwoWeekHigh": 25.93,
    "fiftyTwoWeekLow": 12.52,
-   "dividendYield": 1.91,
+   "dividendYield": 1.71,
    "beta": 1.62,
    "targetMeanPrice": 22.25,
    "recommendationKey": "none",
@@ -23167,23 +27064,38 @@ window.DASHBOARD_DATA = {
    "quoteType": "ETF",
    "category": "Large Growth",
    "totalAssets": 488981004288,
-   "trailingPE": 30.08,
+   "trailingPE": 30.31,
    "fiftyTwoWeekHigh": 748.65,
    "fiftyTwoWeekLow": 555.6,
    "dividendYield": 0.42,
    "netExpenseRatio": 0.18,
    "longBusinessSummary": "To maintain the correspondence between the composition and weights of the securities in the trust (the \"securities\") and the stocks in the NASDAQ-100 Index\u00ae, the adviser adjusts the securities from time to time to conform to periodic changes in the identity and/or relative weights of index securities. The composition\u2026"
   },
+  "QRVO": {
+   "quoteType": "EQUITY",
+   "sector": "Technology",
+   "industry": "Semiconductors",
+   "marketCap": 10087729152,
+   "trailingPE": 26.53,
+   "forwardPE": 14.46,
+   "fiftyTwoWeekHigh": 121.09,
+   "fiftyTwoWeekLow": 74.92,
+   "beta": 1.46,
+   "targetMeanPrice": 90.17,
+   "recommendationKey": "hold",
+   "numberOfAnalystOpinions": 12,
+   "longBusinessSummary": "Qorvo, Inc. engages in development and commercialization of technologies and products for wireless, wired, and power markets in the United States, China, rest of Asia, Taiwan, and Europe. It operates through three segments: High Performance Analog (HPA), Connectivity and Sensors Group (CSG), and Advanced Cellular\u2026"
+  },
   "RCL": {
    "quoteType": "EQUITY",
    "sector": "Consumer Cyclical",
    "industry": "Travel Services",
-   "marketCap": 69716738048,
-   "trailingPE": 16.1,
-   "forwardPE": 12.75,
+   "marketCap": 71190388736,
+   "trailingPE": 16.44,
+   "forwardPE": 13.02,
    "fiftyTwoWeekHigh": 356.39,
    "fiftyTwoWeekLow": 222.22,
-   "dividendYield": 2.47,
+   "dividendYield": 2.3,
    "beta": 1.75,
    "targetMeanPrice": 350.44,
    "recommendationKey": "buy",
@@ -23194,8 +27106,8 @@ window.DASHBOARD_DATA = {
    "quoteType": "EQUITY",
    "sector": "Industrials",
    "industry": "Aerospace & Defense",
-   "marketCap": 44566945792,
-   "forwardPE": 1529.85,
+   "marketCap": 45813800960,
+   "forwardPE": 1572.65,
    "fiftyTwoWeekHigh": 151.0,
    "fiftyTwoWeekLow": 37.57,
    "beta": 2.61,
@@ -23208,9 +27120,9 @@ window.DASHBOARD_DATA = {
    "quoteType": "EQUITY",
    "sector": "Industrials",
    "industry": "Aerospace & Defense",
-   "marketCap": 251949891584,
-   "trailingPE": 32.85,
-   "forwardPE": 23.79,
+   "marketCap": 251127758848,
+   "trailingPE": 32.8,
+   "forwardPE": 23.71,
    "fiftyTwoWeekHigh": 226.88,
    "fiftyTwoWeekLow": 155.64,
    "dividendYield": 1.56,
@@ -23224,7 +27136,7 @@ window.DASHBOARD_DATA = {
    "quoteType": "ETF",
    "category": "Large Blend",
    "totalAssets": 811937038336,
-   "trailingPE": 24.69,
+   "trailingPE": 24.79,
    "fiftyTwoWeekHigh": 779.37,
    "fiftyTwoWeekLow": 629.28,
    "dividendYield": 0.98,
@@ -23235,9 +27147,9 @@ window.DASHBOARD_DATA = {
    "quoteType": "ETF",
    "category": "Long Government",
    "totalAssets": 47046328320,
-   "forwardPE": -3911.5,
+   "forwardPE": -3880.25,
    "fiftyTwoWeekHigh": 92.19,
-   "fiftyTwoWeekLow": 77.84,
+   "fiftyTwoWeekLow": 77.56,
    "dividendYield": 4.73,
    "netExpenseRatio": 0.15,
    "longBusinessSummary": "The underlying index consists of publicly-issued U.S. Treasury securities that have a remaining maturity greater than twenty years and have $300 million or more of outstanding face value, excluding amounts held by the Federal Reserve System (the \u201cFed\u201d). The fund will invest at least 80% of its assets in the component\u2026"
@@ -23246,9 +27158,9 @@ window.DASHBOARD_DATA = {
    "quoteType": "EQUITY",
    "sector": "Consumer Cyclical",
    "industry": "Auto Manufacturers",
-   "marketCap": 1393558290432,
-   "trailingPE": 329.76,
-   "forwardPE": 163.13,
+   "marketCap": 1396006977536,
+   "trailingPE": 324.28,
+   "forwardPE": 163.41,
    "fiftyTwoWeekHigh": 498.83,
    "fiftyTwoWeekLow": 297.38,
    "beta": 1.84,
@@ -23261,12 +27173,12 @@ window.DASHBOARD_DATA = {
    "quoteType": "EQUITY",
    "sector": "Energy",
    "industry": "Oil & Gas Refining & Marketing",
-   "marketCap": 111635234816,
-   "trailingPE": 16.18,
-   "forwardPE": 10.19,
+   "marketCap": 113944412160,
+   "trailingPE": 16.51,
+   "forwardPE": 10.4,
    "fiftyTwoWeekHigh": 419.04,
    "fiftyTwoWeekLow": 155.29,
-   "dividendYield": 1.23,
+   "dividendYield": 1.24,
    "beta": 0.57,
    "targetMeanPrice": 360.32,
    "recommendationKey": "buy",
@@ -23277,12 +27189,12 @@ window.DASHBOARD_DATA = {
    "quoteType": "EQUITY",
    "sector": "Energy",
    "industry": "Oil & Gas Integrated",
-   "marketCap": 663457038336,
-   "trailingPE": 20.77,
-   "forwardPE": 14.49,
+   "marketCap": 675402088448,
+   "trailingPE": 21.11,
+   "forwardPE": 14.75,
    "fiftyTwoWeekHigh": 176.41,
    "fiftyTwoWeekLow": 110.39,
-   "dividendYield": 2.54,
+   "dividendYield": 2.55,
    "beta": 0.17,
    "targetMeanPrice": 173.09,
    "recommendationKey": "buy",
@@ -23317,291 +27229,293 @@ window.DASHBOARD_DATA = {
     "2026-09-28",
     9751.89,
     9907.09
+   ],
+   [
+    "2026-09-29",
+    9800.36,
+    9888.84
+   ],
+   [
+    "2026-09-30",
+    9809.86,
+    9929.09
    ]
   ],
-  "top5_return_pct": -2.48,
-  "spy_return_pct": -0.93,
-  "pick_days": 3
+  "top5_return_pct": -1.9,
+  "spy_return_pct": -0.71,
+  "pick_days": 5
  },
  "watchlist": [
   {
    "ticker": "SPY",
    "name": "S&P 500 (index fund)",
-   "note": "Higher oil and Treasury yields are the main drag on the broad index right now.",
-   "note_date": "2026-09-29"
+   "note": "Cooler-than-expected August PCE lifted the major indexes, but high oil and Iran risk cap the upside.",
+   "note_date": "2026-09-30"
   },
   {
    "ticker": "QQQ",
    "name": "Nasdaq 100 (index fund)",
-   "note": "Mixed AI signals: OpenAI's revenue run-rate impresses, but Michael Burry's fresh bubble warning and an OpenAI safety pause keep tech choppy.",
-   "note_date": "2026-09-29"
+   "note": "Nasdaq led Wednesday's gains and Micron's results after the bell are the next swing factor for chip-heavy exposure.",
+   "note_date": "2026-09-30"
   },
   {
    "ticker": "DIA",
    "name": "Dow Jones (index fund)",
-   "note": "Dow lagged Tuesday as rate-sensitive and industrial names sagged, though defense names like RTX help.",
-   "note_date": "2026-09-29"
+   "note": "The Dow rose on the inflation surprise; no Dow-specific news today.",
+   "note_date": "2026-09-30"
   },
   {
    "ticker": "AAPL",
    "name": "Apple",
-   "note": "Fell about 2% after a BofA note said Meta's shopping agent could erode Apple's lucrative services revenue.",
-   "note_date": "2026-09-29"
+   "note": "No major company news today beyond general Dow index moves.",
+   "note_date": "2026-09-30"
   },
   {
    "ticker": "MSFT",
    "name": "Microsoft",
-   "note": "Holding steady as AI infrastructure demand stories continue; no company-specific news today.",
-   "note_date": "2026-09-29"
+   "note": "Commentary on Azure backlog and Copilot growth remains bullish, though heavy AI capex versus free cash flow is the main worry.",
+   "note_date": "2026-09-30"
   },
   {
    "ticker": "NVDA",
    "name": "NVIDIA",
-   "note": "Flat, with its huge buyback in focus and Micron's results Wednesday as the next read on AI memory/compute demand.",
-   "note_date": "2026-09-29"
+   "note": "No fresh company news, but Micron's memory results tonight will set the tone for AI chip sentiment.",
+   "note_date": "2026-09-30"
   },
   {
    "ticker": "AMZN",
    "name": "Amazon",
-   "note": "No major news; commentary focuses on whether hyperscaler AI capex pays off, plus Target's price cuts signaling a promotional holiday.",
-   "note_date": "2026-09-29"
+   "note": "Rosenblatt raised its target to $360 and argued AI shopping agents won't break Amazon's retail media model.",
+   "note_date": "2026-09-30"
   },
   {
    "ticker": "GOOGL",
    "name": "Alphabet (Google)",
-   "note": "Slipped modestly alongside Apple on the Meta AI-agent search/shopping threat narrative.",
-   "note_date": "2026-09-29"
+   "note": "Alphabet joined other AI firms in signing a White House accord; no other direct news.",
+   "note_date": "2026-09-30"
   },
   {
    "ticker": "META",
    "name": "Meta Platforms",
-   "note": "Positive attention from analysts flagging its Muse/shopping agent as a share-taker from Apple services and search.",
-   "note_date": "2026-09-29"
+   "note": "Stock has rallied hard on AI hopes, but analysts are split as free cash flow shrinks under $130B+ of AI spending.",
+   "note_date": "2026-09-30"
   },
   {
    "ticker": "TSLA",
    "name": "Tesla",
-   "note": "Q3 delivery numbers due at week's end, with Optimus hand-production problems and another Roadster delay as overhangs.",
-   "note_date": "2026-09-29"
+   "note": "Cathie Wood added shares while a bear flagged roughly $30 billion of future cash needs from AI and factory spending.",
+   "note_date": "2026-09-30"
   },
   {
    "ticker": "JPM",
    "name": "JPMorgan Chase",
-   "note": "No direct news beyond a Michigan manufacturing initiative; higher yields are generally supportive for bank margins.",
-   "note_date": "2026-09-29"
+   "note": "Active in big lending and a new Ford manufacturing finance platform; a cooler inflation print is mildly supportive for credit.",
+   "note_date": "2026-09-30"
   },
   {
    "ticker": "XOM",
    "name": "Exxon Mobil",
-   "note": "WTI above $90 supports upstream earnings, but oil slipped as traders weighed possible US-Iran talks.",
-   "note_date": "2026-09-29"
+   "note": "Crude above $91 with the SPR at 44-year lows and Iran talks stalled is a clear tailwind for the integrated majors.",
+   "note_date": "2026-09-30"
   },
   {
    "ticker": "GLD",
    "name": "Gold (fund)",
-   "note": "Gold bounced off a seven-week low as a firm dollar and higher yields keep pressure on.",
-   "note_date": "2026-09-29"
+   "note": "Gold stays supported by Iran tensions, though the cooler inflation reading trims the panic bid.",
+   "note_date": "2026-09-30"
   },
   {
    "ticker": "TLT",
    "name": "Long-term US Treasury bonds (fund)",
-   "note": "Under pressure as yields rise and articles frame a 'new era' for rates, though some see bonds as the best value in decades.",
-   "note_date": "2026-09-29"
+   "note": "Cooler August PCE eased yields, a modest positive for long bonds after weeks of pressure.",
+   "note_date": "2026-09-30"
   }
  ],
  "top_buys": [
   {
-   "ticker": "RTX",
-   "company": "RTX Corporation",
+   "ticker": "XOM",
+   "company": "Exxon Mobil",
    "confidence": "medium",
-   "pitch": "A $20.7 billion missile contract locks in years of demand as the Pentagon rebuilds stockpiles.",
-   "why": "The Pentagon awarded RTX's Raytheon unit one of the largest AMRAAM contracts ever, driven by depleted inventories after sustained Middle East conflict. That gives multi-year production visibility and likely higher margins as volumes scale. Ongoing Israel-Hamas strikes and US-Iran tension make further munitions orders plausible rather than a one-off.",
-   "risks": "A genuine US-Iran diplomatic breakthrough could cool defense sentiment, and RTX has a history of program execution and supply-chain hiccups.",
-   "watch": "Follow-on munitions awards and RTX's next quarterly guidance on defense backlog conversion.",
+   "pitch": "Crude above $91 with a stalled Iran deal and an emptied strategic reserve keeps the majors' cash flow strong.",
+   "why": "US-Iran talks have stalled and Washington is pulling forces out of Iraq, while Houthi attacks triggered an EU airspace advisory over Saudi Arabia. The US strategic petroleum reserve sits at 44-year lows, so there is little cushion if supply is disrupted. Integrated majors like Exxon convert higher crude and tight diesel cracks directly into cash flow.",
+   "risks": "A sudden diplomatic breakthrough with Iran, or demand worries, could knock $5-10 off crude and take energy shares with it.",
+   "watch": "Headlines on the seven-day US-Iran trust-building plan and weekly US crude inventory data.",
    "sources": [
-    50,
-    82,
-    58,
-    41
+    68,
+    51,
+    49,
+    6
    ],
-   "theme": "Geopolitics",
+   "theme": "Oil & energy",
    "target_pct": 6,
    "stop_pct": 4,
    "rank": 1,
-   "date": "2026-09-29",
+   "date": "2026-09-30",
    "article": {
-    "headline": "Pentagon awards RTX's Raytheon $20.7 billion contract for AMRAAM missiles amid stockpile concerns - Reuters",
-    "source": "Reuters",
-    "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxNQWhncjVKaW5MaDJ6TU1ROVduLTZyS1JqVVJSM0pMXzhFQzY4REgxdGg5WnZHUC1MbXhjSjVZQUNxTEZmYzJna1J6QXRVQ2kwRUJmZmREM2pJcDZ5SzFzSmZGU1Q0WVVCLWF2STlsc3pUaW9tYXhMRmR3b2VWQzNrTDBsazZ2OG5jaTlHOHdVanlCMVhUR1RfVjctTDFrS2g5dkVLYldpdE5oRFNXdTc4RG5aYVI5MmV6Q3JJd1M2ZlN5TjBheXVNdDFQOUtpUEE?oc=5",
+    "headline": "America\u2019s Strategic Oil Reserves Are at 44-Year Lows \u2014 And Trump Just Gave Away Another 40 Million Barrels",
+    "source": "Yahoo",
+    "url": "https://finnhub.io/api/news?id=44d33fc42532cdeb278f063bff74bee051fa1261e68643db0366bef2cc3abf93",
     "image": ""
    },
-   "price_at_pick": 187.5,
-   "price_now": null,
+   "price_at_pick": 164.29,
+   "price_now": 164.3,
    "return_pct": null,
    "correct": null,
    "history": [
     [
-     "2026-09-28",
-     187.66
+     "2026-09-30",
+     164.3
     ]
    ],
-   "target_price": 198.75,
-   "stop_price": 180.0,
+   "target_price": 174.15,
+   "stop_price": 157.72,
    "level_status": null
   },
   {
-   "ticker": "META",
-   "company": "Meta Platforms",
+   "ticker": "QRVO",
+   "company": "Qorvo",
    "confidence": "medium",
-   "pitch": "Wall Street now sees Meta's AI shopping agent taking revenue from Apple and Google.",
-   "why": "A Bank of America note said Meta's Muse shopping agent could drain the most profitable part of Apple's services business, and Apple fell 2% on it while Meta was framed as the beneficiary. That reframes Meta's heavy AI spending as offense rather than cost. Meta also has the ad infrastructure to monetize agentic shopping quickly.",
-   "risks": "Analyst speculation is not revenue, and if the AI trade cracks, as Michael Burry is betting, high-capex names like Meta sell off first.",
-   "watch": "Any concrete launch details or monetization numbers for Meta's shopping agent, and Q3 earnings commentary on AI capex.",
+   "pitch": "All regulatory clearances are in hand for the Skyworks combination, so the remaining deal risk is small.",
+   "why": "Skyworks confirmed it has every necessary approval and expects to close the merger soon. When the antitrust overhang lifts, target shares usually drift toward the deal value. That gives a fairly defined, event-driven setup rather than a bet on the chip cycle.",
+   "risks": "Merger-arb spreads are thin, so the upside is limited, and any late financing or closing hiccup could hit the stock hard.",
+   "watch": "The formal closing announcement and the exchange ratio terms.",
    "sources": [
-    76,
-    62,
-    73,
-    56
+    28,
+    24
    ],
-   "theme": "AI & tech",
-   "target_pct": 6,
+   "theme": "Mergers & deals",
+   "target_pct": 7,
    "stop_pct": 4,
    "rank": 2,
-   "date": "2026-09-29",
+   "date": "2026-09-30",
    "article": {
-    "headline": "Michael Burry believes the AI bubble 'may burst' sooner than he first believed",
-    "source": "CNBC",
-    "url": "https://www.cnbc.com/2026/09/28/michael-burry-believes-the-ai-bubble-may-burst-sooner-than-he-first-believed.html",
-    "image": "https://image.cnbcfm.com/api/v1/image/108231762-1764085435434-108231762-1764085364402-gettyimages-498540380-88290117.jpg?v=1769446729&w=1920&h=1080"
+    "headline": "Skyworks Receives All Necessary Clearances for Proposed Combination with Qorvo",
+    "source": "GlobalNewswire",
+    "url": "https://www.globenewswire.com/news-release/2026/09/30/3371865/0/en/skyworks-receives-all-necessary-clearances-for-proposed-combination-with-qorvo.html",
+    "image": ""
    },
-   "price_at_pick": 730.35,
-   "price_now": null,
+   "price_at_pick": 114.35,
+   "price_now": 114.35,
    "return_pct": null,
    "correct": null,
    "history": [
     [
-     "2026-09-28",
-     715.62
+     "2026-09-30",
+     114.35
     ]
    ],
-   "target_price": 774.17,
-   "stop_price": 701.14,
+   "target_price": 122.35,
+   "stop_price": 109.78,
    "level_status": null
   },
   {
-   "ticker": "LNG",
-   "company": "Cheniere Energy",
-   "confidence": "medium",
-   "pitch": "A long-term supply deal with Petrobras adds contracted cash flow in a tight energy market.",
-   "why": "Cheniere signed a multi-year LNG sale and purchase agreement with Brazil's Petrobras, the kind of take-or-pay contract that underpins its dividend and buyback. With WTI above $90 and Middle East supply risk in focus, global buyers are keen to lock in US gas. Cheniere's earnings are less sensitive to daily price swings than producers'.",
-   "risks": "A US-Iran de-escalation could soften energy prices broadly, and long-dated contracts add little near-term earnings.",
-   "watch": "Further SPA announcements and updates on train expansion timelines.",
+   "ticker": "CAT",
+   "company": "Caterpillar",
+   "confidence": "low",
+   "pitch": "A $1B US expansion and a dealership buyout signal management confidence in sustained demand.",
+   "why": "Caterpillar is putting $1 billion into North Carolina capacity and buying the Fabick dealership, which adds margin from distribution. Big capital commitments like this usually come when order books are healthy, including data-center and power-related equipment demand. Cooler inflation also eases the rate pressure on industrial capex.",
+   "risks": "Industrials are cyclical and a slowdown or a spike in rates would quickly punish the multiple; the spending also raises near-term costs.",
+   "watch": "Caterpillar's next quarterly results and dealer inventory commentary.",
    "sources": [
-    88,
-    48,
-    89
+    21,
+    22
    ],
-   "theme": "Oil & energy",
+   "theme": "Other",
    "target_pct": 6,
    "stop_pct": 4,
    "rank": 3,
-   "date": "2026-09-29",
+   "date": "2026-09-30",
    "article": {
-    "headline": "Cheniere and Petrobras Sign Long-Term LNG Sale and Purchase Agreement",
-    "source": "Yahoo",
-    "url": "https://finnhub.io/api/news?id=54a1c7154981b1bab0e252610b904503976e0e1c898edd8511227123546e7170",
-    "image": ""
+    "headline": "Jim Cramer's top 10 things to watch in the stock market Wednesday",
+    "source": "CNBC",
+    "url": "https://www.cnbc.com/2026/09/30/jim-cramers-top-10-things-to-watch-in-the-stock-market-wednesday.html",
+    "image": "https://image.cnbcfm.com/api/v1/image/108242674-1765922857470-gettyimages-2251668534-MICRON_EARNS.jpeg?v=1773262309&w=1920&h=1080"
    },
-   "price_at_pick": 267.89,
-   "price_now": null,
+   "price_at_pick": 819.27,
+   "price_now": 819.33,
    "return_pct": null,
    "correct": null,
    "history": [
     [
-     "2026-09-28",
-     269.65
+     "2026-09-30",
+     819.33
     ]
    ],
-   "target_price": 283.96,
-   "stop_price": 257.17,
+   "target_price": 868.43,
+   "stop_price": 786.5,
    "level_status": null
   },
   {
-   "ticker": "PWP",
-   "company": "Perella Weinberg Partners",
-   "confidence": "medium",
-   "pitch": "Takeover talk from Piper Sandler lands in the middle of a very busy M&A market.",
-   "why": "Shares surged on a report that Piper Sandler is in talks to buy the advisory boutique, which would carry a control premium. Today's headline flow, from AMD's $8.2 billion World Labs deal to Sangoma and SoundThinking buyouts, shows an active deal cycle that also lifts Perella's core advisory fees. Even without a deal, the fee backdrop is improving.",
-   "risks": "Deal reports often fizzle, and my recent merger-rumor picks have mostly not worked; a denial could erase the pop quickly.",
-   "watch": "Confirmation or denial from Piper Sandler or Perella Weinberg in the coming days.",
+   "ticker": "ITGR",
+   "company": "Integer Holdings",
+   "confidence": "low",
+   "pitch": "Early antitrust termination clears the path for KKR's buyout of this medical device CDMO.",
+   "why": "Integer received early termination of the Hart-Scott-Rodino waiting period, removing the biggest regulatory step. With a well-funded private equity buyer, the probability of completion rises and the shares should track toward the agreed price. It is a low-drama, low-return setup.",
+   "risks": "If the deal price is already fully reflected, there is almost no upside left, and any break would cause a large drop.",
+   "watch": "Shareholder vote timing and the expected closing date.",
    "sources": [
-    10,
-    59,
-    36,
-    27
+    30
    ],
    "theme": "Mergers & deals",
-   "target_pct": 10,
-   "stop_pct": 7,
+   "target_pct": 5,
+   "stop_pct": 3,
    "rank": 4,
-   "date": "2026-09-29",
+   "date": "2026-09-30",
    "article": {
-    "headline": "Perella Weinberg surges on report Piper Sandler in talks to acquire",
-    "source": "SeekingAlpha",
-    "url": "https://seekingalpha.com/news/4648058-perella-weinberg-surges-on-report-piper-sandler-in-talks-to-acuire?utm_source=feed_news_m_a&utm_medium=referral&feed_item_type=news",
+    "headline": "Integer Receives Early Termination of Hart-Scott-Rodino Waiting Period for Pending Acquisition by KKR",
+    "source": "GlobalNewswire",
+    "url": "https://www.globenewswire.com/news-release/2026/09/30/3371809/26755/en/integer-receives-early-termination-of-hart-scott-rodino-waiting-period-for-pending-acquisition-by-kkr.html",
     "image": ""
    },
-   "price_at_pick": 16.42,
-   "price_now": null,
+   "price_at_pick": 126.4,
+   "price_now": 126.4,
    "return_pct": null,
    "correct": null,
    "history": [
     [
-     "2026-09-28",
-     14.64
+     "2026-09-30",
+     126.4
     ]
    ],
-   "target_price": 18.06,
-   "stop_price": 15.27,
+   "target_price": 132.72,
+   "stop_price": 122.61,
    "level_status": null
   },
   {
-   "ticker": "XOM",
-   "company": "Exxon Mobil",
+   "ticker": "MAT",
+   "company": "Mattel",
    "confidence": "low",
-   "pitch": "WTI above $90 with Middle East supply risk keeps upstream cash flow strong.",
-   "why": "Analysts note that crude above $90 comfortably supports Exxon's growth plans, helped by low-cost Permian barrels and Guyana discoveries. Oil is being held up by supply worries tied to Iran and the US exit from Iraq. Exxon converts high prices into buybacks and dividends faster than most peers.",
-   "risks": "Renewed US-Iran talks and possible sanctions relief could knock crude lower quickly, and this call went against me last week.",
-   "watch": "Headlines on US-Iran negotiations and weekly US crude inventory data.",
+   "pitch": "New CEO Roger Lynch takes over just as holiday retail sales are forecast to top $1 trillion.",
+   "why": "Mattel replaced Ynon Kreiz with Roger Lynch as CEO and Chairman, a change that often brings fresh strategy and cost focus. The timing lines up with forecasts for record holiday retail spending. Expectations for the toy sector are low, so any decent holiday read could lift shares.",
+   "risks": "CEO changes create uncertainty and much of the holiday sales growth is just inflation, not real volume; tariffs on toys remain a cost risk.",
+   "watch": "Mattel's third-quarter results and any strategic commentary from the new CEO.",
    "sources": [
-    89,
-    48,
-    40,
-    42
+    26,
+    35
    ],
-   "theme": "Oil & energy",
-   "target_pct": 5,
-   "stop_pct": 4,
+   "theme": "Consumer & retail",
+   "target_pct": 8,
+   "stop_pct": 6,
    "rank": 5,
-   "date": "2026-09-29",
+   "date": "2026-09-30",
    "article": {
-    "headline": "Are Current Oil Prices High Enough to Fuel ExxonMobil's Growth?",
-    "source": "Yahoo",
-    "url": "https://finnhub.io/api/news?id=f22c6a446cefc1cb02ef3da0dcd03e4e404bf7fe90626e0b99fedb27d3d492cc",
-    "image": ""
+    "headline": "Mattel names Roger Lynch as CEO, replacing Ynon Kreiz",
+    "source": "CNBC",
+    "url": "https://www.cnbc.com/2026/09/30/mattel-roger-lynch-ceo.html",
+    "image": "https://image.cnbcfm.com/api/v1/image/107254056-1686310935286-gettyimages-1258548463-AFP_33HR32Z.jpeg?v=1713812620&w=1920&h=1080"
    },
-   "price_at_pick": 161.41,
-   "price_now": null,
+   "price_at_pick": 12.76,
+   "price_now": 12.77,
    "return_pct": null,
    "correct": null,
    "history": [
     [
-     "2026-09-28",
-     162.52
+     "2026-09-30",
+     12.77
     ]
    ],
-   "target_price": 169.48,
-   "stop_price": 154.95,
+   "target_price": 13.78,
+   "stop_price": 11.99,
    "level_status": null
   }
  ]
