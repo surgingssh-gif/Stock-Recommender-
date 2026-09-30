@@ -109,7 +109,7 @@ def build_recap(date_str, today_picks, top_tickers, week_picks=None, dashboard=N
         by_ticker = {p["ticker"]: p for p in today_picks}
         top = [by_ticker[t] for t in top_tickers if t in by_ticker]
         if top:
-            lines.append("**🏆 Top buys**")
+            lines.append("**🏆 Top ideas**")
             lines += [_line(p, rank) for rank, p in enumerate(top, start=1)]
             lines.append("")
         others = [p for p in today_picks if p["ticker"] not in top_tickers]
@@ -126,7 +126,7 @@ def build_recap(date_str, today_picks, top_tickers, week_picks=None, dashboard=N
         lines.append(f"{len(week_picks)} ideas over {n_days} day{'s' if n_days != 1 else ''} · {_summary(week_picks)}")
         top = [p for p in week_picks if p.get("top")]
         if top:
-            lines.append(f"Top 5 buys: {_summary(top)}")
+            lines.append(f"Top 5 ideas: {_summary(top)}")
         if judged:
             best = max(judged, key=lambda p: p["move"])
             worst = min(judged, key=lambda p: p["move"])

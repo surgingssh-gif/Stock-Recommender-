@@ -34,14 +34,15 @@ def build_message(date_str, analysis, prices, problems, headlines=None, dashboar
         if not analysis["picks"]:
             lines.append("No strong ideas from today's news.")
 
-        # The "Top 5 buys of the day" come first, ranked best first.
+        # The "Top 5 ideas of the day" come first, ranked best first.
         top_buys = analysis.get("top_buys") or []
         if top_buys:
-            lines.append("**🏆 Top buys of the day**")
+            lines.append("**🏆 Top ideas of the day**")
             for rank, buy in enumerate(top_buys, start=1):
                 pick = next((p for p in analysis["picks"] if p["ticker"] == buy["ticker"]), None)
+                arrow = "▼" if buy.get("direction") == "bearish" else "▲"
                 lines.append(
-                    f"{rank}. **{buy['ticker']}** ({buy['company']}) - "
+                    f"{rank}. {arrow} **{buy['ticker']}** ({buy['company']}) - "
                     f"{_price_text(prices, buy['ticker'])}{_levels_text(pick)} - {buy['pitch']}"
                 )
             lines.append("")

@@ -187,8 +187,8 @@ def _price_on(history, day, since):
 def pretend_portfolio(picks, histories, benchmark="SPY", opens=None):
     """
     What $10,000 would be worth if, every day the bot ran, you had split it
-    equally across that day's Top 5 buys (bought at the opening price) and
-    held them until the next day's Top 5 - compared with simply buying the
+    equally across that day's Top 5 ideas (bought at the opening price, or
+    bet against for bearish ideas) and held them until the next day's Top 5 - compared with simply buying the
     S&P 500 fund (SPY) at the same first open. No trading costs or taxes;
     just a rough "is this any good?" check.
 
@@ -226,7 +226,9 @@ def pretend_portfolio(picks, histories, benchmark="SPY", opens=None):
         ratios = []
         for p in holdings:
             price = _price_on(histories.get(p["ticker"], []), day, p.get("entry_date") or p["date"])
-            ratios.append(price / entry(p) if price else 1.0)
+            growth = price / entry(p) if price else 1.0
+            # A bearish idea is a bet against the stock: it gains when the stock falls.
+            ratios.append(growth if p.get("direction", "bullish") == "bullish" else 2 - growth)
         value = base * sum(ratios) / len(ratios)
         bench = PORTFOLIO_START * _price_on(spy, day, "0000") / spy_start
         series.append([day, round(value, 2), round(bench, 2)])
@@ -520,7 +522,7 @@ def top_buys_record(picks):
         })
 
     return {
-        "groups": [group("Top 5 buys", top), group("Other picks", rest)],
+        "groups": [group("Top 5 ideas", top), group("Other picks", rest)],
         "judged": len([p for p in top if p["correct"] is not None]),
         "by_day": by_day,
     }

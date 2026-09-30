@@ -9,6 +9,8 @@ with the news alone.
 
 import yfinance as yf
 
+from watchlist import SECTORS
+
 # Yahoo's ready-made stock lists, and how we describe each one.
 SCREENS = {
     "day_gainers": "Biggest gainers",
@@ -56,4 +58,40 @@ def format_market_data(movers, premarket):
     if premarket:
         premarket = sorted(premarket, key=lambda m: abs(m[1]), reverse=True)
         lines.append("Pre-market moves right now: " + ", ".join(f"{t} {chg:+.2f}%" for t, chg in premarket))
+    return "\n".join(lines) or None
+
+
+def _change(closes, days_back):
+    if len(closes) <= days_back:
+        return None
+    return (closes[-1] - closes[-1 - days_back]) / closes[-1 - days_back] * 100
+
+
+def get_market_backdrop():
+    """
+    The bigger picture, as text for Claude: how the S&P 500 has moved over the
+    last day, week and month, and each sector over the last week. None if
+    Yahoo has nothing.
+    """
+    lines = []
+    try:
+        spy = [float(c) for c in yf.Ticker("SPY").history(period="2mo")["Close"].dropna()]
+        parts = [f"{label} {chg:+.1f}%" for label, n in (("1 day", 1), ("1 week", 5), ("1 month", 21))
+                 if (chg := _change(spy, n)) is not None]
+        if parts:
+            lines.append("S&P 500 (SPY): " + ", ".join(parts))
+    except Exception:
+        pass
+    sectors = []
+    for ticker, name in SECTORS.items():
+        try:
+            closes = [float(c) for c in yf.Ticker(ticker).history(period="1mo")["Close"].dropna()]
+            chg = _change(closes, 5)
+            if chg is not None:
+                sectors.append((name, chg))
+        except Exception:
+            continue
+    if sectors:
+        sectors.sort(key=lambda x: x[1], reverse=True)
+        lines.append("Sectors over the last week: " + ", ".join(f"{n} {c:+.1f}%" for n, c in sectors))
     return "\n".join(lines) or None

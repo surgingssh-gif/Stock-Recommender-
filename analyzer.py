@@ -37,18 +37,39 @@ and keep each reason to one or two plain-English sentences a beginner can follow
 most important first.
 - Include both obvious and second-order effects when they are well supported \
 (e.g. an oil spike hurting airlines).
+- Think about what is already priced in. Your calls are scored from the \
+opening price after this news is public, so a stock that jumps at the open on \
+the headline itself gives you nothing. Prefer ideas where the effect should \
+keep unfolding over the next days or weeks: second-order effects, companies \
+the market hasn't connected to the news yet, or news the market tends to \
+underreact to. Rumors (especially takeover rumors) usually move the stock \
+right away and often fade, so treat them with extra caution.
+- Use the "Market backdrop" (the S&P 500's and each sector's recent moves) to \
+avoid fighting the tide: a bullish call in a falling sector needs a stronger \
+reason, and bearish calls can be the better idea in a weak market.
+- Confidence should mean something. "high" is for your one or two strongest \
+ideas today: concrete news, a clear cause and effect, and not yet priced in. \
+"medium" is a solid idea with real uncertainty. "low" is speculative. Don't \
+default everything to "medium"; your track record shows how each level has \
+done, so calibrate against it.
+- Avoid repeating yourself. You'll see "Your recent picks" from the last few \
+days. Only pick one of those tickers again if there is genuinely new news \
+about it today, and if you do, say what's new in the reason. Spreading ideas \
+across different stocks and themes beats making the same bet every day.
 - You'll also get a "market watch" list of tickers. For each one, write a \
 single short, plain-English sentence in "watchlist_notes" about what today's \
 headlines mean for it. If none of the headlines are relevant to it, say \
 "No major news today." rather than guessing.
-- Finally, choose today's 5 most promising bullish ideas as "top_buys", \
-ranked best first. They can repeat tickers from "picks" (never one you called \
-bearish) or add new ones, but each must be backed by today's headlines. For \
-each, give a one-line "pitch", then explain in plain English "why" it could be \
-a good buy (2 to 4 sentences), what "risks" could make it go wrong (1 or 2 \
-sentences), and what to "watch" next, like an earnings date or a decision \
-(1 sentence). Be honest about the downside: these are research candidates, \
-not recommendations. If the news is too quiet for 5 solid ideas, return fewer.
+- Finally, choose today's 5 best ideas as "top_buys" (shown as "Top 5 Ideas"), \
+ranked by conviction, best first. They can be bullish or bearish: pick the \
+ideas you believe in most, whichever direction, and give each one's \
+"direction". They can repeat tickers from "picks" (with the same direction) or \
+add new ones, but each must be backed by today's headlines. For each, give a \
+one-line "pitch", then explain in plain English "why" it could work (2 to 4 \
+sentences), what "risks" could make it go wrong (1 or 2 sentences), and what \
+to "watch" next, like an earnings date or a decision (1 sentence). Be honest \
+about the downside: these are research candidates, not recommendations. If \
+the news is too quiet for 5 solid ideas, return fewer.
 - Some headlines are marked "(about TICKER)": those were fetched for that \
 company specifically. You may also get a "Market data" section listing the \
 biggest movers and pre-market moves. Use it to see what the market is already \
@@ -148,8 +169,8 @@ OUTPUT_SCHEMA = {
             "type": "string",
             "description": "One or two sentences on what the recent track record suggests and how it shaped today's picks.",
         },
-        # The "Top 5 buys of the day": the most promising bullish ideas,
-        # ranked best first, with a longer explanation for each.
+        # The "Top 5 ideas of the day": the ideas Claude believes in most
+        # (bullish or bearish), ranked best first, with a longer explanation.
         "top_buys": {
             "type": "array",
             "items": {
@@ -157,6 +178,7 @@ OUTPUT_SCHEMA = {
                 "properties": {
                     "ticker": {"type": "string"},
                     "company": {"type": "string"},
+                    "direction": {"type": "string", "enum": ["bullish", "bearish"]},
                     "confidence": {"type": "string", "enum": ["low", "medium", "high"]},
                     "pitch": {"type": "string"},
                     "why": {"type": "string"},
@@ -165,7 +187,7 @@ OUTPUT_SCHEMA = {
                     "sources": {"type": "array", "items": {"type": "integer"}},
                     **IDEA_FIELDS,
                 },
-                "required": ["ticker", "company", "confidence", "pitch", "why", "risks", "watch", "sources", *IDEA_FIELDS],
+                "required": ["ticker", "company", "direction", "confidence", "pitch", "why", "risks", "watch", "sources", *IDEA_FIELDS],
                 "additionalProperties": False,
             },
         },
@@ -187,7 +209,7 @@ def _format_headlines(headlines):
     return "\n".join(lines)
 
 
-def analyze_headlines(headlines, api_key, watchlist=None, track_record=None, market_data=None):
+def analyze_headlines(headlines, api_key, watchlist=None, track_record=None, market_data=None, recent_picks=None):
     """
     Returns a dict: {"market_mood": "...", "picks": [ {ticker, company,
     direction, confidence, reason, sources}, ... ]}
@@ -199,6 +221,7 @@ def analyze_headlines(headlines, api_key, watchlist=None, track_record=None, mar
 
     track_record - text from track_record.build_track_record() (optional)
     market_data  - text from market_data.format_market_data() (optional)
+    recent_picks - text listing the last few days' picks (optional)
 
     Raises an exception if Claude can't be reached or declines to answer,
     so the caller can report it.
@@ -218,6 +241,8 @@ def analyze_headlines(headlines, api_key, watchlist=None, track_record=None, mar
     if market_data:
         user_message += "\n\nMarket data (prices, not news):\n" + market_data
     user_message += "\n\nYour track record:\n" + (track_record or "No results yet - this is one of the first runs.")
+    if recent_picks:
+        user_message += "\n\nYour recent picks (only repeat one with genuinely new news):\n" + recent_picks
 
     response = client.beta.messages.create(
         model=model,
@@ -257,16 +282,17 @@ TOP_BUYS_COUNT = 5
 
 def add_top_buys_to_picks(result):
     """
-    Makes sure every top buy is also in the normal list of picks, so it gets
+    Makes sure every top idea is also in the normal list of picks, so it gets
     a price, is saved to picks_log.csv and is tracked on the scorecard like
-    any other idea. Also keeps at most 5 top buys and drops any that clash
-    with a bearish pick for the same stock.
+    any other idea. Also keeps at most 5 and drops any whose direction
+    clashes with the pick for the same stock.
     """
     by_ticker = {p["ticker"]: p for p in result["picks"]}
     top_buys = []
     for buy in result.get("top_buys", []):
+        buy.setdefault("direction", "bullish")
         pick = by_ticker.get(buy["ticker"])
-        if pick and pick["direction"] == "bearish":
+        if pick and pick["direction"] != buy["direction"]:
             continue  # Claude contradicted itself; skip this one
         if any(b["ticker"] == buy["ticker"] for b in top_buys):
             continue  # listed twice
@@ -278,7 +304,7 @@ def add_top_buys_to_picks(result):
             new_pick = {
                 "ticker": buy["ticker"],
                 "company": buy["company"],
-                "direction": "bullish",
+                "direction": buy["direction"],
                 "confidence": buy["confidence"],
                 "reason": buy["pitch"],
                 "sources": buy["sources"],
