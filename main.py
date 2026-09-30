@@ -30,7 +30,7 @@ from build_dashboard import read_picks
 from logos import update_logos
 from market_data import format_market_data, get_market_backdrop, get_market_movers, get_premarket_moves
 from news import fetch_company_news, fetch_headlines
-from picks_log import log_picks, save_day_details
+from picks_log import DAYS_DIR, log_picks, save_day_details
 from prices import get_prices
 from build_dashboard import latest_run_only, read_days
 from track_record import build_track_record, load_dashboard_data, recent_picks_text
@@ -77,6 +77,14 @@ def main():
 
     # Use US market time for the date.
     date_str = datetime.now(ZoneInfo("America/New_York")).strftime("%Y-%m-%d")
+
+    # GitHub starts scheduled runs late (sometimes hours), so the workflow has
+    # several start times; whichever runs first does the work and the rest
+    # stop here. A manual run (--force) always runs.
+    if not dry_run and "--force" not in sys.argv and os.path.exists(os.path.join(DAYS_DIR, f"{date_str}.json")):
+        print(f"Already ran for {date_str}, so there's nothing to do. (Use --force to run again.)")
+        return
+
     problems = []  # anything that goes wrong gets noted here
 
     # --- Step 1: News -------------------------------------------------------

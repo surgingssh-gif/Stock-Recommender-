@@ -4,10 +4,12 @@ name: Big-move alerts
 
 on:
   schedule:
-    # At 35 minutes past each hour from 13:35 to 20:35 UTC, Monday-Friday.
-    # That's 9:35 AM - 4:35 PM New York time in summer (8:35 AM - 3:35 PM in
-    # winter). alerts.py itself skips any run outside 9:30 AM - 4:00 PM ET.
-    - cron: "35 13-20 * * 1-5"
+    # Every 20 minutes from 13:07 to 20:47 UTC, Monday-Friday (9:07 AM - 4:47 PM
+    # New York time in summer, an hour earlier in winter). GitHub skips or
+    # delays many scheduled runs, so frequent tries mean alerts still arrive
+    # during the day. alerts.py itself skips any run outside 9:30 AM - 4:00 PM ET,
+    # and never repeats an alert it already sent.
+    - cron: "7,27,47 13-20 * * 1-5"
   # Adds a "Run workflow" button on the Actions tab (checks even if the market is closed).
   workflow_dispatch:
 
@@ -53,6 +55,6 @@ jobs:
           else
             git commit -m "Record big-move alerts for $(date -u +%Y-%m-%d)"
             # Another run may have saved in the meantime; add our change on top.
-            git pull --rebase
+            git pull --rebase -X theirs
             git push
           fi

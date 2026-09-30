@@ -4,10 +4,15 @@ name: Daily stock ideas
 
 on:
   schedule:
-    # 12:30 UTC, Monday-Friday = 8:30 AM New York time in summer (EDT),
-    # 7:30 AM in winter (EST). GitHub sometimes starts scheduled runs
-    # a few minutes late - that's normal.
-    - cron: "30 12 * * 1-5"
+    # GitHub often starts scheduled runs late (sometimes by hours), so there are
+    # several start times before the market opens; the first one that actually
+    # runs does the work and the rest see it's done and stop (see main.py).
+    # 10:07-13:07 UTC = 6:07-9:07 AM New York time in summer (EDT),
+    # 5:07-8:07 AM in winter (EST). Odd minutes avoid GitHub's busiest times.
+    - cron: "7 10 * * 1-5"
+    - cron: "7 11 * * 1-5"
+    - cron: "7 12 * * 1-5"
+    - cron: "7 13 * * 1-5"
   # Adds a "Run workflow" button on the Actions tab so you can test it anytime.
   workflow_dispatch:
 
@@ -44,7 +49,9 @@ jobs:
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
           CLAUDE_MODEL: ${{ secrets.CLAUDE_MODEL }}
           DASHBOARD_URL: ${{ secrets.DASHBOARD_URL }}
-        run: python main.py
+        # A manual run (the "Run workflow" button) always runs, even if today's
+        # picks already exist.
+        run: python main.py ${{ github.event_name == 'workflow_dispatch' && '--force' || '' }}
 
       # Rebuild the dashboard web page's data (latest prices + scorecard).
       # "always()" means these steps still run if the Discord step failed.
@@ -63,5 +70,8 @@ jobs:
             echo "Nothing new to save."
           else
             git commit -m "Log picks and update dashboard for $(date -u +%Y-%m-%d)"
+            # Another run may have saved in the meantime: add this on top (keeping
+            # this run's version of any file both changed), then push.
+            git pull --rebase -X theirs
             git push
           fi

@@ -131,8 +131,13 @@ GitHub can run the bot for you every weekday, even when your computer is off.
 5. Test it: click the **Actions** tab > **Daily stock ideas** > **Run workflow** > **Run workflow**.
    After about a minute, you should see a green check and a Discord message.
 
-From then on it runs automatically at **8:30 AM New York time** (7:30 AM in winter),
-Monday to Friday. GitHub sometimes starts scheduled runs a few minutes late. That's normal.
+From then on it runs automatically before the market opens, Monday to Friday.
+GitHub often starts scheduled runs late (sometimes by hours), so each automatic run
+has several start times (for the morning run: 6:07, 7:07, 8:07 and 9:07 AM New York
+time in summer). The first one that actually runs does the work, and the others see
+it's done and stop. The evening recap works the same way (5:07-7:07 PM), and the
+big-move check tries every 20 minutes during the day. The **Run workflow** button
+always runs, even if today's run already happened.
 
 Each run also saves `picks_log.csv` back into the repository, so the log builds up over time.
 

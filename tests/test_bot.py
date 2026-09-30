@@ -685,3 +685,45 @@ def test_recent_picks_are_listed_for_claude():
     assert recent_picks_text(picks) == (
         "2026-09-29: XOM bullish, DAL bullish\n2026-09-28: TLT bullish\n2026-09-25: XOM bullish")
     assert recent_picks_text([]) is None
+
+
+def test_data_file_stays_small():
+    def pick(d, t):
+        return {"date": d, "ticker": t, "direction": "bullish", "reason": "r", "price_at_pick": 10.0}
+
+    headline = {"headline": "H", "summary": "long summary", "source": "S", "time": "t", "url": "u", "image": "i"}
+    days = {d: {"date": d, "headlines": [headline], "picks": []} for d in ("2026-08-03", "2026-09-28", "2026-09-29")}
+    picks = [pick("2026-08-03", "OLD"), pick("2026-09-28", "MID"), pick("2026-09-29", "NEW")]
+    histories = {t: [["2026-09-29", 10.0]] for t in ("OLD", "MID", "NEW")}
+    data = build_data(picks, days, histories)
+    assert set(data["charts"]) == {"MID", "NEW"}   # OLD was picked more than 30 days before the newest pick
+    newest, older = data["days"][0], data["days"][1]
+    assert newest["headlines"][0]["summary"] == "long summary"   # latest day in full
+    assert "summary" not in older["headlines"][0] and older["headlines"][0]["url"] == "u"
+
+
+def test_later_start_times_skip_once_today_is_done(monkeypatch, tmp_path):
+    from datetime import datetime
+    from zoneinfo import ZoneInfo
+
+    today = datetime.now(ZoneInfo("America/New_York")).strftime("%Y-%m-%d")
+    (tmp_path / "data" / "days").mkdir(parents=True)
+    (tmp_path / "data" / "days" / f"{today}.json").write_text("{}")
+    sent = _run_main(monkeypatch, tmp_path, news=FAKE_HEADLINES, analysis=FAKE_ANALYSIS)
+    assert sent == [] and not (tmp_path / "picks_log.csv").exists()
+    # A manual run (--force) still runs.
+    monkeypatch.setattr(sys, "argv", ["main.py", "--force"])
+    monkeypatch.setattr(main, "fetch_headlines", lambda key: FAKE_HEADLINES)
+    monkeypatch.setattr(main, "analyze_headlines", lambda *a, **k: FAKE_ANALYSIS)
+    main.main()
+    assert (tmp_path / "picks_log.csv").exists()
+
+
+def test_recap_remembers_which_days_were_sent(tmp_path):
+    from recap import load_sent, mark_sent
+
+    path = tmp_path / "sent.json"
+    assert load_sent(path) == set()
+    mark_sent("2026-09-29", path)
+    mark_sent("2026-09-30", path)
+    assert load_sent(path) == {"2026-09-29", "2026-09-30"}

@@ -29,9 +29,19 @@ OUTPUT_FILE = os.path.join("docs", "data.js")
 # How far back the stock charts go before a stock's first pick.
 CHART_LOOKBACK_DAYS = 180
 
-# Only the most recent days keep their full list of headlines on the page,
-# so docs/data.js stays small as the months go by.
+# Only the most recent days keep their list of headlines on the page (the
+# latest day in full, older days just titles and links for the Archive), so
+# docs/data.js stays small as the months go by.
 HEADLINE_DAYS = 10
+
+# Price charts are kept for stocks picked in the last 30 days plus the
+# market-watch list. (Older picks are still scored; they just have no chart.)
+CHART_DAYS = 30
+
+
+def _slim(headline):
+    """A headline with just what the Archive list needs."""
+    return {k: headline.get(k) for k in ("headline", "source", "time", "url", "tickers")}
 
 
 # --- Reading the saved picks -------------------------------------------------
@@ -667,6 +677,15 @@ def _top_buys(latest_date, days, enriched):
     return cards
 
 
+def _chart_tickers(picks):
+    """Tickers that get a price chart: picks from the last CHART_DAYS days plus the watchlist."""
+    if not picks:
+        return set(WATCHLIST)
+    newest = max(p["date"] for p in picks)
+    cutoff = (date.fromisoformat(newest) - timedelta(days=CHART_DAYS)).isoformat()
+    return {p["ticker"] for p in picks if p["date"] >= cutoff} | set(WATCHLIST)
+
+
 def _brief(pick):
     if not pick:
         return None
@@ -735,7 +754,8 @@ def build_data(picks, days, histories, events=None, facts=None, opens=None):
             "market_mood": days.get(d, {}).get("market_mood"),
             "self_check": days.get(d, {}).get("self_check"),
             "summary": days.get(d, {}).get("summary"),
-            "headlines": _with_tickers(d, days, enriched) if d in recent else [],
+            "headlines": (_with_tickers(d, days, enriched) if d == all_dates[0]
+                          else [_slim(h) for h in _with_tickers(d, days, enriched)]) if d in recent else [],
             "headline_count": len(days.get(d, {}).get("headlines", [])),
             "tickers": [p["ticker"] for p in enriched if p["date"] == d],
         }
@@ -754,9 +774,10 @@ def build_data(picks, days, histories, events=None, facts=None, opens=None):
         "stats": stats,
         "picks": enriched,
         "days": day_list,
-        # Full price history per ticker, for the stock charts (not the sector funds,
-        # which only need the numbers in "sectors").
-        "charts": {t: h for t, h in sorted(histories.items()) if h and t not in SECTORS},
+        # Full price history per ticker, for the stock charts: recent picks and
+        # the market-watch list (not the sector funds, which only need the
+        # numbers in "sectors").
+        "charts": {t: h for t, h in sorted(histories.items()) if h and t in _chart_tickers(enriched)},
         # The sector heat map.
         "sectors": sector_moves(histories),
         # The "Coming up" calendar (earnings dates and Fed meetings).
@@ -812,7 +833,8 @@ def main():
         # works when you open docs/index.html straight from your computer.
         f.write("window.DASHBOARD_DATA = ")
         # allow_nan=False: fail loudly rather than put "NaN" on the page.
-        json.dump(data, f, indent=1, allow_nan=False)
+        # Written compactly (no spaces or line breaks) to keep the page fast.
+        json.dump(data, f, separators=(",", ":"), allow_nan=False)
         f.write(";\n")
     print(f"Dashboard data written: {data['stats']['total_picks']} picks over {data['stats']['days_tracked']} day(s).")
 
