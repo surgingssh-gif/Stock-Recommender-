@@ -7,10 +7,12 @@ Run it with:
     python recap.py            (posts to Discord)
     python recap.py --dry-run  (prints the message instead)
     python recap.py --date 2026-09-22  (recap an earlier day)
+    python recap.py --force            (send again even if today's was sent)
 
 It only reads picks_log.csv and prices; it never changes the log.
 """
 
+import json
 import os
 import sys
 from datetime import date, datetime, timedelta
@@ -141,6 +143,25 @@ def build_recap(date_str, today_picks, top_tickers, week_picks=None, dashboard=N
     return "\n".join(lines)
 
 
+SENT_FILE = os.path.join("data", "recaps_sent.json")
+
+
+def load_sent(path=SENT_FILE):
+    """The dates whose recap has already been sent."""
+    try:
+        with open(path, encoding="utf-8") as f:
+            return set(json.load(f))
+    except (OSError, ValueError):
+        return set()
+
+
+def mark_sent(date_str, path=SENT_FILE):
+    sent = sorted(load_sent(path) | {date_str})[-60:]  # the last ~3 months is plenty
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    with open(path, "w", encoding="utf-8") as f:
+        json.dump(sent, f, indent=1)
+
+
 def main():
     dry_run = "--dry-run" in sys.argv
     load_dotenv()
@@ -154,6 +175,11 @@ def main():
     if chosen:
         today = date.fromisoformat(chosen.strip())
     date_str = today.isoformat()
+    # The workflow has several start times (GitHub runs them late); only the
+    # first one that runs sends the recap. A manual run (--force) always does.
+    if not dry_run and not chosen and "--force" not in sys.argv and date_str in load_sent():
+        print(f"The recap for {date_str} was already sent.")
+        return
     days = read_days()
     picks = latest_run_only(read_picks(), days)
 
@@ -202,6 +228,7 @@ def main():
             sys.exit(1)
         return
     send_to_discord(webhook_url, message)
+    mark_sent(date_str)
     print("Evening recap sent to Discord.")
 
 

@@ -5,9 +5,13 @@ name: Evening recap
 
 on:
   schedule:
-    # 21:15 UTC, Monday-Friday = 5:15 PM New York time in summer (EDT),
-    # 4:15 PM in winter (EST) - both after the 4:00 PM close.
-    - cron: "15 21 * * 1-5"
+    # Several start times, because GitHub often runs scheduled jobs late; the
+    # first one that runs sends the recap and the rest stop (see recap.py).
+    # 21:07-23:07 UTC = 5:07-7:07 PM New York time in summer (EDT),
+    # 4:07-6:07 PM in winter (EST) - all after the 4:00 PM close.
+    - cron: "7 21 * * 1-5"
+    - cron: "7 22 * * 1-5"
+    - cron: "7 23 * * 1-5"
   # Adds a "Run workflow" button on the Actions tab. You can type an earlier
   # date (like 2026-09-22) to recap that day instead of today.
   workflow_dispatch:
@@ -20,9 +24,10 @@ on:
 permissions:
   contents: write
 
-# Shares a queue with the morning run, so the two never save at the same time.
+# Its own queue (sharing one with the morning run could cancel a waiting run);
+# the save step below handles both saving at the same time.
 concurrency:
-  group: daily-stock-ideas
+  group: evening-recap
   cancel-in-progress: false
 
 jobs:
@@ -46,7 +51,7 @@ jobs:
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
           DASHBOARD_URL: ${{ secrets.DASHBOARD_URL }}
           RECAP_DATE: ${{ inputs.date }}
-        run: python recap.py
+        run: python recap.py ${{ github.event_name == 'workflow_dispatch' && '--force' || '' }}
 
       # Refresh the dashboard with today's closing prices.
       - name: Build dashboard
@@ -58,10 +63,11 @@ jobs:
         run: |
           git config user.name "stock-news-bot"
           git config user.email "stock-news-bot@users.noreply.github.com"
-          git add docs 2>/dev/null || true
+          git add docs data/recaps_sent.json 2>/dev/null || true
           if git diff --cached --quiet; then
             echo "Nothing new to save."
           else
             git commit -m "Update dashboard with closing prices for $(date -u +%Y-%m-%d)"
+            git pull --rebase -X theirs
             git push
           fi
