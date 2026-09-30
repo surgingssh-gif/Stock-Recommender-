@@ -34,6 +34,7 @@
     "sign": -1
   },
   "2026-09-24:MGM:target": true,
+  "2026-09-25:GLD:target": true,
   "2026-09-25:RKLB": {
     "level": 1,
     "sign": -1
@@ -41,5 +42,6 @@
   "2026-09-28:RCL": {
     "level": 1,
     "sign": 1
-  }
+  },
+  "2026-09-28:RCL:target": true
 }
