@@ -20,6 +20,10 @@ on:
         description: "Day to recap (YYYY-MM-DD). Leave blank for today."
         required: false
         default: ""
+      force:
+        description: "Send even if today's recap was already sent"
+        type: boolean
+        default: true
 
 permissions:
   contents: write
@@ -51,7 +55,7 @@ jobs:
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
           DASHBOARD_URL: ${{ secrets.DASHBOARD_URL }}
           RECAP_DATE: ${{ inputs.date }}
-        run: python recap.py ${{ github.event_name == 'workflow_dispatch' && '--force' || '' }}
+        run: python recap.py ${{ inputs.force && '--force' || '' }}
 
       # Refresh the dashboard with today's closing prices.
       - name: Build dashboard
