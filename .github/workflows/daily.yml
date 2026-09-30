@@ -14,7 +14,14 @@ on:
     - cron: "7 12 * * 1-5"
     - cron: "7 13 * * 1-5"
   # Adds a "Run workflow" button on the Actions tab so you can test it anytime.
+  # An outside scheduler (like cron-job.org) can also start it, sending
+  # force=false so it doesn't redo a run that already happened today.
   workflow_dispatch:
+    inputs:
+      force:
+        description: "Run even if it already ran today"
+        type: boolean
+        default: true
 
 # Lets the workflow save picks_log.csv back into the repository.
 permissions:
@@ -51,7 +58,7 @@ jobs:
           DASHBOARD_URL: ${{ secrets.DASHBOARD_URL }}
         # A manual run (the "Run workflow" button) always runs, even if today's
         # picks already exist.
-        run: python main.py ${{ github.event_name == 'workflow_dispatch' && '--force' || '' }}
+        run: python main.py ${{ inputs.force && '--force' || '' }}
 
       # Rebuild the dashboard web page's data (latest prices + scorecard).
       # "always()" means these steps still run if the Discord step failed.

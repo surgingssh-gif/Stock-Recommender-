@@ -12,6 +12,11 @@ on:
     - cron: "7,27,47 13-20 * * 1-5"
   # Adds a "Run workflow" button on the Actions tab (checks even if the market is closed).
   workflow_dispatch:
+    inputs:
+      force:
+        description: "Check even when the market is closed"
+        type: boolean
+        default: true
 
 permissions:
   contents: write
@@ -42,7 +47,7 @@ jobs:
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
           DASHBOARD_URL: ${{ secrets.DASHBOARD_URL }}
         # A manual run checks even when the market is closed.
-        run: python alerts.py ${{ github.event_name == 'workflow_dispatch' && '--force' || '' }}
+        run: python alerts.py ${{ inputs.force && '--force' || '' }}
 
       # Remember which alerts were sent, so they aren't repeated.
       - name: Save alert history
