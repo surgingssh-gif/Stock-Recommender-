@@ -44,6 +44,10 @@
     "sign": 1
   },
   "2026-09-28:RCL:target": true,
+  "2026-09-28:VLO": {
+    "level": 1,
+    "sign": 1
+  },
   "2026-09-30:MAT": {
     "level": 4,
     "sign": 1
