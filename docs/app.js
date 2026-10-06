@@ -678,7 +678,7 @@
           tile("Ideas published", String(stats.total_picks || 0), (stats.days_tracked || 0) + (stats.days_tracked === 1 ? " trading day" : " trading days")),
           tile("Average move for the call", fmtPct(stats.avg_directional_return), "Above zero means calls are working"),
           stats.vs_market && stats.vs_market.judged ? tile("Beat the S&P 500", Math.round(stats.vs_market.rate) + "% of calls",
-            stats.vs_market.beat + " of " + stats.vs_market.judged + " · " + fmtPct(stats.vs_market.avg_vs_market) + " vs the market on average") : null,
+            stats.vs_market.beat + " of " + stats.vs_market.judged + " · " + fmtPct(stats.vs_market.avg_vs_market) + " on average · more in the vs. S&P 500 tab") : null,
           tile("Best call", best.ticker + " " + fmtPct(best.directional_return_pct, 1), capitalize(best.direction) + " · " + fmtShortDate(best.date)),
           tile("Worst call", worst.ticker + " " + fmtPct(worst.directional_return_pct, 1), capitalize(worst.direction) + " · " + fmtShortDate(worst.date)))
       : el("div", { class: "tiles" },
@@ -881,6 +881,64 @@
   }
 
   // ---------------------------------------------------------------------------
+  // vs. S&P 500 tab: is the bot beating simply buying the market?
+  // ---------------------------------------------------------------------------
+
+  /* Share of calls that beat the market, for a group of picks (in breakdown() format). */
+  function beatGroup(label, ps) {
+    var judged = ps.filter(function (p) { return p.beat_market === true || p.beat_market === false; });
+    return { label: label, count: judged.length,
+      hit_rate: judged.length ? Math.round(judged.filter(function (p) { return p.beat_market; }).length / judged.length * 1000) / 10 : null };
+  }
+
+  function renderMarketTab() {
+    var hero = document.getElementById("market-hero");
+    var side = document.getElementById("market-breakdown");
+    clear(hero); clear(side);
+    var vm = stats.vs_market || {};
+    var judged = vm.judged || 0;
+    var pf = DATA.portfolio;
+    var pfLast = pf && pf.series.length > 1 ? pf.series[pf.series.length - 1] : null;
+    var verdict = !judged ? "Results arrive after the next market close."
+      : vm.rate > 55 ? "So far the bot is beating the market more often than not."
+      : vm.rate >= 45 ? "So far it's roughly even with the market: no clear edge yet."
+      : "So far the market is winning more often than the bot.";
+    append(hero, [
+      el("div", { class: "sc-col" },
+        el("p", { class: "hero-label", text: "Calls that beat the S&P 500" }),
+        el("div", { class: "hero-figure" + (judged ? "" : " pending"), text: judged ? Math.round(vm.rate) + "%" : "Pending" }),
+        el("p", { class: "hero-note", text: judged ? vm.beat + " of " + judged + " calls did better than the same bet on the S&P 500. " + verdict : verdict })),
+      el("div", { class: "sc-col" }, el("div", { class: "tiles" },
+        tile("Average vs. the market", judged ? fmtPct(vm.avg_vs_market) : "—", "Per call, above zero = beating it"),
+        tile("Top 5 ideas", vm.top5 && vm.top5.judged ? Math.round(vm.top5.rate) + "% beat it" : "—",
+          vm.top5 && vm.top5.judged ? vm.top5.beat + " of " + vm.top5.judged + " · " + fmtPct(vm.top5.avg_vs_market) + " on average" : "No results yet"),
+        tile("$10,000 following the Top 5", pfLast ? fmtMoney(pfLast[1]) : "—", pfLast ? fmtPct(pf.top5_return_pct) + " so far" : "Starts with the first Top 5"),
+        tile("$10,000 in the S&P 500", pfLast ? fmtMoney(pfLast[2]) : "—", pfLast ? fmtPct(pf.spy_return_pct) + " over the same days" : "")))
+    ]);
+
+    // Where the bot beats the market: by call, confidence, theme and Top 5.
+    var scored = picks.filter(function (p) { return p.beat_market === true || p.beat_market === false; });
+    var themes = {};
+    scored.forEach(function (p) { if (p.theme) (themes[p.theme] = themes[p.theme] || []).push(p); });
+    append(side, [
+      el("h3", { text: "Where it beats the market" }),
+      el("p", { class: "chart-sub", text: "Share of calls in each group that did better than the S&P 500." }),
+      scored.length ? [
+        breakdown("By call", ["bullish", "bearish"].map(function (d) { return beatGroup(d, scored.filter(function (p) { return p.direction === d; })); })),
+        breakdown("Top 5 vs. the rest", [beatGroup("Top 5 ideas", scored.filter(function (p) { return p.top_rank; })),
+          beatGroup("Other picks", scored.filter(function (p) { return !p.top_rank; }))], "wide"),
+        breakdown("By confidence", ["high", "medium", "low"].map(function (c) { return beatGroup(c, scored.filter(function (p) { return p.confidence === c; })); })),
+        breakdown("By news theme", Object.keys(themes).sort(function (a, b) { return themes[b].length - themes[a].length; })
+          .map(function (t) { return beatGroup(t, themes[t]); }), "wide")
+      ] : emptyChart("Nothing to compare yet", "Once calls have results, this shows which kinds beat the market.")
+    ]);
+    side.querySelectorAll(".meter-row .val").forEach(function (v) { v.firstChild.textContent = v.firstChild.textContent.replace(" right", " beat it"); });
+
+    renderPortfolio();
+    renderMarketCallsChart();
+  }
+
+  // ---------------------------------------------------------------------------
   // Weekly report cards
   // ---------------------------------------------------------------------------
 
@@ -1012,17 +1070,27 @@
 
   /* Horizontal bars: each call's move since the pick, in the call's direction. */
   function renderCallsChart() {
-    var fig = document.getElementById("calls-figure");
-    clear(fig);
-    append(fig, [
-      el("h3", { text: "How each call is doing" }),
-      el("p", { class: "chart-sub", text: "Move since the pick, counted in the direction of the call. Bars to the right of the line are working; bars to the left are not." })
-    ]);
+    drawCallBars("calls-figure", "directional_return_pct", "How each call is doing",
+      "Move since the pick, counted in the direction of the call. Bars to the right of the line are working; bars to the left are not.",
+      " for the call");
+  }
 
-    var rows = picks.filter(function (p) { return p.directional_return_pct !== null && p.directional_return_pct !== undefined; })
+  function renderMarketCallsChart() {
+    drawCallBars("market-calls-figure", "vs_market_pct", "Every call vs. the S&P 500",
+      "How much better (right) or worse (left) each call did than making the same bet on the S&P 500 over the same days.",
+      " vs the S&P 500");
+  }
+
+  /* Horizontal bars, one per call, for the value stored under `key`. */
+  function drawCallBars(figId, key, title, sub, unit) {
+    var fig = document.getElementById(figId);
+    clear(fig);
+    append(fig, [el("h3", { text: title }), el("p", { class: "chart-sub", text: sub })]);
+
+    var rows = picks.filter(function (p) { return p[key] !== null && p[key] !== undefined; })
       .slice(0, 40)
-      .sort(function (a, b) { return b.directional_return_pct - a.directional_return_pct; });
-    var anyMove = rows.some(function (p) { return Math.abs(p.directional_return_pct) >= 0.005; });
+      .sort(function (a, b) { return b[key] - a[key]; });
+    var anyMove = rows.some(function (p) { return Math.abs(p[key]) >= 0.005; });
     if (!anyMove) {
       fig.appendChild(emptyChart("Scores arrive after the next close",
         "Every call so far was made at the latest price, so each one sits at 0%. Tomorrow's run adds the first real moves, and this chart fills in."));
@@ -1033,7 +1101,7 @@
     fig.appendChild(box);
     var W = Math.max(300, fig.clientWidth - (parseFloat(getComputedStyle(fig).paddingLeft) || 0) - (parseFloat(getComputedStyle(fig).paddingRight) || 0));
     var labelW = 96, sidePad = 50, rowH = 26, barH = 12, top = 6, bottom = 26;
-    var values = rows.map(function (p) { return p.directional_return_pct; });
+    var values = rows.map(function (p) { return p[key]; });
     var ticks = niceTicks(Math.min(0, Math.min.apply(null, values)), Math.max(0, Math.max.apply(null, values)), W < 520 ? 4 : 6);
     var lo = ticks[0], hi = ticks[ticks.length - 1];
     var plotL = labelW + sidePad, plotR = W - sidePad;
@@ -1050,7 +1118,7 @@
 
     var list = svg("g", { role: "list" });
     rows.forEach(function (p, i) {
-      var v = p.directional_return_pct, y = top + i * rowH;
+      var v = p[key], y = top + i * rowH;
       var row = svg("g", { class: "row", tabindex: 0, role: "listitem",
         "aria-label": p.ticker + ", " + p.direction + " call from " + fmtShortDate(p.date) + ": " + fmtPct(v) + ", " + RESULT_LABEL[resultOf(p)] });
       row.appendChild(svg("rect", { class: "hit", x: 0, y: y, width: W, height: rowH }));
@@ -1063,7 +1131,7 @@
       var labelX = v >= 0 ? x(v) + 6 : x(v) - 6;
       row.appendChild(svg("text", { x: labelX, y: y + rowH / 2 + 4, "text-anchor": v >= 0 ? "start" : "end", "font-size": 11, fill: "var(--ink-2)", class: "tab", text: fmtPct(v, 1) }));
       withTooltip(row, [
-        ["tt-value", fmtPct(v) + " for the call"],
+        ["tt-value", fmtPct(v) + unit],
         ["tt-title", p.ticker + (p.company ? " · " + p.company : "")],
         ["tt-line", capitalize(p.direction) + " call · " + fmtTableDate(p.date)],
         ["tt-line", "Bought at " + fmtPrice(entryOf(p)) + " → " + fmtPrice(p.price_now)],
@@ -2218,7 +2286,7 @@
   // the matching section is shown. The back button and bookmarks work too.
   // ---------------------------------------------------------------------------
 
-  var TABS = ["today", "news", "stock-charts", "results", "record", "archive", "about"];
+  var TABS = ["today", "news", "stock-charts", "results", "vs-market", "record", "archive", "about"];
   var OLD_LINKS = { scorecard: "results", charts: "results" };  // addresses used before tabs existed
   var currentTab = null;
 
@@ -2247,7 +2315,8 @@
   function renderVisibleCharts() {
     if (modalTicker) renderStockModal();
     if (currentTab === "stock-charts") renderStockSection();
-    if (currentTab === "results") { renderPortfolio(); renderHold(); renderCallsChart(); renderDaysChart(); }
+    if (currentTab === "results") { renderHold(); renderCallsChart(); renderDaysChart(); }
+    if (currentTab === "vs-market") renderMarketTab();
   }
 
   setupTheme();
