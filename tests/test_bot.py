@@ -84,7 +84,7 @@ def _run_main(monkeypatch, tmp_path, *, news=None, analysis=None, company_news=(
 
     calls = {}
 
-    def fake_analysis(headlines, _key, _watchlist=None, track_record=None, market_data=None, recent_picks=None):
+    def fake_analysis(headlines, _key, _watchlist=None, track_record=None, market_data=None, recent_picks=None, blocked=None):
         calls.update(headlines=headlines, track_record=track_record, market_data=market_data, recent_picks=recent_picks)
         if isinstance(analysis, Exception):
             raise analysis
@@ -727,3 +727,24 @@ def test_recap_remembers_which_days_were_sent(tmp_path):
     mark_sent("2026-09-29", path)
     mark_sent("2026-09-30", path)
     assert load_sent(path) == {"2026-09-29", "2026-09-30"}
+
+
+def test_recent_tickers_are_blocked_and_the_top_idea_is_high():
+    from analyzer import add_top_buys_to_picks, drop_blocked, make_top_idea_high
+    from track_record import recent_tickers
+
+    logged = [{"date": d, "ticker": t, "direction": "bullish"} for d, t in
+              [("2026-09-28", "OLD"), ("2026-09-29", "VLO"), ("2026-09-30", "TLT"), ("2026-10-01", "DAL"), ("2026-10-02", "TODAY")]]
+    # The last 3 run-days before Oct 2 (a forced re-run doesn't block today's own picks).
+    assert recent_tickers(logged, "2026-10-02") == ["DAL", "TLT", "VLO"]
+
+    result = {"market_mood": "", "watchlist_notes": [],
+              "picks": [dict(p, sources=[1]) for p in FAKE_ANALYSIS["picks"]] + [
+                  {"ticker": "VLO", "company": "Valero", "direction": "bullish", "confidence": "medium", "reason": "r", "sources": [1]}],
+              "top_buys": [_top_buy("VLO"), _top_buy("XOM", confidence="medium")]}
+    result = make_top_idea_high(add_top_buys_to_picks(drop_blocked(result, ["VLO", "DAL"])))
+    assert result["dropped"] == ["DAL", "VLO"]
+    assert [p["ticker"] for p in result["picks"]] == ["XOM"]
+    # VLO was removed, so XOM is now the #1 idea, and #1 is always "high".
+    assert result["top_buys"][0]["ticker"] == "XOM" and result["top_buys"][0]["confidence"] == "high"
+    assert result["picks"][0]["confidence"] == "high"

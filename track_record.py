@@ -126,3 +126,9 @@ def recent_picks_text(picks, days=RECENT_DAYS):
     for day in sorted(by_day, reverse=True)[:days]:
         lines.append(f"{day}: " + ", ".join(f"{p['ticker']} {p['direction']}" for p in by_day[day]))
     return "\n".join(lines) or None
+
+
+def recent_tickers(picks, before, days=RECENT_DAYS):
+    """Tickers picked on the last `days` run-days before the date `before` (YYYY-MM-DD)."""
+    dates = sorted({p["date"] for p in picks if p["date"] < before}, reverse=True)[:days]
+    return sorted({p["ticker"] for p in picks if p["date"] in dates})

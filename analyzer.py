@@ -49,13 +49,14 @@ avoid fighting the tide: a bullish call in a falling sector needs a stronger \
 reason, and bearish calls can be the better idea in a weak market.
 - Confidence should mean something. "high" is for your one or two strongest \
 ideas today: concrete news, a clear cause and effect, and not yet priced in. \
-"medium" is a solid idea with real uncertainty. "low" is speculative. Don't \
-default everything to "medium"; your track record shows how each level has \
-done, so calibrate against it.
-- Avoid repeating yourself. You'll see "Your recent picks" from the last few \
-days. Only pick one of those tickers again if there is genuinely new news \
-about it today, and if you do, say what's new in the reason. Spreading ideas \
-across different stocks and themes beats making the same bet every day.
+Your #1 top idea is always "high" (it's your strongest conviction by \
+definition). "medium" is a solid idea with real uncertainty. "low" is \
+speculative. Don't default everything to "medium"; your track record shows \
+how each level has done, so calibrate against it.
+- No repeats: you'll get a list of "Blocked tickers" you picked in the last \
+few days. Do not pick any of them, in "picks" or "top_buys" (watchlist notes \
+are fine). Find different stocks and themes; picks of blocked tickers are \
+removed automatically.
 - You'll also get a "market watch" list of tickers. For each one, write a \
 single short, plain-English sentence in "watchlist_notes" about what today's \
 headlines mean for it. If none of the headlines are relevant to it, say \
@@ -209,7 +210,7 @@ def _format_headlines(headlines):
     return "\n".join(lines)
 
 
-def analyze_headlines(headlines, api_key, watchlist=None, track_record=None, market_data=None, recent_picks=None):
+def analyze_headlines(headlines, api_key, watchlist=None, track_record=None, market_data=None, recent_picks=None, blocked=None):
     """
     Returns a dict: {"market_mood": "...", "picks": [ {ticker, company,
     direction, confidence, reason, sources}, ... ]}
@@ -222,6 +223,7 @@ def analyze_headlines(headlines, api_key, watchlist=None, track_record=None, mar
     track_record - text from track_record.build_track_record() (optional)
     market_data  - text from market_data.format_market_data() (optional)
     recent_picks - text listing the last few days' picks (optional)
+    blocked      - tickers that may not be picked today (recent picks)
 
     Raises an exception if Claude can't be reached or declines to answer,
     so the caller can report it.
@@ -242,7 +244,9 @@ def analyze_headlines(headlines, api_key, watchlist=None, track_record=None, mar
         user_message += "\n\nMarket data (prices, not news):\n" + market_data
     user_message += "\n\nYour track record:\n" + (track_record or "No results yet - this is one of the first runs.")
     if recent_picks:
-        user_message += "\n\nYour recent picks (only repeat one with genuinely new news):\n" + recent_picks
+        user_message += "\n\nYour recent picks:\n" + recent_picks
+    if blocked:
+        user_message += "\n\nBlocked tickers (picked recently, do NOT pick today): " + ", ".join(sorted(blocked))
 
     response = client.beta.messages.create(
         model=model,
@@ -274,7 +278,8 @@ def analyze_headlines(headlines, api_key, watchlist=None, track_record=None, mar
     for item in result["picks"] + result.get("watchlist_notes", []) + result.get("top_buys", []):
         item["ticker"] = item["ticker"].strip().upper().lstrip("$")
 
-    return add_top_buys_to_picks(result)
+    result = drop_blocked(result, blocked or ())
+    return make_top_idea_high(add_top_buys_to_picks(result))
 
 
 TOP_BUYS_COUNT = 5
@@ -341,3 +346,28 @@ def add_price_levels(picks, prices):
             else:
                 pick[f"{key}_price"] = None
     return picks
+
+
+def drop_blocked(result, blocked):
+    """
+    Removes picks and top ideas for tickers that were picked in the last few
+    days (the bot is told not to repeat them; this makes sure). Returns the
+    result with a "dropped" list of the tickers that were removed.
+    """
+    blocked = {t.upper() for t in blocked}
+    dropped = sorted({p["ticker"] for p in result["picks"] + result.get("top_buys", []) if p["ticker"] in blocked})
+    result["picks"] = [p for p in result["picks"] if p["ticker"] not in blocked]
+    result["top_buys"] = [b for b in result.get("top_buys", []) if b["ticker"] not in blocked]
+    result["dropped"] = dropped
+    return result
+
+
+def make_top_idea_high(result):
+    """The #1 top idea is the bot's strongest conviction, so it's always "high" confidence."""
+    if result.get("top_buys"):
+        first = result["top_buys"][0]
+        first["confidence"] = "high"
+        for pick in result["picks"]:
+            if pick["ticker"] == first["ticker"]:
+                pick["confidence"] = "high"
+    return result
