@@ -178,9 +178,10 @@ filtered to **Top 5 ideas only**.
 
 **How the bot avoids common mistakes:** each morning Claude also sees the **market
 backdrop** (the S&P 500's and each sector's recent moves), **its own recent picks**
-(so it only repeats a stock when there's genuinely new news), and guidance to
-favor effects that are still unfolding over news the market has already priced in.
-It's told to use "high" confidence only for its one or two strongest ideas.
+(any stock picked in the last 3 run-days is blocked, and the code removes any repeat
+that slips through), and guidance to favor effects that are still unfolding over news
+the market has already priced in. Its #1 top idea is always "high" confidence, so the
+scorecard can show whether its confidence means anything.
 
 **Getting around:** the strip under the menu shows how the big market funds and
 stocks moved on the latest day. Click any of them for its chart. Use **Find a stock**

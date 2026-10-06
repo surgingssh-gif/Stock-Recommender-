@@ -33,7 +33,7 @@ from news import fetch_company_news, fetch_headlines
 from picks_log import DAYS_DIR, log_picks, save_day_details
 from prices import get_prices
 from build_dashboard import latest_run_only, read_days
-from track_record import build_track_record, load_dashboard_data, recent_picks_text
+from track_record import build_track_record, load_dashboard_data, recent_picks_text, recent_tickers
 from watchlist import FUNDS, WATCHLIST
 
 # Company news is fetched for the market-watch companies plus any stock
@@ -124,10 +124,13 @@ def main():
     # How the bot's recent calls have done (from the dashboard data).
     track_record = build_track_record(load_dashboard_data())
     # What it picked on the last few days, so it doesn't repeat the same bets.
+    # Stocks picked on the last few run-days can't be picked again today.
     try:
-        recent = recent_picks_text(latest_run_only(read_picks(), read_days()))
+        logged = latest_run_only(read_picks(), read_days())
+        recent = recent_picks_text(logged)
+        blocked = recent_tickers(logged, date_str)
     except Exception:
-        recent = None
+        recent, blocked = None, []
 
     # --- Step 2: Claude analysis --------------------------------------------
     analysis = None
@@ -136,8 +139,10 @@ def main():
             problems.append("ANTHROPIC_API_KEY is not set, so no analysis was done.")
         else:
             try:
-                analysis = analyze_headlines(headlines, anthropic_key, WATCHLIST, track_record, market_text, recent)
+                analysis = analyze_headlines(headlines, anthropic_key, WATCHLIST, track_record, market_text, recent, blocked)
                 print(f"Claude suggested {len(analysis['picks'])} picks.")
+                if analysis.get("dropped"):
+                    print(f"Removed repeat picks (picked in the last few days): {', '.join(analysis['dropped'])}")
             except Exception as e:
                 problems.append(f"Analysis (Claude) failed: {e}")
 
