@@ -350,14 +350,16 @@ def level_status(pick, history):
     """
     "target" if the stock closed at or past its target price after the pick,
     "stop" if it closed at or past its "proven wrong" price - whichever
-    happened first - else None.
+    happened first - else None. Counts from the day the pick could first be
+    bought (its entry date), like the rest of the scoring.
     """
     target, stop = pick.get("target_price"), pick.get("stop_price")
     if not (target and stop):
         return None
     bullish = pick["direction"] == "bullish"
+    start = pick.get("entry_date") or pick["date"]
     for d, close in history:
-        if d < pick["date"]:
+        if d < start:
             continue
         if (close >= target) if bullish else (close <= target):
             return "target"

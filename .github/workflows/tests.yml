@@ -1,0 +1,38 @@
+# Runs the tests whenever the code changes (on a pull request or on main),
+# so a mistake shows up as a red X on GitHub before it can break the bot.
+# The bot's own data saves don't touch code, so they don't start this.
+name: Tests
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+    paths:
+      - "**.py"
+      - "requirements.txt"
+      - "docs/app.js"
+      - ".github/workflows/**"
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download the code
+        uses: actions/checkout@v5
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install libraries
+        run: pip install -r requirements.txt pytest
+
+      # No API keys needed: the tests use fake news, prices and Claude replies.
+      - name: Run the tests
+        run: python -m pytest -q
+
+      # Catches a typo that would leave the dashboard page blank.
+      - name: Check the dashboard script for typos
+        run: node --check docs/app.js

@@ -82,3 +82,15 @@ jobs:
             git pull --rebase -X theirs
             git push
           fi
+
+      # If any step above broke (a crash, or the save failed), post a short
+      # warning on Discord so a missed morning doesn't go unnoticed.
+      - name: Warn on Discord if the run failed
+        if: failure()
+        env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          curl -sS -H "Content-Type: application/json" \
+            -d "{\"content\": \"⚠️ The morning stock-ideas run hit a problem. Details: $RUN_URL\"}" \
+            "$DISCORD_WEBHOOK_URL" || true

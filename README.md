@@ -52,9 +52,11 @@ Ideas for research only, not financial advice.
 | `.github/workflows/alerts.yml` | Checks for big moves every hour while the market is open. |
 | `.github/workflows/recap.yml` | Tells GitHub to send the evening recap every weekday after the close. |
 | `tests/test_bot.py` | Automatic checks that use fake data, so no keys are needed. |
+| `.github/workflows/tests.yml` | Runs those checks on GitHub whenever the code changes. |
 
 If something breaks (for example, Finnhub is down), the bot still sends a
-message with whatever it has, plus a note saying what failed.
+message with whatever it has, plus a note saying what failed. If a run crashes
+outright, Discord gets a short warning with a link to the run's log.
 
 ---
 
@@ -230,8 +232,10 @@ earnings dates and Fed meetings. The sector list and Fed dates live in `watchlis
 Add next year's Fed dates there each December.
 
 **Evening recap:** every weekday at about 5:15 PM New York time (4:15 PM in winter),
-a second automatic run posts how the morning's picks actually moved and refreshes
-the dashboard with closing prices. On Fridays it adds a week-in-review report card.
+a second automatic run posts how the ideas you could have bought at that morning's
+opening bell actually moved (a pick made after 9:30 AM is recapped the next evening,
+since that's when it could first be bought) and refreshes the dashboard with
+closing prices. On Fridays it adds a week-in-review report card.
 The Results tab keeps a **Weekly Report Card** for every week, graded A-F on the
 share of calls that were right. The Results tab also runs **The $10,000 Test**: what
 $10,000 would be worth if you'd split it across each day's Top 5 (held until the next
@@ -277,7 +281,9 @@ pip install pytest
 python -m pytest
 ```
 
-These use fake data, so they don't need keys and don't cost anything.
+These use fake data, so they don't need keys and don't cost anything. GitHub also
+runs them automatically whenever the code changes (the **Tests** workflow), so a
+mistake shows up as a red ✗ before it can break the bot.
 
 ## Troubleshooting
 

@@ -1,4 +1,7 @@
-anthropic>=1.8.0
-yfinance>=0.2.50
-requests>=2.31
-python-dotenv>=1.0
+# Libraries the bot needs (installed with: pip install -r requirements.txt).
+# The "<" limits stop a future major version, which may change how things
+# work, from breaking the bot overnight; bug-fix updates still come through.
+anthropic>=1.8.0,<2
+yfinance>=1.7.0,<2
+requests>=2.31,<3
+python-dotenv>=1.0,<2
