@@ -77,7 +77,7 @@ biggest movers and pre-market moves. Use it to see what the market is already \
 reacting to, but base each idea on the news behind a move, not the move alone, \
 and be wary of chasing a stock that has already jumped.
 - You may also get "Your track record": how your recent calls have done, \
-measured from the price when each was picked. Use it to calibrate: notice \
+measured from the opening price after each pick. Use it to calibrate: notice \
 which kinds of calls have worked or failed (direction, confidence, sectors, \
 chasing news that was already priced in) and adjust. A few days of results \
 are mostly noise, so don't overreact to one call or avoid a stock just \
@@ -216,8 +216,8 @@ def analyze_headlines(headlines, api_key, watchlist=None, track_record=None, mar
     direction, confidence, reason, sources}, ... ]}
     where "sources" are the numbers (starting at 1) of the headlines used,
     plus "watchlist_notes": [ {ticker, note}, ... ] for the watchlist tickers,
-    plus "top_buys": up to 5 ranked bullish ideas {ticker, company,
-    confidence, pitch, why, risks, watch, sources}. Every top buy is also
+    plus "top_buys": up to 5 ranked ideas (bullish or bearish) {ticker, company,
+    direction, confidence, pitch, why, risks, watch, sources}. Every top buy is also
     in "picks". Also "self_check": what Claude took from its track record.
 
     track_record - text from track_record.build_track_record() (optional)

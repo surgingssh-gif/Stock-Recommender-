@@ -1,6 +1,9 @@
 """
 recap.py - The evening recap. Runs after the US market closes and posts a
-short Discord message on how the morning's picks actually moved.
+short Discord message on how the ideas you could have bought at today's
+opening bell actually moved. The bot usually runs before the open, so these
+are the morning's picks; a pick made after 9:30 AM can only be bought at the
+next day's open, so it's recapped the next evening instead.
 On Fridays it adds a "week in review" report card.
 
 Run it with:
@@ -27,9 +30,9 @@ from main import dashboard_url
 
 
 def get_sessions(ticker):
-    """The last ~10 trading days as [(date, open, close), ...], or [] if Yahoo has nothing."""
+    """The last month of trading days as [(date, open, close), ...], or [] if Yahoo has nothing."""
     try:
-        history = yf.Ticker(ticker).history(period="10d")
+        history = yf.Ticker(ticker).history(period="1mo")
         return [
             (index.strftime("%Y-%m-%d"), round(float(row["Open"]), 2), round(float(row["Close"]), 2))
             for index, row in history.iterrows()
@@ -39,16 +42,30 @@ def get_sessions(ticker):
         return []
 
 
-def open_and_close(sessions, start_day):
+def open_and_close(sessions, start_day, end_day=None):
     """
     (opening price on the first session on or after start_day, latest close
-    since then), or (None, None). The open is what you could actually have
-    bought at, since the bot picks before the market opens.
+    since then, up to end_day if given), or (None, None). The open is what
+    you could actually have bought at.
     """
-    later = [s for s in sessions if s[0] >= start_day]
+    later = [s for s in sessions if s[0] >= start_day and (end_day is None or s[0] <= end_day)]
     if not later:
         return None, None
     return later[0][1], later[-1][2]
+
+
+def bought_on(pick, days, trading_days):
+    """
+    The trading day a pick could first be bought at the opening bell, or None
+    if that day hasn't come yet (or is older than the prices we have).
+    `trading_days` are the market's recent session dates (so weekends and
+    holidays are skipped).
+    """
+    start = entry_date(pick["date"], days.get(pick["date"], {}).get("picked_at"))
+    trading_days = sorted(trading_days)
+    if not trading_days or start < trading_days[0]:
+        return None
+    return next((d for d in trading_days if d >= start), None)
 
 
 def score(pick, close, entry=None, market_move=None):
@@ -97,15 +114,20 @@ def _summary(scored):
 def build_recap(date_str, today_picks, top_tickers, week_picks=None, dashboard=None):
     """
     Builds the evening message.
-    today_picks  - today's picks, already scored (see score())
-    top_tickers  - today's Top 5, best first
+    today_picks  - the picks bought at today's open, already scored (see score())
+    top_tickers  - their Top 5, best first
     week_picks   - this week's picks, scored, on Fridays (else None)
     """
     lines = [f"**🌆 Evening Recap - {date_str}**", ""]
     if not today_picks:
-        lines.append("No picks today, so nothing to recap.")
+        lines.append("No picks to score today, so nothing to recap.")
         lines.append("")
     else:
+        # Say so when the ideas came from an earlier run (a pick made after
+        # the open is bought at the next day's open).
+        earlier = sorted({p["date"] for p in today_picks if p["date"] != date_str})
+        if earlier:
+            lines.append(f"Ideas from the {', '.join(earlier)} run, bought at today's open.")
         lines.append(f"*{_summary(today_picks)}*")
         lines.append("")
         by_ticker = {p["ticker"]: p for p in today_picks}
@@ -183,33 +205,40 @@ def main():
     days = read_days()
     picks = latest_run_only(read_picks(), days)
 
-    todays = [p for p in picks if p["date"] == date_str]
-    top_tickers = [b["ticker"] for b in days.get(date_str, {}).get("top_buys") or []]
-
-    # On Fridays, recap the whole week (Monday to today).
-    week = None
-    if today.weekday() == 4:
-        monday = (today - timedelta(days=4)).isoformat()
-        week = [p for p in picks if monday <= p["date"] <= date_str] or None
-
-    if not todays and not week:
-        print(f"No picks for {date_str}; no recap to send.")
-        return
-
-    # One price lookup per ticker (plus SPY, the S&P 500, to compare with).
-    tickers = {p["ticker"] for p in (week or todays)} | {"SPY"}
-    sessions = {t: get_sessions(t) for t in sorted(tickers)}
-    if not any(s[0] >= date_str for rows in sessions.values() for s in rows):
+    # The S&P 500 (SPY) is what every call is compared with, and its trading
+    # days show when each pick could first be bought.
+    spy = get_sessions("SPY")
+    trading_days = [s[0] for s in spy]
+    if date_str not in trading_days:
         # Market holiday, or Yahoo hasn't got today's prices yet.
         print(f"No prices for {date_str} (market closed?); no recap sent.")
         return
 
+    # The ideas bought at today's open (usually this morning's picks).
+    todays = [p for p in picks if bought_on(p, days, trading_days) == date_str]
+    top_tickers = [b["ticker"] for d in sorted({p["date"] for p in todays})
+                   for b in days.get(d, {}).get("top_buys") or []]
+
+    # On Fridays, recap the whole week (ideas bought Monday to today).
+    week = None
+    if today.weekday() == 4:
+        monday = (today - timedelta(days=4)).isoformat()
+        week = [p for p in picks if monday <= (bought_on(p, days, trading_days) or "") <= date_str] or None
+
+    if not todays and not week:
+        print(f"No picks to score for {date_str}; no recap to send.")
+        return
+
+    # One price lookup per ticker.
+    sessions = {t: get_sessions(t) for t in sorted({p["ticker"] for p in (week or todays)})}
+    sessions["SPY"] = spy
+
     def scored(p):
-        # Bought at the first opening bell after the pick; compared with the
-        # S&P 500 bought at that same open.
-        start_day = entry_date(p["date"], days.get(p["date"], {}).get("picked_at"))
-        entry, close = open_and_close(sessions.get(p["ticker"], []), start_day)
-        spy_open, spy_close = open_and_close(sessions["SPY"], start_day)
+        # Bought at the first opening bell after the pick, held to the close on
+        # the recap day; compared with the S&P 500 bought at that same open.
+        start_day = bought_on(p, days, trading_days)
+        entry, close = open_and_close(sessions.get(p["ticker"], []), start_day, date_str)
+        spy_open, spy_close = open_and_close(sessions["SPY"], start_day, date_str)
         market = (spy_close - spy_open) / spy_open * 100 if spy_open and spy_close else None
         return score(p, close, entry, market)
 

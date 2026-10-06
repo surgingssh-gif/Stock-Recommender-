@@ -3,6 +3,7 @@ main.py - The daily stock news bot. Run it with:
 
     python main.py            (normal run: posts to Discord)
     python main.py --dry-run  (prints the message instead of posting it)
+    python main.py --force    (runs again even if it already ran today)
 
 Steps:
   1. Get the latest headlines from Finnhub
@@ -26,13 +27,12 @@ from dotenv import load_dotenv
 
 from analyzer import add_price_levels, analyze_headlines
 from discord_notify import build_message, send_to_discord
-from build_dashboard import read_picks
+from build_dashboard import latest_run_only, read_days, read_picks
 from logos import update_logos
 from market_data import format_market_data, get_market_backdrop, get_market_movers, get_premarket_moves
 from news import fetch_company_news, fetch_headlines
 from picks_log import DAYS_DIR, log_picks, save_day_details
 from prices import get_prices
-from build_dashboard import latest_run_only, read_days
 from track_record import build_track_record, load_dashboard_data, recent_picks_text, recent_tickers
 from watchlist import FUNDS, WATCHLIST
 

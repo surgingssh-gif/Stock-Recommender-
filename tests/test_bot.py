@@ -748,3 +748,50 @@ def test_recent_tickers_are_blocked_and_the_top_idea_is_high():
     # VLO was removed, so XOM is now the #1 idea, and #1 is always "high".
     assert result["top_buys"][0]["ticker"] == "XOM" and result["top_buys"][0]["confidence"] == "high"
     assert result["picks"][0]["confidence"] == "high"
+
+
+def test_day_details_keep_the_60_second_summary(tmp_path):
+    summary = {"big_story": "Oil spikes", "top_pick": "XOM", "watch": "OPEC meeting"}
+    save_day_details("2026-10-06", dict(FAKE_ANALYSIS, summary=summary), FAKE_HEADLINES, days_dir=str(tmp_path))
+    days = {"2026-10-06": json.loads((tmp_path / "2026-10-06.json").read_text())}
+    assert days["2026-10-06"]["summary"] == summary
+    data = build_data([], days, {})
+    assert data["days"][0]["summary"] == summary   # what the dashboard's "In 60 seconds" box reads
+
+
+def test_level_status_counts_from_the_entry_day():
+    from build_dashboard import level_status
+
+    # Picked mid-day on the 22nd, so it could first be bought on the 23rd. The
+    # 22nd's close past the target happened before the pick could be bought.
+    history = [["2026-09-22", 105.0], ["2026-09-23", 100.0], ["2026-09-24", 94.0]]
+    pick = {"date": "2026-09-22", "entry_date": "2026-09-23", "direction": "bullish",
+            "target_price": 104.0, "stop_price": 95.0}
+    assert level_status(pick, history) == "stop"
+
+
+def test_recap_covers_the_picks_bought_at_todays_open():
+    from recap import bought_on, build_recap, open_and_close, score
+
+    trading_days = ["2026-10-01", "2026-10-02", "2026-10-05", "2026-10-06"]   # Thu, Fri, Mon, Tue
+    days = {
+        "2026-10-02": {"picked_at": "2026-10-02T19:13:00Z"},   # Friday 3:13 PM New York time
+        "2026-10-05": {"picked_at": "2026-10-05T12:00:00Z"},   # Monday 8:00 AM
+        "2026-10-06": {"picked_at": "2026-10-06T17:00:00Z"},   # Tuesday 1:00 PM
+    }
+    friday = {"date": "2026-10-02", "ticker": "XOM"}
+    monday = {"date": "2026-10-05", "ticker": "DAL"}
+    tuesday = {"date": "2026-10-06", "ticker": "NVDA"}
+    assert bought_on(friday, days, trading_days) == "2026-10-05"    # waits for Monday's open
+    assert bought_on(monday, days, trading_days) == "2026-10-05"    # before the open: same day
+    assert bought_on(tuesday, days, trading_days) is None           # Wednesday's open hasn't happened
+    assert bought_on({"date": "2026-09-01", "ticker": "OLD"}, {}, trading_days) is None   # before our prices
+
+    # Recapping an earlier day uses that day's close, not the latest one.
+    sessions = [("2026-10-05", 100.0, 101.0), ("2026-10-06", 101.0, 110.0)]
+    assert open_and_close(sessions, "2026-10-05", "2026-10-05") == (100.0, 101.0)
+
+    p = score(dict(friday, direction="bullish", price_at_pick=99.0), 101.0, entry=100.0)
+    msg = build_recap("2026-10-05", [p], [])
+    assert "Ideas from the 2026-10-02 run, bought at today's open." in msg
+    assert msg.endswith(f"_{DISCLAIMER}_")
