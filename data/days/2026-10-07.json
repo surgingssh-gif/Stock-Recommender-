@@ -1,0 +1,1051 @@
+{
+  "date": "2026-10-07",
+  "picked_at": "2026-10-07T17:24:51Z",
+  "market_mood": "The Iran war keeps tightening energy markets \u2014 record refining margins, record tanker attacks in Hormuz and another EIA price-forecast hike \u2014 while Treasury yields at 24-year highs quietly pressure anything rate-sensitive.",
+  "self_check": "My oil & energy and rates calls have been the most reliable (around 77-78% right), while single-stock merger and defense ideas have been hit-or-miss, so today leans on energy supply-shock plays and one clear AI-power contract.",
+  "picks": [
+    {
+      "ticker": "FRO",
+      "company": "Frontline plc",
+      "direction": "bullish",
+      "confidence": "high",
+      "reason": "Attacks on tankers in the Strait of Hormuz hit their highest weekly level since the Iran war began, which raises war-risk premiums and spot tanker rates \u2014 a direct earnings boost for crude tanker owners.",
+      "sources": [
+        10,
+        36,
+        58
+      ],
+      "theme": "Oil & energy",
+      "target_pct": 12,
+      "stop_pct": 8,
+      "target_price": 60.05,
+      "stop_price": 49.33
+    },
+    {
+      "ticker": "MPC",
+      "company": "Marathon Petroleum",
+      "direction": "bullish",
+      "confidence": "high",
+      "reason": "Shell flagged record refining margins from the Iran war, and Northeast politicians are complaining about surging heating oil \u2014 both signs refiners' diesel and fuel cracks are unusually fat this quarter.",
+      "sources": [
+        29,
+        56,
+        58
+      ],
+      "theme": "Oil & energy",
+      "target_pct": 8,
+      "stop_pct": 5,
+      "target_price": 475.86,
+      "stop_price": 418.58
+    },
+    {
+      "ticker": "AAL",
+      "company": "American Airlines",
+      "direction": "bearish",
+      "confidence": "medium",
+      "reason": "Record jet fuel and refining margins mean airlines pay far more for fuel; American has the most debt and thinnest margins, so a fuel-driven reality check ahead of airline earnings hits it hardest.",
+      "sources": [
+        29,
+        58,
+        84
+      ],
+      "theme": "Oil & energy",
+      "target_pct": 9,
+      "stop_pct": 7,
+      "target_price": 11.63,
+      "stop_price": 13.67
+    },
+    {
+      "ticker": "CEG",
+      "company": "Constellation Energy",
+      "direction": "bullish",
+      "confidence": "medium",
+      "reason": "Alphabet locked in a 20-year, $4.3bn nuclear power supply deal with Constellation for AI data centers, adding long-dated, high-visibility cash flow as power demand from AI keeps climbing.",
+      "sources": [
+        69,
+        25
+      ],
+      "theme": "AI & tech",
+      "target_pct": 8,
+      "stop_pct": 6,
+      "target_price": 322.15,
+      "stop_price": 280.39
+    },
+    {
+      "ticker": "XLRE",
+      "company": "Real Estate Select Sector SPDR",
+      "direction": "bearish",
+      "confidence": "medium",
+      "reason": "Treasury yields are at a 24-year high and India just joined the global tightening wave, which raises borrowing costs and pressures property valuations; real estate is already the weakest sector this week.",
+      "sources": [
+        85,
+        32,
+        66
+      ],
+      "theme": "Interest rates & the Fed",
+      "target_pct": 5,
+      "stop_pct": 3.5,
+      "target_price": 38.77,
+      "stop_price": 42.24
+    },
+    {
+      "ticker": "SNX",
+      "company": "TD SYNNEX",
+      "direction": "bullish",
+      "confidence": "low",
+      "reason": "TD SYNNEX agreed to acquire BlueStar, expanding its specialty IoT and mobility distribution; tuck-in deals like this tend to be digested slowly by the market.",
+      "sources": [
+        9
+      ],
+      "theme": "Mergers & deals",
+      "target_pct": 6,
+      "stop_pct": 5,
+      "target_price": 289.96,
+      "stop_price": 259.87
+    }
+  ],
+  "watchlist_notes": [
+    {
+      "ticker": "SPY",
+      "note": "Record high Tuesday but a big bearish put spread and 24-year-high yields show the rally is being doubted."
+    },
+    {
+      "ticker": "QQQ",
+      "note": "AI spending news stays supportive, though higher long-term rates are a headwind for richly valued tech."
+    },
+    {
+      "ticker": "DIA",
+      "note": "Mixed session with Caterpillar swinging the index both ways this week; no new macro driver."
+    },
+    {
+      "ticker": "AAPL",
+      "note": "Only commentary pieces debating whether its AI story is underrated; no hard news today."
+    },
+    {
+      "ticker": "MSFT",
+      "note": "No major company news; the broader story is AI capex and whether rising rates squeeze valuations."
+    },
+    {
+      "ticker": "NVDA",
+      "note": "Stock hit a fresh high on AI demand headlines, so the good news is largely in the price already."
+    },
+    {
+      "ticker": "AMZN",
+      "note": "AWS growth is strong but heavy capex spending keeps investors cautious; no new news today."
+    },
+    {
+      "ticker": "GOOGL",
+      "note": "Signed a 20-year, $4.3B nuclear power deal with Constellation, but Finland ordered two of its data centers halted."
+    },
+    {
+      "ticker": "META",
+      "note": "Joining Alphabet in a $300M AI-biology investment at Biohub \u2014 small money, long-term optionality."
+    },
+    {
+      "ticker": "TSLA",
+      "note": "Reuters reports Tesla pressured European regulators over FSD approval, a possible regulatory headache."
+    },
+    {
+      "ticker": "JPM",
+      "note": "Tops the Evident AI index and is building stablecoin reserve infrastructure; high yields help net interest income."
+    },
+    {
+      "ticker": "GLD",
+      "note": "Gold slipped as the dollar firmed and investors wait on Fed minutes."
+    },
+    {
+      "ticker": "TLT",
+      "note": "Long bond prices under pressure with 10-year yields at a 24-year high."
+    }
+  ],
+  "top_buys": [
+    {
+      "ticker": "FRO",
+      "company": "Frontline plc",
+      "direction": "bullish",
+      "confidence": "high",
+      "pitch": "Record attacks on tankers in Hormuz push war-risk premiums and spot rates higher, straight to tanker owners' bottom line.",
+      "why": "Reuters reports tanker attacks in the Strait of Hormuz were the highest of any week since the Iran war started. When shipping gets dangerous, insurance and freight rates spike and voyages get rerouted, lengthening ton-miles \u2014 both good for crude tanker earnings. Frontline is a pure-play crude tanker owner with high operating leverage to spot rates, and the market often underreacts to rate moves until quarterly results confirm them.",
+      "risks": "A sudden Iran de-escalation or ceasefire would deflate war-risk premiums fast, and tanker stocks are volatile and can give back gains in days.",
+      "watch": "Weekly VLCC/Suezmax spot rate prints and any Iran nuclear negotiation headlines.",
+      "sources": [
+        10,
+        36,
+        58
+      ],
+      "theme": "Oil & energy",
+      "target_pct": 12,
+      "stop_pct": 8
+    },
+    {
+      "ticker": "MPC",
+      "company": "Marathon Petroleum",
+      "direction": "bullish",
+      "confidence": "high",
+      "pitch": "Shell says refining margins are at records; the largest US refiner should print a strong quarter.",
+      "why": "Shell guided to record refining margins because the Iran war has disrupted fuel supply, and Northeast lawmakers are publicly complaining about surging heating oil costs \u2014 a sign distillate cracks are extremely wide. Marathon is the biggest US refiner with heavy distillate exposure and returns most of its free cash via buybacks. Refining margin strength tends to show up in earnings over weeks, not in one headline pop.",
+      "risks": "Crude spiking faster than product prices would compress margins, and a quick peace deal could normalize cracks.",
+      "watch": "Weekly EIA distillate inventories and Q3 refining results later this month.",
+      "sources": [
+        29,
+        56,
+        58
+      ],
+      "theme": "Oil & energy",
+      "target_pct": 8,
+      "stop_pct": 5
+    },
+    {
+      "ticker": "AAL",
+      "company": "American Airlines",
+      "direction": "bearish",
+      "confidence": "medium",
+      "pitch": "Record fuel cracks are an airline cost shock, and the most leveraged US carrier feels it most.",
+      "why": "The same record refining margins that help refiners are a direct cost increase for airlines, since jet fuel is priced off those cracks. Analysts are already flagging a 'fuel-driven reality check' ahead of airline Q3 results. American carries the heaviest debt load and thinnest margins among big US carriers, so each dollar of fuel hurts its earnings more.",
+      "risks": "Strong travel demand or an oil pullback on Iran de-escalation could let airlines pass costs through and rally the group.",
+      "watch": "Delta's Q3 report this week as the sector read-through, plus jet fuel crack spreads.",
+      "sources": [
+        29,
+        58,
+        84
+      ],
+      "theme": "Oil & energy",
+      "target_pct": 9,
+      "stop_pct": 7
+    },
+    {
+      "ticker": "CEG",
+      "company": "Constellation Energy",
+      "direction": "bullish",
+      "confidence": "medium",
+      "pitch": "A 20-year, $4.3bn nuclear supply deal with Google adds durable AI-driven cash flow.",
+      "why": "Alphabet agreed to buy carbon-free nuclear power from Constellation for its AI data centers over 20 years. These contracts lock in high-margin, long-dated revenue and validate nuclear as the preferred power source for AI, which supports a higher valuation over time. Utilities were the best-performing sector this week, showing money is already rotating toward AI power.",
+      "risks": "Utilities have run hard and are sensitive to rising bond yields, which are at 24-year highs; much of the AI-power theme may be priced in.",
+      "watch": "Further hyperscaler power purchase agreements and Constellation's next earnings update.",
+      "sources": [
+        69,
+        25
+      ],
+      "theme": "AI & tech",
+      "target_pct": 8,
+      "stop_pct": 6
+    },
+    {
+      "ticker": "XLRE",
+      "company": "Real Estate Select Sector SPDR",
+      "direction": "bearish",
+      "confidence": "medium",
+      "pitch": "With the 10-year at a 24-year high, property values and REIT financing costs face real pressure.",
+      "why": "Treasury yields hitting levels unseen since 2002 raise the cost of refinancing debt-heavy REITs and make their dividend yields less attractive versus risk-free bonds. India joining the global tightening wave shows the direction of travel is still higher rates abroad too. Real estate is already the only sector down over the past week, suggesting the trend is intact rather than exhausted.",
+      "risks": "Dovish Fed minutes or a flight to safety could pull yields down quickly and spark a sharp REIT bounce.",
+      "watch": "Fed minutes and the 10-year Treasury yield.",
+      "sources": [
+        85,
+        32,
+        66
+      ],
+      "theme": "Interest rates & the Fed",
+      "target_pct": 5,
+      "stop_pct": 3.5
+    }
+  ],
+  "summary": {
+    "big_story": "The Iran war keeps squeezing energy markets \u2014 record Hormuz tanker attacks, record refining margins and higher EIA price forecasts \u2014 while 24-year-high Treasury yields pressure rate-sensitive assets.",
+    "top_pick": "Frontline, because record tanker attacks in Hormuz push war-risk premiums and spot tanker rates higher, which flows straight into tanker owners' earnings.",
+    "watch": "Fed minutes for rate clues, Delta's results as the first read on airline fuel costs, and any escalation headlines out of Iran or Yemen."
+  },
+  "headlines": [
+    {
+      "headline": "Most Republicans in tight midterm races distance themselves from Trump, Reuters review finds - Reuters",
+      "source": "Reuters",
+      "time": "2026-10-07 16:33 UTC",
+      "summary": "Most Republicans in tight midterm races distance themselves from Trump, Reuters review finds\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxPUWpHUU05ZlNYUVZhUDRvOEtsU2tKOWJWLWM4OUZFWm1PRkJDZDJCZzBIenFyenhDT3o2T1c0QzhJRG4xS2xQTUMxX0VyZVZoSm92ZG8wdGlKdjRmeTI3SldqeHgxM3FabHRZMHI1SXA2dUsySGtza0dWNllWT21ZeVdPWEwwaHdoeUowSEJ2dWdqakxFTDNiQ1dUNkZhT0xyRThrZTM2Z0lmM1JKa2xManNhLUphOVlOOUJ0eVJzdw?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "Explainer: The status of Iran's uranium enrichment programme - Reuters",
+      "source": "Reuters",
+      "time": "2026-10-07 15:49 UTC",
+      "summary": "Explainer: The status of Iran's uranium enrichment programme\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxOSnlJOEpCTFRFNHYydjJsZE5xaXBTQUZtbGxveEo4MlJlYlR2V083Z29pLXV4TFdxWS1zTjVNTS1fWHh4Zkt4TTNqcXIzVDhiOGluLUZoaDNtS216c3R0WVQ3VmJkY0xFVUgzWVpKVGZjbTFlRmpKdnB4MzBIT055cWpVMGJrV29Db2llb2tlTVhMU2RMSFJrS19WUQ?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "Jim Cramer's key to Wednesday's market \u2014 plus, relief for Intel after a concerning report",
+      "source": "CNBC",
+      "time": "2026-10-07 15:38 UTC",
+      "summary": "The Investing Club holds its \"Morning Meeting\" every weekday at 10:20 a.m. ET.",
+      "url": "https://www.cnbc.com/investingclub/2026/10/07/jim-cramers-key-to-wednesday-market-plus-relief-for-intel-after-a-concerning-report.html",
+      "image": "https://image.cnbcfm.com/api/v1/image/108315139-17804039612026-06-02t070118z_611004174_rc2jlla6px5v_rtrmadp_0_computex-intel.jpeg?v=1780403995&w=1920&h=1080",
+      "about": ""
+    },
+    {
+      "headline": "Integrated Power Services (IPS) Acquires Belyea Company",
+      "source": "GlobalNewswire",
+      "time": "2026-10-07 15:05 UTC",
+      "summary": "Acquisition adds high-voltage transformer, breaker, and portable substation capabilities to the IPS Electrification platform Acquisition adds high-voltage transformer, breaker, and portable substation capabilities to the IPS Electrification platform",
+      "url": "https://www.globenewswire.com/news-release/2026/10/07/3376656/0/en/integrated-power-services-ips-acquires-belyea-company.html",
+      "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567047094/gnw_ngwqnq.png",
+      "about": ""
+    },
+    {
+      "headline": "EXCLUSIVE: Lebanon's Hezbollah gets $200 million from Iran to help displaced, sources say - Reuters",
+      "source": "Reuters",
+      "time": "2026-10-07 15:04 UTC",
+      "summary": "EXCLUSIVE: Lebanon's Hezbollah gets $200 million from Iran to help displaced, sources say\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxNZDFQZzNVZkV5bHhCZ2FaemZmZDdyMTZtWndQR2tTakxOaW9SWTI2clhnZWpKcDZaVU9RS2p0TUJ0UGoxWWxUQm1JZ3pWYzZJN1pKSkROLTFzc2pqdE9TUEd6b1pQM2dlVE16VEZJbVlOOWFxUUhud3c5UXZ1N3NMMldSRkwxNS1hbnN2ZkxHX1hMaTAzSHMxODdFa2xhU1dTcVpmQ282d2xOUEZRbGpTejZmRFFCVzBsMTh6bnh3?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "Healthcare Services Group buys NEXDINE Hospitality for $93.5M upfront",
+      "source": "SeekingAlpha",
+      "time": "2026-10-07 14:43 UTC",
+      "summary": "",
+      "url": "https://seekingalpha.com/news/4651009-hcsg-buys-nexdine-hospitality-for-935m-upfront?utm_source=feed_news_m_a&utm_medium=referral&feed_item_type=news",
+      "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567050932/sa_jgen9y.png",
+      "about": ""
+    },
+    {
+      "headline": "Turkey sending technical, defensive support to Saudi Arabia to help fight Houthis, officials say - Reuters",
+      "source": "Reuters",
+      "time": "2026-10-07 14:43 UTC",
+      "summary": "Turkey sending technical, defensive support to Saudi Arabia to help fight Houthis, officials say\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxNWnlvSTNKVmJOWXpOaGtjeHBIMXR1cHFuWm1PeUkweEp5RWxkaHNTMTZmWjY2cEVhN2cwdUF1aTViazVpOExPS3dLSndRREhnX0RRVzNlQl9JRzdGUjRvV3k2MkdnRlNyMUdlTDVWRmpBdVFGUHlBRmJ3Q0lReVc1RVVqaGFjNmJraDI4UzRvMWNrQ1pkczk2ZnZlQldFbVVzV08wY2JUR2pEY1dnZ3BPOWNWeDhuVW1sOXctREZ6eWJTSmZ5WUVhdg?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "Arthur J. Gallagher buys Ornella Underwriting",
+      "source": "SeekingAlpha",
+      "time": "2026-10-07 14:36 UTC",
+      "summary": "",
+      "url": "https://seekingalpha.com/news/4651014-arthur-j-gallagher-buys-ornella-underwriting?utm_source=feed_news_m_a&utm_medium=referral&feed_item_type=news",
+      "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567050932/sa_jgen9y.png",
+      "about": ""
+    },
+    {
+      "headline": "TD SYNNEX Announces Entering Into a Definitive Agreement to Acquire BlueStar",
+      "source": "BusinessWire",
+      "time": "2026-10-07 14:30 UTC",
+      "summary": "FREMONT, Calif. & CLEARWATER, Fla.--(BUSINESS WIRE)--TD SYNNEX (NYSE: SNX) today announced that it has entered into a definitive agreement to acquire BlueStar.",
+      "url": "http://www.businesswire.com/news/home/20261007469845/en/TD-SYNNEX-Announces-Entering-Into-a-Definitive-Agreement-to-Acquire-BlueStar/?feedref=JjAwJuNHiystnCoBq_hl-Rc4vIAVcHHkbDcwJimU8QtrtlakeQ9hNboBqTAWIjTge3KWq9s9jif-UkBjBsFRyYAbRTSLTc1mgvhPlnaBA55M-oupQnbXnhKsYk8RmHF_kAy2gZikaX3QWV6xOvgFlA==",
+      "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567047386/bw_flnhy4.jpg",
+      "about": ""
+    },
+    {
+      "headline": "Attacks on tankers in Hormuz hit highest of any week since start of Iran war, sources say - Reuters",
+      "source": "Reuters",
+      "time": "2026-10-07 14:26 UTC",
+      "summary": "Attacks on tankers in Hormuz hit highest of any week since start of Iran war, sources say\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxPMzlOYkh2NkF3OTFOQ0g5RFdjT0VSZXU4Y0U1cDREQnltUF9XM2VBVlk1bER5cTNTS00yaWctcDdnTjI3TG1jeWVxV3JIT2ctb1JVLVg4Nm13aENfNmlQSVQ2dHZLS2dabVYyYXQydWFEQ25SQVY1UkFORHd6djNHUHFkVEpwa3d6WkRiMy15SFRwV3l4anZiSXQ2YmR2bmxWZFhYTFE1YVNBRnc1ZG0tbHJDT1RacGJ6VmRhV3RnQ3g5UmZvdE5xZ3RB?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "Stocks made a record high. Two big bearish trades point to skepticism",
+      "source": "CNBC",
+      "time": "2026-10-07 13:59 UTC",
+      "summary": "In the State Street SPDR S&P 500 ETF Trust (SPY), about an hour after the opening bell on Tuesday, someone traded a 100,000-lot put spread.",
+      "url": "https://www.cnbc.com/2026/10/07/stocks-made-a-record-high-two-big-bearish-trades-point-to-skepticism.html",
+      "image": "https://image.cnbcfm.com/api/v1/image/108285956-1775048846885-gettyimages-2269291703-6e6a0089_copy_zhv0gn6f.jpeg?v=1775048926&w=1920&h=1080",
+      "about": ""
+    },
+    {
+      "headline": "Fairfax Partners With Wittington Investments in Acquisition of Boots",
+      "source": "GlobalNewswire",
+      "time": "2026-10-07 13:52 UTC",
+      "summary": "TORONTO, Oct.  07, 2026  (GLOBE NEWSWIRE) -- Fairfax Financial Holdings Limited (\u201cFairfax\u201d) (TSX: FFH and FFH.U) announces that it has entered into agreements to partner with Wittington Investments, Limited (\u201cWittington\u201d), the holding company of the Weston family based in Canada, to acquire from The",
+      "url": "https://www.globenewswire.com/news-release/2026/10/07/3376569/0/en/fairfax-partners-with-wittington-investments-in-acquisition-of-boots.html",
+      "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567047094/gnw_ngwqnq.png",
+      "about": ""
+    },
+    {
+      "headline": "Fairfax Partners with Wittington Investments in Acquisition of The Boots Group",
+      "source": "GlobalNewswire",
+      "time": "2026-10-07 13:28 UTC",
+      "summary": "TORONTO, Oct.  07, 2026  (GLOBE NEWSWIRE) -- Fairfax Financial Holdings Limited (\u201cFairfax\u201d) (TSX: FFH and FFH.U) announces that it has entered into agreements to partner with Wittington Investments, Limited (\u201cWittington\u201d), the holding company of the Weston family based in Canada, to acquire The Boot",
+      "url": "https://www.globenewswire.com/news-release/2026/10/07/3376554/0/en/fairfax-partners-with-wittington-investments-in-acquisition-of-the-boots-group.html",
+      "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567047094/gnw_ngwqnq.png",
+      "about": ""
+    },
+    {
+      "headline": "Top Ships Inc. Announces Acquisition of four High Specification Ice Class 1A Newbuilding MR Tankers and Gross Revenue Backlog of about $1.24 Billion",
+      "source": "GlobalNewswire",
+      "time": "2026-10-07 13:15 UTC",
+      "summary": "ATHENS, Greece, Oct.  07, 2026  (GLOBE NEWSWIRE) -- TOP Ships Inc. (the \"Company\" or \"TOP Ships\") (NYSE American: TOPS), an international owner and operator of modern, fuel-efficient \"ECO\" tanker vessels, announced today that it has entered into a share purchase agreement with a related party (the \u201c",
+      "url": "https://www.globenewswire.com/news-release/2026/10/07/3376545/14465/en/top-ships-inc-announces-acquisition-of-four-high-specification-ice-class-1a-newbuilding-mr-tankers-and-gross-revenue-backlog-of-about-1-24-billion.html",
+      "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567047094/gnw_ngwqnq.png",
+      "about": ""
+    },
+    {
+      "headline": "AIBotics and Empulser Target Power and Persistence as Pentagon Accelerates Autonomous Warfare",
+      "source": "GlobalNewswire",
+      "time": "2026-10-07 13:00 UTC",
+      "summary": "Pentagon plans for a new Autonomous Warfare Command and Project Agincourt highlight growing U.S. defense focus on drones, AI, autonomous systems and resilient power infrastructure",
+      "url": "https://www.globenewswire.com/news-release/2026/10/07/3376503/0/en/aibotics-and-empulser-target-power-and-persistence-as-pentagon-accelerates-autonomous-warfare.html",
+      "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567047094/gnw_ngwqnq.png",
+      "about": ""
+    },
+    {
+      "headline": "Integrity Care Group Enters Two New States and Strengthens Core Market with Acquisition of 15 NextCare Clinics; Now Offers Access to High-Quality Healthcare in 100 Clinics Across Five States",
+      "source": "GlobalNewswire",
+      "time": "2026-10-07 12:57 UTC",
+      "summary": "Integrity Care Group acquired 15 NextCare clinics across Oklahoma, Missouri and Nebraska, now offering urgent care services in 100 clinics in five states.",
+      "url": "https://www.globenewswire.com/news-release/2026/10/07/3376492/0/en/integrity-care-group-enters-two-new-states-and-strengthens-core-market-with-acquisition-of-15-nextcare-clinics-now-offers-access-to-high-quality-healthcare-in-100-clinics-across-fi.html",
+      "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567047094/gnw_ngwqnq.png",
+      "about": ""
+    },
+    {
+      "headline": "American Service Partners Launches National Home Services Platform, Acquiring Brands From Platform Partner Holdings and Exuma Capital",
+      "source": "GlobalNewswire",
+      "time": "2026-10-07 12:17 UTC",
+      "summary": "American Service Partners launches national home services platform for HVAC, plumbing and electrical brands across 15+ states with AI and shared services",
+      "url": "https://www.globenewswire.com/news-release/2026/10/07/3376443/0/en/american-service-partners-launches-national-home-services-platform-acquiring-brands-from-platform-partner-holdings-and-exuma-capital.html",
+      "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567047094/gnw_ngwqnq.png",
+      "about": ""
+    },
+    {
+      "headline": "ICE came to town and left behind weakened economies",
+      "source": "CNBC",
+      "time": "2026-10-07 11:56 UTC",
+      "summary": "Research links ICE enforcement surges to lasting declines in local spending, foot traffic and jobs. In Minneapolis, businesses are still recovering.",
+      "url": "https://www.cnbc.com/2026/10/07/ice-raids-local-economies.html",
+      "image": "https://image.cnbcfm.com/api/v1/image/108259877-1769815783573-gettyimages-2258528609-_sm14983.jpeg?v=1769815824&w=1920&h=1080",
+      "about": ""
+    },
+    {
+      "headline": "More than 200,000 people displaced since fighting in Yemen began, says UN agency - Reuters",
+      "source": "Reuters",
+      "time": "2026-10-07 11:46 UTC",
+      "summary": "More than 200,000 people displaced since fighting in Yemen began, says UN agency\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxPaVBuYVlIVGdyckYyTHF4dXZHbFBnTC1VSjZPak91TWRLbGpiMS1nR1dkU2hPRjE1dkZNR2dMOEtyblQ5SWczSHgtNFlKMlR1R1J1NlNNLXl4MmdGbTdSOFN5VzNFY1BQNVozcmg1aXpWUTgyT0VfLU1SS2hIaGVyd1BCc2tBc3BydEhTS0FabzRyVFk1TEdHeG92cXA5ZTJJejdtd1dRZXJ0a25mbnNpOGhxYTJVS0pJbFNxQjB6djhLWXRRb2s1bg?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "Beam Global Signs Definitive Agreement to Acquire Drone Technology Company ScoutDI, Creating a Vertically Integrated U.S. Drone Platform for Industrial and Defense Markets",
+      "source": "GlobalNewswire",
+      "time": "2026-10-07 11:30 UTC",
+      "summary": "Beam Global to acquire ScoutDI, creating a vertically integrated U.S. drone platform for industrial, government and defense markets.",
+      "url": "https://www.globenewswire.com/news-release/2026/10/07/3376396/0/en/beam-global-signs-definitive-agreement-to-acquire-drone-technology-company-scoutdi-creating-a-vertically-integrated-u-s-drone-platform-for-industrial-and-defense-markets.html",
+      "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567047094/gnw_ngwqnq.png",
+      "about": ""
+    },
+    {
+      "headline": "Sportradar Announces Agreement for the Divestiture of Coaching and Scouting Business of Synergy Sports to Teamworks Innovations",
+      "source": "GlobalNewswire",
+      "time": "2026-10-07 11:30 UTC",
+      "summary": "Transaction streamlines business and sharpens focus on core betting, gaming, and media priorities",
+      "url": "https://www.globenewswire.com/news-release/2026/10/07/3376393/0/en/sportradar-announces-agreement-for-the-divestiture-of-coaching-and-scouting-business-of-synergy-sports-to-teamworks-innovations.html",
+      "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567047094/gnw_ngwqnq.png",
+      "about": ""
+    },
+    {
+      "headline": "Third Coast to acquire Great Plains Bancshares for $239.6M; shares up premarket",
+      "source": "SeekingAlpha",
+      "time": "2026-10-07 10:57 UTC",
+      "summary": "",
+      "url": "https://seekingalpha.com/news/4650892-third-coast-to-acquire-great-plains-bancshares-for-2396m-shares-up-premarket?utm_source=feed_news_m_a&utm_medium=referral&feed_item_type=news",
+      "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567050932/sa_jgen9y.png",
+      "about": ""
+    },
+    {
+      "headline": "Iraq devalues dinar to 1,520 per US dollar, state news agency says - Reuters",
+      "source": "Reuters",
+      "time": "2026-10-07 09:57 UTC",
+      "summary": "Iraq devalues dinar to 1,520 per US dollar, state news agency says\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPMEpwOEJxamRUYWRiRS1XT1lsUDlTcWx6WnhhblZWODZ1b1NpN1ZRTWJXMjZjbVR1SnplZEMwYmYyNXpQOGRnanRaenFiNUVBdVY2bmZxUURyb1RUdktXUGpLaVdGUThRLUY1Z1BEMXItUEZoVUlWbE04Vy11ZjlpajJsZ3l2QVd3N2NIREJwZWFFZ0RJbThweG8zZjJGeDdtbThuUEJacHVFRnh3QWFNd3hrLXA4QQ?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "Rubio says Tehran missed 'multiple' chances for nuclear deal amid Iran stalemate",
+      "source": "CNBC",
+      "time": "2026-10-07 09:43 UTC",
+      "summary": "Iran has failed to take advantage of \"multiple opportunities\" to reach a deal on its nuclear program, Secretary of State Marco Rubio said Wednesday.",
+      "url": "https://www.cnbc.com/2026/10/07/us-iran-war-trump-hormuz.html",
+      "image": "https://image.cnbcfm.com/api/v1/image/108350973-1787065144748-gettyimages-2288027681-AFP_C3TD4KE.jpeg?v=1787065164&w=1920&h=1080",
+      "about": ""
+    },
+    {
+      "headline": "Google ordered to halt work on two data centers in \u2018Texas of Europe\u2019",
+      "source": "CNBC",
+      "time": "2026-10-07 09:26 UTC",
+      "summary": "Finland has emerged as a key location for data centers amid the AI boom.",
+      "url": "https://www.cnbc.com/2026/10/07/google-finland-data-center-halt.html",
+      "image": "https://image.cnbcfm.com/api/v1/image/108373796-1791360823662-gettyimages-2297901439-AFP_C9W887L.jpeg?v=1791360836&w=1920&h=1080",
+      "about": ""
+    },
+    {
+      "headline": "Gulf bourses subdued as Saudi-Houthi hostilities escalate - Reuters",
+      "source": "Reuters",
+      "time": "2026-10-07 08:20 UTC",
+      "summary": "Gulf bourses subdued as Saudi-Houthi hostilities escalate\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxPZ3ZoZm9mWnJZVmNoNFVQOUI4YWVkcFo3cV96cGlOYlNSQUl0cWdoQ0d2NFlCZ2R0cHFmTEZTZml0R19LM0VBNFE4YWJkVHoxV1lIUzQycUFIOWd3N2lsTTdWcjUtRXc5TWdUNVlPN1MyeUhUVFlGU1FFWnp2c2l5bzc3YktLSmxTUlJ3ZVJaQjRONXpteGZHSS04elBBRG9xVGladmF3RHdQS0ZV?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "UK's Headlam to delist after it collapses into administration - Reuters",
+      "source": "Reuters",
+      "time": "2026-10-07 08:00 UTC",
+      "summary": "UK's Headlam to delist after it collapses into administration\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQbzZHTkllVHhnc3hKbFl4UEY2WnpBeWUyLWxWQWxyWkJrN3JRcC1lYm9hdGRGNFZEUV9SXzVMdUNFOVgzRUlpelk1S3JCMnl6WlhQQnRSeXRUTVRQNVRZcWJENFY4ejhCNU8zd3ZGcjdBdWlLWVEyRFhvdkU3dFEzNEFMaWt2V2FIMjBnaHV4U083U0tWb1BCUG1XaGlRMTYzc0hqTHBycXFXUkRlajQ3NXoxOA?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "CRH to buy aggregate operations in Denmark, Finland",
+      "source": "SeekingAlpha",
+      "time": "2026-10-07 06:45 UTC",
+      "summary": "",
+      "url": "https://seekingalpha.com/news/4650812-crh-to-buy-aggregate-operations-in-denmark-finland?utm_source=feed_news_m_a&utm_medium=referral&feed_item_type=news",
+      "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567050932/sa_jgen9y.png",
+      "about": ""
+    },
+    {
+      "headline": "Shell expects record refining margins as Iran war boosts fuel markets - Reuters",
+      "source": "Reuters",
+      "time": "2026-10-07 06:07 UTC",
+      "summary": "Shell expects record refining margins as Iran war boosts fuel markets\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPamVwY1BTVUJKQmdkWDFBXzA2aFBOVlJYUGVqTHB1cXFYY2ZQdFJ4NHVIT25iQXYwaFVSYTkwVWJnc18xVXBNeHNjQXVxU2pPalpGTWVaM1h2MnRlRGlXZnBTOTItUi03OGxMRlROUnRFQnBGZ0RZNnExUm9VMi1vdzdvY3ExaGtuTjBtb0REbVM?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "Israelis mark three years since October 7 as Palestinians mourn Gaza's destruction - Reuters",
+      "source": "Reuters",
+      "time": "2026-10-07 05:03 UTC",
+      "summary": "Israelis mark three years since October 7 as Palestinians mourn Gaza's destruction\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPVEc3R0oyN1N1QkF0Q09Zb1hfWURTdDRRSnFvaVNlQU42cXJCNEhNNXdLOW11NTRsVi1VVlJKV0NSTm1CMVg3c3RMQ3pHcEV3VGpCNGF1UHBobHVhYkFQY0pNS2NvMXBQMWxSTEVhQTF6a01jRzBpXzFKajQ2NWxIZm5BdGQ4azhfYnBwVnh1enVzc04xeElNSTZFMHcyNmlfUElEM2s3RVFRXzFScUcyNUlfbFVrSjA5LVNjMlhQZzVBUQ?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "Skydance restructures WBD debt after completing acquisition",
+      "source": "SeekingAlpha",
+      "time": "2026-10-07 05:02 UTC",
+      "summary": "",
+      "url": "https://seekingalpha.com/news/4650802-skydance-restructures-wbd-debt-after-completing-acquisition?utm_source=feed_news_m_a&utm_medium=referral&feed_item_type=news",
+      "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567050932/sa_jgen9y.png",
+      "about": ""
+    },
+    {
+      "headline": "India joins global rate-tightening wave with first hike in nearly 4 years - Reuters",
+      "source": "Reuters",
+      "time": "2026-10-07 04:33 UTC",
+      "summary": "India joins global rate-tightening wave with first hike in nearly 4 years\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPQlZCVTJBN0oxSFUtU3pHLXZBVzVpQVJfMXRkVnRMMWFXeUhrczVkVmRkelVJckVZOGc4QVZkVDBlSDRCVE1XMEJEUXBmWlVGaklQcDRxUTlFNVl0a3h6TlhqWmpVT1gyMmR4VTZtdmRWSTU3SUtPeGZPYndYdjlaVEsxWUdJU2U1RjhaS3Z2YU8xZ3lHbXVsaklld1hCTkRzS0lpTGJzcnJNX01TallDRQ?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "Morning Bid: Who's the boss? - Reuters",
+      "source": "Reuters",
+      "time": "2026-10-07 04:32 UTC",
+      "summary": "Morning Bid: Who's the boss?\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE9pTkNXeGt4a29GamFjUnZ6UnlIdEtFZGFZSHk4UzFUWUZpcHVhNEpQNjI3OWxtZE5FbVJ5c3cteEhmOVVQUWZ6OWNmMXRNSEp4LTdaeGlIWVFESWlpSDcxcDQ1ejdPNnJqMXhLdHE1RmY2ZUhYWTJpWnFyRmhNSVU?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "Gold slips as dollar gains; investors await Fed minutes for rate clues - Reuters",
+      "source": "Reuters",
+      "time": "2026-10-07 02:18 UTC",
+      "summary": "Gold slips as dollar gains; investors await Fed minutes for rate clues\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOMU10STF5SHNISk9FdXk3NTA2YjZhbnhWRTJlYlpBRGVhanFxWVQxVzhVek11UEp1OUJOU1Y1WjNQTDlBWmg3aEhvVWkzMUpXd3dBbm5Qa3pEcFdEeERZUDNwUHdFYVp0YmZPQVd3dDIwalp0LU1YWi1WTFZNVm5FTWxrSkR0dTJnNk9aM1BBc29MWXk5S3lOLXIxVW1Fd0xvbmhxNEpn?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "Houthis attack Aden airport as fighting intensifies in Yemen - Reuters",
+      "source": "Reuters",
+      "time": "2026-10-07 01:21 UTC",
+      "summary": "Houthis attack Aden airport as fighting intensifies in Yemen\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxNNjcwdDdFSmxISzN2RWdiODU1ZjlXODFLZGRiVmxTeW94dnI1T1VsNnhlU1NJMTZXajJoVlE0VnpzVDlmMmJQUjYzN21Tamk5YWZhazdRSzd5MTJndURBTjNQTC0yd2I2ZDhIazZlNUJUYjAyZHVwZFRCMER1OGZLS2pZRmRQTjlrSlVyLUd3N1dnUUxrM2NBSERSd3VmYkJBNnpzT1I4RmhwMWhHbHQyN1ZOWkxCclZBV3c?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "Oil rises as investors weigh supply threats - Reuters",
+      "source": "Reuters",
+      "time": "2026-10-07 00:48 UTC",
+      "summary": "Oil rises as investors weigh supply threats\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxPSHYwa2g1N1NQR1ZHcFR2eVJ3cjJySlZLVlA1UjBQeU9yNl81Z2tGYTk3TVk4V3JMcXh1LVpscTVDdTdrZGFOZjd4VWNzeXNEM1lHYmV5bDFzV2ZrN3NuQUE4VXV6cE16enQzSi1ZU3l1aXVPa00yVDkxeDRYbFI5WjhOVGR0VHFUMWNkWFMtNmxDSW9YRUtHY2pKWTlxTFRPclRzTA?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "Transcript of US Vice President Vance interview in Alaska - Reuters",
+      "source": "Reuters",
+      "time": "2026-10-06 22:59 UTC",
+      "summary": "Transcript of US Vice President Vance interview in Alaska\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPN285Y1hMSlNId3o1Zi1tSmI5U0NfUVMtUDRlWVh2QVZZVG5QRlg1MmxzU1BHdno3VE1GMXBSeFpab1ZyTHlkdzNucXc4UWJSUmpSV01kN2RNMi1VZW0tb3g5QjFWMk5jS2pETmdualpUWTNYRm82R3d2UUdEX21FR0cyeU1kWjhvYWlHZnVYS0xMQUVvZzg5Zld4TXo?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "EXCLUSIVE: Vance says Iran must cut enrichment to end war - Reuters",
+      "source": "Reuters",
+      "time": "2026-10-06 22:40 UTC",
+      "summary": "EXCLUSIVE: Vance says Iran must cut enrichment to end war\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNQ3R3RzJuRF9NSlo0bWNMaGY3dTdUbXRmSU1BMml2V2RLd0sxazNvVUNRdXpHa21Ebk4tVWtLeHZXMG5xM2ZUVG1aTEJDU0FRWnRHZnozTHQxdVRjeTJvbXRKNzFpNG1wR3RqVDlKMXpXY09hYlFKVlF4RW5uQjJJMXhKOEt3c0ZLWE4tbWZlQW5hUnRnckxmaU1mU0R0SWwzRGNXdGo0ZTVTUXBlSHlfakN1Yw?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "Trump says nobody knows who is running Iran - Reuters",
+      "source": "Reuters",
+      "time": "2026-10-06 22:32 UTC",
+      "summary": "Trump says nobody knows who is running Iran\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxOOGU1UW1VTmk1eGViZjRja3o3X18zR3UtcXc3Sk9VVDBuaVU3VWMwc2NkeFN4cXRyNHA1ZkpUMVNIaGRWOTY3anA0OXFrUHUwVzFwSFFydm41aWZDMDVkRmhvOGdIa05yLWM4VDNCVEpyZTAyMzM0Mi1IT1ZuNjdPTEpLVlEwUEE2NUhGS2xMSUhoaTdZbG5YQzhZelBOQQ?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "Isabella Bank and Grand River Commerce receive regulatory approval for merger",
+      "source": "SeekingAlpha",
+      "time": "2026-10-06 21:00 UTC",
+      "summary": "",
+      "url": "https://seekingalpha.com/news/4650771-isabella-bank-and-grand-river-commerce-receive-regulatory-approval-for-merger?utm_source=feed_news_m_a&utm_medium=referral&feed_item_type=news",
+      "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567050932/sa_jgen9y.png",
+      "about": ""
+    },
+    {
+      "headline": "First Digital Signs Definitive Agreement to Become a Publicly Listed Company to Build the Infrastructure for the Agentic Economy",
+      "source": "GlobalNewswire",
+      "time": "2026-10-06 21:00 UTC",
+      "summary": "First Digital, the group behind FDUSD, which has recorded more than $4 trillion in cumulative trading volume, has entered into a definitive business combination agreement with CSLM Digital Asset Acquisition Corp III valuing First Digital at $250 million on a pre-money equity basis; on closing, the p",
+      "url": "https://www.globenewswire.com/news-release/2026/10/06/3376077/0/en/first-digital-signs-definitive-agreement-to-become-a-publicly-listed-company-to-build-the-infrastructure-for-the-agentic-economy.html",
+      "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567047094/gnw_ngwqnq.png",
+      "about": ""
+    },
+    {
+      "headline": "Navitas Semiconductor closes deal for Claros",
+      "source": "SeekingAlpha",
+      "time": "2026-10-06 20:46 UTC",
+      "summary": "",
+      "url": "https://seekingalpha.com/news/4650766-navitas-semiconductor-closes-deal-for-claros?utm_source=feed_news_m_a&utm_medium=referral&feed_item_type=news",
+      "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567050932/sa_jgen9y.png",
+      "about": ""
+    },
+    {
+      "headline": "Yemeni government fighters shown driving vehicles over Houthi opponents - Reuters",
+      "source": "Reuters",
+      "time": "2026-10-06 20:43 UTC",
+      "summary": "Yemeni government fighters shown driving vehicles over Houthi opponents\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxNdTUtR05NTWVJVFBWcjJmSVZRb0RuVXl6Zk5ocVBacHBIMm1yeWo2VWQ4U2ZqNVFPcTFqeExXUjFyMlpONkU5blQyekxfbGpwM3ZBay05dFU4WkRqZ3lIcmw3VG9UQ3NxSWczQU9qMjFRbHV3QVd3LXl3ZElxaHVRMkFVdHVfajl5SV81YkF1X1ZYX0ZNbW0yMFdjUWFnY3JTLXhZd1gzSU5pNTR5MU1mT0RneVlsLU1uaVdEd1lSRnd0M19Yd1JF?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "Byline Bancorp and Illinois State Bancorp announce merger",
+      "source": "SeekingAlpha",
+      "time": "2026-10-06 20:32 UTC",
+      "summary": "",
+      "url": "https://seekingalpha.com/news/4650750-byline-bancorp-and-illinois-state-bancorp-announce-merger?utm_source=feed_news_m_a&utm_medium=referral&feed_item_type=news",
+      "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567050932/sa_jgen9y.png",
+      "about": ""
+    },
+    {
+      "headline": "Cirrus Logic acquires INVENTVM Semiconductor",
+      "source": "SeekingAlpha",
+      "time": "2026-10-06 20:19 UTC",
+      "summary": "",
+      "url": "https://seekingalpha.com/news/4650727-cirrus-logic-acquires-inventvm-semiconductor?utm_source=feed_news_m_a&utm_medium=referral&feed_item_type=news",
+      "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567050932/sa_jgen9y.png",
+      "about": ""
+    },
+    {
+      "headline": "Navitas Closes Acquisition of Claros, Advancing AI Infrastructure with Grid-to-xPU Power Delivery",
+      "source": "GlobalNewswire",
+      "time": "2026-10-06 20:15 UTC",
+      "summary": "Completes Navitas\u2019 high-power portfolio with Claros\u2019 IVR technology, enabling vertical and embedded architectures and providing last step in power delivery to the core",
+      "url": "https://www.globenewswire.com/news-release/2026/10/06/3376021/0/en/navitas-closes-acquisition-of-claros-advancing-ai-infrastructure-with-grid-to-xpu-power-delivery.html",
+      "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567047094/gnw_ngwqnq.png",
+      "about": ""
+    },
+    {
+      "headline": "Constellation Brands Announces Acquisition of Spirit-Based Ready-to-Drink Brand SpikedAde",
+      "source": "GlobalNewswire",
+      "time": "2026-10-06 20:15 UTC",
+      "summary": "Acquisition expands Constellation's portfolio into an emerging, consumer-led demand space within the fast-growing RTD category Acquisition expands Constellation's portfolio into an emerging, consumer-led demand space within the fast-growing RTD category",
+      "url": "https://www.globenewswire.com/news-release/2026/10/06/3376018/0/en/constellation-brands-announces-acquisition-of-spirit-based-ready-to-drink-brand-spikedade.html",
+      "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567047094/gnw_ngwqnq.png",
+      "about": ""
+    },
+    {
+      "headline": "ONEOK Completes Acquisition of Brazos Midstream\u2019s Permian Midland Basin Assets",
+      "source": "GlobalNewswire",
+      "time": "2026-10-06 20:15 UTC",
+      "summary": "Establishes One of the Permian Midland Basin's  Largest Integrated Natural Gas Gathering and Processing Platforms Establishes One of the Permian Midland Basin's  Largest Integrated Natural Gas Gathering and Processing Platforms",
+      "url": "https://www.globenewswire.com/news-release/2026/10/06/3376015/0/en/oneok-completes-acquisition-of-brazos-midstream-s-permian-midland-basin-assets.html",
+      "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567047094/gnw_ngwqnq.png",
+      "about": ""
+    },
+    {
+      "headline": "US Senator Murphy says Pentagon denied him access to US base in Qatar - Reuters",
+      "source": "Reuters",
+      "time": "2026-10-06 19:56 UTC",
+      "summary": "US Senator Murphy says Pentagon denied him access to US base in Qatar\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNMkNYTFZmdFZrdzNHWDNNVHZNMmJCWWtHVHc5OHFzbWhLNHNKY19HdXlZUUhwZTRUQ2E3TlVKSjBMV1p5RVRyOTc1OWZ1M2RMMmRrN09GcUgtNUlQQjA1UGV0dUl4UXNSeTdxLTN4eUw0d3lwQ2VqVWg3T0ZSbVVSZUVxR0Z2UVBvU1I1Nm9BTkIxRWlpNzNYQnlfRDBKZ0RTak02YmxZWlVoekFO?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "Athabasca Oil cut to Sell at TD Cowen after Cenovus takeover news",
+      "source": "SeekingAlpha",
+      "time": "2026-10-06 19:23 UTC",
+      "summary": "",
+      "url": "https://seekingalpha.com/news/4650676-athabasca-oil-cut-to-sell-at-td-cowen-after-cenovus-takeover-news?utm_source=feed_news_m_a&utm_medium=referral&feed_item_type=news",
+      "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567050932/sa_jgen9y.png",
+      "about": ""
+    },
+    {
+      "headline": "Former German spy chief arrested for attempted treason, obtaining state secrets - Reuters",
+      "source": "Reuters",
+      "time": "2026-10-06 18:57 UTC",
+      "summary": "Former German spy chief arrested for attempted treason, obtaining state secrets\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxObU8wUVdxRFgxQzZyTGZXbHhIOEhBTHAzR2luYTFzZDkyXzhLV21OZHhtYWFFd1c4TDFTZzFURFc1SzRPRFA2NlJaYm1VbFFNMU4yT2t1NHRBYW8zZmFXVW52clZJbWJVeVZfVHlfYVk4N2hRUnRxcHN3SFhFSHBPOHBIaVRGRkdaZWd2QnpNQ21QSU0tV3FhQlg1Z2tzZzM5MTRWazcwS211bTJrM3k0N0M3MkJLNmFZczE2RkhkaVkxOEhP?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "'I'm getting fed up': early US midterm voters line up before dawn in Ohio - Reuters",
+      "source": "Reuters",
+      "time": "2026-10-06 18:52 UTC",
+      "summary": "'I'm getting fed up': early US midterm voters line up before dawn in Ohio\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOR3NBVWtIOEhDaDlKenA1S0x2NUh3dDFfa1c5REw3OThWbjVzQnpwWVhQd09nYnBJU2dwMFJfZWxhcU1nb1JTR1JETm85R1lRV0RVZEViRmR0UGZJdmpSQUdNLXZhTWRleFRaMndmX283c29UY3FvZE9KSVBsRVM0ZW5rMXZYam9FeklWUTZoU3FKQ2pDcFBzc21LVFF6QndO?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "What Marvell's rosy long-term guidance means for our AI chip stocks",
+      "source": "CNBC",
+      "time": "2026-10-06 18:51 UTC",
+      "summary": "Every weekday, the Investing Club releases the Homestretch; an actionable afternoon update just in time for the last hour of trading.",
+      "url": "https://www.cnbc.com/investingclub/2026/10/06/what-marvells-rosy-long-term-guidance-means-for-our-ai-chip-stocks.html",
+      "image": "https://image.cnbcfm.com/api/v1/image/108190251-1756132836201-gettyimages-2169879324-INTEL_MARVELL_ALTERA.jpeg?v=1779811143&w=1920&h=1080",
+      "about": ""
+    },
+    {
+      "headline": "Kalshi launches transparency features on its election contracts ahead of midterms",
+      "source": "CNBC",
+      "time": "2026-10-06 18:34 UTC",
+      "summary": "The platform will now provide tags that indicate which election markets have low volumes.",
+      "url": "https://www.cnbc.com/2026/10/06/kalshi-launches-transparency-features-on-its-election-contracts-ahead-of-midterms-.html",
+      "image": "https://image.cnbcfm.com/api/v1/image/108344439-17858457182026-08-04t102957z_668477747_rc2mrmamjzd6_rtrmadp_0_usa-prediction-markets.jpeg?v=1785845777&w=1920&h=1080",
+      "about": ""
+    },
+    {
+      "headline": "Ukraine's Zelenskiy says intelligence shows Russia is preparing massive attack - Reuters",
+      "source": "Reuters",
+      "time": "2026-10-06 17:53 UTC",
+      "summary": "Ukraine's Zelenskiy says intelligence shows Russia is preparing massive attack\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxOU3BvN0RtZlBjUkl6T2RMRGhCS1ZhSnl5Q1RqOGRvOTE0aHBNMTVhU1VQc3BkenhpVk9WbVVGd1ZuZDNvRDFXWER6V0xadWtZcFVVVzlNakZ2bENjWl82TVVQZ0xVbTNEUUh5MnBHX1B1Y012SjdQemFSbDI5a1U5eXlOOGpTSUFoYnpJMWdhZThHU2Q0c2szNXlDRFAta3pVQ2czX00xTk5FOVdZSEoxWk54VHBqNmk3SlI0?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "Northeast Democrats urge Trump administration action as heating oil costs surge - Reuters",
+      "source": "Reuters",
+      "time": "2026-10-06 17:52 UTC",
+      "summary": "Northeast Democrats urge Trump administration action as heating oil costs surge\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxNSjNTOThyMXhvc1UzM1A2TVVrak53cDQ2d2h5dElha3lIWVU1NXVVbjhpRHhCejJldi1IS04tOVpBNzR1eDFGeGthX0F3TUNmSXljbkhaWnR6X0xIRmtMNUZtbW5KeG9nQ0NTMXFsdE9rdmdlTjE5dlFOR3JfbFJiWGJUU1pBUTd3RE8wNHgtcVowX1NlWUxRM3VESDM3d1NYRFFJdUJEeGR0eGd3blZtZnhKRDZpTlR3bE1fMEtKS25NS0l0OFVvVw?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "How the S&P 500 can be at record highs, while the market remains oversold",
+      "source": "CNBC",
+      "time": "2026-10-06 17:41 UTC",
+      "summary": "The S&P 500's new all-time high Tuesday might just be one of the most hated records in recent memory.",
+      "url": "https://www.cnbc.com/investingclub/2026/10/06/how-the-sp-500-can-be-at-record-highs-while-the-market-remains-oversold.html",
+      "image": "https://image.cnbcfm.com/api/v1/image/108345306-1785940340553-gettyimages-2289192413-mms15179_jiu9nbcp.jpeg?v=1785940383&w=1920&h=1080",
+      "about": ""
+    },
+    {
+      "headline": "US EIA hikes oil price forecasts again as Iran war drains global stockpile - Reuters",
+      "source": "Reuters",
+      "time": "2026-10-06 17:39 UTC",
+      "summary": "US EIA hikes oil price forecasts again as Iran war drains global stockpile\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxQZk8xUmkwZm83ZUdaTWpWaEVibFZzckNxOVFNOG9OTjlWdzJBdXRqWk5GUUFoME5DWXJmNThNRlIzdVBxUXNfeGd5cTFFNjlVZmg1VkFwVXdONzVLNGh0RVF5S203NlRieWFBNEY3b0dnZlZ3MERxUGlYWTRDaGwzYUJaYWJxWjI1WTlJbDNfMFJ0TVlqSjdFNnl6SVF6UVhmQlhNM2pRUnltSDVMMXNmS21JZkMySWNFVjhtbXVSMUw?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "Which dow jones stocks are moving on Wednesday?",
+      "source": "ChartMill",
+      "time": "2026-10-07 16:40 UTC",
+      "summary": "Wondering what's happening in today's session for the dow jones index? Stay informed with the top movers within the dow jones index on Wednesday.",
+      "url": "https://finnhub.io/api/news?id=7035659f7d8a2a0d5730ed16bd3bcb7683148f81f5fe35ce66fb9682da838018",
+      "image": "https://www.chartmill.com/images/uploads/CM_Top_Movers_Small_free_2b4ff2fc22.webp",
+      "about": "AAPL"
+    },
+    {
+      "headline": "Wednesday's session: top gainers and losers in the S&P500 index",
+      "source": "ChartMill",
+      "time": "2026-10-07 16:35 UTC",
+      "summary": "Stay updated with the movements of the S&P500 index in the middle of the day on Wednesday. Discover which stocks are leading as top gainers and losers in today's session.",
+      "url": "https://finnhub.io/api/news?id=683287b687d95e857a785c1de492dffd35b70d6ff8db3972eb817f9a09d627d2",
+      "image": "https://www.chartmill.com/images/uploads/CM_Top_Movers_Small_free_2b4ff2fc22.webp",
+      "about": "CAT"
+    },
+    {
+      "headline": "CrowdStrike (CRWD) is Monetizing the Complexities of the AI Cybersecurity Environment",
+      "source": "Yahoo",
+      "time": "2026-10-07 15:55 UTC",
+      "summary": "Artisan Partners, an investment management company, released its third-quarter 2026 investor letter for the \u201cArtisan Developing World Fund\u201d. The letter can be downloaded here. The Artisan Developing World Fund (Investor Class) returned 3.50% in the quarter ending September 30, 2026, outperforming th",
+      "url": "https://finnhub.io/api/news?id=2567564f5dd501aab6ae272fa3d97fec27f44b05cda4cf31f029358a9267af89",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "NVDA"
+    },
+    {
+      "headline": "In 4 Months, SpaceX Has Now Sought to Raise Over $150 Billion. Should Investors Be Worried or Is This a Flashing Buy Signal?",
+      "source": "Yahoo",
+      "time": "2026-10-07 15:47 UTC",
+      "summary": "SpaceX is reportedly seeking to raise a fresh $40 billion of debt.",
+      "url": "https://finnhub.io/api/news?id=06c4aae8ede0db59dfc049aefe8a8b5f36fbac9718e9e0952e5ab9bf08840f9a",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "NVDA"
+    },
+    {
+      "headline": "Micron Technology (MU): Pullback Driven by Debates Over AI Capex Sustainability",
+      "source": "Yahoo",
+      "time": "2026-10-07 15:45 UTC",
+      "summary": "Artisan Partners, an investment management company, released its third-quarter 2026 investor letter for the \u201cArtisan Developing World Fund\u201d. The letter can be downloaded here. The Artisan Developing World Fund (Investor Class) returned 3.50% in the quarter ending September 30, 2026, outperforming th",
+      "url": "https://finnhub.io/api/news?id=32e0a81eb4dd2e4402b3cc2f631c6d54240ed4095c370de51cc679d27aaedc57",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "CRWD"
+    },
+    {
+      "headline": "UPS: The Dividend Yield Is The Whole Story, And That Is The Problem",
+      "source": "Yahoo",
+      "time": "2026-10-07 15:45 UTC",
+      "summary": "UPS yields 7% and the dividend has held steady for seven straight payments, but one look at where the cash is actually coming from turns that income story into something far more uncomfortable.",
+      "url": "https://finnhub.io/api/news?id=8be0ee98c11f3d17fc57c7887463619d463461cfa1803fecc52dbe9d88c77053",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "AMZN"
+    },
+    {
+      "headline": "Amazon Turned $10,000 Into More Than $230,000. Can It Happen Again?",
+      "source": "Yahoo",
+      "time": "2026-10-07 15:30 UTC",
+      "summary": "AWS just posted its fastest growth in four and a half years, yet Amazon shares sit 12% below their peak and capex is climbing at a pace that worries even the bulls. Whether that spending becomes a trap or a launchpad depends on one number.",
+      "url": "https://finnhub.io/api/news?id=1a6de1ce671c88e9150d2af0cd235a439a5e1b6b02cda36d7ba1b71703f2820a",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "MSFT"
+    },
+    {
+      "headline": "America Got Addicted to Cheap Money \u2014 Now the Economy Is Cracking as Rates Exceed 5%",
+      "source": "Yahoo",
+      "time": "2026-10-07 15:22 UTC",
+      "summary": "Fifteen years of near-zero borrowing rates quietly built businesses, housing markets, and government budgets that only work when money is cheap. Now that the 10-year Treasury has hit levels unseen since 2002, the bill is arriving for everyone at once.",
+      "url": "https://finnhub.io/api/news?id=793824044529a96ffd299714168933d210c6db264bbeb65f31108659d955fd88",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "MSFT"
+    },
+    {
+      "headline": "1 Robotics Stock With the Kind of Setup That Built Amazon Millionaires",
+      "source": "Yahoo",
+      "time": "2026-10-07 15:20 UTC",
+      "summary": "A test equipment giant's robotics arm is chasing physical AI with an early playbook that echoes Amazon's historic rise.",
+      "url": "https://finnhub.io/api/news?id=d5e00b18bc8f517aa217990851a64a0b4c1c46c8de2d9b994285e473452a3a10",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "AMZN"
+    },
+    {
+      "headline": "Dow Jones AI Giant Nvidia Stock Hits New High And Fresh Buy Point",
+      "source": "Yahoo",
+      "time": "2026-10-07 15:19 UTC",
+      "summary": "Dow Jones AI giant Nvidia stock has rallied to new highs this week, breaking out above a buy point and into buy range.",
+      "url": "https://finnhub.io/api/news?id=284e67ee06dea1994afa62f6fa6d0ce71397cc49c2b79c5580081b6c7edfa003",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "META"
+    },
+    {
+      "headline": "Alphabet (GOOGL) Locks In $4.3 Billion Nuclear Power Deal For AI Data Centers",
+      "source": "Yahoo",
+      "time": "2026-10-07 15:11 UTC",
+      "summary": "Alphabet (NasdaqGS:GOOGL) agreed a 20-year, US$4.3b nuclear power supply deal with Constellation Energy to support its AI data centers. Under the agreement, Constellation will provide carbon-free nuclear electricity to Google facilities, targeting growing AI-related power needs. The long-term contra",
+      "url": "https://finnhub.io/api/news?id=62fbb9f525fdc2c330dcc753a0401a4ec39ecb2308966fd9da489b3461bb3189",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "GOOGL"
+    },
+    {
+      "headline": "Everpure Stock Rides 10-Day Winning Streak. What\u2019s Driving the Rally.",
+      "source": "Yahoo",
+      "time": "2026-10-07 15:08 UTC",
+      "summary": "Everpure stock has risen 36% since the company raised its long-term revenue targets at a recent investor day.",
+      "url": "https://finnhub.io/api/news?id=043dcbd77dbef19dc48598dff28f3acd867cecaddb8e6bb753c356ba842a93e7",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "META"
+    },
+    {
+      "headline": "Google DeepMind and Meta Join Biohub\u2019s $1.8 Billion AI Biology Push",
+      "source": "Yahoo",
+      "time": "2026-10-07 15:05 UTC",
+      "summary": "Alphabet (GOOGL:NASDAQ) and Meta Platforms (META:NASDAQ) are buying into AI biology. On Wednesday, October 7, Google DeepMind, Alphabet\u2019s drug discovery unit Isomorphic Labs, and Meta agreed to put a combined $300 million into Biohub\u2019s Virtual Biology Initiative.",
+      "url": "https://finnhub.io/api/news?id=2ba0ab646d43c8ec3e24544337697beb023b6c309360c8d30bfc59463f75baa6",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "GOOGL"
+    },
+    {
+      "headline": "Elon Musk Clarifies TSMC's Terafab Role; Grok Adds Rival Models",
+      "source": "Yahoo",
+      "time": "2026-10-07 15:05 UTC",
+      "summary": "Tesla and SpaceX will retain ownership of the Terafab, even if TSMC contributes to the project.",
+      "url": "https://finnhub.io/api/news?id=8894efc246585a33add0f7e82e2e8552f867542b4f4f825ba729bd68adbfa389",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "TSLA"
+    },
+    {
+      "headline": "ExxonMobil Surges 44% in a Year: Should Investors Bet on the Momentum?",
+      "source": "Yahoo",
+      "time": "2026-10-07 14:48 UTC",
+      "summary": "XOM's 44.3% one-year surge, high oil prices and low-cost production support its outlook, but a premium valuation suggests patience.",
+      "url": "https://finnhub.io/api/news?id=cc69b1cf40adbcf4c974da5eed8a10c3ea76873031833055f621ba74439fbb41",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "XOM"
+    },
+    {
+      "headline": "This Dow Stock Is Responsible for Yesterday's Gains and Today's Losses",
+      "source": "Yahoo",
+      "time": "2026-10-07 14:47 UTC",
+      "summary": "The stock that drove the Dow's gains yesterday is fueling today's losses.",
+      "url": "https://finnhub.io/api/news?id=d1776455e638a02e8f2985dd41be229041a54118dbbd07378b3e2225de711aa3",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "CAT"
+    },
+    {
+      "headline": "Apple Is Setting The Stage For a Massive Windfall That Few Understand",
+      "source": "Yahoo",
+      "time": "2026-10-07 14:45 UTC",
+      "summary": "The market sees a phone company that missed the AI revolution, but one investor keeps buying shares and believes Wall Street has the story exactly backwards.",
+      "url": "https://finnhub.io/api/news?id=9976f44c6eb7502dfc642bd39aa2dbd332883d9676165b4dd6fd5cbaf896dba7",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "AAPL"
+    },
+    {
+      "headline": "JPMorgan Tops AI Rankings Again: Can Its Spending Boost Returns?",
+      "source": "Yahoo",
+      "time": "2026-10-07 14:44 UTC",
+      "summary": "JPM leads the 2026 Evident AI Index as its $19.8 billion tech budget targets productivity gains, though near-term monetization remains uncertain.",
+      "url": "https://finnhub.io/api/news?id=46d318d808c7e1a2fdb62660b74cd9a88e17c84ef41b65ab94604c11393ceb1d",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "JPM"
+    },
+    {
+      "headline": "The Fifth Rail: JPMorgan and BlackRock Are Building the Reserve Layer Every Stablecoin Issuer Will Need by 2027",
+      "source": "Yahoo",
+      "time": "2026-10-07 14:40 UTC",
+      "summary": "Last week, this desk identified four institutional settlement rails that activated or expanded in a single month: SoFiUSD on Mastercard, Visa stablecoin settlement, Stripe\u2019s $1.2 billion card volume, and Solana DvP atomic settlement. There is a fifth, and it is the one that makes the other four poss",
+      "url": "https://finnhub.io/api/news?id=487b9800ac0e1b62695700f62e52a32f2a29141a0a2a3bad386093c44291d647",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "JPM"
+    },
+    {
+      "headline": "Southwest Airlines Brings AI-Powered Flight Planning to ChatGPT",
+      "source": "Yahoo",
+      "time": "2026-10-07 14:40 UTC",
+      "summary": "LUV brings flight discovery into ChatGPT to make travel planning more conversational, personalized and convenient.",
+      "url": "https://finnhub.io/api/news?id=58c9760ddc02715cd29add194bcd17f08947c07169e150d8823154a3e27defae",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "LUV"
+    },
+    {
+      "headline": "Treasury Bills Beat Exxon\u2019s Dividend Yield. Does That Make Them the Better Buy?",
+      "source": "Yahoo",
+      "time": "2026-10-07 14:30 UTC",
+      "summary": "T-bill yields are running higher than Exxon's dividend right now, but that gap shrinks fast once taxes, reinvestment risk, and a 43-year streak of dividend growth enter the picture.",
+      "url": "https://finnhub.io/api/news?id=d6bc69eece5f46afbbcee10cc4da59341d793f07e20e727c3e40a1c780f365cb",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "XOM"
+    },
+    {
+      "headline": "Tesla Pressured European Regulators to Ease FSD Review As Musk Claimed Delays 'Cost Lives': Reuters",
+      "source": "Yahoo",
+      "time": "2026-10-07 14:30 UTC",
+      "summary": "Tesla Inc. (NASDAQ:TSLA) repeatedly pressured European regulators to accelerate approval of its Full Self-Driving system, including pushing the Dutch regulator to reduce the scope and cost of its review, according to a Reuters investigation.After France raised safety concerns, CEO Elon...",
+      "url": "https://finnhub.io/api/news?id=864d424a861059192d20327d253757bae2eeab884a63c7e787d6c9149ccb710d",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "TSLA"
+    },
+    {
+      "headline": "BlackBerry Shares Down 14% in the Past 3 Months: Hold or Sell?",
+      "source": "Yahoo",
+      "time": "2026-10-07 14:21 UTC",
+      "summary": "BB's QNX momentum and stronger cash flow support long-term prospects, but Secure Communications risks and a premium valuation limit near-term upside.",
+      "url": "https://finnhub.io/api/news?id=f8bf221e6e03377130fc48201b2d72aa56e1f9729583ab94d8b486e0e8dd4583",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "CRWD"
+    },
+    {
+      "headline": "What Is McKesson (MCK) Gaining From This $5.8 Billion Option Care Deal?",
+      "source": "Yahoo",
+      "time": "2026-10-07 14:10 UTC",
+      "summary": "McKesson (NYSE:MCK) and Clayton Dubilier & Rice agreed to acquire Option Care Health in a US$5.8b transaction announced in 2026. The deal structure gives McKesson a significant minority stake in Option Care Health alongside private equity ownership. The acquisition expands McKesson's reach in specia",
+      "url": "https://finnhub.io/api/news?id=3d8cfb67f6a2d53bce707598bb58139f6b502400fbd2d209972924d0d2e39af7",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "MCK"
+    },
+    {
+      "headline": "Intel downgraded, Marvell upgraded: Wall Street's top analyst calls",
+      "source": "Yahoo",
+      "time": "2026-10-07 14:00 UTC",
+      "summary": "Intel downgraded, Marvell upgraded: Wall Street's top analyst calls",
+      "url": "https://finnhub.io/api/news?id=c9045c53ac19ad80d94a07c2e8320fa134ac76c18ad5824d79898864952688d5",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "GEHC"
+    },
+    {
+      "headline": "DAL Stock Faces A Fuel-Driven Reality Check Ahead Of Q3 Earnings: What Investors Need To Know",
+      "source": "Yahoo",
+      "time": "2026-10-07 13:21 UTC",
+      "summary": "Delta heads into its September-quarter results this week, with several analysts recently revising estimates and price targets while retaining positive ratings on the shares.",
+      "url": "https://finnhub.io/api/news?id=81e04cfb9c60402561ee9c90dcc0a20abd8fe6d75ddff72bf42da6859010de0b",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "DAL"
+    },
+    {
+      "headline": "Markets Turn Lower As Treasury Yields Hit 24-Year High",
+      "source": "SeekingAlpha",
+      "time": "2026-10-07 12:05 UTC",
+      "summary": "Stepped-up tensions in the Middle East, coupled with profit-taking, is pushing the markets lower after Tuesday\u00e2\u0080\u0099s record-setting moves on the S&P 500 Index and the Nasdaq Composite.",
+      "url": "https://finnhub.io/api/news?id=0131c34fc3c11bc1d8552e0965a86fed20ce9a9139fed6183e555284d066108b",
+      "image": "https://static.seekingalpha.com/cdn/s3/uploads/getty_images/2240821882/image_2240821882.jpg?io=getty-c-w1536",
+      "about": "TLT"
+    },
+    {
+      "headline": "Recession Warning: The Signals Are Lining Up",
+      "source": "SeekingAlpha",
+      "time": "2026-10-07 12:04 UTC",
+      "summary": "Current recession signals: rising youth unemployment, housing turnover at high levels, declining real wages & lacking consumer confidence. Click to read more.",
+      "url": "https://finnhub.io/api/news?id=6fbf3482d15d03eba00ea61c5f95fb7ab8adb89646ffb6c7e7eb199a36c49df2",
+      "image": "https://static.seekingalpha.com/cdn/s3/uploads/getty_images/1453534485/image_1453534485.jpg?io=getty-c-w1536",
+      "about": "TLT"
+    },
+    {
+      "headline": "Is Most-Watched Stock McKesson Corporation (MCK) Worth Betting on Now?",
+      "source": "Yahoo",
+      "time": "2026-10-07 12:00 UTC",
+      "summary": "McKesson (MCK) has been one of the stocks most watched by Zacks.com users lately. So, it is worth exploring what lies ahead for the stock.",
+      "url": "https://finnhub.io/api/news?id=2ee09dc71cf8c644183588dab4c9bdacc799dc8aceb783716bb6818266e8ffc8",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "MCK"
+    },
+    {
+      "headline": "GE HealthCare to announce third quarter 2026 results on October 28, 2026",
+      "source": "Yahoo",
+      "time": "2026-10-07 12:00 UTC",
+      "summary": "CHICAGO, October 07, 2026--GE HealthCare (Nasdaq: GEHC) will announce its third quarter 2026 financial results before the market opens on Wednesday, October 28, 2026. The GE HealthCare management team will also host a conference call and webcast at 8:30 a.m. Eastern Time / 7:30 a.m. Central Time on ",
+      "url": "https://finnhub.io/api/news?id=e5c449810345060b9e6db241f5def066a0d46d9f00c5d131f191c14356555794",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "GEHC"
+    }
+  ]
+}
