@@ -61,8 +61,34 @@
     "level": 1,
     "sign": 1
   },
+  "2026-10-02:VLO": {
+    "level": 1,
+    "sign": 1
+  },
+  "2026-10-02:VLO:stop": true,
+  "2026-10-05:VLO": {
+    "level": 1,
+    "sign": 1
+  },
   "2026-10-06:CRWD": {
     "level": 1,
     "sign": -1
+  },
+  "2026-10-06:CRWD:stop": true,
+  "2026-10-06:UAL": {
+    "level": 1,
+    "sign": -1
+  },
+  "2026-10-07:CEG": {
+    "level": 1,
+    "sign": -1
+  },
+  "2026-10-07:FRO": {
+    "level": 1,
+    "sign": 1
+  },
+  "2026-10-07:MPC": {
+    "level": 1,
+    "sign": 1
   }
 }
