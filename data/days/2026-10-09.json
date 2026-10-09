@@ -1,0 +1,917 @@
+{
+  "date": "2026-10-09",
+  "picked_at": "2026-10-09T16:57:37Z",
+  "market_mood": "SpaceX's Starlink spectrum push blew a hole in the telecom sector while Middle East risk (Houthi strikes on Riyadh, tanker attacks in Hormuz) keeps jet fuel and shipping in focus, even as Trump's softer Iran tone pushed oil down. Long-end Treasury yields near 24-year highs remain the quiet pressure on everything.",
+  "self_check": "My oil and energy calls have been my best theme (74%) while AI & tech calls have been poor (25%), so today I leaned on energy/geopolitics and framed tech ideas around overdone one-day moves rather than narrative bets. Bearish calls have held up slightly better than bullish ones, so I let two shorts in.",
+  "picks": [
+    {
+      "ticker": "CCI",
+      "company": "Crown Castle",
+      "direction": "bearish",
+      "confidence": "high",
+      "reason": "Crown Castle jumped 13% in a session that crushed the carriers on the SpaceX/Starlink spectrum news; a tower REIT whose tenants are AT&T, Verizon and T-Mobile is unlikely to be a long-term winner from a satellite threat to those same customers, and high long-end yields hurt REITs.",
+      "sources": [
+        2,
+        4,
+        38
+      ],
+      "theme": "AI & tech",
+      "target_pct": 8,
+      "stop_pct": 6,
+      "target_price": 71.92,
+      "stop_price": 82.86
+    },
+    {
+      "ticker": "TMUS",
+      "company": "T-Mobile US",
+      "direction": "bullish",
+      "confidence": "medium",
+      "reason": "T-Mobile fell 13% on the SpaceX spectrum announcement, but it already has a direct-to-cell partnership with Starlink and the satellite threat to mainstream mobile service is years away; the selloff looks like an overreaction that can partly retrace.",
+      "sources": [
+        2
+      ],
+      "theme": "AI & tech",
+      "target_pct": 7,
+      "stop_pct": 5,
+      "target_price": 159.5,
+      "stop_price": 141.62
+    },
+    {
+      "ticker": "DAL",
+      "company": "Delta Air Lines",
+      "direction": "bearish",
+      "confidence": "medium",
+      "reason": "Delta cut its full-year profit outlook on a $6 billion jet-fuel hit and is now weighing whether to even launch Riyadh flights after Houthi strikes on the airport; the Middle East fuel and airspace problem keeps compounding.",
+      "sources": [
+        60,
+        19,
+        24,
+        9
+      ],
+      "theme": "Oil & energy",
+      "target_pct": 7,
+      "stop_pct": 5,
+      "target_price": 75.19,
+      "stop_price": 84.89
+    },
+    {
+      "ticker": "GLD",
+      "company": "SPDR Gold Shares",
+      "direction": "bullish",
+      "confidence": "medium",
+      "reason": "Gold hit a one-week high with 24-year-high Treasury yields, escalating Houthi attacks on Saudi Arabia and record tanker attacks in Hormuz all feeding safe-haven demand.",
+      "sources": [
+        29,
+        6,
+        30,
+        38
+      ],
+      "theme": "Geopolitics",
+      "target_pct": 5,
+      "stop_pct": 3,
+      "target_price": 403.47,
+      "stop_price": 372.73
+    },
+    {
+      "ticker": "CMG",
+      "company": "Chipotle Mexican Grill",
+      "direction": "bullish",
+      "confidence": "low",
+      "reason": "Shares were slammed on the report Starbucks explored a takeover; analysts note the strategic logic given Niccol ran both chains, and the selloff in the target of a deal report is an unusual setup worth watching.",
+      "sources": [
+        39,
+        72
+      ],
+      "theme": "Mergers & deals",
+      "target_pct": 8,
+      "stop_pct": 6,
+      "target_price": 33.98,
+      "stop_price": 29.57
+    }
+  ],
+  "watchlist_notes": [
+    {
+      "ticker": "SPY",
+      "note": "Index bouncing after Thursday's tech selloff, but 24-year-high long yields cap the upside."
+    },
+    {
+      "ticker": "QQQ",
+      "note": "Tech is the weakest sector of the past week and options traders are the most hedged for a pullback since early summer."
+    },
+    {
+      "ticker": "DIA",
+      "note": "Dow holding up better than Nasdaq as money rotates to energy, staples and utilities."
+    },
+    {
+      "ticker": "AAPL",
+      "note": "Selling off on an iPhone 18 report; Cramer calls the reaction overdone, so it's a sentiment story more than a fundamental one."
+    },
+    {
+      "ticker": "MSFT",
+      "note": "Memory and storage shortages are driving hardware costs up, a mild negative for its gaming console business."
+    },
+    {
+      "ticker": "NVDA",
+      "note": "Steadying after the AI selloff, but OpenAI/Firmus IPO chatter is feeding bubble worries."
+    },
+    {
+      "ticker": "AMZN",
+      "note": "Agentic commerce reports show merchants preparing but few real transactions yet; no immediate catalyst."
+    },
+    {
+      "ticker": "GOOGL",
+      "note": "Commentary argues Alphabet can undercut OpenAI with cheap AI in existing products, a modest sentiment positive."
+    },
+    {
+      "ticker": "META",
+      "note": "Social media names rallied with Snap and Pinterest while Meta stayed flat; no company-specific news."
+    },
+    {
+      "ticker": "TSLA",
+      "note": "Rose on a European rebrand of Full Self-Driving that eases regulatory friction, though spending and falling earnings remain the worry."
+    },
+    {
+      "ticker": "JPM",
+      "note": "Big bank earnings land next week with investors nervous about rising rates."
+    },
+    {
+      "ticker": "XOM",
+      "note": "Oil slipped on Trump's diplomatic tone toward Iran, but tanker attacks in Hormuz keep a risk premium alive."
+    },
+    {
+      "ticker": "GLD",
+      "note": "Gold hit a one-week high as oil softened and real-asset demand persists."
+    },
+    {
+      "ticker": "TLT",
+      "note": "Long bonds pressured with 10- and 30-year yields at 24-year highs, though a Treasury adviser says yields can come down soon."
+    }
+  ],
+  "top_buys": [
+    {
+      "ticker": "CCI",
+      "company": "Crown Castle",
+      "direction": "bearish",
+      "confidence": "high",
+      "pitch": "A tower REIT that soared 13% on the same day its carrier tenants were destroyed makes little sense.",
+      "why": "SpaceX announced a spectrum deal to push Starlink deeper into US telecom, sending Verizon, AT&T and T-Mobile down 10-13%. Crown Castle's entire revenue base is leases to those same carriers, so a structural threat to them is not bullish for towers over time. On top of that, 10- and 30-year yields sit at 24-year highs, which is a direct headwind for rate-sensitive REITs. The one-day spike looks like a crowded rotation trade rather than a fundamental repricing.",
+      "risks": "The move may reflect real news I can't see, such as a lease renewal or asset sale, and towers can be bid as a defensive haven if carriers are seen cutting capex elsewhere.",
+      "watch": "Any carrier capex commentary and whether the 30-year Treasury yield keeps rising.",
+      "sources": [
+        2,
+        4,
+        38
+      ],
+      "theme": "AI & tech",
+      "target_pct": 8,
+      "stop_pct": 6
+    },
+    {
+      "ticker": "DAL",
+      "company": "Delta Air Lines",
+      "direction": "bearish",
+      "confidence": "medium",
+      "pitch": "Delta cut guidance on a $6 billion fuel hit and now may not even launch its Riyadh route.",
+      "why": "The airline reduced its full-year earnings outlook because of jet fuel prices driven by the Middle East war. Separately, Houthi strikes killed three people at Riyadh airport and EU aviation regulators widened airspace warnings, putting Delta's Saudi expansion in doubt. Fuel is the single biggest swing factor for airline earnings and the geopolitical source of the problem is escalating, not fading. The cost pressure should keep showing up in estimates over coming weeks.",
+      "risks": "Oil fell on Trump's conciliatory Iran comments; a real de-escalation or diplomatic breakthrough would send airlines sharply higher.",
+      "watch": "Jet fuel crack spreads and whether Delta confirms or cancels the Riyadh launch.",
+      "sources": [
+        60,
+        19,
+        24,
+        9,
+        28
+      ],
+      "theme": "Oil & energy",
+      "target_pct": 7,
+      "stop_pct": 5
+    },
+    {
+      "ticker": "TMUS",
+      "company": "T-Mobile US",
+      "direction": "bullish",
+      "confidence": "medium",
+      "pitch": "A 13% one-day drop on a satellite headline for the carrier that already partners with Starlink.",
+      "why": "T-Mobile has an existing direct-to-cell deal with Starlink, so SpaceX going deeper into telecom is less of an existential threat to it than to peers. Satellite service remains far from matching terrestrial 5G capacity in cities, and spectrum deployment takes years. A 13% single-session loss in a large-cap, low-beta wireless name is the kind of panic move that often partly retraces.",
+      "risks": "If SpaceX positions Starlink as a direct consumer competitor and cancels or dilutes the T-Mobile partnership, the de-rating could continue.",
+      "watch": "Any detail on SpaceX's spectrum plans and whether the T-Mobile partnership is reaffirmed.",
+      "sources": [
+        2
+      ],
+      "theme": "AI & tech",
+      "target_pct": 7,
+      "stop_pct": 5
+    },
+    {
+      "ticker": "GLD",
+      "company": "SPDR Gold Shares",
+      "direction": "bullish",
+      "confidence": "medium",
+      "pitch": "Gold is grinding to new highs on war risk and 24-year-high bond yields.",
+      "why": "Gold hit a one-week high even as oil softened, which suggests demand is being driven by something other than inflation hedging: geopolitical fear and distrust of the long bond. Houthi strikes inside Saudi Arabia and the worst week of Hormuz tanker attacks since the Iran war began are the kind of escalation that keeps safe-haven bids alive. Reuters also flagged four signs the bond market could get uglier, which historically supports hard assets.",
+      "risks": "A genuine Iran diplomatic breakthrough or a sharp drop in yields would take the air out of the gold trade quickly.",
+      "watch": "Headlines on US-Iran talks and the 30-year Treasury auction/yield.",
+      "sources": [
+        29,
+        6,
+        30,
+        4,
+        38
+      ],
+      "theme": "Geopolitics",
+      "target_pct": 5,
+      "stop_pct": 3
+    },
+    {
+      "ticker": "CMG",
+      "company": "Chipotle Mexican Grill",
+      "direction": "bullish",
+      "confidence": "low",
+      "pitch": "Chipotle shares got hit on takeover chatter rather than bid up, an unusual and potentially correctable reaction.",
+      "why": "The FT reported Starbucks explored a takeover of Chipotle, and the market punished Chipotle on the report. Analysts interviewed argue Brian Niccol, who ran both chains, could actually make it work, which implies real strategic interest in the asset. If a deal never happens, Chipotle still trades on its own improving fundamentals at a lower starting price.",
+      "risks": "The weakness may reflect genuine fears about Chipotle's own traffic trends, and fast-casual demand is soft with consumers complaining about costs.",
+      "watch": "Chipotle's upcoming quarterly results and any formal company comment on the merger report.",
+      "sources": [
+        39,
+        72,
+        20
+      ],
+      "theme": "Mergers & deals",
+      "target_pct": 8,
+      "stop_pct": 6
+    }
+  ],
+  "summary": {
+    "big_story": "SpaceX's Starlink spectrum move wiped out telecom stocks while Middle East escalation keeps jet fuel and shipping risk elevated despite softer oil.",
+    "top_pick": "Short Crown Castle, which rallied 13% on a day its own carrier customers were crushed and faces REIT pressure from 24-year-high yields.",
+    "watch": "Big bank earnings next week and whether long-end Treasury yields keep climbing."
+  },
+  "headlines": [
+    {
+      "headline": "Cramer: Investors selling Apple on latest iPhone 18 report are 'stupid as plywood'",
+      "source": "CNBC",
+      "time": "2026-10-09 16:43 UTC",
+      "summary": "Cramer says investors who don't own the stock should use Friday's weakness to build a position.",
+      "url": "https://www.cnbc.com/investingclub/2026/10/09/cramer-investors-selling-apple-on-iphone-report-are-stupid-as-plywood.html",
+      "image": "https://image.cnbcfm.com/api/v1/image/108365128-1789759496314-gettyimages-2295295597-APPLE_IPHONE_18.jpeg?v=1789759546&w=1920&h=1080",
+      "about": ""
+    },
+    {
+      "headline": "Verizon stock heads for worst day since 2002 as SpaceX U.S. network plans whack telcos",
+      "source": "CNBC",
+      "time": "2026-10-09 16:26 UTC",
+      "summary": "SpaceX announced the spectrum deal Thursday, as the company aims to push deeper into the telecom market through its Starlink service.",
+      "url": "https://www.cnbc.com/2026/10/09/verizon-att-tmobile-stocks-spacex-network.html",
+      "image": "https://image.cnbcfm.com/api/v1/image/108252686-1768430174745-gettyimages-2255691654-verizon_08_adjan25.jpeg?v=1791561569&w=1920&h=1080",
+      "about": ""
+    },
+    {
+      "headline": "Jim Cramer sets a Starbucks buy level \u2014 plus his take on 3 stocks we just bought",
+      "source": "CNBC",
+      "time": "2026-10-09 15:47 UTC",
+      "summary": "The Investing Club holds its \"Morning Meeting\" every weekday at 10:20 a.m. ET.",
+      "url": "https://www.cnbc.com/investingclub/2026/10/09/cramer-sets-starbucks-buy-level-and-reviews-3-stocks-we-bought.html",
+      "image": "https://image.cnbcfm.com/api/v1/image/108259664-1769793014361-gettyimages-2258479926-NICCOL_INTERVIEW.jpeg?v=1789055210&w=1920&h=1080",
+      "about": ""
+    },
+    {
+      "headline": "Four signs it is about to get uglier in the bond market as yields rise - Reuters",
+      "source": "Reuters",
+      "time": "2026-10-09 15:36 UTC",
+      "summary": "Four signs it is about to get uglier in the bond market as yields rise\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxOZnpPbXRYRlc0T3dINmZIZnM3VEgxWWJzS2tLRVBadmJMVnQ2ekdHaTQ1NG1SZlhfTV84VjNsM3JNR0RRSTZyVWJ1ODJFZmxpa1pxckluaktPY0d6T0d3bUVUUnRGQjlCVmwxWUNGWEs2cEo1VGV4R3MxN19PakJaZ3FUZnZfMWxqUHAzNk1nOTVFT0hr?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "ChatGPT for Teens is not necessarily 'safer than the previous version,' Common Sense Media finds",
+      "source": "CNBC",
+      "time": "2026-10-09 15:07 UTC",
+      "summary": "Common Sense Media released its report about ChatGPT for Teens' new features, concluding the tool does not meet the safety standards OpenAI set.",
+      "url": "https://www.cnbc.com/make-it/2026/10/09/chatgpt-for-teens-safety-common-sense-media.html",
+      "image": "https://image.cnbcfm.com/api/v1/image/108374311-1791397647575-Teen_Girl_Using_Phone_While_Preparing_To_Do_Laundr-2185461236-Getty.jpg?v=1791397917&w=1920&h=1080",
+      "about": ""
+    },
+    {
+      "headline": "Houthi strikes on Riyadh airport killed three Saudis as war escalates - Reuters",
+      "source": "Reuters",
+      "time": "2026-10-09 14:56 UTC",
+      "summary": "Houthi strikes on Riyadh airport killed three Saudis as war escalates\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxQMEFCQWZhWGJXa25ZeDBOZlE3b3RWQldSSUM5MmRDd1JqdFNvbl83R19nc014ek1YTW1iQlBqbW1paUlManF3UzlNT21BTl81cG5NNGQ5MWhWOWZOMnpQamN6TmxrUFVLVXRCaTl2T0JYclhVc3dvLUpNeG5wY3JSci02OHVtWmRpemp2UExRUGRoTnpyN3lKUGlRQ3FHdS1pZDNvNVM0bWE2djAzNzNvNTg4RVdXVEhw?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "NBA Commissioner Adam Silver says he still intends to get a deal done with EuroLeague as he plans launch of NBA Europe",
+      "source": "CNBC",
+      "time": "2026-10-09 14:50 UTC",
+      "summary": "NBA Commissioner Adam Silver expressed confidence on Friday that the league will get a deal done with EuroLeague to help launch NBA Europe.",
+      "url": "https://www.cnbc.com/2026/10/09/nba-commissioner-adam-silver-says-euroleague-deal-still-on-table.html",
+      "image": "https://image.cnbcfm.com/api/v1/image/108381913-AdmaSilver-Carbon.jpg?v=1791556531&w=1920&h=1080",
+      "about": ""
+    },
+    {
+      "headline": "NBA commissioner says league wants access to prediction market data to detect manipulation",
+      "source": "CNBC",
+      "time": "2026-10-09 14:12 UTC",
+      "summary": "The NBA Commissioner further called it \"odd behavior\" to have contracts related to whether a coach may be fired or not.",
+      "url": "https://www.cnbc.com/2026/10/09/nba-commissioner-says-league-wants-access-to-prediction-market-data-to-detect-manipulation.html",
+      "image": "https://image.cnbcfm.com/api/v1/image/108244702-1766415162574-gettyimages-2245059149-OPED-NBA-GAMBLING-EDITORIAL-LV.jpeg?v=1772052162&w=1920&h=1080",
+      "about": ""
+    },
+    {
+      "headline": "EU aviation body widens Saudi airspace warning after Houthi strikes - Reuters",
+      "source": "Reuters",
+      "time": "2026-10-09 14:03 UTC",
+      "summary": "EU aviation body widens Saudi airspace warning after Houthi strikes\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxObUF1S2Y0LTFHM0JDbXRLY05aMmVvUDJqOU1ZNjEtLVlDdFVMelgyTlN0d3BvY0lrLVJkZEc4VGI0eEMtWTVnbDBGQnNVSGx1bklCQkxiNEs3RzFlWklGSWtoMFpyLV9zb2N6Y1VlVjQ2b2pqMy1ld0IyZ2RQMGt3YmFRaWQyUFBrYnVua2VyWGdyQW4wU0xGWm91d2prUlRLSHZrZXNwZjl0MVBuQV9ZeFZmZi15Nmh1VGFvV25xeVJfYkNGWkE?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "Carnegie Learning Invests in the Future of Writing Instruction with Acquisition of Ethiqly",
+      "source": "BusinessWire",
+      "time": "2026-10-09 13:41 UTC",
+      "summary": "PITTSBURGH--(BUSINESS WIRE)--Carnegie Learning, a leader in K-12 education solutions, today announced that it has acquired Ethiqly from Owl Ventures, the leading venture capital firm focused on EdTech, and from Ethiqly management. Building on Carnegie Learning\u2019s flagship literacy solution, Lenses on",
+      "url": "http://www.businesswire.com/news/home/20261009959703/en/Carnegie-Learning-Invests-in-the-Future-of-Writing-Instruction-with-Acquisition-of-Ethiqly/?feedref=JjAwJuNHiystnCoBq_hl-Rc4vIAVcHHkbDcwJimU8QtrtlakeQ9hNboBqTAWIjTge3KWq9s9jif-UkBjBsFRyYAbRTSLTc1mgvhPlnaBA55M-oupQnbXnhKsYk8RmHF_kAy2gZikaX3QWV6xOvgFlA==",
+      "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567047386/bw_flnhy4.jpg",
+      "about": ""
+    },
+    {
+      "headline": "Two men deny carrying out surveillance for Iran of Israeli embassy in UK - Reuters",
+      "source": "Reuters",
+      "time": "2026-10-09 13:37 UTC",
+      "summary": "Two men deny carrying out surveillance for Iran of Israeli embassy in UK\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPZm1Rb2hka05MbFN4QTJTSTBOVWxCbHpFV0JTVjcwY2w3MWR5cFFfX09nNEsxNlRXdk02NDlVWEFFZFJ4bnJETUNyZXNqb1lycEJ3N3hFVmxMLW1qUEJ3M3I2XzJBbW5WSDBsal9LS19rX0lobTJuZWV4NG45T2tPVkdOcW5pM2YzdjBaR0NiMGdLRnY3dHhyU2dQRmFtWHlMTzZnSHdIckUwcVV1UkVxNUNCZ1JLNUU?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "Networking startup Eliyan gets takeover interest, held early talks with Arm - report",
+      "source": "SeekingAlpha",
+      "time": "2026-10-09 13:30 UTC",
+      "summary": "",
+      "url": "https://seekingalpha.com/news/4651748-networking-startup-eliyan-gets-takeover-interest-held-early-talks-with-arm-report?utm_source=feed_news_m_a&utm_medium=referral&feed_item_type=news",
+      "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567050932/sa_jgen9y.png",
+      "about": ""
+    },
+    {
+      "headline": "Microchip Technology acquires VORAGO Technologies",
+      "source": "SeekingAlpha",
+      "time": "2026-10-09 13:08 UTC",
+      "summary": "",
+      "url": "https://seekingalpha.com/news/4651743-microchip-technology-acquires-vorago-technologies?utm_source=feed_news_m_a&utm_medium=referral&feed_item_type=news",
+      "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567050932/sa_jgen9y.png",
+      "about": ""
+    },
+    {
+      "headline": "Tech stocks' resilience has puzzled investors. The options market could hold some clues",
+      "source": "CNBC",
+      "time": "2026-10-09 13:07 UTC",
+      "summary": "In the options pits, traders are the most prepared for a tech pullback since early Summer.",
+      "url": "https://www.cnbc.com/2026/10/09/tech-stocks-resilience-has-puzzled-investors-the-options-market-could-hold-some-clues.html",
+      "image": "https://image.cnbcfm.com/api/v1/image/108373477-1791306984350-gettyimages-2298289676-ag_lumen_03.jpeg?v=1791307007&w=1920&h=1080",
+      "about": ""
+    },
+    {
+      "headline": "Jim Cramer's top 10 things to watch in the stock market Friday",
+      "source": "CNBC",
+      "time": "2026-10-09 13:01 UTC",
+      "summary": "Stocks are bouncing this morning after yesterday's sharp tech-driven selloff.",
+      "url": "https://www.cnbc.com/investingclub/2026/10/09/jim-cramers-top-10-things-to-watch-in-the-stock-market-friday.html",
+      "image": "https://image.cnbcfm.com/api/v1/image/108114154-1741710289993-gettyimages-2203965898-porzycki-starlink250311_npDzQ.jpeg?v=1741710333&w=1920&h=1080",
+      "about": ""
+    },
+    {
+      "headline": "XMax to Acquire Hexa Creation, Developer of 1200V Vertical GaN Power Semiconductor Technology",
+      "source": "GlobalNewswire",
+      "time": "2026-10-09 12:00 UTC",
+      "summary": "Transaction gives XMax footing in high-voltage GaN power technology aimed at AI data center power infrastructure Transaction gives XMax footing in high-voltage GaN power technology aimed at AI data center power infrastructure",
+      "url": "https://www.globenewswire.com/news-release/2026/10/09/3378050/37029/en/xmax-to-acquire-hexa-creation-developer-of-1200v-vertical-gan-power-semiconductor-technology.html",
+      "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567047094/gnw_ngwqnq.png",
+      "about": ""
+    },
+    {
+      "headline": "Ferrari\u2019s chairman is bullish on AI. He\u2019s less certain how businesses will cash in",
+      "source": "CNBC",
+      "time": "2026-10-09 11:54 UTC",
+      "summary": "Ferrari chair John Elkann played down AI bubble fears, but acknowledged investment in the technology could outpace revenue generation.",
+      "url": "https://www.cnbc.com/2026/10/09/john-elkann-ferrari-ai-technology.html",
+      "image": "https://image.cnbcfm.com/api/v1/image/108004801-17207223822024-06-21t132508z_2022917932_rc2lf8ahpeu7_rtrmadp_0_ferrari-electriccars.jpeg?v=1720722449&w=1920&h=1080",
+      "about": ""
+    },
+    {
+      "headline": "Kalshi traders see high odds that more than 5,100 data centers will be planned or operating before 2027",
+      "source": "CNBC",
+      "time": "2026-10-09 11:54 UTC",
+      "summary": "Despite the growing backlash against data centers, Kalshi odds show the buildout will continue to expand.",
+      "url": "https://www.cnbc.com/2026/10/09/kalshi-traders-see-high-odds-of-5000-plus-data-centers-by-2027.html",
+      "image": "https://image.cnbcfm.com/api/v1/image/108372637-1791214004973-gettyimages-2298703473-mms22918_t6qdvpdy.jpeg?v=1791214175&w=1920&h=1080",
+      "about": ""
+    },
+    {
+      "headline": "Delta CEO: 'Safety is going to make the call' on launching Saudi Arabia flight",
+      "source": "CNBC",
+      "time": "2026-10-09 11:12 UTC",
+      "summary": "Delta is weighing whether to continue with its Riyadh, Saudi Arabia flight debut as planned.",
+      "url": "https://www.cnbc.com/2026/10/09/delta-riyadh-flight-safety-houthi-attacks.html",
+      "image": "https://image.cnbcfm.com/api/v1/image/107409569-1714667126496-107409569-1714666951042-gettyimages-2150563183-AFP_34QN2VN.jpeg?v=1714667145&w=1920&h=1080",
+      "about": ""
+    },
+    {
+      "headline": "Bipartisan majority of Americans blame Trump policies for rising costs, Reuters/Ipsos poll finds - Reuters",
+      "source": "Reuters",
+      "time": "2026-10-09 11:01 UTC",
+      "summary": "Bipartisan majority of Americans blame Trump policies for rising costs, Reuters/Ipsos poll finds\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxQaXotRVVHVGluZXJPazBzWGR5YjdFcjFVVWdvZS1Ib2FVNEJoSmdkcTAweHllQzR3STl3RHVZUkYzNy1hOWlPSGZIWG5pNEpvcXBpOGNNNmsxbG0tRllvSjVlRFVwalRsbnhxWV9pSm5Oby1pSzVtUnhYN0RwQmxDMFVmVWRaMXNoTmxGN1ZOb1dVUTY3M0dmS0dZbWh1X2t0RnAwUksyZDlWakFjQUl5TUFOLTBCTTFCYlFmV1J3?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "High Tide acquires Alberta cannabis store",
+      "source": "SeekingAlpha",
+      "time": "2026-10-09 10:47 UTC",
+      "summary": "",
+      "url": "https://seekingalpha.com/news/4651700-high-tide-acquires-alberta-cannabis-store?utm_source=feed_news_m_a&utm_medium=referral&feed_item_type=news",
+      "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567050932/sa_jgen9y.png",
+      "about": ""
+    },
+    {
+      "headline": "Trump's moves to boost diesel supplies have not yet lowered prices - Reuters",
+      "source": "Reuters",
+      "time": "2026-10-09 10:19 UTC",
+      "summary": "Trump's moves to boost diesel supplies have not yet lowered prices\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPSC1DZmo5R2daREU0YTBRSFBZTE04NW92WFQ3eXhLeGhiRlFyTEZBbHdWT2xuczBRYmtWcmlqMVJKTUo0Vk9KTEk1OU1jYUo1NlQ3Zi1KTzhmc1pmZkhQS01OajhXWHR1aWpQVEpuRTllX0RSd3ZmR3ZKMG51MlJRNGQtX3BkdUpfOHFGejVtbnhMUGlGNVdDa2lISkd5dFdmNWc3dFpRZnJuNGJ6M3duQ1pJcXo?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "Skydance is 'positioned to win in every vertical,' Ellison says",
+      "source": "SeekingAlpha",
+      "time": "2026-10-09 08:56 UTC",
+      "summary": "",
+      "url": "https://seekingalpha.com/news/4651653-skydance-is-positioned-to-win-in-every-vertical-ellison-says?utm_source=feed_news_m_a&utm_medium=referral&feed_item_type=news",
+      "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567050932/sa_jgen9y.png",
+      "about": ""
+    },
+    {
+      "headline": "Three Saudi nationals killed in attacks on Riyadh airport, aviation authority says - Reuters",
+      "source": "Reuters",
+      "time": "2026-10-09 08:39 UTC",
+      "summary": "Three Saudi nationals killed in attacks on Riyadh airport, aviation authority says\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNSHNYa055VWx5WldTdndPaXJnREN3Q1BDX1hzTVE4cEdwNmM0bU9YbE1oc0Ryb2VOenROdjd3NDlaRy1hOGU1MnlxVE9nWk45Znh5Rm1iVXE3TGpjY2ZXRGhmWV9QbkhGeURIRXBDRTdLWElZeG9mRldGbE9wSnV4V1QyU0xFUFlKUXFna3RFYlpVc2JHS2RXOS1GNEkxQmZiWFZxU01VNk0yZ25ieF9ydWN4Ry1nVk54bFhR?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "Treasury yields steady as Trump strikes diplomatic tone on Iran ahead of midterms",
+      "source": "CNBC",
+      "time": "2026-10-09 08:24 UTC",
+      "summary": "Yields were largely unchanged Friday as investors assessed President Trump's latest comments on Iran.",
+      "url": "https://www.cnbc.com/2026/10/09/us-treasurys-bond-yields-midterms.html",
+      "image": "https://image.cnbcfm.com/api/v1/image/108255380-17690331752026-01-21t220523z_286979253_rc2v5ja1vheb_rtrmadp_0_usa-stocks.jpeg?v=1769033262&w=1920&h=1080",
+      "about": ""
+    },
+    {
+      "headline": "China's tax crackdown piles pressure on luxury brands as US spending falters - Reuters",
+      "source": "Reuters",
+      "time": "2026-10-09 05:03 UTC",
+      "summary": "China's tax crackdown piles pressure on luxury brands as US spending falters\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxQQVVQS191Y0hYUXlXZEdWMjhqWWVKTXU2R1l5NF9IQTFPVWFDZE9ncnhZcHM5allacTh1dENFbnc5a3MwVHJaU3NSOWxMaW5FTzkwMGpEOHE4aTdYT0RPMnYxMWk3YXdaa1NDZUxIVjBTYXBHc2lZcndBRDBoeTRROXVVOENldjI5ck02NXBvV0pCWXBoRmZPekNPcGVLMDhhaWFsZGpZeDZoa080Y05mYTZ1RW10TjMwUDdfVm40cy1VRWM?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "China to resume October fuel exports after a brief halt, four trade sources say - Reuters",
+      "source": "Reuters",
+      "time": "2026-10-09 03:28 UTC",
+      "summary": "China to resume October fuel exports after a brief halt, four trade sources say\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxON1hqTEMxUXNhdTUya2dwTlA2VVktRm9QeWlYcDRJWkFiaGg4aXhpcTBFcnJETDJUZDZQRHdIdVBiVFl6UFdNU0VCdFlTRHhaaVk3akVSazBsN3QwOXBSUHFjckM4TWc4LUtIdzNyc2kyM0RjclFNOG1QYkplX3ljOHBFR1NibFRwUS1QMHAyd3ZhZjZTZGtoMmVjbGsyUWdaQ01FV21jSFFiM1FrQ0U4eHRYOTRUZlRTeTRlRFJVOFh4RVk?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "Oil falls as Trump comments on Iran talks ease supply concerns - Reuters",
+      "source": "Reuters",
+      "time": "2026-10-09 02:28 UTC",
+      "summary": "Oil falls as Trump comments on Iran talks ease supply concerns\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxONW0wejJNQmpGTE9heFBmZG8wTWE5a010VFNMSDBqcThNXzBFTjZkbWF3NnpxSWxoVkRJSEhMcDk4VDh5OVp3bzlZNzdiS0pNTnd6aGkwQVZsU0JiOU9wb0k1ckN1V2ZUVl9sTFRuZnVhLXFlaDUwZGIxT2VxNW1RZUwyNlJ3c2ZxRkdONll5RVdtTnlfcDllN0pnLWE4VU1FblRvbHdkTkIwbHNk?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "Gold hits one-week high on softer oil prices - Reuters",
+      "source": "Reuters",
+      "time": "2026-10-09 01:58 UTC",
+      "summary": "Gold hits one-week high on softer oil prices\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxQVl80MTVLVXR1WWd1MGxyNFRNN1VaNlJ2WFNIeGlrLS1HTGwzc1pZZ3FqaFZyOFBZcDk0VGRnMzVvSUtiSGFyR3c2Z29Fa25XZk1xX0JlWGpJZVlNaEJhWXhoenc3enFGZGZ3QnVUaGg1U2ZTNE9GZGxfTDIyb3hoMl9ycTNsOHpHeWdKRXk1VmdZZ1VITnhMR29NQ3JYUmV4TXJpemVRaw?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "Attacks on tankers in Hormuz hit highest of any week since start of Iran war, sources say - Reuters",
+      "source": "Reuters",
+      "time": "2026-10-08 23:44 UTC",
+      "summary": "Attacks on tankers in Hormuz hit highest of any week since start of Iran war, sources say\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxPMzlOYkh2NkF3OTFOQ0g5RFdjT0VSZXU4Y0U1cDREQnltUF9XM2VBVlk1bER5cTNTS00yaWctcDdnTjI3TG1jeWVxV3JIT2ctb1JVLVg4Nm13aENfNmlQSVQ2dHZLS2dabVYyYXQydWFEQ25SQVY1UkFORHd6djNHUHFkVEpwa3d6WkRiMy15SFRwV3l4anZiSXQ2YmR2bmxWZFhYTFE1YVNBRnc1ZG0tbHJDT1RacGJ6VmRhV3RnQ3g5UmZvdE5xZ3RB?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "Pepsi shares rallied despite cutting profit guidance. Where Cramer stands on the stock now",
+      "source": "CNBC",
+      "time": "2026-10-08 22:50 UTC",
+      "summary": "CNBC's Jim Cramer said improving sales growth and investments to revive demand are encouraging signs, though PepsiCo still faces significant challenges.",
+      "url": "https://www.cnbc.com/2026/10/08/pepsico-earnings-guidance-cramer.html",
+      "image": "https://image.cnbcfm.com/api/v1/image/108332292-1783536060412-gettyimages-2284663645-PEPSICO_EARNS.jpeg?v=1783536134&w=1920&h=1080",
+      "about": ""
+    },
+    {
+      "headline": "Moncan Energy Launches Alberta Acquisition and Development Strategy Focused on Producing Oil and Gas Assets",
+      "source": "GlobalNewswire",
+      "time": "2026-10-08 22:45 UTC",
+      "summary": "Calgary-based E&P startup builds technical advisory capability while evaluating producing asset acquisitions and selective development opportunities Calgary-based E&P startup builds technical advisory capability while evaluating producing asset acquisitions and selective development opportunities",
+      "url": "https://www.globenewswire.com/news-release/2026/10/08/3377769/0/en/moncan-energy-launches-alberta-acquisition-and-development-strategy-focused-on-producing-oil-and-gas-assets.html",
+      "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567047094/gnw_ngwqnq.png",
+      "about": ""
+    },
+    {
+      "headline": "Pioneer Acquisition I Corp Enters Into Business Combination Agreement with Green AI Cloud, a Clean Energy Super Compute AI Platform in Europe",
+      "source": "GlobalNewswire",
+      "time": "2026-10-08 20:52 UTC",
+      "summary": "Green AI Cloud, Inc. (the \u201cCompany\u201d), a clean energy super compute AI platform in Europe, is positioned where accelerating AI data center demand meets a scarcity of power-secured capacity.",
+      "url": "https://www.globenewswire.com/news-release/2026/10/08/3377715/0/en/pioneer-acquisition-i-corp-enters-into-business-combination-agreement-with-green-ai-cloud-a-clean-energy-super-compute-ai-platform-in-europe.html",
+      "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567047094/gnw_ngwqnq.png",
+      "about": ""
+    },
+    {
+      "headline": "Coca-Cola looking to sell Costa Coffee again - Semafor",
+      "source": "SeekingAlpha",
+      "time": "2026-10-08 20:19 UTC",
+      "summary": "",
+      "url": "https://seekingalpha.com/news/4651572-coca-cola-looking-to-sell-costa-coffee-again-semafor?utm_source=feed_news_m_a&utm_medium=referral&feed_item_type=news",
+      "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567050932/sa_jgen9y.png",
+      "about": ""
+    },
+    {
+      "headline": "Sienna Continues Platform Growth in Ontario",
+      "source": "GlobalNewswire",
+      "time": "2026-10-08 20:05 UTC",
+      "summary": "MARKHAM, Ontario, Oct.  08, 2026  (GLOBE NEWSWIRE) -- Sienna Senior Living Inc. (\"Sienna\" or the \"Company\") (TSX: SIA) announced today that it has entered into a purchase agreement to acquire Brighton Retirement & Active Living (\u201cBrighton\u201d), a 165-suite retirement residence in Brighton, Ontario, loc",
+      "url": "https://www.globenewswire.com/news-release/2026/10/08/3377682/0/en/sienna-continues-platform-growth-in-ontario.html",
+      "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567047094/gnw_ngwqnq.png",
+      "about": ""
+    },
+    {
+      "headline": "Trump says comment that Iran could 'take out' Los Angeles was misinterpreted - Reuters",
+      "source": "Reuters",
+      "time": "2026-10-08 19:56 UTC",
+      "summary": "Trump says comment that Iran could 'take out' Los Angeles was misinterpreted\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQMlo5Y2pEcmFzbDdDSTdjYUdlR2t5dmlvMG44Q19yX3BKWEtLZC1yaXBCRUlYN1JXUDRsRERWbDQtUkhQSUJFSU9yZjVaUGppS25KQWpiUWswUU41eUpqU2c1RF9ZSGhJN2NySWxVQXROQ3ZQNUNYOTc1RXFqcnpFaFVJNmM3VDVFYzhWbnJWRmtoSnBBRGVQOF9jdy1ad21SVU9OX1RHS3NmM2ZKWmpkak5rNWg2dnZxWFpN?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "UPDATE \u2013 Tevogen Signs Letter of Intent to Evaluate Potential Acquisition of HRK Healthcare LLC",
+      "source": "GlobalNewswire",
+      "time": "2026-10-08 19:50 UTC",
+      "summary": "WARREN, N.J., Oct.  08, 2026  (GLOBE NEWSWIRE) -- Tevogen Inc. (\u201cTevogen\u201d or the \u201cCompany\u201d) (Nasdaq: TVGN), an integrated healthcare enterprise combining biopharma, artificial intelligence, and healthcare services to improve the affordability and accessibility of life-saving medicines, today announc",
+      "url": "https://www.globenewswire.com/news-release/2026/10/08/3377657/0/en/update-tevogen-signs-letter-of-intent-to-evaluate-potential-acquisition-of-hrk-healthcare-llc.html",
+      "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567047094/gnw_ngwqnq.png",
+      "about": ""
+    },
+    {
+      "headline": "Treasury yields are 'really, really high,' but can come down soon, Bessent's new adviser says",
+      "source": "CNBC",
+      "time": "2026-10-08 19:38 UTC",
+      "summary": "The comments from David Zervos come after the 10-year and 30-year yields marched to 24-year highs in recent days.",
+      "url": "https://www.cnbc.com/2026/10/08/treasury-yields-david-zervos.html",
+      "image": "https://image.cnbcfm.com/api/v1/image/108193937-17569303332025-09-03t150149z_497087102_rc2ekgaqfpn3_rtrmadp_0_usa-stocks.jpeg?v=1756930358&w=1920&h=1080",
+      "about": ""
+    },
+    {
+      "headline": "New data shows Starbucks turnaround is working, but Chipotle takeover report slams shares",
+      "source": "CNBC",
+      "time": "2026-10-08 19:08 UTC",
+      "summary": "Every weekday, the Investing Club releases the Homestretch; an actionable afternoon update just in time for the last hour of trading.",
+      "url": "https://www.cnbc.com/investingclub/2026/10/08/new-data-shows-starbucks-turn-is-working-but-chipotle-takeover-report-slams-shares.html",
+      "image": "https://image.cnbcfm.com/api/v1/image/108259665-1769793014040-gettyimages-2258480012-NICCOL_INTERVIEW.jpeg?v=1769793046&w=1920&h=1080",
+      "about": ""
+    },
+    {
+      "headline": "We're buying the dip in a stock being punished for something it's actually insulated from",
+      "source": "CNBC",
+      "time": "2026-10-08 18:49 UTC",
+      "summary": "We waited and watched patiently.",
+      "url": "https://www.cnbc.com/investingclub/2026/10/08/were-buying-the-dip-in-a-stock-being-punished-for-something-its-actually-insulated-from.html",
+      "image": "https://image.cnbcfm.com/api/v1/image/108356338-1788181104655-gettyimages-667735328-_mg_5102.jpeg?v=1788181165&w=1920&h=1080",
+      "about": ""
+    },
+    {
+      "headline": "US imposes fresh sanctions on Iran's shadow fleet - Reuters",
+      "source": "Reuters",
+      "time": "2026-10-08 18:35 UTC",
+      "summary": "US imposes fresh sanctions on Iran's shadow fleet\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQUm45bHRGMFlmNEV2d2lTTkFvQURQckhMSGhYRlhxWUtOb1d2cGhCTnVXUEJaMF94S2xZNXFWMF9ONTVraWdWdnVOME04c2xyMk5tRnhHVjI3YVFmQTZIWVR6MXhDUUNram9tRjlsejRlRXVQUERDX3NkY2ZIVmlsOV9Ic0wxOVNPSmVCRmtVVExGcWZNY0tCTw?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "We're adding to our position in a hard-hit stock before important catalysts arrive",
+      "source": "CNBC",
+      "time": "2026-10-08 18:26 UTC",
+      "summary": "This is our second stock purchase on Thursday.",
+      "url": "https://www.cnbc.com/investingclub/2026/10/08/were-adding-to-our-position-in-a-hard-hit-stock-before-important-catalysts-arrive.html",
+      "image": "https://image.cnbcfm.com/api/v1/image/108345305-1785940332475-gettyimages-2289192391-mms15217_uigmz8mz.jpeg?v=1786046482&w=1920&h=1080",
+      "about": ""
+    },
+    {
+      "headline": "Moroccan defense firm MMI targets turret deliveries in March 2027 - Reuters",
+      "source": "Reuters",
+      "time": "2026-10-08 18:26 UTC",
+      "summary": "Moroccan defense firm MMI targets turret deliveries in March 2027\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxQOGtuWDhETzgwLUI4QlB0cnVKQWtuZjIybG1ROF9HVHVpRGR2S0Z6Q1dGeUFENnZDa0l3SzNGaUNpX05nOUNaQTV0NGUwMGdyQ01fSEw2ZzQ5eGhPWVZuOUpRTlVfSHM0WlluMDZRc0tBR2hDcXFIMVJCcUg4MnE2bDdORmxiV1ItVDBCNkN3UU5RZktvcTh0eVdadExMTUdIRDZ5dGg1U0t0Z3VBTXhMZzc4b3RKa3pqZElMNmJEM0pyQQ?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "Tevogen Signs Letter of Intent to Evaluate Potential Acquisition of HRK Healthcare LLC",
+      "source": "GlobalNewswire",
+      "time": "2026-10-08 18:10 UTC",
+      "summary": "WARREN, N.J., Oct.  08, 2026  (GLOBE NEWSWIRE) -- Tevogen Inc. (\u201cTevogen\u201d or the \u201cCompany\u201d) (Nasdaq: TVGN), an integrated healthcare enterprise combining biopharma, artificial intelligence, and healthcare services to improve the affordability and accessibility of life-saving medicines, today announc",
+      "url": "https://www.globenewswire.com/news-release/2026/10/08/3377628/0/en/tevogen-signs-letter-of-intent-to-evaluate-potential-acquisition-of-hrk-healthcare-llc.html",
+      "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567047094/gnw_ngwqnq.png",
+      "about": ""
+    },
+    {
+      "headline": "Video game hardware sales plunge to 13-year low as prices soar on memory, storage shortage",
+      "source": "Yahoo",
+      "time": "2026-10-09 15:55 UTC",
+      "summary": "Video game console sales have plunged 13% on memory, storage crisis",
+      "url": "https://finnhub.io/api/news?id=cf1eb9bcb0d18a36fd474c3553566714e1ddfc7fccc23d2a8e687f58bc889196",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "MSFT"
+    },
+    {
+      "headline": "1 Stat That Makes Shopify Hard to Ignore Right Now",
+      "source": "Yahoo",
+      "time": "2026-10-09 15:50 UTC",
+      "summary": "Shopify stock looks riskier after recent valuation gains, but it's posting strong earnings growth.",
+      "url": "https://finnhub.io/api/news?id=0c0d606e65292c2c0829adf437accca1234e910d28ba9fe604030475aab21e87",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "NVDA"
+    },
+    {
+      "headline": "A Nobel Economist Compared This Fund to the Invention of the Wheel. $100 a Month Could Top $544,000",
+      "source": "Yahoo",
+      "time": "2026-10-09 15:44 UTC",
+      "summary": "A Nobel Prize-winning economist once ranked a single investing product alongside the wheel and the printing press, and his reasoning reveals why the timing of your first dollar matters far more than its size.",
+      "url": "https://finnhub.io/api/news?id=7fb38ee23cd2f4c99203f17681f6b3615fae76325b732d2f9395ada34c96394f",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "AAPL"
+    },
+    {
+      "headline": "Prediction: A $5,000 Investment Split Between Nvidia and Broadcom Will Triple by 2028",
+      "source": "Yahoo",
+      "time": "2026-10-09 15:41 UTC",
+      "summary": "The two chipmakers should continue to cash in on the massive AI build-out.",
+      "url": "https://finnhub.io/api/news?id=45c2fbe4395851537653a55d21551b439672c7ee7ab184e471e86264697c0a8a",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "NVDA"
+    },
+    {
+      "headline": "Grenergy obtains $457m in financing for Chile solar and storage projects",
+      "source": "Yahoo",
+      "time": "2026-10-09 15:36 UTC",
+      "summary": "The debt was arranged and underwritten by BNP Paribas, with BBVA, JPMorgan, MUFG, Santander and the Bank of Nova Scotia participating.",
+      "url": "https://finnhub.io/api/news?id=b04584895f66633d2fd8aa63cd8c9284bb7c903830c20635d4efbaa85e25d2a2",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "JPM"
+    },
+    {
+      "headline": "2 Stocks Under $50 Worth Your Attention and 1 Facing Challenges",
+      "source": "Yahoo",
+      "time": "2026-10-09 15:31 UTC",
+      "summary": "Stocks trading between $10 and $50 can be particularly interesting as they frequently represent businesses that have survived their early challenges. However, investors should remain vigilant as some may still have unproven business models, leaving them vulnerable to the ebbs and flows of the broade",
+      "url": "https://finnhub.io/api/news?id=e6128bb3d718b3e97af9dae87951d7894780609365c085d170a1cf9bfe3f0da9",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "AAL"
+    },
+    {
+      "headline": "Starbucks Posts Terrible 5-Year Return",
+      "source": "Yahoo",
+      "time": "2026-10-09 15:21 UTC",
+      "summary": "Starbucks once seemed unstoppable, expanding from 16,000 stores to 38,000 in just six years, yet something quietly broke along the way. A new CEO, a reshaped menu, and a bold bet in China have done little to convince shareholders that the worst is over.",
+      "url": "https://finnhub.io/api/news?id=d8c2239695b8685adb796b2ea27afcad73a4f81d407fd0647fae93e0ace00e67",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "SBUX"
+    },
+    {
+      "headline": "\u201cUtterly Impossible\u201d: Musk\u2019s Delta Joke Drew 91,000 Likes. Then Delta Slashed Its Profit Forecast As Fuel Costs Jumped $6 Billion.",
+      "source": "Yahoo",
+      "time": "2026-10-09 15:14 UTC",
+      "summary": "Elon Musk mocked Delta's Wi-Fi to 91,000 cheering fans, but the airline's next earnings report quietly revealed a crisis that had nothing to do with the joke and everything to do with a war few investors saw coming.",
+      "url": "https://finnhub.io/api/news?id=9b0172bd07a65932c23d18368d45ed23592016d6bc1dd961cd6b7e651f2294d0",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "AMZN"
+    },
+    {
+      "headline": "Constellation Brands (STZ) Is Up 9.4% After Earnings Beat And SpikedAde Deal Announcement - What's Changed",
+      "source": "Yahoo",
+      "time": "2026-10-09 15:11 UTC",
+      "summary": "In early October 2026, Constellation Brands reported past second-quarter results showing higher sales of US$2,816.7 million, revenue of US$2,633 million, and net income of US$565.8 million versus the prior year, while affirming a quarterly dividend of US$1.03 per share. Alongside this earnings beat,",
+      "url": "https://finnhub.io/api/news?id=6ddab5f6709ec2fe2aacd223779ea3d20484d4c892fad4e8c867fe62de37b484",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "MSFT"
+    },
+    {
+      "headline": "The Fragmenting Gate: Who Controls Agentic Commerce Is Splitting Across Every Layer",
+      "source": "Yahoo",
+      "time": "2026-10-09 15:09 UTC",
+      "summary": "While 89% of merchants are actively preparing for agentic commerce, only 3% of transactions currently involve autonomous agents, according to the Checkout.com 2026 report. This gap between preparation and execution is not merely a technical hurdle; it is a structural collision. As the industry attem",
+      "url": "https://finnhub.io/api/news?id=ec2942647fbc53b3f31c43100f4de31c4de339e9858bc945f0afed05da1abc8f",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "AMZN"
+    },
+    {
+      "headline": "Google Could 'Eat OpenAI's Lunch,' Warns Cal Newport",
+      "source": "Yahoo",
+      "time": "2026-10-09 15:04 UTC",
+      "summary": "Alphabet Inc. (NASDAQ:GOOGL) could \u201ceat OpenAI\u2019s lunch\u201d by offering cheaper artificial intelligence through its existing products, potentially undermining the ChatGPT maker\u2019s business, according to Georgetown University computer science professor Cal Newport. Speaking on the Prof G Markets podcast F",
+      "url": "https://finnhub.io/api/news?id=92addf8cb512305e0268f31eb5f9153edc2f29f80fe948e563c94f85ff53e9d0",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "GOOGL"
+    },
+    {
+      "headline": "Why GE HealthCare (GEHC) Is Doubling Down on Pharmaceutical Diagnostics?",
+      "source": "Yahoo",
+      "time": "2026-10-09 15:01 UTC",
+      "summary": "Following its spinoff from General Electric, GE HealthCare Technologies Inc. (NASDAQ:GEHC) has evolved from an established hardware developer into an AI-led, high-margin medtech player. The company offers strong revenue visibility with its growing demand backlog, despite some macroeconomic headwinds",
+      "url": "https://finnhub.io/api/news?id=6aae940e17e9bcb606fb564372b920c111ae882ebf42a3223d7a03879eef0687",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "GEHC"
+    },
+    {
+      "headline": "Prediction: Alphabet Could\u00a0Be One of\u00a0the Market\u2019s Biggest\u00a0Winners Over the\u00a0Next 5 Years",
+      "source": "Yahoo",
+      "time": "2026-10-09 15:00 UTC",
+      "summary": "Alphabet just posted one of its best quarters ever, yet the stock sits nearly 15% below its May peak while Wall Street quietly raises its targets. Three specific catalysts could push shares to a level most investors haven't even started pricing in.",
+      "url": "https://finnhub.io/api/news?id=a16644128ee38ccd119f22f2c6610367dcba2f2095582d03ed93df72a3cd74ab",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "GOOGL"
+    },
+    {
+      "headline": "Robust AI Demand Reinforces NVIDIA\u2019s (NVDA) Market Leadership",
+      "source": "Yahoo",
+      "time": "2026-10-09 15:00 UTC",
+      "summary": "Mar Vista Investment Partners, LLC, an investment management company, released its third-quarter 2026 investor letter for \u201cMar Vista U.S. Quality Strategy\u201d. The letter can be downloaded here. During the third quarter of 2026, financial markets faced significant macroeconomic pressures, such as risin",
+      "url": "https://finnhub.io/api/news?id=cadb2569605cc3448b4402a0e080083e1cf48f30f2b4458cdb7c39efa88faf78",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "AAPL"
+    },
+    {
+      "headline": "Stock Market Today: Nasdaq Leads Dow After Surprise Economic Data; Nutanix Nears Buy Point (Live Coverage)",
+      "source": "Yahoo",
+      "time": "2026-10-09 14:59 UTC",
+      "summary": "The Dow Jones index rises Friday even as Apple stock sells off in morning trading. SpaceX jumps on a Starlink move.",
+      "url": "https://finnhub.io/api/news?id=246cdc00c5ccc9628ca996819479c5c02ba6d15d45149766cc9e2da7c46bed7e",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "DAL"
+    },
+    {
+      "headline": "Delta Slides on FY Outlook; Humana Surges on Quality Ratings | Stock Movers",
+      "source": "Yahoo",
+      "time": "2026-10-09 14:58 UTC",
+      "summary": "On this episode of Stock Movers: - Delta (DAL) shares are sliding after the company reduced its full-year earnings outlook due to high jet fuel prices stemming from the war in the Middle East. - Humana (HUM) is surging as the company improved its performance on crucial Medicare Advantage quality rat",
+      "url": "https://finnhub.io/api/news?id=7943a40a53d00db88dfcbab83cac62ba2c53e417ec30daf248aba4fa14449e6e",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "DAL"
+    },
+    {
+      "headline": "Snap Jumps 7% as Social Media Names Rally; Pinterest Climbs 3%, Meta Holds Flat",
+      "source": "Yahoo",
+      "time": "2026-10-09 14:58 UTC",
+      "summary": "Snap is surging while Meta barely moves, and the company carrying an augmented reality eyewear subsidiary into a broad social media rally has given investors nothing in the way of an explanation yet.",
+      "url": "https://finnhub.io/api/news?id=27c341ab1f771f9f7791bd9e3e4979b2c334fdf0c9ec3068a1f88135b0c9b640",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "META"
+    },
+    {
+      "headline": "Tesla Rises 3% as Europe Rebrand Drops Full Self-Driving Name; Rivian Eases, Lucid Ticks Up",
+      "source": "Yahoo",
+      "time": "2026-10-09 14:55 UTC",
+      "summary": "Tesla is pulling away from its U.S. rivals after quietly swapping out a driver-assistance name that regulators across Europe have been fighting for years, and the move carries higher stakes than a simple rebrand suggests.",
+      "url": "https://finnhub.io/api/news?id=4f3fdaf1aef71c14c17c968b989f101123c1be5919a6314bea1e83c82552c98e",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "TSLA"
+    },
+    {
+      "headline": "AM Best Affirms Credit Ratings of Triple Crown Assurance Co.",
+      "source": "Yahoo",
+      "time": "2026-10-09 14:55 UTC",
+      "summary": "OLDWICK, N.J., October 09, 2026--AM Best has affirmed the Financial Strength Rating of A- (Excellent) and the Long-Term Issuer Credit Rating of \"a-\" (Excellent) of Triple Crown Assurance Co. (TCA) (Dallas, TX). The outlook of these Credit Ratings (ratings) is stable.",
+      "url": "https://finnhub.io/api/news?id=c55cc1b83fa4ec675759c76339bfdfd72531c143d585f565d678ef345835c52a",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "LUV"
+    },
+    {
+      "headline": "PPG Invests $70 Million to Expand Aerospace Operations in Huntsville",
+      "source": "Yahoo",
+      "time": "2026-10-09 14:52 UTC",
+      "summary": "PPG's $70 million investment in Huntsville aims to boost aerospace transparencies production capacity, improve efficiency and meet rising aircraft window demand.",
+      "url": "https://finnhub.io/api/news?id=3bc1a699800b633752486cc9ffdbc94ee3e6e647eabfd90132844c84300fe5e0",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "AXTA"
+    },
+    {
+      "headline": "My Position on Tesla Will Not Change Until Two Things Happen",
+      "source": "Yahoo",
+      "time": "2026-10-09 14:45 UTC",
+      "summary": "Tesla is spending at a pace it has never attempted before, and earnings are falling while the bills pile up. Two specific conditions have to be met before this stock becomes a conviction buy, and right now neither one has arrived.",
+      "url": "https://finnhub.io/api/news?id=e700cef27e74c6d848acc733ea9f7e9fe1413d58903f00f63cbb06fbbd69f0e3",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "TSLA"
+    },
+    {
+      "headline": "1 Unpopular Stock That Should Get More Attention and 2 We Question",
+      "source": "Yahoo",
+      "time": "2026-10-09 14:43 UTC",
+      "summary": "Wall Street has issued downbeat forecasts for the stocks in this article. These predictions are rare - financial institutions typically hesitate to say bad things about a company because it can jeopardize their other revenue-generating business lines like M&A advisory.",
+      "url": "https://finnhub.io/api/news?id=afb714810a4b20dce2bc7b4dccff35f41c8c1996a8e92c9d5945e0e101484362",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "CRWD"
+    },
+    {
+      "headline": "GE Aerospace Down 15% in 3 Months: Is This a Buying Opportunity?",
+      "source": "Yahoo",
+      "time": "2026-10-09 14:36 UTC",
+      "summary": "GE shares have fallen 15% in three months, but robust engine demand, rising earnings estimates and strong cash flow forecasts signal a buying opportunity.",
+      "url": "https://finnhub.io/api/news?id=973bf63162672681d9a84d3c428aa78eb1c3d4ec362d00b1452accb42c7fb838",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "RTX"
+    },
+    {
+      "headline": "Big Banks\u2019 Earnings Will Have to Convince \u2018Glass Half Empty\u2019 Investors",
+      "source": "Yahoo",
+      "time": "2026-10-09 14:33 UTC",
+      "summary": "Analysts expect firmwide revenue and per-share earnings to rise from a year ago, but investors worry about rising interest rates and other risks.",
+      "url": "https://finnhub.io/api/news?id=a0d2fb67d507111e46b75ea3268f185aa97713ed42e4b6174fd8762d126f7106",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "JPM"
+    },
+    {
+      "headline": "Crescent Energy's Devon Deal Strengthens Its Eagle Ford Dominance",
+      "source": "Yahoo",
+      "time": "2026-10-09 14:31 UTC",
+      "summary": "CRGY's $3.85 billion Devon deal adds 68,000 boe/d, targets $140 million in annual synergies and expands its Eagle Ford footprint.",
+      "url": "https://finnhub.io/api/news?id=ddc11ce3018ba1c43214ac4c78d8b2eced212a41d24ca08296a5cbc138ea6b01",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "DVN"
+    },
+    {
+      "headline": "BC-Most Active Stocks",
+      "source": "Yahoo",
+      "time": "2026-10-09 14:30 UTC",
+      "summary": "NEW YORK (AP) \u2014 prices for the Nasdaq composite, NYSE and NYSE American listed most active stocks. Nasdaq most active stocks:Stock Name Volume High Low Last Change  OFA Group 215,655,050 0.",
+      "url": "https://finnhub.io/api/news?id=ae3a7318a2611b63c2408fe05f0cf4398453e66b71a47c29b0a3f12b36270a58",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "AAL"
+    },
+    {
+      "headline": "RTX Keeps Winning Contracts, but Jim Cramer Sees a Complication",
+      "source": "Yahoo",
+      "time": "2026-10-09 14:29 UTC",
+      "summary": "During the October 5 episode of Mad Money, a caller asked why RTX Corporation (NYSE:RTX) had weakened. Jim Cramer first addressed concerns about defense spending, as he said: Okay, so people feel that, for some reason, of which I disagree, that the defense budget has peaked and we\u2019re not going to pu",
+      "url": "https://finnhub.io/api/news?id=e563cda7c0b6d4eec27f636c10471ee9be80cdec9bcb228229f30ad917c09a37",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "RTX"
+    },
+    {
+      "headline": "Brian Niccol may be able to make a Starbucks-Chipotle merger work",
+      "source": "Yahoo",
+      "time": "2026-10-09 14:24 UTC",
+      "summary": "Starbucks (SBUX) reportedly explored a takeover of Chipotle Mexican Grill (CMG), according to the Financial Times. Yahoo Finance Executive Editor Brian Sozzi is joined by  Citi restaurant analyst Jon Tower to discuss whether Starbucks CEO Brian Niccol \u2014 formerly the chief executive of Chipotle too \u2014",
+      "url": "https://finnhub.io/api/news?id=e660398371aa1f0e05d570901484b23a9cde489e9a90ba050c48d2d774643bb4",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "SBUX"
+    },
+    {
+      "headline": "Option Care Health (OPCH) Faces Legal Review Of Its Proposed Takeover",
+      "source": "Yahoo",
+      "time": "2026-10-09 14:16 UTC",
+      "summary": "Option Care Health (NasdaqGS:OPCH) faces shareholder investigations into its proposed sale to Clayton, Dubilier & Rice and McKesson Corporation. Several securities law firms announced probes into whether OPCH's board secured a fair price and process for investors. The legal reviews of the Clayton, D",
+      "url": "https://finnhub.io/api/news?id=9498b5cb98287f1f74d6cf582c78552f57037c256cff903ea892d9090ca6cee7",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "MCK"
+    },
+    {
+      "headline": "Nvidia Stock Recovers but IPO Fears Feed AI Concerns",
+      "source": "Yahoo",
+      "time": "2026-10-09 14:14 UTC",
+      "summary": "The chip maker's shares were steadying Friday as the market digests news about the initial public offerings of OpenAI and Firmus.",
+      "url": "https://finnhub.io/api/news?id=41732195aeedbc19e44f583794d9dfc166a2877e5e41c913b59c183532763ab8",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "META"
+    }
+  ]
+}
