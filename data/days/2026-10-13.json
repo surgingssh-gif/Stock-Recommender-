@@ -1,0 +1,1004 @@
+{
+  "date": "2026-10-13",
+  "picked_at": "2026-10-13T17:33:03Z",
+  "market_mood": "Middle East escalation (Saudi strikes in Yemen, Houthi missiles on Riyadh, Iran fortifying nuclear sites) is keeping oil and defense bid, while a chip-stock rout drags tech lower; bank earnings were solid and M&A news is everywhere.",
+  "self_check": "My oil/energy (76%) and M&A (75%) calls have been by far my best, while AI & tech calls have been poor (40%), so today I lean into refiners and deal situations and avoid chasing semis.",
+  "picks": [
+    {
+      "ticker": "PSX",
+      "company": "Phillips 66",
+      "direction": "bullish",
+      "confidence": "high",
+      "reason": "Refiners are ripping (PBF, PARR, CVI all up 6%+) as Middle East attacks and a heavy-oil freight squeeze widen crack spreads; Phillips 66 is a large-cap refiner that hasn't moved as much as the small ones.",
+      "sources": [
+        49,
+        2,
+        21,
+        41
+      ],
+      "theme": "Oil & energy",
+      "target_pct": 8,
+      "stop_pct": 5,
+      "target_price": 312.57,
+      "stop_price": 274.95
+    },
+    {
+      "ticker": "KVUE",
+      "company": "Kenvue",
+      "direction": "bullish",
+      "confidence": "medium",
+      "reason": "Kimberly-Clark won EU conditional approval for its $40B purchase of Kenvue, removing a major hurdle and narrowing the deal-completion risk discount.",
+      "sources": [
+        3,
+        6
+      ],
+      "theme": "Mergers & deals",
+      "target_pct": 7,
+      "stop_pct": 4,
+      "target_price": 18.95,
+      "stop_price": 17.0
+    },
+    {
+      "ticker": "LHX",
+      "company": "L3Harris",
+      "direction": "bullish",
+      "confidence": "medium",
+      "reason": "Houthi ballistic missiles hitting Riyadh and Iran fortifying nuclear sites keep missile-defense and counter-drone demand rising; L3Harris just delivered its first VAMPIRE counter-drone systems to the US Army.",
+      "sources": [
+        61,
+        51,
+        22,
+        2
+      ],
+      "theme": "Geopolitics",
+      "target_pct": 7,
+      "stop_pct": 4,
+      "target_price": 252.15,
+      "stop_price": 226.22
+    },
+    {
+      "ticker": "BMBL",
+      "company": "Bumble",
+      "direction": "bullish",
+      "confidence": "low",
+      "reason": "Bumble agreed to go private with Ithaca in a $1.3B deal; if shares still trade below the offer, the spread can close as the deal progresses.",
+      "sources": [
+        17
+      ],
+      "theme": "Mergers & deals",
+      "target_pct": 6,
+      "stop_pct": 5,
+      "target_price": 6.29,
+      "stop_price": 5.63
+    },
+    {
+      "ticker": "A",
+      "company": "Agilent Technologies",
+      "direction": "bullish",
+      "confidence": "low",
+      "reason": "Agilent is buying digital-pathology firm Proscia for $240M in cash, a small bolt-on that adds AI-driven lab software to a beaten-down life-science tools name.",
+      "sources": [
+        20
+      ],
+      "theme": "Mergers & deals",
+      "target_pct": 6,
+      "stop_pct": 4,
+      "target_price": 182.28,
+      "stop_price": 165.08
+    },
+    {
+      "ticker": "V",
+      "company": "Visa",
+      "direction": "bullish",
+      "confidence": "medium",
+      "reason": "Visa got approval to prepare for domestic card business in China, a long-awaited opening of a huge market that the market tends to underappreciate at first.",
+      "sources": [
+        32
+      ],
+      "theme": "Regulation & legal",
+      "target_pct": 6,
+      "stop_pct": 4,
+      "target_price": 416.82,
+      "stop_price": 377.5
+    },
+    {
+      "ticker": "SYM",
+      "company": "Symbotic",
+      "direction": "bullish",
+      "confidence": "low",
+      "reason": "European expansion via the cellumation acquisition broadens Symbotic's warehouse-automation reach.",
+      "sources": [
+        24
+      ],
+      "theme": "Mergers & deals",
+      "target_pct": 10,
+      "stop_pct": 8,
+      "target_price": 44.1,
+      "stop_price": 36.88
+    }
+  ],
+  "watchlist_notes": [
+    {
+      "ticker": "SPY",
+      "note": "Flat market: strong banks and energy offset a sharp semiconductor selloff."
+    },
+    {
+      "ticker": "QQQ",
+      "note": "Under pressure as Micron, SanDisk and Applied Materials sell off hard on memory/China worries."
+    },
+    {
+      "ticker": "DIA",
+      "note": "Holding up better than the Nasdaq thanks to JPMorgan, Goldman and UnitedHealth's raised outlook."
+    },
+    {
+      "ticker": "AAPL",
+      "note": "No major company news today; moving with the broad Dow tape."
+    },
+    {
+      "ticker": "MSFT",
+      "note": "Its in-house Maia AI chips and a Barclays thumbs-up are in focus ahead of Oct. 28 earnings."
+    },
+    {
+      "ticker": "NVDA",
+      "note": "Caught in the memory-chip rout, and Microsoft's Maia push plus Amazon's $7B chip-software deal nibble at its moat."
+    },
+    {
+      "ticker": "AMZN",
+      "note": "Reportedly paying ~$7B for an AI startup that speeds up workloads on Nvidia and its own chips."
+    },
+    {
+      "ticker": "GOOGL",
+      "note": "Paid a record $250K Chrome bug bounty to an AI security firm; no material business news."
+    },
+    {
+      "ticker": "META",
+      "note": "Rallying again as Wall Street praises the Muse Wonder frontier model; Truist lifted its target to $1,000."
+    },
+    {
+      "ticker": "TSLA",
+      "note": "No major news today beyond commentary on Semi truck fleets and a rival humanoid robot IPO."
+    },
+    {
+      "ticker": "JPM",
+      "note": "Beat on earnings with dealmaking rebounding; also trimming exposure on a $5B AI startup loan."
+    },
+    {
+      "ticker": "XOM",
+      "note": "Benefits from crude above $90 on Middle East supply fears, with low-cost Permian and Guyana barrels."
+    },
+    {
+      "ticker": "GLD",
+      "note": "Iran war risk and hybrid attacks in Europe keep a bid under gold, but no fresh catalyst today."
+    },
+    {
+      "ticker": "TLT",
+      "note": "Rate-hike talk abroad and oil-driven inflation worries are mild headwinds for long bonds."
+    }
+  ],
+  "top_buys": [
+    {
+      "ticker": "PSX",
+      "company": "Phillips 66",
+      "direction": "bullish",
+      "confidence": "high",
+      "pitch": "Large-cap refiner leverage to widening crack spreads from a heavy-oil freight squeeze and Middle East supply fear.",
+      "why": "Small refiners like PBF, PARR and CVI jumped 6-14% as Americas heavy crude gluts while Asia and Europe scramble for barrels \u2014 that spread is exactly what refining margins feed on. Phillips 66 has big refining plus midstream and marketing, and large caps usually follow the small-cap move with a lag. Energy was the best sector last week (+4.9%), so the tide is with the trade.",
+      "risks": "A US-Russia diesel deal flooding product markets, or a fast Middle East de-escalation, would compress cracks quickly.",
+      "watch": "Weekly EIA product inventories and any concrete news on the US-Russia diesel arrangement.",
+      "sources": [
+        49,
+        2,
+        21,
+        41
+      ],
+      "theme": "Oil & energy",
+      "target_pct": 8,
+      "stop_pct": 5
+    },
+    {
+      "ticker": "KVUE",
+      "company": "Kenvue",
+      "direction": "bullish",
+      "confidence": "medium",
+      "pitch": "EU conditional clearance removes the biggest hurdle to Kimberly-Clark's $40B takeover.",
+      "why": "Antitrust approval in Europe is a major de-risking step for a cross-border consumer deal of this size, and merger spreads typically narrow steadily rather than all at once. Consumer staples was the second-strongest sector last week, so the tape supports it. My M&A calls have been my most reliable category.",
+      "risks": "Remaining regulatory jurisdictions could impose conditions, and a deal re-cut or walk-away would hit the shares hard.",
+      "watch": "Shareholder vote timing and remaining regulatory approvals.",
+      "sources": [
+        3,
+        6
+      ],
+      "theme": "Mergers & deals",
+      "target_pct": 7,
+      "stop_pct": 4
+    },
+    {
+      "ticker": "LHX",
+      "company": "L3Harris",
+      "direction": "bullish",
+      "confidence": "medium",
+      "pitch": "Counter-drone and missile-defense demand grows with every Houthi missile fired at Riyadh.",
+      "why": "Saudi Arabia is striking Yemen while Houthis keep launching ballistic missiles at Riyadh airports, and Iran is reportedly fortifying nuclear sites ahead of possible US strikes. L3Harris just delivered its first VAMPIRE counter-drone systems to the US Army, directly in the product category this conflict is consuming. Defense budgets respond to sustained conflict with multi-quarter order flow, which the market often underprices day to day.",
+      "risks": "A ceasefire or peace deal would deflate defense sentiment, and industrials were the second-weakest sector last week.",
+      "watch": "New counter-UAS and interceptor contract awards and L3Harris's next quarterly report.",
+      "sources": [
+        61,
+        51,
+        22,
+        2,
+        42
+      ],
+      "theme": "Geopolitics",
+      "target_pct": 7,
+      "stop_pct": 4
+    },
+    {
+      "ticker": "V",
+      "company": "Visa",
+      "direction": "bullish",
+      "confidence": "medium",
+      "pitch": "Approval to prepare for domestic business in China opens the world's biggest payments market.",
+      "why": "After years of blocked access, Visa getting the green light to prepare domestic operations in China is a structural long-term positive. These regulatory milestones tend to be under-reacted to on day one because revenue is years away, but they lift the long-run growth story. Financials have been one of the stronger sectors recently.",
+      "risks": "Implementation could take years, local competition is entrenched, and US-China tensions could reverse the approval.",
+      "watch": "Any formal licensing timeline from Chinese regulators and Visa's next earnings commentary on China.",
+      "sources": [
+        32
+      ],
+      "theme": "Regulation & legal",
+      "target_pct": 6,
+      "stop_pct": 4
+    },
+    {
+      "ticker": "SYM",
+      "company": "Symbotic",
+      "direction": "bullish",
+      "confidence": "low",
+      "pitch": "European expansion via the cellumation acquisition broadens Symbotic's warehouse-automation reach.",
+      "why": "Symbotic is buying German materials-handling firm cellumation, giving it a European foothold beyond its US-heavy, Walmart-concentrated base. Diversifying customers and geography addresses the main bear argument on the stock. Automation demand remains a funded capex priority even as chip stocks wobble.",
+      "risks": "High-multiple, volatile stock with customer concentration; integration of a European acquisition can be slow and dilutive.",
+      "watch": "Next quarterly backlog update and any new non-Walmart customer announcements.",
+      "sources": [
+        24
+      ],
+      "theme": "Mergers & deals",
+      "target_pct": 10,
+      "stop_pct": 8
+    }
+  ],
+  "summary": {
+    "big_story": "Middle East escalation keeps crude and defense bid while a memory-chip rout drags tech down and bank earnings come in solid.",
+    "top_pick": "Phillips 66 \u2014 refiners are the cleanest beneficiary of the heavy-oil freight squeeze and wider crack spreads, and large caps have lagged the small-cap refiner surge.",
+    "watch": "Crude's reaction to further Houthi strikes on Saudi airports and whether the US-Russia diesel deal actually materializes."
+  },
+  "headlines": [
+    {
+      "headline": "Jasco Acquires Zooz to Accelerate Growth of Smart Home Division",
+      "source": "BusinessWire",
+      "time": "2026-10-13 16:52 UTC",
+      "summary": "OKLAHOMA CITY--(BUSINESS WIRE)--Jasco, a leader in consumer electronics, connected home solutions, and lighting products, today announced the acquisition of Zooz, a highly respected innovator in the smart home industry known for its expertise in Z-Wave products and strong reputation among enthusiast",
+      "url": "http://www.businesswire.com/news/home/20261013262271/en/Jasco-Acquires-Zooz-to-Accelerate-Growth-of-Smart-Home-Division/?feedref=JjAwJuNHiystnCoBq_hl-Rc4vIAVcHHkbDcwJimU8QtrtlakeQ9hNboBqTAWIjTge3KWq9s9jif-UkBjBsFRyYAbRTSLTc1mgvhPlnaBA55M-oupQnbXnhKsYk8RmHF_kAy2gZikaX3QWV6xOvgFlA==",
+      "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567047386/bw_flnhy4.jpg",
+      "about": ""
+    },
+    {
+      "headline": "Saudi Arabia strikes Yemen capital as Houthis vow to retaliate - Reuters",
+      "source": "Reuters",
+      "time": "2026-10-13 16:17 UTC",
+      "summary": "Saudi Arabia strikes Yemen capital as Houthis vow to retaliate\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxPUHZtMnk3dUVFWmVkT2FmZVRqNWNrUUc5YkNkWVJMOEhWMmo1dnc2S3FlUlExbjFscTdlY3NQcExPejdxUlF1clZ5S1BKQ1JLdjhzaFdXT2l1YVBmN2VVSkFOSlJNNmlTR2w5d082MDR2b3RkY1VrTTlwWFhuclBteVRaTmtMRUczY0VPaWxBeVV1RE9vUE9kRFZaUlZEX0NnOXZqVnNtNlJIcFU3cnE2VVFTNzhfNVZ0TzZiQWFtSUJCdXJXYU5rU0JB?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "Kimberly-Clark wins EU conditional approval for $40B purchase of Kenvue",
+      "source": "SeekingAlpha",
+      "time": "2026-10-13 16:07 UTC",
+      "summary": "",
+      "url": "https://seekingalpha.com/news/4652561-kimberly-clark-wins-eu-conditional-approve-for-40b-purchase-of-kenvue?utm_source=feed_news_m_a&utm_medium=referral&feed_item_type=news",
+      "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567050932/sa_jgen9y.png",
+      "about": ""
+    },
+    {
+      "headline": "Jim Cramer bucks all the stock market negativity with 3 buy recommendations",
+      "source": "CNBC",
+      "time": "2026-10-13 16:07 UTC",
+      "summary": "The Investing Club holds its \"Morning Meeting\" every weekday at 10:20 a.m. ET.",
+      "url": "https://www.cnbc.com/investingclub/2026/10/13/jim-cramer-bucks-all-the-stock-market-negativity-with-3-buy-recommendations.html",
+      "image": "https://image.cnbcfm.com/api/v1/image/107200472-1677528554272-NUP_200782_00307.jpg?v=1785428018&w=1920&h=1080",
+      "about": ""
+    },
+    {
+      "headline": "Trump says Yemen's Houthis are 'behaving very badly' - Reuters",
+      "source": "Reuters",
+      "time": "2026-10-13 15:53 UTC",
+      "summary": "Trump says Yemen's Houthis are 'behaving very badly'\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPUjJueXpwNnRLbk1Db0NkZzBZS0tqUGF4NHU3ZWYxcWRHdVU0WW9uYVZJeUlpUVR2amR3Q0dyd1ZwYTFwZjRkUXU2VWRmX2otWUh5dHBmTW1Tak1iczg5a3pzR21oZTk3S3lzN0NfWmZ4TWRFalFNLVBsdU5vVTFkSDQ4TnNGVDZOcnVTS2FWTzBTbW1pN0ZoamZrRG5fQlc2QXpZWjV3?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "We're adding to a consumer staples stock in advance of a big catalyst",
+      "source": "CNBC",
+      "time": "2026-10-13 15:40 UTC",
+      "summary": "We see this company's pending merger as a potential for cost savings, incremental revenue synergies, and increased scale.",
+      "url": "https://www.cnbc.com/investingclub/2026/10/13/were-adding-to-a-consumer-staples-stock-in-advance-of-a-big-catalyst.html",
+      "image": "https://image.cnbcfm.com/api/v1/image/108220762-1762198495342-gettyimages-2244833483-l1066929_qhb4dq4e.jpeg?v=1771535830&w=1920&h=1080",
+      "about": ""
+    },
+    {
+      "headline": "Wells Fargo beats profit estimates, but net interest income, revenue fall short - Reuters",
+      "source": "Reuters",
+      "time": "2026-10-13 15:39 UTC",
+      "summary": "Wells Fargo beats profit estimates, but net interest income, revenue fall short\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPZ3h0SU11NWFMTHJPeWw2ZGlmZlJ5RzNzRm9FZWZ3MURpVmtwajFQV2RnRDkxeVJVXzZGcEduYzF1RFdtT0RKYkRub1pfazFCbUNiWHllejh6V3Y2TVZnU1gzNV9qSkExVGhoWk1WampqaHduYjVoNGRVQ2NBb3lueThEZExQaTlQb1J0SmpLdUg5akhSY1NXNFNjY1d5dmx3SEhscjd4MFFyTFZtR0FtNkRB?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "Iran and Russia are stepping up hybrid campaigns in Britain, UK spy chief says - Reuters",
+      "source": "Reuters",
+      "time": "2026-10-13 15:26 UTC",
+      "summary": "Iran and Russia are stepping up hybrid campaigns in Britain, UK spy chief says\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxOel94VDNzeEx1LXhzdm9vX0xSSUhyQUswNTAwUWhsVklGcEtQRm1KYlpUWXhKOUo5cE1tdTJXQV85eVZic05iV3gyVXNIZTJwV2xCRmo0QkFtMDFXMWNWR3lhaS05dHN2UVNtREJodXZLMllfOTBYdUpHelFKS1JQbUVxUFU4NzhTTUswVVlvX21QcXByY0F4akJ1ZGNtSDZ0aExrZHBYVlR4aGlCYTJz?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "Citi profit tops estimates on higher investment banking, services and wealth revenue - Reuters",
+      "source": "Reuters",
+      "time": "2026-10-13 14:55 UTC",
+      "summary": "Citi profit tops estimates on higher investment banking, services and wealth revenue\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxOaEV6WWM3S2pfSzdheVNtbFZLdnBvTk1jQWl3Z0xGQ1R6RHByTUxVVl91U01wYTFUMWVQNGl5WmZzenJIRHhJMVczUWxGOGREVF9zV2wtX2w1a0tIM3RMZ2M1T3VBRFd1YmpPLUtqM2lmc3YzTVhKdW1QeGt0WkVLTjk4UXJMMlhQSVVnd1NnQm5PRklkZngwemJfRTdxa0JFU2syRkJfZ3hnbXoxcVlXcmhIeWg3ZjltTU41eUZCSkYxU3gxSjZF?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "France seizes another 'shadow fleet' tanker; Russia decries 'piracy' - Reuters",
+      "source": "Reuters",
+      "time": "2026-10-13 14:41 UTC",
+      "summary": "France seizes another 'shadow fleet' tanker; Russia decries 'piracy'\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPX3FfbUhFOUJOOFY4ZFlHYnc4YnJqYWRUUHdsTWp6aXVLekZBczUwTFlMazdRR3NtajhFMUUtclJqLWUtbTNmSnlOcmJBdTF0Z2tWRGFvbWljbTJfQnhwcWROeHh4NFIzMHhuUHFNaGZ6MEpHX3B3dFJHTWVFMU1qdmNMNDJUdFpVN3FnbUZPUmRxUEhPUG5Gcm5EYnJnVXdwSmxvQ1Y4TFc?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "White House says US ambassador to Greece Guilfoyle asked to resign - Reuters",
+      "source": "Reuters",
+      "time": "2026-10-13 14:33 UTC",
+      "summary": "White House says US ambassador to Greece Guilfoyle asked to resign\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPeHIwM3RrTXplaUsyc3ZvbUhRaEVvbGNlbzFaeDdiY0tCRkpvRTQ1SlNiRU1fTXFFanljSU91NWZYVldNc19pOHNUMmR6dXZFSmRlLTBkdTctbUxZaVgyR21BT0syQVhsUjhpVTNDaUZWaUxxNHlRdkZCMHdNM2w3SUlFQ2VYVUVSdm5mZDU3QW9xSy1OMU9kTVJlSm9kS2d2R0k5blY4Ym9wTkZacTZEN1VB?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "More homebuyers are taking a chance on adjustable-rate mortgages, hoping rates will fall\u2014here\u2019s how to think about that bet",
+      "source": "CNBC",
+      "time": "2026-10-13 14:00 UTC",
+      "summary": "More homebuyers are betting on adjustable-rate mortgages for a lower rate today. Here\u2019s how to decide if one makes sense for you.",
+      "url": "https://www.cnbc.com/make-it/2026/10/13/adjustable-rate-mortgage-arm-risks.html",
+      "image": "https://image.cnbcfm.com/api/v1/image/108394823-1791749516867-gettyimages-2203815134-jsrf03375.jpeg?v=1791749651&w=1920&h=1080",
+      "about": ""
+    },
+    {
+      "headline": "Saudi leads jump in OPEC+ oil output in September, despite Iran war disruption - Reuters",
+      "source": "Reuters",
+      "time": "2026-10-13 13:58 UTC",
+      "summary": "Saudi leads jump in OPEC+ oil output in September, despite Iran war disruption\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNWWdiOFh3ZXNEdWNtbEZLVlFDZ2dJQTZaanZ3dUtaNVgycEpwX0tDZWVYVF9PQlpRX085YWNwTkdtZVNmY0R2S0hHcllmRVlxcnAyYm9fTEZQa3YtYlljLXd6ZlROZ3VOTFktSmZnNFFkdGkxUkwyRmJ0R1JiQ0FtLXUzZTdSZGY1dlJCUndmd2FjQkxrT2dWRGFvMmcteFU0VVNQMEdxQVN4eVE5QjdBYg?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "Paul Tudor Jones says 2027 could be a really challenging year for the stock market",
+      "source": "CNBC",
+      "time": "2026-10-13 13:06 UTC",
+      "summary": "The billionaire investor said that corporate buybacks, along with mergers and acquisitions, that have been a tailwind for the bull market is about to turn.",
+      "url": "https://www.cnbc.com/2026/10/13/paul-tudor-jones-2027-really-challenging-year.html",
+      "image": "https://image.cnbcfm.com/api/v1/image/108403154-1791896901451-108403154-1791896082565-tudor4.jpg?v=1791896910&w=1920&h=1080",
+      "about": ""
+    },
+    {
+      "headline": "Workday to acquire C1.ai",
+      "source": "SeekingAlpha",
+      "time": "2026-10-13 13:05 UTC",
+      "summary": "",
+      "url": "https://seekingalpha.com/news/4652447-workday-to-acquire-c1ai?utm_source=feed_news_m_a&utm_medium=referral&feed_item_type=news",
+      "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567050932/sa_jgen9y.png",
+      "about": ""
+    },
+    {
+      "headline": "Jim Cramer's top 10 things to watch in the stock market Tuesday",
+      "source": "CNBC",
+      "time": "2026-10-13 12:54 UTC",
+      "summary": "The chip stock rout seems to know no end. But earnings from Club names Goldman Sachs and Wells Fargo are all better than expected.",
+      "url": "https://www.cnbc.com/investingclub/2026/10/13/jim-cramers-top-10-things-to-watch-in-the-stock-market-tuesday.html",
+      "image": "https://image.cnbcfm.com/api/v1/image/108374187-1791390346956-gettyimages-2285488658-US_STOCKS.jpeg?v=1791390389&w=1920&h=1080",
+      "about": ""
+    },
+    {
+      "headline": "Bumble to go private in $1.3B deal with Ithaca",
+      "source": "SeekingAlpha",
+      "time": "2026-10-13 12:52 UTC",
+      "summary": "",
+      "url": "https://seekingalpha.com/news/4652426-bumble-to-go-private-in-13b-deal-with-ithaca?utm_source=feed_news_m_a&utm_medium=referral&feed_item_type=news",
+      "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567050932/sa_jgen9y.png",
+      "about": ""
+    },
+    {
+      "headline": "Diginex Shareholders approve Resulticks acquisition with 98.8% support",
+      "source": "SeekingAlpha",
+      "time": "2026-10-13 12:33 UTC",
+      "summary": "",
+      "url": "https://seekingalpha.com/news/4652428-diginex-shareholders-approve-resulticks-acquisition-with-98_8-percent-support?utm_source=feed_news_m_a&utm_medium=referral&feed_item_type=news",
+      "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567050932/sa_jgen9y.png",
+      "about": ""
+    },
+    {
+      "headline": "Horizon Space Acquisition and ArcheNova Biotech announce merger",
+      "source": "SeekingAlpha",
+      "time": "2026-10-13 12:16 UTC",
+      "summary": "",
+      "url": "https://seekingalpha.com/news/4652402-horizon-space-acquisition-and-archenova-biotech-announce-merger?utm_source=feed_news_m_a&utm_medium=referral&feed_item_type=news",
+      "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567050932/sa_jgen9y.png",
+      "about": ""
+    },
+    {
+      "headline": "Agilent to acquire Proscia for $240M in cash",
+      "source": "SeekingAlpha",
+      "time": "2026-10-13 12:14 UTC",
+      "summary": "",
+      "url": "https://seekingalpha.com/news/4652418-agilent-to-acquire-proscia-for-240m-in-cash?utm_source=feed_news_m_a&utm_medium=referral&feed_item_type=news",
+      "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567050932/sa_jgen9y.png",
+      "about": ""
+    },
+    {
+      "headline": "Occidental oil prices jump as supply concerns lift crude - Reuters",
+      "source": "Reuters",
+      "time": "2026-10-13 12:01 UTC",
+      "summary": "Occidental oil prices jump as supply concerns lift crude\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxNcWhnUmlGS0Y5eEs2Vm13V3cxZFZSWmUzMjZ6OEdCdzhoN294ZEl2Wk1YeVNLb2VhWThLZXlnbHpNMmxwak8zVXBxdDM1N3ZLeFRxUHBOclVEdXBHZUVWTXJrYUs3ZGZHdEo0eUpDVHh3SlJRQjVXVFdNNE5iMnJtLTRhTTJnT0l5Z2FPckNfcFJFcEVfVVlnRmQ4SWpEYTY5WGpRaDJ5c0g?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "Iran reportedly fortifies nuclear sites as it prepares for possible U.S. strikes after midterms",
+      "source": "CNBC",
+      "time": "2026-10-13 11:53 UTC",
+      "summary": "A Saudi-led coalition fighting the Houthis \u2013 a Yemeni militant group backed by Tehran \u2013 said it had intercepted another attack on Riyadh.",
+      "url": "https://www.cnbc.com/2026/10/13/iran-us-war-houthis-saudi-arabia-airport.html",
+      "image": "https://image.cnbcfm.com/api/v1/image/108398587-1791817200941-gettyimages-2299319676-AA_12102026_2989970.jpeg?v=1791817236&w=1920&h=1080",
+      "about": ""
+    },
+    {
+      "headline": "Cardinal Infrastructure to acquire Hughes Brothers for $357.5M",
+      "source": "SeekingAlpha",
+      "time": "2026-10-13 11:20 UTC",
+      "summary": "",
+      "url": "https://seekingalpha.com/news/4652390-cardinal-infrastructure-to-acquire-hughes-brothers-for-357_5m?utm_source=feed_news_m_a&utm_medium=referral&feed_item_type=news",
+      "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567050932/sa_jgen9y.png",
+      "about": ""
+    },
+    {
+      "headline": "Symbotic expands Europe footprint with cellumation acquisition",
+      "source": "SeekingAlpha",
+      "time": "2026-10-13 11:06 UTC",
+      "summary": "",
+      "url": "https://seekingalpha.com/news/4652381-symbotic-expands-europe-footprint-with-cellumation-acquisition?utm_source=feed_news_m_a&utm_medium=referral&feed_item_type=news",
+      "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567050932/sa_jgen9y.png",
+      "about": ""
+    },
+    {
+      "headline": "Germany's Nuremberg airport closes due to aviation emergency - Reuters",
+      "source": "Reuters",
+      "time": "2026-10-13 11:02 UTC",
+      "summary": "Germany's Nuremberg airport closes due to aviation emergency\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxNUjNQUks5MFpvMms0djJycmdGa09TTTNkbkVoSDEtSkNBVDVENlNWZkVwdS1KbVB1c0RFZ0FNQVZLZEQ0T2Zxc3ZRVU1xSmhNcmZ3R00zTE1wcldqQWJGY3o1eS1wU2NyN2M4ODBCTlpxU3hMTEFwYThuSHp2dXdhdjdhaHo5b3ZxRjZZcTBVUjE4QVpyVlNlaHJfcGlWRjA?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "Hezbollah outlines financial aid plan for Lebanese with destroyed homes - Reuters",
+      "source": "Reuters",
+      "time": "2026-10-13 10:39 UTC",
+      "summary": "Hezbollah outlines financial aid plan for Lebanese with destroyed homes\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxQclNUQUdGdlRtUDhteWNFb0FkSHc2emhTVE1hNTQ4SGQ2MWtkTkRiUzJPd28xY3VHQ0ZZVmUyOVJpa3gyS3pyczJ5X1pMQllhMGdqQ3VLUU5BWkYxWVlLbWQ4SktZMjhySFhmWFZzYVpEOFJzZVlZa291NEx4Qnd6aU9tWTZlbmh6c3V1cTNJUTNGX0drQmliNFhaSHhsMlhJNElsa1AtYjdQR29jbGZ4QnhQZXNjYTZmMjMzSmpR?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "Accenture acquires UK customer intelligence firm Sagacity",
+      "source": "SeekingAlpha",
+      "time": "2026-10-13 10:36 UTC",
+      "summary": "",
+      "url": "https://seekingalpha.com/news/4652365-accenture-acquires-uk-customer-intelligence-firm-sagacity?utm_source=feed_news_m_a&utm_medium=referral&feed_item_type=news",
+      "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567050932/sa_jgen9y.png",
+      "about": ""
+    },
+    {
+      "headline": "UnitedHealth Group tops estimates, hikes profit outlook as insurer manages high medical costs",
+      "source": "CNBC",
+      "time": "2026-10-13 09:57 UTC",
+      "summary": "UnitedHealth Group said it expects 2026 adjusted earnings of at least $20.50 per share, up from a previous outlook of $19.50 to $20.00 per share.",
+      "url": "https://www.cnbc.com/2026/10/13/unitedhealth-group-unh-earnings-q3-2026.html",
+      "image": "https://image.cnbcfm.com/api/v1/image/108146030-1755268343131-108146030-1747316528172-gettyimages-2210767100-US_STOCKS.jpeg?v=1783017319&w=1920&h=1080",
+      "about": ""
+    },
+    {
+      "headline": "Russia calls French seizure of alleged shadow fleet tanker a violation of international law, RIA reports - Reuters",
+      "source": "Reuters",
+      "time": "2026-10-13 09:06 UTC",
+      "summary": "Russia calls French seizure of alleged shadow fleet tanker a violation of international law, RIA reports\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxOYkZiVzlsbWNyMXA5cV8tX1Z3UVEwUzY0cEt1RjBKOW0xWDc4RFRzRzBwYzNUdEVrQjhJY3JObi1LZjNqVnpjZ1QyUng5TjlFeExVd1NYWk45ZjB2SXduaE9qR1h1V1RyRldpTFU3bUhtb1ZfWHkwN1E3cDNDQm9NbnhtSHRWWUdHYzRKdUlxcHAwWmNScFE1V3VhX2JwMVVaaU9XZmpILTBIZmVLLWUwMUtuTEJ6NnEwbEZsTk5jbUJqT1pOWHBV?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "COMMENTARY: Trump's oil jawboning loses punch as wars spiral - Reuters",
+      "source": "Reuters",
+      "time": "2026-10-13 06:00 UTC",
+      "summary": "COMMENTARY: Trump's oil jawboning loses punch as wars spiral\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQVGRSS0t5UkdaMjZZWUNWWXNZWlpKOV9YcC1XdF9UVXE1M3NEVFJ5MC0zdHZZZnQtclpCRDJZX2hVM1NWNC1xZWZuQl82blNBZmZLRk9YdWZuZ1VMcFZvQmVFYld4VzgteDB3R0NhM05CckEwcjlxVHdldmV0NXlKOGZnc0FuYVIzZU00clRsRVVLeHZySzJ3NnV6MDY3R0I3NU51Sk9oTmRMek8yNExNMXZLYw?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "NEWSLETTER: Modi's three-pronged challenge - Reuters",
+      "source": "Reuters",
+      "time": "2026-10-13 05:30 UTC",
+      "summary": "NEWSLETTER: Modi's three-pronged challenge\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxQb1plNXNTVWlqekpCanlwOUdXUVpmeEVnSEU1R014Y3NGalBNOFFnZWdhUWRaV2hMSkNENlZRNi1CZG1hMGlGNnFuMnhBVnFTMHZZY2hkbTZ1TjlYSzgzOHk2eXlSbElkeHN0S1VhYkF1QmpmQmdRbng2OVB6b0tZZm5YUQ?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "Visa gets approval to prepare for domestic business in China - Reuters",
+      "source": "Reuters",
+      "time": "2026-10-13 04:27 UTC",
+      "summary": "Visa gets approval to prepare for domestic business in China\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQWDU2MUdBSi1QYVQ0Ulg2MzdqQVJpaHJWZ2NFaVZYT2VGV0xYUnZ1T1B6ZGJFbmR5eWNqajFXSFhQSTI0X1pDU29HR3o1T2VmdDZCVUJvTFdWMXRldllGc2JmTVNrM2RoUWttaHc5ZFJnX3FvYTBfbEt2RTZPR0s2OEZqMGFtYWdPdTdPSEJKUVpBT25POHR5R2VKbWl0VUk?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "India's HCLTech climbs most in six years on strong margins and AI gains - Reuters",
+      "source": "Reuters",
+      "time": "2026-10-13 03:54 UTC",
+      "summary": "India's HCLTech climbs most in six years on strong margins and AI gains\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxOa3drREZtVGNMTmxOdmtJVUo2TFZDbFR1cjV6d3dwVVRyUVdmUjYxdHRBUW5aeVhuZFBkUkRhUTVjYXhSc1ZNSzVhMTV2SEJMU0JZS2tkd2pCS3lHRHlVVGwtbDIwVVJQZTRJLUZ0Z05CZmtSRWFMRGZEeC10dHpsZDNMdl9mUThfVjN6aUdtcVN4VlpNRjdnNXRpRnpOZlZaOFhsMXB4Z21aWloydWFtZGhSdmJtaUlJ?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "Trump says he does not believe China and Russia are helping Iran 'at all' - Reuters",
+      "source": "Reuters",
+      "time": "2026-10-13 03:53 UTC",
+      "summary": "Trump says he does not believe China and Russia are helping Iran 'at all'\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQaHZ3WXAyQzZiQXZBZmJ1aEV2WUZMcXA4bHlyNml3LUd5MG1GWjNJSFIyUnhycktZc1ZHZXVPMERsaEs1YzZEX3FtT1JwOERaMUtCY0RkYUZVQzhWWnIzLU45TXVLWUk4RnFaaU53X1VxVVNaOVVqaHpaeTdMRkFfS0h5aTFVaERIcEQ4S2xsTFJ0MVpHa093b1RmYjZPaV9DRTBGMkRLUWN2djRTSGtKVU1uUFBGZw?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "Taiwan finance minister to attend APEC meeting in Hong Kong - Reuters",
+      "source": "Reuters",
+      "time": "2026-10-13 03:24 UTC",
+      "summary": "Taiwan finance minister to attend APEC meeting in Hong Kong\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQY0FpTmlaUmxrbERKQmRkRnFCMnBMVVIyZ05LTFpQdHVFNmdyNmNzR2tWVVhac2lpOEpkVTdfUVhNMFZmYWtkX0VURjFtdnNLRWJMRkpsTFJ2U2ppRkJ2eHlCS2k4RHg3cmkxNjhOd2Y0elYzb2RqZ0JUZENKanN0bFFYZ0NUTURYVkJMdG5jWTE0emJtQlEyV2lwYkw4bHdET2Nr?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "India rupee outpaces Asian peers on fresh FX curbs, RBI intervention - Reuters",
+      "source": "Reuters",
+      "time": "2026-10-13 02:58 UTC",
+      "summary": "India rupee outpaces Asian peers on fresh FX curbs, RBI intervention\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxQdC12dmVLWnRveDB6cEZtZENLNWwyRGlfSlExRmh2alNHTnlyNnNvR2dlRWk5d09nQ1JOZThid1BKTlBVbzBoQTRYdXFGWTJwTkxXOGVHUm95b3dmNTNFUmxRczRQSUY3b05oTGlxenZydGdBV2FRa1VEN29HM1M5dklaX3pnVXdGVTZzemszT2YwOTJwMnBmV2x4LUpQRDNiLS14eHFNbw?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "South Korea's Lee says country cannot avoid raising interest rates - Reuters",
+      "source": "Reuters",
+      "time": "2026-10-13 02:49 UTC",
+      "summary": "South Korea's Lee says country cannot avoid raising interest rates\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNU0hXdVlXbkVhZGhjT1p6UXlndU52X2gwbVZod1BQbUNjM2stUlFvMHFyaEZsRHJWb0M1ekhCbTY0UFpEdEhZaWxZMHpncWFxRGdrUzhBcUFBcGNqYmtxX1JabV9sWnRfaEZSeUV2b3lhTVI5QVVNc0ViaVp0S1laRWxKd0s3YXc5NTFCYzJpTGh4dGFTM29vOHg1UENVMDNqeHdlQWRXMVBHS3pyR2RnTmVVTGIzbWh0bnl5Vg?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "Indian shares flat at open as inflation strengthens rate-hike concerns - Reuters",
+      "source": "Reuters",
+      "time": "2026-10-13 02:29 UTC",
+      "summary": "Indian shares flat at open as inflation strengthens rate-hike concerns\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNRUVTdlJpcHF3dEZTQlg5WWlESlo0dXpTRWJQR1lwWHl2aHR2QVlEUzI4Vkx3OTZVNFdvdnhNMm5BSC04bnNJdzZyLU9BVTVhbFFsUHhzNXlWc0VlLW5KU2k0NWFHZUlicF9zQTVMYjJTTGZoNDRMREJBQk5YU3k0OFdCX2pROWxtYWhlM0ZrREQxVTQweWJMaFdoVW1XX1FrOXpGQnBjZy01eVktY3VQSktkb1YxVEJIbmMw?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "AI investment props up global growth, but war and debt threaten outlook, IMF says - Reuters",
+      "source": "Reuters",
+      "time": "2026-10-13 02:05 UTC",
+      "summary": "AI investment props up global growth, but war and debt threaten outlook, IMF says\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxPVlNmbDdlaDUwX1pOeWRzM1FhdDNhWTNnVnk4bXZLZlR2VGwxMFRCcWdiNngwM2p1Tmp3YjZMY0FwY1puZHk3bTlEYWNyd2pYYUxPd19nZVpqQU9CQjVlck9RUGtoajF5SGY4VnYzSWpZXzY2TWZ3TVY3Yl9ucVdEWnc3b2xzT19vbzBqazJUMzlCdmpfakw4VjAzOVZ3Ui13dmlJOV90Nk9pVUxWY1htUHYtNDZhTGhyTDYwZEk3SQ?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "Qatar Airways suspends Riyadh, Dammam flights as airport attacks disrupt air travel - Reuters",
+      "source": "Reuters",
+      "time": "2026-10-13 00:26 UTC",
+      "summary": "Qatar Airways suspends Riyadh, Dammam flights as airport attacks disrupt air travel\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxON3hKM0tyUDRYZ0ptS1I1ZGpDMzdHLU9zbER2LTNSb1QzcHk2SkR3VzY4VHBpQXIxR2hRcjk3d19pbTVqLWkzQTRtVkQ4R0lWV25rSFpzVGQwdkhMTGxaSDdDMVR5RUhEQ3FXS1RfY01heEl1ek5hSHFkNlBkOU83cnN1VkFVQjhUMlJuTUpqYnVxQV9zVkpBMGc3SkhadUhqMXJOM3lqVTdSRFBvbzdITWlSSVB3RW9HWkZnVEM5Skx4aWhNVjlfZWZOS3ROdw?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "Oil prices ease as US-Russia diesel deal hopes offset Middle East attacks - Reuters",
+      "source": "Reuters",
+      "time": "2026-10-13 00:25 UTC",
+      "summary": "Oil prices ease as US-Russia diesel deal hopes offset Middle East attacks\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPa2sxWTVlekZ2bXloVXNiOUltMm5iODVOMW9NTUo4Q016ZU02OFQ5TU9relFTcUZSaW8xV0c2YmNVbE5jWW5uQjhKeXNKaWxBcE92SU1fQUU0R2RVamdNUzRhTER3NzEzMFUtRVd3bzVnZ1g0ZmtRek95VHdYbVNNMmNacmlDd3dLTThmaGF2VVJDYTc4c1hQeUZfX0ZGQzZjTXlpLU52U3JuUGpjOHJjWndoS19LandSX0dtMmdUMzNKZw?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "Saudi warning system stayed silent before deadly airport attacks - Reuters",
+      "source": "Reuters",
+      "time": "2026-10-12 23:39 UTC",
+      "summary": "Saudi warning system stayed silent before deadly airport attacks\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxQcGUtWGlRWGVfTVVCaFlXbDQ3UTA4bmlUN2QxdV9yT19EOUZGTkhKNW5xR2hQcDJmaE1pX1F1Tmg4TEZ6VTMxcWl5QzdHdVdZa2U1ZDF5Vm5ONGhhNDFPd00xLXZKNXVSaXJGYTB2QVV6dkJ6WmtBS29uMTNyNko5dlptaEdjWngxR2gxa3FfNTc4bzdmaElUOHVzZTVfN0oxeXhwdExKLWxycEpBRGNna0QzM2N5NGRfaVE?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "Trump says he is considering firing US ambassador to Greece - Reuters",
+      "source": "Reuters",
+      "time": "2026-10-12 21:24 UTC",
+      "summary": "Trump says he is considering firing US ambassador to Greece\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxNWU5OdGppOWp6blA3UzZyT2tVenY4eExFelZFYVVHbkhQT0NGZkRnaG5GOFVpYzEwS3ZVWXViMW16VXZqRHNGM1hSeWpId2RMek5kR0ZiLTd6NUhFSDVvbE8tNk4xbHh0NXZkWGhteDBBa0xhN3JIbHhKZDJvN21BUFM3OUdubWp5eGtKWjlWandOT19oR1dzbFRrdXpFd0JsaGZKVGtvWFM?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "Here's a calculator to explain why Cramer always stays invested. Plug in your own numbers, too",
+      "source": "CNBC",
+      "time": "2026-10-12 21:02 UTC",
+      "summary": "Small, consistent gains over time, compounded through regular contributions, can supercharge your wealth",
+      "url": "https://www.cnbc.com/investingclub/2026/10/12/heres-a-calculator-to-explain-why-cramer-always-stays-invested.html",
+      "image": "https://image.cnbcfm.com/api/v1/image/108363432-1789526330296-gettyimages-1384219104-stock-chart-haze.jpeg?v=1789532031&w=1920&h=1080",
+      "about": ""
+    },
+    {
+      "headline": "Cr\u00e9dit Agricole to acquire IKB Deutsche Industriebank ot expand footprint in Germany",
+      "source": "SeekingAlpha",
+      "time": "2026-10-12 20:41 UTC",
+      "summary": "",
+      "url": "https://seekingalpha.com/news/4652275-credit-agricole-to-acquire-ikb-deutsche-industriebank-ot-expand-footprint-in-germany?utm_source=feed_news_m_a&utm_medium=referral&feed_item_type=news",
+      "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567050932/sa_jgen9y.png",
+      "about": ""
+    },
+    {
+      "headline": "Bear to bull: A double upgrade of Salesforce illustrates the folly of the 'SaaSpocalypse'",
+      "source": "CNBC",
+      "time": "2026-10-12 19:50 UTC",
+      "summary": "Jim Cramer said bets against Salesforce were always wrong.",
+      "url": "https://www.cnbc.com/investingclub/2026/10/12/bear-to-bull-a-double-upgrade-of-salesforce-illustrates-the-folly-of-the-saaspocalypse-.html",
+      "image": "https://image.cnbcfm.com/api/v1/image/108353411-1787591101647-gettyimages-2271704570-US_STOCKS.jpeg?v=1791803914&w=1920&h=1080",
+      "about": ""
+    },
+    {
+      "headline": "US hopes diesel deal can 'soften' Moscow on peace talks, sources say - Reuters",
+      "source": "Reuters",
+      "time": "2026-10-12 19:21 UTC",
+      "summary": "US hopes diesel deal can 'soften' Moscow on peace talks, sources say\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQY1h5ek9QWEw0bXVmSUpuTlA1MDlVNXg1SzlnSkpwT1BXLVZHVnNMT1k0V3pfaU8tVFhUcWw1TWl1SE9Kcm04T0RYNjlhbGdyaUFQZEtOU2x6NmtJOGVfYXFWaHY3b1R0TDA5SzVsSDg0UTU2M2NGZk50WEZRTHBTSnJVWTBGbUJ6RjlnWFp0WTl1bkdWYmNYcl9ISXFSNS10OTBUZmVwQXpKSkI5REN1YTdkbnE?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "Russia says its diesel exports may exceed volumes announced by Trump - Reuters",
+      "source": "Reuters",
+      "time": "2026-10-12 18:52 UTC",
+      "summary": "Russia says its diesel exports may exceed volumes announced by Trump\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPLXBaMl96X25takpKUC15RzZpMEhXT3FwMkM0a0xiZUxuV1FINXU4eXF4emoxdWl5TGZjYkNoeGhOeWdESE8yZXUyRXU2NlpoZ3hENzRoTlRaVTBUMWFTOWpQRlVYel9PbEZhdTVla2U2MS1QU3RDcXR0aEZ2cjFXMXV3ek45YWEwakhFVVBPQ1hRYjRZZk9SVXcxaFAwQ2hxOHBxTmdqTHZNWGVITUgzUWUwd0t1V3phQVBzaHR3?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "Americas have glut of heavy oil due to freight squeeze; Asia, Europe scramble for barrels - Reuters",
+      "source": "Reuters",
+      "time": "2026-10-12 18:48 UTC",
+      "summary": "Americas have glut of heavy oil due to freight squeeze; Asia, Europe scramble for barrels\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxPbG5FR1BDa09LM1I4UWVxVENCQ2gtR0hvZ2pUVWR0cDBSRjVKdnlKc0FrNDAtc010U2R3QlkxUG9lVGRMRHItdzc5Y0ROR1NtRzBWbWZzcG1GbFAteGpEMnVSWElFbEhrUDJGbzFJcllwZVVGVU03UWNQQmZFX3RyNGx4UlNzdS1rdjFQekFGSFNNdkpsRmhHQTZnTktxVkRZRGZGUERJdFljTllxTXp5eG1pRnZhM1FORS1wX3VreWdTcHVqNnZ6eQ?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "Microsoft, Micron and Meta make news. Here's what the updates mean for our stakes",
+      "source": "CNBC",
+      "time": "2026-10-12 18:47 UTC",
+      "summary": "Every weekday, the Investing Club releases the Homestretch; an actionable afternoon update just in time for the last hour of trading.",
+      "url": "https://www.cnbc.com/investingclub/2026/10/12/microsoft-micron-and-meta-make-news-what-it-all-means-for-our-stakes.html",
+      "image": "https://image.cnbcfm.com/api/v1/image/108374361-1791402786453-gettyimages-2298479306-MICROSOFT_NVIDIA.jpeg?v=1791402821&w=1920&h=1080",
+      "about": ""
+    },
+    {
+      "headline": "Saudi-led coalition says it destroyed Houthi ballistic missile fired towards Riyadh - Reuters",
+      "source": "Reuters",
+      "time": "2026-10-12 18:25 UTC",
+      "summary": "Saudi-led coalition says it destroyed Houthi ballistic missile fired towards Riyadh\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxOdFZXdXoyS25SWEFjcG8tR1NrRmhxcUEtMjZHV3BESHFtb0FPSE1ldjVGdERDRjZScHhJbzIteGhOVUtDcUdZMDdKVUI0c0lpSF9nUmlKVC1WMDdqWGlaMWZfU1JJeHhsOVRaWkpmMFJLNXBPZFBnLXJ6MGxmOWRRcWp4QksyMzdSSjRXdl9lMGZROUFFdUZNRUYydFhZbWU2MkIwNFNoX05qY2o1WWtBTkpvbExXRHozaFVmR1FOMGpSWllyb1p3RW1B?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "Discover which dow jones stocks are making waves on Tuesday.",
+      "source": "ChartMill",
+      "time": "2026-10-13 16:40 UTC",
+      "summary": "Curious about the dow jones stocks that are in motion on Tuesday? Join us as we explore the top movers within the dow jones index during today's session.",
+      "url": "https://finnhub.io/api/news?id=40d2c5297662fe6576264f21cdd4db7fc189e73028158a4128a0960d9c568eed",
+      "image": "https://www.chartmill.com/images/uploads/CM_Top_Movers_Small_free_2b4ff2fc22.webp",
+      "about": "AAPL"
+    },
+    {
+      "headline": "Stock Market Today: Dow's Losses Start To Multiply; Meta Approaches New Entry (Live Coverage)",
+      "source": "Yahoo",
+      "time": "2026-10-13 15:48 UTC",
+      "summary": "The Dow Jones index rises Tuesday as JPMorgan and Goldman report earnings. Micron, Sandisk and SK Hynix sell off.",
+      "url": "https://finnhub.io/api/news?id=86053c9cc156f0e9c968ed50a5151d32f30ed539f8d83b68c4ac690df716c5d8",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "AAPL"
+    },
+    {
+      "headline": "Why Sandisk Stock Dropped Again on Tuesday",
+      "source": "Yahoo",
+      "time": "2026-10-13 15:43 UTC",
+      "summary": "The threat from CXMT torpedoed Sandisk's market cap in July. Could it happen again?",
+      "url": "https://finnhub.io/api/news?id=a0c3a36afbac0c337f9344c8a67bc9d3d2de491a93b63df8de96e128703ceba9",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "NVDA"
+    },
+    {
+      "headline": "Micron to Hit $3,000? That's How High One Analyst Thinks the Stock Could Go",
+      "source": "Yahoo",
+      "time": "2026-10-13 15:40 UTC",
+      "summary": "The tech company has been generating terrific results, and many analysts have been raising their price targets of late.",
+      "url": "https://finnhub.io/api/news?id=371a405bd01d5d03f030b8678573471e8055cb021119fa60267e7089ec80def3",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "NVDA"
+    },
+    {
+      "headline": "Does The Maia Chip Bet Materially Alter Microsoft's Operating Margin Outlook?",
+      "source": "Yahoo",
+      "time": "2026-10-13 15:35 UTC",
+      "summary": "Microsoft (MSFT) says its own Maia chips will become the main hardware for running its AI models, reducing its reliance on Nvidia. The news lands while Microsoft is short of capacity: management has told investors for several quarters that demand exceeds supply, and has been spending heavily to add ",
+      "url": "https://finnhub.io/api/news?id=fa0533907fd3e276e91c04e9329eb011c55b5382d8deace1d954e888621ab38d",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "MSFT"
+    },
+    {
+      "headline": "Meta Launches Muse Wonder, Its First Frontier AI Model: Can It Pay for the Capex?",
+      "source": "Yahoo",
+      "time": "2026-10-13 15:33 UTC",
+      "summary": "Meta Platforms (META:NASDAQ) released Muse Wonder and Muse Wonder Full on Monday, October 12, calling them its \u201cmost capable models to date. \u201d They\u2019re the first frontier models from Meta Superintelligence Labs, and the stock rose about 3.",
+      "url": "https://finnhub.io/api/news?id=79f38ef88dbaebd95c9b20db0feb6d0768acbd47745e0940c9aa23791350b1a2",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "META"
+    },
+    {
+      "headline": "Amazon Wants to Pay $7 Billion for a 3-Year-Old AI Startup That Makes AI Run Faster on Nvidia\u2019s Chips and Its Own",
+      "source": "Yahoo",
+      "time": "2026-10-13 15:32 UTC",
+      "summary": "Amazon is reportedly closing in on a $7 billion deal for a startup with barely 100 employees and no disclosed revenue, and the real prize has nothing to do with the flashy video models everyone is talking about.",
+      "url": "https://finnhub.io/api/news?id=b82b2e8f8ad8149e4030c3f8d13f45cfa1c4395a69ba98a94772a7807b48ac1f",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "AMZN"
+    },
+    {
+      "headline": "Update: Market Chatter: JPMorgan, Goldman Limit Exposure on $5 Billion Loan Sale for AI Startup Volta",
+      "source": "Yahoo",
+      "time": "2026-10-13 15:30 UTC",
+      "summary": "(Updates with JPMorgan Chase's response in the fourth paragraph.) JPMorgan Chase (JPM) and Goldma",
+      "url": "https://finnhub.io/api/news?id=b6eb0e458f25f21a3c8d91b2369ecc4e6eca1fd84c84e5eafa7805c304d94c3a",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "JPM"
+    },
+    {
+      "headline": "Corporate Profits Soared Fueled By AI Investment As Markets Gear Up For Q3 Earnings",
+      "source": "Yahoo",
+      "time": "2026-10-13 15:27 UTC",
+      "summary": "orporate profits reached an all-time record of more than $4.7 trillion in the second quarter",
+      "url": "https://finnhub.io/api/news?id=758ede786c6a4434a16ccabd70ed13cac34faaf03032ee67a8d917dc0a7b21a3",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "GS"
+    },
+    {
+      "headline": "L3Harris Delivers First VAMPIRE Counter-Drone Systems To US Army \u2013 A Look At The Key Highlights",
+      "source": "Yahoo",
+      "time": "2026-10-13 15:25 UTC",
+      "summary": "L3Harris said its VAMPIRE technology has logged more than 350,000 operational hours since 2023 in support of European combat operations, while a separate GMLRS contract will be fulfilled at a planned Arkansas facility featuring automation and robotics.",
+      "url": "https://finnhub.io/api/news?id=500b2436030278ebe95b0246f0d8587c7262f89c1a304df97bd6a0764eeddd03",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "LMT"
+    },
+    {
+      "headline": "Meta Stock Rallies Again As Wall Street Praises 'AI Reset'",
+      "source": "Yahoo",
+      "time": "2026-10-13 15:23 UTC",
+      "summary": "Meta Platforms (META) stock is rallying again on Tuesday, after the tech giant's latest Muse Wonder AI model brought bullish views from Wall Street. Analysts with Truist upped their price target for Meta stock to 1,000 from 763 in a client note Tuesday morning. Truist analyst Youssef Squali said he ",
+      "url": "https://finnhub.io/api/news?id=6ffdb9240b1db1d2bf72dd44969b2dbc131cb3a50243a3db716cba248c6c6bd9",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "META"
+    },
+    {
+      "headline": "My Netflix Stock Prediction for 2027: Why I'm Not Selling a Single Share",
+      "source": "Yahoo",
+      "time": "2026-10-13 15:20 UTC",
+      "summary": "Netflix stock has tumbled, but its underlying economics remain resilient.",
+      "url": "https://finnhub.io/api/news?id=ae94f749b9a7eb7f7328f6f0321c04ed0671d689d7f934bce64a510fa98c613c",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "GOOGL"
+    },
+    {
+      "headline": "T-Mobile pushes back on SpaceX\u2019s bid to take its customers",
+      "source": "Yahoo",
+      "time": "2026-10-13 15:17 UTC",
+      "summary": "A top T-Mobile executive adds a new wrinkle to SpaceX\u2019s growing wireless ambitions.",
+      "url": "https://finnhub.io/api/news?id=0abde64632c88ff9535a9282c4164b7326ee1616a2431cdc42e058d9c8cdcf47",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "TMUS"
+    },
+    {
+      "headline": "JPMorgan Chase (JPM) Taps Rob Sweeney As Dealmaking Rebounds",
+      "source": "Yahoo",
+      "time": "2026-10-13 15:15 UTC",
+      "summary": "JPMorgan Chase (NYSE:JPM) has appointed Rob Sweeney as global chair of investment banking as corporate deal activity recovers. Sweeney brings long experience advising consumer and retail giants, and is expected to focus on those sectors for top-tier clients. The bank has added more than 1,000 invest",
+      "url": "https://finnhub.io/api/news?id=c86d5f1d30e28505d7d1520623909121cf930cf54455303449036eaf799375e6",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "JPM"
+    },
+    {
+      "headline": "XBOW Rewarded for Exploit Affecting a Billion Users",
+      "source": "Yahoo",
+      "time": "2026-10-13 15:15 UTC",
+      "summary": "SEATTLE, October 13, 2026--XBOW, the autonomous offensive security company, today announced that its platform has earned a $250,000 reward from Google's Chrome Vulnerability Reward Program. This is the first full\u2011chain Chrome award under Google's 2026 rules, and the first such award granted to an au",
+      "url": "https://finnhub.io/api/news?id=aa2de9109173021bb07b5ccf44d67886855d253102357ffce3bd4122f8ef5778",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "GOOGL"
+    },
+    {
+      "headline": "FRMI Stock Rallies After \u2018Long-Awaited\u2019 AMD Deal, But Evercore Says Project Matador Funding Remains A Hurdle",
+      "source": "Yahoo",
+      "time": "2026-10-13 15:12 UTC",
+      "summary": "Fermi shares recovered from a record low in the previous session.",
+      "url": "https://finnhub.io/api/news?id=21a3b49f9847c8f39fa140ce42c42e1bcca4b0d2aca3b88a486f8635799917ce",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "AMD"
+    },
+    {
+      "headline": "Goldman\u2019s CEO Solomon says to watch political volatility around data centers",
+      "source": "Yahoo",
+      "time": "2026-10-13 15:09 UTC",
+      "summary": "Investing.com -- Goldman Sachs CEO David Solomon addressed AI project financing challenges and political concerns during the bank\u2019s quarterly earnings call on Tuesday.",
+      "url": "https://finnhub.io/api/news?id=231b1859b6b672586b107a02feb4b9dd01879ea0e0ebc24bf82272f003ba8af6",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "GS"
+    },
+    {
+      "headline": "MSFT Stock Gets A Thumbs Up From Barclays \u2013 Firm Expects Quarter To Start Showing \u2018More Differentiation\u2019 In Software",
+      "source": "Yahoo",
+      "time": "2026-10-13 14:51 UTC",
+      "summary": "Microsoft is scheduled to report fiscal Q1 2027 results after the closing bell on Oct. 28, with analysts estimating earnings of $4.72 per share on revenue of $90.4 billion.",
+      "url": "https://finnhub.io/api/news?id=4579ff14b197bbd8a50945d031d8ab4bdd23e4ff79b27b68881630e5114b0b84",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "MSFT"
+    },
+    {
+      "headline": "Meta Platforms Rises 12% in 3 Months: Buy, Sell, or Hold the Stock?",
+      "source": "Yahoo",
+      "time": "2026-10-13 14:50 UTC",
+      "summary": "META stock gained 12.4% in the past three months, fueled by AI-driven ad growth and Muse expansion, but rising costs and premium valuation warrant caution.",
+      "url": "https://finnhub.io/api/news?id=264c69a90e59f65fe283b1de48cdcdc2b40d3dd4a9f2fefb7417c9207c33407a",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "AMZN"
+    },
+    {
+      "headline": "Auto Metal Direct Becomes Official Restoration Parts Partner of NFI Empire's Project REBORN, Supporting The Brett Boyer Foundation",
+      "source": "Yahoo",
+      "time": "2026-10-13 14:50 UTC",
+      "summary": "Restoring American Heritage: Auto Metal Direct Helps Bring Project REBORN Back to LifeNORTH EAST, PA / ACCESS Newswire / October 13, 2026 / NFI Empire, a fully owned subsidiary of Newport Gold, Inc. (OTCID:NWPG), today announced that Auto Metal Direct (AMD) has become the official restoration parts ",
+      "url": "https://finnhub.io/api/news?id=da378294c16d0215086878e8c4701d58152b944d1cf0b2b5ac1fe12ae434ea5d",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "AMD"
+    },
+    {
+      "headline": "How Has Chevron's Story Changed?",
+      "source": "Yahoo",
+      "time": "2026-10-13 14:36 UTC",
+      "summary": "Chevron (CVX) stock is currently priced at 20.6 times earnings, compared with 21.9 for the S&P 500. Investors paying that multiple need to understand the company's debt, and executives have recently changed how they frame that burden. During its fiscal 2024 earnings calls, management emphasized the ",
+      "url": "https://finnhub.io/api/news?id=a49d8f8f4697280507b57619760ac326848943d464a2a762ecdfdd4cc07b922c",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "XOM"
+    },
+    {
+      "headline": "Electric Trucks: The REALITY for Tesla Semi & Volvo Fleets",
+      "source": "Yahoo",
+      "time": "2026-10-13 14:35 UTC",
+      "summary": "Electric trucks are here, but what\u2019s the real-world experience like? Hight Logistics CEO Rudy Diaz, who operates 2,500 electric trucks including Tesla Semis and Volvo EVs, breaks down the challenges and successes of transitioning to an electric fleet. From charging infrastructure and battery range t",
+      "url": "https://finnhub.io/api/news?id=ee4ffa5fa90adceeddccf7de5b527aed6d17f53f7a3885890a1970bdc2d9686c",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "TSLA"
+    },
+    {
+      "headline": "The First Pure-Play Humanoid Robot Stock Is About to Go Public. Here's What Investors Need to Know About Agility Robotics.",
+      "source": "Yahoo",
+      "time": "2026-10-13 14:35 UTC",
+      "summary": "Like many other up-and-coming companies that are going public specifically because their business and their industry are clearly at a turning point, there's plenty of price-inflating hope here.",
+      "url": "https://finnhub.io/api/news?id=64e39a12ac527788532ea4b46b250c01ee758b704b0ba29247252a42f84b3f00",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "TSLA"
+    },
+    {
+      "headline": "Can Chipotle Stock Bounce Off The Current Support?",
+      "source": "Yahoo",
+      "time": "2026-10-13 14:25 UTC",
+      "summary": "Shares of Chipotle Mexican Grill (CMG) have lost 23% over the past twelve months, while the S&P 500 gained about 18%. The decline has brought the shares back to about $30, a price they have bounced from several times since 2021. So how far did those bounces go, and how has this price held up lately.",
+      "url": "https://finnhub.io/api/news?id=02b84ea14a671a61f6498d0bf7bc2b785839d2484b5246d32d49a58ff0a2fee2",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "SBUX"
+    },
+    {
+      "headline": "Takeaways from Q3 bank earnings, & how United Airlines is betting big on Starlink",
+      "source": "Yahoo",
+      "time": "2026-10-13 14:23 UTC",
+      "summary": "Yahoo Finance Executive Editor Brian Sozzi takes a look at the biggest stories as the trading day kicks off, weighing in on Big Bank earnings, United Airlines (UAL) getting a leg up from SpaceX's (SPCX) Starlink, and more. Sozzi also sits down with Charles Schwab chief investment strategist, Liz Ann",
+      "url": "https://finnhub.io/api/news?id=e35f5a2d7c7e88f82476d83910abdb87a55cbc08e66c9acf68474edf0a64f767",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "UAL"
+    },
+    {
+      "headline": "SpaceX Starlink Mobile Push Prompts Bernstein To Cut VZ, TMUS, CMCSA, CHTR Stocks\u2019 Price Targets",
+      "source": "Yahoo",
+      "time": "2026-10-13 14:22 UTC",
+      "summary": "The firm pointed to incumbent carriers\u2019 pricing moves and expected fourth-quarter seasonality as additional pressures.",
+      "url": "https://finnhub.io/api/news?id=a3b9a1875a5f14eb1e746794ec8ffcd68a7e97284504f89a3f269f931049de5c",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "TMUS"
+    },
+    {
+      "headline": "RTX (RTX) Stock Could Be 14% Undervalued As Missile Defense Orders Build",
+      "source": "Yahoo",
+      "time": "2026-10-13 14:13 UTC",
+      "summary": "RTX Corporation has put up a powerful run over the past few years, and the stock now trades near US$186.66 after a mixed stretch in recent weeks. With fresh defense contracts in hand and a long list of funded programs, the question is how well today's price lines up with the cash flows those project",
+      "url": "https://finnhub.io/api/news?id=b02705a66efd5abc1885d78b9e6896cc7677bdfaa63be1640db91f8a44395b3c",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "RTX"
+    },
+    {
+      "headline": "Starbucks (SBUX) Reportedly Explored A Takeover That Could Reshape Restaurants",
+      "source": "Yahoo",
+      "time": "2026-10-13 14:13 UTC",
+      "summary": "Starbucks (NasdaqGS:SBUX) has reportedly explored a takeover of Chipotle Mexican Grill in a potential mega restaurant tie up. The discussions, which would have combined a major coffee chain and a fast casual burrito specialist, did not advance to a formal offer. Any transaction would likely have ran",
+      "url": "https://finnhub.io/api/news?id=0ed46d24fbaedf2ed61656a2d3954e8ee686dfb270f793c25e94d7d438b6f35f",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "SBUX"
+    },
+    {
+      "headline": "United Airlines gets a 'head start' as it quietly ramps up Starlink installation",
+      "source": "Yahoo",
+      "time": "2026-10-13 14:02 UTC",
+      "summary": "According to Bank of America, SpaceX's (SPCX) Starlink will be installed on 100% of United Airlines' (UAL) aircraft fleet by the end of 2027. Yahoo Finance Executive Editor Brian Sozzi takes a closer look.",
+      "url": "https://finnhub.io/api/news?id=0380b57a3921df2d9956e8476eefa188feffd094b74770b6711b24cf055aeace",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "DAL"
+    },
+    {
+      "headline": "Will Elevated Crude Prices Enhance ExxonMobil's Cash Flows?",
+      "source": "Yahoo",
+      "time": "2026-10-13 14:02 UTC",
+      "summary": "XOM stands to benefit from oil prices above $90 per barrel, with low-cost production in the Permian and Guyana supporting its earnings and cash flow outlook.",
+      "url": "https://finnhub.io/api/news?id=e37c2727bb63e93b93ac2e181a9d0e7f67fed3d2ba303d81737ae6552181e6df",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "XOM"
+    }
+  ]
+}
