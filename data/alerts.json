@@ -84,10 +84,15 @@
     "sign": -1
   },
   "2026-10-07:FRO": {
-    "level": 1,
+    "level": 2,
     "sign": 1
   },
   "2026-10-07:MPC": {
+    "level": 1,
+    "sign": 1
+  },
+  "2026-10-07:MPC:target": true,
+  "2026-10-08:DHT": {
     "level": 1,
     "sign": 1
   }
