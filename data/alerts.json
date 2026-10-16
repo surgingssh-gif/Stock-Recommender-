@@ -105,14 +105,24 @@
     "sign": 1
   },
   "2026-10-12:AMD": {
-    "level": 1,
+    "level": 2,
     "sign": -1
   },
+  "2026-10-12:AMD:target": true,
   "2026-10-12:IONQ": {
     "level": 2,
     "sign": -1
   },
   "2026-10-12:IONQ:target": true,
+  "2026-10-12:LMT": {
+    "level": 1,
+    "sign": 1
+  },
+  "2026-10-12:LMT:target": true,
+  "2026-10-13:KVUE": {
+    "level": 1,
+    "sign": 1
+  },
   "2026-10-13:SYM": {
     "level": 1,
     "sign": -1
@@ -121,6 +131,7 @@
     "level": 1,
     "sign": 1
   },
+  "2026-10-14:KMB:target": true,
   "2026-10-14:TLT:stop": true,
   "2026-10-15:CRWV": {
     "level": 1,
