@@ -127,11 +127,20 @@
     "level": 1,
     "sign": -1
   },
+  "2026-10-14:INSW": {
+    "level": 2,
+    "sign": -1
+  },
+  "2026-10-14:INSW:stop": true,
   "2026-10-14:KMB": {
     "level": 1,
     "sign": 1
   },
   "2026-10-14:KMB:target": true,
+  "2026-10-14:STNG": {
+    "level": 1,
+    "sign": -1
+  },
   "2026-10-14:TLT:stop": true,
   "2026-10-15:CRWV": {
     "level": 1,
