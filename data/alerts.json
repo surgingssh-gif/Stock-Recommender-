@@ -146,8 +146,13 @@
     "level": 1,
     "sign": 1
   },
+  "2026-10-15:NOC": {
+    "level": 1,
+    "sign": 1
+  },
+  "2026-10-15:NOC:target": true,
   "2026-10-15:OPK": {
     "level": 1,
-    "sign": -1
+    "sign": 1
   }
 }
