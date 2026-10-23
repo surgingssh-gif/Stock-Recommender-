@@ -154,5 +154,34 @@
   "2026-10-15:OPK": {
     "level": 1,
     "sign": 1
-  }
+  },
+  "2026-10-16:PEP:stop": true,
+  "2026-10-19:FLEX": {
+    "level": 2,
+    "sign": -1
+  },
+  "2026-10-19:FLEX:stop": true,
+  "2026-10-19:LEU": {
+    "level": 1,
+    "sign": -1
+  },
+  "2026-10-19:TTMI": {
+    "level": 3,
+    "sign": -1
+  },
+  "2026-10-19:TTMI:stop": true,
+  "2026-10-20:LMT": {
+    "level": 1,
+    "sign": 1
+  },
+  "2026-10-20:LMT:target": true,
+  "2026-10-20:NBIS": {
+    "level": 1,
+    "sign": -1
+  },
+  "2026-10-21:CBRE": {
+    "level": 1,
+    "sign": -1
+  },
+  "2026-10-21:CBRE:stop": true
 }
