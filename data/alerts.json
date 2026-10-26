@@ -162,16 +162,17 @@
   },
   "2026-10-19:FLEX:stop": true,
   "2026-10-19:LEU": {
-    "level": 1,
+    "level": 2,
     "sign": -1
   },
+  "2026-10-19:LEU:stop": true,
   "2026-10-19:TTMI": {
     "level": 3,
     "sign": -1
   },
   "2026-10-19:TTMI:stop": true,
   "2026-10-20:LMT": {
-    "level": 1,
+    "level": 2,
     "sign": 1
   },
   "2026-10-20:LMT:target": true,
