@@ -155,6 +155,11 @@
     "level": 1,
     "sign": 1
   },
+  "2026-10-16:MPC": {
+    "level": 1,
+    "sign": -1
+  },
+  "2026-10-16:MPC:stop": true,
   "2026-10-16:PEP:stop": true,
   "2026-10-19:FLEX": {
     "level": 2,
@@ -180,9 +185,19 @@
     "level": 1,
     "sign": -1
   },
+  "2026-10-21:BA": {
+    "level": 2,
+    "sign": -1
+  },
+  "2026-10-21:BA:stop": true,
   "2026-10-21:CBRE": {
     "level": 1,
     "sign": -1
   },
-  "2026-10-21:CBRE:stop": true
+  "2026-10-21:CBRE:stop": true,
+  "2026-10-21:DINO": {
+    "level": 1,
+    "sign": -1
+  },
+  "2026-10-21:DINO:stop": true
 }
