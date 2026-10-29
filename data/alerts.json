@@ -155,15 +155,19 @@
     "level": 1,
     "sign": 1
   },
-  "2026-10-16:MPC": {
+  "2026-10-16:CPRT": {
     "level": 1,
+    "sign": 1
+  },
+  "2026-10-16:MPC": {
+    "level": 2,
     "sign": -1
   },
   "2026-10-16:MPC:stop": true,
   "2026-10-16:PEP:stop": true,
   "2026-10-19:FLEX": {
-    "level": 2,
-    "sign": -1
+    "level": 1,
+    "sign": 1
   },
   "2026-10-19:FLEX:stop": true,
   "2026-10-19:LEU": {
@@ -192,7 +196,7 @@
   },
   "2026-10-20:LH:target": true,
   "2026-10-20:LMT": {
-    "level": 2,
+    "level": 3,
     "sign": 1
   },
   "2026-10-20:LMT:target": true,
@@ -220,5 +224,10 @@
     "level": 2,
     "sign": 1
   },
-  "2026-10-22:CRWV:stop": true
+  "2026-10-22:CRWV:stop": true,
+  "2026-10-22:LHX": {
+    "level": 2,
+    "sign": 1
+  },
+  "2026-10-22:LHX:target": true
 }
