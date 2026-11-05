@@ -55,8 +55,9 @@ Ideas for research only, not financial advice.
 | `.github/workflows/tests.yml` | Runs those checks on GitHub whenever the code changes. |
 
 If something breaks (for example, Finnhub is down), the bot still sends a
-message with whatever it has, plus a note saying what failed. If a run crashes
-outright, Discord gets a short warning with a link to the run's log.
+message with whatever it has, plus a note saying what failed. The backup start
+times try again, but only the first try that day sends the bad news. If a run
+crashes outright, Discord gets a short warning with a link to the run's log.
 
 ---
 
@@ -182,8 +183,20 @@ filtered to **Top 5 ideas only**.
 backdrop** (the S&P 500's and each sector's recent moves), **its own recent picks**
 (any stock picked in the last 3 run-days is blocked, and the code removes any repeat
 that slips through), and guidance to favor effects that are still unfolding over news
-the market has already priced in. Its #1 top idea is always "high" confidence, so the
-scorecard can show whether its confidence means anything.
+the market has already priced in. Its track record shows how each kind of call has
+done, all-time and over the last 10 run-days, so it can notice when a theme stops
+working. After Claude answers, the code also enforces a few **house rules**
+(see `apply_rules` in `analyzer.py`):
+
+- **No repeats:** no stock picked in the last 3 run-days.
+- **No very jumpy stocks:** none that usually move more than 3% a day (like
+  speculative quantum or space stocks), which caused the bot's biggest losses.
+- **A fresh #1:** if the #1 idea came from the same theme two days running, the
+  next day's #1 comes from a different one.
+
+Claude also gives up to 3 backup ideas, which fill the Top 5 if a rule removes one.
+The rules started on Nov 5, 2026; the vs. S&P 500 tab compares the calls made
+before and after.
 
 **Getting around:** the strip under the menu shows how the big market funds and
 stocks moved on the latest day. Click any of them for its chart. Use **Find a stock**
@@ -291,6 +304,7 @@ mistake shows up as a red ✗ before it can break the bot.
 |---|---|
 | `FINNHUB_API_KEY is not set` | Is the `.env` file named exactly `.env` (not `.env.txt`)? On GitHub, is the secret added? |
 | `News (Finnhub) failed: 401` | The Finnhub key is wrong. Copy it again from your dashboard. |
+| `Analysis (Claude) failed: Error code: 401 ... invalid x-api-key` | The Anthropic key was deleted or turned off. Make a new one at console.anthropic.com > **API Keys**, then update the `ANTHROPIC_API_KEY` secret on GitHub. |
 | `Analysis (Claude) failed: ... credit balance` | Add credit at console.anthropic.com > Billing. |
 | `Discord returned 404` | The webhook was deleted or the URL is wrong. Make a new one. |
 | `Couldn't get prices for: XYZ` | Yahoo didn't recognize that ticker. The idea is still logged, just without a price. |

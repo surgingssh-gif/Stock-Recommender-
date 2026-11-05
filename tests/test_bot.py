@@ -84,7 +84,8 @@ def _run_main(monkeypatch, tmp_path, *, news=None, analysis=None, company_news=(
 
     calls = {}
 
-    def fake_analysis(headlines, _key, _watchlist=None, track_record=None, market_data=None, recent_picks=None, blocked=None):
+    def fake_analysis(headlines, _key, _watchlist=None, track_record=None, market_data=None, recent_picks=None,
+                      blocked=None, avoid_top_theme=None):
         calls.update(headlines=headlines, track_record=track_record, market_data=market_data, recent_picks=recent_picks)
         if isinstance(analysis, Exception):
             raise analysis
@@ -102,6 +103,7 @@ def _run_main(monkeypatch, tmp_path, *, news=None, analysis=None, company_news=(
     monkeypatch.setattr(main, "fetch_headlines", fake_news)
     monkeypatch.setattr(main, "analyze_headlines", fake_analysis)
     monkeypatch.setattr(main, "get_prices", lambda tickers: {"XOM": 110.5, "DAL": None})
+    monkeypatch.setattr(main, "get_daily_swings", lambda tickers: {})
     monkeypatch.setattr(main, "send_to_discord", lambda url, text: sent.append(text))
     main.main()
     return sent
@@ -729,8 +731,8 @@ def test_recap_remembers_which_days_were_sent(tmp_path):
     assert load_sent(path) == {"2026-09-29", "2026-09-30"}
 
 
-def test_recent_tickers_are_blocked_and_the_top_idea_is_high():
-    from analyzer import add_top_buys_to_picks, drop_blocked, make_top_idea_high
+def test_recent_tickers_are_blocked_and_confidence_is_left_alone():
+    from analyzer import apply_rules
     from track_record import recent_tickers
 
     logged = [{"date": d, "ticker": t, "direction": "bullish"} for d, t in
@@ -742,12 +744,110 @@ def test_recent_tickers_are_blocked_and_the_top_idea_is_high():
               "picks": [dict(p, sources=[1]) for p in FAKE_ANALYSIS["picks"]] + [
                   {"ticker": "VLO", "company": "Valero", "direction": "bullish", "confidence": "medium", "reason": "r", "sources": [1]}],
               "top_buys": [_top_buy("VLO"), _top_buy("XOM", confidence="medium")]}
-    result = make_top_idea_high(add_top_buys_to_picks(drop_blocked(result, ["VLO", "DAL"])))
-    assert result["dropped"] == ["DAL", "VLO"]
+    result = apply_rules(result, ["VLO", "DAL"])
+    assert result["dropped"] == {"DAL": "picked in the last few days", "VLO": "picked in the last few days"}
     assert [p["ticker"] for p in result["picks"]] == ["XOM"]
-    # VLO was removed, so XOM is now the #1 idea, and #1 is always "high".
-    assert result["top_buys"][0]["ticker"] == "XOM" and result["top_buys"][0]["confidence"] == "high"
-    assert result["picks"][0]["confidence"] == "high"
+    # VLO was removed, so XOM is now the #1 idea, and keeps the confidence Claude gave it.
+    assert result["top_buys"][0]["ticker"] == "XOM" and result["top_buys"][0]["confidence"] == "medium"
+
+
+def _idea(ticker, theme, **extra):
+    return _top_buy(ticker, theme=theme, direction="bullish", target_pct=5, stop_pct=3, **extra)
+
+
+def test_house_rules_remove_jumpy_stocks_and_keep_a_fresh_top_idea():
+    from analyzer import apply_rules
+
+    energy, deals, tech = "Oil & energy", "Mergers & deals", "AI & tech"
+    answer = {
+        "market_mood": "m", "watchlist_notes": [],
+        "summary": {"big_story": "b", "top_pick": "IONQ, because ...", "watch": "w"},
+        "picks": [{"ticker": "OXY", "company": "Occidental", "direction": "bullish", "confidence": "low",
+                   "reason": "r", "sources": [1], "theme": energy, "target_pct": 5, "stop_pct": 3}],
+        "top_buys": [_idea("IONQ", tech), _idea("VLO", energy), _idea("MPC", energy), _idea("PSX", energy), _idea("KVUE", deals)],
+        "backups": [_idea("DINO", energy), _idea("LMT", "Geopolitics"), _idea("ROKU", deals)],
+    }
+    swings = {"IONQ": 4.1, "VLO": 2.6, "MPC": 2.0, "LMT": 1.2, "ROKU": 2.9, "OXY": 2.2}
+    result = apply_rules(answer, swings=swings)
+
+    # IONQ is too jumpy, so the first backup (DINO) fills its place in the Top 5.
+    assert [b["ticker"] for b in result["top_buys"]] == ["VLO", "MPC", "PSX", "KVUE", "DINO"]
+    assert [p["ticker"] for p in result["picks"]] == ["OXY", "VLO", "MPC", "PSX", "KVUE", "DINO"]
+    assert result["dropped"] == {"IONQ": "too jumpy (usually moves 4.1% a day)"}
+    # The 60-second summary now names the real #1 idea.
+    assert result["summary"]["top_pick"].startswith("VLO Inc (VLO)")
+    # Claude's original answer isn't changed.
+    assert [b["ticker"] for b in answer["top_buys"]][0] == "IONQ" and "backups" in answer
+
+    # Energy was #1 two days running, so a different theme takes #1 today.
+    fresh = apply_rules(answer, swings=swings, avoid_top_theme=energy)
+    assert [b["ticker"] for b in fresh["top_buys"]] == ["KVUE", "VLO", "MPC", "PSX", "DINO"]
+
+
+def test_repeated_top_theme_needs_the_same_theme_two_days_running():
+    from track_record import repeated_top_theme
+
+    def day(theme):
+        return {"top_buys": [{"ticker": "X", "theme": theme}]}
+    days = {"2026-10-19": day("Geopolitics"), "2026-10-20": day("Oil & energy"), "2026-10-21": day("Oil & energy")}
+    assert repeated_top_theme(days, "2026-10-22") == "Oil & energy"
+    assert repeated_top_theme(days, "2026-10-21") is None          # Geopolitics, then Oil & energy
+    assert repeated_top_theme({"2026-10-21": {}}, "2026-10-22") is None
+
+
+def test_track_record_shows_recent_results_by_theme():
+    from track_record import build_track_record
+
+    def call(date, theme, move):
+        return {"date": date, "ticker": "X", "direction": "bullish", "theme": theme,
+                "directional_return_pct": move, "correct": move > 0}
+    old = [call(f"2026-09-{d}", "Oil & energy", 5.0) for d in range(10, 20)]
+    new = [call(f"2026-10-{d}", "Oil & energy", -4.0) for d in range(10, 13)]
+    text = build_track_record({"picks": new + old})
+    assert "By theme: Oil & energy: 10 of 13 right (77%), average +2.92%." in text
+    assert "By theme, last 10 run-days: Oil & energy: 7 of 10 right (70%), average +2.30%." in text
+
+
+def test_daily_swing_is_the_typical_daily_move(monkeypatch):
+    import pandas as pd
+    import prices
+
+    class FakeTicker:
+        def __init__(self, ticker):
+            self.ticker = ticker
+        def history(self, **_k):
+            if self.ticker == "NEW":
+                return pd.DataFrame({"Close": [10.0, 11.0]})            # too few prices to tell
+            return pd.DataFrame({"Close": [100.0, 103.0] * 12})         # about 3% up or down every day
+    monkeypatch.setattr(prices.yf, "Ticker", FakeTicker)
+    swings = prices.get_daily_swings(["IONQ", "NEW"])
+    assert 2.9 < swings["IONQ"] < 3.1 and swings["NEW"] is None
+
+
+def test_bought_out_stock_with_missing_prices_uses_the_logged_price():
+    # Kenvue was bought on Oct 13 at $17.71. After the buyout closed, Yahoo kept only
+    # one day of its prices (Oct 30), which must not count as the day it was bought.
+    picks = [{"date": "2026-10-13", "ticker": "KVUE", "direction": "bullish", "reason": "r", "price_at_pick": 17.71}]
+    days = {"2026-10-13": {"picked_at": "2026-10-13T17:33:03Z", "picks": [{"ticker": "KVUE", "theme": "Mergers & deals"}],
+                           "top_buys": [{"ticker": "KVUE"}]}}
+    histories = {"KVUE": [["2026-10-30", 19.31]],
+                 "SPY": [["2026-10-14", 100.0], ["2026-10-30", 102.0], ["2026-11-04", 99.0]]}
+    opens = {"KVUE": {"2026-10-30": 19.99}, "SPY": {"2026-10-14": 100.0, "2026-10-30": 101.0, "2026-11-04": 100.0}}
+    p = build_data(picks, days, histories, opens=opens)["picks"][0]
+    assert (p["entry_date"], p["entry_price"]) == ("2026-10-14", 17.71)
+    assert p["directional_return_pct"] == 9.03 and p["correct"] is True   # $17.71 -> $19.31
+    assert p["market_move_pct"] == 2.0      # the S&P 500 up to KVUE's last price (Oct 30), not Nov 4
+    assert p["horizons"] == {"1 day": None, "1 week": None, "1 month": None}
+
+
+def test_failure_message_is_sent_once_a_day(monkeypatch, tmp_path):
+    sent = _run_main(monkeypatch, tmp_path, news=FAKE_HEADLINES, analysis=RuntimeError("invalid x-api-key"))
+    assert len(sent) == 1 and "invalid x-api-key" in sent[0]
+    # A backup start time tries again but doesn't repeat the bad news...
+    assert _run_main(monkeypatch, tmp_path, news=FAKE_HEADLINES, analysis=RuntimeError("invalid x-api-key")) == []
+    # ...but still sends the picks if this try works.
+    sent = _run_main(monkeypatch, tmp_path, news=FAKE_HEADLINES, analysis=FAKE_ANALYSIS)
+    assert len(sent) == 1 and "XOM" in sent[0]
 
 
 def test_day_details_keep_the_60_second_summary(tmp_path):

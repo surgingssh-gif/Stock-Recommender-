@@ -7,7 +7,8 @@ main.py - The daily stock news bot. Run it with:
 
 Steps:
   1. Get the latest headlines from Finnhub
-  2. Ask Claude (one API call) which stocks the news could move
+  2. Ask Claude (one API call) which stocks the news could move, then apply
+     the house rules (no repeats, no very jumpy stocks, a fresh #1)
   3. Look up current prices with yfinance
   4. Save every pick to picks_log.csv
   5. Post the message to Discord
@@ -18,6 +19,7 @@ note to the message explaining what went wrong.
 This is a research tool only. It never places trades.
 """
 
+import json
 import os
 import sys
 from datetime import datetime
@@ -25,15 +27,15 @@ from zoneinfo import ZoneInfo
 
 from dotenv import load_dotenv
 
-from analyzer import add_price_levels, analyze_headlines
+from analyzer import add_price_levels, analyze_headlines, apply_rules
 from discord_notify import build_message, send_to_discord
 from build_dashboard import latest_run_only, read_days, read_picks
 from logos import update_logos
 from market_data import format_market_data, get_market_backdrop, get_market_movers, get_premarket_moves
 from news import fetch_company_news, fetch_headlines
 from picks_log import DAYS_DIR, log_picks, save_day_details
-from prices import get_prices
-from track_record import build_track_record, load_dashboard_data, recent_picks_text, recent_tickers
+from prices import get_daily_swings, get_prices
+from track_record import build_track_record, load_dashboard_data, recent_picks_text, recent_tickers, repeated_top_theme
 from watchlist import FUNDS, WATCHLIST
 
 # Company news is fetched for the market-watch companies plus any stock
@@ -47,6 +49,30 @@ def followed_companies():
     recent_days = sorted({p["date"] for p in picks}, reverse=True)[:RECENT_PICK_DAYS]
     recent = [p["ticker"] for p in picks if p["date"] in recent_days]
     return list(dict.fromkeys([t for t in WATCHLIST if t not in FUNDS] + recent))
+
+
+# Dates when a "something went wrong" message was already sent, so the
+# backup start times don't send the same bad news again (they still retry).
+FAILURE_FILE = os.path.join("data", "failure_notes_sent.json")
+
+
+def failure_note_sent(date_str, path=FAILURE_FILE):
+    try:
+        with open(path, encoding="utf-8") as f:
+            return date_str in json.load(f)
+    except (OSError, ValueError):
+        return False
+
+
+def mark_failure_note_sent(date_str, path=FAILURE_FILE):
+    try:
+        with open(path, encoding="utf-8") as f:
+            dates = set(json.load(f))
+    except (OSError, ValueError):
+        dates = set()
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    with open(path, "w", encoding="utf-8") as f:
+        json.dump(sorted(dates | {date_str})[-60:], f, indent=1)  # the last ~3 months is plenty
 
 
 def dashboard_url():
@@ -124,13 +150,16 @@ def main():
     # How the bot's recent calls have done (from the dashboard data).
     track_record = build_track_record(load_dashboard_data())
     # What it picked on the last few days, so it doesn't repeat the same bets.
-    # Stocks picked on the last few run-days can't be picked again today.
+    # Stocks picked on the last few run-days can't be picked again today, and
+    # if the #1 idea had the same theme two days running, today's can't.
     try:
-        logged = latest_run_only(read_picks(), read_days())
+        days = read_days()
+        logged = latest_run_only(read_picks(), days)
         recent = recent_picks_text(logged)
         blocked = recent_tickers(logged, date_str)
+        avoid_top_theme = repeated_top_theme(days, date_str)
     except Exception:
-        recent, blocked = None, []
+        recent, blocked, avoid_top_theme = None, [], None
 
     # --- Step 2: Claude analysis --------------------------------------------
     analysis = None
@@ -139,12 +168,26 @@ def main():
             problems.append("ANTHROPIC_API_KEY is not set, so no analysis was done.")
         else:
             try:
-                analysis = analyze_headlines(headlines, anthropic_key, WATCHLIST, track_record, market_text, recent, blocked)
-                print(f"Claude suggested {len(analysis['picks'])} picks.")
-                if analysis.get("dropped"):
-                    print(f"Removed repeat picks (picked in the last few days): {', '.join(analysis['dropped'])}")
+                analysis = analyze_headlines(headlines, anthropic_key, WATCHLIST, track_record, market_text,
+                                             recent, blocked, avoid_top_theme)
+                print(f"Claude suggested {len(analysis['picks'])} picks, {len(analysis.get('top_buys', []))} top ideas "
+                      f"and {len(analysis.get('backups', []))} backups.")
             except Exception as e:
                 problems.append(f"Analysis (Claude) failed: {e}")
+
+    # --- Step 2b: House rules -----------------------------------------------
+    # No repeats, no very jumpy stocks, and a fresh #1 (see
+    # analyzer.apply_rules). Needs each idea's usual daily move; if
+    # Yahoo can't say, that stock just isn't checked for jumpiness.
+    if analysis:
+        ideas = analysis["picks"] + analysis.get("top_buys", []) + analysis.get("backups", [])
+        try:
+            swings = get_daily_swings([i["ticker"] for i in ideas])
+        except Exception:
+            swings = {}
+        analysis = apply_rules(analysis, blocked, swings, avoid_top_theme)
+        for ticker, why in analysis["dropped"].items():
+            print(f"Removed {ticker}: {why}")
 
     # --- Step 3: Prices -----------------------------------------------------
     prices = {}
@@ -182,6 +225,14 @@ def main():
 
     message = build_message(date_str, analysis, prices, problems, headlines, dashboard_url())
 
+    # If today's picks couldn't be made, the backup start times will try
+    # again. Only the first try sends the bad news; a later try that works
+    # sends the picks as usual. (A manual --force run always sends.)
+    finished = bool(analysis and analysis["picks"])
+    if not finished and not dry_run and "--force" not in sys.argv and failure_note_sent(date_str):
+        print("Today's 'something went wrong' message was already sent, so this try doesn't send another.")
+        return
+
     if dry_run:
         print("\n----- DRY RUN: message not sent -----\n")
         print(message)
@@ -195,6 +246,8 @@ def main():
     try:
         send_to_discord(webhook_url, message)
         print("Message sent to Discord.")
+        if not finished:
+            mark_failure_note_sent(date_str)
     except Exception as e:
         # Print the message so it's still visible in the logs.
         print(f"Sending to Discord failed: {e}\n")
