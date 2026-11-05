@@ -47,16 +47,26 @@ right away and often fade, so treat them with extra caution.
 - Use the "Market backdrop" (the S&P 500's and each sector's recent moves) to \
 avoid fighting the tide: a bullish call in a falling sector needs a stronger \
 reason, and bearish calls can be the better idea in a weak market.
-- Confidence should mean something. "high" is for your one or two strongest \
-ideas today: concrete news, a clear cause and effect, and not yet priced in. \
-Your #1 top idea is always "high" (it's your strongest conviction by \
-definition). "medium" is a solid idea with real uncertainty. "low" is \
-speculative. Don't default everything to "medium"; your track record shows \
-how each level has done, so calibrate against it.
+- Confidence should mean something. "high" is rare: concrete news, a clear \
+cause and effect, and good reason to think the market hasn't priced it in \
+yet. The most obvious idea from the biggest headline is usually NOT high, \
+because everyone else has read it too. "medium" is a solid idea with real \
+uncertainty. "low" is speculative. Your #1 idea doesn't have to be "high". \
+Your track record shows how each level has really done: if your "high" calls \
+have done worse than your "low" ones, your confidence is miscalibrated, so \
+be stricter with "high".
 - No repeats: you'll get a list of "Blocked tickers" you picked in the last \
 few days. Do not pick any of them, in "picks" or "top_buys" (watchlist notes \
 are fine). Find different stocks and themes; picks of blocked tickers are \
-removed automatically.
+removed automatically. Picking a close cousin of a recent pick (another \
+refiner after a refiner, another tanker after a tanker) is the same bet \
+again, so avoid that too.
+- A fresh #1: if you're told your #1 idea came from the same theme on each of \
+the last two days, today's #1 must come from a different theme.
+- Avoid very jumpy stocks: ones that usually move more than 3% in a day, \
+like speculative small-cap tech, quantum computing, space, meme or tiny \
+biotech stocks. They have caused your biggest losses, and the code removes \
+any stock that usually moves more than 3% a day.
 - You'll also get a "market watch" list of tickers. For each one, write a \
 single short, plain-English sentence in "watchlist_notes" about what today's \
 headlines mean for it. If none of the headlines are relevant to it, say \
@@ -71,6 +81,10 @@ sentences), what "risks" could make it go wrong (1 or 2 sentences), and what \
 to "watch" next, like an earnings date or a decision (1 sentence). Be honest \
 about the downside: these are research candidates, not recommendations. If \
 the news is too quiet for 5 solid ideas, return fewer.
+- Also give up to 3 "backups": your next-best ideas, in the same format as \
+"top_buys" and ranked the same way. If a top idea is removed by the rules \
+above (a repeat or too jumpy), the first backup that passes takes its \
+place. Backups follow all the same rules.
 - Some headlines are marked "(about TICKER)": those were fetched for that \
 company specifically. You may also get a "Market data" section listing the \
 biggest movers and pre-market moves. Use it to see what the market is already \
@@ -81,7 +95,9 @@ measured from the opening price after each pick. Use it to calibrate: notice \
 which kinds of calls have worked or failed (direction, confidence, sectors, \
 chasing news that was already priced in) and adjust. A few days of results \
 are mostly noise, so don't overreact to one call or avoid a stock just \
-because it lost. In "self_check", write one or two plain-English sentences \
+because it lost. Watch the "last 10 run-days" numbers (about two weeks) \
+too: a theme that worked before can stop working once the market has caught \
+on. In "self_check", write one or two plain-English sentences \
 on what your record suggests and how it shaped today's picks. With no track \
 record yet, write: Not enough results yet to learn from.
 - For every pick and top buy, set two price levels as percent moves from \
@@ -111,6 +127,26 @@ IDEA_FIELDS = {
     "theme": {"type": "string", "enum": THEMES},
     "target_pct": {"type": "number"},
     "stop_pct": {"type": "number"},
+}
+
+# One "top idea": a pick with a longer explanation (used for the Top 5
+# and for the backups).
+TOP_IDEA = {
+    "type": "object",
+    "properties": {
+        "ticker": {"type": "string"},
+        "company": {"type": "string"},
+        "direction": {"type": "string", "enum": ["bullish", "bearish"]},
+        "confidence": {"type": "string", "enum": ["low", "medium", "high"]},
+        "pitch": {"type": "string"},
+        "why": {"type": "string"},
+        "risks": {"type": "string"},
+        "watch": {"type": "string"},
+        "sources": {"type": "array", "items": {"type": "integer"}},
+        **IDEA_FIELDS,
+    },
+    "required": ["ticker", "company", "direction", "confidence", "pitch", "why", "risks", "watch", "sources", *IDEA_FIELDS],
+    "additionalProperties": False,
 }
 
 # The exact JSON shape we want back from Claude.
@@ -174,26 +210,13 @@ OUTPUT_SCHEMA = {
         # (bullish or bearish), ranked best first, with a longer explanation.
         "top_buys": {
             "type": "array",
-            "items": {
-                "type": "object",
-                "properties": {
-                    "ticker": {"type": "string"},
-                    "company": {"type": "string"},
-                    "direction": {"type": "string", "enum": ["bullish", "bearish"]},
-                    "confidence": {"type": "string", "enum": ["low", "medium", "high"]},
-                    "pitch": {"type": "string"},
-                    "why": {"type": "string"},
-                    "risks": {"type": "string"},
-                    "watch": {"type": "string"},
-                    "sources": {"type": "array", "items": {"type": "integer"}},
-                    **IDEA_FIELDS,
-                },
-                "required": ["ticker", "company", "direction", "confidence", "pitch", "why", "risks", "watch", "sources", *IDEA_FIELDS],
-                "additionalProperties": False,
-            },
+            "items": TOP_IDEA,
         },
+        # Claude's next-best ideas, used to fill the Top 5 if one is removed
+        # by the house rules (see apply_rules below). Same shape as top_buys.
+        "backups": {"type": "array", "items": TOP_IDEA},
     },
-    "required": ["market_mood", "picks", "watchlist_notes", "top_buys", "self_check", "summary"],
+    "required": ["market_mood", "picks", "watchlist_notes", "top_buys", "backups", "self_check", "summary"],
     "additionalProperties": False,
 }
 
@@ -210,20 +233,23 @@ def _format_headlines(headlines):
     return "\n".join(lines)
 
 
-def analyze_headlines(headlines, api_key, watchlist=None, track_record=None, market_data=None, recent_picks=None, blocked=None):
+def analyze_headlines(headlines, api_key, watchlist=None, track_record=None, market_data=None,
+                      recent_picks=None, blocked=None, avoid_top_theme=None):
     """
-    Returns a dict: {"market_mood": "...", "picks": [ {ticker, company,
-    direction, confidence, reason, sources}, ... ]}
+    Returns Claude's answer as a dict: {"market_mood": "...", "picks": [
+    {ticker, company, direction, confidence, reason, sources}, ... ]}
     where "sources" are the numbers (starting at 1) of the headlines used,
     plus "watchlist_notes": [ {ticker, note}, ... ] for the watchlist tickers,
     plus "top_buys": up to 5 ranked ideas (bullish or bearish) {ticker, company,
-    direction, confidence, pitch, why, risks, watch, sources}. Every top buy is also
-    in "picks". Also "self_check": what Claude took from its track record.
+    direction, confidence, pitch, why, risks, watch, sources}, "backups" (the
+    next-best ideas, same shape), "self_check" (what Claude took from its
+    track record) and "summary". Run apply_rules() on it next.
 
-    track_record - text from track_record.build_track_record() (optional)
-    market_data  - text from market_data.format_market_data() (optional)
-    recent_picks - text listing the last few days' picks (optional)
-    blocked      - tickers that may not be picked today (recent picks)
+    track_record    - text from track_record.build_track_record() (optional)
+    market_data     - text from market_data.format_market_data() (optional)
+    recent_picks    - text listing the last few days' picks (optional)
+    blocked         - tickers that may not be picked today (recent picks)
+    avoid_top_theme - a theme today's #1 idea shouldn't come from (optional)
 
     Raises an exception if Claude can't be reached or declines to answer,
     so the caller can report it.
@@ -247,6 +273,9 @@ def analyze_headlines(headlines, api_key, watchlist=None, track_record=None, mar
         user_message += "\n\nYour recent picks:\n" + recent_picks
     if blocked:
         user_message += "\n\nBlocked tickers (picked recently, do NOT pick today): " + ", ".join(sorted(blocked))
+    if avoid_top_theme:
+        user_message += (f"\n\nYour #1 idea was a \"{avoid_top_theme}\" idea on each of the last two days: "
+                         "today's #1 idea must come from a different theme.")
 
     response = client.beta.messages.create(
         model=model,
@@ -275,11 +304,9 @@ def analyze_headlines(headlines, api_key, watchlist=None, track_record=None, mar
     result = json.loads(text)
 
     # Clean up ticker symbols (e.g. " xom" -> "XOM").
-    for item in result["picks"] + result.get("watchlist_notes", []) + result.get("top_buys", []):
+    for item in result["picks"] + result.get("watchlist_notes", []) + result.get("top_buys", []) + result.get("backups", []):
         item["ticker"] = item["ticker"].strip().upper().lstrip("$")
-
-    result = drop_blocked(result, blocked or ())
-    return make_top_idea_high(add_top_buys_to_picks(result))
+    return result
 
 
 TOP_BUYS_COUNT = 5
@@ -348,26 +375,55 @@ def add_price_levels(picks, prices):
     return picks
 
 
-def drop_blocked(result, blocked):
-    """
-    Removes picks and top ideas for tickers that were picked in the last few
-    days (the bot is told not to repeat them; this makes sure). Returns the
-    result with a "dropped" list of the tickers that were removed.
-    """
-    blocked = {t.upper() for t in blocked}
-    dropped = sorted({p["ticker"] for p in result["picks"] + result.get("top_buys", []) if p["ticker"] in blocked})
-    result["picks"] = [p for p in result["picks"] if p["ticker"] not in blocked]
-    result["top_buys"] = [b for b in result.get("top_buys", []) if b["ticker"] not in blocked]
-    result["dropped"] = dropped
-    return result
+# The house rules (see apply_rules): skip stocks that usually move more than
+# this many percent in a day.
+MAX_DAILY_SWING = 3.0
 
 
-def make_top_idea_high(result):
-    """The #1 top idea is the bot's strongest conviction, so it's always "high" confidence."""
-    if result.get("top_buys"):
-        first = result["top_buys"][0]
-        first["confidence"] = "high"
-        for pick in result["picks"]:
-            if pick["ticker"] == first["ticker"]:
-                pick["confidence"] = "high"
+def apply_rules(result, blocked=(), swings=None, avoid_top_theme=None):
+    """
+    The bot's house rules, applied to Claude's answer. Claude is told about
+    them too; this makes sure they're followed.
+      1. No repeats: no ticker picked in the last few days (`blocked`).
+      2. No jumpy stocks: none that usually move more than 3% a day
+         (`swings` is {ticker: typical daily move in %} from prices.py).
+      3. A fresh #1: today's #1 idea doesn't come from `avoid_top_theme` (the
+         theme of the #1 idea on each of the last two days), as long as
+         another top idea can take its place.
+    A top idea that's removed is replaced by Claude's first backup that
+    passes. Returns a new result with "dropped": {ticker: why it was removed}.
+    """
+    result = dict(result)  # a copy, so Claude's original answer isn't changed
+    reasons = {t.upper(): "picked in the last few days" for t in blocked}
+    for ticker, swing in (swings or {}).items():
+        if swing is not None and swing > MAX_DAILY_SWING:
+            reasons.setdefault(ticker, f"too jumpy (usually moves {swing:.1f}% a day)")
+
+    # Claude's own ideas (not the backups), to report what was removed, and
+    # its #1 idea, to see whether the rules changed it.
+    proposed = {i["ticker"]: i for i in result["picks"] + result.get("top_buys", [])}
+    claudes_first = result["top_buys"][0]["ticker"] if result.get("top_buys") else None
+
+    # 1 and 2: remove repeats and jumpy stocks. The backups go after the top
+    # ideas, so they fill any gaps in the Top 5 in Claude's order.
+    result["picks"] = [p for p in result["picks"] if p["ticker"] not in reasons]
+    candidates = result.get("top_buys", []) + result.pop("backups", [])
+    result["top_buys"] = [b for b in candidates if b["ticker"] not in reasons]
+
+    add_top_buys_to_picks(result)
+
+    # 3: a fresh #1.
+    top = result["top_buys"]
+    if avoid_top_theme and top and top[0].get("theme") == avoid_top_theme:
+        other = next((b for b in top[1:] if b.get("theme") != avoid_top_theme), None)
+        if other:
+            top.remove(other)
+            top.insert(0, other)
+
+    # The 60-second summary names the #1 idea; update it if the #1 changed.
+    if top and top[0]["ticker"] != claudes_first and result.get("summary"):
+        result["summary"] = dict(result["summary"], top_pick=f"{top[0]['company']} ({top[0]['ticker']}): {top[0]['pitch']}")
+
+    final = {p["ticker"] for p in result["picks"]}
+    result["dropped"] = {t: reasons[t] for t in proposed if t not in final and t in reasons}
     return result

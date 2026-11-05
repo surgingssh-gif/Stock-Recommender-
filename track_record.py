@@ -31,6 +31,17 @@ def _rate(calls):
     return f"{right} of {len(calls)} right ({round(right / len(calls) * 100)}%)"
 
 
+def _rate_and_average(calls):
+    """Like _rate, plus the average move for the call, because a few big
+    losses can hide behind a good hit rate."""
+    avg = sum(p["directional_return_pct"] for p in calls) / len(calls)
+    return f"{_rate(calls)}, average {avg:+.2f}%"
+
+
+# "Recent" in the track record means the last this-many run-days.
+RECENT_RESULT_DAYS = 10
+
+
 def build_track_record(data, max_calls=MAX_CALLS):
     """
     A short plain-text summary of how the bot's calls have done, or None
@@ -59,10 +70,10 @@ def build_track_record(data, max_calls=MAX_CALLS):
     ]:
         subset = [p for p in judged if p.get(key) == value]
         if subset:
-            groups.append(f"{label}: {_rate(subset)}")
+            groups.append(f"{label}: {_rate_and_average(subset)}")
     top = [p for p in judged if p.get("top_rank")]
     if top:
-        groups.append(f"Top 5 ideas: {_rate(top)}")
+        groups.append(f"Top 5 ideas: {_rate_and_average(top)}")
     lines.append(". ".join(groups) + ".")
 
     # Compared with simply buying the S&P 500 over the same time.
@@ -73,14 +84,19 @@ def build_track_record(data, max_calls=MAX_CALLS):
             f"({market['rate']:.0f}%), by {market['avg_vs_market']:+.2f}% on average."
         )
 
-    # By news theme (only themes with a few results, so one call isn't a "pattern").
-    themes = {}
-    for p in judged:
-        if p.get("theme"):
-            themes.setdefault(p["theme"], []).append(p)
-    theme_lines = [f"{t}: {_rate(ps)}" for t, ps in sorted(themes.items()) if len(ps) >= 3]
-    if theme_lines:
-        lines.append("By theme: " + ". ".join(theme_lines) + ".")
+    # By news theme (only themes with a few results, so one call isn't a
+    # "pattern"): all-time, then just the last 2 weeks or so, because a theme
+    # can stop working once the market catches on.
+    recent_dates = sorted({p["date"] for p in judged}, reverse=True)[:RECENT_RESULT_DAYS]
+    for label, calls in [("By theme", judged),
+                         (f"By theme, last {RECENT_RESULT_DAYS} run-days", [p for p in judged if p["date"] in recent_dates])]:
+        themes = {}
+        for p in calls:
+            if p.get("theme"):
+                themes.setdefault(p["theme"], []).append(p)
+        theme_lines = [f"{t}: {_rate_and_average(ps)}" for t, ps in sorted(themes.items()) if len(ps) >= 3]
+        if theme_lines:
+            lines.append(f"{label}: " + ". ".join(theme_lines) + ".")
 
     # How the calls do the longer they're held.
     horizons = [h for h in (data.get("stats") or {}).get("by_horizon", []) if h.get("count")]
@@ -132,3 +148,18 @@ def recent_tickers(picks, before, days=RECENT_DAYS):
     """Tickers picked on the last `days` run-days before the date `before` (YYYY-MM-DD)."""
     dates = sorted({p["date"] for p in picks if p["date"] < before}, reverse=True)[:days]
     return sorted({p["ticker"] for p in picks if p["date"] in dates})
+
+
+def repeated_top_theme(days, before, runs=2):
+    """
+    The theme of the #1 top idea if it was the same on each of the last
+    `runs` run-days before `before` (YYYY-MM-DD), else None. `days` is
+    {date: day details} from build_dashboard.read_days().
+    """
+    themes = []
+    for day in sorted((d for d in days if d < before), reverse=True)[:runs]:
+        top = (days[day].get("top_buys") or [None])[0]
+        themes.append(top.get("theme") if top else None)
+    if len(themes) == runs and themes[0] and all(t == themes[0] for t in themes):
+        return themes[0]
+    return None

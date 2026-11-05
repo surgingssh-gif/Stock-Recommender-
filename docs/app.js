@@ -891,6 +891,20 @@
       hit_rate: judged.length ? Math.round(judged.filter(function (p) { return p.beat_market; }).length / judged.length * 1000) / 10 : null };
   }
 
+  // Did the rule changes help? Calls made before vs. after they started.
+  function rulesBreakdown(scored) {
+    var changed = DATA.rules_changed;
+    if (!changed) return null;
+    var after = scored.filter(function (p) { return p.date >= changed; });
+    return [
+      breakdown("Before vs. after the " + fmtShortDate(changed) + " rule changes", [
+        beatGroup("Before", scored.filter(function (p) { return p.date < changed; })),
+        beatGroup("After", after)], "wide"),
+      after.length ? null : el("p", { class: "chart-sub",
+        text: "The bot's picking rules changed on " + fmtLongDate(changed) + ". \"After\" appears once the new calls have results." })
+    ];
+  }
+
   function renderMarketTab() {
     var hero = document.getElementById("market-hero");
     var side = document.getElementById("market-breakdown");
@@ -929,7 +943,8 @@
           beatGroup("Other picks", scored.filter(function (p) { return !p.top_rank; }))], "wide"),
         breakdown("By confidence", ["high", "medium", "low"].map(function (c) { return beatGroup(c, scored.filter(function (p) { return p.confidence === c; })); })),
         breakdown("By news theme", Object.keys(themes).sort(function (a, b) { return themes[b].length - themes[a].length; })
-          .map(function (t) { return beatGroup(t, themes[t]); }), "wide")
+          .map(function (t) { return beatGroup(t, themes[t]); }), "wide"),
+        rulesBreakdown(scored)
       ] : emptyChart("Nothing to compare yet", "Once calls have results, this shows which kinds beat the market.")
     ]);
     side.querySelectorAll(".meter-row .val").forEach(function (v) { v.firstChild.textContent = v.firstChild.textContent.replace(" right", " beat it"); });

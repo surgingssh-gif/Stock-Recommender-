@@ -131,6 +131,17 @@ def entry_date(pick_date, picked_at=None):
     return (ny.date() + timedelta(days=1)).isoformat()
 
 
+# The day the bot's picking rules last changed (no forced "high" #1, no very
+# jumpy stocks, a fresh theme for the #1 idea, recent results by theme). The
+# vs. S&P 500 tab compares the calls made before and after it.
+RULES_CHANGED = "2026-11-05"
+
+# If Yahoo's first opening price after a pick is more than this many days
+# late, its prices are missing (for example the company was bought out and
+# Yahoo deleted its history), so the logged pick price is used instead.
+MAX_ENTRY_GAP_DAYS = 5
+
+
 def _first_open(opens, day):
     """(date, opening price) of the first session on or after `day`, or (None, None)."""
     for d in sorted(opens):
@@ -404,11 +415,12 @@ def by_horizon(picks):
 MARKET_TICKER = "SPY"
 
 
-def _market_move(spy_opens, spy_closes, start_day):
-    """The S&P 500's move (%) from the open on start_day to the latest close."""
+def _market_move(spy_opens, spy_closes, start_day, end_day=None):
+    """The S&P 500's move (%) from the open on start_day to the latest close
+    (or the last close on or before end_day)."""
     if not start_day or start_day not in spy_opens:
         return {}
-    later = [c for d, c in spy_closes if d >= start_day]
+    later = [c for d, c in spy_closes if d >= start_day and (end_day is None or d <= end_day)]
     if not later:
         return {}
     return {"market_move_pct": round((later[-1] - spy_opens[start_day]) / spy_opens[start_day] * 100, 2) + 0.0}
@@ -713,16 +725,24 @@ def build_data(picks, days, histories, events=None, facts=None, opens=None):
             # No price was logged: use that day's closing price, if known.
             pick = dict(pick, price_at_pick=next((c for d, c in history if d == pick["date"]), None))
         # When it could have been bought: at the next opening bell after the pick.
-        market = {}
+        market, price_gap = {}, False
+        scored_from = pick["date"]
         if opens is not None:
-            start_day, entry = _first_open(opens.get(pick["ticker"], {}), entry_date(pick["date"], day.get("picked_at")))
+            expected = entry_date(pick["date"], day.get("picked_at"))
+            start_day, entry = _first_open(opens.get(pick["ticker"], {}), expected)
+            price_gap = bool(start_day) and (date.fromisoformat(start_day) - date.fromisoformat(expected)).days > MAX_ENTRY_GAP_DAYS
+            if price_gap:
+                start_day, entry = expected, pick["price_at_pick"]
             pick = dict(pick, entry_date=start_day, entry_price=entry)
-            market = _market_move(opens.get(MARKET_TICKER, {}), histories.get(MARKET_TICKER, []), start_day)
-        scored_from = pick.get("entry_date") or pick["date"]
+            scored_from = start_day or pick["date"]
         # Only score a pick against prices from then on. (If Yahoo is
         # missing recent days, older prices would give fake results.)
         since_pick = [h for h in history if h[0] >= scored_from]
         price_now = since_pick[-1][1] if since_pick else None
+        if opens is not None:
+            # The S&P 500 over the same days (up to the stock's last price).
+            market = _market_move(opens.get(MARKET_TICKER, {}), histories.get(MARKET_TICKER, []),
+                                  pick["entry_date"], since_pick[-1][0] if since_pick else None)
         top_tickers = [b["ticker"] for b in day.get("top_buys") or []]
         full = dict(
             pick,
@@ -741,7 +761,8 @@ def build_data(picks, days, histories, events=None, facts=None, opens=None):
             # Only the part of the price history from the pick date onwards.
             history=[h for h in history if h[0] >= pick["date"]] or history[-1:],
         )
-        full["horizons"] = horizon_returns(full, history)
+        # With a gap in the prices, "after 1 day / 1 week" can't be measured.
+        full["horizons"] = {label: None for label, _ in HORIZONS} if price_gap else horizon_returns(full, history)
         full["level_status"] = level_status(full, history)
         enriched.append(vs_market(score_pick(full, price_now), market))
 
@@ -773,6 +794,7 @@ def build_data(picks, days, histories, events=None, facts=None, opens=None):
 
     return {
         "generated_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+        "rules_changed": RULES_CHANGED,
         "stats": stats,
         "picks": enriched,
         "days": day_list,
