@@ -171,27 +171,28 @@
   },
   "2026-10-16:PEP:stop": true,
   "2026-10-19:FLEX": {
-    "level": 2,
+    "level": 4,
     "sign": -1
   },
   "2026-10-19:FLEX:stop": true,
   "2026-10-19:LEU": {
-    "level": 3,
+    "level": 4,
     "sign": -1
   },
   "2026-10-19:LEU:stop": true,
   "2026-10-19:ORCL": {
     "level": 2,
-    "sign": 1
+    "sign": -1
   },
   "2026-10-19:ORCL:stop": true,
+  "2026-10-19:ORCL:target": true,
   "2026-10-19:SLGN": {
     "level": 1,
     "sign": 1
   },
   "2026-10-19:SLGN:stop": true,
   "2026-10-19:TTMI": {
-    "level": 5,
+    "level": 7,
     "sign": -1
   },
   "2026-10-19:TTMI:stop": true,
@@ -206,7 +207,7 @@
   },
   "2026-10-20:LMT:target": true,
   "2026-10-20:NBIS": {
-    "level": 3,
+    "level": 6,
     "sign": -1
   },
   "2026-10-20:NBIS:target": true,
@@ -237,7 +238,7 @@
   },
   "2026-10-21:DAL:stop": true,
   "2026-10-21:DINO": {
-    "level": 3,
+    "level": 4,
     "sign": -1
   },
   "2026-10-21:DINO:stop": true,
@@ -247,7 +248,7 @@
   },
   "2026-10-21:NXST:target": true,
   "2026-10-22:CRWV": {
-    "level": 2,
+    "level": 4,
     "sign": -1
   },
   "2026-10-22:CRWV:stop": true,
@@ -265,6 +266,7 @@
   "2026-10-22:LHX:target": true,
   "2026-10-22:XOM": {
     "level": 1,
-    "sign": 1
-  }
+    "sign": -1
+  },
+  "2026-10-22:XOM:stop": true
 }
