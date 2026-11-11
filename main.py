@@ -35,7 +35,8 @@ from market_data import format_market_data, get_market_backdrop, get_market_move
 from news import fetch_company_news, fetch_headlines
 from picks_log import DAYS_DIR, log_picks, save_day_details
 from prices import get_daily_swings, get_prices
-from track_record import build_track_record, load_dashboard_data, recent_picks_text, recent_tickers, repeated_top_theme
+from track_record import (build_track_record, load_dashboard_data, recent_picks_text, recent_tickers,
+                          recently_removed, repeated_top_theme)
 from watchlist import FUNDS, WATCHLIST
 
 # Company news is fetched for the market-watch companies plus any stock
@@ -152,14 +153,17 @@ def main():
     # What it picked on the last few days, so it doesn't repeat the same bets.
     # Stocks picked on the last few run-days can't be picked again today, and
     # if the #1 idea had the same theme two days running, today's can't.
+    # Claude also hears which stocks the rules removed lately (too jumpy, no
+    # prices), so it doesn't waste its ideas on them again.
     try:
         days = read_days()
         logged = latest_run_only(read_picks(), days)
         recent = recent_picks_text(logged)
         blocked = recent_tickers(logged, date_str)
         avoid_top_theme = repeated_top_theme(days, date_str)
+        removed_lately = recently_removed(days, date_str)
     except Exception:
-        recent, blocked, avoid_top_theme = None, [], None
+        recent, blocked, avoid_top_theme, removed_lately = None, [], None, {}
 
     # --- Step 2: Claude analysis --------------------------------------------
     analysis = None
@@ -169,7 +173,7 @@ def main():
         else:
             try:
                 analysis = analyze_headlines(headlines, anthropic_key, WATCHLIST, track_record, market_text,
-                                             recent, blocked, avoid_top_theme)
+                                             recent, blocked, avoid_top_theme, removed_lately)
                 print(f"Claude suggested {len(analysis['picks'])} picks, {len(analysis.get('top_buys', []))} top ideas "
                       f"and {len(analysis.get('backups', []))} backups.")
             except Exception as e:

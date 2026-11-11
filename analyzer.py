@@ -81,10 +81,12 @@ sentences), what "risks" could make it go wrong (1 or 2 sentences), and what \
 to "watch" next, like an earnings date or a decision (1 sentence). Be honest \
 about the downside: these are research candidates, not recommendations. If \
 the news is too quiet for 5 solid ideas, return fewer.
-- Also give up to 3 "backups": your next-best ideas, in the same format as \
+- Also give up to 5 "backups": your next-best ideas, in the same format as \
 "top_buys" and ranked the same way. If a top idea is removed by the rules \
-above (a repeat or too jumpy), the first backup that passes takes its \
-place. Backups follow all the same rules.
+above (a repeat, too jumpy, or a stock with no recent prices), the first \
+backup that passes takes its place. Backups follow all the same rules. \
+Don't suggest anything listed under "Recently removed by the rules": it \
+would just be removed again.
 - Some headlines are marked "(about TICKER)": those were fetched for that \
 company specifically. You may also get a "Market data" section listing the \
 biggest movers and pre-market moves. Use it to see what the market is already \
@@ -234,7 +236,7 @@ def _format_headlines(headlines):
 
 
 def analyze_headlines(headlines, api_key, watchlist=None, track_record=None, market_data=None,
-                      recent_picks=None, blocked=None, avoid_top_theme=None):
+                      recent_picks=None, blocked=None, avoid_top_theme=None, recently_removed=None):
     """
     Returns Claude's answer as a dict: {"market_mood": "...", "picks": [
     {ticker, company, direction, confidence, reason, sources}, ... ]}
@@ -250,6 +252,7 @@ def analyze_headlines(headlines, api_key, watchlist=None, track_record=None, mar
     recent_picks    - text listing the last few days' picks (optional)
     blocked         - tickers that may not be picked today (recent picks)
     avoid_top_theme - a theme today's #1 idea shouldn't come from (optional)
+    recently_removed - {ticker: why} for stocks the rules removed lately (optional)
 
     Raises an exception if Claude can't be reached or declines to answer,
     so the caller can report it.
@@ -276,6 +279,9 @@ def analyze_headlines(headlines, api_key, watchlist=None, track_record=None, mar
     if avoid_top_theme:
         user_message += (f"\n\nYour #1 idea was a \"{avoid_top_theme}\" idea on each of the last two days: "
                          "today's #1 idea must come from a different theme.")
+    if recently_removed:
+        user_message += ("\n\nRecently removed by the rules (don't suggest these): "
+                         + ", ".join(f"{t} ({why})" for t, why in sorted(recently_removed.items())))
 
     response = client.beta.messages.create(
         model=model,
@@ -387,6 +393,9 @@ def apply_rules(result, blocked=(), swings=None, avoid_top_theme=None):
       1. No repeats: no ticker picked in the last few days (`blocked`).
       2. No jumpy stocks: none that usually move more than 3% a day
          (`swings` is {ticker: typical daily move in %} from prices.py).
+         A stock Yahoo has no recent prices for (`None`) is removed too: it
+         probably doesn't trade anymore (e.g. it was bought out), so it
+         couldn't be bought or scored.
       3. A fresh #1: today's #1 idea doesn't come from `avoid_top_theme` (the
          theme of the #1 idea on each of the last two days), as long as
          another top idea can take its place.
@@ -395,13 +404,19 @@ def apply_rules(result, blocked=(), swings=None, avoid_top_theme=None):
     """
     result = dict(result)  # a copy, so Claude's original answer isn't changed
     reasons = {t.upper(): "picked in the last few days" for t in blocked}
-    for ticker, swing in (swings or {}).items():
-        if swing is not None and swing > MAX_DAILY_SWING:
+    swings = swings or {}
+    # Only trust a missing price if Yahoo answered for most of the other
+    # stocks; if Yahoo is down, nothing is removed for having no price.
+    yahoo_working = len([s for s in swings.values() if s is not None]) >= len(swings) / 2
+    for ticker, swing in swings.items():
+        if swing is None and yahoo_working:
+            reasons.setdefault(ticker, "no recent prices, so it may no longer trade")
+        elif swing is not None and swing > MAX_DAILY_SWING:
             reasons.setdefault(ticker, f"too jumpy (usually moves {swing:.1f}% a day)")
 
-    # Claude's own ideas (not the backups), to report what was removed, and
+    # Every idea Claude gave (backups too), to report what was removed, and
     # its #1 idea, to see whether the rules changed it.
-    proposed = {i["ticker"]: i for i in result["picks"] + result.get("top_buys", [])}
+    proposed = {i["ticker"]: i for i in result["picks"] + result.get("top_buys", []) + result.get("backups", [])}
     claudes_first = result["top_buys"][0]["ticker"] if result.get("top_buys") else None
 
     # 1 and 2: remove repeats and jumpy stocks. The backups go after the top

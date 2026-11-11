@@ -193,8 +193,12 @@ working. After Claude answers, the code also enforces a few **house rules**
   speculative quantum or space stocks), which caused the bot's biggest losses.
 - **A fresh #1:** if the #1 idea came from the same theme two days running, the
   next day's #1 comes from a different one.
+- **Only stocks that still trade:** a stock Yahoo has no recent prices for (for
+  example one that was bought out) is removed, since it couldn't be scored.
 
-Claude also gives up to 3 backup ideas, which fill the Top 5 if a rule removes one.
+Claude also gives up to 5 backup ideas, which fill the Top 5 if a rule removes one.
+What the rules removed is saved in each day's file in `data/days/`, and Claude is
+told about the last few days' removals so it doesn't suggest them again.
 The rules started on Nov 5, 2026; the vs. S&P 500 tab compares the calls made
 before and after.
 
