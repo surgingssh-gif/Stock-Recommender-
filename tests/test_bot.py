@@ -85,7 +85,7 @@ def _run_main(monkeypatch, tmp_path, *, news=None, analysis=None, company_news=(
     calls = {}
 
     def fake_analysis(headlines, _key, _watchlist=None, track_record=None, market_data=None, recent_picks=None,
-                      blocked=None, avoid_top_theme=None):
+                      blocked=None, avoid_top_theme=None, recently_removed=None):
         calls.update(headlines=headlines, track_record=track_record, market_data=market_data, recent_picks=recent_picks)
         if isinstance(analysis, Exception):
             raise analysis
@@ -895,3 +895,62 @@ def test_recap_covers_the_picks_bought_at_todays_open():
     msg = build_recap("2026-10-05", [p], [])
     assert "Ideas from the 2026-10-02 run, bought at today's open." in msg
     assert msg.endswith(f"_{DISCLAIMER}_")
+
+
+def test_stocks_without_prices_are_removed_unless_yahoo_is_down():
+    from analyzer import apply_rules
+
+    answer = {"market_mood": "m", "watchlist_notes": [], "picks": [],
+              "top_buys": [_idea("SPR", "Earnings & guidance"), _idea("XOM", "Oil & energy")],
+              "backups": [_idea("WEN", "Consumer & retail"), _idea("KO", "Consumer & retail")]}
+    # SPR no longer trades (Yahoo has no prices); WEN is too jumpy; KO fills in.
+    result = apply_rules(answer, swings={"SPR": None, "XOM": 1.4, "WEN": 4.1, "KO": 1.0})
+    assert [b["ticker"] for b in result["top_buys"]] == ["XOM", "KO"]
+    # Removed backups are reported too, so Claude can be told about them tomorrow.
+    assert result["dropped"] == {"SPR": "no recent prices, so it may no longer trade",
+                                 "WEN": "too jumpy (usually moves 4.1% a day)"}
+    # If Yahoo has no prices for most stocks, Yahoo is the problem: nothing is removed.
+    outage = apply_rules(answer, swings={"SPR": None, "XOM": None, "WEN": None, "KO": 1.0})
+    assert [b["ticker"] for b in outage["top_buys"]] == ["SPR", "XOM", "WEN", "KO"] and outage["dropped"] == {}
+
+
+def test_claude_hears_what_the_rules_removed_lately(monkeypatch, tmp_path):
+    import analyzer
+    from track_record import recently_removed
+
+    days = {
+        "2026-11-05": {"dropped": {"LUV": "too jumpy (usually moves 3.0% a day)", "OLD": "too jumpy (usually moves 5.0% a day)"}},
+        "2026-11-06": {"dropped": {"LUV": "too jumpy (usually moves 3.1% a day)", "XOM": "picked in the last few days"}},
+        "2026-11-09": {"dropped": {"SPR": "no recent prices, so it may no longer trade"}},
+        "2026-11-10": {},
+        "2026-11-11": {"dropped": {"TODAY": "too jumpy (usually moves 9.0% a day)"}},
+    }
+    # The last 3 run-days before Nov 11: repeats are left out (they're blocked anyway), the newest reason wins.
+    removed = recently_removed(days, "2026-11-11")
+    assert removed == {"LUV": "too jumpy (usually moves 3.1% a day)", "SPR": "no recent prices, so it may no longer trade"}
+
+    # And it's in what Claude is sent, along with the "fresh #1" rule.
+    sent = {}
+
+    class FakeClient:
+        def __init__(self, api_key):
+            self.beta = self
+            self.messages = self
+        def create(self, **kwargs):
+            sent.update(kwargs)
+            reply = {"market_mood": "m", "picks": [], "watchlist_notes": [], "top_buys": [], "backups": [],
+                     "self_check": "s", "summary": {"big_story": "b", "top_pick": "t", "watch": "w"}}
+            block = type("Block", (), {"type": "text", "text": json.dumps(reply)})
+            return type("Response", (), {"stop_reason": "end_turn", "content": [block]})
+    monkeypatch.setattr(analyzer.anthropic, "Anthropic", FakeClient)
+    analyzer.analyze_headlines(FAKE_HEADLINES, "key", avoid_top_theme="Oil & energy", recently_removed=removed)
+    message = sent["messages"][0]["content"]
+    assert "Recently removed by the rules (don't suggest these): LUV (too jumpy (usually moves 3.1% a day)), SPR (" in message
+    assert 'Your #1 idea was a "Oil & energy" idea on each of the last two days' in message
+
+
+def test_day_details_keep_what_the_rules_removed(tmp_path):
+    analysis = dict(FAKE_ANALYSIS, dropped={"WEN": "too jumpy (usually moves 4.1% a day)"})
+    save_day_details("2026-11-11", analysis, FAKE_HEADLINES, days_dir=str(tmp_path))
+    saved = json.loads((tmp_path / "2026-11-11.json").read_text())
+    assert saved["dropped"] == {"WEN": "too jumpy (usually moves 4.1% a day)"}

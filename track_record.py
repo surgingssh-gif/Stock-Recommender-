@@ -163,3 +163,17 @@ def repeated_top_theme(days, before, runs=2):
     if len(themes) == runs and themes[0] and all(t == themes[0] for t in themes):
         return themes[0]
     return None
+
+
+def recently_removed(days, before, runs=RECENT_DAYS):
+    """
+    {ticker: why} for ideas the house rules removed on the last `runs`
+    run-days before `before` (YYYY-MM-DD), except repeats (those are already
+    on the blocked list). Tells Claude not to suggest them again.
+    """
+    removed = {}
+    for day in sorted((d for d in days if d < before))[-runs:]:  # oldest first, so the newest reason wins
+        for ticker, why in (days[day].get("dropped") or {}).items():
+            if why != "picked in the last few days":
+                removed[ticker] = why
+    return removed
