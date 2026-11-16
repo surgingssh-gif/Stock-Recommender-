@@ -734,12 +734,16 @@
         changePill(pct));
     };
     var chartBox = el("div", { class: "pf-chart" });
+    var hasRandom = last.length > 3;  // older data has no random Top 5
     append(box, [
       el("div", { class: "pf-side" },
         hero("Following the Top 5", "s1", last[1], pf.top5_return_pct),
         hero("Buying the S&P 500", "s2", last[2], pf.spy_return_pct),
-        el("p", { class: "pf-verdict", text: Math.abs(lead) < 0.005 ? "Dead even so far." :
-          (lead > 0 ? "The Top 5 are ahead by " : "The S&P 500 is ahead by ") + fmtMoney(Math.abs(lead)) + "." }),
+        hasRandom ? hero("A random Top 5", "s3", last[3], pf.random_return_pct) : null,
+        el("p", { class: "pf-verdict", text: (Math.abs(lead) < 0.005 ? "Dead even with the S&P 500 so far." :
+          (lead > 0 ? "The Top 5 are ahead of the S&P 500 by " : "The S&P 500 is ahead by ") + fmtMoney(Math.abs(lead)) + ".") +
+          (hasRandom ? (last[1] >= last[3] ? " The Top 5 are ahead of the random Top 5 by " : " The random Top 5 is ahead of the bot by ") +
+            fmtMoney(Math.abs(last[1] - last[3])) + "." : "") }),
         el("p", { class: "legend-note", text: "Each day the bot runs, the money is split equally across that day's Top 5 at the opening price (betting against the stock for bearish ideas) and held until the next day's Top 5. " +
           pf.pick_days + (pf.pick_days === 1 ? " day" : " days") + " so far. No trading costs or taxes, so it's a rough check, not real results." })),
       chartBox
@@ -752,8 +756,10 @@
     var W = Math.max(280, area.clientWidth || 600);
     var H = W < 520 ? 220 : 260, left = 8, right = 64, top = 14, bottom = 26;
     var xs = series.map(function (d) { return toMs(d[0]); });
+    var hasRandom = series[series.length - 1].length > 3;
+    var cols = hasRandom ? [1, 2, 3] : [1, 2];
     var vals = [];
-    series.forEach(function (d) { vals.push(d[1], d[2]); });
+    series.forEach(function (d) { cols.forEach(function (k) { vals.push(d[k]); }); });
     var lo = Math.min.apply(null, vals.concat([pf.start])), hi = Math.max.apply(null, vals.concat([pf.start]));
     var pad = (hi - lo) * 0.15 || 50;
     var ticks = niceTicks(lo - pad, hi + pad, 4);
@@ -762,7 +768,9 @@
     var y = function (v) { return top + (1 - (v - yLo) / (yHi - yLo)) * (H - top - bottom); };
     var plot = svg("svg", { class: "stock-plot", viewBox: "0 0 " + W + " " + H, width: W, height: H, tabindex: 0, role: "img",
       "aria-label": "Value of $10,000: following the Top 5 is at " + fmtMoney(series[series.length - 1][1]) +
-        ", buying the S&P 500 is at " + fmtMoney(series[series.length - 1][2]) + ". Use the left and right arrow keys to read each day." });
+        ", buying the S&P 500 is at " + fmtMoney(series[series.length - 1][2]) +
+        (hasRandom ? ", a random Top 5 is at " + fmtMoney(series[series.length - 1][3]) : "") +
+        ". Use the left and right arrow keys to read each day." });
     ticks.forEach(function (v) {
       plot.appendChild(svg("line", { x1: left, x2: W - right, y1: y(v), y2: y(v), stroke: "var(--hair)", "stroke-width": 1 }));
       plot.appendChild(svg("text", { x: W - right + 8, y: y(v) + 4, text: "$" + Math.round(v).toLocaleString("en-US") }));
@@ -774,7 +782,8 @@
       var idx = Math.round(i * (series.length - 1) / (labelCount - 1 || 1));
       plot.appendChild(svg("text", { x: x(xs[idx]), y: H - 8, "text-anchor": i === 0 ? "start" : i === labelCount - 1 ? "end" : "middle", text: fmtShortDate(series[idx][0]) }));
     }
-    [[2, "var(--series-2)"], [1, "var(--series-1)"]].forEach(function (s) {
+    // Drawn back to front, so the bot's own line (blue) sits on top.
+    (hasRandom ? [[3, "var(--series-3)"], [2, "var(--series-2)"], [1, "var(--series-1)"]] : [[2, "var(--series-2)"], [1, "var(--series-1)"]]).forEach(function (s) {
       var d = series.map(function (row, i) { return (i ? "L" : "M") + x(xs[i]).toFixed(1) + "," + y(row[s[0]]).toFixed(1); }).join("");
       plot.appendChild(svg("path", { d: d, fill: "none", stroke: s[1], "stroke-width": 2, "stroke-linejoin": "round", "stroke-linecap": "round" }));
       var end = series[series.length - 1];
@@ -783,20 +792,22 @@
 
     // Crosshair + tooltip (hover, or arrow keys when the chart is focused).
     var cross = svg("line", { y1: top, y2: H - bottom, stroke: "var(--muted)", "stroke-width": 1, visibility: "hidden" });
-    var dots = [svg("circle", { r: 4, fill: "var(--series-1)", stroke: "var(--paper)", "stroke-width": 2, visibility: "hidden" }),
-                svg("circle", { r: 4, fill: "var(--series-2)", stroke: "var(--paper)", "stroke-width": 2, visibility: "hidden" })];
+    var dots = cols.map(function (k) {
+      return svg("circle", { r: 4, fill: "var(--series-" + k + ")", stroke: "var(--paper)", "stroke-width": 2, visibility: "hidden" });
+    });
     plot.appendChild(cross); dots.forEach(function (c) { plot.appendChild(c); });
     var active = series.length - 1;
     function showAt(i, event) {
       active = Math.max(0, Math.min(series.length - 1, i));
       var row = series[active], cx = x(xs[active]);
       cross.setAttribute("x1", cx); cross.setAttribute("x2", cx); cross.setAttribute("visibility", "visible");
-      [1, 2].forEach(function (k) { dots[k - 1].setAttribute("cx", cx); dots[k - 1].setAttribute("cy", y(row[k])); dots[k - 1].setAttribute("visibility", "visible"); });
+      cols.forEach(function (k) { dots[k - 1].setAttribute("cx", cx); dots[k - 1].setAttribute("cy", y(row[k])); dots[k - 1].setAttribute("visibility", "visible"); });
       var rect = plot.getBoundingClientRect();
       showTooltip(event || { clientX: rect.left + cx * rect.width / W, clientY: rect.top + y(row[1]) * rect.height / H }, [
         ["tt-title", active === 0 ? "Start" : fmtLongDate(row[0])],
         ["tt-line", "Top 5: " + fmtMoney(row[1])],
-        ["tt-line", "S&P 500: " + fmtMoney(row[2])]]);
+        ["tt-line", "S&P 500: " + fmtMoney(row[2])],
+        hasRandom ? ["tt-line", "Random Top 5: " + fmtMoney(row[3])] : null].filter(Boolean));
     }
     function hide() { cross.setAttribute("visibility", "hidden"); dots.forEach(function (c) { c.setAttribute("visibility", "hidden"); }); hideTooltip(); }
     plot.addEventListener("pointermove", function (e) {
@@ -815,14 +826,17 @@
     area.appendChild(el("p", { class: "pf-legend" },
       el("span", { class: "key" }, el("i", { style: "background:var(--series-1)" }), "Following the Top 5"),
       el("span", { class: "key" }, el("i", { style: "background:var(--series-2)" }), "Buying the S&P 500"),
+      hasRandom ? el("span", { class: "key" }, el("i", { style: "background:var(--series-3)" }), "A random Top 5") : null,
       el("span", { class: "key" }, el("i", { class: "dash" }), "$10,000 start")));
     area.appendChild(el("details", null,
       el("summary", { text: "Show values as a table" }),
       el("div", { class: "table-wrap", style: "max-height:260px;overflow-y:auto" }, el("table", null,
-        el("thead", null, el("tr", null, el("th", { text: "Day" }), el("th", { class: "r", text: "Top 5" }), el("th", { class: "r", text: "S&P 500" }))),
+        el("thead", null, el("tr", null, el("th", { text: "Day" }), el("th", { class: "r", text: "Top 5" }), el("th", { class: "r", text: "S&P 500" }),
+          hasRandom ? el("th", { class: "r", text: "Random Top 5" }) : null)),
         el("tbody", null, series.map(function (row, i) {
           return el("tr", null, el("td", { text: i === 0 ? "Start" : fmtShortDate(row[0]) }),
-            el("td", { class: "r tab", text: fmtMoney(row[1]) }), el("td", { class: "r tab", text: fmtMoney(row[2]) }));
+            el("td", { class: "r tab", text: fmtMoney(row[1]) }), el("td", { class: "r tab", text: fmtMoney(row[2]) }),
+            hasRandom ? el("td", { class: "r tab", text: fmtMoney(row[3]) }) : null);
         }))))));
   }
 
@@ -949,8 +963,96 @@
     ]);
     side.querySelectorAll(".meter-row .val").forEach(function (v) { v.firstChild.textContent = v.firstChild.textContent.replace(" right", " beat it"); });
 
+    renderLuck();
     renderPortfolio();
+    renderRandom();
     renderMarketCallsChart();
+  }
+
+  // "1 of 1,000": how many of the random Top 5s the bot's Top 5 beat.
+  function fmtDrawsBeaten(r) {
+    return Math.round(r.beats_draws_pct * r.draws / 100).toLocaleString("en-US") + " of " + r.draws.toLocaleString("en-US");
+  }
+
+  // "12%", or "under 1%" for tiny chances.
+  function fmtChance(pct) {
+    if (pct === null || pct === undefined) return "—";
+    return pct < 1 ? "under 1%" : Math.round(pct) + "%";
+  }
+
+  // Skill or luck? How likely a coin flip each day would match the record.
+  function renderLuck() {
+    var box = document.getElementById("luck-hero");
+    clear(box);
+    var luck = stats.luck || {};
+    var rnd = DATA.random;
+    if (!luck.days) {
+      box.appendChild(emptyChart("Nothing to judge yet", "Once calls have results, this shows whether the record could just be luck."));
+      return;
+    }
+    var verdict = luck.days_beat * 2 <= luck.days ? "No sign of skill yet: the S&P 500 has done better on at least as many days as the bot."
+      : luck.days < 20 ? "Too early to tell: a few weeks of results can't separate skill from luck."
+      : luck.chance_pct <= 5 ? "Hard to explain by luck alone. A good sign, but keep watching: markets change."
+      : luck.chance_pct <= 25 ? "Promising, but luck could still explain it."
+      : "Could easily be luck so far.";
+    // The random draws are the tougher test: they use the same days and the same bullish/bearish mix.
+    var hasDraws = rnd && rnd.beats_draws_pct !== null && rnd.beats_draws_pct !== undefined;
+    if (hasDraws && rnd.beats_draws_pct <= 5) {
+      verdict += " And the bot's Top 5 did worse than almost every random Top 5 (see Bot vs. Random Picks), so its stock choices haven't added anything yet.";
+    } else if (hasDraws && rnd.beats_draws_pct >= 95) {
+      verdict += " And the bot's Top 5 beat almost every random Top 5, which is a good sign that its stock choices matter.";
+    }
+    append(box, [
+      el("div", { class: "sc-col" },
+        el("p", { class: "hero-label", text: "Chance luck alone does this well" }),
+        el("div", { class: "hero-figure", text: fmtChance(luck.chance_pct) }),
+        el("p", { class: "hero-note", text: verdict })),
+      el("div", { class: "sc-col" }, el("div", { class: "tiles" },
+        tile("Days the calls beat the S&P 500", luck.days_beat + " of " + luck.days,
+          "Each day counts once, since one news story can move several calls"),
+        tile("To rule out luck", luck.days_needed !== null ? luck.days_needed + " of " + luck.days + " days" : "More days needed",
+          "Winning days for luck to have a 5% chance or less"),
+        hasDraws ? tile("Random Top 5s the bot beat", fmtDrawsBeaten(rnd),
+            "Luck alone would beat about half; skill, nearly all") : null,
+        tile("How it's worked out", "A coin flip each day",
+          "The chance of winning at least that many days out of that many flips")))
+    ]);
+  }
+
+  // The bot's Top 5 against a random Top 5 with the same bullish/bearish mix.
+  function renderRandom() {
+    var box = document.getElementById("random-hero");
+    clear(box);
+    var r = DATA.random;
+    if (!r || !r.days) {
+      box.appendChild(emptyChart("No comparison yet", "Once the Top 5 and the random picks have closing prices, they're compared here."));
+      return;
+    }
+    var edge = r.bot.avg_move - r.random.avg_move;
+    var verdict = (r.days < 20 ? "Early days. " : "") + (Math.abs(edge) < 0.05
+      ? "The bot's picks and the random ones are even so far."
+      : edge > 0 ? "The bot's picks are ahead of the random ones so far."
+      : "The random picks are ahead of the bot's so far.");
+    function side(s) {
+      return s.judged + " calls · " + (s.hit_rate === null ? "—" : Math.round(s.hit_rate) + "% right") + " · " +
+        (s.beat_market_rate === null ? "—" : Math.round(s.beat_market_rate) + "% beat the S&P 500");
+    }
+    var latest = r.latest && r.latest.picks.length ? r.latest : null;
+    append(box, [
+      el("div", { class: "sc-col" },
+        el("p", { class: "hero-label", text: "Bot's edge per call over random picks" }),
+        el("div", { class: "hero-figure", text: fmtPct(edge) }),
+        el("p", { class: "hero-note", text: "On " + r.days + (r.days === 1 ? " day" : " days") + " with results. " + verdict })),
+      el("div", { class: "sc-col" }, el("div", { class: "tiles" },
+        tile("Bot's Top 5", fmtPct(r.bot.avg_move) + " per call", side(r.bot)),
+        tile("Random picks", fmtPct(r.random.avg_move) + " per call", side(r.random)),
+        r.beats_draws_pct !== null && r.beats_draws_pct !== undefined
+          ? tile("Random Top 5s the bot beat", fmtDrawsBeaten(r),
+            "Ahead of the latest random picks on " + r.days_bot_ahead + " of " + r.days + " days")
+          : tile("Days the bot did better", r.days_bot_ahead + " of " + r.days, "Chance luck alone does this well: " + fmtChance(r.chance_pct)),
+        latest ? tile("Latest random draw", latest.picks.map(function (p) { return (p.direction === "bullish" ? "▲\u00a0" : "▼\u00a0") + p.ticker; }).join("   "),
+          "For the " + fmtShortDate(latest.date) + " Top 5, from " + r.universe_size + " big companies") : null))
+    ]);
   }
 
   // ---------------------------------------------------------------------------
