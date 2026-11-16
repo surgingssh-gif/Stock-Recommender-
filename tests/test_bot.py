@@ -643,7 +643,8 @@ def test_picks_are_scored_from_the_next_open_and_against_the_market():
     assert data["stats"]["vs_market"]["top5"]["judged"] == 1
     # The $10k test buys the Top 5 (just UP) and SPY at the same open.
     pf = data["portfolio"]
-    assert pf["series"][-1][1:] == [10476.19, 10200.0]
+    assert pf["series"][-1][1:3] == [10476.19, 10200.0]
+    assert pf["series"][-1][3] == 10000   # no prices for the random picks in this test, so they stay at $10,000
 
 
 def test_recap_scores_from_the_open_and_counts_market_beaters():
@@ -954,3 +955,79 @@ def test_day_details_keep_what_the_rules_removed(tmp_path):
     save_day_details("2026-11-11", analysis, FAKE_HEADLINES, days_dir=str(tmp_path))
     saved = json.loads((tmp_path / "2026-11-11.json").read_text())
     assert saved["dropped"] == {"WEN": "too jumpy (usually moves 4.1% a day)"}
+
+
+def test_chance_of_luck_is_a_coin_flip_calculation():
+    from build_dashboard import chance_of_luck, skill_or_luck
+
+    assert chance_of_luck(1, 1) == 50.0
+    assert chance_of_luck(11, 22) == 58.4      # half the days: easily luck
+    assert chance_of_luck(15, 20) == 2.1       # 15 of 20 days: hard to explain by luck
+    assert chance_of_luck(0, 0) is None
+    # Each day counts once: two calls on the 22nd average +1%, one on the 23rd is -2%.
+    calls = [{"date": "2026-09-22", "vs_market_pct": 3.0}, {"date": "2026-09-22", "vs_market_pct": -1.0},
+             {"date": "2026-09-23", "vs_market_pct": -2.0}, {"date": "2026-09-24", "vs_market_pct": None}]
+    assert skill_or_luck(calls) == {"days": 2, "days_beat": 1, "chance_pct": 75.0, "days_needed": None}
+    week = [{"date": f"2026-10-{d:02d}", "vs_market_pct": 1.0} for d in range(1, 23)]
+    assert skill_or_luck(week)["days_needed"] == 16   # 16 of 22 winning days: under a 5% chance by luck
+
+
+def test_random_picks_copy_the_days_mix_and_never_change():
+    from build_dashboard import random_picks
+    from watchlist import RANDOM_UNIVERSE
+
+    days = {"2026-11-12": {"picks": [{"ticker": "IBM"}, {"ticker": "NOC"}],
+                           "top_buys": [{"ticker": "IBM", "direction": "bullish"}, {"ticker": "NOC", "direction": "bearish"},
+                                        {"ticker": "CL", "direction": "bullish"}]},
+            "2026-11-13": {"picks": [], "top_buys": []}}
+    drawn = random_picks(days)
+    assert [(p["date"], p["direction"], p["top_rank"]) for p in drawn] == [
+        ("2026-11-12", "bullish", 1), ("2026-11-12", "bearish", 2), ("2026-11-12", "bullish", 3)]
+    tickers = [p["ticker"] for p in drawn]
+    assert len(set(tickers)) == 3 and all(t in RANDOM_UNIVERSE and t != "IBM" for t in tickers)  # never the bot's own picks
+    assert random_picks(days) == drawn   # same day, same draw, every rebuild
+
+
+def test_bot_is_compared_with_the_random_picks(monkeypatch):
+    import build_dashboard
+
+    monkeypatch.setattr(build_dashboard, "RANDOM_UNIVERSE", ["RND"])
+    picks = [{"date": "2026-11-12", "ticker": "BOT", "direction": "bullish", "reason": "r", "price_at_pick": 100.0}]
+    days = {"2026-11-12": {"picked_at": "2026-11-12T13:00:00Z", "picks": [{"ticker": "BOT"}],
+                           "top_buys": [{"ticker": "BOT", "direction": "bullish"}]}}
+    histories = {"BOT": [["2026-11-12", 104.0], ["2026-11-13", 106.0]],
+                 "RND": [["2026-11-12", 50.0], ["2026-11-13", 51.0]],
+                 "SPY": [["2026-11-12", 100.0], ["2026-11-13", 101.0]]}
+    opens = {"BOT": {"2026-11-12": 100.0}, "RND": {"2026-11-12": 50.0}, "SPY": {"2026-11-12": 100.0}}
+    data = build_data(picks, days, histories, opens=opens)
+
+    rnd = data["random"]
+    assert rnd["bot"]["avg_move"] == 6.0 and rnd["random"]["avg_move"] == 2.0   # BOT +6%, the random stock +2%
+    assert (rnd["days"], rnd["days_bot_ahead"], rnd["chance_pct"]) == (1, 1, 50.0)
+    assert rnd["beats_draws_pct"] == 100.0   # the only possible random draw (+2%) is below the bot (+6%)
+    assert rnd["latest"] == {"date": "2026-11-12", "picks": [{"ticker": "RND", "direction": "bullish"}]}
+    # The $10,000 test carries the random Top 5 as its 4th number: $10,000 -> $10,200.
+    assert data["portfolio"]["series"][-1] == ["2026-11-13", 10600.0, 10100.0, 10200.0]
+    assert data["portfolio"]["random_return_pct"] == 2.0
+    assert data["stats"]["luck"] == {"days": 1, "days_beat": 1, "chance_pct": 50.0, "days_needed": None}
+
+
+def test_bot_is_ranked_against_many_random_draws(monkeypatch):
+    import build_dashboard
+
+    # Four stocks to draw from: two rose 10%, two fell 10%. Bullish Top 5 of 2 stocks a day.
+    monkeypatch.setattr(build_dashboard, "RANDOM_UNIVERSE", ["U1", "U2", "D1", "D2"])
+    days = {"2026-11-12": {"picked_at": "2026-11-12T13:00:00Z", "picks": [],
+                           "top_buys": [{"ticker": "B1", "direction": "bullish"}, {"ticker": "B2", "direction": "bullish"}]}}
+    histories = {t: [["2026-11-12", 100.0], ["2026-11-13", 110.0 if t[0] == "U" else 90.0]] for t in ["U1", "U2", "D1", "D2"]}
+    opens = {t: {"2026-11-12": 100.0} for t in histories}
+
+    def bot(move):
+        return [{"date": "2026-11-12", "ticker": t, "direction": "bullish", "top_rank": i + 1,
+                 "directional_return_pct": move} for i, t in enumerate(["B1", "B2"])]
+    # Random pairs average +10% (1 in 6), 0% (4 in 6) or -10% (1 in 6).
+    assert build_dashboard.beats_random_draws(bot(20.0), days, histories, opens) == 100.0
+    assert build_dashboard.beats_random_draws(bot(-20.0), days, histories, opens) == 0.0
+    middle = build_dashboard.beats_random_draws(bot(5.0), days, histories, opens)   # beats the 0% and -10% draws
+    assert 78 < middle < 89
+    assert build_dashboard.beats_random_draws([], days, histories, opens) is None

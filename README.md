@@ -256,8 +256,24 @@ closing prices. On Fridays it adds a week-in-review report card.
 The Results tab keeps a **Weekly Report Card** for every week, graded A-F on the
 share of calls that were right. The Results tab also runs **The $10,000 Test**: what
 $10,000 would be worth if you'd split it across each day's Top 5 (held until the next
-Top 5), next to just buying the S&P 500. It ignores trading costs and taxes, so treat
-it as a rough check. To test the recap: **Actions** tab > **Evening recap** >
+Top 5), next to just buying the S&P 500 and next to a random Top 5. It ignores trading
+costs and taxes, so treat it as a rough check.
+
+**Is it skill or luck?** The vs. S&P 500 tab answers this two ways:
+
+- **Skill or Luck?** counts the days the calls beat the S&P 500 (each day once, since
+  one story can move several calls) and works out how often a coin flip each day
+  would do that well, plus how many winning days it would take to rule luck out.
+- **Bot vs. Random Picks** matches each day's Top 5 with stocks drawn at random from
+  60 big US companies (`RANDOM_UNIVERSE` in `watchlist.py`), with the same mix of
+  bullish and bearish calls, bought at the same opening bell. Each day's draw is
+  seeded with the date, so it never changes. Because one draw can be lucky too, the
+  bot is also compared with 1,000 random draws: beating about half is what luck
+  gives; beating nearly all of them would be a sign of real skill. (The draws come
+  from big companies only, so a stretch where big companies beat smaller ones counts
+  against the bot.)
+
+To test the recap: **Actions** tab > **Evening recap** >
 **Run workflow**. To preview it on your computer: `python recap.py --dry-run`.
 
 **How the scorecard works:** each pick is scored from the **opening price** on the

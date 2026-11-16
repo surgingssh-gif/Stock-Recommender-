@@ -13,6 +13,7 @@ Run it with:  python build_dashboard.py
 import csv
 import json
 import math
+import random
 import os
 from datetime import date, datetime, time, timedelta, timezone
 from zoneinfo import ZoneInfo
@@ -20,7 +21,7 @@ from zoneinfo import ZoneInfo
 import yfinance as yf
 
 from logos import load_logos
-from watchlist import FED_MEETINGS, FUNDS, SECTORS, WATCHLIST
+from watchlist import FED_MEETINGS, FUNDS, RANDOM_UNIVERSE, SECTORS, WATCHLIST
 
 LOG_FILE = "picks_log.csv"
 DAYS_DIR = os.path.join("data", "days")
@@ -708,6 +709,186 @@ def _brief(pick):
 
 # --- Putting it together -----------------------------------------------------
 
+# --- Skill or luck? -----------------------------------------------------------
+
+def chance_of_luck(wins, total):
+    """
+    The chance (in %) that pure luck - a fair coin flip each day - would win
+    at least `wins` days out of `total`. Small = hard to explain by luck.
+    """
+    if not total:
+        return None
+    return round(sum(math.comb(total, k) for k in range(wins, total + 1)) / 2 ** total * 100, 1)
+
+
+def _by_day(picks, key):
+    """{date: average of `key`} over the picks that have a value for it."""
+    days = {}
+    for p in picks:
+        if p.get(key) is not None:
+            days.setdefault(p["date"], []).append(p[key])
+    return {d: sum(v) / len(v) for d, v in days.items()}
+
+
+def skill_or_luck(picks):
+    """
+    How many days the calls beat the S&P 500 on average, and the chance luck
+    alone would do that well. Each day counts once, because calls made the
+    same morning often move together (one news story can lift them all).
+    """
+    days = _by_day(picks, "vs_market_pct")
+    wins = len([v for v in days.values() if v > 0])
+    # The fewest winning days that luck would match only 5% of the time or
+    # less (None while there are too few days for even a perfect record).
+    needed = next((k for k in range(len(days) + 1) if days and chance_of_luck(k, len(days)) <= 5), None)
+    return {"days": len(days), "days_beat": wins, "chance_pct": chance_of_luck(wins, len(days)), "days_needed": needed}
+
+
+# --- Random picks: the yardstick ------------------------------------------------
+
+def random_picks(days):
+    """
+    For each day with a Top 5, a random Top 5: the same number of ideas with
+    the same bullish/bearish mix, but stocks drawn at random from
+    RANDOM_UNIVERSE (skipping the bot's own picks that day). The date is the
+    draw's "seed", so the same day always draws the same stocks, every time
+    the dashboard is rebuilt. Returns [{date, ticker, direction, top_rank}].
+    """
+    drawn_picks = []
+    for day in sorted(days):
+        top = days[day].get("top_buys") or []
+        taken = {p["ticker"] for p in days[day].get("picks", [])} | {b["ticker"] for b in top}
+        pool = [t for t in RANDOM_UNIVERSE if t not in taken]
+        drawn = random.Random(day).sample(pool, min(len(top), len(pool)))
+        for rank, (ticker, idea) in enumerate(zip(drawn, top), start=1):
+            drawn_picks.append({"date": day, "ticker": ticker, "direction": idea.get("direction", "bullish"), "top_rank": rank})
+    return drawn_picks
+
+
+def score_random_picks(drawn, days, histories, opens):
+    """Scores the random picks exactly like the bot's: bought at the same
+    opening bell, held to the latest close, compared with the S&P 500."""
+    scored = []
+    for p in drawn:
+        expected = entry_date(p["date"], days.get(p["date"], {}).get("picked_at"))
+        start, entry = _first_open(opens.get(p["ticker"], {}), expected)
+        if not (start and entry) or (date.fromisoformat(start) - date.fromisoformat(expected)).days > MAX_ENTRY_GAP_DAYS:
+            continue  # not bought yet (today's draw), or Yahoo is missing its prices
+        since = [h for h in histories.get(p["ticker"], []) if h[0] >= start]
+        if not since:
+            continue
+        pick = dict(p, entry_date=start, entry_price=entry, price_at_pick=entry)
+        market = _market_move(opens.get(MARKET_TICKER, {}), histories.get(MARKET_TICKER, []), start, since[-1][0])
+        scored.append(vs_market(score_pick(pick, since[-1][1]), market))
+    return scored
+
+
+# How many random Top 5s to compare the bot with (see beats_random_draws).
+RANDOM_DRAWS = 1000
+
+
+def beats_random_draws(bot_picks, days, histories, opens, draws=RANDOM_DRAWS):
+    """
+    One random draw can be lucky or unlucky too. So this draws a random Top 5
+    for every day 1,000 times over and returns the share of those draws (in %)
+    whose average move per call was below the bot's Top 5. Around 50 is what
+    luck alone would give; near 100 means the bot's choices beat almost every
+    random draw.
+    """
+    # Each stock's move from each day's opening bell to its latest close.
+    moves = {}
+    for day, details in days.items():
+        if not details.get("top_buys"):
+            continue
+        expected = entry_date(day, details.get("picked_at"))
+        for ticker in RANDOM_UNIVERSE:
+            start, entry = _first_open(opens.get(ticker, {}), expected)
+            if not (start and entry) or (date.fromisoformat(start) - date.fromisoformat(expected)).days > MAX_ENTRY_GAP_DAYS:
+                continue
+            since = [h for h in histories.get(ticker, []) if h[0] >= start]
+            if since:
+                moves[(day, ticker)] = (since[-1][1] - entry) / entry * 100
+
+    # The bot's Top 5 calls, on the days the random draws can be scored too.
+    scored_days = {day for day, _ in moves}
+    bot = [p for p in bot_picks if p.get("top_rank") and p.get("directional_return_pct") is not None
+           and p["date"] in scored_days]
+    if not bot:
+        return None
+    bot_avg = sum(p["directional_return_pct"] for p in bot) / len(bot)
+
+    plans = []  # per day: (stocks to draw from, the directions of its Top 5)
+    for day in sorted({p["date"] for p in bot}):
+        taken = {p["ticker"] for p in days[day].get("picks", [])} | {b["ticker"] for b in days[day]["top_buys"]}
+        pool = [t for t in RANDOM_UNIVERSE if t not in taken and (day, t) in moves]
+        signs = [1 if p["direction"] == "bullish" else -1 for p in bot if p["date"] == day]
+        plans.append((day, pool, signs[:len(pool)]))
+    rng = random.Random("1,000 random Top 5s")  # fixed seed: the same answer on every rebuild
+    beaten = 0
+    for _ in range(draws):
+        total = count = 0
+        for day, pool, signs in plans:
+            for ticker, sign in zip(rng.sample(pool, len(signs)), signs):
+                total += moves[(day, ticker)] * sign
+                count += 1
+        if count and total / count < bot_avg:
+            beaten += 1
+    return round(beaten / draws * 100, 1)
+
+
+def _call_summary(picks):
+    """Hit rate, average move, and how often the calls beat the S&P 500."""
+    judged = [p for p in picks if p.get("directional_return_pct") is not None]
+    vs = [p for p in judged if p.get("beat_market") is not None]
+    return {
+        "judged": len(judged),
+        "hit_rate": _hit_rate(judged),
+        "avg_move": _average([p["directional_return_pct"] for p in judged]),
+        "beat_market_rate": round(len([p for p in vs if p["beat_market"]]) / len(vs) * 100, 1) if vs else None,
+        "avg_vs_market": _average([p.get("vs_market_pct") for p in judged]),
+    }
+
+
+def compare_with_random(bot_picks, scored_random, drawn, beats_draws_pct=None):
+    """
+    The bot's Top 5 against the random Top 5, on the days both have results:
+    each side's numbers, and on how many days the bot's Top 5 did better on
+    average (plus the chance luck alone would win that many days).
+    `beats_draws_pct` is from beats_random_draws().
+    """
+    bot_days = _by_day([p for p in bot_picks if p.get("top_rank")], "directional_return_pct")
+    rnd_days = _by_day(scored_random, "directional_return_pct")
+    both = sorted(set(bot_days) & set(rnd_days))
+    ahead = len([d for d in both if bot_days[d] > rnd_days[d]])
+    latest = max((p["date"] for p in drawn), default=None)
+    return {
+        "universe_size": len(RANDOM_UNIVERSE),
+        "bot": _call_summary([p for p in bot_picks if p.get("top_rank") and p["date"] in both]),
+        "random": _call_summary([p for p in scored_random if p["date"] in both]),
+        "days": len(both),
+        "days_bot_ahead": ahead,
+        "chance_pct": chance_of_luck(ahead, len(both)),
+        "draws": RANDOM_DRAWS,
+        "beats_draws_pct": beats_draws_pct,
+        # The latest draw, so the page can show which stocks it was up against.
+        "latest": {"date": latest, "picks": [{"ticker": p["ticker"], "direction": p["direction"]}
+                                             for p in drawn if p["date"] == latest]},
+    }
+
+
+def add_random_to_portfolio(portfolio, random_portfolio):
+    """Adds the random Top 5's value as a 4th number on each day of the $10,000 test."""
+    if not portfolio:
+        return portfolio
+    values = {row[0]: row[1] for row in (random_portfolio or {}).get("series", [])}
+    last = PORTFOLIO_START
+    for row in portfolio["series"]:
+        last = values.get(row[0], last)
+        row.append(last)
+    portfolio["random_return_pct"] = round((last / PORTFOLIO_START - 1) * 100, 2) + 0.0
+    return portfolio
+
+
 def build_data(picks, days, histories, events=None, facts=None, opens=None):
     """
     Combines picks, daily details and price histories into the one object
@@ -791,6 +972,17 @@ def build_data(picks, days, histories, events=None, facts=None, opens=None):
     stats["by_theme"] = by_theme(enriched)
     stats["by_horizon"] = by_horizon(enriched)
     stats["vs_market"] = market_record(enriched)
+    stats["luck"] = skill_or_luck(enriched)
+
+    # The random Top 5 yardstick needs opening prices (from the real build).
+    portfolio = pretend_portfolio(enriched, histories, opens=opens)
+    random_comparison = None
+    if opens is not None:
+        drawn = random_picks(days)
+        scored_random = score_random_picks(drawn, days, histories, opens)
+        random_comparison = compare_with_random(enriched, scored_random, drawn,
+                                                beats_random_draws(enriched, days, histories, opens))
+        portfolio = add_random_to_portfolio(portfolio, pretend_portfolio(scored_random, histories, opens=opens))
 
     return {
         "generated_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
@@ -811,7 +1003,9 @@ def build_data(picks, days, histories, events=None, facts=None, opens=None):
         # Key facts per ticker, for the fact sheet in the chart popup.
         "facts": facts or {},
         # The pretend $10,000 portfolio that follows the Top 5.
-        "portfolio": pretend_portfolio(enriched, histories, opens=opens),
+        "portfolio": portfolio,
+        # The same tests for a random Top 5 each day (see random_picks).
+        "random": random_comparison,
         # The "market watch" stocks, with the latest note Claude wrote for each.
         "watchlist": _watchlist_cards(days),
         # Today's "Top 5 buys", with the longer "why" for each.
@@ -830,6 +1024,10 @@ def main():
     # Market-watch stocks and sector funds get the same ~6 months of history, counted from today.
     for t in list(WATCHLIST) + list(SECTORS):
         first_seen.setdefault(t, date.today().isoformat())
+    # The random-picks yardstick needs prices from the first pick on.
+    first_day = min(first_seen.values())
+    for t in RANDOM_UNIVERSE:
+        first_seen[t] = min(first_seen.get(t, first_day), first_day)
     prices = {t: fetch_prices(t, d) for t, d in first_seen.items()}
     histories = {t: closes for t, (closes, _) in prices.items()}
     opens = {t: day_opens for t, (_, day_opens) in prices.items()}
