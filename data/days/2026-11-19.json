@@ -1,0 +1,1011 @@
+{
+  "date": "2026-11-19",
+  "picked_at": "2026-11-19T18:58:35Z",
+  "market_mood": "Risk-off continues: the S&P is down ~5% on the week while Anthropic's record $1.5T IPO soaks up capital and hawkish Fed minutes (officials expecting more hikes) press on gold, bonds and long-duration tech. Middle East supply risk is keeping a bid under oil even as the IEA flags weaker long-run demand.",
+  "self_check": "My high-confidence calls have been badly wrong (14%) while low-confidence ones did best, and oil & energy is my worst theme, so today I kept confidence capped at medium, leaned on a bearish rates idea that has worked, and limited energy exposure to one small LNG idea.",
+  "picks": [
+    {
+      "ticker": "GLD",
+      "company": "SPDR Gold Shares",
+      "direction": "bearish",
+      "confidence": "medium",
+      "reason": "Fed minutes show officials expecting more rate hikes, and a stronger dollar plus higher real rates have already pushed gold to a 14-month low; that pressure tends to persist for weeks.",
+      "sources": [
+        56,
+        14,
+        30
+      ],
+      "theme": "Interest rates & the Fed",
+      "target_pct": 5,
+      "stop_pct": 4,
+      "target_price": 320.2,
+      "stop_price": 350.53
+    },
+    {
+      "ticker": "RTX",
+      "company": "RTX Corporation",
+      "direction": "bullish",
+      "confidence": "low",
+      "reason": "Houthi missiles hit Riyadh's tallest tower and Saudi cities went on alert, which tends to drive Gulf orders for air and missile defense systems that RTX supplies.",
+      "sources": [
+        38,
+        5,
+        48
+      ],
+      "theme": "Geopolitics",
+      "target_pct": 6,
+      "stop_pct": 5,
+      "target_price": 207.2,
+      "stop_price": 185.7
+    },
+    {
+      "ticker": "NOC",
+      "company": "Northrop Grumman",
+      "direction": "bullish",
+      "confidence": "low",
+      "reason": "Years of funded backlog and a dividend record, with Middle East risk back in the headlines.",
+      "sources": [
+        77,
+        38,
+        52
+      ],
+      "theme": "Geopolitics",
+      "target_pct": 6,
+      "stop_pct": 5,
+      "target_price": 577.29,
+      "stop_price": 517.38
+    },
+    {
+      "ticker": "XLU",
+      "company": "Utilities Select Sector SPDR Fund",
+      "direction": "bearish",
+      "confidence": "low",
+      "reason": "Bond proxies struggle when the Fed is debating more hikes.",
+      "sources": [
+        56,
+        14
+      ],
+      "theme": "Interest rates & the Fed",
+      "target_pct": 5,
+      "stop_pct": 4,
+      "target_price": 40.98,
+      "stop_price": 44.87
+    }
+  ],
+  "watchlist_notes": [
+    {
+      "ticker": "SPY",
+      "note": "Oversold after a -4.8% week, with hawkish Fed minutes and the Anthropic IPO rotation driving the chop."
+    },
+    {
+      "ticker": "QQQ",
+      "note": "Tech is the worst sector of the week (-6.8%); the Anthropic listing is pulling money out of incumbent AI names."
+    },
+    {
+      "ticker": "DIA",
+      "note": "Holding up slightly better than Nasdaq as money rotates toward value and staples."
+    },
+    {
+      "ticker": "AAPL",
+      "note": "No major company news; a Citi warning on tech outage risk is a sector-wide, not Apple-specific, story."
+    },
+    {
+      "ticker": "MSFT",
+      "note": "In the headlines mainly via Ackman's position and the AI capex debate the Anthropic IPO reignites."
+    },
+    {
+      "ticker": "NVDA",
+      "note": "Post-earnings digestion plus leadership uncertainty under interim CEO Kress; Anthropic's debut is the new AI benchmark investors are trading."
+    },
+    {
+      "ticker": "AMZN",
+      "note": "Its 14.6% Anthropic stake is now worth ~$161B, but Anthropic leasing its own data centers trims the long-run AWS story."
+    },
+    {
+      "ticker": "GOOGL",
+      "note": "Also an Anthropic backer, but Anthropic reducing reliance on Google Cloud is a modest negative for future capacity bookings."
+    },
+    {
+      "ticker": "META",
+      "note": "No major news beyond hedge-fund buying and the argument that its legal settlement masked a strong ad quarter."
+    },
+    {
+      "ticker": "TSLA",
+      "note": "Musk wants more exports from Shanghai as China sales fall, which points to soft domestic demand there."
+    },
+    {
+      "ticker": "JPM",
+      "note": "Hawkish Fed minutes help net interest margins, though a Fed official's warning about AI bots moving deposits is a new operational worry."
+    },
+    {
+      "ticker": "XOM",
+      "note": "Oil firmed on Houthi attacks and the tighter Iran blockade, but the IEA sees energy-security moves cutting demand 4% by 2035."
+    },
+    {
+      "ticker": "GLD",
+      "note": "Still bruised: a 14-month low, a stronger dollar and Fed talk of more hikes keep the pressure on."
+    },
+    {
+      "ticker": "TLT",
+      "note": "Minutes showing officials expecting more rate hikes are a direct headwind for long-duration Treasuries."
+    }
+  ],
+  "top_buys": [
+    {
+      "ticker": "GLD",
+      "company": "SPDR Gold Shares",
+      "direction": "bearish",
+      "confidence": "medium",
+      "pitch": "A Fed that is talking about more hikes is the wrong backdrop for a non-yielding metal.",
+      "why": "October minutes show officials expecting further rate hikes and worrying about AI-driven inflation, which lifts real yields and the dollar. Gold has already fallen sharply from its January record and bounced only weakly off a 14-month low. The investment case erodes gradually, so this is a trend that can keep working rather than a one-day headline.",
+      "risks": "A sudden Middle East escalation or a soft inflation print could spark a quick safe-haven bounce in gold.",
+      "watch": "The next CPI release and Fed speakers' tone on a December move.",
+      "sources": [
+        56,
+        14,
+        30
+      ],
+      "theme": "Interest rates & the Fed",
+      "target_pct": 5,
+      "stop_pct": 4
+    },
+    {
+      "ticker": "RTX",
+      "company": "RTX Corporation",
+      "direction": "bullish",
+      "confidence": "low",
+      "pitch": "Missiles landing on Riyadh's tallest tower tend to be followed by air-defense orders.",
+      "why": "Houthi strikes hit the Saudi wealth fund's headquarters and triggered alerts across southern Saudi cities, while the US tightens its blockade on Iran and Trump hints at more conflict after January 1. Gulf states restock interceptors and air-defense systems after episodes like this, and RTX is a primary supplier. Defense has lagged the market, so expectations are not stretched.",
+      "risks": "A genuine de-escalation after the Trump-Xi-Putin peace declaration would deflate the defense bid, and my recent geopolitics calls have been poor.",
+      "watch": "Any announced Gulf foreign military sales or supplemental US defense funding.",
+      "sources": [
+        38,
+        54,
+        21
+      ],
+      "theme": "Geopolitics",
+      "target_pct": 6,
+      "stop_pct": 5
+    },
+    {
+      "ticker": "NOC",
+      "company": "Northrop Grumman",
+      "direction": "bullish",
+      "confidence": "low",
+      "pitch": "Years of funded backlog and a dividend record, with Middle East risk back in the headlines.",
+      "why": "Coverage highlights defense primes sitting on billions in backlogged government orders, and renewed Houthi strikes on Saudi Arabia plus a tightening Iran blockade support defense budgets. Northrop's revenue is largely contracted, which is defensive in a market down nearly 5% in a week.",
+      "risks": "Program cost overruns and a genuine Gulf de-escalation are the two obvious ways this fails.",
+      "watch": "Any new US or allied munitions and missile-defense contract awards.",
+      "sources": [
+        77,
+        38,
+        52
+      ],
+      "theme": "Geopolitics",
+      "target_pct": 6,
+      "stop_pct": 5
+    },
+    {
+      "ticker": "XLU",
+      "company": "Utilities Select Sector SPDR Fund",
+      "direction": "bearish",
+      "confidence": "low",
+      "pitch": "Bond proxies struggle when the Fed is debating more hikes.",
+      "why": "The October minutes show policymakers expecting further tightening, which lifts yields and makes high-dividend utilities less attractive. Utilities have held up better than most sectors this month, so there is more room to give back if rates keep rising.",
+      "risks": "The AI data-center power demand story is a genuine offset and could keep money flowing into utilities regardless of rates.",
+      "watch": "The 10-year Treasury yield and December Fed expectations.",
+      "sources": [
+        56,
+        14
+      ],
+      "theme": "Interest rates & the Fed",
+      "target_pct": 5,
+      "stop_pct": 4
+    }
+  ],
+  "summary": {
+    "big_story": "Anthropic's record $1.5 trillion Nasdaq debut dominates a weak, oversold market while hawkish Fed minutes keep gold and bonds under pressure.",
+    "top_pick": "SPDR Gold Shares (GLD): A Fed that is talking about more hikes is the wrong backdrop for a non-yielding metal.",
+    "watch": "Whether the AI rotation out of incumbents into the Anthropic listing continues, and how oil behaves after fresh Houthi strikes on Saudi Arabia."
+  },
+  "dropped": {
+    "ETN": "too jumpy (usually moves 4.2% a day)",
+    "PANW": "too jumpy (usually moves 4.5% a day)",
+    "LNG": "too jumpy (usually moves 3.3% a day)",
+    "MMC": "no recent prices, so it may no longer trade"
+  },
+  "headlines": [
+    {
+      "headline": "V&amp;S Galvanizing Expands into Texas with Acquisition of Southwest Galvanizing",
+      "source": "BusinessWire",
+      "time": "2026-11-19 17:35 UTC",
+      "summary": "COLUMBUS, Ohio--(BUSINESS WIRE)---- $HILS #Acquisition--V&amp;S Galvanizing, a leading provider of hot-dip galvanizing services and a subsidiary of Hill &amp; Smith PLC, has acquired the business and assets of Southwest Galvanizing, Inc., a well-established galvanizing company headquartered in Houst",
+      "url": "http://www.businesswire.com/news/home/20261119712768/en/VS-Galvanizing-Expands-into-Texas-with-Acquisition-of-Southwest-Galvanizing/?feedref=JjAwJuNHiystnCoBq_hl-Rc4vIAVcHHkbDcwJimU8QtrtlakeQ9hNboBqTAWIjTge3KWq9s9jif-UkBjBsFRyYAbRTSLTc1mgvhPlnaBA55M-oupQnbXnhKsYk8RmHF_kAy2gZikaX3QWV6xOvgFlA==",
+      "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567047386/bw_flnhy4.jpg",
+      "about": ""
+    },
+    {
+      "headline": "Jim Cramer says to buy stock in this sleeping tech giant 'aggressively, aggressively'",
+      "source": "CNBC",
+      "time": "2026-11-19 17:15 UTC",
+      "summary": "The Investing Club holds its \"Morning Meeting\" every weekday at 10:20 a.m. ET.",
+      "url": "https://www.cnbc.com/investingclub/2026/11/19/jim-cramer-says-to-buy-stock-in-this-sleeping-tech-giant-aggressively.html",
+      "image": "https://image.cnbcfm.com/api/v1/image/108357983-1788375067852-gettyimages-2272649609-gchanceo-3-2_s0j0mwfy.jpeg?v=1788375145&w=1920&h=1080",
+      "about": ""
+    },
+    {
+      "headline": "We're adding to a consumer stock as the market enters oversold territory",
+      "source": "CNBC",
+      "time": "2026-11-19 17:12 UTC",
+      "summary": "The S&P Oscillator officially moved into oversold territory after Wednesday's session.",
+      "url": "https://www.cnbc.com/investingclub/2026/11/19/were-adding-to-a-consumer-stock-as-the-market-enters-oversold-territory.html",
+      "image": "https://image.cnbcfm.com/api/v1/image/108554309-17950192062026-11-18t162222z_659947811_rc2dqoayx25y_rtrmadp_0_usa-stocks.jpeg?v=1795033008&w=1920&h=1080",
+      "about": ""
+    },
+    {
+      "headline": "US weekly jobless claims edge up, but labor market remains resilient - Reuters",
+      "source": "Reuters",
+      "time": "2026-11-19 17:06 UTC",
+      "summary": "US weekly jobless claims edge up, but labor market remains resilient\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPUjdpV0lCY3lUWlhjZzVkdTNNa1hrazREdFRCMjFSRlpzYmpXNlpYeXdOeXJyZk44NGQwT0FuN1cxdWRyUWtLenNCTGNDSVM0NERhNW5PemtfbTI1UkFtcDdvUklKdjZZM2c4NTZlUVBlYVF5SVBubVFnbkhueHNTWDhLd1c4MVJLM2g1ekQ3bHo?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "Houthi attacks on Saudi Arabia - Reuters",
+      "source": "Reuters",
+      "time": "2026-11-19 16:20 UTC",
+      "summary": "Houthi attacks on Saudi Arabia\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOTXVIQUMwVTA5TllQb203X3V6XzNUVlNqaHhXd3NlNjJ0VF9rVUp1OTdRRjBWaVFMREswSVlfNjVESFAwb2w0NGMyVk5LeWNjTU42RnBIOWRsR05kWFktNFhrNnJtMm84cGNmekdUYmlvREJLQkt6NjUxMEZ2Sy1wUjVQbnhMS2JG?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "Amazon launches in-app push against Mamdani-backed delivery bill in New York City",
+      "source": "CNBC",
+      "time": "2026-11-19 16:15 UTC",
+      "summary": "Amazon has lobbied heavily against the proposed legislation, while New York City Mayor Zohran Mamdani backed the bill earlier this year.",
+      "url": "https://www.cnbc.com/2026/11/19/amazon-nyc-delivery-protection-act.html",
+      "image": "https://image.cnbcfm.com/api/v1/image/107157714-1669656813147-amaz.jpg?v=1694561107&w=1920&h=1080",
+      "about": ""
+    },
+    {
+      "headline": "EU countries, Parliament agree to delay EU methane regulation by two years - Reuters",
+      "source": "Reuters",
+      "time": "2026-11-19 15:56 UTC",
+      "summary": "EU countries, Parliament agree to delay EU methane regulation by two years\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxOWlc2MHpUb3VmbGltejJydzV6TVc3bVFyZTdEYVlkZmVKTVlwOVhyMHVyQnp5b21RTHIybHJ6WHl3c3pTNFhHTlRmOUpMVVdaaXZhZVlFeWtKbTZTbjdNdndrVWIwcVljRDVJM3dIdDFmaWM4YUZobldOZkJ2c3AzV19GT1NoaDdFcFhfUGZobEpKX2ZmQy1KUUhYQmF6U09XcnpDSWNtVUJzMzhEN1ZZOHJFZDcyWGllRFJpZVNmYw?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "Evonik plunges after BASF drops takeover over",
+      "source": "SeekingAlpha",
+      "time": "2026-11-19 15:36 UTC",
+      "summary": "",
+      "url": "https://seekingalpha.com/news/4674771-evonik-plunges-after-basf-drops-takeover-over?utm_source=feed_news_m_a&utm_medium=referral&feed_item_type=news",
+      "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567050932/sa_jgen9y.png",
+      "about": ""
+    },
+    {
+      "headline": "Insmed jumps on report of Sanofi takeover interest",
+      "source": "SeekingAlpha",
+      "time": "2026-11-19 15:14 UTC",
+      "summary": "",
+      "url": "https://seekingalpha.com/news/4674750-insmed-jumps-on-report-of-sanofi-takeover-interest?utm_source=feed_news_m_a&utm_medium=referral&feed_item_type=news",
+      "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567050932/sa_jgen9y.png",
+      "about": ""
+    },
+    {
+      "headline": "West presses Iran at IAEA to let inspections resume at bombed nuclear sites - Reuters",
+      "source": "Reuters",
+      "time": "2026-11-19 14:45 UTC",
+      "summary": "West presses Iran at IAEA to let inspections resume at bombed nuclear sites\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNX1BENXJsTm9KVlRxVjk0SENfVmszM1ZXVFpjQzJZcVRneVFiR210MTNseE0yUlJqWmRObE9ndjlKQkZUVFJqd0Joc3hFLWNhcW5KQ0ZKZWdBWDZ5Q1BCNWFQcDdBN1N5MDllSGNNYjdOUG1IaG5BNjB2S3hPMHRTSGpDM2phXzkzSUF6TkJtMktQRWpodkdiRVVSM0FJZ0lDOVRLZk5Dby1SdXV1elBEaW5GM0k?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "We're buying 1 non-tech stock and 1 tech stock as the market tips oversold",
+      "source": "CNBC",
+      "time": "2026-11-19 14:27 UTC",
+      "summary": "It's time to put money to work because the S&P Short Range Oscillator has finally moved into oversold territory.",
+      "url": "https://www.cnbc.com/investingclub/2026/11/19/were-buying-1-non-tech-stock-and-1-tech-stock-as-the-market-tips-oversold.html",
+      "image": "https://image.cnbcfm.com/api/v1/image/108127005-17437961972025-04-04t194805z_304398461_rc27rda93yrq_rtrmadp_0_usa-stocks.jpeg?v=1743796326&w=1920&h=1080",
+      "about": ""
+    },
+    {
+      "headline": "Jim Cramer's top 10 things to watch in the stock market Thursday",
+      "source": "CNBC",
+      "time": "2026-11-19 14:00 UTC",
+      "summary": "Anthropic is set to make its record-breaking Nasdaq debut.",
+      "url": "https://www.cnbc.com/investingclub/2026/11/19/jim-cramers-top-10-things-to-watch-in-the-stock-market-thursday.html",
+      "image": "https://image.cnbcfm.com/api/v1/image/108552269-1794855081505-gettyimages-2304454689-ANTHROPIC_IPO_ROADSHOW.jpeg?v=1794855094&w=1920&h=1080",
+      "about": ""
+    },
+    {
+      "headline": "Anthropic IPO, AI wealth spawn a new, leaner kind of family office",
+      "source": "CNBC",
+      "time": "2026-11-19 14:00 UTC",
+      "summary": "The Anthropic IPO and a flood of AI wealth are spurring the creation of new family offices built for the era of artificial intelligence.",
+      "url": "https://www.cnbc.com/2026/11/19/anthropic-ipo-ai-wealth-spawn-a-new-leaner-kind-of-family-office.html",
+      "image": "https://image.cnbcfm.com/api/v1/image/108469373-1793113062661-gettyimages-2301777659-boivin-photoill261027_np36o.jpeg?v=1793113123&w=1920&h=1080",
+      "about": ""
+    },
+    {
+      "headline": "Gold's bad year is getting worse. Why its price keeps falling",
+      "source": "CNBC",
+      "time": "2026-11-19 13:37 UTC",
+      "summary": "Gold has fallen sharply from its January record as higher interest rates and a stronger dollar change the investment case for the precious metal.",
+      "url": "https://www.cnbc.com/2026/11/19/gold-prices-fall-fed-rates-dollar.html",
+      "image": "https://image.cnbcfm.com/api/v1/image/104902147-RTX3SM45-gold.jpg?v=1795091794&w=1920&h=1080",
+      "about": ""
+    },
+    {
+      "headline": "Marsh's Oliver Wyman to acquire Synpulse, terms undisclosed",
+      "source": "SeekingAlpha",
+      "time": "2026-11-19 13:12 UTC",
+      "summary": "",
+      "url": "https://seekingalpha.com/news/4674668-marshs-oliver-wyman-to-acquire-synpulse-terms-undisclosed?utm_source=feed_news_m_a&utm_medium=referral&feed_item_type=news",
+      "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567050932/sa_jgen9y.png",
+      "about": ""
+    },
+    {
+      "headline": "Somalia orders UAE ambassador to leave, citing 'invasion' - Reuters",
+      "source": "Reuters",
+      "time": "2026-11-19 13:08 UTC",
+      "summary": "Somalia orders UAE ambassador to leave, citing 'invasion'\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQWEg3aWNsUnlnMDBWSmdjZGtyWjJrMXROTHFNMXlycC15MU14bzV1UjUwVVJzR1JFek53RDVnV05DSkdtZnVzLUpQdFEyMGFLbDdpZEc0MlNUNzFFVHV2YkxLMnlHd2hBUVA2M1BlaW5OT041Y0s1OERhT1o3YTRXZ2d6aUl4NGs2cFVyRnQ0VmhLOXJUMkRCQWpmZ3FYODMwTU1iekNoelc?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "Oil tanker loads Iranian crude in Gulf, TankerTrackers.com says - Reuters",
+      "source": "Reuters",
+      "time": "2026-11-19 12:47 UTC",
+      "summary": "Oil tanker loads Iranian crude in Gulf, TankerTrackers.com says\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxOOXdpYkFVdXpMMHdtZk9Cdld4YjZyUnlieS1mZXZXT1VrTHM5SzhMR0k5dU56S1NiTWdlaVR0NHVBVVpqUXpqYW94RW11eWhYTkRHMmhEZ19VcjZDMS1nXzFRajZKdmpqZkNCc2dscm1DVjFhaVU4WmdodFRKSm0xU0lVRzZOME8xV25TRjVKQm8td1Jsd3R3RjVhVmJGQk03ZkdVUjctVy1uTGlBeUpN?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "Iraqi forces strike compromise with powerful pro-Iran militia, security officials say - Reuters",
+      "source": "Reuters",
+      "time": "2026-11-19 12:45 UTC",
+      "summary": "Iraqi forces strike compromise with powerful pro-Iran militia, security officials say\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxOVE54c3Eza3gxMTYwRmh4U0tZR0ZvWmctdm1OV1dkN1BzZXNXdFFiTjZkZlc5Mk01YVQzN2ZkZFZzUVVPdmMtc3ZzRjJZY28wdFE3ejFtcnlkbWZmUkZicXFKMU1ydEJZalZwZlFnQkhWSGVaMXFUUkt5T0pVaUp1WUxJMjdiVDhCWnlOLXRKaFh2UXhvQnNNQnNnZVBkWEdwMFBPOEEtc1ZzOTFIOHNfZklhZWJuQVVJaDBpU3hPNk4ycllOcTg4WmZoRG5zaDg?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "Family offices move more money into stocks, hedge AI risk, according to CNBC Family Office Portfolio Tracker",
+      "source": "CNBC",
+      "time": "2026-11-19 12:31 UTC",
+      "summary": "Family offices continued to boost their stock holdings, but they hedged the AI trade with financials, according to the CNBC Family Office Portfolio Tracker.",
+      "url": "https://www.cnbc.com/2026/11/19/family-offices-moved-more-money-into-stocks-but-hedged-ai-risk.html",
+      "image": "https://image.cnbcfm.com/api/v1/image/108280599-1773956111350-gettyimages-2267437819-anotherday197764726_agd3gqcv.jpeg?v=1773956163&w=1920&h=1080",
+      "about": ""
+    },
+    {
+      "headline": "Anthropic IPO could create thousands of multimillionaire employees",
+      "source": "CNBC",
+      "time": "2026-11-19 12:30 UTC",
+      "summary": "The average Anthropic employee could be worth over $40 million after the company's IPO today, according to SEC filings and investors.",
+      "url": "https://www.cnbc.com/2026/11/19/anthropic-ipo-could-create-thousands-of-multimillionaire-employees.html",
+      "image": "https://image.cnbcfm.com/api/v1/image/108553482-1794949305479-gettyimages-2280291125-ANTHROPIC_CIRCUIT.jpeg?v=1794950481&w=1920&h=1080",
+      "about": ""
+    },
+    {
+      "headline": "Trump says US will 'see what happens' in conflict with Iran after January 1 - Reuters",
+      "source": "Reuters",
+      "time": "2026-11-19 12:13 UTC",
+      "summary": "Trump says US will 'see what happens' in conflict with Iran after January 1\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNQkkzQVk3M3pnOXRWVlFCMmVzUEN0alhCS0gzQUhYNkhCMDhCOUM0N0tmMFpZNVNKcnVNbktaYXV5MV9ERm13WHoxTEVtUGRMUkZwT3dJZmlRZ2pyRE1WMGoyZW1VcXVWdTVRTmxZV1RISHNXWE9YY1BUUC1EWlJWRWRsYzlGTXo0WmhjaUxiUnAyMDl2OU9mWmliYndLd0htWGVLYWFUUldMOUIzLV9TSnBB?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "Hackers access financial data of retired NYC government workers, Politico reports - Reuters",
+      "source": "Reuters",
+      "time": "2026-11-19 11:09 UTC",
+      "summary": "Hackers access financial data of retired NYC government workers, Politico reports\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQLWRPejl6dU81Ty1UaWYxU1h1MUowcElUOHdPM1Q0TE9XNENtRldiSGpTMVgxWVVSdVVuT2hBTXJDd19FREF0akZaMEx3NWVvbmhKUVMtUFdNWTBUbThDc1QxaDljeGlxalp2cy0xelkzM0R2Nl9FN0pmX3p3VjM3R0Rfb3Z5NGZCSDJtQ1ZGbUdSSGxWVDVQd2pXalRvSnlOazVvc1BYSGlBT0FGT0hRbXdHcDVSVXFTamhz?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "Israel says it concludes Gaza tank raid - Reuters",
+      "source": "Reuters",
+      "time": "2026-11-19 10:41 UTC",
+      "summary": "Israel says it concludes Gaza tank raid\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNSTlHeU1CNWItYmpkOXVld21mVVRpNm9EbHhicnE3d1BQcmJ3em1HREh3NkFTUVNSUVFxMjFrWVU5V1dhT2Q2TWZEZ3VwYW9WSjB0SkhJU0JNMUxVMlAyU0RWYnZTekpLUS1oT0xPUXNzUWpjT0dhSktadFFXalBlcG1EaUJXaU1HMnBYb3pxd0V6OVBGdElzYg?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "Data center electricity use could double by 2030, IEA says",
+      "source": "CNBC",
+      "time": "2026-11-19 10:14 UTC",
+      "summary": "Global electricity use by data centers could double by 2030 as the AI boom adds pressure to power grids across the world, according to the IEA.",
+      "url": "https://www.cnbc.com/2026/11/19/data-center-electricity-demand-iea.html",
+      "image": "https://image.cnbcfm.com/api/v1/image/108554983-1795077775639-gettyimages-2256322513-dji_20260114174803_0111_d_fs0a4xfd.jpeg?v=1795077817&w=1920&h=1080",
+      "about": ""
+    },
+    {
+      "headline": "Inside an Iranian woman's life under protests and war: a graphic memoir - Reuters",
+      "source": "Reuters",
+      "time": "2026-11-19 10:00 UTC",
+      "summary": "Inside an Iranian woman's life under protests and war: a graphic memoir\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE9KVTh4UUxnX0EtSDBWUFlzdDRvcFZtcWdUdldwSXpBV3BzOU9WdmtveC1QVjQwQmFzMkR5R0I4LXhpRjY1dERxZEkwekRNdUYxaGtUN2luYUtRbWlnRVItTy1IUWJUVm1PVlU1VlBxcmtUdV8tM0E4MQ?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "World Court finds Myanmar forces killed thousands of Rohingya, ruling ongoing - Reuters",
+      "source": "Reuters",
+      "time": "2026-11-19 09:47 UTC",
+      "summary": "World Court finds Myanmar forces killed thousands of Rohingya, ruling ongoing\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxQSnpTTEM4UUNIZi1KbDViNGdmVlV2MTgxSUVGWjdra045RXVoZWhYbnNGcUFob1d1OUljd01LNGo1NGV5UDN6emRwVlZ2R0dtamU5RFo0SVBVSmVGR1MyUF9aSmlqZVRST0V2eE5vVGE1QS1sb2oyV05VVWF5T25XQ1lBVjhhN1FRV2VHMFVKak00TkluZzdrbzk0Q1BXOENRbjNHLXE1S3F6LWpYeHlXOVk0QWhpcE1vY1pObkxpT1FNV2xYSkZr?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "French Green leader ready to back hard-left Melenchon's bid for presidency - Reuters",
+      "source": "Reuters",
+      "time": "2026-11-19 08:47 UTC",
+      "summary": "French Green leader ready to back hard-left Melenchon's bid for presidency\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxOTExqWEtlVHJFdzgtMkI4NnM4eUhnVzhycVozYTVFanZ2UHNTXzMyMjJSQzBwVmx5b3U1b0F6dUIzRzg3aXpUOE9OSnVkNHNEcUJtU1BnOWdqNW1CQ043YTdXTXdCY1Z0MnRyM29oS1JRUlhReEtwRFdSeVF4SDVLWktsbjU3QWMtaFRHUV9iYWlKZzJKM1dvOTNWLWFrZlpTVDM4WHNSQ28xWkxf?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "Russia repels Ukrainian drones attack on oil facility in Tatarstan region, local authorities say - Reuters",
+      "source": "Reuters",
+      "time": "2026-11-19 08:05 UTC",
+      "summary": "Russia repels Ukrainian drones attack on oil facility in Tatarstan region, local authorities say\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPUXY4SS1DQy01LTV4VDEwYTVCV2hCeThSemNINHhHNFk2Zk1ZNGpIWVk1MFlyMUJwWGFlS1otZGRYSHpYYUlqQlZOMjRrQURxU29GNlhkTmJVU1l3VE1TTkR1dWhCM2dJT2QyUnRkR0dlRVE5eHhiUHBVSUVaa0ppOFJDb0I1M081eHhNQUd4WXhlWnJ6d0RYTVhWamRONXVFZmpjVGFuYmtTeG5FYXVkcXRFaVY1RnhobzYzZjNB?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "Without Iranian oil, China's small refiners face pain but not collapse - Reuters",
+      "source": "Reuters",
+      "time": "2026-11-19 07:17 UTC",
+      "summary": "Without Iranian oil, China's small refiners face pain but not collapse\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQRkQ0emVia1RNOE8xUWN0a2RMczczQTVWRWhQTEZ0dkE3d0hCRms3aWxjM2xlMWs4c25OX0Zfdk1hRnhxS1ZyU19ubjY4RmJjX05wZlVSZ183cFlXelJPRnpoTUpha0Q0WGFaN3BiWWhrbGpEczZWdU1OMUt3MUNwN25IclowUVNleTBvZTZ2ajQ1Z1ItSHdoWHNrc2dKZFF4X0dDVUk4MnBiU3JReENVVmJQTmtsQVU?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "Gold recoups from 14-month low, tighter Fed outlook caps gains - Reuters",
+      "source": "Reuters",
+      "time": "2026-11-19 06:53 UTC",
+      "summary": "Gold recoups from 14-month low, tighter Fed outlook caps gains\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPZ0RVRVVhd0g1djYyRGpzbTcyZXFtSXd3cTV1T0REekJaYm9FOTlzblJzU3hlMmsxSkF0UmtzZ1gwWVFiUzI3VXdGNzJLTndoZC1oVkpXSnRmZ0ZmNkEybVRFSnhIVzFCNnlTS2hQRGV2bnNGTHVsaUZ5RmllU0otWWcxV2wwejMwcXpTOWFxam1xb2dRMXMyQ1c0T0RkZy1SX09YR3lYdmxkQQ?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "Ukraine was main topic at Trump-Putin meeting, Kremlin says - Reuters",
+      "source": "Reuters",
+      "time": "2026-11-19 06:38 UTC",
+      "summary": "Ukraine was main topic at Trump-Putin meeting, Kremlin says\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPNDJ3ZUp3ZjhsQ01rN3VaRGlJNkx3SVpycUdaVENpLUtwT01aQmJ0c01ielVrbW0zcUtjVHlMbjlXc1IxaFFCYnhyWHpoY19vY0N0MVk5dXplemZKM0hSaWpIMndSMzBoZ3lndFpyeEhhUE5pTWVlRWpjMDhDYXpmNEJqZVRiMXgzWVRtNHE4cE1LNE1sWTNSM0lRQ2w5cU00MDE5dmdn?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "Saudi Arabia overtakes UAE as India's No. 2 oil supplier; Russia retains lead - Reuters",
+      "source": "Reuters",
+      "time": "2026-11-19 06:29 UTC",
+      "summary": "Saudi Arabia overtakes UAE as India's No. 2 oil supplier; Russia retains lead\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxNOGFFLXpheVdRTVdEZmh5dzNVdWpQR3RJRnJSbjZMMkNscHBaZWlNWTFLT0RpN3RGVU5xbHh1WFJoYTQyVGROQnRDcjZxaW9QaTZKZ2tkWGhDdUpRWnNHNXY5ay1PN3BZcmY2TFcxYnF0OFBtWUUxZzlfblZrZU9tVFZ6aDRaOFhuZjlyX3ctVS1wQ3h0VzFrRUd3eWNvRlJTakkxZjMtOWFsaVJjWDBLVnZ5aFV1QVMxb044M1pYbS0?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "South Korea becomes fourth country globally to hit $1 trillion exports on AI chip boom - Reuters",
+      "source": "Reuters",
+      "time": "2026-11-19 06:29 UTC",
+      "summary": "South Korea becomes fourth country globally to hit $1 trillion exports on AI chip boom\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxQYjJyUW83NEllOTVXWDNHUnY0UW85MjF2dzVVQ1NxOVBGaW1EY0trbjRZZU5zZWFLUnZnQ1RGUkhiM3ZmZVA2VUxZNm5UQlpJR2F2OXotX0EzOUJJdHNkZlhCUXVnM2xqaEZ1Zmh6R19sSmUyelZzSVJSSkVTZHBvd2ZUQkNJOFZPaEZ6amhLd1BGWlcxd2M4N0pLa0J5Z28taFE2M293Z1puMWViY3FhZDh6WXd4SjFsNzg0dkZ3?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "BCE explores potential Telus deal as Quebecor's C$31B proposal faces scrutiny - report",
+      "source": "SeekingAlpha",
+      "time": "2026-11-19 06:09 UTC",
+      "summary": "",
+      "url": "https://seekingalpha.com/news/4674516-bce-explores-potential-telus-deal-as-quebecors-c31b-proposal-faces-scrutiny---report?utm_source=feed_news_m_a&utm_medium=referral&feed_item_type=news",
+      "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567050932/sa_jgen9y.png",
+      "about": ""
+    },
+    {
+      "headline": "Morning Bid: Loading ... Claude and GTA VI - Reuters",
+      "source": "Reuters",
+      "time": "2026-11-19 05:35 UTC",
+      "summary": "Morning Bid: Loading ... Claude and GTA VI\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE9lUWNXaXNEZTRSNUV5T2VRdk45RzFYdHVwSUFweEJlaW1RSVlsNXpNdGFQNGE3aFUwdHZ6OTloMnBTTndXVkViYWlkSE1UWlFGRjFYbW5tck9fR2ZkOVo4NjBhQnIwNmR2Wm42YjZ4bko5TnJqd0pEbmcwd0RzSE0?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "Energy-security response to Iran war could cut oil demand by 4% by 2035, IEA says - Reuters",
+      "source": "Reuters",
+      "time": "2026-11-19 05:05 UTC",
+      "summary": "Energy-security response to Iran war could cut oil demand by 4% by 2035, IEA says\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxNRlVLekJsV1lXTGsxOWFDNkJLTDZhV3JSeFRQWS1zNXlobWJ6cDB0dXdhUE5IZ2VBY3N1THJOdVFtNmhEcnVTcUpWS2x4cVJRV1BscHJ2cVRmbGxtUEJLd0xvRUhkYlpUZU1PcnZpUzJ5cWx5R3ZnWFN5VXdiWmkwczJpci1yQkpVWWtMNV9yY3JHc3NfNzc0V2R2ZWlkSDVaa3V1MUhJVUNoSV9MQl91ckE5c2J4c1c2VFlPSHBIYzAxX2RZYXpZ?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "Japan says PM Takaichi, Putin held talks at APEC summit in China - Reuters",
+      "source": "Reuters",
+      "time": "2026-11-19 03:25 UTC",
+      "summary": "Japan says PM Takaichi, Putin held talks at APEC summit in China\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQOGFYWEJrZkpsMjh1dWNROWxsODdhQzUxYmR2WEhqNFIxRjNLM2l6QWlNZ2lHSlFIeGhQQnJBQTN4MGNpVXBIVkxSU1lLOVZkTk9LRXJfb0RDeXJKaFM5X245bFg5WnQ0WEtQQktxSzhGbjNPMVNFRmNLb25zM1JqcUE1Z1dFSXRjSjJUS1hzZXpEREFiejN4V1dWc05kbnA5Yi1sUjBUcjU?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "Riyadh\u2019s tallest skyscraper hit in Houthi strike on Saudi wealth fund HQ - Reuters",
+      "source": "Reuters",
+      "time": "2026-11-19 03:19 UTC",
+      "summary": "Riyadh\u2019s tallest skyscraper hit in Houthi strike on Saudi wealth fund HQ\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxOUUVVMURmUjNxMHVQNThNQkRiUElQbkhnNVJNdkdVejBqLVVIRU1hUl9DWDhpYlFVWUtFZlo5dGNOSnFqTFU5VE93bXdGY3NaOEVmSERoWlJNOWhQN25NN3E1bGF1MEprczBsWFlkOHBDTUVLM21CSFJydjFzUFFaM2ozQU8wSTdnSENadVQ2UTNmSWhOMFBHNE1ZaDB5MURkMFM0cHZuU1BySDl0ZlQ2aDBEUEdmNUE5MnNzTnl2T2VBaV9sWUQ2Zg?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "Oil prices rise as Middle East shipping attacks counter supply surplus outlook - Reuters",
+      "source": "Reuters",
+      "time": "2026-11-19 02:47 UTC",
+      "summary": "Oil prices rise as Middle East shipping attacks counter supply surplus outlook\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxOMnV0bXBXX1ZzNHpkcHFmanlPQ2FmczM3Z2xCcXRqRjYwTVB6SlFhZ29vbGcyM3V5a3lOMHZ3OXprMDM0ang4RVEwQmhFMTZ2QU1GT2lQN0ZPUXQyZWJ4MHR1S0JQTmE5Y0Z5dkZlemdFU0V6TWFId0pZZlFtbHVzaU1EeVl1S2RiSFdrcE95d1ZqQW9NRWlZUFNHWU9QVHNXRlZiTmEtckdWZEpScFREcVpPQ0x3MDNQeFhiZHJHMUlVQXFRNkE?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "North Korea's Kim inspects work sites, university amid overseas travel speculation - Reuters",
+      "source": "Reuters",
+      "time": "2026-11-19 01:51 UTC",
+      "summary": "North Korea's Kim inspects work sites, university amid overseas travel speculation\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxOTFZyeFhkdkRKOWpCZUFFeWdZNzQ0QjVKMTUtZVd5My16Yk9RZjR1V2F2VHNER3BuSEE3ZXEzNExYUFluLVpRV1lmc1hFMzAwT2MzR1dnNmR4VFhmejZhSUJFMnpjNFB2WTlmSy1RaGdSdGdmbGxLUGZhT3lhWGRYOXJNTkE4RXVNaTN5REswcFpPUVd0aTY1ZWlNZkp5MlNaRG9GZ2c5RmdVWUJoVF95VGc3b0VqWmJzZHlCREltOUl1SFFEZUpxSmpuM1hNS1lh?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "Islam forecast to soon exceed Christianity as world's biggest faith - Reuters",
+      "source": "Reuters",
+      "time": "2026-11-19 01:34 UTC",
+      "summary": "Islam forecast to soon exceed Christianity as world's biggest faith\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPZzhzMHplMEVtRTFScDNDeERNU05DOVY1TXVIeDl3Uko3bkcyU3NLYlJPRTVITEIyNHg1TGtZVVJhOWVlUFNYU1hTUk5CaldhMW04UXM4MEJsNjJ2WG02bG56bGJjQW91b2dBUDlHSm5WMnpxbkp6WkFqbjBiUk1tLXczSm9FWEMzZE1YNDRCdU54ME1LS3B5YmhZNVBSeUZ4WXZwN2hvbTBvcjRsQUpCNjBjNDM?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "Cintas Chairman met with Trump to save the $5.5B UniFirst deal - Semafor",
+      "source": "SeekingAlpha",
+      "time": "2026-11-19 01:22 UTC",
+      "summary": "",
+      "url": "https://seekingalpha.com/news/4674492-cintas-chairman-met-with-trump-in-effort-to-save-5_5b-unifirst-deal-semafor?utm_source=feed_news_m_a&utm_medium=referral&feed_item_type=news",
+      "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567050932/sa_jgen9y.png",
+      "about": ""
+    },
+    {
+      "headline": "COMMENTARY: Trump-Xi-Putin summit exposes Europe\u2019s power deficit - Reuters",
+      "source": "Reuters",
+      "time": "2026-11-19 01:00 UTC",
+      "summary": "COMMENTARY: Trump-Xi-Putin summit exposes Europe\u2019s power deficit\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxOcXhYWk03Z1VnUVZYME1MaUxfVzRsU25WYjRHTTQwZkhFbmE1dmNiZHYzc3p5TEtJUHpQNTU0R1dtMUk5QlEzNzd5b2k0Tl81emFncl9PU2FkRnRIYVdBVXI0OC1ZeEVDd0ljaUp1OGhUeG53WjYxNlVKcVRhZEgzQkdueXZVekZsVGZvTi11YW9rSkxwNTF0ZWh5NTZFWm8zNHJQRW0zQ19mTUdKdXk3UmJCWXRzdmk4d1J1Wg?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "Ukraine's European allies meet in Berlin in show of support - Reuters",
+      "source": "Reuters",
+      "time": "2026-11-19 00:03 UTC",
+      "summary": "Ukraine's European allies meet in Berlin in show of support\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxNWHBhRURfZmJHUzhfMW53YjcxYUNlVE1rbFZtTmV2S2Jfcm5hYXFweEJaQlZHbmE0U2Q5Y2IzM29LUExzUUx0UlIyVTNMamhzT3NPS25rbmp3bzZuZDhId1B4YzZXYWZXRkU0clRpUm9scVV5ZXRvMnBSTUlTZlVtTDJlSnFlREg3YTZpM0xVOXl2cV9xaWZpcnF2M01zdw?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "Takeaways from Day 2 of Trump's Asia tour: Putin's handshake, fried chicken and high-stakes diplomacy - Reuters",
+      "source": "Reuters",
+      "time": "2026-11-18 23:24 UTC",
+      "summary": "Takeaways from Day 2 of Trump's Asia tour: Putin's handshake, fried chicken and high-stakes diplomacy\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQZURieEZtR2ttUWZVdGRYNEF1UGYyNHBNZTlCXzlUUm5vRTB0RWVON2pJendGa3daSWVWMVhUMDh0RW1vdGphMGxWbUhWV3JjVUYxdzQwS0puNmtJYVdpNDk0UmVzZ045ellsZHhIT3hranMxM3pCTGYzRndWd2lvbEhVcWpYXzhmT0xjR2JFX3FMTjJJLUg0b0owS1VLalRMa0FoZUl0SWc1X1d1RTVZMWtmUmt5VnBvaVp2SzVXOA?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "Trump, Xi and Putin release 'peace declaration' from unprecedented summit - Reuters",
+      "source": "Reuters",
+      "time": "2026-11-18 23:05 UTC",
+      "summary": "Trump, Xi and Putin release 'peace declaration' from unprecedented summit\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQdzN3ZEpqNW0wZlBtajBvdU9pSzk1MG9RQ2NhVlBuaFMwaVZBWVhkLVNiMnZHTTBRS2J6Z2xkdWkxRERWakdCc0JBdGtUUlhVbHJlR2dMcVVTV0lCNWVGNi1XSG5zVTVrRW84V0JVZUhOVGhKT0FZMk1uRTd3anM1RFhPUWxWNFdQWFF2WjhhYVFCdnpPMGlLYThjMDExVC1fVFJfeFZ2ZXM?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "Palo Alto Networks to buy AI-startup Applied Compute for $4.5B",
+      "source": "SeekingAlpha",
+      "time": "2026-11-18 21:33 UTC",
+      "summary": "",
+      "url": "https://seekingalpha.com/news/4674401-palo-alto-networks-to-buy-ai-startup-applied-compute-for-45b?utm_source=feed_news_m_a&utm_medium=referral&feed_item_type=news",
+      "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567050932/sa_jgen9y.png",
+      "about": ""
+    },
+    {
+      "headline": "Saudi Arabia says danger has passed in three southern cities after alerts - Reuters",
+      "source": "Reuters",
+      "time": "2026-11-18 21:21 UTC",
+      "summary": "Saudi Arabia says danger has passed in three southern cities after alerts\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxQWjhHY29idmhCTzZKZ0dYQ0thMzhWbFpCM1VEUUdVQWNWb1RHaG04anZ4Y21nN05IeGZ0eXpacEItMnlHYld1U2JHb2dnUEpxcmZwV2RwUDNkcmFMckVwbE5VWTByUjc5RjRIM3RFd3hLaUFNdlVMdDlHSHdfd0dlOGo4ZkFTWXhKVmNOd2xSaFBDd3JxQUlOUWV1YURybThsVExoeV83TUNiSHU1Slh5VFNoMVNaLThMb3U0d1k3TUhTQQ?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "EXCLUSIVE: Orlen, QatarEnergy in talks on new LNG deal days after contract termination, sources say - Reuters",
+      "source": "Reuters",
+      "time": "2026-11-18 20:57 UTC",
+      "summary": "EXCLUSIVE: Orlen, QatarEnergy in talks on new LNG deal days after contract termination, sources say\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxNN09ma2xvQVVUbWJDcFlLNWNXVUZJQmk4YnJNRkZIODF5VkNxX1BMemVKR3FxYTNMeEM1MEtGemYtQ0NrY2QwbWlDbV9YcGVrX3VuaUtXX040X2xET1JqckxHSWdUdUhXTE1YVE1lMUZabWotTnBlM2NFMDZrSFRZOGR4RTllNm5sUzM5ZkEwUm9jc0tYajk4U0RYYWxqaXJodW5rN1hMcWZ1WEtTZE5FQWRXQ2dMWVZYSWk0OTBCX2VUWkNONHQ0NWJYeWQ?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "NEWSLETTER: Gulf conflict end date? Depends on who you ask - Reuters",
+      "source": "Reuters",
+      "time": "2026-11-18 20:29 UTC",
+      "summary": "NEWSLETTER: Gulf conflict end date? Depends on who you ask\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQMVFxRlJDQXZxWXZ2UkF2Z0FvempVZFlETlZURW9NQTZqV3NjQ2VuVDZ3SjdaYS1VNzRJTzN5TTJvNlI4Q3RIRW8tRTI1b29yWndaVFd5YVVMbHZuTUdHeGFwR3NlMGUtWnlveGtaaEV1MVJ0dDltU3R4V3VwZUZqMVBPby1oTllISWZBaUY2UzA2R0EtN2hXbV9VQk0?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "Riot Platforms, Flowserve gain after Starboard pitches at C4K Investors Conference",
+      "source": "SeekingAlpha",
+      "time": "2026-11-18 20:12 UTC",
+      "summary": "",
+      "url": "https://seekingalpha.com/news/4674376-riot-platforms-flowserve-gain-after-starboard-pitches-at-c4k-investors-conference?utm_source=feed_news_m_a&utm_medium=referral&feed_item_type=news",
+      "image": "https://res.cloudinary.com/whirlpooldata/image/upload/v1567050932/sa_jgen9y.png",
+      "about": ""
+    },
+    {
+      "headline": "US sanctions Hezbollah-linked charity in push against Iran's proxies, Treasury says - Reuters",
+      "source": "Reuters",
+      "time": "2026-11-18 19:48 UTC",
+      "summary": "US sanctions Hezbollah-linked charity in push against Iran's proxies, Treasury says\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxOYTM2TVZTRTVjaWp6c2VodVYwVm5MeEFVMXZ0eFctVzZVaU94eGxScWNRMHlQb1ZJRzZ0YXpFekJ6SmJkR2RWcU4wVUNTWkJMU3J0NTFaSmw5clBIYWhFQklMM3NiSzZtV3dWYThROEZIRWlJWmpKWUhaM2w4cGIzMjhjVk5IREJRaHBnVjhpZVRjcWdoMF9MeUhRQXRqUi1RSWJ1LWxVcFVwNUxOVGc1WmQ1N2tKWEhrd2ZpQmxLY0dQdFFUS0p4ZGR5dEY?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "Why Anthropic's hot IPO is bringing out sellers \u2014 plus, a silver lining of the down market",
+      "source": "CNBC",
+      "time": "2026-11-18 19:43 UTC",
+      "summary": "Every weekday, the Investing Club releases the Homestretch; an actionable afternoon update just in time for the last hour of trading.",
+      "url": "https://www.cnbc.com/investingclub/2026/11/18/why-anthropics-hot-ipo-is-bringing-out-sellers-plus-a-down-market-silver-lining.html",
+      "image": "https://image.cnbcfm.com/api/v1/image/108554309-17950192062026-11-18t162222z_659947811_rc2dqoayx25y_rtrmadp_0_usa-stocks.jpeg?v=1795019320&w=1920&h=1080",
+      "about": ""
+    },
+    {
+      "headline": "US tightens Iran blockade with curbs on oil transfers at sea, advisory shows - Reuters",
+      "source": "Reuters",
+      "time": "2026-11-18 19:32 UTC",
+      "summary": "US tightens Iran blockade with curbs on oil transfers at sea, advisory shows\u00a0\u00a0Reuters",
+      "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxNS21BSEJXWHdIUGpZcWRtZm0tT084cTd5WFpvbFZUeE9wdHkyelI4Y2pFamp5YmY3S09BRm9zMWQ3VE5NcHVnSGZNM20yZ3B5NE1mXzZ4VVg3NUZ5RTVuQ2owQzE4MkxpaTBIcEhCNng4MDE1ZnpyTUVOMUVHVFdzcm14Mkl2TlNGZmNuVFQ1NFMwdGFOT1JSTEFURDNOQ005cWVaUG5ybmtyNWQyTW1QMG82SHhGQXNmb3VMTUtB?oc=5",
+      "image": "https://static2.finnhub.io/file/finnhub/logo/reuters_logo.jpeg",
+      "about": ""
+    },
+    {
+      "headline": "Nvidia interim CEO Kress tells employees \u2018let\u2019s move forward\u2019 at first all-hands meeting since Jensen Huang exit",
+      "source": "CNBC",
+      "time": "2026-11-18 19:09 UTC",
+      "summary": "Nvidia's interim CEO Colette Kress urges staff forward and offers pay raises after Jensen Huang exit.",
+      "url": "https://www.cnbc.com/2026/11/18/nvidia-interim-ceo-kress-addresses-staff-after-jensen-huang-exit-.html",
+      "image": "https://image.cnbcfm.com/api/v1/image/108554444-1795025697370-image-1_1024.jpg?v=1795026170&w=1920&h=1080",
+      "about": ""
+    },
+    {
+      "headline": "Fed officials expect more rate hikes, worry about AI impact on inflation, minutes show",
+      "source": "CNBC",
+      "time": "2026-11-18 19:08 UTC",
+      "summary": "The Federal Reserve on Wednesday released minutes from its October policy meeting at which it voted to hold its benchmark interest rate in a range between 3.75%-4%.",
+      "url": "https://www.cnbc.com/2026/11/18/fed-minutes-october-2026.html",
+      "image": "https://image.cnbcfm.com/api/v1/image/108476200-1793214642067-gettyimages-2301908904-AFP_D4QJ6NG.jpeg?v=1793214690&w=1920&h=1080",
+      "about": ""
+    },
+    {
+      "headline": "Nvidia's earnings report had something for the bulls, bears and everyone in between",
+      "source": "CNBC",
+      "time": "2026-11-18 19:07 UTC",
+      "summary": "Nvidia's commentary on its buyback and AI ecosystem support was encouraging. But it's not a shock to see the stock down Wednesday.",
+      "url": "https://www.cnbc.com/investingclub/2026/11/18/nvidias-earnings-report-had-something-for-the-bulls-bears-and-everyone-in-between.html",
+      "image": "https://image.cnbcfm.com/api/v1/image/108354636-1787762833729-gettyimages-2291592328-2026_aug_26_nvidia_0293.jpeg?v=1787762914&w=1920&h=1080",
+      "about": ""
+    },
+    {
+      "headline": "Nvidia reverses, metals crash ahead of Anthropic IPO: Options Action Live",
+      "source": "CNBC",
+      "time": "2026-11-18 18:57 UTC",
+      "summary": "Big moves have options traders wondering if Anthropic's IPO is spurring a rotation trade.",
+      "url": "https://www.cnbc.com/2026/11/18/nvidia-reverses-metals-crash-ahead-of-anthropic-ipo-options-action-live.html",
+      "image": "https://image.cnbcfm.com/api/v1/image/108363766-1789576270705-gettyimages-2295603713-157a1906_copy_os06z6tu.jpeg?v=1789576365&w=1920&h=1080",
+      "about": ""
+    },
+    {
+      "headline": "Anthropic's $81 billion IPO puts AI valuations to the test",
+      "source": "Yahoo",
+      "time": "2026-11-19 17:52 UTC",
+      "summary": "The Claude developer prepares for its Nasdaq debut amid questions about AI valuations and spending.",
+      "url": "https://finnhub.io/api/news?id=94088c988bca88390338b12586914ef1b7f8bb018a631513312b3b1ebf7f6e81",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "NVDA"
+    },
+    {
+      "headline": "What to know about Anthropic's massive IPO as it breaks records on Wall Street",
+      "source": "Yahoo",
+      "time": "2026-11-19 17:51 UTC",
+      "summary": "A little-known Silicon Valley startup working just a few years ago, Anthropic, the maker of the popular Claude chatbot, went public in a record-setting stock listing. As it has grown into a giant in the booming artificial intelligence industry, Anthropic has also sprinted ahead of rival OpenAI in th",
+      "url": "https://finnhub.io/api/news?id=4143ad9c1368c089602da04ebf837477e93b6c98a9e9f1ec8ed10b461601c2ec",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "NVDA"
+    },
+    {
+      "headline": "Anthropic Is Leasing Its Own Data Centers to Cut Its Reliance on Amazon and Google. Here\u2019s Who Wires, Cools, and Powers Them.",
+      "source": "Yahoo",
+      "time": "2026-11-19 17:50 UTC",
+      "summary": "Anthropic's compute crunch means the data center boom isn't over yet, and these three companies help power it.",
+      "url": "https://finnhub.io/api/news?id=fe72d18a56a70600c91c950646d6989b66c3258329d5099102fdf64d4b7759c6",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "GOOGL"
+    },
+    {
+      "headline": "Anthropic's Record IPO Sets Up a $1.5 Trillion Test for Claude",
+      "source": "Yahoo",
+      "time": "2026-11-19 17:49 UTC",
+      "summary": "Claude's sales growth faces a test from rising costs.",
+      "url": "https://finnhub.io/api/news?id=6e0a897369596fb29c5e69c1de8186f0c1edb70fb8082cdcf00f0a6fc74dde5b",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "AMZN"
+    },
+    {
+      "headline": "Walmart's Sales Hit $188.8 Billion. Its Online Business Is Growing Much Faster Than Stores.",
+      "source": "Yahoo",
+      "time": "2026-11-19 17:49 UTC",
+      "summary": "Walmart reported third-quarter revenue of $188.8 billion, supported by strong U.S. and global e-commerce growth, higher operating income, membership gains, and increased Sam's Club digital sales.",
+      "url": "https://finnhub.io/api/news?id=d563f01c63604ff43ce07f31ed393b848d538fe4495d3f12d906da22ea31e781",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "WMT"
+    },
+    {
+      "headline": "Elon Musk Wants More Teslas From Shanghai as China Sales Fall",
+      "source": "Yahoo",
+      "time": "2026-11-19 17:48 UTC",
+      "summary": "Overseas buyers are taking a bigger share of shipments.",
+      "url": "https://finnhub.io/api/news?id=76e14aa5eb7f3d0754aea260d8e6eb8ed144c8966ea8cb79125849529184a9d2",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "TSLA"
+    },
+    {
+      "headline": "Viridian Therapeutics initiated at 'buy' by Bank of America with $47 price target",
+      "source": "Yahoo",
+      "time": "2026-11-19 17:48 UTC",
+      "summary": "Bank of America (BofA) has initiated coverage of Viridian Therapeutics (Nasdaq: VRDN) with a 'buy' rating and a $47 price objective, citing the potential of its thyroid eye disease treatments to capture market share and expand an undertreated market. The brokerage sees strong commercial...",
+      "url": "https://finnhub.io/api/news?id=0056c996cc2df85ddca97695d6e59f26488ea6d8f63e474fa64510dcb27db55a",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "BAC"
+    },
+    {
+      "headline": "Citi CEO's Tech Warning Raises the Stakes for the Next Outage",
+      "source": "Yahoo",
+      "time": "2026-11-19 17:47 UTC",
+      "summary": "How quickly banks restore service could matter to investors.",
+      "url": "https://finnhub.io/api/news?id=dd5090536dcc5befd7edef07aea19e66d9a9e218afd3b9b7457f09aadbfe7636",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "AAPL"
+    },
+    {
+      "headline": "Bill Ackman's Microsoft Bet Has More at Stake Than It Seems",
+      "source": "Yahoo",
+      "time": "2026-11-19 17:46 UTC",
+      "summary": "The trade changes what Pershing Square stands to lose.",
+      "url": "https://finnhub.io/api/news?id=d1a932d408d02b76b94dade0c904f2bbea3b343a9dbd8603ae1fde30868aa70a",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "MSFT"
+    },
+    {
+      "headline": "Is Snap Stock Ready For Shrinking Ad Sales?",
+      "source": "Yahoo",
+      "time": "2026-11-19 17:35 UTC",
+      "summary": "Today\u2019s big story: Could Anthropic Stock Fall 25.",
+      "url": "https://finnhub.io/api/news?id=c14095caa153d2945d9ddf4eb6042e347a73a5bf2625013944734d2877ed75b3",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "AAPL"
+    },
+    {
+      "headline": "Amazon Stocks Rise 1.82% as Anthropic Listing Values Its 14.6% Stake Near $161 Billion",
+      "source": "Yahoo",
+      "time": "2026-11-19 17:34 UTC",
+      "summary": "Anthropic owes AWS at least $110 billion through 2036 while Amazon plans meaningfully higher capex next year.",
+      "url": "https://finnhub.io/api/news?id=d19a8aa5fa0efd3ec9052ffbe2d192a74d17be9a29c38b9e60110ba47580f140",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "AMZN"
+    },
+    {
+      "headline": "Meta\u2019s Advertising Business Could Drive Another Major Earnings Surprise",
+      "source": "Yahoo",
+      "time": "2026-11-19 17:33 UTC",
+      "summary": "A $9.89 billion legal settlement turned a blockbuster ad quarter into an apparent earnings miss. Meta's growth engine is still accelerating, and the gap between the headline and the reality could set up a sharp reversal.",
+      "url": "https://finnhub.io/api/news?id=0a7eaa60d6e77746cb12dfd243bb45eba9c39b2e22e9ba8794f4da79864851ba",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "GOOGL"
+    },
+    {
+      "headline": "Anthropic's $107 billion sale set to top SpaceX's IPO",
+      "source": "Yahoo",
+      "time": "2026-11-19 17:30 UTC",
+      "summary": "Anthropic, the maker of Claude, priced a record $107 billion share sale ahead of its Nasdaq debut, valuing the company at $1.5 trillion. Tokenized versions of the stock are set to go live on BNB Chain and Solana. CoinDesk's Uyen Truong hosts \"CoinDesk Daily.\"",
+      "url": "https://finnhub.io/api/news?id=edb6d5e9795daa8eb3593456a9cd53e6fa8bea2a2c0cd884b0b205fde7577abe",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "MSFT"
+    },
+    {
+      "headline": "A $13 Billion Hedge Fund Just Bought These 3 Stocks",
+      "source": "Yahoo",
+      "time": "2026-11-19 17:26 UTC",
+      "summary": "Key TakeawaysA hedge fund that manages $12. 97 billion made Meta Platforms its biggest holding, added to SiTime and bought Microsoft for the first time in the third quarter.",
+      "url": "https://finnhub.io/api/news?id=7b52407d80af2512834b35e940d8b463d95e9d33d41aedab207ffc7e165f858e",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "META"
+    },
+    {
+      "headline": "A $93 Billion Hedge Fund Just Bought These 3 Stocks",
+      "source": "Yahoo",
+      "time": "2026-11-19 17:26 UTC",
+      "summary": "Key TakeawaysCoatue manages $92. 71 billion.",
+      "url": "https://finnhub.io/api/news?id=1feb3a53da5ec441828ab6d808c95a5416423d63216c89f2929743bd1f2f5404",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "META"
+    },
+    {
+      "headline": "Costco Just Surpassed $1,100 Per Share Ahead of Its $30 Special Dividend Payment. Is the Stock a Buy Before Nov. 24?.",
+      "source": "Yahoo",
+      "time": "2026-11-19 17:23 UTC",
+      "summary": "The dividend is undeniably big, but it doesn\u2019t leave shareholders any better off once it\u2019s paid.",
+      "url": "https://finnhub.io/api/news?id=631d39d79e224396eda5bc69efb05fe86e08fd6592b19b34504806551f2fd7d3",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "COST"
+    },
+    {
+      "headline": "Top Midday Stories: Anthropic Makes Nasdaq Debut; Walmart Raises Guidance But Shares Fall",
+      "source": "Yahoo",
+      "time": "2026-11-19 17:22 UTC",
+      "summary": "All three major US stock indexes were down in late-morning trading Thursday as investors weighed Ant",
+      "url": "https://finnhub.io/api/news?id=f63e36315c32e1e42d6ffc35dc18f0639eae60429407ef5b421d4e158a388a23",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "WMT"
+    },
+    {
+      "headline": "Anthropic Stock Is Now Trading. Should You Buy ANT Today?",
+      "source": "Yahoo",
+      "time": "2026-11-19 17:22 UTC",
+      "summary": "Anthropic is making the biggest IPO debut in history.",
+      "url": "https://finnhub.io/api/news?id=a9e583b8d8ff4a8e937690dee27600603419be759bab2d16bfa83e5290c65df7",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "TSLA"
+    },
+    {
+      "headline": "3 Defense Dividend Stocks to Buy in December With Billions in Backlogged Orders",
+      "source": "Yahoo",
+      "time": "2026-11-19 17:17 UTC",
+      "summary": "Three defense giants hold years of government-funded work under contract, yet their yields barely top 2%. One has raised its payout 24 years running, and one hidden contract problem could still test it. Which dividend deserves your money?",
+      "url": "https://finnhub.io/api/news?id=ed54b525f1495f33b2a93dd87595062c66a5642b65481a13ac5c8bee15692f65",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "NOC"
+    },
+    {
+      "headline": "Kongsberg Gruppen And 2 Other Autonomous Vehicle Stocks",
+      "source": "Yahoo",
+      "time": "2026-11-19 17:15 UTC",
+      "summary": "Artificial intelligence is hungry for processing power, and that wave is washing straight into transport. With Anthropic\u2019s record US$81.3b IPO making AI feel less like a side bet and more like core infrastructure, the companies wiring cars, trucks and their supply chains for electric drivetrains and",
+      "url": "https://finnhub.io/api/news?id=d910e7e9dd23ac24f8e8a32868e691aec525098fb46fcec38a0f201bb207a85a",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "NOC"
+    },
+    {
+      "headline": "What Does Costco Wholesale (COST) Panic Buying Mean For Sales And Inventory?",
+      "source": "Yahoo",
+      "time": "2026-11-19 17:15 UTC",
+      "summary": "Costco Wholesale (NasdaqGS:COST) reports a spike in store traffic after critical technology outages disrupted payment systems across multiple providers this week. Store managers in several major U.S. cities describe sharply higher volumes of bulk food, fuel and household essentials purchases linked ",
+      "url": "https://finnhub.io/api/news?id=e74411d6864239af2f7d5e4d7555ad04c81a10b2abc47ea2aa2a7f21accc3c7f",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "COST"
+    },
+    {
+      "headline": "Ulta Beauty (ULTA) Stock Gets Fair Value Bump As Analysts Turn More Constructive",
+      "source": "Yahoo",
+      "time": "2026-11-19 17:14 UTC",
+      "summary": "Ulta Beauty\u2019s updated fair value estimate has shifted from US$631.44 to US$646.96, signaling a modest reset in how analysts frame the stock\u2019s potential. That move sits alongside a more constructive tone in recent research, with some firms lifting their price targets into the US$665 to US$766 range, ",
+      "url": "https://finnhub.io/api/news?id=b11c5fe6862a8a843f4d352a97c1376ea6b3277f10d68c01393355cd52352c23",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "BAC"
+    },
+    {
+      "headline": "Should You Buy Clorox Stock At This Price?",
+      "source": "Yahoo",
+      "time": "2026-11-19 17:06 UTC",
+      "summary": "Today's big story: Could Anthropic Stock Fall 25.",
+      "url": "https://finnhub.io/api/news?id=89e688e9bc0d91daf4526d04e3afffad7a14816adb2b12b22998270c8ceeeeae",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "CL"
+    },
+    {
+      "headline": "Top Fed official warns AI bots could pull money out of banks faster than regulators can step in. Keep your savings safe",
+      "source": "Yahoo",
+      "time": "2026-11-19 17:00 UTC",
+      "summary": "\u201cMajor banks now report finding AI agents attempting to take actions in retail customer accounts, without the bank being able to verify authenticity, consent and alignment with customer instructions.\u201d",
+      "url": "https://finnhub.io/api/news?id=269bae9f2da10e1a834ea09596cfb3da09cd54ec2a90470f08f534450cb1d6f1",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "JPM"
+    },
+    {
+      "headline": "/C O R R E C T I O N - Los Angeles Auto Show/",
+      "source": "Yahoo",
+      "time": "2026-11-19 16:58 UTC",
+      "summary": "AutoMobility LA\u00ae, the press and industry day for LA Auto Show, presented by Chevron with Techron\u00ae, opens tomorrow, Thursday, Nov. 19, at the Los Angeles Convention Center. The event brings together automakers, policymakers, investors, media, creators and industry executives for a full day of vehicle",
+      "url": "https://finnhub.io/api/news?id=957e70858dd72405ce98e20c520de2bd443148677da2b5bdf0317ef423a41644",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "CVX"
+    },
+    {
+      "headline": "A 67-Year-Old With $500,000 in Nike, HP and Truist Collects $1,872 a Month in Dividends. How Safe Is Each Check?",
+      "source": "Yahoo",
+      "time": "2026-11-19 16:50 UTC",
+      "summary": "Key TakeawaysA hypothetical $500,000 portfolio split evenly across Nike, HP and Truist Financial pays about $22,500 a year in dividends, or about $1,870 a month. HP\u2019s dividend is the safest of the three, taking 28% of its free cash flow over the last twelve months.",
+      "url": "https://finnhub.io/api/news?id=56e89b2228c53108cbd6e14c764897977432638ff172f036f97a4100d45f488a",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "NKE"
+    },
+    {
+      "headline": "Bank of America Chicago Marathon and Nike Extend Partnership Through 2036",
+      "source": "Yahoo",
+      "time": "2026-11-19 16:50 UTC",
+      "summary": "Today, the Bank of America Chicago Marathon announced the extension of its partnership with Nike through 2036, continuing a relationship that has connected Nike with runners in Chicago since 2008. The partnership spans the full Bank of America Chicago Distance Series, including the Chicago Marathon,",
+      "url": "https://finnhub.io/api/news?id=eef745b73a4b6b6c504fc43bd7ae7b5c12bd777ff059ae4454bf30240de36948",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "NKE"
+    },
+    {
+      "headline": "Two Big Winners of the Anthropic IPO",
+      "source": "Yahoo",
+      "time": "2026-11-19 16:27 UTC",
+      "summary": "At their starting market valuations, Anthropic and SpaceX added some $3.25 trillion in value to the U.S. market in 2026.",
+      "url": "https://finnhub.io/api/news?id=c767471cd9a80521e7c7fba3d3dd8ef851bac6c43e183595cb61b473a6d93063",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "JPM"
+    },
+    {
+      "headline": "Home Depot faces a customer challenge despite sales growth",
+      "source": "Yahoo",
+      "time": "2026-11-19 16:17 UTC",
+      "summary": "Home Depot is experiencing solid sales growth, but a closer look reveals a less encouraging picture.",
+      "url": "https://finnhub.io/api/news?id=7e731a699ed5ab973813096624c00676d8de62670908fe12a758f40acec3302f",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "HD"
+    },
+    {
+      "headline": "How Home Depot built the missing logistics piece for its Pro business",
+      "source": "Yahoo",
+      "time": "2026-11-19 15:58 UTC",
+      "summary": "Through new flatbed distribution centers, acquisitions and technology, the home improvement retailer has enhanced its last-mile delivery capabilities to better serve contractor customers.",
+      "url": "https://finnhub.io/api/news?id=141d8e2190f7714ee1d34891dc6e72257253167f719225dd842b8f444ea3b713",
+      "image": "https://s.yimg.com/rz/stage/p/yahoo_finance_en-US_h_p_finance_2.png",
+      "about": "HD"
+    }
+  ]
+}
